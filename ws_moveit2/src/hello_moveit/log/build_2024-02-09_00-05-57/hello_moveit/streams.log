@@ -1,0 +1,14 @@
+[0.077s] Invoking command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16
+[0.144s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[0.189s] [ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[5.961s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[5.961s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:188:54:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kmoveit::planning_interface::PlanningSceneInterface planning_scene_interface[m[K’
+[5.961s]   188 |   moveit::planning_interface::PlanningSceneInterface [01;31m[Kplanning_scene_interface[m[K;
+[5.961s]       |                                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[5.961s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:108:54:[m[K [01;36m[Knote: [m[K‘[01m[Kmoveit::planning_interface::PlanningSceneInterface planning_scene_interface[m[K’ previously declared here
+[5.961s]   108 |   moveit::planning_interface::PlanningSceneInterface [01;36m[Kplanning_scene_interface[m[K;
+[5.961s]       |                                                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[7.706s] gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+[7.707s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+[7.707s] gmake: *** [Makefile:146: all] Error 2
+[7.710s] Invoked command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16

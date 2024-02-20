@@ -1,0 +1,23 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:187:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[Ksdafff[m[K’
+  187 | [01;31m[Ksdafff[m[K
+      | [01;31m[K^~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:190:48:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kmoveit::planning_interface::PlanningSceneInterface::applyCollisionObject(const main(int, char**)::<lambda()>&)[m[K’
+  190 |   [01;31m[Kplanning_scene_interface.applyCollisionObject(collision_object)[m[K;
+      |   [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:2[m[K:
+[01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/planning_scene_interface/planning_scene_interface.h:103:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool moveit::planning_interface::PlanningSceneInterface::applyCollisionObject(const CollisionObject&)[m[K’
+  103 |   bool [01;36m[KapplyCollisionObject[m[K(const moveit_msgs::msg::CollisionObject& collision_object);
+      |        [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/planning_scene_interface/planning_scene_interface.h:103:70:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kconst main(int, char**)::<lambda()>[m[K’ to ‘[01m[Kconst CollisionObject&[m[K’ {aka ‘[01m[Kconst moveit_msgs::msg::CollisionObject_<std::allocator<void> >&[m[K’}
+  103 | plyCollisionObject([01;36m[Kconst moveit_msgs::msg::CollisionObject& collision_object[m[K);
+      |                    [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~[m[K
+
+[01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/planning_scene_interface/planning_scene_interface.h:107:8:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kbool moveit::planning_interface::PlanningSceneInterface::applyCollisionObject(const CollisionObject&, const ColorRGBA&)[m[K’
+  107 |   bool [01;36m[KapplyCollisionObject[m[K(const moveit_msgs::msg::CollisionObject& collision_object,
+      |        [01;36m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/planning_scene_interface/planning_scene_interface.h:107:8:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 1 provided
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

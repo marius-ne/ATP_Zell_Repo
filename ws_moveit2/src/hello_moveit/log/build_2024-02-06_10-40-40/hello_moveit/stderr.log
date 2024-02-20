@@ -1,0 +1,52 @@
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:80:14:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kdraw_title[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+   80 |   auto const [01;35m[Kdraw_title[m[K = [&moveit_visual_tools](auto text) {
+      |              [01;35m[K^~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:88:14:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kprompt[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+   88 |   auto const [01;35m[Kprompt[m[K = [&moveit_visual_tools](auto text) { moveit_visual_tools.prompt(text); };
+      |              [01;35m[K^~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:89:14:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kdraw_trajectory_tool_path[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+   89 |   auto const [01;35m[Kdraw_trajectory_tool_path[m[K =
+      |              [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K At global scope:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:197:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_interface[m[K’ does not name a type
+  197 |   [01;31m[Kplanning_scene_interface[m[K.applyCollisionObject(collision_object);
+      |   [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:200:9:[m[K [01;31m[Kerror: [m[Kexpected constructor, destructor, or type conversion before ‘[01m[K([m[K’ token
+  200 |   prompt[01;31m[K([m[K"Press 'next' in the RvizVisualToolsGui window to plan");
+      |         [01;31m[K^[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:201:13:[m[K [01;31m[Kerror: [m[Kexpected constructor, destructor, or type conversion before ‘[01m[K([m[K’ token
+  201 |   draw_title[01;31m[K([m[K"Planning");
+      |             [01;31m[K^[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:202:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kmoveit_visual_tools[m[K’ does not name a type
+  202 |   [01;31m[Kmoveit_visual_tools[m[K.trigger();
+      |   [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:203:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kmove_group_interface[m[K’ was not declared in this scope
+  203 |   auto const [success, plan] = [&[01;31m[Kmove_group_interface[m[K] {
+      |                                  [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In lambda function:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:205:39:[m[K [01;31m[Kerror: [m[K‘[01m[Kmove_group_interface[m[K’ was not declared in this scope
+  205 |     auto const ok = static_cast<bool>([01;31m[Kmove_group_interface[m[K.plan(msg));
+      |                                       [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K At global scope:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:210:3:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kif[m[K’
+  210 |   [01;31m[Kif[m[K (success)
+      |   [01;31m[K^~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:219:3:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kelse[m[K’
+  219 |   [01;31m[Kelse[m[K
+      |   [01;31m[K^~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:227:21:[m[K [01;31m[Kerror: [m[Kexpected constructor, destructor, or type conversion before ‘[01m[K;[m[K’ token
+  227 |   rclcpp::shutdown()[01;31m[K;[m[K
+      |                     [01;31m[K^[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:228:3:[m[K [01;31m[Kerror: [m[K‘[01m[Kspinner[m[K’ does not name a type
+  228 |   [01;31m[Kspinner[m[K.join();
+      |   [01;31m[K^~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:229:3:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[Kreturn[m[K’
+  229 |   [01;31m[Kreturn[m[K 0;
+      |   [01;31m[K^~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:230:1:[m[K [01;31m[Kerror: [m[Kexpected declaration before ‘[01m[K}[m[K’ token
+  230 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

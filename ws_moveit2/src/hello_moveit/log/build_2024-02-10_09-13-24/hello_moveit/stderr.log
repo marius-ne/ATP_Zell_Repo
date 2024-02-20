@@ -1,0 +1,12 @@
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:97:3:[m[K [01;35m[Kwarning: [m[K"/*" within comment [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcomment-Wcomment]8;;[m[K]
+   97 |   /*
+      |    
+/usr/bin/ld: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o: in function `WzlPlanner::TaskList::TaskList()':
+hello_moveit.cpp:(.text._ZN10WzlPlanner8TaskListC2Ev[_ZN10WzlPlanner8TaskListC5Ev]+0x18): undefined reference to `WzlPlanner::Task::Task()'
+/usr/bin/ld: hello_moveit.cpp:(.text._ZN10WzlPlanner8TaskListC2Ev[_ZN10WzlPlanner8TaskListC5Ev]+0x1f): undefined reference to `vtable for WzlPlanner::TaskList'
+/usr/bin/ld: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o: in function `WzlPlanner::TaskList::~TaskList()':
+hello_moveit.cpp:(.text._ZN10WzlPlanner8TaskListD2Ev[_ZN10WzlPlanner8TaskListD5Ev]+0x13): undefined reference to `vtable for WzlPlanner::TaskList'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:454: hello_moveit] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

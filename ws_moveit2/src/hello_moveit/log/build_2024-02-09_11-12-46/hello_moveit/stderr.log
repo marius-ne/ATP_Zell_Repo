@@ -1,0 +1,42 @@
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:194:1:[m[K [01;31m[Kerror: [m[K‘[01m[KSceneLoader[m[K’ was not declared in this scope; did you mean ‘[01m[KWzlPlanner::SceneLoader[m[K’?
+  194 | [01;31m[KSceneLoader[m[K sceneLoader(&move_group_interface);
+      | [01;31m[K^~~~~~~~~~~[m[K
+      | [32m[KWzlPlanner::SceneLoader[m[K
+In file included from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:12[m[K:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/SceneLoader.h:9:11:[m[K [01;36m[Knote: [m[K‘[01m[KWzlPlanner::SceneLoader[m[K’ declared here
+    9 |     class [01;36m[KSceneLoader[m[K
+      |           [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:195:1:[m[K [01;31m[Kerror: [m[K‘[01m[KsceneLoader[m[K’ was not declared in this scope
+  195 | [01;31m[KsceneLoader[m[K.AddBoxCollisionBox("testBox",
+      | [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/SceneLoader.cpp:7:1:[m[K [01;31m[Kerror: [m[K‘[01m[KSceneLoader[m[K’ does not name a type
+    7 | [01;31m[KSceneLoader[m[K::SceneLoader(moveit::planning_interface::MoveGroupInterface* moveGoupInterface)
+      | [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/SceneLoader.cpp:12:6:[m[K [01;31m[Kerror: [m[K‘[01m[KSceneLoader[m[K’ has not been declared
+   12 | void [01;31m[KSceneLoader[m[K::Initialize(moveit::planning_interface::MoveGroupInterface* moveGoupInterface)
+      |      [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/SceneLoader.cpp:[m[K In function ‘[01m[Kvoid Initialize(moveit::planning_interface::MoveGroupInterface*)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/SceneLoader.cpp:14:5:[m[K [01;31m[Kerror: [m[Kinvalid use of ‘[01m[Kthis[m[K’ in non-member function
+   14 |     [01;31m[Kthis[m[K->moveGoupInterface = moveGoupInterface;
+      |     [01;31m[K^~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/SceneLoader.cpp:[m[K At global scope:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/SceneLoader.cpp:17:36:[m[K [01;31m[Kerror: [m[K‘[01m[KSceneLoader[m[K’ has not been declared
+   17 | moveit_msgs::msg::CollisionObject  [01;31m[KSceneLoader[m[K::AddBoxCollisionBox(std::string id,
+      |                                    [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/SceneLoader.cpp:[m[K In function ‘[01m[Kmoveit_msgs::msg::CollisionObject AddBoxCollisionBox(std::string, double, double, double, double, double, double)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/SceneLoader.cpp:21:21:[m[K [01;31m[Kerror: [m[K‘[01m[KmoveGoupInterface[m[K’ was not declared in this scope
+   21 |     auto frame_id = [01;31m[KmoveGoupInterface[m[K->getPlanningFrame();
+      |                     [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/SceneLoader.cpp:49:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_interface[m[K’ was not declared in this scope; did you mean ‘[01m[Kplanning_scene_monitor[m[K’?
+   49 |     [01;31m[Kplanning_scene_interface[m[K.applyCollisionObject(collision_object);
+      |     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      |     [32m[Kplanning_scene_monitor[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/SceneLoader.cpp:17:80:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kid[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   17 | moveit_msgs::msg::CollisionObject  SceneLoader::AddBoxCollisionBox([01;35m[Kstd::string id[m[K,
+      |                                                                    [01;35m[K~~~~~~~~~~~~^~[m[K
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:90: CMakeFiles/hello_moveit.dir/src/SceneLoader.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,150 @@
+[0.000000] (-) TimerEvent: {}
+[0.000224] (hello_moveit) JobQueued: {'identifier': 'hello_moveit', 'dependencies': OrderedDict()}
+[0.000276] (hello_moveit) JobStarted: {'identifier': 'hello_moveit'}
+[0.073571] (hello_moveit) JobProgress: {'identifier': 'hello_moveit', 'progress': 'cmake'}
+[0.074273] (hello_moveit) JobProgress: {'identifier': 'hello_moveit', 'progress': 'build'}
+[0.074877] (hello_moveit) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit', '--', '-j16', '-l16'], 'cwd': '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'alex'), ('LC_TIME', 'de_DE.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/alex/ws_moveit2/install/pilz_industrial_motion_planner_testutils/lib:/home/alex/ws_moveit2/install/pilz_industrial_motion_planner/lib:/home/alex/ws_moveit2/install/moveit_visual_tools/lib:/home/alex/ws_moveit2/install/moveit_task_constructor_visualization/lib:/home/alex/ws_moveit2/install/moveit_task_constructor_demo/lib:/home/alex/ws_moveit2/install/moveit_task_constructor_capabilities/lib:/home/alex/ws_moveit2/install/moveit_task_constructor_core/lib:/home/alex/ws_moveit2/install/moveit_ros_control_interface/lib:/home/alex/ws_moveit2/install/moveit_simple_controller_manager/lib:/home/alex/ws_moveit2/install/moveit_setup_assistant/lib:/home/alex/ws_moveit2/install/moveit_setup_srdf_plugins/lib:/home/alex/ws_moveit2/install/moveit_setup_core_plugins/lib:/home/alex/ws_moveit2/install/moveit_setup_controllers/lib:/home/alex/ws_moveit2/install/moveit_setup_app_plugins/lib:/home/alex/ws_moveit2/install/moveit_setup_framework/lib:/home/alex/ws_moveit2/install/moveit_servo/lib:/home/alex/ws_moveit2/install/moveit_ros_visualization/lib:/home/alex/ws_moveit2/install/moveit_hybrid_planning/lib:/home/alex/ws_moveit2/install/moveit_ros_planning_interface/lib:/home/alex/ws_moveit2/install/moveit_ros_benchmarks/lib:/home/alex/ws_moveit2/install/moveit_ros_warehouse/lib:/home/alex/ws_moveit2/install/moveit_ros_robot_interaction/lib:/home/alex/ws_moveit2/install/moveit_ros_perception/lib:/home/alex/ws_moveit2/install/moveit_ros_move_group/lib:/home/alex/ws_moveit2/install/moveit_planners_ompl/lib:/home/alex/ws_moveit2/install/moveit_ros_planning/lib:/home/alex/ws_moveit2/install/moveit_ros_occupancy_map_monitor/lib:/home/alex/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin/lib:/home/alex/ws_moveit2/install/moveit_planners_chomp/lib:/home/alex/ws_moveit2/install/moveit_kinematics/lib:/home/alex/ws_moveit2/install/moveit_chomp_optimizer_adapter/lib:/home/alex/ws_moveit2/install/chomp_motion_planner/lib:/home/alex/ws_moveit2/install/moveit_core/lib:/home/alex/ws_moveit2/install/srdfdom/lib:/home/alex/ws_moveit2/install/rviz_marker_tools/lib:/home/alex/ws_moveit2/install/rosparam_shortcuts/lib:/home/alex/ws_moveit2/install/moveit_task_constructor_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/alex'), ('OLDPWD', '/home/alex/ws_moveit2/src/hello_moveit/src'), ('DESKTOP_SESSION', 'ubuntu-xorg'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_DE.UTF-8'), ('SYSTEMD_EXEC_PID', '2240'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('MANDATORY_PATH', '/usr/share/gconf/ubuntu-xorg.mandatory.path'), ('COLCON_PREFIX_PATH', '/home/alex/ws_moveit2/src/hello_moveit/install:/home/alex/ws_moveit2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'alex'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/ubuntu-xorg.default.path'), ('USERNAME', 'alex'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/alex/ws_moveit2/install/moveit_core/bin:/opt/ros/humble/bin:/home/alex/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/AlexNotebook:@/tmp/.ICE-unix/2222,unix/AlexNotebook:/tmp/.ICE-unix/2222'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/b199fbec_9bb1_4801_92ac_4b32a694de5a'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('ARENA_ROOT', '/home/alex/ArenaSDK_Linux_x64'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu-xorg'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.106'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit:/home/alex/ws_moveit2/install/pilz_industrial_motion_planner_testutils:/home/alex/ws_moveit2/install/moveit_runtime:/home/alex/ws_moveit2/install/moveit2_tutorials:/home/alex/ws_moveit2/install/moveit:/home/alex/ws_moveit2/install/moveit_planners:/home/alex/ws_moveit2/install/pilz_industrial_motion_planner:/home/alex/ws_moveit2/install/moveit_visual_tools:/home/alex/ws_moveit2/install/moveit_task_constructor_visualization:/home/alex/ws_moveit2/install/moveit_task_constructor_demo:/home/alex/ws_moveit2/install/moveit_task_constructor_capabilities:/home/alex/ws_moveit2/install/moveit_task_constructor_core:/home/alex/ws_moveit2/install/moveit_ros_control_interface:/home/alex/ws_moveit2/install/moveit_plugins:/home/alex/ws_moveit2/install/moveit_simple_controller_manager:/home/alex/ws_moveit2/install/moveit_setup_assistant:/home/alex/ws_moveit2/install/moveit_setup_srdf_plugins:/home/alex/ws_moveit2/install/moveit_setup_core_plugins:/home/alex/ws_moveit2/install/moveit_setup_controllers:/home/alex/ws_moveit2/install/moveit_setup_app_plugins:/home/alex/ws_moveit2/install/moveit_setup_framework:/home/alex/ws_moveit2/install/moveit_servo:/home/alex/ws_moveit2/install/moveit_ros:/home/alex/ws_moveit2/install/moveit_ros_visualization:/home/alex/ws_moveit2/install/moveit_hybrid_planning:/home/alex/ws_moveit2/install/moveit_ros_planning_interface:/home/alex/ws_moveit2/install/moveit_ros_benchmarks:/home/alex/ws_moveit2/install/moveit_ros_warehouse:/home/alex/ws_moveit2/install/moveit_ros_robot_interaction:/home/alex/ws_moveit2/install/moveit_ros_perception:/home/alex/ws_moveit2/install/moveit_resources_prbt_pg70_support:/home/alex/ws_moveit2/install/moveit_resources_prbt_moveit_config:/home/alex/ws_moveit2/install/moveit_ros_move_group:/home/alex/ws_moveit2/install/moveit_planners_ompl:/home/alex/ws_moveit2/install/moveit_ros_planning:/home/alex/ws_moveit2/install/moveit_ros_occupancy_map_monitor:/home/alex/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin:/home/alex/ws_moveit2/install/moveit_planners_chomp:/home/alex/ws_moveit2/install/moveit_kinematics:/home/alex/ws_moveit2/install/moveit_chomp_optimizer_adapter:/home/alex/ws_moveit2/install/chomp_motion_planner:/home/alex/ws_moveit2/install/moveit_core:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/srdfdom:/home/alex/ws_moveit2/install/rviz_marker_tools:/home/alex/ws_moveit2/install/rosparam_shortcuts:/home/alex/ws_moveit2/install/moveit_task_constructor_msgs:/home/alex/ws_moveit2/install/moveit_resources_prbt_support:/home/alex/ws_moveit2/install/moveit_resources:/home/alex/ws_moveit2/install/moveit_resources_pr2_description:/home/alex/ws_moveit2/install/moveit_resources_panda_moveit_config:/home/alex/ws_moveit2/install/moveit_resources_panda_description:/home/alex/ws_moveit2/install/moveit_resources_fanuc_moveit_config:/home/alex/ws_moveit2/install/moveit_resources_fanuc_description:/home/alex/ws_moveit2/install/moveit_common:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu-xorg'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu-xorg:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu-xorg:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/alex/ws_moveit2/install/moveit_configs_utils/lib/python3.10/site-packages:/home/alex/ws_moveit2/install/srdfdom/local/lib/python3.10/dist-packages:/home/alex/ws_moveit2/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:/home/alex/ws_moveit2/install/launch_param_builder/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit:/home/alex/ws_moveit2/install/pilz_industrial_motion_planner_testutils:/home/alex/ws_moveit2/install/moveit_runtime:/home/alex/ws_moveit2/install/moveit2_tutorials:/home/alex/ws_moveit2/install/moveit:/home/alex/ws_moveit2/install/moveit_planners:/home/alex/ws_moveit2/install/pilz_industrial_motion_planner:/home/alex/ws_moveit2/install/moveit_visual_tools:/home/alex/ws_moveit2/install/moveit_task_constructor_visualization:/home/alex/ws_moveit2/install/moveit_task_constructor_demo:/home/alex/ws_moveit2/install/moveit_task_constructor_capabilities:/home/alex/ws_moveit2/install/moveit_task_constructor_core:/home/alex/ws_moveit2/install/moveit_ros_control_interface:/home/alex/ws_moveit2/install/moveit_plugins:/home/alex/ws_moveit2/install/moveit_simple_controller_manager:/home/alex/ws_moveit2/install/moveit_setup_assistant:/home/alex/ws_moveit2/install/moveit_setup_srdf_plugins:/home/alex/ws_moveit2/install/moveit_setup_core_plugins:/home/alex/ws_moveit2/install/moveit_setup_controllers:/home/alex/ws_moveit2/install/moveit_setup_app_plugins:/home/alex/ws_moveit2/install/moveit_setup_framework:/home/alex/ws_moveit2/install/moveit_servo:/home/alex/ws_moveit2/install/moveit_ros:/home/alex/ws_moveit2/install/moveit_ros_visualization:/home/alex/ws_moveit2/install/moveit_hybrid_planning:/home/alex/ws_moveit2/install/moveit_ros_planning_interface:/home/alex/ws_moveit2/install/moveit_ros_benchmarks:/home/alex/ws_moveit2/install/moveit_ros_warehouse:/home/alex/ws_moveit2/install/moveit_ros_robot_interaction:/home/alex/ws_moveit2/install/moveit_ros_perception:/home/alex/ws_moveit2/install/moveit_resources_prbt_pg70_support:/home/alex/ws_moveit2/install/moveit_resources_prbt_moveit_config:/home/alex/ws_moveit2/install/moveit_ros_move_group:/home/alex/ws_moveit2/install/moveit_planners_ompl:/home/alex/ws_moveit2/install/moveit_ros_planning:/home/alex/ws_moveit2/install/moveit_ros_occupancy_map_monitor:/home/alex/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin:/home/alex/ws_moveit2/install/moveit_planners_chomp:/home/alex/ws_moveit2/install/moveit_kinematics:/home/alex/ws_moveit2/install/moveit_chomp_optimizer_adapter:/home/alex/ws_moveit2/install/chomp_motion_planner:/home/alex/ws_moveit2/install/moveit_core:/home/alex/ws_moveit2/install/srdfdom:/home/alex/ws_moveit2/install/rviz_marker_tools:/home/alex/ws_moveit2/install/rosparam_shortcuts:/home/alex/ws_moveit2/install/moveit_task_constructor_msgs:/home/alex/ws_moveit2/install/moveit_resources_prbt_support:/home/alex/ws_moveit2/install/moveit_resources:/home/alex/ws_moveit2/install/moveit_resources_pr2_description:/home/alex/ws_moveit2/install/moveit_resources_panda_moveit_config:/home/alex/ws_moveit2/install/moveit_resources_panda_description:/home/alex/ws_moveit2/install/moveit_resources_fanuc_moveit_config:/home/alex/ws_moveit2/install/moveit_resources_fanuc_description:/home/alex/ws_moveit2/install/moveit_common:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble')]), 'shell': False}
+[0.099285] (-) TimerEvent: {}
+[0.144348] (hello_moveit) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hello_moveit\x1b[0m\n'}
+[0.197775] (hello_moveit) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o\x1b[0m\n'}
+[0.198021] (hello_moveit) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/Task.cpp.o\x1b[0m\n'}
+[0.199363] (-) TimerEvent: {}
+[0.299564] (-) TimerEvent: {}
+[0.399852] (-) TimerEvent: {}
+[0.500244] (-) TimerEvent: {}
+[0.601035] (-) TimerEvent: {}
+[0.701435] (-) TimerEvent: {}
+[0.801909] (-) TimerEvent: {}
+[0.902228] (-) TimerEvent: {}
+[1.002515] (-) TimerEvent: {}
+[1.102837] (-) TimerEvent: {}
+[1.203133] (-) TimerEvent: {}
+[1.303472] (-) TimerEvent: {}
+[1.403815] (-) TimerEvent: {}
+[1.504190] (-) TimerEvent: {}
+[1.604555] (-) TimerEvent: {}
+[1.704916] (-) TimerEvent: {}
+[1.773853] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:97:3:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K"/*" within comment [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcomment\x07-Wcomment\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[1.774134] (hello_moveit) StderrLine: {'line': b'   97 |   /*\n'}
+[1.774244] (hello_moveit) StderrLine: {'line': b'      |    \n'}
+[1.805045] (-) TimerEvent: {}
+[1.905393] (-) TimerEvent: {}
+[2.005738] (-) TimerEvent: {}
+[2.106090] (-) TimerEvent: {}
+[2.206438] (-) TimerEvent: {}
+[2.222406] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvirtual void WzlPlanner::TaskPickAndPlace::Execute()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.222834] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:37:18:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kcannot convert \xe2\x80\x98\x1b[01m\x1b[Kshared_ptr<\x1b[01;32m\x1b[KWzlPlanner::TaskMoveToPose\x1b[m\x1b[K>\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kshared_ptr<\x1b[01;32m\x1b[KWzlPlanner::Task\x1b[m\x1b[K>\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.222971] (hello_moveit) StderrLine: {'line': b'   37 |     list.AddTask(\x1b[01;31m\x1b[Ktest\x1b[m\x1b[K);\n'}
+[2.223076] (hello_moveit) StderrLine: {'line': b'      |                  \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.223166] (hello_moveit) StderrLine: {'line': b'      |                  \x1b[01;31m\x1b[K|\x1b[m\x1b[K\n'}
+[2.223224] (hello_moveit) StderrLine: {'line': b'      |                  \x1b[01;31m\x1b[Kshared_ptr<WzlPlanner::TaskMoveToPose>\x1b[m\x1b[K\n'}
+[2.223273] (hello_moveit) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:1\x1b[m\x1b[K:\n'}
+[2.223315] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.h:25:48:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  initializing argument 1 of \xe2\x80\x98\x1b[01m\x1b[Kvoid WzlPlanner::TaskList::AddTask(std::shared_ptr<WzlPlanner::Task>)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.223356] (hello_moveit) StderrLine: {'line': b'   25 |             void AddTask(\x1b[01;36m\x1b[Kstd::shared_ptr<Task> task\x1b[m\x1b[K) { tasks.push_back(task); }\n'}
+[2.223400] (hello_moveit) StderrLine: {'line': b'      |                          \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~~~~~~~^~~~\x1b[m\x1b[K\n'}
+[2.223440] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:39:20:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<std::shared_ptr<WzlPlanner::Task> >::push_back(std::shared_ptr<WzlPlanner::TaskMoveToPose>&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.223480] (hello_moveit) StderrLine: {'line': b'   39 |     \x1b[01;31m\x1b[Ktasks.push_back(test)\x1b[m\x1b[K;\n'}
+[2.223520] (hello_moveit) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K~~~~~~~~~~~~~~~^~~~~~\x1b[m\x1b[K\n'}
+[2.223559] (hello_moveit) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/vector:67\x1b[m\x1b[K,\n'}
+[2.223598] (hello_moveit) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.h:4\x1b[m\x1b[K,\n'}
+[2.223647] (hello_moveit) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:1\x1b[m\x1b[K:\n'}
+[2.223684] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/stl_vector.h:1187:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kvoid std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::shared_ptr<WzlPlanner::Task>; _Alloc = std::allocator<std::shared_ptr<WzlPlanner::Task> >; std::vector<_Tp, _Alloc>::value_type = std::shared_ptr<WzlPlanner::Task>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.223726] (hello_moveit) StderrLine: {'line': b' 1187 |       \x1b[01;36m\x1b[Kpush_back\x1b[m\x1b[K(const value_type& __x)\n'}
+[2.223764] (hello_moveit) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[2.223803] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/stl_vector.h:1187:35:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<WzlPlanner::TaskMoveToPose>\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kconst value_type&\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kconst std::shared_ptr<WzlPlanner::Task>&\x1b[m\x1b[K\xe2\x80\x99}\n'}
+[2.223844] (hello_moveit) StderrLine: {'line': b' 1187 |       push_back(\x1b[01;36m\x1b[Kconst value_type& __x\x1b[m\x1b[K)\n'}
+[2.223883] (hello_moveit) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[2.223920] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/stl_vector.h:1203:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Kvoid std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = std::shared_ptr<WzlPlanner::Task>; _Alloc = std::allocator<std::shared_ptr<WzlPlanner::Task> >; std::vector<_Tp, _Alloc>::value_type = std::shared_ptr<WzlPlanner::Task>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.223968] (hello_moveit) StderrLine: {'line': b' 1203 |       \x1b[01;36m\x1b[Kpush_back\x1b[m\x1b[K(value_type&& __x)\n'}
+[2.224008] (hello_moveit) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[2.224052] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/stl_vector.h:1203:30:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  no known conversion for argument 1 from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<WzlPlanner::TaskMoveToPose>\x1b[m\x1b[K\xe2\x80\x99 to \xe2\x80\x98\x1b[01m\x1b[Kstd::vector<std::shared_ptr<WzlPlanner::Task> >::value_type&&\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<WzlPlanner::Task>&&\x1b[m\x1b[K\xe2\x80\x99}\n'}
+[2.224093] (hello_moveit) StderrLine: {'line': b' 1203 |       push_back(\x1b[01;36m\x1b[Kvalue_type&& __x\x1b[m\x1b[K)\n'}
+[2.224131] (hello_moveit) StderrLine: {'line': b'      |                 \x1b[01;36m\x1b[K~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[2.306560] (-) TimerEvent: {}
+[2.406907] (-) TimerEvent: {}
+[2.503927] (hello_moveit) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:33\x1b[m\x1b[K,\n'}
+[2.504101] (hello_moveit) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/bits/allocator.h:46\x1b[m\x1b[K,\n'}
+[2.504189] (hello_moveit) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/usr/include/c++/11/vector:64\x1b[m\x1b[K,\n'}
+[2.504290] (hello_moveit) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.h:4\x1b[m\x1b[K,\n'}
+[2.504403] (hello_moveit) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:1\x1b[m\x1b[K:\n'}
+[2.504494] (hello_moveit) StderrLine: {'line': b'/usr/include/c++/11/ext/new_allocator.h: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Kvoid __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = WzlPlanner::Task; _Args = {}; _Tp = WzlPlanner::Task]\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.504584] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/alloc_traits.h:516:17:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstatic void std::allocator_traits<std::allocator<_Tp1> >::construct(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, _Up*, _Args&& ...) [with _Up = WzlPlanner::Task; _Args = {}; _Tp = WzlPlanner::Task; std::allocator_traits<std::allocator<_Tp1> >::allocator_type = std::allocator<WzlPlanner::Task>]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.504676] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/shared_ptr_base.h:519:39:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {}; _Tp = WzlPlanner::Task; _Alloc = std::allocator<WzlPlanner::Task>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.504795] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/shared_ptr_base.h:650:16:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = WzlPlanner::Task; _Alloc = std::allocator<WzlPlanner::Task>; _Args = {}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.504886] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/shared_ptr_base.h:1342:14:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<WzlPlanner::Task>; _Args = {}; _Tp = WzlPlanner::Task; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.504971] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/shared_ptr.h:409:59:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<WzlPlanner::Task>; _Args = {}; _Tp = WzlPlanner::Task]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.505054] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/shared_ptr.h:862:14:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = WzlPlanner::Task; _Alloc = std::allocator<WzlPlanner::Task>; _Args = {}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.505163] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/shared_ptr.h:878:39:\x1b[m\x1b[K   required from \xe2\x80\x98\x1b[01m\x1b[Kstd::shared_ptr<_Tp> std::make_shared(_Args&& ...) [with _Tp = WzlPlanner::Task; _Args = {}]\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.505220] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:36:40:\x1b[m\x1b[K   required from here\n'}
+[2.505259] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/ext/new_allocator.h:162:11:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kinvalid new-expression of abstract class type \xe2\x80\x98\x1b[01m\x1b[KWzlPlanner::Task\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.505298] (hello_moveit) StderrLine: {'line': b'  162 |         { \x1b[01;31m\x1b[K::new((void *)__p) _Up(std::forward<_Args>(__args)...)\x1b[m\x1b[K; }\n'}
+[2.505341] (hello_moveit) StderrLine: {'line': b'      |           \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[2.505381] (hello_moveit) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:1\x1b[m\x1b[K:\n'}
+[2.505420] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.h:11:11:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  because the following virtual functions are pure within \xe2\x80\x98\x1b[01m\x1b[KWzlPlanner::Task\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.505469] (hello_moveit) StderrLine: {'line': b'   11 |     class \x1b[01;36m\x1b[KTask\x1b[m\x1b[K\n'}
+[2.505510] (hello_moveit) StderrLine: {'line': b'      |           \x1b[01;36m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.505556] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.h:17:26:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K    \xe2\x80\x98\x1b[01m\x1b[Kvirtual void WzlPlanner::Task::Execute()\x1b[m\x1b[K\xe2\x80\x99\n'}
+[2.505596] (hello_moveit) StderrLine: {'line': b'   17 |             virtual void \x1b[01;36m\x1b[KExecute\x1b[m\x1b[K() = 0;\n'}
+[2.505634] (hello_moveit) StderrLine: {'line': b'      |                          \x1b[01;36m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[2.506975] (-) TimerEvent: {}
+[2.573717] (hello_moveit) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:118: CMakeFiles/hello_moveit.dir/src/Task.cpp.o] Error 1\n'}
+[2.573946] (hello_moveit) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[2.607118] (-) TimerEvent: {}
+[2.707487] (-) TimerEvent: {}
+[2.807827] (-) TimerEvent: {}
+[2.908155] (-) TimerEvent: {}
+[3.008486] (-) TimerEvent: {}
+[3.109125] (-) TimerEvent: {}
+[3.209469] (-) TimerEvent: {}
+[3.309803] (-) TimerEvent: {}
+[3.410139] (-) TimerEvent: {}
+[3.510475] (-) TimerEvent: {}
+[3.610809] (-) TimerEvent: {}
+[3.711135] (-) TimerEvent: {}
+[3.811470] (-) TimerEvent: {}
+[3.911798] (-) TimerEvent: {}
+[4.012138] (-) TimerEvent: {}
+[4.112466] (-) TimerEvent: {}
+[4.212788] (-) TimerEvent: {}
+[4.313127] (-) TimerEvent: {}
+[4.413469] (-) TimerEvent: {}
+[4.513804] (-) TimerEvent: {}
+[4.614137] (-) TimerEvent: {}
+[4.714467] (-) TimerEvent: {}
+[4.814807] (-) TimerEvent: {}
+[4.915407] (-) TimerEvent: {}
+[5.015742] (-) TimerEvent: {}
+[5.116074] (-) TimerEvent: {}
+[5.216411] (-) TimerEvent: {}
+[5.316753] (-) TimerEvent: {}
+[5.417112] (-) TimerEvent: {}
+[5.517444] (-) TimerEvent: {}
+[5.617775] (-) TimerEvent: {}
+[5.718107] (-) TimerEvent: {}
+[5.818437] (-) TimerEvent: {}
+[5.918760] (-) TimerEvent: {}
+[6.019105] (-) TimerEvent: {}
+[6.119434] (-) TimerEvent: {}
+[6.219770] (-) TimerEvent: {}
+[6.320096] (-) TimerEvent: {}
+[6.420431] (-) TimerEvent: {}
+[6.521115] (-) TimerEvent: {}
+[6.621450] (-) TimerEvent: {}
+[6.721778] (-) TimerEvent: {}
+[6.822116] (-) TimerEvent: {}
+[6.922477] (-) TimerEvent: {}
+[7.022824] (-) TimerEvent: {}
+[7.123175] (-) TimerEvent: {}
+[7.223502] (-) TimerEvent: {}
+[7.323829] (-) TimerEvent: {}
+[7.424155] (-) TimerEvent: {}
+[7.524496] (-) TimerEvent: {}
+[7.624839] (-) TimerEvent: {}
+[7.725164] (-) TimerEvent: {}
+[7.815233] (hello_moveit) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2\n'}
+[7.815612] (hello_moveit) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[7.818448] (hello_moveit) CommandEnded: {'returncode': 2}
+[7.825263] (-) TimerEvent: {}
+[7.925562] (-) TimerEvent: {}
+[7.953090] (hello_moveit) JobEnded: {'identifier': 'hello_moveit', 'rc': 2}
+[7.964833] (-) EventReactorShutdown: {}

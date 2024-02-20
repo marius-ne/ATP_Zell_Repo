@@ -1,0 +1,14 @@
+[0.092s] Invoking command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16
+[0.168s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[0.215s] [ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[7.239s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[7.239s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:94:15:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kstd::string meshPath[m[K’
+[7.239s]    94 |   std::string [01;31m[KmeshPath[m[K = "package://hello_moveit/cube.stl";
+[7.240s]       |               [01;31m[K^~~~~~~~[m[K
+[7.240s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:91:15:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::string meshPath[m[K’ previously declared here
+[7.240s]    91 |   std::string [01;36m[KmeshPath[m[K = "package://hello_moveit/spanneinheit.stl";
+[7.240s]       |               [01;36m[K^~~~~~~~[m[K
+[9.465s] gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+[9.465s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+[9.465s] gmake: *** [Makefile:146: all] Error 2
+[9.468s] Invoked command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16

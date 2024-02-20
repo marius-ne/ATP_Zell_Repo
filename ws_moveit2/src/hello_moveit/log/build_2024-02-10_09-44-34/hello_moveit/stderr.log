@@ -1,0 +1,59 @@
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:97:3:[m[K [01;35m[Kwarning: [m[K"/*" within comment [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcomment-Wcomment]8;;[m[K]
+   97 |   /*
+      |    
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::TaskPickAndPlace::Execute()[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:37:18:[m[K [01;31m[Kerror: [m[Kcannot convert ‘[01m[Kshared_ptr<[01;32m[KWzlPlanner::TaskMoveToPose[m[K>[m[K’ to ‘[01m[Kshared_ptr<[01;32m[KWzlPlanner::Task[m[K>[m[K’
+   37 |     list.AddTask([01;31m[Ktest[m[K);
+      |                  [01;31m[K^~~~[m[K
+      |                  [01;31m[K|[m[K
+      |                  [01;31m[Kshared_ptr<WzlPlanner::TaskMoveToPose>[m[K
+In file included from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.h:25:48:[m[K [01;36m[Knote: [m[K  initializing argument 1 of ‘[01m[Kvoid WzlPlanner::TaskList::AddTask(std::shared_ptr<WzlPlanner::Task>)[m[K’
+   25 |             void AddTask([01;36m[Kstd::shared_ptr<Task> task[m[K) { tasks.push_back(task); }
+      |                          [01;36m[K~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:39:20:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kstd::vector<std::shared_ptr<WzlPlanner::Task> >::push_back(std::shared_ptr<WzlPlanner::TaskMoveToPose>&)[m[K’
+   39 |     [01;31m[Ktasks.push_back(test)[m[K;
+      |     [01;31m[K~~~~~~~~~~~~~~~^~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/vector:67[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.h:4[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/stl_vector.h:1187:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid std::vector<_Tp, _Alloc>::push_back(const value_type&) [with _Tp = std::shared_ptr<WzlPlanner::Task>; _Alloc = std::allocator<std::shared_ptr<WzlPlanner::Task> >; std::vector<_Tp, _Alloc>::value_type = std::shared_ptr<WzlPlanner::Task>][m[K’
+ 1187 |       [01;36m[Kpush_back[m[K(const value_type& __x)
+      |       [01;36m[K^~~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/stl_vector.h:1187:35:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskMoveToPose>[m[K’ to ‘[01m[Kconst value_type&[m[K’ {aka ‘[01m[Kconst std::shared_ptr<WzlPlanner::Task>&[m[K’}
+ 1187 |       push_back([01;36m[Kconst value_type& __x[m[K)
+      |                 [01;36m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/usr/include/c++/11/bits/stl_vector.h:1203:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid std::vector<_Tp, _Alloc>::push_back(std::vector<_Tp, _Alloc>::value_type&&) [with _Tp = std::shared_ptr<WzlPlanner::Task>; _Alloc = std::allocator<std::shared_ptr<WzlPlanner::Task> >; std::vector<_Tp, _Alloc>::value_type = std::shared_ptr<WzlPlanner::Task>][m[K’
+ 1203 |       [01;36m[Kpush_back[m[K(value_type&& __x)
+      |       [01;36m[K^~~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/stl_vector.h:1203:30:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskMoveToPose>[m[K’ to ‘[01m[Kstd::vector<std::shared_ptr<WzlPlanner::Task> >::value_type&&[m[K’ {aka ‘[01m[Kstd::shared_ptr<WzlPlanner::Task>&&[m[K’}
+ 1203 |       push_back([01;36m[Kvalue_type&& __x[m[K)
+      |                 [01;36m[K~~~~~~~~~~~~~^~~[m[K
+In file included from [01m[K/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:33[m[K,
+                 from [01m[K/usr/include/c++/11/bits/allocator.h:46[m[K,
+                 from [01m[K/usr/include/c++/11/vector:64[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.h:4[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+/usr/include/c++/11/ext/new_allocator.h: In instantiation of ‘[01m[Kvoid __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = WzlPlanner::Task; _Args = {}; _Tp = WzlPlanner::Task][m[K’:
+[01m[K/usr/include/c++/11/bits/alloc_traits.h:516:17:[m[K   required from ‘[01m[Kstatic void std::allocator_traits<std::allocator<_Tp1> >::construct(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, _Up*, _Args&& ...) [with _Up = WzlPlanner::Task; _Args = {}; _Tp = WzlPlanner::Task; std::allocator_traits<std::allocator<_Tp1> >::allocator_type = std::allocator<WzlPlanner::Task>][m[K’
+[01m[K/usr/include/c++/11/bits/shared_ptr_base.h:519:39:[m[K   required from ‘[01m[Kstd::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {}; _Tp = WzlPlanner::Task; _Alloc = std::allocator<WzlPlanner::Task>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic][m[K’
+[01m[K/usr/include/c++/11/bits/shared_ptr_base.h:650:16:[m[K   required from ‘[01m[Kstd::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = WzlPlanner::Task; _Alloc = std::allocator<WzlPlanner::Task>; _Args = {}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic][m[K’
+[01m[K/usr/include/c++/11/bits/shared_ptr_base.h:1342:14:[m[K   required from ‘[01m[Kstd::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<WzlPlanner::Task>; _Args = {}; _Tp = WzlPlanner::Task; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic][m[K’
+[01m[K/usr/include/c++/11/bits/shared_ptr.h:409:59:[m[K   required from ‘[01m[Kstd::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<WzlPlanner::Task>; _Args = {}; _Tp = WzlPlanner::Task][m[K’
+[01m[K/usr/include/c++/11/bits/shared_ptr.h:862:14:[m[K   required from ‘[01m[Kstd::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = WzlPlanner::Task; _Alloc = std::allocator<WzlPlanner::Task>; _Args = {}][m[K’
+[01m[K/usr/include/c++/11/bits/shared_ptr.h:878:39:[m[K   required from ‘[01m[Kstd::shared_ptr<_Tp> std::make_shared(_Args&& ...) [with _Tp = WzlPlanner::Task; _Args = {}][m[K’
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:36:40:[m[K   required from here
+[01m[K/usr/include/c++/11/ext/new_allocator.h:162:11:[m[K [01;31m[Kerror: [m[Kinvalid new-expression of abstract class type ‘[01m[KWzlPlanner::Task[m[K’
+  162 |         { [01;31m[K::new((void *)__p) _Up(std::forward<_Args>(__args)...)[m[K; }
+      |           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.h:11:11:[m[K [01;36m[Knote: [m[K  because the following virtual functions are pure within ‘[01m[KWzlPlanner::Task[m[K’:
+   11 |     class [01;36m[KTask[m[K
+      |           [01;36m[K^~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/Task.h:17:26:[m[K [01;36m[Knote: [m[K    ‘[01m[Kvirtual void WzlPlanner::Task::Execute()[m[K’
+   17 |             virtual void [01;36m[KExecute[m[K() = 0;
+      |                          [01;36m[K^~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:118: CMakeFiles/hello_moveit.dir/src/Task.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

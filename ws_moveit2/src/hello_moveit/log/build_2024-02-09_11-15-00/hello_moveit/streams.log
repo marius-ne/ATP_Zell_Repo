@@ -1,0 +1,11 @@
+[0.078s] Invoking command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16
+[0.148s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[0.205s] [ 33%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/SceneLoader.cpp.o[0m
+[8.116s] [ 66%] [32m[1mLinking CXX executable hello_moveit[0m
+[8.144s] /usr/bin/ld: CMakeFiles/hello_moveit.dir/src/SceneLoader.cpp.o: in function `addMeshColllsionObject(moveit::planning_interface::MoveGroupInterface const&, moveit::planning_interface::PlanningSceneInterface&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, float, geometry_msgs::msg::Pose_<std::allocator<void> >)':
+[8.144s] SceneLoader.cpp:(.text+0x3d0): multiple definition of `addMeshColllsionObject(moveit::planning_interface::MoveGroupInterface const&, moveit::planning_interface::PlanningSceneInterface&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, float, geometry_msgs::msg::Pose_<std::allocator<void> >)'; CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o:hello_moveit.cpp:(.text+0x0): first defined here
+[8.489s] collect2: error: ld returned 1 exit status
+[8.491s] gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:438: hello_moveit] Error 1
+[8.491s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+[8.491s] gmake: *** [Makefile:146: all] Error 2
+[8.494s] Invoked command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16

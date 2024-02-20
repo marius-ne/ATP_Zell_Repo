@@ -1,0 +1,11 @@
+[0.085s] Invoking command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16
+[0.167s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[0.217s] [ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[7.119s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[7.119s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:92:96:[m[K [01;31m[Kerror: [m[Kunable to find numeric literal operator ‘[01m[Koperator""f[m[K’
+[7.119s]    92 |   addMeshColllsionObject(move_group_interface, planning_scene_interface, meshPath, "meshTest", [01;31m[K1f[m[K, shelf_pose);
+[7.120s]       |                                                                                                [01;31m[K^~[m[K
+[9.332s] gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+[9.332s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+[9.332s] gmake: *** [Makefile:146: all] Error 2
+[9.335s] Invoked command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16

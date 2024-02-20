@@ -1,0 +1,17 @@
+[35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:148:1:[m[K [01;31m[Kerror: [m[K‘[01m[KROS_INFO[m[K’ was not declared in this scope
+  148 | [01;31m[KROS_INFO[m[K("Add an object into the world");
+      | [01;31m[K^~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:149:1:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_interface[m[K’ was not declared in this scope; did you mean ‘[01m[Kplanning_scene_monitor[m[K’?
+  149 | [01;31m[Kplanning_scene_interface[m[K.addCollisionObjects(collision_objects);
+      | [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      | [32m[Kplanning_scene_monitor[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:149:46:[m[K [01;31m[Kerror: [m[K‘[01m[Kcollision_objects[m[K’ was not declared in this scope; did you mean ‘[01m[Kcollision_object[m[K’?
+  149 | planning_scene_interface.addCollisionObjects([01;31m[Kcollision_objects[m[K);
+      |                                              [01;31m[K^~~~~~~~~~~~~~~~~[m[K
+      |                                              [32m[Kcollision_object[m[K
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

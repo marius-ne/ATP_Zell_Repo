@@ -1,0 +1,10 @@
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:188:54:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kmoveit::planning_interface::PlanningSceneInterface planning_scene_interface[m[K’
+  188 |   moveit::planning_interface::PlanningSceneInterface [01;31m[Kplanning_scene_interface[m[K;
+      |                                                      [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:108:54:[m[K [01;36m[Knote: [m[K‘[01m[Kmoveit::planning_interface::PlanningSceneInterface planning_scene_interface[m[K’ previously declared here
+  108 |   moveit::planning_interface::PlanningSceneInterface [01;36m[Kplanning_scene_interface[m[K;
+      |                                                      [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

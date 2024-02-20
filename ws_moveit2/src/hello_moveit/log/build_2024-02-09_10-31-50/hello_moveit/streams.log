@@ -1,0 +1,12 @@
+[0.077s] Invoking command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16
+[0.147s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[0.192s] [ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[8.163s] [100%] [32m[1mLinking CXX executable hello_moveit[0m
+[8.473s] /usr/bin/ld: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o: in function `main':
+[8.473s] hello_moveit.cpp:(.text+0x79c): undefined reference to `SceneLoader::SceneLoader(moveit::planning_interface::MoveGroupInterface*)'
+[8.473s] /usr/bin/ld: hello_moveit.cpp:(.text+0x833): undefined reference to `SceneLoader::AddBoxCollisionBox(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, double, double, double, double, double)'
+[8.493s] collect2: error: ld returned 1 exit status
+[8.495s] gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:422: hello_moveit] Error 1
+[8.496s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+[8.496s] gmake: *** [Makefile:146: all] Error 2
+[8.500s] Invoked command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16

@@ -1,0 +1,130 @@
+[35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:92:14:[m[K [01;31m[Kerror: [m[K‘[01m[KCollisionObject[m[K’ is not a member of ‘[01m[Kmoveit_msgs[m[K’; did you mean ‘[01m[Kmoveit_msgs::msg::CollisionObject[m[K’?
+   92 | moveit_msgs::[01;31m[KCollisionObject[m[K co;
+      |              [01;31m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/attached_collision_object__struct.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_state__struct.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/robot_state.hpp:7[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:44[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/collision_object__struct.hpp:300:7:[m[K [01;36m[Knote: [m[K‘[01m[Kmoveit_msgs::msg::CollisionObject[m[K’ declared here
+  300 | using [01;36m[KCollisionObject[m[K =
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:93:27:[m[K [01;31m[Kerror: [m[K‘[01m[KcreateMeshFromResource[m[K’ is not a member of ‘[01m[Kshapes[m[K’
+   93 | shapes::Mesh* m = shapes::[01;31m[KcreateMeshFromResource[m[K("package://cube.stl");
+      |                           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:94:13:[m[K [01;31m[Kerror: [m[K‘[01m[KMesh[m[K’ is not a member of ‘[01m[Kshape_msgs[m[K’
+   94 | shape_msgs::[01;31m[KMesh[m[K co_mesh;
+      |             [01;31m[K^~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:94:13:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+In file included from [01m[K/opt/ros/humble/include/urdfdom_headers/urdf_model/model.h:42[m[K,
+                 from [01m[K/opt/ros/humble/include/urdf/urdf/model.h:43[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/srdfdom/include/srdfdom/model.h:44[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h:42[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_state/robot_state.h:40[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:41[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/urdfdom_headers/urdf_model/link.h:98:7:[m[K [01;36m[Knote: [m[K  ‘[01m[Kurdf::Mesh[m[K’
+   98 | class [01;36m[KMesh[m[K : public Geometry
+      |       [01;36m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/geometric_shapes/bodies.h:36[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/kinematic_constraints/kinematic_constraint.h:45[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/planning_scene/planning_scene.h:45[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_scene_monitor/planning_scene_monitor.h:43[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_visual_tools/include/moveit_visual_tools/moveit_visual_tools.h:41[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:3[m[K:
+[01m[K/opt/ros/humble/include/geometric_shapes/shapes.h:271:7:[m[K [01;36m[Knote: [m[K  ‘[01m[Kshapes::Mesh[m[K’
+  271 | class [01;36m[KMesh[m[K : public Shape
+      |       [01;36m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/collision_object__struct.hpp:32[m[K,
+                 from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/attached_collision_object__struct.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_state__struct.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/robot_state.hpp:7[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:44[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/shape_msgs/shape_msgs/msg/detail/mesh__struct.hpp:132:7:[m[K [01;36m[Knote: [m[K  ‘[01m[Kshape_msgs::msg::Mesh[m[K’
+  132 | using [01;36m[KMesh[m[K =
+      |       [01;36m[K^~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:95:9:[m[K [01;31m[Kerror: [m[K‘[01m[KShapeMsg[m[K’ is not a member of ‘[01m[Kshapes[m[K’
+   95 | shapes::[01;31m[KShapeMsg[m[K co_mesh_msg;
+      |         [01;31m[K^~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:96:9:[m[K [01;31m[Kerror: [m[K‘[01m[KconstructMsgFromShape[m[K’ is not a member of ‘[01m[Kshapes[m[K’
+   96 | shapes::[01;31m[KconstructMsgFromShape[m[K(m,co_mesh_msg);
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:96:33:[m[K [01;31m[Kerror: [m[K‘[01m[Kco_mesh_msg[m[K’ was not declared in this scope
+   96 | shapes::constructMsgFromShape(m,[01;31m[Kco_mesh_msg[m[K);
+      |                                 [01;31m[K^~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:97:1:[m[K [01;31m[Kerror: [m[K‘[01m[Kco_mesh[m[K’ was not declared in this scope; did you mean ‘[01m[Kcosh[m[K’?
+   97 | [01;31m[Kco_mesh[m[K = boost::get<shape_msgs::Mesh>(co_mesh_msg);
+      | [01;31m[K^~~~~~~[m[K
+      | [32m[Kcosh[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:97:34:[m[K [01;31m[Kerror: [m[K‘[01m[KMesh[m[K’ is not a member of ‘[01m[Kshape_msgs[m[K’
+   97 | co_mesh = boost::get<shape_msgs::[01;31m[KMesh[m[K>(co_mesh_msg);
+      |                                  [01;31m[K^~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:97:34:[m[K [01;36m[Knote: [m[Ksuggested alternatives:
+In file included from [01m[K/opt/ros/humble/include/urdfdom_headers/urdf_model/model.h:42[m[K,
+                 from [01m[K/opt/ros/humble/include/urdf/urdf/model.h:43[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/srdfdom/include/srdfdom/model.h:44[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h:42[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_state/robot_state.h:40[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:41[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/urdfdom_headers/urdf_model/link.h:98:7:[m[K [01;36m[Knote: [m[K  ‘[01m[Kurdf::Mesh[m[K’
+   98 | class [01;36m[KMesh[m[K : public Geometry
+      |       [01;36m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/geometric_shapes/bodies.h:36[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/kinematic_constraints/kinematic_constraint.h:45[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/planning_scene/planning_scene.h:45[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_ros_planning/include/moveit/planning_scene_monitor/planning_scene_monitor.h:43[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_visual_tools/include/moveit_visual_tools/moveit_visual_tools.h:41[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:3[m[K:
+[01m[K/opt/ros/humble/include/geometric_shapes/shapes.h:271:7:[m[K [01;36m[Knote: [m[K  ‘[01m[Kshapes::Mesh[m[K’
+  271 | class [01;36m[KMesh[m[K : public Shape
+      |       [01;36m[K^~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/collision_object__struct.hpp:32[m[K,
+                 from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/attached_collision_object__struct.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_state__struct.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/robot_state.hpp:7[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:44[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/shape_msgs/shape_msgs/msg/detail/mesh__struct.hpp:132:7:[m[K [01;36m[Knote: [m[K  ‘[01m[Kshape_msgs::msg::Mesh[m[K’
+  132 | using [01;36m[KMesh[m[K =
+      |       [01;36m[K^~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:98:1:[m[K [01;31m[Kerror: [m[K‘[01m[Kco[m[K’ was not declared in this scope; did you mean ‘[01m[Kcos[m[K’?
+   98 | [01;31m[Kco[m[K.meshes.resize(1);
+      | [01;31m[K^~[m[K
+      | [32m[Kcos[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:114:26:[m[K [01;31m[Kerror: [m[K‘[01m[KCollisionObject[m[K’ is not a member of ‘[01m[Kmoveit_msgs[m[K’; did you mean ‘[01m[Kmoveit_msgs::msg::CollisionObject[m[K’?
+  114 | std::vector<moveit_msgs::[01;31m[KCollisionObject[m[K> collision_objects;
+      |                          [01;31m[K^~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/attached_collision_object__struct.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_state__struct.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/robot_state.hpp:7[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:44[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:1[m[K:
+[01m[K/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/collision_object__struct.hpp:300:7:[m[K [01;36m[Knote: [m[K‘[01m[Kmoveit_msgs::msg::CollisionObject[m[K’ declared here
+  300 | using [01;36m[KCollisionObject[m[K =
+      |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:114:41:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+  114 | std::vector<moveit_msgs::CollisionObject[01;31m[K>[m[K collision_objects;
+      |                                         [01;31m[K^[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:114:41:[m[K [01;31m[Kerror: [m[Ktemplate argument 2 is invalid
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:115:19:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kpush_back[m[K’ in ‘[01m[Kcollision_objects[m[K’, which is of non-class type ‘[01m[Kint[m[K’
+  115 | collision_objects.[01;31m[Kpush_back[m[K(co);
+      |                   [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:118:1:[m[K [01;31m[Kerror: [m[K‘[01m[KROS_INFO[m[K’ was not declared in this scope
+  118 | [01;31m[KROS_INFO[m[K("Add an object into the world");
+      | [01;31m[K^~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:119:1:[m[K [01;31m[Kerror: [m[K‘[01m[Kplanning_scene_interface[m[K’ was not declared in this scope; did you mean ‘[01m[Kplanning_scene_monitor[m[K’?
+  119 | [01;31m[Kplanning_scene_interface[m[K.addCollisionObjects(collision_objects);
+      | [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~[m[K
+      | [32m[Kplanning_scene_monitor[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:123:49:[m[K [01;31m[Kerror: [m[K‘[01m[Kcollision_object[m[K’ was not declared in this scope; did you mean ‘[01m[Kcollision_objects[m[K’?
+  123 |   planning_scene_interface.applyCollisionObject([01;31m[Kcollision_object[m[K);
+      |                                                 [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |                                                 [32m[Kcollision_objects[m[K
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

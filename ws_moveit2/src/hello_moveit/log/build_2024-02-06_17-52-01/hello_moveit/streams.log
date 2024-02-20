@@ -1,0 +1,49 @@
+[0.082s] Invoking command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16
+[0.182s] [ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[5.912s] In file included from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/kinematics_base/kinematics_base.h:42[m[K,
+[5.912s]                  from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model_group.h:42[m[K,
+[5.912s]                  from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h:45[m[K,
+[5.912s]                  from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_state/robot_state.h:40[m[K,
+[5.912s]                  from [01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:41[m[K,
+[5.912s]                  from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:1[m[K:
+[5.912s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kvoid addMeshColllsionObject(const moveit::planning_interface::MoveGroupInterface&, moveit::planning_interface::PlanningSceneInterface&, std::string, std::string, float, geometry_msgs::msg::Pose)[m[K’:
+[5.912s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:51:20:[m[K [01;31m[Kerror: [m[K‘[01m[Knode[m[K’ was not declared in this scope
+[5.912s]    51 |       RCLCPP_DEBUG([01;31m[Knode[m[K->get_logger(), "uccessfuölly added object to the scene %d", 4);
+[5.912s]       |                    [01;31m[K^~~~[m[K
+[5.913s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:51:7:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[5.913s]    51 |       [01;31m[KRCLCPP_DEBUG[m[K(node->get_logger(), "uccessfuölly added object to the scene %d", 4);
+[5.913s]       |       [01;31m[K^~~~~~~~~~~~[m[K
+[5.913s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:51:7:[m[K [01;31m[Kerror: [m[K‘[01m[K<declaration error>[m[K’ is not a template [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[5.913s]    51 |       [01;31m[KRCLCPP_DEBUG[m[K(node->get_logger(), "uccessfuölly added object to the scene %d", 4);
+[5.913s]       |       [01;31m[K^~~~~~~~~~~~[m[K
+[5.913s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:51:7:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[5.913s]    51 |       [01;31m[KRCLCPP_DEBUG[m[K(node->get_logger(), "uccessfuölly added object to the scene %d", 4);
+[5.913s]       |       [01;31m[K^~~~~~~~~~~~[m[K
+[5.913s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:51:7:[m[K [01;31m[Kerror: [m[K‘[01m[K<declaration error>[m[K’ is not a template [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[5.913s]    51 |       [01;31m[KRCLCPP_DEBUG[m[K(node->get_logger(), "uccessfuölly added object to the scene %d", 4);
+[5.913s]       |       [01;31m[K^~~~~~~~~~~~[m[K
+[5.913s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:51:7:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[5.913s]    51 |       [01;31m[KRCLCPP_DEBUG[m[K(node->get_logger(), "uccessfuölly added object to the scene %d", 4);
+[5.913s]       |       [01;31m[K^~~~~~~~~~~~[m[K
+[5.915s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:56:20:[m[K [01;31m[Kerror: [m[K‘[01m[Knode[m[K’ was not declared in this scope
+[5.915s]    56 |       RCLCPP_DEBUG([01;31m[Knode[m[K->get_logger(), "Failed to add object to the scene", 4);
+[5.915s]       |                    [01;31m[K^~~~[m[K
+[5.916s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:56:7:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[5.916s]    56 |       [01;31m[KRCLCPP_DEBUG[m[K(node->get_logger(), "Failed to add object to the scene", 4);
+[5.916s]       |       [01;31m[K^~~~~~~~~~~~[m[K
+[5.916s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:56:7:[m[K [01;31m[Kerror: [m[K‘[01m[K<declaration error>[m[K’ is not a template [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[5.916s]    56 |       [01;31m[KRCLCPP_DEBUG[m[K(node->get_logger(), "Failed to add object to the scene", 4);
+[5.916s]       |       [01;31m[K^~~~~~~~~~~~[m[K
+[5.916s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:56:7:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[5.916s]    56 |       [01;31m[KRCLCPP_DEBUG[m[K(node->get_logger(), "Failed to add object to the scene", 4);
+[5.916s]       |       [01;31m[K^~~~~~~~~~~~[m[K
+[5.916s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:56:7:[m[K [01;31m[Kerror: [m[K‘[01m[K<declaration error>[m[K’ is not a template [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[5.916s]    56 |       [01;31m[KRCLCPP_DEBUG[m[K(node->get_logger(), "Failed to add object to the scene", 4);
+[5.917s]       |       [01;31m[K^~~~~~~~~~~~[m[K
+[5.917s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:56:7:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[5.917s]    56 |       [01;31m[KRCLCPP_DEBUG[m[K(node->get_logger(), "Failed to add object to the scene", 4);
+[5.917s]       |       [01;31m[K^~~~~~~~~~~~[m[K
+[7.689s] gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+[7.690s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+[7.690s] gmake: *** [Makefile:146: all] Error 2
+[7.693s] Invoked command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16

@@ -1,0 +1,23 @@
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/kinematics_base/kinematics_base.h:42[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model_group.h:42[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h:45[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_state/robot_state.h:40[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:41[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:1[m[K:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:108:38:[m[K [01;35m[Kwarning: [m[Ktoo many arguments for format [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat-extra-args-Wformat-extra-args]8;;[m[K]
+  108 |     RCLCPP_DEBUG(node->get_logger(), [01;35m[K"Succesfully added to scene"[m[K, 4);
+      |                                      [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:112:38:[m[K [01;35m[Kwarning: [m[Ktoo many arguments for format [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat-extra-args-Wformat-extra-args]8;;[m[K]
+  112 |     RCLCPP_DEBUG(node->get_logger(), [01;35m[K"Failed to add object to to scene"[m[K, 4);
+      |                                      [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:124:14:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kdraw_title[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  124 |   auto const [01;35m[Kdraw_title[m[K = [&moveit_visual_tools](auto text) {
+      |              [01;35m[K^~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:132:14:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kprompt[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  132 |   auto const [01;35m[Kprompt[m[K = [&moveit_visual_tools](auto text) { moveit_visual_tools.prompt(text); };
+      |              [01;35m[K^~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:133:14:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kdraw_trajectory_tool_path[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  133 |   auto const [01;35m[Kdraw_trajectory_tool_path[m[K =
+      |              [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K

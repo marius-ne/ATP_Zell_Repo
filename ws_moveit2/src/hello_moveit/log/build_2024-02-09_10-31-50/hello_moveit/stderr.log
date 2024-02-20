@@ -1,0 +1,7 @@
+/usr/bin/ld: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o: in function `main':
+hello_moveit.cpp:(.text+0x79c): undefined reference to `SceneLoader::SceneLoader(moveit::planning_interface::MoveGroupInterface*)'
+/usr/bin/ld: hello_moveit.cpp:(.text+0x833): undefined reference to `SceneLoader::AddBoxCollisionBox(std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, double, double, double, double, double, double)'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:422: hello_moveit] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

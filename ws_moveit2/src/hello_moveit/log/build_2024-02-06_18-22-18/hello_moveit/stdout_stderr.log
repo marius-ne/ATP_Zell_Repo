@@ -1,0 +1,21 @@
+[35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kbool addMeshColllsionObject(const moveit::planning_interface::MoveGroupInterface&, moveit::planning_interface::PlanningSceneInterface&, std::string, std::string, float, geometry_msgs::msg::Pose)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:43:19:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kdimensions[m[K’ in ‘[01m[Koriginal_mesh[m[K’, which is of pointer type ‘[01m[Kshapes::Mesh*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+   43 |     original_mesh.[01;31m[Kdimensions[m[K.resize(3);
+      |                   [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:44:19:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kdimensions[m[K’ in ‘[01m[Koriginal_mesh[m[K’, which is of pointer type ‘[01m[Kshapes::Mesh*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+   44 |     original_mesh.[01;31m[Kdimensions[m[K[primitive.BOX_X] = 0.5;
+      |                   [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:44:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kprimitive[m[K’ was not declared in this scope
+   44 |     original_mesh.dimensions[[01;31m[Kprimitive[m[K.BOX_X] = 0.5;
+      |                              [01;31m[K^~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:45:19:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kdimensions[m[K’ in ‘[01m[Koriginal_mesh[m[K’, which is of pointer type ‘[01m[Kshapes::Mesh*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+   45 |     original_mesh.[01;31m[Kdimensions[m[K[primitive.BOX_Y] = 0.1;
+      |                   [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:46:19:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kdimensions[m[K’ in ‘[01m[Koriginal_mesh[m[K’, which is of pointer type ‘[01m[Kshapes::Mesh*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+   46 |     original_mesh.[01;31m[Kdimensions[m[K[primitive.BOX_Z] = 0.5;
+      |                   [01;31m[K^~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

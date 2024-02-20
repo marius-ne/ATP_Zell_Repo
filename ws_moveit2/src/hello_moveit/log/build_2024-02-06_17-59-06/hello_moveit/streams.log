@@ -1,0 +1,40 @@
+[0.080s] Invoking command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16
+[0.151s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[0.195s] [ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[6.219s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+[6.220s]                  from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/kinematics_base/kinematics_base.h:42[m[K,
+[6.220s]                  from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model_group.h:42[m[K,
+[6.220s]                  from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h:45[m[K,
+[6.220s]                  from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_state/robot_state.h:40[m[K,
+[6.220s]                  from [01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:41[m[K,
+[6.220s]                  from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:1[m[K:
+[6.220s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[6.220s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:108:38:[m[K [01;35m[Kwarning: [m[Ktoo many arguments for format [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat-extra-args-Wformat-extra-args]8;;[m[K]
+[6.220s]   108 |     RCLCPP_DEBUG(node->get_logger(), [01;35m[K"Succesfully added to scene"[m[K, 4);
+[6.220s]       |                                      [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[6.220s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:112:38:[m[K [01;35m[Kwarning: [m[Ktoo many arguments for format [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat-extra-args-Wformat-extra-args]8;;[m[K]
+[6.221s]   112 |     RCLCPP_DEBUG(node->get_logger(), [01;35m[K"Failed to add object to to scene"[m[K, 4);
+[6.221s]       |                                      [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[8.311s] [100%] [32m[1mLinking CXX executable hello_moveit[0m
+[8.687s] [100%] Built target hello_moveit
+[8.703s] Invoked command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16
+[8.773s] Invoking command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --install /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit
+[8.785s] -- Install configuration: ""
+[8.785s] -- Execute custom install script
+[8.785s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/lib/hello_moveit/hello_moveit
+[8.786s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/ament_index/resource_index/package_run_dependencies/hello_moveit
+[8.786s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/ament_index/resource_index/parent_prefix_path/hello_moveit
+[8.786s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/hello_moveit/environment/ament_prefix_path.sh
+[8.786s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/hello_moveit/environment/ament_prefix_path.dsv
+[8.786s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/hello_moveit/environment/path.sh
+[8.786s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/hello_moveit/environment/path.dsv
+[8.786s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/hello_moveit/local_setup.bash
+[8.786s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/hello_moveit/local_setup.sh
+[8.786s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/hello_moveit/local_setup.zsh
+[8.787s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/hello_moveit/local_setup.dsv
+[8.787s] -- Symlinking: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/hello_moveit/package.dsv
+[8.800s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/ament_index/resource_index/packages/hello_moveit
+[8.801s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/hello_moveit/cmake/hello_moveitConfig.cmake
+[8.801s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/hello_moveit/cmake/hello_moveitConfig-version.cmake
+[8.801s] -- Up-to-date symlink: /home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit/share/hello_moveit/package.xml
+[8.803s] Invoked command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --install /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit

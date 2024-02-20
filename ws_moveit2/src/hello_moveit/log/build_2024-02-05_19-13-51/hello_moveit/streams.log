@@ -1,0 +1,14 @@
+[0.096s] Invoking command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16
+[0.184s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[0.236s] [ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[7.954s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In lambda function:
+[7.954s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:88:27:[m[K [01;31m[Kerror: [m[K‘[01m[KcreateMeshFromResource[m[K’ is not a member of ‘[01m[Kshapes[m[K’
+[7.954s]    88 | shapes::Mesh* m = shapes::[01;31m[KcreateMeshFromResource[m[K("package://cube.stl");
+[7.954s]       |                           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[7.954s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:88:15:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Km[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[7.954s]    88 | shapes::Mesh* [01;35m[Km[m[K = shapes::createMeshFromResource("package://cube.stl");
+[7.954s]       |               [01;35m[K^[m[K
+[10.584s] gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+[10.584s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+[10.584s] gmake: *** [Makefile:146: all] Error 2
+[10.587s] Invoked command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16

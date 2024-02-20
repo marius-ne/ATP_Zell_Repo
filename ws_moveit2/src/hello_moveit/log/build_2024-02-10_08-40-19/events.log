@@ -1,0 +1,187 @@
+[0.000000] (-) TimerEvent: {}
+[0.009855] (hello_moveit) JobQueued: {'identifier': 'hello_moveit', 'dependencies': OrderedDict()}
+[0.009938] (hello_moveit) JobStarted: {'identifier': 'hello_moveit'}
+[0.099816] (-) TimerEvent: {}
+[0.170134] (hello_moveit) JobProgress: {'identifier': 'hello_moveit', 'progress': 'cmake'}
+[0.170238] (hello_moveit) JobProgress: {'identifier': 'hello_moveit', 'progress': 'build'}
+[0.170274] (hello_moveit) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit', '--', '-j16', '-l16'], 'cwd': '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'alex'), ('LC_TIME', 'de_DE.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/alex/ws_moveit2/install/pilz_industrial_motion_planner_testutils/lib:/home/alex/ws_moveit2/install/pilz_industrial_motion_planner/lib:/home/alex/ws_moveit2/install/moveit_visual_tools/lib:/home/alex/ws_moveit2/install/moveit_task_constructor_visualization/lib:/home/alex/ws_moveit2/install/moveit_task_constructor_demo/lib:/home/alex/ws_moveit2/install/moveit_task_constructor_capabilities/lib:/home/alex/ws_moveit2/install/moveit_task_constructor_core/lib:/home/alex/ws_moveit2/install/moveit_ros_control_interface/lib:/home/alex/ws_moveit2/install/moveit_simple_controller_manager/lib:/home/alex/ws_moveit2/install/moveit_setup_assistant/lib:/home/alex/ws_moveit2/install/moveit_setup_srdf_plugins/lib:/home/alex/ws_moveit2/install/moveit_setup_core_plugins/lib:/home/alex/ws_moveit2/install/moveit_setup_controllers/lib:/home/alex/ws_moveit2/install/moveit_setup_app_plugins/lib:/home/alex/ws_moveit2/install/moveit_setup_framework/lib:/home/alex/ws_moveit2/install/moveit_servo/lib:/home/alex/ws_moveit2/install/moveit_ros_visualization/lib:/home/alex/ws_moveit2/install/moveit_hybrid_planning/lib:/home/alex/ws_moveit2/install/moveit_ros_planning_interface/lib:/home/alex/ws_moveit2/install/moveit_ros_benchmarks/lib:/home/alex/ws_moveit2/install/moveit_ros_warehouse/lib:/home/alex/ws_moveit2/install/moveit_ros_robot_interaction/lib:/home/alex/ws_moveit2/install/moveit_ros_perception/lib:/home/alex/ws_moveit2/install/moveit_ros_move_group/lib:/home/alex/ws_moveit2/install/moveit_planners_ompl/lib:/home/alex/ws_moveit2/install/moveit_ros_planning/lib:/home/alex/ws_moveit2/install/moveit_ros_occupancy_map_monitor/lib:/home/alex/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin/lib:/home/alex/ws_moveit2/install/moveit_planners_chomp/lib:/home/alex/ws_moveit2/install/moveit_kinematics/lib:/home/alex/ws_moveit2/install/moveit_chomp_optimizer_adapter/lib:/home/alex/ws_moveit2/install/chomp_motion_planner/lib:/home/alex/ws_moveit2/install/moveit_core/lib:/home/alex/ws_moveit2/install/srdfdom/lib:/home/alex/ws_moveit2/install/rviz_marker_tools/lib:/home/alex/ws_moveit2/install/rosparam_shortcuts/lib:/home/alex/ws_moveit2/install/moveit_task_constructor_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/alex'), ('OLDPWD', '/home/alex/ws_moveit2/src/hello_moveit/src'), ('DESKTOP_SESSION', 'ubuntu-xorg'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_DE.UTF-8'), ('SYSTEMD_EXEC_PID', '2240'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('MANDATORY_PATH', '/usr/share/gconf/ubuntu-xorg.mandatory.path'), ('COLCON_PREFIX_PATH', '/home/alex/ws_moveit2/src/hello_moveit/install:/home/alex/ws_moveit2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'alex'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('DEFAULTS_PATH', '/usr/share/gconf/ubuntu-xorg.default.path'), ('USERNAME', 'alex'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/home/alex/ws_moveit2/install/moveit_core/bin:/opt/ros/humble/bin:/home/alex/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/AlexNotebook:@/tmp/.ICE-unix/2222,unix/AlexNotebook:/tmp/.ICE-unix/2222'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/b199fbec_9bb1_4801_92ac_4b32a694de5a'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':0'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('ARENA_ROOT', '/home/alex/ArenaSDK_Linux_x64'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu-xorg'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.106'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit:/home/alex/ws_moveit2/install/pilz_industrial_motion_planner_testutils:/home/alex/ws_moveit2/install/moveit_runtime:/home/alex/ws_moveit2/install/moveit2_tutorials:/home/alex/ws_moveit2/install/moveit:/home/alex/ws_moveit2/install/moveit_planners:/home/alex/ws_moveit2/install/pilz_industrial_motion_planner:/home/alex/ws_moveit2/install/moveit_visual_tools:/home/alex/ws_moveit2/install/moveit_task_constructor_visualization:/home/alex/ws_moveit2/install/moveit_task_constructor_demo:/home/alex/ws_moveit2/install/moveit_task_constructor_capabilities:/home/alex/ws_moveit2/install/moveit_task_constructor_core:/home/alex/ws_moveit2/install/moveit_ros_control_interface:/home/alex/ws_moveit2/install/moveit_plugins:/home/alex/ws_moveit2/install/moveit_simple_controller_manager:/home/alex/ws_moveit2/install/moveit_setup_assistant:/home/alex/ws_moveit2/install/moveit_setup_srdf_plugins:/home/alex/ws_moveit2/install/moveit_setup_core_plugins:/home/alex/ws_moveit2/install/moveit_setup_controllers:/home/alex/ws_moveit2/install/moveit_setup_app_plugins:/home/alex/ws_moveit2/install/moveit_setup_framework:/home/alex/ws_moveit2/install/moveit_servo:/home/alex/ws_moveit2/install/moveit_ros:/home/alex/ws_moveit2/install/moveit_ros_visualization:/home/alex/ws_moveit2/install/moveit_hybrid_planning:/home/alex/ws_moveit2/install/moveit_ros_planning_interface:/home/alex/ws_moveit2/install/moveit_ros_benchmarks:/home/alex/ws_moveit2/install/moveit_ros_warehouse:/home/alex/ws_moveit2/install/moveit_ros_robot_interaction:/home/alex/ws_moveit2/install/moveit_ros_perception:/home/alex/ws_moveit2/install/moveit_resources_prbt_pg70_support:/home/alex/ws_moveit2/install/moveit_resources_prbt_moveit_config:/home/alex/ws_moveit2/install/moveit_ros_move_group:/home/alex/ws_moveit2/install/moveit_planners_ompl:/home/alex/ws_moveit2/install/moveit_ros_planning:/home/alex/ws_moveit2/install/moveit_ros_occupancy_map_monitor:/home/alex/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin:/home/alex/ws_moveit2/install/moveit_planners_chomp:/home/alex/ws_moveit2/install/moveit_kinematics:/home/alex/ws_moveit2/install/moveit_chomp_optimizer_adapter:/home/alex/ws_moveit2/install/chomp_motion_planner:/home/alex/ws_moveit2/install/moveit_core:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/srdfdom:/home/alex/ws_moveit2/install/rviz_marker_tools:/home/alex/ws_moveit2/install/rosparam_shortcuts:/home/alex/ws_moveit2/install/moveit_task_constructor_msgs:/home/alex/ws_moveit2/install/moveit_resources_prbt_support:/home/alex/ws_moveit2/install/moveit_resources:/home/alex/ws_moveit2/install/moveit_resources_pr2_description:/home/alex/ws_moveit2/install/moveit_resources_panda_moveit_config:/home/alex/ws_moveit2/install/moveit_resources_panda_description:/home/alex/ws_moveit2/install/moveit_resources_fanuc_moveit_config:/home/alex/ws_moveit2/install/moveit_resources_fanuc_description:/home/alex/ws_moveit2/install/moveit_common:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu-xorg'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu-xorg:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu-xorg:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/alex/ws_moveit2/install/moveit_configs_utils/lib/python3.10/site-packages:/home/alex/ws_moveit2/install/srdfdom/local/lib/python3.10/dist-packages:/home/alex/ws_moveit2/install/moveit_task_constructor_msgs/local/lib/python3.10/dist-packages:/home/alex/ws_moveit2/install/launch_param_builder/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/alex/ws_moveit2/src/hello_moveit/install/hello_moveit:/home/alex/ws_moveit2/install/pilz_industrial_motion_planner_testutils:/home/alex/ws_moveit2/install/moveit_runtime:/home/alex/ws_moveit2/install/moveit2_tutorials:/home/alex/ws_moveit2/install/moveit:/home/alex/ws_moveit2/install/moveit_planners:/home/alex/ws_moveit2/install/pilz_industrial_motion_planner:/home/alex/ws_moveit2/install/moveit_visual_tools:/home/alex/ws_moveit2/install/moveit_task_constructor_visualization:/home/alex/ws_moveit2/install/moveit_task_constructor_demo:/home/alex/ws_moveit2/install/moveit_task_constructor_capabilities:/home/alex/ws_moveit2/install/moveit_task_constructor_core:/home/alex/ws_moveit2/install/moveit_ros_control_interface:/home/alex/ws_moveit2/install/moveit_plugins:/home/alex/ws_moveit2/install/moveit_simple_controller_manager:/home/alex/ws_moveit2/install/moveit_setup_assistant:/home/alex/ws_moveit2/install/moveit_setup_srdf_plugins:/home/alex/ws_moveit2/install/moveit_setup_core_plugins:/home/alex/ws_moveit2/install/moveit_setup_controllers:/home/alex/ws_moveit2/install/moveit_setup_app_plugins:/home/alex/ws_moveit2/install/moveit_setup_framework:/home/alex/ws_moveit2/install/moveit_servo:/home/alex/ws_moveit2/install/moveit_ros:/home/alex/ws_moveit2/install/moveit_ros_visualization:/home/alex/ws_moveit2/install/moveit_hybrid_planning:/home/alex/ws_moveit2/install/moveit_ros_planning_interface:/home/alex/ws_moveit2/install/moveit_ros_benchmarks:/home/alex/ws_moveit2/install/moveit_ros_warehouse:/home/alex/ws_moveit2/install/moveit_ros_robot_interaction:/home/alex/ws_moveit2/install/moveit_ros_perception:/home/alex/ws_moveit2/install/moveit_resources_prbt_pg70_support:/home/alex/ws_moveit2/install/moveit_resources_prbt_moveit_config:/home/alex/ws_moveit2/install/moveit_ros_move_group:/home/alex/ws_moveit2/install/moveit_planners_ompl:/home/alex/ws_moveit2/install/moveit_ros_planning:/home/alex/ws_moveit2/install/moveit_ros_occupancy_map_monitor:/home/alex/ws_moveit2/install/moveit_resources_prbt_ikfast_manipulator_plugin:/home/alex/ws_moveit2/install/moveit_planners_chomp:/home/alex/ws_moveit2/install/moveit_kinematics:/home/alex/ws_moveit2/install/moveit_chomp_optimizer_adapter:/home/alex/ws_moveit2/install/chomp_motion_planner:/home/alex/ws_moveit2/install/moveit_core:/home/alex/ws_moveit2/install/srdfdom:/home/alex/ws_moveit2/install/rviz_marker_tools:/home/alex/ws_moveit2/install/rosparam_shortcuts:/home/alex/ws_moveit2/install/moveit_task_constructor_msgs:/home/alex/ws_moveit2/install/moveit_resources_prbt_support:/home/alex/ws_moveit2/install/moveit_resources:/home/alex/ws_moveit2/install/moveit_resources_pr2_description:/home/alex/ws_moveit2/install/moveit_resources_panda_moveit_config:/home/alex/ws_moveit2/install/moveit_resources_panda_description:/home/alex/ws_moveit2/install/moveit_resources_fanuc_moveit_config:/home/alex/ws_moveit2/install/moveit_resources_fanuc_description:/home/alex/ws_moveit2/install/moveit_common:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble')]), 'shell': False}
+[0.199952] (-) TimerEvent: {}
+[0.301145] (-) TimerEvent: {}
+[0.327860] (hello_moveit) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hello_moveit\x1b[0m\n'}
+[0.403768] (-) TimerEvent: {}
+[0.447851] (hello_moveit) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o\x1b[0m\n'}
+[0.507815] (-) TimerEvent: {}
+[0.611779] (-) TimerEvent: {}
+[0.712568] (-) TimerEvent: {}
+[0.815773] (-) TimerEvent: {}
+[0.919761] (-) TimerEvent: {}
+[1.020646] (-) TimerEvent: {}
+[1.123175] (-) TimerEvent: {}
+[1.223672] (-) TimerEvent: {}
+[1.324464] (-) TimerEvent: {}
+[1.427577] (-) TimerEvent: {}
+[1.528837] (-) TimerEvent: {}
+[1.631772] (-) TimerEvent: {}
+[1.732581] (-) TimerEvent: {}
+[1.833023] (-) TimerEvent: {}
+[1.933385] (-) TimerEvent: {}
+[2.036155] (-) TimerEvent: {}
+[2.139812] (-) TimerEvent: {}
+[2.240805] (-) TimerEvent: {}
+[2.341179] (-) TimerEvent: {}
+[2.441723] (-) TimerEvent: {}
+[2.543786] (-) TimerEvent: {}
+[2.647767] (-) TimerEvent: {}
+[2.748528] (-) TimerEvent: {}
+[2.849050] (-) TimerEvent: {}
+[2.954799] (-) TimerEvent: {}
+[3.055763] (-) TimerEvent: {}
+[3.157833] (-) TimerEvent: {}
+[3.259770] (-) TimerEvent: {}
+[3.363776] (-) TimerEvent: {}
+[3.467207] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:94:3:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K"/*" within comment [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcomment\x07-Wcomment\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[3.467518] (-) TimerEvent: {}
+[3.467714] (hello_moveit) StderrLine: {'line': b'   94 |   /*\n'}
+[3.467895] (hello_moveit) StderrLine: {'line': b'      |    \n'}
+[3.567775] (-) TimerEvent: {}
+[3.668354] (-) TimerEvent: {}
+[3.771793] (-) TimerEvent: {}
+[3.872233] (-) TimerEvent: {}
+[3.972641] (-) TimerEvent: {}
+[4.072995] (-) TimerEvent: {}
+[4.173335] (-) TimerEvent: {}
+[4.275786] (-) TimerEvent: {}
+[4.376167] (-) TimerEvent: {}
+[4.477438] (-) TimerEvent: {}
+[4.579801] (-) TimerEvent: {}
+[4.680522] (-) TimerEvent: {}
+[4.780902] (-) TimerEvent: {}
+[4.881243] (-) TimerEvent: {}
+[4.981583] (-) TimerEvent: {}
+[5.081967] (-) TimerEvent: {}
+[5.182424] (-) TimerEvent: {}
+[5.282807] (-) TimerEvent: {}
+[5.383213] (-) TimerEvent: {}
+[5.483793] (-) TimerEvent: {}
+[5.586703] (-) TimerEvent: {}
+[5.687049] (-) TimerEvent: {}
+[5.787399] (-) TimerEvent: {}
+[5.887849] (-) TimerEvent: {}
+[5.988212] (-) TimerEvent: {}
+[6.088598] (-) TimerEvent: {}
+[6.188982] (-) TimerEvent: {}
+[6.289904] (-) TimerEvent: {}
+[6.390366] (-) TimerEvent: {}
+[6.491007] (-) TimerEvent: {}
+[6.591424] (-) TimerEvent: {}
+[6.693024] (-) TimerEvent: {}
+[6.795044] (-) TimerEvent: {}
+[6.895412] (-) TimerEvent: {}
+[6.995934] (-) TimerEvent: {}
+[7.099094] (-) TimerEvent: {}
+[7.199656] (-) TimerEvent: {}
+[7.300049] (-) TimerEvent: {}
+[7.403783] (-) TimerEvent: {}
+[7.504149] (-) TimerEvent: {}
+[7.604513] (-) TimerEvent: {}
+[7.704982] (-) TimerEvent: {}
+[7.805420] (-) TimerEvent: {}
+[7.905869] (-) TimerEvent: {}
+[8.006882] (-) TimerEvent: {}
+[8.108559] (-) TimerEvent: {}
+[8.211767] (-) TimerEvent: {}
+[8.312561] (-) TimerEvent: {}
+[8.414839] (-) TimerEvent: {}
+[8.515209] (-) TimerEvent: {}
+[8.615564] (-) TimerEvent: {}
+[8.716060] (-) TimerEvent: {}
+[8.816790] (-) TimerEvent: {}
+[8.918505] (-) TimerEvent: {}
+[9.019399] (-) TimerEvent: {}
+[9.119833] (-) TimerEvent: {}
+[9.222633] (-) TimerEvent: {}
+[9.327770] (-) TimerEvent: {}
+[9.429002] (-) TimerEvent: {}
+[9.529522] (-) TimerEvent: {}
+[9.629965] (-) TimerEvent: {}
+[9.730514] (-) TimerEvent: {}
+[9.830860] (-) TimerEvent: {}
+[9.931198] (-) TimerEvent: {}
+[10.031791] (-) TimerEvent: {}
+[10.134304] (-) TimerEvent: {}
+[10.239795] (-) TimerEvent: {}
+[10.343789] (-) TimerEvent: {}
+[10.446174] (-) TimerEvent: {}
+[10.547789] (-) TimerEvent: {}
+[10.650081] (-) TimerEvent: {}
+[10.751790] (-) TimerEvent: {}
+[10.853970] (-) TimerEvent: {}
+[10.959779] (-) TimerEvent: {}
+[11.062356] (-) TimerEvent: {}
+[11.167810] (-) TimerEvent: {}
+[11.271761] (-) TimerEvent: {}
+[11.375771] (-) TimerEvent: {}
+[11.479779] (-) TimerEvent: {}
+[11.582426] (-) TimerEvent: {}
+[11.687792] (-) TimerEvent: {}
+[11.788369] (-) TimerEvent: {}
+[11.891781] (-) TimerEvent: {}
+[11.995791] (-) TimerEvent: {}
+[12.099762] (-) TimerEvent: {}
+[12.200136] (-) TimerEvent: {}
+[12.303773] (-) TimerEvent: {}
+[12.404148] (-) TimerEvent: {}
+[12.507764] (-) TimerEvent: {}
+[12.608120] (-) TimerEvent: {}
+[12.708870] (-) TimerEvent: {}
+[12.809250] (-) TimerEvent: {}
+[12.909631] (-) TimerEvent: {}
+[13.009994] (-) TimerEvent: {}
+[13.110341] (-) TimerEvent: {}
+[13.210812] (-) TimerEvent: {}
+[13.311162] (-) TimerEvent: {}
+[13.411521] (-) TimerEvent: {}
+[13.512407] (-) TimerEvent: {}
+[13.612752] (-) TimerEvent: {}
+[13.713057] (-) TimerEvent: {}
+[13.813339] (-) TimerEvent: {}
+[13.913644] (-) TimerEvent: {}
+[14.013943] (-) TimerEvent: {}
+[14.114277] (-) TimerEvent: {}
+[14.214641] (-) TimerEvent: {}
+[14.315007] (-) TimerEvent: {}
+[14.415399] (-) TimerEvent: {}
+[14.515743] (-) TimerEvent: {}
+[14.616055] (-) TimerEvent: {}
+[14.716346] (-) TimerEvent: {}
+[14.816700] (-) TimerEvent: {}
+[14.917123] (-) TimerEvent: {}
+[15.017451] (-) TimerEvent: {}
+[15.117887] (-) TimerEvent: {}
+[15.218228] (-) TimerEvent: {}
+[15.318568] (-) TimerEvent: {}
+[15.418793] (-) TimerEvent: {}
+[15.519061] (-) TimerEvent: {}
+[15.619373] (-) TimerEvent: {}
+[15.719823] (-) TimerEvent: {}
+[15.820141] (-) TimerEvent: {}
+[15.920473] (-) TimerEvent: {}
+[15.985306] (hello_moveit) StdoutLine: {'line': b'[ 66%] \x1b[32m\x1b[1mLinking CXX executable hello_moveit\x1b[0m\n'}
+[16.020558] (-) TimerEvent: {}
+[16.120812] (-) TimerEvent: {}
+[16.221102] (-) TimerEvent: {}
+[16.321415] (-) TimerEvent: {}
+[16.421682] (-) TimerEvent: {}
+[16.493773] (hello_moveit) StderrLine: {'line': b"/usr/bin/ld: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o: in function `main':\n"}
+[16.494011] (hello_moveit) StderrLine: {'line': b"hello_moveit.cpp:(.text+0x47e): undefined reference to `WzlPlanner::Pose::Pose()'\n"}
+[16.494125] (hello_moveit) StderrLine: {'line': b"/usr/bin/ld: hello_moveit.cpp:(.text+0x4a1): undefined reference to `WzlPlanner::Pose::SetPositionXYZ(double, double, double)'\n"}
+[16.518843] (hello_moveit) StderrLine: {'line': b'collect2: error: ld returned 1 exit status\n'}
+[16.521489] (hello_moveit) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:438: hello_moveit] Error 1\n'}
+[16.521702] (-) TimerEvent: {}
+[16.521856] (hello_moveit) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2\n'}
+[16.522304] (hello_moveit) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[16.524882] (hello_moveit) CommandEnded: {'returncode': 2}
+[16.621801] (-) TimerEvent: {}
+[16.712758] (hello_moveit) JobEnded: {'identifier': 'hello_moveit', 'rc': 2}
+[16.721889] (-) TimerEvent: {}
+[16.723223] (-) EventReactorShutdown: {}

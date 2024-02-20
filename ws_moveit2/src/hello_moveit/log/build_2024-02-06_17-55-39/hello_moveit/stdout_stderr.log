@@ -1,0 +1,63 @@
+[35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:106:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kmove_group_interface[m[K’ was not declared in this scope
+  106 |   if (addMeshColllsionObject([01;31m[Kmove_group_interface[m[K, planning_scene_interface, meshPath, "meshTest3", 1, shelf_pose))
+      |                              [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/kinematics_base/kinematics_base.h:42[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model_group.h:42[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h:45[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_core/include/moveit/robot_state/robot_state.h:40[m[K,
+                 from [01m[K/home/alex/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h:41[m[K,
+                 from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:1[m[K:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:108:38:[m[K [01;35m[Kwarning: [m[Ktoo many arguments for format [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat-extra-args-Wformat-extra-args]8;;[m[K]
+  108 |     RCLCPP_DEBUG(node->get_logger(), [01;35m[K"Succesfully added to scene"[m[K, 4);
+      |                                      [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:112:38:[m[K [01;35m[Kwarning: [m[Ktoo many arguments for format [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat-extra-args-Wformat-extra-args]8;;[m[K]
+  112 |     RCLCPP_DEBUG(node->get_logger(), [01;35m[K"Failed to add object to to scene"[m[K, 4);
+      |                                      [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:124:29:[m[K [01;31m[Kerror: [m[Kcapture of non-variable ‘[01m[Kmoveit_visual_tools[m[K’
+  124 |   auto const draw_title = [&[01;31m[Kmoveit_visual_tools[m[K](auto text) {
+      |                             [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:3[m[K:
+[01m[K/home/alex/ws_moveit2/install/moveit_visual_tools/include/moveit_visual_tools/moveit_visual_tools.h:60:11:[m[K [01;36m[Knote: [m[K‘[01m[Knamespace moveit_visual_tools { }[m[K’ declared here
+   60 | namespace [01;36m[Kmoveit_visual_tools[m[K
+      |           [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In lambda function:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:130:24:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K.[m[K’ token
+  130 |     moveit_visual_tools[01;31m[K.[m[KpublishText(text_pose, text, rviz_visual_tools::WHITE, rviz_visual_tools::XLARGE);
+      |                        [01;31m[K^[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:132:25:[m[K [01;31m[Kerror: [m[Kcapture of non-variable ‘[01m[Kmoveit_visual_tools[m[K’
+  132 |   auto const prompt = [&[01;31m[Kmoveit_visual_tools[m[K](auto text) { moveit_visual_tools.prompt(text); };
+      |                         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:3[m[K:
+[01m[K/home/alex/ws_moveit2/install/moveit_visual_tools/include/moveit_visual_tools/moveit_visual_tools.h:60:11:[m[K [01;36m[Knote: [m[K‘[01m[Knamespace moveit_visual_tools { }[m[K’ declared here
+   60 | namespace [01;36m[Kmoveit_visual_tools[m[K
+      |           [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In lambda function:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:132:78:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K.[m[K’ token
+  132 |   auto const prompt = [&moveit_visual_tools](auto text) { moveit_visual_tools[01;31m[K.[m[Kprompt(text); };
+      |                                                                              [01;31m[K^[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:134:9:[m[K [01;31m[Kerror: [m[Kcapture of non-variable ‘[01m[Kmoveit_visual_tools[m[K’
+  134 |       [&[01;31m[Kmoveit_visual_tools[m[K, jmg = move_group_interface.getRobotModel()->getJointModelGroup("panda_arm")](
+      |         [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:3[m[K:
+[01m[K/home/alex/ws_moveit2/install/moveit_visual_tools/include/moveit_visual_tools/moveit_visual_tools.h:60:11:[m[K [01;36m[Knote: [m[K‘[01m[Knamespace moveit_visual_tools { }[m[K’ declared here
+   60 | namespace [01;36m[Kmoveit_visual_tools[m[K
+      |           [01;36m[K^~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:134:36:[m[K [01;31m[Kerror: [m[K‘[01m[Kmove_group_interface[m[K’ was not declared in this scope
+  134 |       [&moveit_visual_tools, jmg = [01;31m[Kmove_group_interface[m[K.getRobotModel()->getJointModelGroup("panda_arm")](
+      |                                    [01;31m[K^~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In lambda function:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:135:55:[m[K [01;31m[Kerror: [m[Kexpected primary-expression before ‘[01m[K.[m[K’ token
+  135 |           auto const trajectory) { moveit_visual_tools[01;31m[K.[m[KpublishTrajectoryLine(trajectory, jmg); };
+      |                                                       [01;31m[K^[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:135:90:[m[K [01;31m[Kerror: [m[K‘[01m[Kjmg[m[K’ was not declared in this scope
+  135 |           auto const trajectory) { moveit_visual_tools.publishTrajectoryLine(trajectory, [01;31m[Kjmg[m[K); };
+      |                                                                                          [01;31m[K^~~[m[K
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,9 @@
+[35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/SceneLoader.cpp.o[0m
+[ 66%] [32m[1mLinking CXX executable hello_moveit[0m
+/usr/bin/ld: CMakeFiles/hello_moveit.dir/src/SceneLoader.cpp.o: in function `addMeshColllsionObject(moveit::planning_interface::MoveGroupInterface const&, moveit::planning_interface::PlanningSceneInterface&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, float, geometry_msgs::msg::Pose_<std::allocator<void> >)':
+SceneLoader.cpp:(.text+0x3d0): multiple definition of `addMeshColllsionObject(moveit::planning_interface::MoveGroupInterface const&, moveit::planning_interface::PlanningSceneInterface&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, float, geometry_msgs::msg::Pose_<std::allocator<void> >)'; CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o:hello_moveit.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:438: hello_moveit] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

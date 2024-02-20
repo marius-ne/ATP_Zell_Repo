@@ -1,0 +1,6 @@
+/usr/bin/ld: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o: in function `WzlPlanner::TaskList::TaskList()':
+hello_moveit.cpp:(.text._ZN10WzlPlanner8TaskListC2Ev[_ZN10WzlPlanner8TaskListC5Ev]+0x18): undefined reference to `WzlPlanner::Task::Task()'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:470: hello_moveit] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

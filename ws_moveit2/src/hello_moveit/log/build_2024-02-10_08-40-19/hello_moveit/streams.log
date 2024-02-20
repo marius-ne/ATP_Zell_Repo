@@ -1,0 +1,15 @@
+[0.161s] Invoking command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16
+[0.318s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[0.438s] [ 33%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[3.457s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:94:3:[m[K [01;35m[Kwarning: [m[K"/*" within comment [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcomment-Wcomment]8;;[m[K]
+[3.458s]    94 |   /*
+[3.458s]       |    
+[15.975s] [ 66%] [32m[1mLinking CXX executable hello_moveit[0m
+[16.484s] /usr/bin/ld: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o: in function `main':
+[16.484s] hello_moveit.cpp:(.text+0x47e): undefined reference to `WzlPlanner::Pose::Pose()'
+[16.484s] /usr/bin/ld: hello_moveit.cpp:(.text+0x4a1): undefined reference to `WzlPlanner::Pose::SetPositionXYZ(double, double, double)'
+[16.509s] collect2: error: ld returned 1 exit status
+[16.512s] gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:438: hello_moveit] Error 1
+[16.512s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+[16.512s] gmake: *** [Makefile:146: all] Error 2
+[16.515s] Invoked command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16

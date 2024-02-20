@@ -1,0 +1,23 @@
+[0.081s] Invoking command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16
+[0.152s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[0.196s] [ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[6.412s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kbool addMeshColllsionObject(const moveit::planning_interface::MoveGroupInterface&, moveit::planning_interface::PlanningSceneInterface&, std::string, std::string, float, geometry_msgs::msg::Pose)[m[K’:
+[6.412s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:43:19:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kdimensions[m[K’ in ‘[01m[Koriginal_mesh[m[K’, which is of pointer type ‘[01m[Kshapes::Mesh*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+[6.413s]    43 |     original_mesh.[01;31m[Kdimensions[m[K.resize(3);
+[6.413s]       |                   [01;31m[K^~~~~~~~~~[m[K
+[6.413s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:44:19:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kdimensions[m[K’ in ‘[01m[Koriginal_mesh[m[K’, which is of pointer type ‘[01m[Kshapes::Mesh*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+[6.413s]    44 |     original_mesh.[01;31m[Kdimensions[m[K[primitive.BOX_X] = 0.5;
+[6.413s]       |                   [01;31m[K^~~~~~~~~~[m[K
+[6.419s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:44:30:[m[K [01;31m[Kerror: [m[K‘[01m[Kprimitive[m[K’ was not declared in this scope
+[6.419s]    44 |     original_mesh.dimensions[[01;31m[Kprimitive[m[K.BOX_X] = 0.5;
+[6.419s]       |                              [01;31m[K^~~~~~~~~[m[K
+[6.419s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:45:19:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kdimensions[m[K’ in ‘[01m[Koriginal_mesh[m[K’, which is of pointer type ‘[01m[Kshapes::Mesh*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+[6.419s]    45 |     original_mesh.[01;31m[Kdimensions[m[K[primitive.BOX_Y] = 0.1;
+[6.419s]       |                   [01;31m[K^~~~~~~~~~[m[K
+[6.419s] [01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:46:19:[m[K [01;31m[Kerror: [m[Krequest for member ‘[01m[Kdimensions[m[K’ in ‘[01m[Koriginal_mesh[m[K’, which is of pointer type ‘[01m[Kshapes::Mesh*[m[K’ (maybe you meant to use ‘[01m[K->[m[K’ ?)
+[6.419s]    46 |     original_mesh.[01;31m[Kdimensions[m[K[primitive.BOX_Z] = 0.5;
+[6.419s]       |                   [01;31m[K^~~~~~~~~~[m[K
+[8.202s] gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+[8.202s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+[8.203s] gmake: *** [Makefile:146: all] Error 2
+[8.206s] Invoked command in '/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit -- -j16 -l16

@@ -1,0 +1,12 @@
+[35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:94:15:[m[K [01;31m[Kerror: [m[Kredeclaration of ‘[01m[Kstd::string meshPath[m[K’
+   94 |   std::string [01;31m[KmeshPath[m[K = "package://hello_moveit/cube.stl";
+      |               [01;31m[K^~~~~~~~[m[K
+[01m[K/home/alex/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:91:15:[m[K [01;36m[Knote: [m[K‘[01m[Kstd::string meshPath[m[K’ previously declared here
+   91 |   std::string [01;36m[KmeshPath[m[K = "package://hello_moveit/spanneinheit.stl";
+      |               [01;36m[K^~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
