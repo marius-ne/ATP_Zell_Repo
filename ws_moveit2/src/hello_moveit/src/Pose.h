@@ -7,13 +7,38 @@
 #include "tf2_ros/static_transform_broadcaster.h"
 #include "tf2/utils.h"
 
+#include <memory>
+
 namespace WzlPlanner
 {
+    class Transform
+    {
+
+        private:
+            // the pose relative to the parent transform
+            std::shared_ptr<Pose> poseRelative;
+
+            // the pose in absolute world coordinates
+            std::shared_ptr<Pose> poseAbsolute;
+
+            std::vector<std::shared_ptr<Transform>> children;
+
+        public:
+            std::shared_ptr<Pose> GetPoseRelative() const { return this->poseRelative; }
+            std::shared_ptr<Pose> GetPoseAbsolute() const { return this->poseAbsolute; }
+
+            void AddChild(const std::shared_ptr<Transform> child);
+
+            // Updates the absolute poses of this Transform and all it's children
+            void Update(const std::shared_ptr<Transform> parent);
+    };
+
     class Pose
     {
 
         public:
             Pose();
+            Pose(Pose &copy);
 
             void SetPositionX(const double x);
             void SetPositionY(const double y);
@@ -47,8 +72,12 @@ namespace WzlPlanner
             double GetRotationK() const { return k; }
             double GetRotationW() const { return w; }
 
+            void Reset() { this->isDirty = false; }
+            bool IsDirty() const { return this->isDirty; }
+
         private:
 
+            bool isDirty;
             geometry_msgs::msg::Transform transform;
 
             double x, y, z;
