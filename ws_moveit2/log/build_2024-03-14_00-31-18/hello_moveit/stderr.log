@@ -1,0 +1,29 @@
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneLoader.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneLoader.h:4:10:[m[K [01;31m[Kfatal error: [m[Kmoveit/move_group_interface/move_group_interface.h: No such file or directory
+    4 | #include [01;31m[K<moveit/move_group_interface/move_group_interface.h>[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:18:14:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargc[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   18 | int main([01;35m[Kint argc[m[K, char* argv[])
+      |          [01;35m[K~~~~^~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:18:26:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargv[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   18 | int main(int argc, [01;35m[Kchar* argv[][m[K)
+      |                    [01;35m[K~~~~~~^~~~~~[m[K
+compilation terminated.
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:4:10:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/msg/transform.h: No such file or directory
+    4 | #include [01;31m[K"geometry_msgs/msg/transform.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:90: CMakeFiles/hello_moveit.dir/src/SceneLoader.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:104: CMakeFiles/hello_moveit.dir/src/Pose.cpp.o] Error 1
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:7[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:4:10:[m[K [01;31m[Kfatal error: [m[Kgeometry_msgs/msg/transform.h: No such file or directory
+    4 | #include [01;31m[K"geometry_msgs/msg/transform.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:118: CMakeFiles/hello_moveit.dir/src/Task.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

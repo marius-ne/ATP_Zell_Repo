@@ -2,8 +2,32 @@
 
 WzlPlanner::Pose::Pose()
 {
-    this->SetPositionXYZ(0, 0, 0);
-    this->SetRotationXYZ(0, 0, 0);
+    this->Set();
+}
+
+void WzlPlanner::Pose::Set()
+{
+    SetPositionXYZ(0, 0, 0);
+    SetRotationXYZ(0, 0, 0);
+}
+
+void WzlPlanner::Pose::Set(const double x, const double y, const double z, 
+    const double rx, const double ry, const double rz)
+{
+    SetPositionXYZ(x, y, z);
+    SetRotationXYZ(rx, ry, rz);
+}
+
+void WzlPlanner::Pose::Set(const double x, const double y, const double z, 
+    const double i, const double j, const double k, const double w)
+{
+    SetPositionXYZ(x, y, z);
+    SetRotationQuaternion(i, j, k, w);
+}
+
+void WzlPlanner::Pose::Set(Pose &pose)
+{
+    Set(pose.x, pose.y, pose.z, pose.rx, pose.ry, pose.rz);
 }
 
 WzlPlanner::Pose::Pose(Pose &copy)
@@ -45,6 +69,7 @@ void WzlPlanner::Pose::SetPositionXYZ(const double x, const double y, const doub
     this->x = x;
     this->y = y;
     this->z = z;
+
     UpdatePosition();
 }
 
@@ -166,15 +191,247 @@ void WzlPlanner::Pose::UpdateRotationEulerFromQuaternion()
     isDirty = true;
 }
 
-void WzlPlanner::Transform::AddChild(const std::shared_ptr<Transform> child)
+
+void WzlPlanner::Transform::GetChildrenRecursive(std::vector<std::shared_ptr<Transform>> &collectedTransforms) const
 {
-    children.push_back(child);
-    child->Update(std::shared_ptr<Transform>(this));
+    for (auto const& [key, val] : children_)
+    {
+        collectedTransforms.push_back(val);
+        GetChildrenRecursive(collectedTransforms);
+    }
+
+    // old implementation withn childrens as list
+    //for(auto&& child: children_)
+    //{
+    //    collectedTransforms.push_back(child);
+    //    GetChildrenRecursive(collectedTransforms);
+    //}
 }
+
+Eigen::Affine3d create_rotation_matrix(double ax, double ay, double az) 
+{
+  auto rx = Eigen::Affine3d(Eigen::AngleAxisd(ax, Eigen::Vector3d(1, 0, 0)));
+  auto ry = Eigen::Affine3d(Eigen::AngleAxisd(ay, Eigen::Vector3d(0, 1, 0)));
+  auto rz = Eigen::Affine3d(Eigen::AngleAxisd(az, Eigen::Vector3d(0, 0, 1)));
+  return rz * ry * rx;
+}
+
+
 
 void WzlPlanner::Transform::Update(const std::shared_ptr<Transform> parent)
 {
-    for(auto&& elem: this->children)
-        elem->Update(std::shared_ptr<Transform>(this));
-        // todo
+    Eigen::Matrix4d parentBaseTransform;
+    auto parentRotationX = 0.0;
+    auto parentRotationY = 0.0;
+    auto parentRotationZ = 0.0;
+    
+    if (parent == nullptr)
+    {
+        parentBaseTransform = Eigen::Matrix4d::Identity();
+    }
+    else
+    {
+        parentBaseTransform = parent->baseTransform_;
+        parentRotationX = parent->poseAbsolute_->GetRotationX();
+        parentRotationY = parent->poseAbsolute_->GetRotationY();
+        parentRotationZ = parent->poseAbsolute_->GetRotationZ();
+    }
+
+    auto relX = poseRelative_->GetPositionX();
+    auto relY = poseRelative_->GetPositionY();
+    auto relZ = poseRelative_->GetPositionZ();
+
+    Eigen::Vector4d positionRelative(relX, relY, relZ, 1);
+    Eigen::Vector4d positionAbsolute = parentBaseTransform * positionRelative;
+
+    poseAbsolute_->Set(
+        positionAbsolute.x(),
+        positionAbsolute.y(),
+        positionAbsolute.z(),
+        parentRotationX + poseRelative_->GetRotationX(),
+        parentRotationY + poseRelative_->GetRotationY(),
+        parentRotationZ + poseRelative_->GetRotationZ()
+    );
+
+    Eigen::Affine3d r = create_rotation_matrix(poseAbsolute_->GetRotationX(), poseAbsolute_->GetRotationY(), poseAbsolute_->GetRotationZ());
+    Eigen::Affine3d t(Eigen::Translation3d(Eigen::Vector3d(positionAbsolute.x(), positionAbsolute.y(), positionAbsolute.z())));
+    baseTransform_ = (t * r).matrix(); // Create 4x4 affine tranformation matrix (as a reference base coordinate system for a transformed point)
+
+    // update all children
+    for (auto&& child: children_)
+    {
+        child.second->Update(shared_from_this());
+    }
+}
+
+void WzlPlanner::Transform::UpdateRelative(const std::shared_ptr<Transform> parent)
+{
+    Eigen::Matrix4d parentBaseTransform;
+    auto parentRotationX = 0.0;
+    auto parentRotationY = 0.0;
+    auto parentRotationZ = 0.0;
+
+    if (parent == nullptr)
+    {
+        parentBaseTransform = Eigen::Matrix4d::Identity();
+    }
+    else
+    {
+        parentBaseTransform = parent->baseTransform_;
+        parentRotationX = parent->poseAbsolute_->GetRotationX();
+        parentRotationY = parent->poseAbsolute_->GetRotationY();
+        parentRotationZ = parent->poseAbsolute_->GetRotationZ();
+    }
+
+    
+}
+
+void WzlPlanner::Transform::Print(int depth)
+{
+    std::string indent = "";
+
+    for (int i = 0; i < depth; i++)
+    {
+        indent.append("  ");
+    }
+
+    std::cout << indent.c_str() << id_ << ", Children: " << children_.size() << ", Abs: X:" << poseAbsolute_->GetPositionX() 
+            << ", Y: " << poseAbsolute_->GetPositionY()
+            << ", Z: " << poseAbsolute_->GetPositionZ()
+            << ", RotX: " << poseAbsolute_->GetRotationX()
+            << ", RotY: " << poseAbsolute_->GetRotationY()
+            << ", RotZ: " << poseAbsolute_->GetRotationZ()
+            << ", ; Rel: X:" << poseRelative_->GetPositionX() 
+            << ", Y: " << poseRelative_->GetPositionY()
+            << ", Z: " << poseRelative_->GetPositionZ()
+            << ", RotX: " << poseRelative_->GetRotationX()
+            << ", RotY: " << poseRelative_->GetRotationY()
+            << ", RotZ: " << poseRelative_->GetRotationZ()
+    << std::endl;
+
+    for (auto&& child: children_)
+    {
+        child.second->Print(depth + 1);
+    }
+}
+
+WzlPlanner::Transform::Transform(std::string id)
+{
+    id_ = id;
+    poseRelative_ = std::make_shared<Pose>();
+    poseAbsolute_ = std::make_shared<Pose>();
+}
+
+WzlPlanner::Transform::Transform(std::string id, std::shared_ptr<Pose> pose)
+{
+    id_ = id;
+    
+    poseRelative_ = pose;
+    poseAbsolute_ = std::make_shared<Pose>();
+    poseAbsolute_->Set(*poseRelative_.get());
+}
+
+WzlPlanner::Transform::Transform(std::string id, std::shared_ptr<Pose> pose, std::shared_ptr<Transform> parent)
+{
+    id_ = id;
+    poseRelative_ = pose;
+    poseAbsolute_ = std::make_shared<Pose>();;
+    parent->children_.insert({id, shared_from_this()});
+    parent_ = parent;
+    parent->Update();
+}
+
+WzlPlanner::Transform::Transform(std::string id, std::shared_ptr<Transform> parent)
+{
+    id_ = id;
+    poseRelative_ = std::make_shared<Pose>();
+    poseAbsolute_ = std::make_shared<Pose>();
+    parent->children_.insert({id, shared_from_this()});
+    parent_ = parent;
+    parent->Update();
+}
+
+void WzlPlanner::Transform::SetParent(const std::shared_ptr<Transform> parent)
+{
+    if (parent_ != nullptr)
+    {
+        parent_->children_.erase(this->id_);
+    }
+
+    if (parent != nullptr)
+    {
+        if (parent->children_.count(id_) > 0)
+        {
+            std::cout << "Transform with id '" << parent_->GetId() << "' already has a child with the id '" << id_ << "'." << std::endl; 
+            return;
+        }
+
+        parent->children_.insert({id_, shared_from_this()});
+    }
+
+    parent->Update();
+}
+
+
+void WzlPlanner::TransformBroadcaster::Broadcast(std::shared_ptr<Transform> transformBase, rclcpp::Clock &clock)
+{
+    std::vector<std::shared_ptr<Transform>> allTransforms;
+    std::vector<geometry_msgs::msg::TransformStamped> tfTransforms;
+
+    GetChildrenRecursive(transformBase, allTransforms);
+
+    // construct tf transforms
+    for (auto&& transform: allTransforms)
+    {
+        if (transform->GetParent() == nullptr)
+        {
+            continue;
+        }
+
+        auto pose = transform->GetPoseRelative();
+        geometry_msgs::msg::TransformStamped tfTransform;
+        MakeTransform(tfTransform, clock, transformBase->GetId(), transform->GetId(),
+          pose->GetPositionX(),
+          pose->GetPositionY(),
+          pose->GetPositionZ(),
+          pose->GetRotationX(),
+          pose->GetRotationY(),
+          pose->GetRotationZ());
+
+        tfTransforms.push_back(std::move(tfTransform));
+    }
+
+    // broadcast
+    this->tf_broadcaster_->sendTransform(tfTransforms);
+}
+
+void WzlPlanner::TransformBroadcaster::MakeTransform(geometry_msgs::msg::TransformStamped &t, rclcpp::Clock& clock, 
+    std::string parentFrame, std::string childFrame, 
+    float x, float y, float z, 
+    float roll, float pitch, float yaw)
+{
+    t.header.stamp = clock.now();
+    t.header.frame_id = parentFrame;
+    t.child_frame_id = childFrame;
+    
+    t.transform.translation.x = x;
+    t.transform.translation.y = y;
+    t.transform.translation.z = z;
+    tf2::Quaternion q;
+    q.setRPY(roll, pitch, yaw);
+    t.transform.rotation.x = q.x();
+    t.transform.rotation.y = q.y();
+    t.transform.rotation.z = q.z();
+    t.transform.rotation.w = q.w();
+}
+
+void WzlPlanner::TransformBroadcaster::GetChildrenRecursive(std::shared_ptr<Transform> baseTransform, std::vector<std::shared_ptr<Transform>> &collectedTransforms)
+{
+    collectedTransforms.push_back(baseTransform);
+
+    for(auto&& child: baseTransform->GetChildren())
+    {
+        collectedTransforms.push_back(child.second);
+        child.second->GetChildrenRecursive(collectedTransforms);
+    }
 }

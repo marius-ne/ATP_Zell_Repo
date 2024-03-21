@@ -1,0 +1,286 @@
+[0.000000] (-) TimerEvent: {}
+[0.000151] (hello_ur) JobQueued: {'identifier': 'hello_ur', 'dependencies': OrderedDict()}
+[0.000212] (mtc_tutorial) JobQueued: {'identifier': 'mtc_tutorial', 'dependencies': OrderedDict()}
+[0.000239] (robo_planner) JobQueued: {'identifier': 'robo_planner', 'dependencies': OrderedDict()}
+[0.000528] (hello_ur) JobStarted: {'identifier': 'hello_ur'}
+[0.005476] (mtc_tutorial) JobStarted: {'identifier': 'mtc_tutorial'}
+[0.007772] (robo_planner) JobStarted: {'identifier': 'robo_planner'}
+[0.011377] (hello_ur) JobProgress: {'identifier': 'hello_ur', 'progress': 'cmake'}
+[0.012221] (hello_ur) Command: {'cmd': ['/usr/bin/cmake', '/home/aw/restackcell/ws_moveit2/src/hello_ur', '-DCMAKE_INSTALL_PREFIX=/home/aw/restackcell/ws_moveit2/install/hello_ur'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/hello_ur', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces/lib:/home/aw/ros2_ws/install/polygon_plugins/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/379_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/hello_ur'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[0.014652] (mtc_tutorial) JobProgress: {'identifier': 'mtc_tutorial', 'progress': 'cmake'}
+[0.015083] (mtc_tutorial) JobProgress: {'identifier': 'mtc_tutorial', 'progress': 'build'}
+[0.016040] (mtc_tutorial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aw/restackcell/ws_moveit2/build/mtc_tutorial', '--', '-j16', '-l16'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/mtc_tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces/lib:/home/aw/ros2_ws/install/polygon_plugins/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/379_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/mtc_tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[0.019582] (robo_planner) JobProgress: {'identifier': 'robo_planner', 'progress': 'cmake'}
+[0.020186] (robo_planner) JobProgress: {'identifier': 'robo_planner', 'progress': 'build'}
+[0.022023] (robo_planner) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aw/restackcell/ws_moveit2/build/robo_planner', '--', '-j16', '-l16'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/robo_planner', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces/lib:/home/aw/ros2_ws/install/polygon_plugins/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/379_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/robo_planner'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[0.023042] (hello_ur) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.043467] (mtc_tutorial) StdoutLine: {'line': b'[100%] Built target mtc-tutorial\n'}
+[0.048482] (robo_planner) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target robo_planner\x1b[0m\n'}
+[0.049491] (mtc_tutorial) CommandEnded: {'returncode': 0}
+[0.065651] (mtc_tutorial) JobProgress: {'identifier': 'mtc_tutorial', 'progress': 'install'}
+[0.065956] (robo_planner) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Pose.cpp.o\x1b[0m\n'}
+[0.066215] (robo_planner) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Part.cpp.o\x1b[0m\n'}
+[0.066596] (robo_planner) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Task.cpp.o\x1b[0m\n'}
+[0.066890] (robo_planner) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o\x1b[0m\n'}
+[0.071237] (mtc_tutorial) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/aw/restackcell/ws_moveit2/build/mtc_tutorial'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/mtc_tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces/lib:/home/aw/ros2_ws/install/polygon_plugins/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/379_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/mtc_tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[0.075157] (mtc_tutorial) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.075421] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/lib/mtc_tutorial/mtc-tutorial\n'}
+[0.075675] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/ament_index/resource_index/package_run_dependencies/mtc_tutorial\n'}
+[0.075833] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/ament_index/resource_index/parent_prefix_path/mtc_tutorial\n'}
+[0.075872] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/environment/ament_prefix_path.sh\n'}
+[0.075915] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/environment/ament_prefix_path.dsv\n'}
+[0.076036] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/environment/path.sh\n'}
+[0.076152] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/environment/path.dsv\n'}
+[0.076259] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/local_setup.bash\n'}
+[0.076396] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/local_setup.sh\n'}
+[0.076507] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/local_setup.zsh\n'}
+[0.076646] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/local_setup.dsv\n'}
+[0.076789] (mtc_tutorial) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/package.dsv\n'}
+[0.077058] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/ament_index/resource_index/packages/mtc_tutorial\n'}
+[0.077239] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/cmake/mtc_tutorialConfig.cmake\n'}
+[0.077384] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/cmake/mtc_tutorialConfig-version.cmake\n'}
+[0.077786] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/package.xml\n'}
+[0.078625] (mtc_tutorial) CommandEnded: {'returncode': 0}
+[0.099623] (-) TimerEvent: {}
+[0.103208] (hello_ur) StdoutLine: {'line': b'-- Found moveit_ros_planning_interface: 2.5.5 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)\n'}
+[0.105219] (mtc_tutorial) JobEnded: {'identifier': 'mtc_tutorial', 'rc': 0}
+[0.112769] (hello_ur) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread \n'}
+[0.194742] (hello_ur) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.196145] (hello_ur) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.199688] (hello_ur) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.199836] (-) TimerEvent: {}
+[0.211609] (hello_ur) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.223960] (hello_ur) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.299998] (-) TimerEvent: {}
+[0.400407] (-) TimerEvent: {}
+[0.500793] (-) TimerEvent: {}
+[0.601258] (-) TimerEvent: {}
+[0.701760] (-) TimerEvent: {}
+[0.802144] (-) TimerEvent: {}
+[0.902501] (-) TimerEvent: {}
+[0.978496] (hello_ur) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread \n'}
+[0.983579] (hello_ur) StdoutLine: {'line': b'-- Found parameter_traits: 0.3.7 (/opt/ros/humble/share/parameter_traits/cmake)\n'}
+[1.002685] (-) TimerEvent: {}
+[1.017092] (hello_ur) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.018196] (hello_ur) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.102818] (-) TimerEvent: {}
+[1.203161] (-) TimerEvent: {}
+[1.303489] (-) TimerEvent: {}
+[1.403836] (-) TimerEvent: {}
+[1.504203] (-) TimerEvent: {}
+[1.604591] (-) TimerEvent: {}
+[1.704983] (-) TimerEvent: {}
+[1.805399] (-) TimerEvent: {}
+[1.905805] (-) TimerEvent: {}
+[2.006228] (-) TimerEvent: {}
+[2.106689] (-) TimerEvent: {}
+[2.125336] (robo_planner) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:1\x1b[m\x1b[K:\n'}
+[2.125710] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:19:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.125806] (robo_planner) StderrLine: {'line': b'   19 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> poseRelative;\n'}
+[2.125882] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.125950] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:19:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.126019] (robo_planner) StderrLine: {'line': b'   19 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K poseRelative;\n'}
+[2.126083] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.130572] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:22:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.130924] (robo_planner) StderrLine: {'line': b'   22 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> poseAbsolute;\n'}
+[2.131024] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.131107] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:22:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.131186] (robo_planner) StderrLine: {'line': b'   22 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K poseAbsolute;\n'}
+[2.131254] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.138400] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:27:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.138614] (robo_planner) StderrLine: {'line': b'   27 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> GetPoseRelative() const { return this->poseRelative; }\n'}
+[2.138680] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.138719] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:27:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.138757] (robo_planner) StderrLine: {'line': b'   27 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K GetPoseRelative() const { return this->poseRelative; }\n'}
+[2.138792] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.144137] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:28:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.144356] (robo_planner) StderrLine: {'line': b'   28 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> GetPoseAbsolute() const { return this->poseAbsolute; }\n'}
+[2.144407] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.144445] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:28:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.144503] (robo_planner) StderrLine: {'line': b'   28 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K GetPoseAbsolute() const { return this->poseAbsolute; }\n'}
+[2.144542] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.148511] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid WzlPlanner::Transform::Update(std::shared_ptr<WzlPlanner::Transform>)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[2.148810] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:175:69:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kparent\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[2.148869] (robo_planner) StderrLine: {'line': b'  175 | void WzlPlanner::Transform::Update(\x1b[01;35m\x1b[Kconst std::shared_ptr<Transform> parent\x1b[m\x1b[K)\n'}
+[2.148910] (robo_planner) StderrLine: {'line': b'      |                                    \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~\x1b[m\x1b[K\n'}
+[2.159786] (robo_planner) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:7\x1b[m\x1b[K,\n'}
+[2.159987] (robo_planner) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1\x1b[m\x1b[K:\n'}
+[2.160036] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:19:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.160081] (robo_planner) StderrLine: {'line': b'   19 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> poseRelative;\n'}
+[2.160122] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.160159] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:19:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.160226] (robo_planner) StderrLine: {'line': b'   19 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K poseRelative;\n'}
+[2.160269] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.163805] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:22:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.164045] (robo_planner) StderrLine: {'line': b'   22 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> poseAbsolute;\n'}
+[2.164104] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.164157] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:22:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.164219] (robo_planner) StderrLine: {'line': b'   22 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K poseAbsolute;\n'}
+[2.164269] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.170419] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:27:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.170866] (robo_planner) StderrLine: {'line': b'   27 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> GetPoseRelative() const { return this->poseRelative; }\n'}
+[2.170950] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.171019] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:27:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.171091] (robo_planner) StderrLine: {'line': b'   27 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K GetPoseRelative() const { return this->poseRelative; }\n'}
+[2.171154] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.175645] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:28:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.175843] (robo_planner) StderrLine: {'line': b'   28 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> GetPoseAbsolute() const { return this->poseAbsolute; }\n'}
+[2.175890] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.175927] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:28:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.175974] (robo_planner) StderrLine: {'line': b'   28 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K GetPoseAbsolute() const { return this->poseAbsolute; }\n'}
+[2.176009] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.190613] (robo_planner) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.h:7\x1b[m\x1b[K,\n'}
+[2.190851] (robo_planner) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.cpp:1\x1b[m\x1b[K:\n'}
+[2.190923] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:19:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.190969] (robo_planner) StderrLine: {'line': b'   19 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> poseRelative;\n'}
+[2.191006] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.191043] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:19:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.191079] (robo_planner) StderrLine: {'line': b'   19 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K poseRelative;\n'}
+[2.191114] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.192442] (robo_planner) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:7\x1b[m\x1b[K,\n'}
+[2.192593] (robo_planner) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp:1\x1b[m\x1b[K:\n'}
+[2.192637] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:19:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.192674] (robo_planner) StderrLine: {'line': b'   19 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> poseRelative;\n'}
+[2.192718] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.192757] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:19:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.192793] (robo_planner) StderrLine: {'line': b'   19 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K poseRelative;\n'}
+[2.192828] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.194628] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:22:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.194817] (robo_planner) StderrLine: {'line': b'   22 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> poseAbsolute;\n'}
+[2.194860] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.194895] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:22:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.194933] (robo_planner) StderrLine: {'line': b'   22 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K poseAbsolute;\n'}
+[2.194977] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.197046] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:22:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.197282] (robo_planner) StderrLine: {'line': b'   22 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> poseAbsolute;\n'}
+[2.197368] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.197434] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:22:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.197488] (robo_planner) StderrLine: {'line': b'   22 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K poseAbsolute;\n'}
+[2.197541] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.201180] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:27:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.201375] (robo_planner) StderrLine: {'line': b'   27 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> GetPoseRelative() const { return this->poseRelative; }\n'}
+[2.201419] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.201456] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:27:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.201507] (robo_planner) StderrLine: {'line': b'   27 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K GetPoseRelative() const { return this->poseRelative; }\n'}
+[2.201655] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.206029] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:27:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.206231] (robo_planner) StderrLine: {'line': b'   27 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> GetPoseRelative() const { return this->poseRelative; }\n'}
+[2.206295] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.206335] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:27:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.206388] (robo_planner) StderrLine: {'line': b'   27 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K GetPoseRelative() const { return this->poseRelative; }\n'}
+[2.206426] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.206734] (-) TimerEvent: {}
+[2.208168] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:28:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.208327] (robo_planner) StderrLine: {'line': b'   28 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> GetPoseAbsolute() const { return this->poseAbsolute; }\n'}
+[2.208398] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.208437] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:28:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.208474] (robo_planner) StderrLine: {'line': b'   28 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K GetPoseAbsolute() const { return this->poseAbsolute; }\n'}
+[2.208516] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.211661] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:28:29:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[KPose\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[2.211814] (robo_planner) StderrLine: {'line': b'   28 |             std::shared_ptr<\x1b[01;31m\x1b[KPose\x1b[m\x1b[K> GetPoseAbsolute() const { return this->poseAbsolute; }\n'}
+[2.211860] (robo_planner) StderrLine: {'line': b'      |                             \x1b[01;31m\x1b[K^~~~\x1b[m\x1b[K\n'}
+[2.211904] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:28:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Ktemplate argument 1 is invalid\n'}
+[2.211942] (robo_planner) StderrLine: {'line': b'   28 |             std::shared_ptr<Pose\x1b[01;31m\x1b[K>\x1b[m\x1b[K GetPoseAbsolute() const { return this->poseAbsolute; }\n'}
+[2.211977] (robo_planner) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[2.306878] (-) TimerEvent: {}
+[2.407250] (-) TimerEvent: {}
+[2.507599] (-) TimerEvent: {}
+[2.556634] (robo_planner) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:118: CMakeFiles/robo_planner.dir/src/Pose.cpp.o] Error 1\n'}
+[2.556822] (robo_planner) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[2.592140] (robo_planner) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:104: CMakeFiles/robo_planner.dir/src/Part.cpp.o] Error 1\n'}
+[2.607750] (-) TimerEvent: {}
+[2.645589] (robo_planner) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:146: CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o] Error 1\n'}
+[2.651719] (robo_planner) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:160: CMakeFiles/robo_planner.dir/src/Task.cpp.o] Error 1\n'}
+[2.652042] (robo_planner) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2\n'}
+[2.652228] (robo_planner) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[2.653580] (robo_planner) CommandEnded: {'returncode': 2}
+[2.679214] (robo_planner) JobEnded: {'identifier': 'robo_planner', 'rc': 2}
+[2.707857] (-) TimerEvent: {}
+[2.808209] (-) TimerEvent: {}
+[2.908647] (-) TimerEvent: {}
+[3.008985] (-) TimerEvent: {}
+[3.109306] (-) TimerEvent: {}
+[3.209669] (-) TimerEvent: {}
+[3.309977] (-) TimerEvent: {}
+[3.410290] (-) TimerEvent: {}
+[3.510615] (-) TimerEvent: {}
+[3.536566] (hello_ur) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[3.610765] (-) TimerEvent: {}
+[3.639019] (hello_ur) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 16.0.8 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)\n'}
+[3.665958] (hello_ur) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem \n'}
+[3.710880] (-) TimerEvent: {}
+[3.811245] (-) TimerEvent: {}
+[3.911595] (-) TimerEvent: {}
+[4.011933] (-) TimerEvent: {}
+[4.112291] (-) TimerEvent: {}
+[4.212602] (-) TimerEvent: {}
+[4.272806] (hello_ur) StdoutLine: {'line': b'-- library: /usr/lib/x86_64-linux-gnu/libcurl.so\n'}
+[4.312752] (-) TimerEvent: {}
+[4.377275] (hello_ur) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[4.412944] (-) TimerEvent: {}
+[4.513318] (-) TimerEvent: {}
+[4.613675] (-) TimerEvent: {}
+[4.714062] (-) TimerEvent: {}
+[4.814434] (-) TimerEvent: {}
+[4.914761] (-) TimerEvent: {}
+[5.015143] (-) TimerEvent: {}
+[5.115459] (-) TimerEvent: {}
+[5.215786] (-) TimerEvent: {}
+[5.316129] (-) TimerEvent: {}
+[5.416480] (-) TimerEvent: {}
+[5.516860] (-) TimerEvent: {}
+[5.617305] (-) TimerEvent: {}
+[5.633224] (hello_ur) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono \n'}
+[5.717419] (-) TimerEvent: {}
+[5.817839] (-) TimerEvent: {}
+[5.918282] (-) TimerEvent: {}
+[5.968511] (hello_ur) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options \n'}
+[6.018432] (-) TimerEvent: {}
+[6.118797] (-) TimerEvent: {}
+[6.119660] (hello_ur) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread \n'}
+[6.218929] (-) TimerEvent: {}
+[6.319329] (-) TimerEvent: {}
+[6.391884] (hello_ur) StdoutLine: {'line': b'-- Found moveit_visual_tools: 4.1.0 (/opt/ros/humble/share/moveit_visual_tools/cmake)\n'}
+[6.419491] (-) TimerEvent: {}
+[6.519842] (-) TimerEvent: {}
+[6.620235] (-) TimerEvent: {}
+[6.671615] (hello_ur) StdoutLine: {'line': b"-- Setting OGRE_DIR to: '/opt/ros/humble/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'\n"}
+[6.672414] (hello_ur) StdoutLine: {'line': b'-- Found OGRE\n'}
+[6.672498] (hello_ur) StdoutLine: {'line': b'--   static     : OFF\n'}
+[6.672582] (hello_ur) StdoutLine: {'line': b'--   components : HLMS;MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume\n'}
+[6.672646] (hello_ur) StdoutLine: {'line': b'--   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI\n'}
+[6.672686] (hello_ur) StdoutLine: {'line': b'--   media      : /opt/ros/humble/opt/rviz_ogre_vendor/share/OGRE/Media\n'}
+[6.672743] (hello_ur) StdoutLine: {'line': b'-- OGRE_LIBRARIES: OgreHLMS;OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain\n'}
+[6.672838] (hello_ur) StdoutLine: {'line': b'-- OGRE_LIBRARY_DIRS: /opt/ros/humble/opt/rviz_ogre_vendor/lib\n'}
+[6.672946] (hello_ur) StdoutLine: {'line': b'-- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI\n'}
+[6.673051] (hello_ur) StdoutLine: {'line': b'-- OGRE_PLUGIN_DIR: /opt/ros/humble/opt/rviz_ogre_vendor/lib/OGRE\n'}
+[6.673129] (hello_ur) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so\n'}
+[6.673235] (hello_ur) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so\n'}
+[6.673411] (hello_ur) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so\n'}
+[6.673468] (hello_ur) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so\n'}
+[6.690807] (hello_ur) StdoutLine: {'line': b'-- Could not find freeimage library\n'}
+[6.720356] (-) TimerEvent: {}
+[6.820655] (-) TimerEvent: {}
+[6.920967] (-) TimerEvent: {}
+[7.021319] (-) TimerEvent: {}
+[7.121655] (-) TimerEvent: {}
+[7.222012] (-) TimerEvent: {}
+[7.322326] (-) TimerEvent: {}
+[7.422637] (-) TimerEvent: {}
+[7.481695] (hello_ur) StdoutLine: {'line': b'-- rviz_ogre_vendor::RenderSystem_GL for IMPORTED_LOCATION_RELEASE: _render_system_gl_static_library_abs-NOTFOUND\n'}
+[7.482014] (hello_ur) StdoutLine: {'line': b'-- rviz_ogre_vendor::RenderSystem_GL for IMPORTED_LOCATION_DEBUG: _render_system_gl_static_library_abs-NOTFOUND\n'}
+[7.522788] (-) TimerEvent: {}
+[7.623150] (-) TimerEvent: {}
+[7.723536] (-) TimerEvent: {}
+[7.823851] (-) TimerEvent: {}
+[7.924267] (-) TimerEvent: {}
+[7.953172] (hello_ur) StderrLine: {'line': b'\x1b[31mCMake Error at /opt/ros/humble/share/ament_cmake_target_dependencies/cmake/ament_target_dependencies.cmake:42 (message):\n'}
+[7.953387] (hello_ur) StderrLine: {'line': b'  ament_target_dependencies() the first argument must be a valid target name\n'}
+[7.953460] (hello_ur) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[7.953507] (hello_ur) StderrLine: {'line': b'  CMakeLists.txt:19 (ament_target_dependencies)\n'}
+[7.953542] (hello_ur) StderrLine: {'line': b'\n'}
+[7.953609] (hello_ur) StderrLine: {'line': b'\x1b[0m\n'}
+[7.953660] (hello_ur) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[7.953734] (hello_ur) StdoutLine: {'line': b'See also "/home/aw/restackcell/ws_moveit2/build/hello_ur/CMakeFiles/CMakeOutput.log".\n'}
+[7.962454] (hello_ur) JobEnded: {'identifier': 'hello_ur', 'rc': 'SIGINT'}
+[7.973370] (-) EventReactorShutdown: {}

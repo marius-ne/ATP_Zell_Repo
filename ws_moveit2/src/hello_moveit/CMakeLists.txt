@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(hello_moveit)
+project(robo_planner)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -7,28 +7,45 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(moveit_ros_planning_interface REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(moveit_ros_planning_interface REQUIRED)
 find_package(moveit_visual_tools REQUIRED)
 find_package(geometric_shapes REQUIRED)
+find_package(geometry_msgs REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
+find_package(tf2_eigen REQUIRED)
 
-add_executable(hello_moveit 
-  src/hello_moveit.cpp
-  src/SceneLoader.cpp
+
+add_executable(robo_planner 
+  src/Gripper.cpp
+  src/Main.cpp
+  src/Part.cpp
   src/Pose.cpp
-  src/Task.cpp )
-target_include_directories(hello_moveit PUBLIC
+  src/Robot.cpp
+  src/Scene.cpp
+  src/SceneObject.cpp
+  src/Task.cpp
+  )
+
+target_include_directories(robo_planner PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
-target_compile_features(hello_moveit PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
+
+target_compile_features(robo_planner PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 ament_target_dependencies(
-  hello_moveit
+  robo_planner
   "moveit_ros_planning_interface"
   "moveit_visual_tools"
   "rclcpp"
+  "geometric_shapes"
+  "geometry_msgs"
+  "tf2"
+  "tf2_ros"
+  "tf2_eigen"
 )
 
-install(TARGETS hello_moveit
+install(TARGETS robo_planner
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)

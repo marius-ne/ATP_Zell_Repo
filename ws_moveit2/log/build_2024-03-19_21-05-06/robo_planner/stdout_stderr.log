@@ -1,0 +1,205 @@
+[35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[ 12%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Task.cpp.o[0m
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:[m[K In function ‘[01m[Kvoid CreateCell(std::shared_ptr<WzlPlanner::Transform>)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:39:56:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KtrWorld[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   39 | void CreateCell([01;35m[Kstd::shared_ptr<WzlPlanner::Transform> trWorld[m[K)
+      |                 [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:79:13:[m[K [01;31m[Kerror: [m[Ktoo few arguments to function ‘[01m[Kvoid CreateCell(std::shared_ptr<WzlPlanner::Transform>)[m[K’
+   79 |   [01;31m[KCreateCell()[m[K;
+      |   [01;31m[K~~~~~~~~~~^~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:39:6:[m[K [01;36m[Knote: [m[Kdeclared here
+   39 | void [01;36m[KCreateCell[m[K(std::shared_ptr<WzlPlanner::Transform> trWorld)
+      |      [01;36m[K^~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:71[m[K,
+                 from [01m[K/usr/include/c++/11/memory:63[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:153[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:1[m[K:
+/usr/include/c++/11/bits/predefined_ops.h: In instantiation of ‘[01m[Kbool __gnu_cxx::__ops::_Iter_equals_val<_Value>::operator()(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<const WzlPlanner::SceneObjectCarrierSlot*, std::vector<WzlPlanner::SceneObjectCarrierSlot> >; _Value = const WzlPlanner::SceneObjectCarrier::HasFreeSlots() const::<lambda(auto:40)>][m[K’:
+[01m[K/usr/include/c++/11/bits/stl_algobase.h:2125:12:[m[K   required from ‘[01m[Ktypename std::iterator_traits< <template-parameter-1-1> >::difference_type std::__count_if(_InputIterator, _InputIterator, _Predicate) [with _InputIterator = __gnu_cxx::__normal_iterator<const WzlPlanner::SceneObjectCarrierSlot*, std::vector<WzlPlanner::SceneObjectCarrierSlot> >; _Predicate = __gnu_cxx::__ops::_Iter_equals_val<const WzlPlanner::SceneObjectCarrier::HasFreeSlots() const::<lambda(auto:40)> >; typename std::iterator_traits< <template-parameter-1-1> >::difference_type = long int][m[K’
+[01m[K/usr/include/c++/11/bits/stl_algo.h:4067:29:[m[K   required from ‘[01m[Ktypename std::iterator_traits< <template-parameter-1-1> >::difference_type std::count(_IIter, _IIter, const _Tp&) [with _IIter = __gnu_cxx::__normal_iterator<const WzlPlanner::SceneObjectCarrierSlot*, std::vector<WzlPlanner::SceneObjectCarrierSlot> >; _Tp = WzlPlanner::SceneObjectCarrier::HasFreeSlots() const::<lambda(auto:40)>; typename std::iterator_traits< <template-parameter-1-1> >::difference_type = long int][m[K’
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:168:59:[m[K   required from here
+[01m[K/usr/include/c++/11/bits/predefined_ops.h:270:24:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator==[m[K’ (operand types are ‘[01m[Kconst WzlPlanner::SceneObjectCarrierSlot[m[K’ and ‘[01m[Kconst WzlPlanner::SceneObjectCarrier::HasFreeSlots() const::<lambda(auto:40)>[m[K’)
+  270 |         { return [01;31m[K*__it == _M_value[m[K; }
+      |                  [01;31m[K~~~~~~^~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:67[m[K,
+                 from [01m[K/usr/include/c++/11/memory:63[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:153[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/stl_iterator.h:1155:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)[m[K’
+ 1155 |     [01;36m[Koperator[m[K==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/stl_iterator.h:1155:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:71[m[K,
+                 from [01m[K/usr/include/c++/11/memory:63[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:153[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/predefined_ops.h:270:24:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst WzlPlanner::SceneObjectCarrierSlot[m[K’ is not derived from ‘[01m[Kconst __gnu_cxx::__normal_iterator<_IteratorL, _Container>[m[K’
+  270 |         { return [01;36m[K*__it == _M_value[m[K; }
+      |                  [01;36m[K~~~~~~^~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:67[m[K,
+                 from [01m[K/usr/include/c++/11/memory:63[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:153[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/stl_iterator.h:1163:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)[m[K’
+ 1163 |     [01;36m[Koperator[m[K==(const __normal_iterator<_Iterator, _Container>& __lhs,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/stl_iterator.h:1163:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:71[m[K,
+                 from [01m[K/usr/include/c++/11/memory:63[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:153[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/predefined_ops.h:270:24:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst WzlPlanner::SceneObjectCarrierSlot[m[K’ is not derived from ‘[01m[Kconst __gnu_cxx::__normal_iterator<_Iterator, _Container>[m[K’
+  270 |         { return [01;36m[K*__it == _M_value[m[K; }
+      |                  [01;36m[K~~~~~~^~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:71[m[K,
+                 from [01m[K/usr/include/c++/11/vector:60[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+/usr/include/c++/11/bits/predefined_ops.h: In instantiation of ‘[01m[Kbool __gnu_cxx::__ops::_Iter_equals_val<_Value>::operator()(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<const WzlPlanner::SceneObjectCarrierSlot*, std::vector<WzlPlanner::SceneObjectCarrierSlot> >; _Value = const WzlPlanner::SceneObjectCarrier::HasFreeSlots() const::<lambda(auto:40)>][m[K’:
+[01m[K/usr/include/c++/11/bits/stl_algobase.h:2125:12:[m[K   required from ‘[01m[Ktypename std::iterator_traits< <template-parameter-1-1> >::difference_type std::__count_if(_InputIterator, _InputIterator, _Predicate) [with _InputIterator = __gnu_cxx::__normal_iterator<const WzlPlanner::SceneObjectCarrierSlot*, std::vector<WzlPlanner::SceneObjectCarrierSlot> >; _Predicate = __gnu_cxx::__ops::_Iter_equals_val<const WzlPlanner::SceneObjectCarrier::HasFreeSlots() const::<lambda(auto:40)> >; typename std::iterator_traits< <template-parameter-1-1> >::difference_type = long int][m[K’
+[01m[K/usr/include/c++/11/bits/stl_algo.h:4067:29:[m[K   required from ‘[01m[Ktypename std::iterator_traits< <template-parameter-1-1> >::difference_type std::count(_IIter, _IIter, const _Tp&) [with _IIter = __gnu_cxx::__normal_iterator<const WzlPlanner::SceneObjectCarrierSlot*, std::vector<WzlPlanner::SceneObjectCarrierSlot> >; _Tp = WzlPlanner::SceneObjectCarrier::HasFreeSlots() const::<lambda(auto:40)>; typename std::iterator_traits< <template-parameter-1-1> >::difference_type = long int][m[K’
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:168:59:[m[K   required from here
+[01m[K/usr/include/c++/11/bits/predefined_ops.h:270:24:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator==[m[K’ (operand types are ‘[01m[Kconst WzlPlanner::SceneObjectCarrierSlot[m[K’ and ‘[01m[Kconst WzlPlanner::SceneObjectCarrier::HasFreeSlots() const::<lambda(auto:40)>[m[K’)
+  270 |         { return [01;31m[K*__it == _M_value[m[K; }
+      |                  [01;31m[K~~~~~~^~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:67[m[K,
+                 from [01m[K/usr/include/c++/11/vector:60[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/stl_iterator.h:1155:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)[m[K’
+ 1155 |     [01;36m[Koperator[m[K==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/stl_iterator.h:1155:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:71[m[K,
+                 from [01m[K/usr/include/c++/11/vector:60[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/predefined_ops.h:270:24:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst WzlPlanner::SceneObjectCarrierSlot[m[K’ is not derived from ‘[01m[Kconst __gnu_cxx::__normal_iterator<_IteratorL, _Container>[m[K’
+  270 |         { return [01;36m[K*__it == _M_value[m[K; }
+      |                  [01;36m[K~~~~~~^~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:67[m[K,
+                 from [01m[K/usr/include/c++/11/vector:60[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/stl_iterator.h:1163:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)[m[K’
+ 1163 |     [01;36m[Koperator[m[K==(const __normal_iterator<_Iterator, _Container>& __lhs,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/stl_iterator.h:1163:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:71[m[K,
+                 from [01m[K/usr/include/c++/11/vector:60[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/predefined_ops.h:270:24:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst WzlPlanner::SceneObjectCarrierSlot[m[K’ is not derived from ‘[01m[Kconst __gnu_cxx::__normal_iterator<_Iterator, _Container>[m[K’
+  270 |         { return [01;36m[K*__it == _M_value[m[K; }
+      |                  [01;36m[K~~~~~~^~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:71[m[K,
+                 from [01m[K/usr/include/c++/11/memory:63[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp:1[m[K:
+/usr/include/c++/11/bits/predefined_ops.h: In instantiation of ‘[01m[Kbool __gnu_cxx::__ops::_Iter_equals_val<_Value>::operator()(_Iterator) [with _Iterator = __gnu_cxx::__normal_iterator<const WzlPlanner::SceneObjectCarrierSlot*, std::vector<WzlPlanner::SceneObjectCarrierSlot> >; _Value = const WzlPlanner::SceneObjectCarrier::HasFreeSlots() const::<lambda(auto:40)>][m[K’:
+[01m[K/usr/include/c++/11/bits/stl_algobase.h:2125:12:[m[K   required from ‘[01m[Ktypename std::iterator_traits< <template-parameter-1-1> >::difference_type std::__count_if(_InputIterator, _InputIterator, _Predicate) [with _InputIterator = __gnu_cxx::__normal_iterator<const WzlPlanner::SceneObjectCarrierSlot*, std::vector<WzlPlanner::SceneObjectCarrierSlot> >; _Predicate = __gnu_cxx::__ops::_Iter_equals_val<const WzlPlanner::SceneObjectCarrier::HasFreeSlots() const::<lambda(auto:40)> >; typename std::iterator_traits< <template-parameter-1-1> >::difference_type = long int][m[K’
+[01m[K/usr/include/c++/11/bits/stl_algo.h:4067:29:[m[K   required from ‘[01m[Ktypename std::iterator_traits< <template-parameter-1-1> >::difference_type std::count(_IIter, _IIter, const _Tp&) [with _IIter = __gnu_cxx::__normal_iterator<const WzlPlanner::SceneObjectCarrierSlot*, std::vector<WzlPlanner::SceneObjectCarrierSlot> >; _Tp = WzlPlanner::SceneObjectCarrier::HasFreeSlots() const::<lambda(auto:40)>; typename std::iterator_traits< <template-parameter-1-1> >::difference_type = long int][m[K’
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:168:59:[m[K   required from here
+[01m[K/usr/include/c++/11/bits/predefined_ops.h:270:24:[m[K [01;31m[Kerror: [m[Kno match for ‘[01m[Koperator==[m[K’ (operand types are ‘[01m[Kconst WzlPlanner::SceneObjectCarrierSlot[m[K’ and ‘[01m[Kconst WzlPlanner::SceneObjectCarrier::HasFreeSlots() const::<lambda(auto:40)>[m[K’)
+  270 |         { return [01;31m[K*__it == _M_value[m[K; }
+      |                  [01;31m[K~~~~~~^~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:67[m[K,
+                 from [01m[K/usr/include/c++/11/memory:63[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/stl_iterator.h:1155:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _IteratorL, class _IteratorR, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_IteratorL, _Container>&, const __gnu_cxx::__normal_iterator<_IteratorR, _Container>&)[m[K’
+ 1155 |     [01;36m[Koperator[m[K==(const __normal_iterator<_IteratorL, _Container>& __lhs,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/stl_iterator.h:1155:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:71[m[K,
+                 from [01m[K/usr/include/c++/11/memory:63[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/predefined_ops.h:270:24:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst WzlPlanner::SceneObjectCarrierSlot[m[K’ is not derived from ‘[01m[Kconst __gnu_cxx::__normal_iterator<_IteratorL, _Container>[m[K’
+  270 |         { return [01;36m[K*__it == _M_value[m[K; }
+      |                  [01;36m[K~~~~~~^~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:67[m[K,
+                 from [01m[K/usr/include/c++/11/memory:63[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/stl_iterator.h:1163:5:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Iterator, class _Container> bool __gnu_cxx::operator==(const __gnu_cxx::__normal_iterator<_Iterator, _Container>&, const __gnu_cxx::__normal_iterator<_Iterator, _Container>&)[m[K’
+ 1163 |     [01;36m[Koperator[m[K==(const __normal_iterator<_Iterator, _Container>& __lhs,
+      |     [01;36m[K^~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/stl_iterator.h:1163:5:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+In file included from [01m[K/usr/include/c++/11/bits/stl_algobase.h:71[m[K,
+                 from [01m[K/usr/include/c++/11/memory:63[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp:1[m[K:
+[01m[K/usr/include/c++/11/bits/predefined_ops.h:270:24:[m[K [01;36m[Knote: [m[K  ‘[01m[Kconst WzlPlanner::SceneObjectCarrierSlot[m[K’ is not derived from ‘[01m[Kconst __gnu_cxx::__normal_iterator<_Iterator, _Container>[m[K’
+  270 |         { return [01;36m[K*__it == _M_value[m[K; }
+      |                  [01;36m[K~~~~~~^~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/memory:65[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:153[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:1[m[K:
+/usr/include/c++/11/bits/stl_construct.h: In instantiation of ‘[01m[Kvoid std::_Construct(_Tp*, _Args&& ...) [with _Tp = WzlPlanner::SceneObjectCarrierSlot; _Args = {}][m[K’:
+[01m[K/usr/include/c++/11/bits/stl_uninitialized.h:579:18:[m[K   required from ‘[01m[Kstatic _ForwardIterator std::__uninitialized_default_n_1<_TrivialValueType>::__uninit_default_n(_ForwardIterator, _Size) [with _ForwardIterator = WzlPlanner::SceneObjectCarrierSlot*; _Size = long unsigned int; bool _TrivialValueType = false][m[K’
+[01m[K/usr/include/c++/11/bits/stl_uninitialized.h:640:20:[m[K   required from ‘[01m[K_ForwardIterator std::__uninitialized_default_n(_ForwardIterator, _Size) [with _ForwardIterator = WzlPlanner::SceneObjectCarrierSlot*; _Size = long unsigned int][m[K’
+[01m[K/usr/include/c++/11/bits/stl_uninitialized.h:704:44:[m[K   required from ‘[01m[K_ForwardIterator std::__uninitialized_default_n_a(_ForwardIterator, _Size, std::allocator<_Tp>&) [with _ForwardIterator = WzlPlanner::SceneObjectCarrierSlot*; _Size = long unsigned int; _Tp = WzlPlanner::SceneObjectCarrierSlot][m[K’
+[01m[K/usr/include/c++/11/bits/stl_vector.h:1606:36:[m[K   required from ‘[01m[Kvoid std::vector<_Tp, _Alloc>::_M_default_initialize(std::vector<_Tp, _Alloc>::size_type) [with _Tp = WzlPlanner::SceneObjectCarrierSlot; _Alloc = std::allocator<WzlPlanner::SceneObjectCarrierSlot>; std::vector<_Tp, _Alloc>::size_type = long unsigned int][m[K’
+[01m[K/usr/include/c++/11/bits/stl_vector.h:512:9:[m[K   required from ‘[01m[Kstd::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const allocator_type&) [with _Tp = WzlPlanner::SceneObjectCarrierSlot; _Alloc = std::allocator<WzlPlanner::SceneObjectCarrierSlot>; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<WzlPlanner::SceneObjectCarrierSlot>][m[K’
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:164:72:[m[K   required from here
+[01m[K/usr/include/c++/11/bits/stl_construct.h:119:7:[m[K [01;31m[Kerror: [m[Kinvalid new-expression of abstract class type ‘[01m[KWzlPlanner::SceneObjectCarrierSlot[m[K’
+  119 |       [01;31m[K::new((void*)__p) _Tp(std::forward<_Args>(__args)...)[m[K;
+      |       [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:4[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:111:11:[m[K [01;36m[Knote: [m[K  because the following virtual functions are pure within ‘[01m[KWzlPlanner::SceneObjectCarrierSlot[m[K’:
+  111 |     class [01;36m[KSceneObjectCarrierSlot[m[K : public SceneObject
+      |           [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:47:37:[m[K [01;36m[Knote: [m[K    ‘[01m[Kvirtual WzlPlanner::SceneObjectType WzlPlanner::SceneObject::GetObjectType() const[m[K’
+   47 |             virtual SceneObjectType [01;36m[KGetObjectType[m[K() const = 0;
+      |                                     [01;36m[K^~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/vector:65[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+/usr/include/c++/11/bits/stl_construct.h: In instantiation of ‘[01m[Kvoid std::_Construct(_Tp*, _Args&& ...) [with _Tp = WzlPlanner::SceneObjectCarrierSlot; _Args = {}][m[K’:
+[01m[K/usr/include/c++/11/bits/stl_uninitialized.h:579:18:[m[K   required from ‘[01m[Kstatic _ForwardIterator std::__uninitialized_default_n_1<_TrivialValueType>::__uninit_default_n(_ForwardIterator, _Size) [with _ForwardIterator = WzlPlanner::SceneObjectCarrierSlot*; _Size = long unsigned int; bool _TrivialValueType = false][m[K’
+[01m[K/usr/include/c++/11/bits/stl_uninitialized.h:640:20:[m[K   required from ‘[01m[K_ForwardIterator std::__uninitialized_default_n(_ForwardIterator, _Size) [with _ForwardIterator = WzlPlanner::SceneObjectCarrierSlot*; _Size = long unsigned int][m[K’
+[01m[K/usr/include/c++/11/bits/stl_uninitialized.h:704:44:[m[K   required from ‘[01m[K_ForwardIterator std::__uninitialized_default_n_a(_ForwardIterator, _Size, std::allocator<_Tp>&) [with _ForwardIterator = WzlPlanner::SceneObjectCarrierSlot*; _Size = long unsigned int; _Tp = WzlPlanner::SceneObjectCarrierSlot][m[K’
+[01m[K/usr/include/c++/11/bits/stl_vector.h:1606:36:[m[K   required from ‘[01m[Kvoid std::vector<_Tp, _Alloc>::_M_default_initialize(std::vector<_Tp, _Alloc>::size_type) [with _Tp = WzlPlanner::SceneObjectCarrierSlot; _Alloc = std::allocator<WzlPlanner::SceneObjectCarrierSlot>; std::vector<_Tp, _Alloc>::size_type = long unsigned int][m[K’
+[01m[K/usr/include/c++/11/bits/stl_vector.h:512:9:[m[K   required from ‘[01m[Kstd::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const allocator_type&) [with _Tp = WzlPlanner::SceneObjectCarrierSlot; _Alloc = std::allocator<WzlPlanner::SceneObjectCarrierSlot>; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<WzlPlanner::SceneObjectCarrierSlot>][m[K’
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:164:72:[m[K   required from here
+[01m[K/usr/include/c++/11/bits/stl_construct.h:119:7:[m[K [01;31m[Kerror: [m[Kinvalid new-expression of abstract class type ‘[01m[KWzlPlanner::SceneObjectCarrierSlot[m[K’
+  119 |       [01;31m[K::new((void*)__p) _Tp(std::forward<_Args>(__args)...)[m[K;
+      |       [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:8[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:111:11:[m[K [01;36m[Knote: [m[K  because the following virtual functions are pure within ‘[01m[KWzlPlanner::SceneObjectCarrierSlot[m[K’:
+  111 |     class [01;36m[KSceneObjectCarrierSlot[m[K : public SceneObject
+      |           [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:47:37:[m[K [01;36m[Knote: [m[K    ‘[01m[Kvirtual WzlPlanner::SceneObjectType WzlPlanner::SceneObject::GetObjectType() const[m[K’
+   47 |             virtual SceneObjectType [01;36m[KGetObjectType[m[K() const = 0;
+      |                                     [01;36m[K^~~~~~~~~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/memory:65[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp:1[m[K:
+/usr/include/c++/11/bits/stl_construct.h: In instantiation of ‘[01m[Kvoid std::_Construct(_Tp*, _Args&& ...) [with _Tp = WzlPlanner::SceneObjectCarrierSlot; _Args = {}][m[K’:
+[01m[K/usr/include/c++/11/bits/stl_uninitialized.h:579:18:[m[K   required from ‘[01m[Kstatic _ForwardIterator std::__uninitialized_default_n_1<_TrivialValueType>::__uninit_default_n(_ForwardIterator, _Size) [with _ForwardIterator = WzlPlanner::SceneObjectCarrierSlot*; _Size = long unsigned int; bool _TrivialValueType = false][m[K’
+[01m[K/usr/include/c++/11/bits/stl_uninitialized.h:640:20:[m[K   required from ‘[01m[K_ForwardIterator std::__uninitialized_default_n(_ForwardIterator, _Size) [with _ForwardIterator = WzlPlanner::SceneObjectCarrierSlot*; _Size = long unsigned int][m[K’
+[01m[K/usr/include/c++/11/bits/stl_uninitialized.h:704:44:[m[K   required from ‘[01m[K_ForwardIterator std::__uninitialized_default_n_a(_ForwardIterator, _Size, std::allocator<_Tp>&) [with _ForwardIterator = WzlPlanner::SceneObjectCarrierSlot*; _Size = long unsigned int; _Tp = WzlPlanner::SceneObjectCarrierSlot][m[K’
+[01m[K/usr/include/c++/11/bits/stl_vector.h:1606:36:[m[K   required from ‘[01m[Kvoid std::vector<_Tp, _Alloc>::_M_default_initialize(std::vector<_Tp, _Alloc>::size_type) [with _Tp = WzlPlanner::SceneObjectCarrierSlot; _Alloc = std::allocator<WzlPlanner::SceneObjectCarrierSlot>; std::vector<_Tp, _Alloc>::size_type = long unsigned int][m[K’
+[01m[K/usr/include/c++/11/bits/stl_vector.h:512:9:[m[K   required from ‘[01m[Kstd::vector<_Tp, _Alloc>::vector(std::vector<_Tp, _Alloc>::size_type, const allocator_type&) [with _Tp = WzlPlanner::SceneObjectCarrierSlot; _Alloc = std::allocator<WzlPlanner::SceneObjectCarrierSlot>; std::vector<_Tp, _Alloc>::size_type = long unsigned int; std::vector<_Tp, _Alloc>::allocator_type = std::allocator<WzlPlanner::SceneObjectCarrierSlot>][m[K’
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:164:72:[m[K   required from here
+[01m[K/usr/include/c++/11/bits/stl_construct.h:119:7:[m[K [01;31m[Kerror: [m[Kinvalid new-expression of abstract class type ‘[01m[KWzlPlanner::SceneObjectCarrierSlot[m[K’
+  119 |       [01;31m[K::new((void*)__p) _Tp(std::forward<_Args>(__args)...)[m[K;
+      |       [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:111:11:[m[K [01;36m[Knote: [m[K  because the following virtual functions are pure within ‘[01m[KWzlPlanner::SceneObjectCarrierSlot[m[K’:
+  111 |     class [01;36m[KSceneObjectCarrierSlot[m[K : public SceneObject
+      |           [01;36m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:47:37:[m[K [01;36m[Knote: [m[K    ‘[01m[Kvirtual WzlPlanner::SceneObjectType WzlPlanner::SceneObject::GetObjectType() const[m[K’
+   47 |             virtual SceneObjectType [01;36m[KGetObjectType[m[K() const = 0;
+      |                                     [01;36m[K^~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:90: CMakeFiles/robo_planner.dir/src/Main.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:146: CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o] Error 1
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:160: CMakeFiles/robo_planner.dir/src/Task.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

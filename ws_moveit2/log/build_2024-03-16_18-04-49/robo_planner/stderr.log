@@ -1,0 +1,10 @@
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:204:1:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K{[m[K’ token
+  204 | [01;31m[K{[m[K
+      | [01;31m[K^[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:[m[K In member function ‘[01m[Kvoid WzlPlanner::Transform::Update(std::shared_ptr<WzlPlanner::Transform>)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:242:25:[m[K [01;31m[Kerror: [m[K‘[01m[Kcreate_rotation_matrix[m[K’ was not declared in this scope
+  242 |     Eigen::Affine3d r = [01;31m[Kcreate_rotation_matrix[m[K(poseAbsolute_->GetRotationX(), poseAbsolute_->GetRotationY(), poseAbsolute_->GetRotationZ());
+      |                         [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:118: CMakeFiles/robo_planner.dir/src/Pose.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

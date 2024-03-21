@@ -1,0 +1,73 @@
+[0.000000] (-) TimerEvent: {}
+[0.000176] (-) JobUnselected: {'identifier': 'hello_ur'}
+[0.000354] (-) JobUnselected: {'identifier': 'mtc_tutorial'}
+[0.000426] (robo_planner) JobQueued: {'identifier': 'robo_planner', 'dependencies': OrderedDict()}
+[0.000460] (robo_planner) JobStarted: {'identifier': 'robo_planner'}
+[0.035909] (robo_planner) JobProgress: {'identifier': 'robo_planner', 'progress': 'cmake'}
+[0.036515] (robo_planner) Command: {'cmd': ['/usr/bin/cmake', '/home/aw/restackcell/ws_moveit2/src/hello_moveit', '-DCMAKE_INSTALL_PREFIX=/home/aw/restackcell/install/robo_planner'], 'cwd': '/home/aw/restackcell/build/robo_planner', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces/lib:/home/aw/ros2_ws/install/polygon_plugins/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell/ws_moveit2'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/379_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/build/robo_planner'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[0.045120] (robo_planner) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.098228] (-) TimerEvent: {}
+[0.127331] (robo_planner) StdoutLine: {'line': b'-- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.198375] (-) TimerEvent: {}
+[0.203975] (robo_planner) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.205407] (robo_planner) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.209072] (robo_planner) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.215971] (robo_planner) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.225852] (robo_planner) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.261263] (robo_planner) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.262141] (robo_planner) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.298506] (-) TimerEvent: {}
+[0.398826] (-) TimerEvent: {}
+[0.499168] (-) TimerEvent: {}
+[0.599477] (-) TimerEvent: {}
+[0.699816] (-) TimerEvent: {}
+[0.800184] (-) TimerEvent: {}
+[0.900503] (-) TimerEvent: {}
+[1.000848] (-) TimerEvent: {}
+[1.101212] (-) TimerEvent: {}
+[1.201590] (-) TimerEvent: {}
+[1.301940] (-) TimerEvent: {}
+[1.402258] (-) TimerEvent: {}
+[1.502560] (-) TimerEvent: {}
+[1.602933] (-) TimerEvent: {}
+[1.703279] (-) TimerEvent: {}
+[1.803671] (-) TimerEvent: {}
+[1.903985] (-) TimerEvent: {}
+[2.004354] (-) TimerEvent: {}
+[2.104687] (-) TimerEvent: {}
+[2.205062] (-) TimerEvent: {}
+[2.305500] (-) TimerEvent: {}
+[2.405811] (-) TimerEvent: {}
+[2.506148] (-) TimerEvent: {}
+[2.557488] (robo_planner) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.606294] (-) TimerEvent: {}
+[2.706691] (-) TimerEvent: {}
+[2.807000] (-) TimerEvent: {}
+[2.907361] (-) TimerEvent: {}
+[3.007725] (-) TimerEvent: {}
+[3.108082] (-) TimerEvent: {}
+[3.195899] (robo_planner) StderrLine: {'line': b'\x1b[31mCMake Error at CMakeLists.txt:11 (find_package):\n'}
+[3.196100] (robo_planner) StderrLine: {'line': b'  By not providing "Findmoveit_ros_planning_interface.cmake" in\n'}
+[3.196152] (robo_planner) StderrLine: {'line': b'  CMAKE_MODULE_PATH this project has asked CMake to find a package\n'}
+[3.196210] (robo_planner) StderrLine: {'line': b'  configuration file provided by "moveit_ros_planning_interface", but CMake\n'}
+[3.196292] (robo_planner) StderrLine: {'line': b'  did not find one.\n'}
+[3.196337] (robo_planner) StderrLine: {'line': b'\n'}
+[3.196379] (robo_planner) StderrLine: {'line': b'  Could not find a package configuration file provided by\n'}
+[3.196418] (robo_planner) StderrLine: {'line': b'  "moveit_ros_planning_interface" with any of the following names:\n'}
+[3.196457] (robo_planner) StderrLine: {'line': b'\n'}
+[3.196498] (robo_planner) StderrLine: {'line': b'    moveit_ros_planning_interfaceConfig.cmake\n'}
+[3.196535] (robo_planner) StderrLine: {'line': b'    moveit_ros_planning_interface-config.cmake\n'}
+[3.196570] (robo_planner) StderrLine: {'line': b'\n'}
+[3.196605] (robo_planner) StderrLine: {'line': b'  Add the installation prefix of "moveit_ros_planning_interface" to\n'}
+[3.196642] (robo_planner) StderrLine: {'line': b'  CMAKE_PREFIX_PATH or set "moveit_ros_planning_interface_DIR" to a directory\n'}
+[3.196679] (robo_planner) StderrLine: {'line': b'  containing one of the above files.  If "moveit_ros_planning_interface"\n'}
+[3.196719] (robo_planner) StderrLine: {'line': b'  provides a separate development package or SDK, be sure it has been\n'}
+[3.196757] (robo_planner) StderrLine: {'line': b'  installed.\n'}
+[3.196797] (robo_planner) StderrLine: {'line': b'\n'}
+[3.196838] (robo_planner) StderrLine: {'line': b'\x1b[0m\n'}
+[3.196881] (robo_planner) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[3.196925] (robo_planner) StdoutLine: {'line': b'See also "/home/aw/restackcell/build/robo_planner/CMakeFiles/CMakeOutput.log".\n'}
+[3.201876] (robo_planner) CommandEnded: {'returncode': 1}
+[3.208173] (-) TimerEvent: {}
+[3.230985] (robo_planner) JobEnded: {'identifier': 'robo_planner', 'rc': 1}
+[3.241706] (-) EventReactorShutdown: {}

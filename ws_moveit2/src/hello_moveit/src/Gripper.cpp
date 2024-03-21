@@ -19,3 +19,12 @@ void WzlPlanner::GripperPneumaticDouble::Close()
 {
     // todo
 }
+
+void WzlPlanner::GripperCameraToF::Scan()
+{
+    // todo
+}
+
+void WzlPlanner::GripperDeburringSpindle::Activate()
+{
+}

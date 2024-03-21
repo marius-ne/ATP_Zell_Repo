@@ -1,0 +1,11 @@
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.cpp:3:1:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[KWzlPlanner::PartChassis::PartChassis()[m[K’
+    3 | [01;31m[KWzlPlanner[m[K::PartChassis::PartChassis()
+      | [01;31m[K^~~~~~~~~~[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.h:27:13:[m[K [01;36m[Knote: [m[K‘[01m[KWzlPlanner::PartChassis::PartChassis()[m[K’ previously defined here
+   27 |             [01;36m[KPartChassis[m[K() { }
+      |             [01;36m[K^~~~~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:104: CMakeFiles/robo_planner.dir/src/Part.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,16 @@
+[0.039s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/hello_moveit -- -j16 -l16
+[0.064s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[0.079s] [ 20%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[1.738s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In member function ‘[01m[Kvoid Planner::timer_callback()[m[K’:
+[1.739s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:29:39:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KWzlPlanner::TransformBroadcaster::Broadcast()[m[K’
+[1.739s]    29 |     [01;31m[KtfTransformBroadcaster_->Broadcast()[m[K;
+[1.739s]       |     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[1.739s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:9[m[K:
+[1.739s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:96:18:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kvoid WzlPlanner::TransformBroadcaster::Broadcast(std::shared_ptr<WzlPlanner::Transform>, rclcpp::Clock&)[m[K’
+[1.739s]    96 |             void [01;36m[KBroadcast[m[K(std::shared_ptr<Transform> transformBase, rclcpp::Clock& clock);
+[1.739s]       |                  [01;36m[K^~~~~~~~~[m[K
+[1.739s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:96:18:[m[K [01;36m[Knote: [m[K  candidate expects 2 arguments, 0 provided
+[2.090s] gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+[2.090s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+[2.090s] gmake: *** [Makefile:146: all] Error 2
+[2.092s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/hello_moveit' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/hello_moveit -- -j16 -l16

@@ -1,0 +1,1 @@
+/home/aw/restackcell/ws_moveit2/build/hello_ur/ament_cmake_core/hello_urConfig-version.cmake

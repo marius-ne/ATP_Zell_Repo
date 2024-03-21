@@ -1,0 +1,37 @@
+[0.036s] Invoking command in '/home/aw/restackcell/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/aw/restackcell/ws_moveit2/src/hello_ur -DCMAKE_INSTALL_PREFIX=/home/aw/restackcell/install/hello_moveit
+[0.123s] -- The C compiler identification is GNU 11.4.0
+[0.351s] -- The CXX compiler identification is GNU 11.4.0
+[0.517s] -- Detecting C compiler ABI info
+[0.593s] -- Detecting C compiler ABI info - done
+[0.598s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.598s] -- Detecting C compile features
+[0.598s] -- Detecting C compile features - done
+[0.600s] -- Detecting CXX compiler ABI info
+[0.688s] -- Detecting CXX compiler ABI info - done
+[0.694s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.694s] -- Detecting CXX compile features
+[0.694s] -- Detecting CXX compile features - done
+[0.696s] -- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.788s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[1.390s] [31mCMake Error at CMakeLists.txt:10 (find_package):
+[1.391s]   By not providing "Findmoveit_ros_planning_interface.cmake" in
+[1.391s]   CMAKE_MODULE_PATH this project has asked CMake to find a package
+[1.391s]   configuration file provided by "moveit_ros_planning_interface", but CMake
+[1.391s]   did not find one.
+[1.391s] 
+[1.391s]   Could not find a package configuration file provided by
+[1.391s]   "moveit_ros_planning_interface" with any of the following names:
+[1.391s] 
+[1.391s]     moveit_ros_planning_interfaceConfig.cmake
+[1.391s]     moveit_ros_planning_interface-config.cmake
+[1.391s] 
+[1.391s]   Add the installation prefix of "moveit_ros_planning_interface" to
+[1.391s]   CMAKE_PREFIX_PATH or set "moveit_ros_planning_interface_DIR" to a directory
+[1.391s]   containing one of the above files.  If "moveit_ros_planning_interface"
+[1.391s]   provides a separate development package or SDK, be sure it has been
+[1.391s]   installed.
+[1.391s] 
+[1.391s] [0m
+[1.391s] -- Configuring incomplete, errors occurred!
+[1.391s] See also "/home/aw/restackcell/build/hello_moveit/CMakeFiles/CMakeOutput.log".
+[1.394s] Invoked command in '/home/aw/restackcell/build/hello_moveit' returned '1': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/aw/restackcell/ws_moveit2/src/hello_ur -DCMAKE_INSTALL_PREFIX=/home/aw/restackcell/install/hello_moveit

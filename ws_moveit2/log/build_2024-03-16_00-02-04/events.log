@@ -1,0 +1,240 @@
+[0.000000] (-) TimerEvent: {}
+[0.000144] (hello_ur) JobQueued: {'identifier': 'hello_ur', 'dependencies': OrderedDict()}
+[0.000506] (mtc_tutorial) JobQueued: {'identifier': 'mtc_tutorial', 'dependencies': OrderedDict()}
+[0.000573] (robo_planner) JobQueued: {'identifier': 'robo_planner', 'dependencies': OrderedDict()}
+[0.000589] (hello_ur) JobStarted: {'identifier': 'hello_ur'}
+[0.005938] (mtc_tutorial) JobStarted: {'identifier': 'mtc_tutorial'}
+[0.009388] (robo_planner) JobStarted: {'identifier': 'robo_planner'}
+[0.013886] (hello_ur) JobProgress: {'identifier': 'hello_ur', 'progress': 'cmake'}
+[0.014643] (hello_ur) JobProgress: {'identifier': 'hello_ur', 'progress': 'build'}
+[0.015388] (hello_ur) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aw/restackcell/ws_moveit2/build/hello_ur', '--', '-j16', '-l16'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/hello_ur', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces/lib:/home/aw/ros2_ws/install/polygon_plugins/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/379_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/hello_ur'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[0.018004] (mtc_tutorial) JobProgress: {'identifier': 'mtc_tutorial', 'progress': 'cmake'}
+[0.018735] (mtc_tutorial) JobProgress: {'identifier': 'mtc_tutorial', 'progress': 'build'}
+[0.019702] (mtc_tutorial) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aw/restackcell/ws_moveit2/build/mtc_tutorial', '--', '-j16', '-l16'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/mtc_tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces/lib:/home/aw/ros2_ws/install/polygon_plugins/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/379_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/mtc_tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[0.024049] (robo_planner) JobProgress: {'identifier': 'robo_planner', 'progress': 'cmake'}
+[0.024718] (robo_planner) JobProgress: {'identifier': 'robo_planner', 'progress': 'build'}
+[0.025460] (robo_planner) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aw/restackcell/ws_moveit2/build/robo_planner', '--', '-j16', '-l16'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/robo_planner', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces/lib:/home/aw/ros2_ws/install/polygon_plugins/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/379_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/robo_planner'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[0.041112] (robo_planner) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.047180] (mtc_tutorial) StdoutLine: {'line': b'[100%] Built target mtc-tutorial\n'}
+[0.056104] (mtc_tutorial) CommandEnded: {'returncode': 0}
+[0.059079] (hello_ur) StdoutLine: {'line': b'[100%] Built target hello_ur\n'}
+[0.066570] (hello_ur) CommandEnded: {'returncode': 0}
+[0.069229] (mtc_tutorial) JobProgress: {'identifier': 'mtc_tutorial', 'progress': 'install'}
+[0.075467] (mtc_tutorial) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/aw/restackcell/ws_moveit2/build/mtc_tutorial'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/mtc_tutorial', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces/lib:/home/aw/ros2_ws/install/polygon_plugins/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/379_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/mtc_tutorial'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[0.079632] (mtc_tutorial) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.080202] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/lib/mtc_tutorial/mtc-tutorial\n'}
+[0.080567] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/ament_index/resource_index/package_run_dependencies/mtc_tutorial\n'}
+[0.080770] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/ament_index/resource_index/parent_prefix_path/mtc_tutorial\n'}
+[0.080823] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/environment/ament_prefix_path.sh\n'}
+[0.080863] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/environment/ament_prefix_path.dsv\n'}
+[0.080899] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/environment/path.sh\n'}
+[0.080956] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/environment/path.dsv\n'}
+[0.080995] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/local_setup.bash\n'}
+[0.081032] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/local_setup.sh\n'}
+[0.081066] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/local_setup.zsh\n'}
+[0.081119] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/local_setup.dsv\n'}
+[0.081934] (mtc_tutorial) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/package.dsv\n'}
+[0.082056] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/ament_index/resource_index/packages/mtc_tutorial\n'}
+[0.082165] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/cmake/mtc_tutorialConfig.cmake\n'}
+[0.082271] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/cmake/mtc_tutorialConfig-version.cmake\n'}
+[0.082377] (mtc_tutorial) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/mtc_tutorial/share/mtc_tutorial/package.xml\n'}
+[0.082481] (hello_ur) JobProgress: {'identifier': 'hello_ur', 'progress': 'install'}
+[0.083279] (hello_ur) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/aw/restackcell/ws_moveit2/build/hello_ur'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/hello_ur', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces/lib:/home/aw/ros2_ws/install/polygon_plugins/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/379_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/hello_ur'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[0.085609] (mtc_tutorial) CommandEnded: {'returncode': 0}
+[0.087863] (hello_ur) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.088249] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/lib/hello_ur/hello_ur\n'}
+[0.088804] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/ament_index/resource_index/package_run_dependencies/hello_ur\n'}
+[0.088964] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/ament_index/resource_index/parent_prefix_path/hello_ur\n'}
+[0.089075] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/hello_ur/environment/ament_prefix_path.sh\n'}
+[0.089182] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/hello_ur/environment/ament_prefix_path.dsv\n'}
+[0.089289] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/hello_ur/environment/path.sh\n'}
+[0.089397] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/hello_ur/environment/path.dsv\n'}
+[0.089505] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/hello_ur/local_setup.bash\n'}
+[0.089611] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/hello_ur/local_setup.sh\n'}
+[0.089717] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/hello_ur/local_setup.zsh\n'}
+[0.090036] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/hello_ur/local_setup.dsv\n'}
+[0.090145] (hello_ur) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/hello_ur/package.dsv\n'}
+[0.090252] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/ament_index/resource_index/packages/hello_ur\n'}
+[0.090359] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/hello_ur/cmake/hello_urConfig.cmake\n'}
+[0.090464] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/hello_ur/cmake/hello_urConfig-version.cmake\n'}
+[0.090570] (hello_ur) StdoutLine: {'line': b'-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/hello_ur/share/hello_ur/package.xml\n'}
+[0.096858] (hello_ur) CommandEnded: {'returncode': 0}
+[0.099275] (-) TimerEvent: {}
+[0.113495] (mtc_tutorial) JobEnded: {'identifier': 'mtc_tutorial', 'rc': 0}
+[0.122989] (hello_ur) JobEnded: {'identifier': 'hello_ur', 'rc': 0}
+[0.125196] (robo_planner) StdoutLine: {'line': b'-- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.199444] (-) TimerEvent: {}
+[0.200390] (robo_planner) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.202556] (robo_planner) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.206151] (robo_planner) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.212861] (robo_planner) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.222610] (robo_planner) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.259162] (robo_planner) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.260672] (robo_planner) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.299562] (-) TimerEvent: {}
+[0.399890] (-) TimerEvent: {}
+[0.500251] (-) TimerEvent: {}
+[0.600651] (-) TimerEvent: {}
+[0.701103] (-) TimerEvent: {}
+[0.801572] (-) TimerEvent: {}
+[0.901942] (-) TimerEvent: {}
+[1.002395] (-) TimerEvent: {}
+[1.102748] (-) TimerEvent: {}
+[1.203083] (-) TimerEvent: {}
+[1.303438] (-) TimerEvent: {}
+[1.403776] (-) TimerEvent: {}
+[1.504092] (-) TimerEvent: {}
+[1.604429] (-) TimerEvent: {}
+[1.704780] (-) TimerEvent: {}
+[1.805134] (-) TimerEvent: {}
+[1.905466] (-) TimerEvent: {}
+[2.005849] (-) TimerEvent: {}
+[2.106303] (-) TimerEvent: {}
+[2.206629] (-) TimerEvent: {}
+[2.306953] (-) TimerEvent: {}
+[2.407344] (-) TimerEvent: {}
+[2.507752] (-) TimerEvent: {}
+[2.608125] (-) TimerEvent: {}
+[2.665601] (robo_planner) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[2.708334] (-) TimerEvent: {}
+[2.763702] (robo_planner) StdoutLine: {'line': b'-- Found moveit_ros_planning_interface: 2.5.5 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)\n'}
+[2.770642] (robo_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread \n'}
+[2.808505] (-) TimerEvent: {}
+[2.908887] (-) TimerEvent: {}
+[3.009283] (-) TimerEvent: {}
+[3.109695] (-) TimerEvent: {}
+[3.210164] (-) TimerEvent: {}
+[3.298027] (robo_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread \n'}
+[3.303465] (robo_planner) StdoutLine: {'line': b'-- Found parameter_traits: 0.3.7 (/opt/ros/humble/share/parameter_traits/cmake)\n'}
+[3.310376] (-) TimerEvent: {}
+[3.311323] (robo_planner) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 16.0.8 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)\n'}
+[3.339986] (robo_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem \n'}
+[3.410524] (-) TimerEvent: {}
+[3.510896] (-) TimerEvent: {}
+[3.611315] (-) TimerEvent: {}
+[3.711687] (-) TimerEvent: {}
+[3.812047] (-) TimerEvent: {}
+[3.912433] (-) TimerEvent: {}
+[3.972537] (robo_planner) StdoutLine: {'line': b'-- library: /usr/lib/x86_64-linux-gnu/libcurl.so\n'}
+[4.012612] (-) TimerEvent: {}
+[4.080122] (robo_planner) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[4.112760] (-) TimerEvent: {}
+[4.213136] (-) TimerEvent: {}
+[4.313491] (-) TimerEvent: {}
+[4.413820] (-) TimerEvent: {}
+[4.514204] (-) TimerEvent: {}
+[4.614527] (-) TimerEvent: {}
+[4.714865] (-) TimerEvent: {}
+[4.815220] (-) TimerEvent: {}
+[4.915593] (-) TimerEvent: {}
+[5.015918] (-) TimerEvent: {}
+[5.116229] (-) TimerEvent: {}
+[5.216550] (-) TimerEvent: {}
+[5.316925] (-) TimerEvent: {}
+[5.352360] (robo_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono \n'}
+[5.417139] (-) TimerEvent: {}
+[5.517559] (-) TimerEvent: {}
+[5.617972] (-) TimerEvent: {}
+[5.711664] (robo_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options \n'}
+[5.718114] (-) TimerEvent: {}
+[5.818519] (-) TimerEvent: {}
+[5.879689] (robo_planner) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread \n'}
+[5.918659] (-) TimerEvent: {}
+[6.019020] (-) TimerEvent: {}
+[6.119401] (-) TimerEvent: {}
+[6.165033] (robo_planner) StdoutLine: {'line': b'-- Found moveit_visual_tools: 4.1.0 (/opt/ros/humble/share/moveit_visual_tools/cmake)\n'}
+[6.219552] (-) TimerEvent: {}
+[6.319927] (-) TimerEvent: {}
+[6.420286] (-) TimerEvent: {}
+[6.448543] (robo_planner) StdoutLine: {'line': b"-- Setting OGRE_DIR to: '/opt/ros/humble/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'\n"}
+[6.449409] (robo_planner) StdoutLine: {'line': b'-- Found OGRE\n'}
+[6.449501] (robo_planner) StdoutLine: {'line': b'--   static     : OFF\n'}
+[6.449542] (robo_planner) StdoutLine: {'line': b'--   components : HLMS;MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume\n'}
+[6.449651] (robo_planner) StdoutLine: {'line': b'--   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI\n'}
+[6.449760] (robo_planner) StdoutLine: {'line': b'--   media      : /opt/ros/humble/opt/rviz_ogre_vendor/share/OGRE/Media\n'}
+[6.449864] (robo_planner) StdoutLine: {'line': b'-- OGRE_LIBRARIES: OgreHLMS;OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain\n'}
+[6.449969] (robo_planner) StdoutLine: {'line': b'-- OGRE_LIBRARY_DIRS: /opt/ros/humble/opt/rviz_ogre_vendor/lib\n'}
+[6.450075] (robo_planner) StdoutLine: {'line': b'-- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI\n'}
+[6.450181] (robo_planner) StdoutLine: {'line': b'-- OGRE_PLUGIN_DIR: /opt/ros/humble/opt/rviz_ogre_vendor/lib/OGRE\n'}
+[6.450355] (robo_planner) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so\n'}
+[6.450513] (robo_planner) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so\n'}
+[6.450568] (robo_planner) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so\n'}
+[6.450657] (robo_planner) StdoutLine: {'line': b'-- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so\n'}
+[6.469402] (robo_planner) StdoutLine: {'line': b'-- Could not find freeimage library\n'}
+[6.520411] (-) TimerEvent: {}
+[6.620796] (-) TimerEvent: {}
+[6.721150] (-) TimerEvent: {}
+[6.821519] (-) TimerEvent: {}
+[6.921862] (-) TimerEvent: {}
+[7.022197] (-) TimerEvent: {}
+[7.122518] (-) TimerEvent: {}
+[7.222858] (-) TimerEvent: {}
+[7.282134] (robo_planner) StdoutLine: {'line': b'-- rviz_ogre_vendor::RenderSystem_GL for IMPORTED_LOCATION_RELEASE: _render_system_gl_static_library_abs-NOTFOUND\n'}
+[7.282308] (robo_planner) StdoutLine: {'line': b'-- rviz_ogre_vendor::RenderSystem_GL for IMPORTED_LOCATION_DEBUG: _render_system_gl_static_library_abs-NOTFOUND\n'}
+[7.323050] (-) TimerEvent: {}
+[7.423407] (-) TimerEvent: {}
+[7.523836] (-) TimerEvent: {}
+[7.624181] (-) TimerEvent: {}
+[7.724514] (-) TimerEvent: {}
+[7.786211] (robo_planner) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[7.824694] (-) TimerEvent: {}
+[7.860685] (robo_planner) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[7.860881] (robo_planner) StdoutLine: {'line': b'-- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/aw/restackcell/ws_moveit2/src/hello_moveit/include>\n'}
+[7.860926] (robo_planner) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[7.864500] (robo_planner) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[7.870480] (robo_planner) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[7.874342] (robo_planner) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[7.900182] (robo_planner) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[7.900366] (robo_planner) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[7.903882] (robo_planner) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[7.904405] (robo_planner) StdoutLine: {'line': b'-- Configuring done\n'}
+[7.924844] (-) TimerEvent: {}
+[7.927400] (robo_planner) StdoutLine: {'line': b'-- Generating done\n'}
+[7.929316] (robo_planner) StdoutLine: {'line': b'-- Build files have been written to: /home/aw/restackcell/ws_moveit2/build/robo_planner\n'}
+[7.954071] (robo_planner) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target robo_planner\x1b[0m\n'}
+[7.971498] (robo_planner) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o\x1b[0m\n'}
+[7.971818] (robo_planner) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Gripper.cpp.o\x1b[0m\n'}
+[7.971872] (robo_planner) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Part.cpp.o\x1b[0m\n'}
+[7.972307] (robo_planner) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Robot.cpp.o\x1b[0m\n'}
+[7.972613] (robo_planner) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Pose.cpp.o\x1b[0m\n'}
+[7.973450] (robo_planner) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o\x1b[0m\n'}
+[7.973655] (robo_planner) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Task.cpp.o\x1b[0m\n'}
+[8.024991] (-) TimerEvent: {}
+[8.125370] (-) TimerEvent: {}
+[8.176882] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:2:10:\x1b[m\x1b[K \x1b[01;31m\x1b[Kfatal error: \x1b[m\x1b[Ktf2_eigen.h: No such file or directory\n'}
+[8.177108] (robo_planner) StderrLine: {'line': b'    2 | #include \x1b[01;31m\x1b[K"tf2_eigen.h"\x1b[m\x1b[K\n'}
+[8.177154] (robo_planner) StderrLine: {'line': b'      |          \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[8.177191] (robo_planner) StderrLine: {'line': b'compilation terminated.\n'}
+[8.179528] (robo_planner) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:90: CMakeFiles/robo_planner.dir/src/Main.cpp.o] Error 1\n'}
+[8.179801] (robo_planner) StderrLine: {'line': b'gmake[2]: *** Waiting for unfinished jobs....\n'}
+[8.225563] (-) TimerEvent: {}
+[8.326013] (-) TimerEvent: {}
+[8.426357] (-) TimerEvent: {}
+[8.526732] (-) TimerEvent: {}
+[8.627131] (-) TimerEvent: {}
+[8.727514] (-) TimerEvent: {}
+[8.827911] (-) TimerEvent: {}
+[8.928291] (-) TimerEvent: {}
+[9.028679] (-) TimerEvent: {}
+[9.129072] (-) TimerEvent: {}
+[9.229471] (-) TimerEvent: {}
+[9.329892] (-) TimerEvent: {}
+[9.430262] (-) TimerEvent: {}
+[9.530723] (-) TimerEvent: {}
+[9.631101] (-) TimerEvent: {}
+[9.731481] (-) TimerEvent: {}
+[9.831898] (-) TimerEvent: {}
+[9.932321] (-) TimerEvent: {}
+[10.032714] (-) TimerEvent: {}
+[10.133173] (-) TimerEvent: {}
+[10.233632] (-) TimerEvent: {}
+[10.334059] (-) TimerEvent: {}
+[10.434663] (-) TimerEvent: {}
+[10.535174] (-) TimerEvent: {}
+[10.635720] (-) TimerEvent: {}
+[10.728088] (robo_planner) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2\n'}
+[10.728451] (robo_planner) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[10.729881] (robo_planner) CommandEnded: {'returncode': 2}
+[10.735903] (-) TimerEvent: {}
+[10.757219] (robo_planner) JobEnded: {'identifier': 'robo_planner', 'rc': 2}
+[10.768639] (-) EventReactorShutdown: {}

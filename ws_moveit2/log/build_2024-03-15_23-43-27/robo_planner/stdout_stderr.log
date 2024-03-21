@@ -1,0 +1,12 @@
+[ 12%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Part.cpp.o[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Task.cpp.o[0m
+[ 37%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Pose.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o[0m
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:[m[K In member function ‘[01m[Kvoid WzlPlanner::TransformBroadcaster::Broadcast(std::shared_ptr<WzlPlanner::Transform>, rclcpp::Clock&)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:230:32:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = class WzlPlanner::Transform[m[K’ {aka ‘[01m[Kclass WzlPlanner::Transform[m[K’} has no member named ‘[01m[KGetPose[m[K’
+  230 |         auto pose = transform->[01;31m[KGetPose[m[K();
+      |                                [01;31m[K^~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:118: CMakeFiles/robo_planner.dir/src/Pose.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

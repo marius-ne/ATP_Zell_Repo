@@ -1,0 +1,17 @@
+[0.017s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/robo_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/moveit_configs_utils:/home/aw/restackcell/ws_moveit2/install/launch_param_builder /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[0.053s] [35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[0.076s] [ 12%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[0.076s] [ 25%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o[0m
+[0.077s] [ 37%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Task.cpp.o[0m
+[7.146s] [ 50%] [32m[1mLinking CXX executable robo_planner[0m
+[9.419s] /usr/bin/ld: CMakeFiles/robo_planner.dir/src/Main.cpp.o: in function `CreateCell()':
+[9.419s] /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:46: undefined reference to `WzlPlanner::Scene::AddSceneObject(std::shared_ptr<WzlPlanner::SceneObject>)'
+[9.419s] /usr/bin/ld: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:51: undefined reference to `WzlPlanner::Scene::AddSceneObject(std::shared_ptr<WzlPlanner::SceneObject>)'
+[9.419s] /usr/bin/ld: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:56: undefined reference to `WzlPlanner::Scene::AddSceneObject(std::shared_ptr<WzlPlanner::SceneObject>)'
+[9.419s] /usr/bin/ld: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:61: undefined reference to `WzlPlanner::Scene::AddSceneObject(std::shared_ptr<WzlPlanner::SceneObject>)'
+[9.419s] /usr/bin/ld: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:66: undefined reference to `WzlPlanner::Scene::AddSceneObject(std::shared_ptr<WzlPlanner::SceneObject>)'
+[9.481s] collect2: error: ld returned 1 exit status
+[9.482s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:516: robo_planner] Error 1
+[9.482s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+[9.483s] gmake: *** [Makefile:146: all] Error 2
+[9.485s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/robo_planner' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/moveit_configs_utils:/home/aw/restackcell/ws_moveit2/install/launch_param_builder /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16

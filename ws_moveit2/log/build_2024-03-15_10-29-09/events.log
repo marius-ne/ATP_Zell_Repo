@@ -1,0 +1,65 @@
+[0.000000] (-) TimerEvent: {}
+[0.000149] (-) JobUnselected: {'identifier': 'hello_ur'}
+[0.000339] (-) JobUnselected: {'identifier': 'mtc_tutorial'}
+[0.000375] (hello_moveit) JobQueued: {'identifier': 'hello_moveit', 'dependencies': OrderedDict()}
+[0.000400] (hello_moveit) JobStarted: {'identifier': 'hello_moveit'}
+[0.036123] (hello_moveit) JobProgress: {'identifier': 'hello_moveit', 'progress': 'cmake'}
+[0.037168] (hello_moveit) JobProgress: {'identifier': 'hello_moveit', 'progress': 'build'}
+[0.037242] (hello_moveit) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aw/restackcell/ws_moveit2/build/hello_moveit', '--', '-j16', '-l16'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/hello_moveit', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces/lib:/home/aw/ros2_ws/install/polygon_plugins/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/ros2_ws/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/379_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/hello_moveit'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/ros2_ws/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/ros2_ws/install/tutorial_interfaces:/home/aw/ros2_ws/install/tf2tests:/home/aw/ros2_ws/install/polygon_plugins:/home/aw/ros2_ws/install/polygon_base:/home/aw/ros2_ws/install/learning_tf2_cpp:/home/aw/ros2_ws/install/cpp_srvcli:/home/aw/ros2_ws/install/cpp_pubsub:/home/aw/ros2_ws/install/cpp_parameters:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[0.064756] (hello_moveit) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target hello_moveit\x1b[0m\n'}
+[0.076747] (hello_moveit) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/Pose.cpp.o\x1b[0m\n'}
+[0.099395] (-) TimerEvent: {}
+[0.199821] (-) TimerEvent: {}
+[0.300205] (-) TimerEvent: {}
+[0.400596] (-) TimerEvent: {}
+[0.500984] (-) TimerEvent: {}
+[0.601347] (-) TimerEvent: {}
+[0.701721] (-) TimerEvent: {}
+[0.802063] (-) TimerEvent: {}
+[0.902423] (-) TimerEvent: {}
+[1.002773] (-) TimerEvent: {}
+[1.103168] (-) TimerEvent: {}
+[1.203564] (-) TimerEvent: {}
+[1.303978] (-) TimerEvent: {}
+[1.404334] (-) TimerEvent: {}
+[1.504673] (-) TimerEvent: {}
+[1.605015] (-) TimerEvent: {}
+[1.705413] (-) TimerEvent: {}
+[1.805780] (-) TimerEvent: {}
+[1.831083] (hello_moveit) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/memory:76\x1b[m\x1b[K,\n'}
+[1.831300] (hello_moveit) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:4\x1b[m\x1b[K,\n'}
+[1.831348] (hello_moveit) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:1\x1b[m\x1b[K:\n'}
+[1.831385] (hello_moveit) StderrLine: {'line': b'/usr/include/c++/11/bits/unique_ptr.h: In instantiation of \xe2\x80\x98\x1b[01m\x1b[Ktypename std::_MakeUniq<_Tp>::__single_object std::make_unique(_Args&& ...) [with _Tp = tf2_ros::TransformBroadcaster; _Args = {}; typename std::_MakeUniq<_Tp>::__single_object = std::unique_ptr<tf2_ros::TransformBroadcaster>]\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[1.831424] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:122:70:\x1b[m\x1b[K   required from here\n'}
+[1.831459] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/unique_ptr.h:962:30:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kno matching function for call to \xe2\x80\x98\x1b[01m\x1b[Ktf2_ros::TransformBroadcaster::TransformBroadcaster()\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.831496] (hello_moveit) StderrLine: {'line': b'  962 |     { return unique_ptr<_Tp>(\x1b[01;31m\x1b[Knew _Tp(std::forward<_Args>(__args)...)\x1b[m\x1b[K); }\n'}
+[1.831537] (hello_moveit) StderrLine: {'line': b'      |                              \x1b[01;31m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.831571] (hello_moveit) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:10\x1b[m\x1b[K,\n'}
+[1.831628] (hello_moveit) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:1\x1b[m\x1b[K:\n'}
+[1.831709] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/tf2_ros/tf2_ros/transform_broadcaster.h:58:3:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktemplate<class NodeT, class AllocatorT> tf2_ros::TransformBroadcaster::TransformBroadcaster(NodeT&&, const rclcpp::QoS&, const rclcpp::PublisherOptionsWithAllocator<AllocatorT>&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.831773] (hello_moveit) StderrLine: {'line': b'   58 |   \x1b[01;36m\x1b[KTransformBroadcaster\x1b[m\x1b[K(\n'}
+[1.831833] (hello_moveit) StderrLine: {'line': b'      |   \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.831916] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/tf2_ros/tf2_ros/transform_broadcaster.h:58:3:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  template argument deduction/substitution failed:\n'}
+[1.831985] (hello_moveit) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/usr/include/c++/11/memory:76\x1b[m\x1b[K,\n'}
+[1.832041] (hello_moveit) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:4\x1b[m\x1b[K,\n'}
+[1.832081] (hello_moveit) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:1\x1b[m\x1b[K:\n'}
+[1.832132] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/usr/include/c++/11/bits/unique_ptr.h:962:30:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 3 arguments, 0 provided\n'}
+[1.832169] (hello_moveit) StderrLine: {'line': b'  962 |     { return unique_ptr<_Tp>(\x1b[01;36m\x1b[Knew _Tp(std::forward<_Args>(__args)...)\x1b[m\x1b[K); }\n'}
+[1.832203] (hello_moveit) StderrLine: {'line': b'      |                              \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.832237] (hello_moveit) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:10\x1b[m\x1b[K,\n'}
+[1.832281] (hello_moveit) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:1\x1b[m\x1b[K:\n'}
+[1.832318] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/tf2_ros/tf2_ros/transform_broadcaster.h:53:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktf2_ros::TransformBroadcaster::TransformBroadcaster(const tf2_ros::TransformBroadcaster&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.832355] (hello_moveit) StderrLine: {'line': b'   53 | class \x1b[01;36m\x1b[KTransformBroadcaster\x1b[m\x1b[K\n'}
+[1.832393] (hello_moveit) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[1.832432] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/tf2_ros/tf2_ros/transform_broadcaster.h:53:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 1 argument, 0 provided\n'}
+[1.832487] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/tf2_ros/tf2_ros/transform_broadcaster.h:53:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kcandidate: \xe2\x80\x98\x1b[01m\x1b[Ktf2_ros::TransformBroadcaster::TransformBroadcaster(tf2_ros::TransformBroadcaster&&)\x1b[m\x1b[K\xe2\x80\x99\n'}
+[1.832546] (hello_moveit) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/tf2_ros/tf2_ros/transform_broadcaster.h:53:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[K  candidate expects 1 argument, 0 provided\n'}
+[1.905923] (-) TimerEvent: {}
+[2.006268] (-) TimerEvent: {}
+[2.088593] (hello_moveit) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:104: CMakeFiles/hello_moveit.dir/src/Pose.cpp.o] Error 1\n'}
+[2.088942] (hello_moveit) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2\n'}
+[2.089059] (hello_moveit) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[2.091059] (hello_moveit) CommandEnded: {'returncode': 2}
+[2.106382] (-) TimerEvent: {}
+[2.150258] (hello_moveit) JobEnded: {'identifier': 'hello_moveit', 'rc': 2}
+[2.160961] (-) EventReactorShutdown: {}

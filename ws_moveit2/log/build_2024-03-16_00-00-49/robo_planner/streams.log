@@ -1,0 +1,43 @@
+[0.016s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/robo_planner': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[0.044s] [35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[0.063s] [ 12%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[0.064s] [ 37%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Pose.cpp.o[0m
+[0.064s] [ 37%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o[0m
+[0.064s] [ 50%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Part.cpp.o[0m
+[0.064s] [ 62%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Task.cpp.o[0m
+[0.250s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.h:7[m[K,
+[0.250s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.cpp:1[m[K:
+[0.250s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:9:10:[m[K [01;31m[Kfatal error: [m[Ktf2_eigen.h: No such file or directory
+[0.250s]     9 | #include [01;31m[K"tf2_eigen.h"[m[K
+[0.250s]       |          [01;31m[K^~~~~~~~~~~~~[m[K
+[0.251s] compilation terminated.
+[0.252s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:104: CMakeFiles/robo_planner.dir/src/Part.cpp.o] Error 1
+[0.252s] gmake[2]: *** Waiting for unfinished jobs....
+[0.261s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:7[m[K,
+[0.261s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp:1[m[K:
+[0.262s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:9:10:[m[K [01;31m[Kfatal error: [m[Ktf2_eigen.h: No such file or directory
+[0.262s]     9 | #include [01;31m[K"tf2_eigen.h"[m[K
+[0.262s]       |          [01;31m[K^~~~~~~~~~~~~[m[K
+[0.262s] compilation terminated.
+[0.262s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:2:10:[m[K [01;31m[Kfatal error: [m[Ktf2_eigen.h: No such file or directory
+[0.262s]     2 | #include [01;31m[K"tf2_eigen.h"[m[K
+[0.262s]       |          [01;31m[K^~~~~~~~~~~~~[m[K
+[0.262s] compilation terminated.
+[0.263s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:90: CMakeFiles/robo_planner.dir/src/Main.cpp.o] Error 1
+[0.263s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:146: CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o] Error 1
+[0.274s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp:1[m[K:
+[0.274s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:9:10:[m[K [01;31m[Kfatal error: [m[Ktf2_eigen.h: No such file or directory
+[0.274s]     9 | #include [01;31m[K"tf2_eigen.h"[m[K
+[0.274s]       |          [01;31m[K^~~~~~~~~~~~~[m[K
+[0.274s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:7[m[K,
+[0.274s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[0.274s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h:9:10:[m[K [01;31m[Kfatal error: [m[Ktf2_eigen.h: No such file or directory
+[0.274s]     9 | #include [01;31m[K"tf2_eigen.h"[m[K
+[0.274s]       |          [01;31m[K^~~~~~~~~~~~~[m[K
+[0.274s] compilation terminated.
+[0.274s] compilation terminated.
+[0.274s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:118: CMakeFiles/robo_planner.dir/src/Pose.cpp.o] Error 1
+[0.274s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:160: CMakeFiles/robo_planner.dir/src/Task.cpp.o] Error 1
+[0.274s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+[0.274s] gmake: *** [Makefile:146: all] Error 2
+[0.277s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/robo_planner' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16

@@ -4,41 +4,28 @@
 #include "geometry_msgs/msg/transform.h"
 #include "geometry_msgs/msg/transform_stamped.hpp"
 #include "tf2/LinearMath/Quaternion.h"
-#include "tf2_ros/static_transform_broadcaster.h"
+#include "tf2_ros/transform_broadcaster.h"
 #include "tf2/utils.h"
+#include "rclcpp/rclcpp.hpp"
+#include "tf2_eigen/tf2_eigen.hpp"
 
-#include <memory>
+#include <map>
 
 namespace WzlPlanner
 {
-    class Transform
-    {
-
-        private:
-            // the pose relative to the parent transform
-            std::shared_ptr<Pose> poseRelative;
-
-            // the pose in absolute world coordinates
-            std::shared_ptr<Pose> poseAbsolute;
-
-            std::vector<std::shared_ptr<Transform>> children;
-
-        public:
-            std::shared_ptr<Pose> GetPoseRelative() const { return this->poseRelative; }
-            std::shared_ptr<Pose> GetPoseAbsolute() const { return this->poseAbsolute; }
-
-            void AddChild(const std::shared_ptr<Transform> child);
-
-            // Updates the absolute poses of this Transform and all it's children
-            void Update(const std::shared_ptr<Transform> parent);
-    };
-
     class Pose
     {
 
         public:
             Pose();
             Pose(Pose &copy);
+
+            void Set();
+            void Set(const double x, const double y, const double z,
+                const double rx, const double ry, const double rz);
+            void Set(const double x, const double y, const double z,
+                const double i, const double j, const double k, const double w);
+            void Set(Pose &pose);
 
             void SetPositionX(const double x);
             void SetPositionY(const double y);
@@ -89,6 +76,59 @@ namespace WzlPlanner
             void UpdateRotationEulerFromQuaternion();
             
     };
+
+    class Transform : public std::enable_shared_from_this<Transform>
+    {
+
+        public:
+            Transform(std::string id);
+            Transform(std::string id, std::shared_ptr<Pose> pose);
+            Transform(std::string id, std::shared_ptr<Pose> pose, std::shared_ptr<Transform> parent);
+            Transform(std::string id, std::shared_ptr<Transform> parent);
+
+            std::shared_ptr<Pose> GetPoseRelative() const { return poseRelative_; }
+            std::shared_ptr<Pose> GetPoseAbsolute() const { return poseAbsolute_; }
+            std::map<std::string, std::shared_ptr<Transform>> GetChildren() const { return children_; }
+            void GetChildrenRecursive(std::vector<std::shared_ptr<Transform>>& collectedTransforms) const;
+            std::string GetId() const { return id_; }
+            std::shared_ptr<Transform> GetParent() const { return parent_; }
+
+            void SetParent(const std::shared_ptr<Transform> parent);
+            
+            // Updates the absolute poses of this Transform and all it's children
+            void Update(const std::shared_ptr<Transform> parent = nullptr);
+            void UpdateRelative(const std::shared_ptr<Transform> parent = nullptr);
+
+            void Print(int depth = 0);
+
+        private:
+            std::string id_;
+            std::map<std::string, std::shared_ptr<Transform>> children_;
+            std::shared_ptr<Transform> parent_;
+            std::shared_ptr<Pose> poseRelative_;
+            std::shared_ptr<Pose> poseAbsolute_;
+            Eigen::Matrix4d baseTransform_; // transform of the coordinate base (in relation to it's parent coordinate system)
+
+    };
+
+    class TransformBroadcaster
+    {
+        public:
+            TransformBroadcaster(rclcpp::Node& node);
+
+            void Broadcast(std::shared_ptr<Transform> transformBase, rclcpp::Clock& clock);
+
+        private:
+            std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+
+            void GetChildrenRecursive(std::shared_ptr<Transform> baseTransform, std::vector<std::shared_ptr<Transform>>& collectedTransforms);
+
+            void MakeTransform(geometry_msgs::msg::TransformStamped& t, rclcpp::Clock& clock,
+                std::string parentFrame, std::string childFrame,
+                float x, float y, float z,
+                float roll, float pitch, float yaw);
+    };
+    
 } // namespace WzlPlanner
 
 #endif // POSE_HPP

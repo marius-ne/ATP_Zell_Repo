@@ -1,0 +1,11 @@
+[0.013s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/robo_planner': /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[0.039s] [35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[0.059s] [ 12%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Part.cpp.o[0m
+[3.531s] [ 25%] [32m[1mLinking CXX executable robo_planner[0m
+[4.634s] /usr/bin/ld: CMakeFiles/robo_planner.dir/src/Part.cpp.o: in function `void __gnu_cxx::new_allocator<WzlPlanner::Pose>::construct<WzlPlanner::Pose>(WzlPlanner::Pose*)':
+[4.634s] Part.cpp:(.text._ZN9__gnu_cxx13new_allocatorIN10WzlPlanner4PoseEE9constructIS2_JEEEvPT_DpOT0_[_ZN9__gnu_cxx13new_allocatorIN10WzlPlanner4PoseEE9constructIS2_JEEEvPT_DpOT0_]+0x31): undefined reference to `WzlPlanner::Pose::Pose()'
+[4.643s] collect2: error: ld returned 1 exit status
+[4.644s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:516: robo_planner] Error 1
+[4.644s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+[4.644s] gmake: *** [Makefile:146: all] Error 2
+[4.646s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/robo_planner' returned '2': /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16

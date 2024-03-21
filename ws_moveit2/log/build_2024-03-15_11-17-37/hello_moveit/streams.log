@@ -1,0 +1,20 @@
+[0.036s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/hello_moveit': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/hello_moveit -- -j16 -l16
+[0.062s] [35m[1mConsolidate compiler generated dependencies of target hello_moveit[0m
+[0.077s] [ 20%] [32mBuilding CXX object CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o[0m
+[1.726s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:65:5:[m[K [01;31m[Kerror: [m[Kredefinition of ‘[01m[Kint main(int, char**)[m[K’
+[1.726s]    65 | int [01;31m[Kmain[m[K(int argc, char* argv[])
+[1.726s]       |     [01;31m[K^~~~[m[K
+[1.726s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:28:5:[m[K [01;36m[Knote: [m[K‘[01m[Kint main(int, char**)[m[K’ previously defined here
+[1.726s]    28 | int [01;36m[Kmain[m[K(int argc, char * argv[])
+[1.726s]       |     [01;36m[K^~~~[m[K
+[1.726s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:[m[K In function ‘[01m[Kint main(int, char**)[m[K’:
+[1.726s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:65:14:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargc[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[1.726s]    65 | int main([01;35m[Kint argc[m[K, char* argv[])
+[1.726s]       |          [01;35m[K~~~~^~~~[m[K
+[1.726s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/hello_moveit.cpp:65:26:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kargv[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[1.726s]    65 | int main(int argc, [01;35m[Kchar* argv[][m[K)
+[1.726s]       |                    [01;35m[K~~~~~~^~~~~~[m[K
+[2.036s] gmake[2]: *** [CMakeFiles/hello_moveit.dir/build.make:76: CMakeFiles/hello_moveit.dir/src/hello_moveit.cpp.o] Error 1
+[2.037s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/hello_moveit.dir/all] Error 2
+[2.037s] gmake: *** [Makefile:146: all] Error 2
+[2.039s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/hello_moveit' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/hello_moveit -- -j16 -l16

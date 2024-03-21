@@ -1,0 +1,8 @@
+[ 12%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Part.cpp.o[0m
+[ 25%] [32m[1mLinking CXX executable robo_planner[0m
+/usr/bin/ld: CMakeFiles/robo_planner.dir/src/Pose.cpp.o: in function `create_rotation_matrix(double, double, double)':
+Pose.cpp:(.text+0x909): multiple definition of `create_rotation_matrix(double, double, double)'; CMakeFiles/robo_planner.dir/src/Main.cpp.o:Main.cpp:(.text+0x0): first defined here
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:516: robo_planner] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,11 +1,16 @@
 #ifndef GRIPPER_HPP
 #define GRIPPER_HPP
 
+#include <string>
+
 namespace WzlPlanner
 {
     // base class for gripper
     class GripperBase
     {
+        private:
+            std::string id_;
+
         protected:
             bool isOpened = false;
             bool isClosed = false;
@@ -14,8 +19,10 @@ namespace WzlPlanner
             virtual void Open() = 0;
             virtual void Close() = 0;
 
-            GripperBase() 
+            GripperBase(std::string id) 
             {
+                id_ = id;
+
                 isOpened = true;
             }
 
@@ -32,6 +39,9 @@ namespace WzlPlanner
             int ioOpen, ioClose;
 
         public:
+            GripperPneumaticSingle(std::string id) : GripperBase(id)
+            {} 
+
             void Open() override;
             void Close() override;
     };
@@ -47,10 +57,39 @@ namespace WzlPlanner
             int ioOpen2, ioClose2;
 
         public:
+            GripperPneumaticDouble(std::string id) : GripperBase(id)
+            {}
+
             void Open() override;
             void Close() override;
 
 
+    };
+
+    class GripperCameraToF : public GripperBase
+    {
+        private:
+
+        public:
+            GripperCameraToF(std::string id) : GripperBase(id)
+            {}
+
+            void Open() override {}
+            void Close() override {}
+            void Scan();
+    };
+
+    class GripperDeburringSpindle : public GripperBase
+    {
+        private:
+
+        public:
+            GripperDeburringSpindle(std::string id) : GripperBase(id)
+            {}
+
+            void Open() override {}
+            void Close() override {}
+            void Activate();
     };
 
 } // namespace WzlPlanner

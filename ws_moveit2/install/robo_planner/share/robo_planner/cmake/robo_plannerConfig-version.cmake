@@ -1,0 +1,1 @@
+/home/aw/restackcell/ws_moveit2/build/robo_planner/ament_cmake_core/robo_plannerConfig-version.cmake
