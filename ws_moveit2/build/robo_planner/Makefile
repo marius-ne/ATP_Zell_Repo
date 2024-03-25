@@ -234,6 +234,30 @@ src/Gripper.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Gripper.cpp.s
 .PHONY : src/Gripper.cpp.s
 
+src/IoInterface.o: src/IoInterface.cpp.o
+.PHONY : src/IoInterface.o
+
+# target to build an object file
+src/IoInterface.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o
+.PHONY : src/IoInterface.cpp.o
+
+src/IoInterface.i: src/IoInterface.cpp.i
+.PHONY : src/IoInterface.i
+
+# target to preprocess a source file
+src/IoInterface.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/IoInterface.cpp.i
+.PHONY : src/IoInterface.cpp.i
+
+src/IoInterface.s: src/IoInterface.cpp.s
+.PHONY : src/IoInterface.s
+
+# target to generate assembly for a file
+src/IoInterface.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/IoInterface.cpp.s
+.PHONY : src/IoInterface.cpp.s
+
 src/Main.o: src/Main.cpp.o
 .PHONY : src/Main.o
 
@@ -421,6 +445,9 @@ help:
 	@echo "... src/Gripper.o"
 	@echo "... src/Gripper.i"
 	@echo "... src/Gripper.s"
+	@echo "... src/IoInterface.o"
+	@echo "... src/IoInterface.i"
+	@echo "... src/IoInterface.s"
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"

@@ -4,6 +4,8 @@
 #include "SceneObject.h"
 #include "Scene.h"
 
+#include "IoInterface.h"
+
 #include <math.h>
 #include <memory>
 
@@ -36,9 +38,9 @@ int TransformTest() {
   return 0;
 }
 
-void CreateCell()
+void CreateCell(const std::shared_ptr<rclcpp::Node> node)
 {
-  auto robot = std::make_shared<WzlPlanner::RobotDummy>();
+  auto robot = std::make_shared<WzlPlanner::RobotDummy>(node);
   auto scene = std::make_shared<WzlPlanner::Scene>(robot);
   
   // gripper change station
@@ -66,9 +68,21 @@ void CreateCell()
   scene->AddSceneObject(carrier);
   carrier->GetTransform()->GetPoseRelative()->SetPositionXYZ(-5, 0, 0);
 
+}
 
+void OpcUaTest(const std::shared_ptr<rclcpp::Node> node)
+{
+  auto ioInterfaceOpcUa = std::make_shared<WzlPlanner::IoInterfaceOpcUa>(node);
+  auto testCall = ioInterfaceOpcUa->SetValueBool(0, 0);
 
-
+  if (testCall)
+  {
+    std::cout << "OpcUa Test Call was successful" << std::endl;
+  }
+  else 
+  {
+    std::cout << "OpcUa Test Call failed" << std::endl;
+  }
 }
 
 int main(int argc, char* argv[])
@@ -78,10 +92,11 @@ int main(int argc, char* argv[])
 
   //auto trWorld = std::make_shared<WzlPlanner::Transform>("world");
 
-  CreateCell();
-
   auto const node = std::make_shared<rclcpp::Node>(
       "robot_planer", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
+
+  CreateCell(node);
+  OpcUaTest(node);
 
   rclcpp::spin(node);
 

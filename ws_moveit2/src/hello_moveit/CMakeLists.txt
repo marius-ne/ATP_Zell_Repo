@@ -15,10 +15,12 @@ find_package(geometry_msgs REQUIRED)
 find_package(tf2 REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_eigen REQUIRED)
-
+find_package(wzlscheduler_interfaces REQUIRED)
+find_package(tutorial_interfaces REQUIRED)
 
 add_executable(robo_planner 
   src/Gripper.cpp
+  src/IoInterface.cpp
   src/Main.cpp
   src/Part.cpp
   src/Pose.cpp
@@ -43,6 +45,9 @@ ament_target_dependencies(
   "tf2"
   "tf2_ros"
   "tf2_eigen"
+  wzlscheduler_interfaces
+  tutorial_interfaces
+
 )
 
 install(TARGETS robo_planner

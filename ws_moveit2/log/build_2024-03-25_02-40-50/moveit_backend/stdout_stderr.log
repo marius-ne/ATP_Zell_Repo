@@ -1,0 +1,170 @@
+[35m[1mConsolidate compiler generated dependencies of target moveit_panda[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/moveit_panda.dir/src/moveit_panda.cpp.o[0m
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:5[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:[m[K In function ‘[01m[Kvoid MoveToPosition(std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> > >, std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition_Response_<std::allocator<void> > >)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:15:45:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 5 has type ‘[01m[Kwzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> >::_posx_type[m[K’ {aka ‘[01m[Kdouble[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+   15 |   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), [01;35m[K"Incoming request (move to position)\nX: %d" " Y: %d Z: %d RotX: %d RotY %d RotZ %d"[m[K,
+      |                                             [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+   16 |                 [32m[Krequest->posx[m[K, request->posy, request->posz, request->rotx, request->roty, request->rotz);
+      |                 [32m[K~~~~~~~~~~~~~[m[K                
+      |                          [32m[K|[m[K
+      |                          [32m[Kwzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> >::_posx_type {aka double}[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:15:87:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   15 |   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request (move to position)\nX: [01;36m[K%d[m[K" " Y: %d Z: %d RotX: %d RotY %d RotZ %d",
+      |                                                                                      [01;36m[K~^[m[K
+      |                                                                                       [01;36m[K|[m[K
+      |                                                                                       [01;36m[Kint[m[K
+      |                                                                                      [32m[K%f[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:5[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:15:45:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 6 has type ‘[01m[Kwzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> >::_posy_type[m[K’ {aka ‘[01m[Kdouble[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+   15 |   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), [01;35m[K"Incoming request (move to position)\nX: %d" " Y: %d Z: %d RotX: %d RotY %d RotZ %d"[m[K,
+      |                                             [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+   16 |                 request->posx, [32m[Krequest->posy[m[K, request->posz, request->rotx, request->roty, request->rotz);
+      |                                [32m[K~~~~~~~~~~~~~[m[K 
+      |                                         [32m[K|[m[K
+      |                                         [32m[Kwzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> >::_posy_type {aka double}[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:15:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   15 |   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request (move to position)\nX: %d" " Y: %d Z: %d RotX: %d RotY %d RotZ %d",
+      | 
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:5[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:15:45:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 7 has type ‘[01m[Kwzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> >::_posz_type[m[K’ {aka ‘[01m[Kdouble[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+   15 |   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), [01;35m[K"Incoming request (move to position)\nX: %d" " Y: %d Z: %d RotX: %d RotY %d RotZ %d"[m[K,
+      |                                             [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+   16 |                 request->posx, request->posy, [32m[Krequest->posz[m[K, request->rotx, request->roty, request->rotz);
+      |                                               [32m[K~~~~~~~~~~~~~[m[K
+      |                                                        [32m[K|[m[K
+      |                                                        [32m[Kwzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> >::_posz_type {aka double}[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:15:6:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   15 |   RC[01;36m[KLC[m[KPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request (move to position)\nX: %d" " Y: %d Z: %d RotX: %d RotY %d RotZ %d",
+      |     [01;36m[K~^[m[K
+      |      [01;36m[K|[m[K
+      |      [01;36m[Kint[m[K
+      |     [32m[KLf[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:5[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:15:45:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 8 has type ‘[01m[Kwzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> >::_rotx_type[m[K’ {aka ‘[01m[Kdouble[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+   15 |   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), [01;35m[K"Incoming request (move to position)\nX: %d" " Y: %d Z: %d RotX: %d RotY %d RotZ %d"[m[K,
+      |                                             [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+   16 |                 request->posx, request->posy, request->posz, [32m[Krequest->rotx[m[K, request->roty, request->rotz);
+      |                                                              [32m[K~~~~~~~~~~~~~[m[K
+      |                                                                       [32m[K|[m[K
+      |                                                                       [32m[Kwzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> >::_rotx_type {aka double}[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:15:15:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   15 |   RCLCPP_INFO[01;36m[K(r[m[Kclcpp::get_logger("rclcpp"), "Incoming request (move to position)\nX: %d" " Y: %d Z: %d RotX: %d RotY %d RotZ %d",
+      |              [01;36m[K~^[m[K
+      |               [01;36m[K|[m[K
+      |               [01;36m[Kint[m[K
+      |              [32m[K(f[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:5[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:15:45:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 9 has type ‘[01m[Kwzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> >::_roty_type[m[K’ {aka ‘[01m[Kdouble[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+   15 |   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), [01;35m[K"Incoming request (move to position)\nX: %d" " Y: %d Z: %d RotX: %d RotY %d RotZ %d"[m[K,
+      |                                             [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+   16 |                 request->posx, request->posy, request->posz, request->rotx, [32m[Krequest->roty[m[K, request->rotz);
+      |                                                                             [32m[K~~~~~~~~~~~~~[m[K
+      |                                                                                      [32m[K|[m[K
+      |                                                                                      [32m[Kwzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> >::_roty_type {aka double}[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:15:23:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   15 |   RCLCPP_INFO(rclcpp:[01;36m[K:g[m[Ket_logger("rclcpp"), "Incoming request (move to position)\nX: %d" " Y: %d Z: %d RotX: %d RotY %d RotZ %d",
+      |                      [01;36m[K~^[m[K
+      |                       [01;36m[K|[m[K
+      |                       [01;36m[Kint[m[K
+      |                      [32m[K:f[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:5[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:15:45:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%d[m[K’ expects argument of type ‘[01m[Kint[m[K’, but argument 10 has type ‘[01m[Kwzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> >::_rotz_type[m[K’ {aka ‘[01m[Kdouble[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+   15 |   RCLCPP_INFO(rclcpp::get_logger("rclcpp"), [01;35m[K"Incoming request (move to position)\nX: %d" " Y: %d Z: %d RotX: %d RotY %d RotZ %d"[m[K,
+      |                                             [01;35m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+   16 |                 request->posx, request->posy, request->posz, request->rotx, request->roty, [32m[Krequest->rotz[m[K);
+      |                                                                                            [32m[K~~~~~~~~~~~~~[m[K
+      |                                                                                                     [32m[K|[m[K
+      |                                                                                                     [32m[Kwzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> >::_rotz_type {aka double}[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/moveit_backend/src/moveit_panda.cpp:15:31:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   15 |   RCLCPP_INFO(rclcpp::get_log[01;36m[Kge[m[Kr("rclcpp"), "Incoming request (move to position)\nX: %d" " Y: %d Z: %d RotX: %d RotY %d RotZ %d",
+      |                              [01;36m[K~^[m[K
+      |                               [01;36m[K|[m[K
+      |                               [01;36m[Kint[m[K
+      |                              [32m[Kgf[m[K
+[100%] [32m[1mLinking CXX executable moveit_panda[0m
+[100%] Built target moveit_panda
+-- Install configuration: ""
+-- Installing: /home/aw/restackcell/ws_moveit2/install/moveit_backend/lib/moveit_backend/moveit_panda
+-- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/moveit_backend/lib/moveit_backend/moveit_panda" to ""
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/ament_index/resource_index/package_run_dependencies/moveit_backend
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/ament_index/resource_index/parent_prefix_path/moveit_backend
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/environment/ament_prefix_path.sh
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/environment/ament_prefix_path.dsv
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/environment/path.sh
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/environment/path.dsv
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/local_setup.bash
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/local_setup.sh
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/local_setup.zsh
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/local_setup.dsv
+-- Installing: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/package.dsv
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/ament_index/resource_index/packages/moveit_backend
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/cmake/moveit_backendConfig.cmake
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/cmake/moveit_backendConfig-version.cmake
+-- Up-to-date: /home/aw/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/package.xml

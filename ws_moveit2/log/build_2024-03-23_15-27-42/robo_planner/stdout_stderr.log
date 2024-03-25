@@ -1,0 +1,78 @@
+[35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[ 10%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o[0m
+[ 20%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:4[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:[m[K In member function ‘[01m[Kvirtual bool WzlPlanner::IoInterfaceOpcUa::SetValueBool(int, bool)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:57:63:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%ld[m[K’ expects argument of type ‘[01m[Klong int[m[K’, but argument 5 has type ‘[01m[Kint[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+   57 |                     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), [01;35m[K"Result: %ld"[m[K, [32m[Kresult.get()->result[m[K);
+      |                                                               [01;35m[K^~~~~~~~~~~~~[m[K  [32m[K~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                                                            [32m[K|[m[K
+      |                                                                                            [32m[Kint[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:57:74:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   57 |                     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Result: [01;36m[K%ld[m[K", result.get()->result);
+      |                                                                        [01;36m[K~~^[m[K
+      |                                                                          [01;36m[K|[m[K
+      |                                                                          [01;36m[Klong int[m[K
+      |                                                                        [32m[K%d[m[K
+In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/logging.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:40[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+                 from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:[m[K In member function ‘[01m[Kvirtual bool WzlPlanner::IoInterfaceOpcUa::SetValueBool(int, bool)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:57:63:[m[K [01;35m[Kwarning: [m[Kformat ‘[01m[K%ld[m[K’ expects argument of type ‘[01m[Klong int[m[K’, but argument 5 has type ‘[01m[Kint[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wformat=-Wformat=]8;;[m[K]
+   57 |                     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), [01;35m[K"Result: %ld"[m[K, [32m[Kresult.get()->result[m[K);
+      |                                                               [01;35m[K^~~~~~~~~~~~~[m[K  [32m[K~~~~~~~~~~~~~~~~~~~~[m[K
+      |                                                                                            [32m[K|[m[K
+      |                                                                                            [32m[Kint[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:7[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:57:74:[m[K [01;36m[Knote: [m[Kformat string is defined here
+   57 |                     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Result: [01;36m[K%ld[m[K", result.get()->result);
+      |                                                                        [01;36m[K~~^[m[K
+      |                                                                          [01;36m[K|[m[K
+      |                                                                          [01;36m[Klong int[m[K
+      |                                                                        [32m[K%d[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:[m[K In function ‘[01m[Kvoid OpcUaTest(std::shared_ptr<rclcpp::Node>)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:76:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KtestCall[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   76 |   auto [01;35m[KtestCall[m[K = ioInterfaceOpcUa->SetValueBool(0, 0);
+      |        [01;35m[K^~~~~~~~[m[K
+[ 30%] [32m[1mLinking CXX executable robo_planner[0m
+[100%] Built target robo_planner
+-- Install configuration: "RelWithDebInfo"
+-- Execute custom install script
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/lib/robo_planner/robo_planner
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/package_run_dependencies/robo_planner
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/parent_prefix_path/robo_planner
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/path.sh
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/path.dsv
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.bash
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.sh
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.zsh
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.dsv
+-- Symlinking: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.dsv
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/packages/robo_planner
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/cmake/robo_plannerConfig.cmake
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/cmake/robo_plannerConfig-version.cmake
+-- Up-to-date symlink: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.xml

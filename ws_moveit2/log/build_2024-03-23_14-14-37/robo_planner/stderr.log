@@ -1,0 +1,20 @@
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:[m[K In member function ‘[01m[Kvirtual bool WzlPlanner::IoInterfaceOpcUa::SetValueBool(int, bool)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:31:35:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kslot[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   31 |             bool SetValueBool([01;35m[Kint slot[m[K, bool value) override
+      |                               [01;35m[K~~~~^~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:31:46:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kvalue[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   31 |             bool SetValueBool(int slot, [01;35m[Kbool value[m[K) override
+      |                                         [01;35m[K~~~~~^~~~~[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:7[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:[m[K In member function ‘[01m[Kvirtual bool WzlPlanner::IoInterfaceOpcUa::SetValueBool(int, bool)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:31:35:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kslot[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   31 |             bool SetValueBool([01;35m[Kint slot[m[K, bool value) override
+      |                               [01;35m[K~~~~^~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h:31:46:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kvalue[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   31 |             bool SetValueBool(int slot, [01;35m[Kbool value[m[K) override
+      |                                         [01;35m[K~~~~~^~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:[m[K In function ‘[01m[Kvoid OpcUaTest(std::shared_ptr<rclcpp::Node>)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:76:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KtestCall[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+   76 |   auto [01;35m[KtestCall[m[K = ioInterfaceOpcUa->SetValueBool(0, 0);
+      |        [01;35m[K^~~~~~~~[m[K

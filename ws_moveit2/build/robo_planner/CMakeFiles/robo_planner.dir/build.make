@@ -83,10 +83,24 @@ CMakeFiles/robo_planner.dir/src/Gripper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Gripper.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Gripper.cpp -o CMakeFiles/robo_planner.dir/src/Gripper.cpp.s
 
+CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o: CMakeFiles/robo_planner.dir/flags.make
+CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.cpp
+CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o -MF CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o.d -o CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.cpp
+
+CMakeFiles/robo_planner.dir/src/IoInterface.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/IoInterface.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.cpp > CMakeFiles/robo_planner.dir/src/IoInterface.cpp.i
+
+CMakeFiles/robo_planner.dir/src/IoInterface.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/IoInterface.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.cpp -o CMakeFiles/robo_planner.dir/src/IoInterface.cpp.s
+
 CMakeFiles/robo_planner.dir/src/Main.cpp.o: CMakeFiles/robo_planner.dir/flags.make
 CMakeFiles/robo_planner.dir/src/Main.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp
 CMakeFiles/robo_planner.dir/src/Main.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Main.cpp.o -MF CMakeFiles/robo_planner.dir/src/Main.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Main.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp
 
 CMakeFiles/robo_planner.dir/src/Main.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/robo_planner.dir/src/Main.cpp.s: cmake_force
 CMakeFiles/robo_planner.dir/src/Part.cpp.o: CMakeFiles/robo_planner.dir/flags.make
 CMakeFiles/robo_planner.dir/src/Part.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.cpp
 CMakeFiles/robo_planner.dir/src/Part.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/robo_planner.dir/src/Part.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/robo_planner.dir/src/Part.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Part.cpp.o -MF CMakeFiles/robo_planner.dir/src/Part.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Part.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.cpp
 
 CMakeFiles/robo_planner.dir/src/Part.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/robo_planner.dir/src/Part.cpp.s: cmake_force
 CMakeFiles/robo_planner.dir/src/Pose.cpp.o: CMakeFiles/robo_planner.dir/flags.make
 CMakeFiles/robo_planner.dir/src/Pose.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp
 CMakeFiles/robo_planner.dir/src/Pose.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/robo_planner.dir/src/Pose.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/robo_planner.dir/src/Pose.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Pose.cpp.o -MF CMakeFiles/robo_planner.dir/src/Pose.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Pose.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp
 
 CMakeFiles/robo_planner.dir/src/Pose.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/robo_planner.dir/src/Pose.cpp.s: cmake_force
 CMakeFiles/robo_planner.dir/src/Robot.cpp.o: CMakeFiles/robo_planner.dir/flags.make
 CMakeFiles/robo_planner.dir/src/Robot.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Robot.cpp
 CMakeFiles/robo_planner.dir/src/Robot.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/robo_planner.dir/src/Robot.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/robo_planner.dir/src/Robot.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Robot.cpp.o -MF CMakeFiles/robo_planner.dir/src/Robot.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Robot.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Robot.cpp
 
 CMakeFiles/robo_planner.dir/src/Robot.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/robo_planner.dir/src/Robot.cpp.s: cmake_force
 CMakeFiles/robo_planner.dir/src/Scene.cpp.o: CMakeFiles/robo_planner.dir/flags.make
 CMakeFiles/robo_planner.dir/src/Scene.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp
 CMakeFiles/robo_planner.dir/src/Scene.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/robo_planner.dir/src/Scene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/robo_planner.dir/src/Scene.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Scene.cpp.o -MF CMakeFiles/robo_planner.dir/src/Scene.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Scene.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp
 
 CMakeFiles/robo_planner.dir/src/Scene.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/robo_planner.dir/src/Scene.cpp.s: cmake_force
 CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o: CMakeFiles/robo_planner.dir/flags.make
 CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp
 CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o -MF CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o.d -o CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp
 
 CMakeFiles/robo_planner.dir/src/SceneObject.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/robo_planner.dir/src/SceneObject.cpp.s: cmake_force
 CMakeFiles/robo_planner.dir/src/Task.cpp.o: CMakeFiles/robo_planner.dir/flags.make
 CMakeFiles/robo_planner.dir/src/Task.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp
 CMakeFiles/robo_planner.dir/src/Task.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/robo_planner.dir/src/Task.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/robo_planner.dir/src/Task.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Task.cpp.o -MF CMakeFiles/robo_planner.dir/src/Task.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Task.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp
 
 CMakeFiles/robo_planner.dir/src/Task.cpp.i: cmake_force
@@ -184,6 +198,7 @@ CMakeFiles/robo_planner.dir/src/Task.cpp.s: cmake_force
 # Object files for target robo_planner
 robo_planner_OBJECTS = \
 "CMakeFiles/robo_planner.dir/src/Gripper.cpp.o" \
+"CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o" \
 "CMakeFiles/robo_planner.dir/src/Main.cpp.o" \
 "CMakeFiles/robo_planner.dir/src/Part.cpp.o" \
 "CMakeFiles/robo_planner.dir/src/Pose.cpp.o" \
@@ -196,6 +211,7 @@ robo_planner_OBJECTS = \
 robo_planner_EXTERNAL_OBJECTS =
 
 robo_planner: CMakeFiles/robo_planner.dir/src/Gripper.cpp.o
+robo_planner: CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o
 robo_planner: CMakeFiles/robo_planner.dir/src/Main.cpp.o
 robo_planner: CMakeFiles/robo_planner.dir/src/Part.cpp.o
 robo_planner: CMakeFiles/robo_planner.dir/src/Pose.cpp.o
@@ -206,6 +222,18 @@ robo_planner: CMakeFiles/robo_planner.dir/src/Task.cpp.o
 robo_planner: CMakeFiles/robo_planner.dir/build.make
 robo_planner: /opt/ros/humble/lib/libmoveit_move_group_interface.so.2.5.5
 robo_planner: /opt/ros/humble/lib/libmoveit_visual_tools.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/libwzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/libwzlscheduler_interfaces__rosidl_typesupport_introspection_c.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/libwzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/libwzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/libwzlscheduler_interfaces__rosidl_typesupport_cpp.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/libwzlscheduler_interfaces__rosidl_generator_py.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_fastrtps_c.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_introspection_c.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_fastrtps_cpp.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_introspection_cpp.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_cpp.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_generator_py.so
 robo_planner: /opt/ros/humble/lib/libmoveit_common_planning_interface_objects.so.2.5.5
 robo_planner: /opt/ros/humble/lib/libmoveit_planning_scene_interface.so.2.5.5
 robo_planner: /opt/ros/humble/lib/libmoveit_move_group_default_capabilities.so.2.5.5
@@ -475,15 +503,11 @@ robo_planner: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_c.
 robo_planner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_c.so
 robo_planner: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_c.so
 robo_planner: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_c.so
-robo_planner: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_c.so
 robo_planner: /opt/ros/humble/lib/libvisualization_msgs__rosidl_typesupport_fastrtps_cpp.so
 robo_planner: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_cpp.so
 robo_planner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_fastrtps_cpp.so
 robo_planner: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_fastrtps_cpp.so
 robo_planner: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_fastrtps_cpp.so
-robo_planner: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_cpp.so
-robo_planner: /opt/ros/humble/lib/libfastcdr.so.1.0.24
-robo_planner: /opt/ros/humble/lib/librmw.so
 robo_planner: /opt/ros/humble/lib/libvisualization_msgs__rosidl_typesupport_introspection_c.so
 robo_planner: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspection_c.so
 robo_planner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_introspection_c.so
@@ -494,14 +518,11 @@ robo_planner: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspecti
 robo_planner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_introspection_cpp.so
 robo_planner: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_introspection_cpp.so
 robo_planner: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_introspection_cpp.so
-robo_planner: /opt/ros/humble/lib/librosidl_typesupport_introspection_cpp.so
-robo_planner: /opt/ros/humble/lib/librosidl_typesupport_introspection_c.so
 robo_planner: /opt/ros/humble/lib/libvisualization_msgs__rosidl_typesupport_cpp.so
 robo_planner: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_cpp.so
 robo_planner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_cpp.so
 robo_planner: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_cpp.so
 robo_planner: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_cpp.so
-robo_planner: /opt/ros/humble/lib/librosidl_typesupport_cpp.so
 robo_planner: /opt/ros/humble/lib/libvisualization_msgs__rosidl_generator_py.so
 robo_planner: /opt/ros/humble/lib/libvisualization_msgs__rosidl_typesupport_c.so
 robo_planner: /opt/ros/humble/lib/libvisualization_msgs__rosidl_generator_c.so
@@ -509,7 +530,6 @@ robo_planner: /opt/ros/humble/lib/libsensor_msgs__rosidl_generator_py.so
 robo_planner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_py.so
 robo_planner: /opt/ros/humble/lib/libstd_msgs__rosidl_generator_py.so
 robo_planner: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_generator_py.so
-robo_planner: /usr/lib/x86_64-linux-gnu/libpython3.10.so
 robo_planner: /opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_c.so
 robo_planner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_typesupport_c.so
 robo_planner: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_c.so
@@ -518,17 +538,29 @@ robo_planner: /opt/ros/humble/lib/libsensor_msgs__rosidl_generator_c.so
 robo_planner: /opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_c.so
 robo_planner: /opt/ros/humble/lib/libstd_msgs__rosidl_generator_c.so
 robo_planner: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_generator_c.so
-robo_planner: /opt/ros/humble/lib/librosidl_typesupport_c.so
-robo_planner: /opt/ros/humble/lib/librcpputils.so
-robo_planner: /opt/ros/humble/lib/librosidl_runtime_c.so
-robo_planner: /opt/ros/humble/lib/librcutils.so
 robo_planner: /usr/lib/x86_64-linux-gnu/libboost_system.so.1.74.0
 robo_planner: /usr/lib/x86_64-linux-gnu/libboost_filesystem.so.1.74.0
 robo_planner: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.74.0
 robo_planner: /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.74.0
 robo_planner: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.74.0
+robo_planner: /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/libwzlscheduler_interfaces__rosidl_typesupport_c.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/libwzlscheduler_interfaces__rosidl_generator_c.so
+robo_planner: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_c.so
+robo_planner: /opt/ros/humble/lib/librosidl_typesupport_fastrtps_cpp.so
+robo_planner: /opt/ros/humble/lib/libfastcdr.so.1.0.24
+robo_planner: /opt/ros/humble/lib/librmw.so
+robo_planner: /opt/ros/humble/lib/librosidl_typesupport_introspection_cpp.so
+robo_planner: /opt/ros/humble/lib/librosidl_typesupport_introspection_c.so
+robo_planner: /opt/ros/humble/lib/librosidl_typesupport_cpp.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_c.so
+robo_planner: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_generator_c.so
+robo_planner: /opt/ros/humble/lib/librosidl_typesupport_c.so
+robo_planner: /opt/ros/humble/lib/librcpputils.so
+robo_planner: /opt/ros/humble/lib/librosidl_runtime_c.so
+robo_planner: /opt/ros/humble/lib/librcutils.so
+robo_planner: /usr/lib/x86_64-linux-gnu/libpython3.10.so
 robo_planner: CMakeFiles/robo_planner.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable robo_planner"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable robo_planner"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/robo_planner.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

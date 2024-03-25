@@ -122,6 +122,22 @@ namespace WzlPlanner
             void Execute() override;
     };
 
+    class TaskOpenDoor : public Task
+    {
+        private:
+            // 1: Open; 2: Close; 3: Opening; 4: Closing
+            int currentState_; 
+
+        public:
+            TaskOpenDoor()
+            {
+                currentState_ = 2;
+            }  
+
+            bool OpenDoor();
+            bool CloseDooor();
+    };
+
 } // namespace WzlPlanner
 
 #endif // TASK_HPP
