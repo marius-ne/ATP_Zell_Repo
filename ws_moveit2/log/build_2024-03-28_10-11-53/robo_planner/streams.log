@@ -1,0 +1,46 @@
+[0.123s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/robo_planner': AMENT_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces LD_LIBRARY_PATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[0.156s] [35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[0.182s] [ 20%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Scene.cpp.o[0m
+[0.182s] [ 20%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Task.cpp.o[0m
+[3.347s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:16:17:[m[K [01;31m[Kerror: [m[K‘[01m[KSceneObject[m[K’ was not declared in this scope; did you mean ‘[01m[KWzlPlanner::SceneObject[m[K’?
+[3.347s]    16 | std::shared_ptr<[01;31m[KSceneObject[m[K> WzlPlanner::Scene::GetSceneObject(const std::string id) const
+[3.347s]       |                 [01;31m[K^~~~~~~~~~~[m[K
+[3.347s]       |                 [32m[KWzlPlanner::SceneObject[m[K
+[3.347s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:8[m[K,
+[3.347s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:1[m[K:
+[3.347s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:29:11:[m[K [01;36m[Knote: [m[K‘[01m[KWzlPlanner::SceneObject[m[K’ declared here
+[3.347s]    29 |     class [01;36m[KSceneObject[m[K
+[3.347s]       |           [01;36m[K^~~~~~~~~~~[m[K
+[3.347s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:16:28:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+[3.347s]    16 | std::shared_ptr<SceneObject[01;31m[K>[m[K WzlPlanner::Scene::GetSceneObject(const std::string id) const
+[3.347s]       |                            [01;31m[K^[m[K
+[3.348s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:16:30:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kint WzlPlanner::Scene::GetSceneObject(std::string) const[m[K’
+[3.348s]    16 | std::shared_ptr<SceneObject> [01;31m[KWzlPlanner[m[K::Scene::GetSceneObject(const std::string id) const
+[3.348s]       |                              [01;31m[K^~~~~~~~~~[m[K
+[3.348s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:1[m[K:
+[3.348s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:24:42:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kstd::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject(std::string)[m[K’
+[3.348s]    24 |             std::shared_ptr<SceneObject> [01;36m[KGetSceneObject[m[K(const std::string id) ;
+[3.348s]       |                                          [01;36m[K^~~~~~~~~~~~~~[m[K
+[3.348s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:13:11:[m[K [01;36m[Knote: [m[K‘[01m[Kclass WzlPlanner::Scene[m[K’ defined here
+[3.348s]    13 |     class [01;36m[KScene[m[K
+[3.348s]       |           [01;36m[K^~~~~[m[K
+[3.414s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::TaskChangeGripper::Execute()[m[K’:
+[3.414s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:121:89:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KWzlPlanner::Scene::GetSceneObject()[m[K’
+[3.414s]   121 |     auto gripperChangeSttaion = [01;31m[KWzlPlanner::ObjectContainer_->GetScene()->GetSceneObject()[m[K
+[3.414s]       |                                 [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[3.414s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/ObjectContainer.h:8[m[K,
+[3.414s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:7[m[K,
+[3.414s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[3.414s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:24:42:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject(std::string)[m[K’
+[3.414s]    24 |             std::shared_ptr<SceneObject> [01;36m[KGetSceneObject[m[K(const std::string id) ;
+[3.414s]       |                                          [01;36m[K^~~~~~~~~~~~~~[m[K
+[3.414s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:24:42:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[3.414s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:122:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+[3.414s]   122 | [01;31m[K}[m[K
+[3.414s]       | [01;31m[K^[m[K
+[4.649s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:160: CMakeFiles/robo_planner.dir/src/Scene.cpp.o] Error 1
+[4.649s] gmake[2]: *** Waiting for unfinished jobs....
+[4.750s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:188: CMakeFiles/robo_planner.dir/src/Task.cpp.o] Error 1
+[4.750s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+[4.750s] gmake: *** [Makefile:146: all] Error 2
+[4.752s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/robo_planner' returned '2': AMENT_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces LD_LIBRARY_PATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16

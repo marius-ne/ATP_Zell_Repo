@@ -1,0 +1,130 @@
+[0.134s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/robo_planner': AMENT_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces LD_LIBRARY_PATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[0.169s] [35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[0.192s] [ 10%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Gripper.cpp.o[0m
+[0.193s] [ 20%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[0.194s] [ 30%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Robot.cpp.o[0m
+[0.195s] [ 50%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Scene.cpp.o[0m
+[0.195s] [ 50%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Task.cpp.o[0m
+[0.195s] [ 60%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o[0m
+[3.864s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp:1[m[K:
+[3.864s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:[m[K In member function ‘[01m[Kbool WzlPlanner::SceneObjectGripperChangeStationSlot::HasGripper(std::string)[m[K’:
+[3.864s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:221:61:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[3.864s]   221 |             bool HasGripper(const std::string gripperId) {  [01;35m[K}[m[K
+[3.864s]       |                                                             [01;35m[K^[m[K
+[3.864s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:221:47:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KgripperId[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[3.864s]   221 |             bool HasGripper([01;35m[Kconst std::string gripperId[m[K) {  }
+[3.864s]       |                             [01;35m[K~~~~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+[3.912s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:4[m[K:
+[3.912s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:[m[K In member function ‘[01m[Kbool WzlPlanner::SceneObjectGripperChangeStationSlot::HasGripper(std::string)[m[K’:
+[3.912s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:221:61:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[3.912s]   221 |             bool HasGripper(const std::string gripperId) {  [01;35m[K}[m[K
+[3.912s]       |                                                             [01;35m[K^[m[K
+[3.912s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:221:47:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KgripperId[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[3.912s]   221 |             bool HasGripper([01;35m[Kconst std::string gripperId[m[K) {  }
+[3.912s]       |                             [01;35m[K~~~~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+[3.931s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.cpp:1[m[K:
+[3.931s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::GripperBase> WzlPlanner::SceneObjectGripperChangeStation::PickGripper(std::string)[m[K’:
+[3.931s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:291:38:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = class WzlPlanner::SceneObjectGripperChangeStationSlot[m[K’ {aka ‘[01m[Kclass WzlPlanner::SceneObjectGripperChangeStationSlot[m[K’} has no member named ‘[01m[KgetGetId[m[K’; did you mean ‘[01m[KGetId[m[K’?
+[3.931s]   291 |                     if (gripperSlot->[01;31m[KgetGetId[m[K == gripperId)
+[3.931s]       |                                      [01;31m[K^~~~~~~~[m[K
+[3.931s]       |                                      [32m[KGetId[m[K
+[3.931s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:293:32:[m[K [01;31m[Kerror: [m[Kcould not convert ‘[01m[KgripperSlot[m[K’ from ‘[01m[Kshared_ptr<[01;32m[KWzlPlanner::SceneObjectGripperChangeStationSlot[m[K>[m[K’ to ‘[01m[Kshared_ptr<[01;32m[KWzlPlanner::GripperBase[m[K>[m[K’
+[3.931s]   293 |                         return [01;31m[KgripperSlot[m[K
+[3.932s]       |                                [01;31m[K^~~~~~~~~~~[m[K
+[3.932s]       |                                [01;31m[K|[m[K
+[3.932s]       |                                [01;31m[Kshared_ptr<WzlPlanner::SceneObjectGripperChangeStationSlot>[m[K
+[3.932s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:294:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+[3.932s]   294 |                     [01;31m[K}[m[K
+[3.932s]       |                     [01;31m[K^[m[K
+[3.973s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:4[m[K:
+[3.974s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::GripperBase> WzlPlanner::SceneObjectGripperChangeStation::PickGripper(std::string)[m[K’:
+[3.974s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:291:38:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = class WzlPlanner::SceneObjectGripperChangeStationSlot[m[K’ {aka ‘[01m[Kclass WzlPlanner::SceneObjectGripperChangeStationSlot[m[K’} has no member named ‘[01m[KgetGetId[m[K’; did you mean ‘[01m[KGetId[m[K’?
+[3.974s]   291 |                     if (gripperSlot->[01;31m[KgetGetId[m[K == gripperId)
+[3.974s]       |                                      [01;31m[K^~~~~~~~[m[K
+[3.974s]       |                                      [32m[KGetId[m[K
+[3.974s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:293:32:[m[K [01;31m[Kerror: [m[Kcould not convert ‘[01m[KgripperSlot[m[K’ from ‘[01m[Kshared_ptr<[01;32m[KWzlPlanner::SceneObjectGripperChangeStationSlot[m[K>[m[K’ to ‘[01m[Kshared_ptr<[01;32m[KWzlPlanner::GripperBase[m[K>[m[K’
+[3.974s]   293 |                         return [01;31m[KgripperSlot[m[K
+[3.974s]       |                                [01;31m[K^~~~~~~~~~~[m[K
+[3.974s]       |                                [01;31m[K|[m[K
+[3.974s]       |                                [01;31m[Kshared_ptr<WzlPlanner::SceneObjectGripperChangeStationSlot>[m[K
+[3.974s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:294:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+[3.974s]   294 |                     [01;31m[K}[m[K
+[3.974s]       |                     [01;31m[K^[m[K
+[4.029s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:8[m[K,
+[4.029s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/ObjectContainer.h:8[m[K,
+[4.029s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:7[m[K,
+[4.029s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[4.029s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:[m[K In member function ‘[01m[Kbool WzlPlanner::SceneObjectGripperChangeStationSlot::HasGripper(std::string)[m[K’:
+[4.029s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:221:61:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[4.029s]   221 |             bool HasGripper(const std::string gripperId) {  [01;35m[K}[m[K
+[4.029s]       |                                                             [01;35m[K^[m[K
+[4.029s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:221:47:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KgripperId[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[4.029s]   221 |             bool HasGripper([01;35m[Kconst std::string gripperId[m[K) {  }
+[4.029s]       |                             [01;35m[K~~~~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+[4.047s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:8[m[K,
+[4.047s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/ObjectContainer.h:8[m[K,
+[4.047s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:7[m[K,
+[4.047s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[4.047s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::GripperBase> WzlPlanner::SceneObjectGripperChangeStation::PickGripper(std::string)[m[K’:
+[4.047s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:291:38:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = class WzlPlanner::SceneObjectGripperChangeStationSlot[m[K’ {aka ‘[01m[Kclass WzlPlanner::SceneObjectGripperChangeStationSlot[m[K’} has no member named ‘[01m[KgetGetId[m[K’; did you mean ‘[01m[KGetId[m[K’?
+[4.047s]   291 |                     if (gripperSlot->[01;31m[KgetGetId[m[K == gripperId)
+[4.047s]       |                                      [01;31m[K^~~~~~~~[m[K
+[4.047s]       |                                      [32m[KGetId[m[K
+[4.048s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:293:32:[m[K [01;31m[Kerror: [m[Kcould not convert ‘[01m[KgripperSlot[m[K’ from ‘[01m[Kshared_ptr<[01;32m[KWzlPlanner::SceneObjectGripperChangeStationSlot[m[K>[m[K’ to ‘[01m[Kshared_ptr<[01;32m[KWzlPlanner::GripperBase[m[K>[m[K’
+[4.048s]   293 |                         return [01;31m[KgripperSlot[m[K
+[4.048s]       |                                [01;31m[K^~~~~~~~~~~[m[K
+[4.048s]       |                                [01;31m[K|[m[K
+[4.048s]       |                                [01;31m[Kshared_ptr<WzlPlanner::SceneObjectGripperChangeStationSlot>[m[K
+[4.048s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:294:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+[4.048s]   294 |                     [01;31m[K}[m[K
+[4.048s]       |                     [01;31m[K^[m[K
+[4.054s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:8[m[K,
+[4.054s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:1[m[K:
+[4.054s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:[m[K In member function ‘[01m[Kbool WzlPlanner::SceneObjectGripperChangeStationSlot::HasGripper(std::string)[m[K’:
+[4.054s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:221:61:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[4.054s]   221 |             bool HasGripper(const std::string gripperId) {  [01;35m[K}[m[K
+[4.054s]       |                                                             [01;35m[K^[m[K
+[4.054s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:221:47:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KgripperId[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[4.055s]   221 |             bool HasGripper([01;35m[Kconst std::string gripperId[m[K) {  }
+[4.055s]       |                             [01;35m[K~~~~~~~~~~~~~~~~~~^~~~~~~~~[m[K
+[4.074s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:8[m[K,
+[4.074s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:1[m[K:
+[4.074s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::GripperBase> WzlPlanner::SceneObjectGripperChangeStation::PickGripper(std::string)[m[K’:
+[4.074s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:291:38:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = class WzlPlanner::SceneObjectGripperChangeStationSlot[m[K’ {aka ‘[01m[Kclass WzlPlanner::SceneObjectGripperChangeStationSlot[m[K’} has no member named ‘[01m[KgetGetId[m[K’; did you mean ‘[01m[KGetId[m[K’?
+[4.074s]   291 |                     if (gripperSlot->[01;31m[KgetGetId[m[K == gripperId)
+[4.074s]       |                                      [01;31m[K^~~~~~~~[m[K
+[4.074s]       |                                      [32m[KGetId[m[K
+[4.075s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:293:32:[m[K [01;31m[Kerror: [m[Kcould not convert ‘[01m[KgripperSlot[m[K’ from ‘[01m[Kshared_ptr<[01;32m[KWzlPlanner::SceneObjectGripperChangeStationSlot[m[K>[m[K’ to ‘[01m[Kshared_ptr<[01;32m[KWzlPlanner::GripperBase[m[K>[m[K’
+[4.075s]   293 |                         return [01;31m[KgripperSlot[m[K
+[4.075s]       |                                [01;31m[K^~~~~~~~~~~[m[K
+[4.075s]       |                                [01;31m[K|[m[K
+[4.075s]       |                                [01;31m[Kshared_ptr<WzlPlanner::SceneObjectGripperChangeStationSlot>[m[K
+[4.075s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:294:21:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+[4.075s]   294 |                     [01;31m[K}[m[K
+[4.075s]       |                     [01;31m[K^[m[K
+[4.097s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::TaskChangeGripper::Execute()[m[K’:
+[4.097s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:121:89:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KWzlPlanner::Scene::GetSceneObject()[m[K’
+[4.097s]   121 |     auto gripperChangeSttaion = [01;31m[KWzlPlanner::ObjectContainer_->GetScene()->GetSceneObject()[m[K
+[4.097s]       |                                 [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~[m[K
+[4.097s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/ObjectContainer.h:8[m[K,
+[4.097s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:7[m[K,
+[4.097s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[4.097s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:24:42:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kstd::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject(std::string) const[m[K’
+[4.097s]    24 |             std::shared_ptr<SceneObject> [01;36m[KGetSceneObject[m[K(const std::string id) const;
+[4.097s]       |                                          [01;36m[K^~~~~~~~~~~~~~[m[K
+[4.097s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:24:42:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 0 provided
+[4.097s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:122:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+[4.097s]   122 | [01;31m[K}[m[K
+[4.097s]       | [01;31m[K^[m[K
+[4.100s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject(std::string) const[m[K’:
+[4.101s] [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:16:94:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kid[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[4.101s]    16 | std::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject([01;35m[Kconst std::string id[m[K) const
+[4.101s]       |                                                                            [01;35m[K~~~~~~~~~~~~~~~~~~^~[m[K
+[5.462s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:174: CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o] Error 1
+[5.462s] gmake[2]: *** Waiting for unfinished jobs....
+[5.711s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:188: CMakeFiles/robo_planner.dir/src/Task.cpp.o] Error 1
+[5.723s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:160: CMakeFiles/robo_planner.dir/src/Scene.cpp.o] Error 1
+[5.732s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:104: CMakeFiles/robo_planner.dir/src/Main.cpp.o] Error 1
+[7.038s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+[7.038s] gmake: *** [Makefile:146: all] Error 2
+[7.040s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/robo_planner' returned '2': AMENT_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces LD_LIBRARY_PATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16

@@ -282,6 +282,30 @@ src/Main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Main.cpp.s
 .PHONY : src/Main.cpp.s
 
+src/ObjectContainer.o: src/ObjectContainer.cpp.o
+.PHONY : src/ObjectContainer.o
+
+# target to build an object file
+src/ObjectContainer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o
+.PHONY : src/ObjectContainer.cpp.o
+
+src/ObjectContainer.i: src/ObjectContainer.cpp.i
+.PHONY : src/ObjectContainer.i
+
+# target to preprocess a source file
+src/ObjectContainer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.i
+.PHONY : src/ObjectContainer.cpp.i
+
+src/ObjectContainer.s: src/ObjectContainer.cpp.s
+.PHONY : src/ObjectContainer.s
+
+# target to generate assembly for a file
+src/ObjectContainer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.s
+.PHONY : src/ObjectContainer.cpp.s
+
 src/Part.o: src/Part.cpp.o
 .PHONY : src/Part.o
 
@@ -378,53 +402,317 @@ src/Scene.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Scene.cpp.s
 .PHONY : src/Scene.cpp.s
 
-src/SceneObject.o: src/SceneObject.cpp.o
-.PHONY : src/SceneObject.o
+src/SceneObjects/SceneObjectClampingDevice.o: src/SceneObjects/SceneObjectClampingDevice.cpp.o
+.PHONY : src/SceneObjects/SceneObjectClampingDevice.o
 
 # target to build an object file
-src/SceneObject.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/SceneObject.cpp.o
-.PHONY : src/SceneObject.cpp.o
+src/SceneObjects/SceneObjectClampingDevice.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o
+.PHONY : src/SceneObjects/SceneObjectClampingDevice.cpp.o
 
-src/SceneObject.i: src/SceneObject.cpp.i
-.PHONY : src/SceneObject.i
+src/SceneObjects/SceneObjectClampingDevice.i: src/SceneObjects/SceneObjectClampingDevice.cpp.i
+.PHONY : src/SceneObjects/SceneObjectClampingDevice.i
 
 # target to preprocess a source file
-src/SceneObject.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/SceneObject.cpp.i
-.PHONY : src/SceneObject.cpp.i
+src/SceneObjects/SceneObjectClampingDevice.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.i
+.PHONY : src/SceneObjects/SceneObjectClampingDevice.cpp.i
 
-src/SceneObject.s: src/SceneObject.cpp.s
-.PHONY : src/SceneObject.s
+src/SceneObjects/SceneObjectClampingDevice.s: src/SceneObjects/SceneObjectClampingDevice.cpp.s
+.PHONY : src/SceneObjects/SceneObjectClampingDevice.s
 
 # target to generate assembly for a file
-src/SceneObject.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/SceneObject.cpp.s
-.PHONY : src/SceneObject.cpp.s
+src/SceneObjects/SceneObjectClampingDevice.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.s
+.PHONY : src/SceneObjects/SceneObjectClampingDevice.cpp.s
 
-src/Task.o: src/Task.cpp.o
-.PHONY : src/Task.o
+src/Tasks/Task.o: src/Tasks/Task.cpp.o
+.PHONY : src/Tasks/Task.o
 
 # target to build an object file
-src/Task.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Task.cpp.o
-.PHONY : src/Task.cpp.o
+src/Tasks/Task.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o
+.PHONY : src/Tasks/Task.cpp.o
 
-src/Task.i: src/Task.cpp.i
-.PHONY : src/Task.i
+src/Tasks/Task.i: src/Tasks/Task.cpp.i
+.PHONY : src/Tasks/Task.i
 
 # target to preprocess a source file
-src/Task.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Task.cpp.i
-.PHONY : src/Task.cpp.i
+src/Tasks/Task.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.i
+.PHONY : src/Tasks/Task.cpp.i
 
-src/Task.s: src/Task.cpp.s
-.PHONY : src/Task.s
+src/Tasks/Task.s: src/Tasks/Task.cpp.s
+.PHONY : src/Tasks/Task.s
 
 # target to generate assembly for a file
-src/Task.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Task.cpp.s
-.PHONY : src/Task.cpp.s
+src/Tasks/Task.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.s
+.PHONY : src/Tasks/Task.cpp.s
+
+src/Tasks/TaskGripperChange.o: src/Tasks/TaskGripperChange.cpp.o
+.PHONY : src/Tasks/TaskGripperChange.o
+
+# target to build an object file
+src/Tasks/TaskGripperChange.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o
+.PHONY : src/Tasks/TaskGripperChange.cpp.o
+
+src/Tasks/TaskGripperChange.i: src/Tasks/TaskGripperChange.cpp.i
+.PHONY : src/Tasks/TaskGripperChange.i
+
+# target to preprocess a source file
+src/Tasks/TaskGripperChange.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.i
+.PHONY : src/Tasks/TaskGripperChange.cpp.i
+
+src/Tasks/TaskGripperChange.s: src/Tasks/TaskGripperChange.cpp.s
+.PHONY : src/Tasks/TaskGripperChange.s
+
+# target to generate assembly for a file
+src/Tasks/TaskGripperChange.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.s
+.PHONY : src/Tasks/TaskGripperChange.cpp.s
+
+src/Tasks/TaskGripperChangePick.o: src/Tasks/TaskGripperChangePick.cpp.o
+.PHONY : src/Tasks/TaskGripperChangePick.o
+
+# target to build an object file
+src/Tasks/TaskGripperChangePick.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o
+.PHONY : src/Tasks/TaskGripperChangePick.cpp.o
+
+src/Tasks/TaskGripperChangePick.i: src/Tasks/TaskGripperChangePick.cpp.i
+.PHONY : src/Tasks/TaskGripperChangePick.i
+
+# target to preprocess a source file
+src/Tasks/TaskGripperChangePick.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.i
+.PHONY : src/Tasks/TaskGripperChangePick.cpp.i
+
+src/Tasks/TaskGripperChangePick.s: src/Tasks/TaskGripperChangePick.cpp.s
+.PHONY : src/Tasks/TaskGripperChangePick.s
+
+# target to generate assembly for a file
+src/Tasks/TaskGripperChangePick.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.s
+.PHONY : src/Tasks/TaskGripperChangePick.cpp.s
+
+src/Tasks/TaskGripperChangePlace.o: src/Tasks/TaskGripperChangePlace.cpp.o
+.PHONY : src/Tasks/TaskGripperChangePlace.o
+
+# target to build an object file
+src/Tasks/TaskGripperChangePlace.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o
+.PHONY : src/Tasks/TaskGripperChangePlace.cpp.o
+
+src/Tasks/TaskGripperChangePlace.i: src/Tasks/TaskGripperChangePlace.cpp.i
+.PHONY : src/Tasks/TaskGripperChangePlace.i
+
+# target to preprocess a source file
+src/Tasks/TaskGripperChangePlace.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.i
+.PHONY : src/Tasks/TaskGripperChangePlace.cpp.i
+
+src/Tasks/TaskGripperChangePlace.s: src/Tasks/TaskGripperChangePlace.cpp.s
+.PHONY : src/Tasks/TaskGripperChangePlace.s
+
+# target to generate assembly for a file
+src/Tasks/TaskGripperChangePlace.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.s
+.PHONY : src/Tasks/TaskGripperChangePlace.cpp.s
+
+src/Tasks/TaskGripperClose.o: src/Tasks/TaskGripperClose.cpp.o
+.PHONY : src/Tasks/TaskGripperClose.o
+
+# target to build an object file
+src/Tasks/TaskGripperClose.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o
+.PHONY : src/Tasks/TaskGripperClose.cpp.o
+
+src/Tasks/TaskGripperClose.i: src/Tasks/TaskGripperClose.cpp.i
+.PHONY : src/Tasks/TaskGripperClose.i
+
+# target to preprocess a source file
+src/Tasks/TaskGripperClose.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.i
+.PHONY : src/Tasks/TaskGripperClose.cpp.i
+
+src/Tasks/TaskGripperClose.s: src/Tasks/TaskGripperClose.cpp.s
+.PHONY : src/Tasks/TaskGripperClose.s
+
+# target to generate assembly for a file
+src/Tasks/TaskGripperClose.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.s
+.PHONY : src/Tasks/TaskGripperClose.cpp.s
+
+src/Tasks/TaskGripperOpen.o: src/Tasks/TaskGripperOpen.cpp.o
+.PHONY : src/Tasks/TaskGripperOpen.o
+
+# target to build an object file
+src/Tasks/TaskGripperOpen.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o
+.PHONY : src/Tasks/TaskGripperOpen.cpp.o
+
+src/Tasks/TaskGripperOpen.i: src/Tasks/TaskGripperOpen.cpp.i
+.PHONY : src/Tasks/TaskGripperOpen.i
+
+# target to preprocess a source file
+src/Tasks/TaskGripperOpen.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.i
+.PHONY : src/Tasks/TaskGripperOpen.cpp.i
+
+src/Tasks/TaskGripperOpen.s: src/Tasks/TaskGripperOpen.cpp.s
+.PHONY : src/Tasks/TaskGripperOpen.s
+
+# target to generate assembly for a file
+src/Tasks/TaskGripperOpen.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.s
+.PHONY : src/Tasks/TaskGripperOpen.cpp.s
+
+src/Tasks/TaskList.o: src/Tasks/TaskList.cpp.o
+.PHONY : src/Tasks/TaskList.o
+
+# target to build an object file
+src/Tasks/TaskList.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o
+.PHONY : src/Tasks/TaskList.cpp.o
+
+src/Tasks/TaskList.i: src/Tasks/TaskList.cpp.i
+.PHONY : src/Tasks/TaskList.i
+
+# target to preprocess a source file
+src/Tasks/TaskList.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.i
+.PHONY : src/Tasks/TaskList.cpp.i
+
+src/Tasks/TaskList.s: src/Tasks/TaskList.cpp.s
+.PHONY : src/Tasks/TaskList.s
+
+# target to generate assembly for a file
+src/Tasks/TaskList.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.s
+.PHONY : src/Tasks/TaskList.cpp.s
+
+src/Tasks/TaskMoveToPose.o: src/Tasks/TaskMoveToPose.cpp.o
+.PHONY : src/Tasks/TaskMoveToPose.o
+
+# target to build an object file
+src/Tasks/TaskMoveToPose.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o
+.PHONY : src/Tasks/TaskMoveToPose.cpp.o
+
+src/Tasks/TaskMoveToPose.i: src/Tasks/TaskMoveToPose.cpp.i
+.PHONY : src/Tasks/TaskMoveToPose.i
+
+# target to preprocess a source file
+src/Tasks/TaskMoveToPose.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.i
+.PHONY : src/Tasks/TaskMoveToPose.cpp.i
+
+src/Tasks/TaskMoveToPose.s: src/Tasks/TaskMoveToPose.cpp.s
+.PHONY : src/Tasks/TaskMoveToPose.s
+
+# target to generate assembly for a file
+src/Tasks/TaskMoveToPose.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.s
+.PHONY : src/Tasks/TaskMoveToPose.cpp.s
+
+src/Tasks/TaskPick.o: src/Tasks/TaskPick.cpp.o
+.PHONY : src/Tasks/TaskPick.o
+
+# target to build an object file
+src/Tasks/TaskPick.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o
+.PHONY : src/Tasks/TaskPick.cpp.o
+
+src/Tasks/TaskPick.i: src/Tasks/TaskPick.cpp.i
+.PHONY : src/Tasks/TaskPick.i
+
+# target to preprocess a source file
+src/Tasks/TaskPick.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.i
+.PHONY : src/Tasks/TaskPick.cpp.i
+
+src/Tasks/TaskPick.s: src/Tasks/TaskPick.cpp.s
+.PHONY : src/Tasks/TaskPick.s
+
+# target to generate assembly for a file
+src/Tasks/TaskPick.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.s
+.PHONY : src/Tasks/TaskPick.cpp.s
+
+src/Tasks/TaskPickAndPlace.o: src/Tasks/TaskPickAndPlace.cpp.o
+.PHONY : src/Tasks/TaskPickAndPlace.o
+
+# target to build an object file
+src/Tasks/TaskPickAndPlace.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o
+.PHONY : src/Tasks/TaskPickAndPlace.cpp.o
+
+src/Tasks/TaskPickAndPlace.i: src/Tasks/TaskPickAndPlace.cpp.i
+.PHONY : src/Tasks/TaskPickAndPlace.i
+
+# target to preprocess a source file
+src/Tasks/TaskPickAndPlace.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.i
+.PHONY : src/Tasks/TaskPickAndPlace.cpp.i
+
+src/Tasks/TaskPickAndPlace.s: src/Tasks/TaskPickAndPlace.cpp.s
+.PHONY : src/Tasks/TaskPickAndPlace.s
+
+# target to generate assembly for a file
+src/Tasks/TaskPickAndPlace.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.s
+.PHONY : src/Tasks/TaskPickAndPlace.cpp.s
+
+src/Tasks/TaskPlace.o: src/Tasks/TaskPlace.cpp.o
+.PHONY : src/Tasks/TaskPlace.o
+
+# target to build an object file
+src/Tasks/TaskPlace.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o
+.PHONY : src/Tasks/TaskPlace.cpp.o
+
+src/Tasks/TaskPlace.i: src/Tasks/TaskPlace.cpp.i
+.PHONY : src/Tasks/TaskPlace.i
+
+# target to preprocess a source file
+src/Tasks/TaskPlace.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.i
+.PHONY : src/Tasks/TaskPlace.cpp.i
+
+src/Tasks/TaskPlace.s: src/Tasks/TaskPlace.cpp.s
+.PHONY : src/Tasks/TaskPlace.s
+
+# target to generate assembly for a file
+src/Tasks/TaskPlace.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.s
+.PHONY : src/Tasks/TaskPlace.cpp.s
+
+src/Tasks/TaskScanScene.o: src/Tasks/TaskScanScene.cpp.o
+.PHONY : src/Tasks/TaskScanScene.o
+
+# target to build an object file
+src/Tasks/TaskScanScene.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o
+.PHONY : src/Tasks/TaskScanScene.cpp.o
+
+src/Tasks/TaskScanScene.i: src/Tasks/TaskScanScene.cpp.i
+.PHONY : src/Tasks/TaskScanScene.i
+
+# target to preprocess a source file
+src/Tasks/TaskScanScene.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.i
+.PHONY : src/Tasks/TaskScanScene.cpp.i
+
+src/Tasks/TaskScanScene.s: src/Tasks/TaskScanScene.cpp.s
+.PHONY : src/Tasks/TaskScanScene.s
+
+# target to generate assembly for a file
+src/Tasks/TaskScanScene.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/robo_planner.dir/build.make CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.s
+.PHONY : src/Tasks/TaskScanScene.cpp.s
 
 # Help Target
 help:
@@ -451,6 +739,9 @@ help:
 	@echo "... src/Main.o"
 	@echo "... src/Main.i"
 	@echo "... src/Main.s"
+	@echo "... src/ObjectContainer.o"
+	@echo "... src/ObjectContainer.i"
+	@echo "... src/ObjectContainer.s"
 	@echo "... src/Part.o"
 	@echo "... src/Part.i"
 	@echo "... src/Part.s"
@@ -463,12 +754,45 @@ help:
 	@echo "... src/Scene.o"
 	@echo "... src/Scene.i"
 	@echo "... src/Scene.s"
-	@echo "... src/SceneObject.o"
-	@echo "... src/SceneObject.i"
-	@echo "... src/SceneObject.s"
-	@echo "... src/Task.o"
-	@echo "... src/Task.i"
-	@echo "... src/Task.s"
+	@echo "... src/SceneObjects/SceneObjectClampingDevice.o"
+	@echo "... src/SceneObjects/SceneObjectClampingDevice.i"
+	@echo "... src/SceneObjects/SceneObjectClampingDevice.s"
+	@echo "... src/Tasks/Task.o"
+	@echo "... src/Tasks/Task.i"
+	@echo "... src/Tasks/Task.s"
+	@echo "... src/Tasks/TaskGripperChange.o"
+	@echo "... src/Tasks/TaskGripperChange.i"
+	@echo "... src/Tasks/TaskGripperChange.s"
+	@echo "... src/Tasks/TaskGripperChangePick.o"
+	@echo "... src/Tasks/TaskGripperChangePick.i"
+	@echo "... src/Tasks/TaskGripperChangePick.s"
+	@echo "... src/Tasks/TaskGripperChangePlace.o"
+	@echo "... src/Tasks/TaskGripperChangePlace.i"
+	@echo "... src/Tasks/TaskGripperChangePlace.s"
+	@echo "... src/Tasks/TaskGripperClose.o"
+	@echo "... src/Tasks/TaskGripperClose.i"
+	@echo "... src/Tasks/TaskGripperClose.s"
+	@echo "... src/Tasks/TaskGripperOpen.o"
+	@echo "... src/Tasks/TaskGripperOpen.i"
+	@echo "... src/Tasks/TaskGripperOpen.s"
+	@echo "... src/Tasks/TaskList.o"
+	@echo "... src/Tasks/TaskList.i"
+	@echo "... src/Tasks/TaskList.s"
+	@echo "... src/Tasks/TaskMoveToPose.o"
+	@echo "... src/Tasks/TaskMoveToPose.i"
+	@echo "... src/Tasks/TaskMoveToPose.s"
+	@echo "... src/Tasks/TaskPick.o"
+	@echo "... src/Tasks/TaskPick.i"
+	@echo "... src/Tasks/TaskPick.s"
+	@echo "... src/Tasks/TaskPickAndPlace.o"
+	@echo "... src/Tasks/TaskPickAndPlace.i"
+	@echo "... src/Tasks/TaskPickAndPlace.s"
+	@echo "... src/Tasks/TaskPlace.o"
+	@echo "... src/Tasks/TaskPlace.i"
+	@echo "... src/Tasks/TaskPlace.s"
+	@echo "... src/Tasks/TaskScanScene.o"
+	@echo "... src/Tasks/TaskScanScene.i"
+	@echo "... src/Tasks/TaskScanScene.s"
 .PHONY : help
 
 

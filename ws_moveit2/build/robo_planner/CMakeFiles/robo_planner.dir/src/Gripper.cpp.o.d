@@ -1,7 +1,7 @@
 CMakeFiles/robo_planner.dir/src/Gripper.cpp.o: \
  /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Gripper.cpp \
  /usr/include/stdc-predef.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Gripper.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/Gripper.h \
  /usr/include/c++/11/string \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \

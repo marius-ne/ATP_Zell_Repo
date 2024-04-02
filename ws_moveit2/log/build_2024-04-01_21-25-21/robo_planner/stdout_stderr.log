@@ -1,0 +1,34 @@
+[  9%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o[0m
+[  9%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[ 14%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o[0m
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChangePlace.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:[m[K In member function ‘[01m[Kvoid WzlPlanner::TaskGripperChangePlace::Initialize(WzlPlanner::SceneObjectGripperChangeStation)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:26:79:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KchangeStation[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   26 |             void Initialize([01;35m[Kconst WzlPlanner::SceneObjectGripperChangeStation changeStation[m[K)
+      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/TaskGripperChange.h:6[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChange.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:[m[K In member function ‘[01m[Kvoid WzlPlanner::TaskGripperChangePlace::Initialize(WzlPlanner::SceneObjectGripperChangeStation)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:26:79:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KchangeStation[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   26 |             void Initialize([01;35m[Kconst WzlPlanner::SceneObjectGripperChangeStation changeStation[m[K)
+      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:[m[K In function ‘[01m[Kvoid CreateCell(std::shared_ptr<rclcpp::Node>)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp:49:15:[m[K [01;31m[Kerror: [m[K‘[01m[KObjectContainer_[m[K’ is not a member of ‘[01m[KWzlPlanner[m[K’; did you mean ‘[01m[KObjectContainer[m[K’?
+   49 |   WzlPlanner::[01;31m[KObjectContainer_[m[K = std::make_shared<WzlPlanner::ObjectContainer>(
+      |               [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |               [32m[KObjectContainer[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChangePlace.cpp:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::TaskGripperChangePlace::Execute()[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChangePlace.cpp:7:33:[m[K [01;31m[Kerror: [m[K‘[01m[KObjectContainer_[m[K’ was not declared in this scope
+    7 |     auto gripperChangeStation = [01;31m[KObjectContainer_[m[K->GetScene()->GetSceneObject(this->gripperChangingStationId_);
+      |                                 [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChange.cpp:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::TaskGripperChange::Execute()[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChange.cpp:7:45:[m[K [01;31m[Kerror: [m[K‘[01m[KObjectContainer_[m[K’ is not a member of ‘[01m[KWzlPlanner[m[K’; did you mean ‘[01m[KObjectContainer[m[K’?
+    7 |     auto gripperChangeStation = WzlPlanner::[01;31m[KObjectContainer_[m[K->GetScene()->GetSceneObject(this->gripperChaningStationId_);
+      |                                             [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |                                             [32m[KObjectContainer[m[K
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:230: CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:202: CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o] Error 1
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:104: CMakeFiles/robo_planner.dir/src/Main.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

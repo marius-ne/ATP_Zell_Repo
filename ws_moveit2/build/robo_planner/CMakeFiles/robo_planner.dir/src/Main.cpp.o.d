@@ -856,7 +856,7 @@ CMakeFiles/robo_planner.dir/src/Main.cpp.o: \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__traits.hpp \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/Pose.h \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/transform.h \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__struct.h \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.h \
@@ -873,17 +873,34 @@ CMakeFiles/robo_planner.dir/src/Main.cpp.o: \
  /opt/ros/humble/include/tf2/tf2/utils.h \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.h \
  /opt/ros/humble/include/tf2/tf2/impl/utils.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Gripper.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/SceneObject.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/../Pose.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/SceneObjectType.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/Scene.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/Robot.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/Pose.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/Gripper.h \
+ /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/robot_move_to_position.hpp \
+ /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/robot_move_to_position__struct.hpp \
+ /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/robot_move_to_position__builder.hpp \
+ /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/robot_move_to_position__traits.hpp \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/SceneObjectInclude.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/SceneObject.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/SceneObjectCarrier.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/../Part.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/../Pose.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/SceneObjectClampingDevice.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/SceneObjectDoor.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/../IoInterface.h \
  /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/set_value_io_interface.hpp \
  /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/set_value_io_interface__struct.hpp \
  /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/set_value_io_interface__builder.hpp \
  /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/set_value_io_interface__traits.hpp \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Robot.h \
- /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/robot_move_to_position.hpp \
- /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/robot_move_to_position__struct.hpp \
- /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/robot_move_to_position__builder.hpp \
- /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/robot_move_to_position__traits.hpp
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/SceneObjectGripperChangeStation.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/../Gripper.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/SceneObjectInclude.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/SceneObjects/SceneObjectVisualScanTower.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/IoInterface.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/ObjectContainer.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/IoInterface.h \
+ /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/../include/Scene.h

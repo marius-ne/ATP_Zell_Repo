@@ -1,0 +1,42 @@
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:16:17:[m[K [01;31m[Kerror: [m[K‘[01m[KSceneObject[m[K’ was not declared in this scope; did you mean ‘[01m[KWzlPlanner::SceneObject[m[K’?
+   16 | std::shared_ptr<[01;31m[KSceneObject[m[K> WzlPlanner::Scene::GetSceneObject(const std::string id) const
+      |                 [01;31m[K^~~~~~~~~~~[m[K
+      |                 [32m[KWzlPlanner::SceneObject[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:8[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObject.h:29:11:[m[K [01;36m[Knote: [m[K‘[01m[KWzlPlanner::SceneObject[m[K’ declared here
+   29 |     class [01;36m[KSceneObject[m[K
+      |           [01;36m[K^~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:16:28:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+   16 | std::shared_ptr<SceneObject[01;31m[K>[m[K WzlPlanner::Scene::GetSceneObject(const std::string id) const
+      |                            [01;31m[K^[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:16:30:[m[K [01;31m[Kerror: [m[Kno declaration matches ‘[01m[Kint WzlPlanner::Scene::GetSceneObject(std::string) const[m[K’
+   16 | std::shared_ptr<SceneObject> [01;31m[KWzlPlanner[m[K::Scene::GetSceneObject(const std::string id) const
+      |                              [01;31m[K^~~~~~~~~~[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:24:42:[m[K [01;36m[Knote: [m[Kcandidate is: ‘[01m[Kstd::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject(std::string)[m[K’
+   24 |             std::shared_ptr<SceneObject> [01;36m[KGetSceneObject[m[K(const std::string id) ;
+      |                                          [01;36m[K^~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.h:13:11:[m[K [01;36m[Knote: [m[K‘[01m[Kclass WzlPlanner::Scene[m[K’ defined here
+   13 |     class [01;36m[KScene[m[K
+      |           [01;36m[K^~~~~[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.h:108:6:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ after class definition
+  108 |     }
+      |      [01;31m[K^[m[K
+      |      [32m[K;[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::TaskOpenGripper::Execute()[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:22:5:[m[K [01;31m[Kerror: [m[K‘[01m[KWzlPlanner::ObjectContainer_[m[K’ is not a class member
+   22 |     [01;31m[KWzlPlanner[m[K::ObjectContainer_->GetioInterface()->SetValueBool(this->)
+      |     [01;31m[K^~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:22:72:[m[K [01;31m[Kerror: [m[Kexpected unqualified-id before ‘[01m[K)[m[K’ token
+   22 |     WzlPlanner::ObjectContainer_->GetioInterface()->SetValueBool(this->[01;31m[K)[m[K
+      |                                                                        [01;31m[K^[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Task.cpp:23:1:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K,[m[K’ or ‘[01m[K;[m[K’ before ‘[01m[K}[m[K’ token
+   23 | [01;31m[K}[m[K
+      | [01;31m[K^[m[K
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:160: CMakeFiles/robo_planner.dir/src/Scene.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:188: CMakeFiles/robo_planner.dir/src/Task.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2
