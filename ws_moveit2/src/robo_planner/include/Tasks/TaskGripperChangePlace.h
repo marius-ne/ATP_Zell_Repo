@@ -23,10 +23,7 @@ namespace WzlPlanner
 
             void Execute() override;
 
-            void Initialize(const WzlPlanner::SceneObjectGripperChangeStation changeStation)
-            {
-
-            }
+            //void Initialize(const WzlPlanner::SceneObjectGripperChangeStation changeStation){}
 
         private:
             std::string gripperChangingStationId_;

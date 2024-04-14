@@ -53,7 +53,7 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/aw/restackcell/ws_moveit2/src/hello_moveit
+CMAKE_SOURCE_DIR = /home/aw/restackcell/ws_moveit2/src/robo_planner
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /home/aw/restackcell/ws_moveit2/build/robo_planner
@@ -70,298 +70,298 @@ include CMakeFiles/robo_planner.dir/progress.make
 include CMakeFiles/robo_planner.dir/flags.make
 
 CMakeFiles/robo_planner.dir/src/Gripper.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Gripper.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Gripper.cpp
+CMakeFiles/robo_planner.dir/src/Gripper.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp
 CMakeFiles/robo_planner.dir/src/Gripper.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/robo_planner.dir/src/Gripper.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Gripper.cpp.o -MF CMakeFiles/robo_planner.dir/src/Gripper.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Gripper.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Gripper.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Gripper.cpp.o -MF CMakeFiles/robo_planner.dir/src/Gripper.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Gripper.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp
 
 CMakeFiles/robo_planner.dir/src/Gripper.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Gripper.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Gripper.cpp > CMakeFiles/robo_planner.dir/src/Gripper.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp > CMakeFiles/robo_planner.dir/src/Gripper.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Gripper.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Gripper.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Gripper.cpp -o CMakeFiles/robo_planner.dir/src/Gripper.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp -o CMakeFiles/robo_planner.dir/src/Gripper.cpp.s
 
 CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.cpp
+CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/IoInterface.cpp
 CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o -MF CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o.d -o CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o -MF CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o.d -o CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/IoInterface.cpp
 
 CMakeFiles/robo_planner.dir/src/IoInterface.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/IoInterface.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.cpp > CMakeFiles/robo_planner.dir/src/IoInterface.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/IoInterface.cpp > CMakeFiles/robo_planner.dir/src/IoInterface.cpp.i
 
 CMakeFiles/robo_planner.dir/src/IoInterface.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/IoInterface.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/IoInterface.cpp -o CMakeFiles/robo_planner.dir/src/IoInterface.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/IoInterface.cpp -o CMakeFiles/robo_planner.dir/src/IoInterface.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Main.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Main.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp
+CMakeFiles/robo_planner.dir/src/Main.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp
 CMakeFiles/robo_planner.dir/src/Main.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Main.cpp.o -MF CMakeFiles/robo_planner.dir/src/Main.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Main.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Main.cpp.o -MF CMakeFiles/robo_planner.dir/src/Main.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Main.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp
 
 CMakeFiles/robo_planner.dir/src/Main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp > CMakeFiles/robo_planner.dir/src/Main.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp > CMakeFiles/robo_planner.dir/src/Main.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Main.cpp -o CMakeFiles/robo_planner.dir/src/Main.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp -o CMakeFiles/robo_planner.dir/src/Main.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Part.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Part.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.cpp
+CMakeFiles/robo_planner.dir/src/Part.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Part.cpp
 CMakeFiles/robo_planner.dir/src/Part.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/robo_planner.dir/src/Part.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Part.cpp.o -MF CMakeFiles/robo_planner.dir/src/Part.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Part.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Part.cpp.o -MF CMakeFiles/robo_planner.dir/src/Part.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Part.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Part.cpp
 
 CMakeFiles/robo_planner.dir/src/Part.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Part.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.cpp > CMakeFiles/robo_planner.dir/src/Part.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Part.cpp > CMakeFiles/robo_planner.dir/src/Part.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Part.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Part.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Part.cpp -o CMakeFiles/robo_planner.dir/src/Part.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Part.cpp -o CMakeFiles/robo_planner.dir/src/Part.cpp.s
 
 CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/ObjectContainer.cpp
+CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/ObjectContainer.cpp
 CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o -MF CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o.d -o CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/ObjectContainer.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o -MF CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o.d -o CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/ObjectContainer.cpp
 
 CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/ObjectContainer.cpp > CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/ObjectContainer.cpp > CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.i
 
 CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/ObjectContainer.cpp -o CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/ObjectContainer.cpp -o CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Pose.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Pose.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp
+CMakeFiles/robo_planner.dir/src/Pose.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Pose.cpp
 CMakeFiles/robo_planner.dir/src/Pose.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/robo_planner.dir/src/Pose.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Pose.cpp.o -MF CMakeFiles/robo_planner.dir/src/Pose.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Pose.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Pose.cpp.o -MF CMakeFiles/robo_planner.dir/src/Pose.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Pose.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Pose.cpp
 
 CMakeFiles/robo_planner.dir/src/Pose.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Pose.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp > CMakeFiles/robo_planner.dir/src/Pose.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Pose.cpp > CMakeFiles/robo_planner.dir/src/Pose.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Pose.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Pose.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Pose.cpp -o CMakeFiles/robo_planner.dir/src/Pose.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Pose.cpp -o CMakeFiles/robo_planner.dir/src/Pose.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Robot.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Robot.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Robot.cpp
+CMakeFiles/robo_planner.dir/src/Robot.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Robot.cpp
 CMakeFiles/robo_planner.dir/src/Robot.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/robo_planner.dir/src/Robot.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Robot.cpp.o -MF CMakeFiles/robo_planner.dir/src/Robot.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Robot.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Robot.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Robot.cpp.o -MF CMakeFiles/robo_planner.dir/src/Robot.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Robot.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Robot.cpp
 
 CMakeFiles/robo_planner.dir/src/Robot.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Robot.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Robot.cpp > CMakeFiles/robo_planner.dir/src/Robot.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Robot.cpp > CMakeFiles/robo_planner.dir/src/Robot.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Robot.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Robot.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Robot.cpp -o CMakeFiles/robo_planner.dir/src/Robot.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Robot.cpp -o CMakeFiles/robo_planner.dir/src/Robot.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Scene.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Scene.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp
+CMakeFiles/robo_planner.dir/src/Scene.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Scene.cpp
 CMakeFiles/robo_planner.dir/src/Scene.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/robo_planner.dir/src/Scene.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Scene.cpp.o -MF CMakeFiles/robo_planner.dir/src/Scene.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Scene.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Scene.cpp.o -MF CMakeFiles/robo_planner.dir/src/Scene.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Scene.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Scene.cpp
 
 CMakeFiles/robo_planner.dir/src/Scene.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Scene.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp > CMakeFiles/robo_planner.dir/src/Scene.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Scene.cpp > CMakeFiles/robo_planner.dir/src/Scene.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Scene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Scene.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Scene.cpp -o CMakeFiles/robo_planner.dir/src/Scene.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Scene.cpp -o CMakeFiles/robo_planner.dir/src/Scene.cpp.s
 
 CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObjects/SceneObjectClampingDevice.cpp
+CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/SceneObjects/SceneObjectClampingDevice.cpp
 CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o -MF CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o.d -o CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObjects/SceneObjectClampingDevice.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o -MF CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o.d -o CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/SceneObjects/SceneObjectClampingDevice.cpp
 
 CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObjects/SceneObjectClampingDevice.cpp > CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/SceneObjects/SceneObjectClampingDevice.cpp > CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.i
 
 CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/SceneObjects/SceneObjectClampingDevice.cpp -o CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/SceneObjects/SceneObjectClampingDevice.cpp -o CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/Task.cpp
+CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/Task.cpp
 CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/Task.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/Task.cpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/Task.cpp > CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/Task.cpp > CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/Task.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/Task.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChange.cpp
+CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChange.cpp
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChange.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChange.cpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChange.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChange.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChange.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChange.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChangePick.cpp
+CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePick.cpp
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChangePick.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePick.cpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChangePick.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePick.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChangePick.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePick.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChangePlace.cpp
+CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePlace.cpp
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChangePlace.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePlace.cpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChangePlace.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePlace.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChangePlace.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePlace.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperClose.cpp
+CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperClose.cpp
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperClose.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperClose.cpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperClose.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperClose.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperClose.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperClose.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperOpen.cpp
+CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperOpen.cpp
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperOpen.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperOpen.cpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperOpen.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperOpen.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperOpen.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperOpen.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskList.cpp
+CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskList.cpp
 CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskList.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskList.cpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskList.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskList.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskList.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskList.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskMoveToPose.cpp
+CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskMoveToPose.cpp
 CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskMoveToPose.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskMoveToPose.cpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskMoveToPose.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskMoveToPose.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskMoveToPose.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskMoveToPose.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskPick.cpp
+CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPick.cpp
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskPick.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPick.cpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskPick.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPick.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskPick.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPick.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskPickAndPlace.cpp
+CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskPickAndPlace.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskPickAndPlace.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskPickAndPlace.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskPlace.cpp
+CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPlace.cpp
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskPlace.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPlace.cpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskPlace.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPlace.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskPlace.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPlace.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.s
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: CMakeFiles/robo_planner.dir/flags.make
-CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskScanScene.cpp
+CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskScanScene.cpp
 CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: CMakeFiles/robo_planner.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o -c /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskScanScene.cpp
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o -MF CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o.d -o CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o -c /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskScanScene.cpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskScanScene.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskScanScene.cpp > CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.i
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskScanScene.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskScanScene.cpp -o CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.s
 
 # Object files for target robo_planner
 robo_planner_OBJECTS = \
@@ -764,6 +764,6 @@ CMakeFiles/robo_planner.dir/clean:
 .PHONY : CMakeFiles/robo_planner.dir/clean
 
 CMakeFiles/robo_planner.dir/depend:
-	cd /home/aw/restackcell/ws_moveit2/build/robo_planner && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aw/restackcell/ws_moveit2/src/hello_moveit /home/aw/restackcell/ws_moveit2/src/hello_moveit /home/aw/restackcell/ws_moveit2/build/robo_planner /home/aw/restackcell/ws_moveit2/build/robo_planner /home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles/robo_planner.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/aw/restackcell/ws_moveit2/build/robo_planner && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/aw/restackcell/ws_moveit2/src/robo_planner /home/aw/restackcell/ws_moveit2/src/robo_planner /home/aw/restackcell/ws_moveit2/build/robo_planner /home/aw/restackcell/ws_moveit2/build/robo_planner /home/aw/restackcell/ws_moveit2/build/robo_planner/CMakeFiles/robo_planner.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/robo_planner.dir/depend
 

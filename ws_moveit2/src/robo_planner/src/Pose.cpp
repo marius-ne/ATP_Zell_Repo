@@ -1,4 +1,5 @@
 #include "../include/Pose.h"
+#include "Pose.h"
 
 WzlPlanner::Pose::Pose()
 {
@@ -44,6 +45,17 @@ WzlPlanner::Pose::Pose(Pose &copy)
     this->j = copy.j;
     this->k = copy.k;
     this->w = copy.w;
+}
+
+WzlPlanner::Pose::Pose(const double x, const double y, const double z)
+{
+    this->SetPositionXYZ(x, y, z);
+    this->SetRotationXYZ(0, 0, 0);
+}
+
+WzlPlanner::Pose::Pose(const double x, const double y, const double z, const double rx, const double ry, const double rz)
+{
+    this->Set(x, y, z, rx, ry, rz);
 }
 
 void WzlPlanner::Pose::SetPositionX(const double x)

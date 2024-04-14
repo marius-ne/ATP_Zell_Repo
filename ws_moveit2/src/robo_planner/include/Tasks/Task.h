@@ -4,6 +4,7 @@
 #include <vector>
 #include <memory>
 #include <string>
+#include "../../include/ObjectContainer.h"
 
 namespace WzlPlanner
 {
@@ -15,10 +16,14 @@ namespace WzlPlanner
 
             virtual void Execute() 
             { 
+                LogStart();
+
                 for (auto &&subtask: subTasks_)
                 {
                     subtask->Execute();
                 }
+
+                LogEnd();
             };
 
             virtual void SetId(const std::string id) { id_ = id; }
@@ -26,6 +31,24 @@ namespace WzlPlanner
 
         protected:
             std::vector<std::shared_ptr<Task>> subTasks_;
+
+            void LogStart()
+            {
+                auto node = ObjectContainer::Get()->GetNode();
+                RCLCPP_INFO(node->get_logger(), (std::string("Start task: ") + id_).c_str());
+            }
+
+            void LogEnd()
+            {
+                auto node = ObjectContainer::Get()->GetNode();
+                RCLCPP_INFO(node->get_logger(), (std::string("End task: ") + id_).c_str());
+            }
+
+            void Log(const std::string& msg)
+            {
+                auto node = ObjectContainer::Get()->GetNode();
+                RCLCPP_INFO(node->get_logger(), msg.c_str());
+            }
 
         private:
             std::string id_;

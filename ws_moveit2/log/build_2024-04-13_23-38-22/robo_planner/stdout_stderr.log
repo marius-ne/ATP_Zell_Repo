@@ -1,0 +1,10 @@
+[35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[  4%] [32m[1mLinking CXX executable robo_planner[0m
+/usr/bin/ld: CMakeFiles/robo_planner.dir/src/Main.cpp.o: in function `WzlPlanner::TaskPickAndPlace::TaskPickAndPlace()':
+Main.cpp:(.text._ZN10WzlPlanner16TaskPickAndPlaceC2Ev[_ZN10WzlPlanner16TaskPickAndPlaceC5Ev]+0x2f): undefined reference to `vtable for WzlPlanner::TaskPickAndPlace'
+/usr/bin/ld: CMakeFiles/robo_planner.dir/src/Main.cpp.o: in function `WzlPlanner::TaskPickAndPlace::~TaskPickAndPlace()':
+Main.cpp:(.text._ZN10WzlPlanner16TaskPickAndPlaceD2Ev[_ZN10WzlPlanner16TaskPickAndPlaceD5Ev]+0x13): undefined reference to `vtable for WzlPlanner::TaskPickAndPlace'
+collect2: error: ld returned 1 exit status
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:756: robo_planner] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,260 @@
+[0.018s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/tutorial_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/aw/restackcell/ws_moveit2/src/tutorial_interfaces -DCMAKE_INSTALL_PREFIX=/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces
+[0.362s] -- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.362s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.362s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.362s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.362s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.362s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.503s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[0.624s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.774s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.841s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[0.842s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[0.961s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[0.961s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[0.961s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[0.961s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[0.974s] -- Found PythonExtra: .so  
+[1.006s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[1.015s] -- Added test 'lint_cmake' to check CMake code style
+[1.016s] -- Added test 'xmllint' to check XML markup files
+[1.017s] -- Configuring done
+[1.037s] -- Generating done
+[1.039s] -- Build files have been written to: /home/aw/restackcell/ws_moveit2/build/tutorial_interfaces
+[1.044s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/tutorial_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake /home/aw/restackcell/ws_moveit2/src/tutorial_interfaces -DCMAKE_INSTALL_PREFIX=/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces
+[1.045s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/tutorial_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/tutorial_interfaces -- -j16 -l16
+[1.065s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[1.072s] [  5%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[1.074s] [  5%] Built target ament_cmake_python_copy_tutorial_interfaces
+[1.221s] running egg_info
+[1.222s] creating tutorial_interfaces.egg-info
+[1.222s] writing tutorial_interfaces.egg-info/PKG-INFO
+[1.222s] writing dependency_links to tutorial_interfaces.egg-info/dependency_links.txt
+[1.222s] writing top-level names to tutorial_interfaces.egg-info/top_level.txt
+[1.222s] writing manifest file 'tutorial_interfaces.egg-info/SOURCES.txt'
+[1.223s] reading manifest file 'tutorial_interfaces.egg-info/SOURCES.txt'
+[1.224s] writing manifest file 'tutorial_interfaces.egg-info/SOURCES.txt'
+[1.249s] [  5%] Built target ament_cmake_python_build_tutorial_interfaces_egg
+[1.310s] [  5%] Built target tutorial_interfaces__cpp
+[1.314s] [ 10%] [32mBuilding C object CMakeFiles/tutorial_interfaces__rosidl_generator_c.dir/rosidl_generator_c/tutorial_interfaces/srv/detail/add_three_ints__functions.c.o[0m
+[1.314s] [ 10%] [32mBuilding C object CMakeFiles/tutorial_interfaces__rosidl_generator_c.dir/rosidl_generator_c/tutorial_interfaces/msg/detail/num__functions.c.o[0m
+[1.315s] [ 12%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[1.316s] [ 15%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[1.316s] [ 17%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[1.372s] [ 20%] [32m[1mLinking C shared library libtutorial_interfaces__rosidl_generator_c.so[0m
+[1.446s] [ 20%] Built target tutorial_interfaces__rosidl_generator_c
+[1.453s] [ 28%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[1.453s] [ 28%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[1.453s] [ 28%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[1.572s] [ 30%] [32mBuilding CXX object CMakeFiles/tutorial_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/tutorial_interfaces/srv/add_three_ints__type_support.cpp.o[0m
+[1.574s] [ 33%] [32mBuilding CXX object CMakeFiles/tutorial_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/tutorial_interfaces/msg/num__type_support.cpp.o[0m
+[1.621s] [ 38%] [32mBuilding CXX object CMakeFiles/tutorial_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/tutorial_interfaces/msg/detail/num__type_support.cpp.o[0m
+[1.621s] [ 38%] [32mBuilding CXX object CMakeFiles/tutorial_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/tutorial_interfaces/srv/detail/add_three_ints__type_support.cpp.o[0m
+[1.628s] [ 41%] [32mBuilding CXX object CMakeFiles/tutorial_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tutorial_interfaces/srv/detail/dds_fastrtps/add_three_ints__type_support.cpp.o[0m
+[1.633s] [ 43%] [32mBuilding CXX object CMakeFiles/tutorial_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/tutorial_interfaces/msg/detail/dds_fastrtps/num__type_support.cpp.o[0m
+[1.792s] [ 48%] [32mBuilding CXX object CMakeFiles/tutorial_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/tutorial_interfaces/srv/add_three_ints__type_support.cpp.o[0m
+[1.792s] [ 48%] [32mBuilding CXX object CMakeFiles/tutorial_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/tutorial_interfaces/msg/num__type_support.cpp.o[0m
+[1.831s] [ 51%] [32mBuilding CXX object CMakeFiles/tutorial_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/tutorial_interfaces/srv/detail/add_three_ints__type_support_c.cpp.o[0m
+[1.839s] [ 53%] [32mBuilding C object CMakeFiles/tutorial_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/tutorial_interfaces/msg/detail/num__type_support.c.o[0m
+[1.842s] [ 56%] [32mBuilding C object CMakeFiles/tutorial_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/tutorial_interfaces/srv/detail/add_three_ints__type_support.c.o[0m
+[1.852s] [ 58%] [32mBuilding CXX object CMakeFiles/tutorial_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/tutorial_interfaces/msg/detail/num__type_support_c.cpp.o[0m
+[1.871s] [ 61%] [32m[1mLinking CXX shared library libtutorial_interfaces__rosidl_typesupport_c.so[0m
+[1.936s] [ 64%] [32m[1mLinking C shared library libtutorial_interfaces__rosidl_typesupport_introspection_c.so[0m
+[1.953s] [ 66%] [32m[1mLinking CXX shared library libtutorial_interfaces__rosidl_typesupport_cpp.so[0m
+[2.065s] [ 66%] Built target tutorial_interfaces__rosidl_typesupport_c
+[2.090s] [ 66%] Built target tutorial_interfaces__rosidl_typesupport_introspection_c
+[2.103s] [ 66%] Built target tutorial_interfaces__rosidl_typesupport_cpp
+[2.128s] [ 69%] [32m[1mLinking CXX shared library libtutorial_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[2.129s] [ 71%] [32m[1mLinking CXX shared library libtutorial_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[2.200s] [ 71%] Built target tutorial_interfaces__rosidl_typesupport_introspection_cpp
+[2.236s] [ 71%] Built target tutorial_interfaces__rosidl_typesupport_fastrtps_cpp
+[2.253s] [ 74%] [32m[1mLinking CXX shared library libtutorial_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[2.348s] [ 74%] Built target tutorial_interfaces__rosidl_typesupport_fastrtps_c
+[2.358s] [ 74%] Built target tutorial_interfaces
+[2.368s] [ 76%] [34m[1mGenerating Python code for ROS interfaces[0m
+[2.648s] [ 76%] Built target tutorial_interfaces__py
+[2.658s] [ 79%] [32mBuilding C object CMakeFiles/tutorial_interfaces__rosidl_generator_py.dir/rosidl_generator_py/tutorial_interfaces/srv/_add_three_ints_s.c.o[0m
+[2.658s] [ 82%] [32mBuilding C object CMakeFiles/tutorial_interfaces__rosidl_generator_py.dir/rosidl_generator_py/tutorial_interfaces/msg/_num_s.c.o[0m
+[2.756s] [ 84%] [32m[1mLinking C shared library rosidl_generator_py/tutorial_interfaces/libtutorial_interfaces__rosidl_generator_py.so[0m
+[2.811s] [ 84%] Built target tutorial_interfaces__rosidl_generator_py
+[2.822s] [ 89%] [32mBuilding C object CMakeFiles/tutorial_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/tutorial_interfaces/_tutorial_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[2.822s] [ 89%] [32mBuilding C object CMakeFiles/tutorial_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/tutorial_interfaces/_tutorial_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[2.823s] [ 92%] [32mBuilding C object CMakeFiles/tutorial_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/tutorial_interfaces/_tutorial_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[2.878s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.879s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.905s] [100%] [32m[1mLinking C shared library rosidl_generator_py/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[2.924s] [100%] Built target tutorial_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[2.928s] [100%] Built target tutorial_interfaces__rosidl_typesupport_c__pyext
+[2.958s] [100%] Built target tutorial_interfaces__rosidl_typesupport_introspection_c__pyext
+[2.966s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/tutorial_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/tutorial_interfaces -- -j16 -l16
+[3.003s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/tutorial_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/aw/restackcell/ws_moveit2/build/tutorial_interfaces
+[3.008s] -- Install configuration: ""
+[3.009s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/ament_index/resource_index/rosidl_interfaces/tutorial_interfaces
+[3.009s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces
+[3.009s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv
+[3.009s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/add_three_ints.h
+[3.009s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail
+[3.009s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__functions.h
+[3.010s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__type_support.h
+[3.010s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__struct.h
+[3.010s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__functions.c
+[3.010s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg
+[3.010s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/rosidl_generator_c__visibility_control.h
+[3.010s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail
+[3.010s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__type_support.h
+[3.010s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__functions.h
+[3.011s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__functions.c
+[3.011s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__struct.h
+[3.011s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/num.h
+[3.011s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/environment/library_path.sh
+[3.011s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/environment/library_path.dsv
+[3.011s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_generator_c.so
+[3.012s] -- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_generator_c.so" to ""
+[3.012s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces
+[3.012s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv
+[3.012s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail
+[3.012s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__rosidl_typesupport_fastrtps_c.h
+[3.012s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg
+[3.012s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[3.012s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail
+[3.013s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__rosidl_typesupport_fastrtps_c.h
+[3.013s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_fastrtps_c.so
+[3.013s] -- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[3.013s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces
+[3.013s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv
+[3.013s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail
+[3.013s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__type_support.c
+[3.013s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__rosidl_typesupport_introspection_c.h
+[3.013s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg
+[3.014s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[3.014s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail
+[3.014s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__type_support.c
+[3.014s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__rosidl_typesupport_introspection_c.h
+[3.014s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_introspection_c.so
+[3.014s] -- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[3.014s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_c.so
+[3.014s] -- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_c.so" to ""
+[3.015s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces
+[3.015s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv
+[3.015s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail
+[3.015s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__traits.hpp
+[3.015s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__builder.hpp
+[3.015s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__struct.hpp
+[3.015s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/add_three_ints.hpp
+[3.015s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg
+[3.015s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/num.hpp
+[3.016s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail
+[3.016s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__traits.hpp
+[3.016s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__builder.hpp
+[3.016s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__struct.hpp
+[3.016s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces
+[3.016s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv
+[3.016s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail
+[3.016s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__rosidl_typesupport_fastrtps_cpp.hpp
+[3.016s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/dds_fastrtps
+[3.017s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg
+[3.017s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[3.017s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail
+[3.017s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__rosidl_typesupport_fastrtps_cpp.hpp
+[3.017s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/dds_fastrtps
+[3.017s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[3.017s] -- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[3.017s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces
+[3.017s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv
+[3.017s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail
+[3.017s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__type_support.cpp
+[3.017s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/srv/detail/add_three_ints__rosidl_typesupport_introspection_cpp.hpp
+[3.017s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg
+[3.017s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail
+[3.017s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__type_support.cpp
+[3.017s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/include/tutorial_interfaces/tutorial_interfaces/msg/detail/num__rosidl_typesupport_introspection_cpp.hpp
+[3.017s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_introspection_cpp.so
+[3.017s] -- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[3.017s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_cpp.so
+[3.017s] -- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_typesupport_cpp.so" to ""
+[3.017s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/environment/pythonpath.sh
+[3.017s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/environment/pythonpath.dsv
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces-0.0.0-py3.10.egg-info
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/_tutorial_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/srv
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/srv/_add_three_ints_s.c
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/srv/__init__.py
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/srv/_add_three_ints.py
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/_tutorial_interfaces_s.ep.rosidl_typesupport_c.c
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/libtutorial_interfaces__rosidl_generator_py.so
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/__init__.py
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/_tutorial_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg/_num.py
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg/_num_s.c
+[3.018s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg/__init__.py
+[3.038s] Listing '/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces'...
+[3.038s] Compiling '/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/__init__.py'...
+[3.038s] Listing '/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg'...
+[3.038s] Compiling '/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg/__init__.py'...
+[3.038s] Compiling '/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/msg/_num.py'...
+[3.038s] Listing '/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/srv'...
+[3.038s] Compiling '/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/srv/__init__.py'...
+[3.038s] Compiling '/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/srv/_add_three_ints.py'...
+[3.041s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[3.041s] -- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[3.041s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[3.042s] -- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[3.042s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[3.042s] -- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages/tutorial_interfaces/tutorial_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[3.042s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_generator_py.so
+[3.042s] -- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib/libtutorial_interfaces__rosidl_generator_py.so" to ""
+[3.042s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/msg/Num.idl
+[3.042s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/srv/AddThreeInts.idl
+[3.042s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/msg/Num.msg
+[3.043s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/srv/AddThreeInts.srv
+[3.043s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/srv/AddThreeInts_Request.msg
+[3.043s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/srv/AddThreeInts_Response.msg
+[3.043s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/ament_index/resource_index/package_run_dependencies/tutorial_interfaces
+[3.043s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/ament_index/resource_index/parent_prefix_path/tutorial_interfaces
+[3.043s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/environment/ament_prefix_path.sh
+[3.044s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/environment/ament_prefix_path.dsv
+[3.044s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/environment/path.sh
+[3.044s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/environment/path.dsv
+[3.044s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/local_setup.bash
+[3.044s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/local_setup.sh
+[3.044s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/local_setup.zsh
+[3.044s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/local_setup.dsv
+[3.044s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/package.dsv
+[3.045s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/ament_index/resource_index/packages/tutorial_interfaces
+[3.045s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_generator_cExport.cmake
+[3.045s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_generator_cExport-noconfig.cmake
+[3.045s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[3.045s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[3.046s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[3.046s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[3.046s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_cExport.cmake
+[3.046s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[3.046s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_generator_cppExport.cmake
+[3.046s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[3.046s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[3.046s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[3.046s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[3.046s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_cppExport.cmake
+[3.046s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[3.047s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_generator_pyExport.cmake
+[3.047s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/export_tutorial_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[3.047s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/rosidl_cmake-extras.cmake
+[3.048s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[3.048s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[3.048s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[3.048s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[3.049s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[3.049s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[3.049s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfacesConfig.cmake
+[3.049s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake/tutorial_interfacesConfig-version.cmake
+[3.049s] -- Installing: /home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/package.xml
+[3.050s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/tutorial_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/aw/restackcell/ws_moveit2/build/tutorial_interfaces

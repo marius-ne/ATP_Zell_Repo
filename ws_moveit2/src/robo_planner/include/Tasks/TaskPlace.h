@@ -45,7 +45,7 @@ namespace WzlPlanner
             std::shared_ptr<TaskMoveToPose> GetTaskMoveToPoseApproach() const { return taskMoveToPoseApproach_; }
             std::shared_ptr<TaskGripperOpen> GetTaskGripperOpen() const { return taskGripperOpen_; }
             std::shared_ptr<TaskMoveToPose> GetTaskMoveToPosePlace() const { return taskMoveToPosePlace_; }
-            std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; }
+            std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { return taskGripperClose_; }
             std::shared_ptr<TaskMoveToPose> GetTaskMoveToEnd() const { return taskMoveToPoseEnd_; }
 
 

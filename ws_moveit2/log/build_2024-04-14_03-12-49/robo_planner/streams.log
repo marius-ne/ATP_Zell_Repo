@@ -1,0 +1,15 @@
+[0.145s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/robo_planner': CMAKE_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/robo_planner:/home/aw/restackcell/ws_moveit2/install/moveit_backend:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/hello_ur /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[0.179s] [35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[0.227s] [  4%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o[0m
+[2.802s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/SceneObjects/SceneObjectClampingDevice.cpp:[m[K In function ‘[01m[Kvoid OpenWaitClose(int, std::chrono::milliseconds)[m[K’:
+[2.802s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/SceneObjects/SceneObjectClampingDevice.cpp:9:75:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktime[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[2.802s]     9 | void OpenWaitClose(const int ioSlotIndex, [01;35m[Kconst std::chrono::milliseconds time[m[K)
+[2.802s]       |                                           [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[4.446s] [  9%] [32m[1mLinking CXX executable robo_planner[0m
+[4.513s] /usr/bin/ld: CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o: in function `OpenWaitClose(int, std::chrono::duration<long, std::ratio<1l, 1000l> >)':
+[4.513s] SceneObjectClampingDevice.cpp:(.text+0x0): multiple definition of `OpenWaitClose(int, std::chrono::duration<long, std::ratio<1l, 1000l> >)'; CMakeFiles/robo_planner.dir/src/Gripper.cpp.o:Gripper.cpp:(.text+0x50): first defined here
+[5.305s] collect2: error: ld returned 1 exit status
+[5.306s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:756: robo_planner] Error 1
+[5.307s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+[5.307s] gmake: *** [Makefile:146: all] Error 2
+[5.309s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/robo_planner' returned '2': CMAKE_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/robo_planner:/home/aw/restackcell/ws_moveit2/install/moveit_backend:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/hello_ur /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16

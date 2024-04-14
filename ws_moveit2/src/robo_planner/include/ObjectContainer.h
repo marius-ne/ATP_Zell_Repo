@@ -51,6 +51,8 @@ namespace WzlPlanner
             std::shared_ptr<WzlPlanner::Scene> GetScene() const { return scene_; }
             std::shared_ptr<rclcpp::Node> GetNode() const { return node_; }
  
+            void SetIoInterface(const std::shared_ptr<IoInterfaceBase> ioInterface) { this->ioInterface_ = ioInterface; }
+            void SetRobot(const std::shared_ptr<WzlPlanner::Robot> robot) { this->robot_ = robot; }
     };
 
 } // namepspace

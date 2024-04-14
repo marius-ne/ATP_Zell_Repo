@@ -79,9 +79,9 @@ namespace WzlPlanner
                 gripperSlots_ = std::vector<std::shared_ptr<SceneObjectGripperChangeStationSlot>>
                 {
                     std::make_shared<SceneObjectGripperChangeStationSlot>(id + "1", 0, std::make_shared<GripperCameraToF>("Camera")),
-                    std::make_shared<SceneObjectGripperChangeStationSlot>(id + "2", 1, std::make_shared<GripperDeburringSpindle>("DeburringSpindle")),
-                    std::make_shared<SceneObjectGripperChangeStationSlot>(id + "3", 2, std::make_shared<GripperPneumaticSingle>("GripperDouble")),
-                    std::make_shared<SceneObjectGripperChangeStationSlot>(id + "4", 3, std::make_shared<GripperPneumaticDouble>("GripperSingle")),
+                    std::make_shared<SceneObjectGripperChangeStationSlot>(id + "2", 1, std::make_shared<GripperDeburringSpindle>("DeburringSpindle", 6)),
+                    std::make_shared<SceneObjectGripperChangeStationSlot>(id + "3", 2, std::make_shared<GripperPneumaticSingle>("GripperDouble", 0, 1)),
+                    std::make_shared<SceneObjectGripperChangeStationSlot>(id + "4", 3, std::make_shared<GripperPneumaticDouble>("GripperSingle", 2, 3, 4, 5)),
                     std::make_shared<SceneObjectGripperChangeStationSlot>(id + "5", 4, nullptr) 
                 };
 
@@ -96,10 +96,10 @@ namespace WzlPlanner
             {
                 SceneObject::InitializeTransform(parent);
 
-                //for (auto&& slot: gripperSlots_)
-                //{
-                //    slot->InitializeTransform(GetTransform());
-                //}
+                for (auto&& slot: gripperSlots_)
+                {
+                    slot->InitializeTransform(GetTransform());
+                }
             }
 
             SceneObjectType GetObjectType() const override { return SceneObjectType::EquipmentChangeStation; }

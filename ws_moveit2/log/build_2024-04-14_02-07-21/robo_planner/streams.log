@@ -1,0 +1,247 @@
+[0.149s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/robo_planner': CMAKE_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/robo_planner:/home/aw/restackcell/ws_moveit2/install/moveit_backend:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/hello_ur /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[0.193s] [35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[0.244s] [  9%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[0.244s] [  9%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o[0m
+[0.244s] [ 13%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Scene.cpp.o[0m
+[0.245s] [ 18%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o[0m
+[0.245s] [ 22%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o[0m
+[0.247s] [ 27%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o[0m
+[0.247s] [ 31%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o[0m
+[0.249s] [ 36%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o[0m
+[0.249s] [ 40%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o[0m
+[0.251s] [ 45%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o[0m
+[0.258s] [ 50%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o[0m
+[0.261s] [ 54%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o[0m
+[0.261s] [ 59%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o[0m
+[0.293s] [ 63%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o[0m
+[0.323s] [ 68%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o[0m
+[0.335s] [ 72%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o[0m
+[5.692s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h:7[m[K,
+[5.692s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h:7[m[K,
+[5.692s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h:7[m[K,
+[5.692s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/Task.cpp:1[m[K:
+[5.692s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[5.692s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.692s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[5.693s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[5.730s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h:7[m[K,
+[5.730s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h:7[m[K,
+[5.730s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h:7[m[K,
+[5.730s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChange.h:4[m[K,
+[5.730s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChange.cpp:1[m[K:
+[5.731s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[5.731s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.731s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[5.731s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[5.770s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h:7[m[K,
+[5.771s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h:7[m[K,
+[5.771s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h:7[m[K,
+[5.771s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskMoveToPose.h:4[m[K,
+[5.771s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskMoveToPose.cpp:1[m[K:
+[5.771s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[5.771s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.771s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[5.771s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[5.860s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h:7[m[K,
+[5.860s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h:7[m[K,
+[5.860s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h:7[m[K,
+[5.860s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperOpen.h:4[m[K,
+[5.860s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperOpen.cpp:1[m[K:
+[5.860s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[5.860s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.860s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[5.860s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[5.867s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Robot.h:7[m[K,
+[5.867s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Scene.h:7[m[K,
+[5.867s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Scene.cpp:1[m[K:
+[5.867s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[5.867s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.867s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[5.867s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[5.867s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Robot.h:7[m[K,
+[5.867s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Scene.h:7[m[K,
+[5.867s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:6[m[K:
+[5.868s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[5.868s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.868s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[5.868s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[5.898s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h:7[m[K,
+[5.899s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h:7[m[K,
+[5.899s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h:7[m[K,
+[5.899s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperClose.h:4[m[K,
+[5.899s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperClose.cpp:1[m[K:
+[5.899s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[5.899s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.899s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[5.899s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[5.947s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h:7[m[K,
+[5.947s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h:7[m[K,
+[5.947s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h:7[m[K,
+[5.947s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskList.h:4[m[K,
+[5.948s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskList.cpp:1[m[K:
+[5.948s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[5.948s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.948s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[5.948s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[5.982s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/Task.cpp:[m[K In function ‘[01m[Kvoid LogExecutionFailed(std::string)[m[K’:
+[5.982s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/Task.cpp:9:43:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[5.982s]     9 | void LogExecutionFailed([01;35m[Kconst std::string msg[m[K)
+[5.982s]       |                         [01;35m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+[6.033s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChange.h:6[m[K,
+[6.033s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChange.cpp:1[m[K:
+[6.034s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:[m[K In member function ‘[01m[Kvoid WzlPlanner::TaskGripperChangePlace::Initialize(WzlPlanner::SceneObjectGripperChangeStation)[m[K’:
+[6.034s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:26:79:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KchangeStation[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[6.034s]    26 |             void Initialize([01;35m[Kconst WzlPlanner::SceneObjectGripperChangeStation changeStation[m[K)
+[6.034s]       |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[6.121s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h:7[m[K,
+[6.121s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h:7[m[K,
+[6.121s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h:7[m[K,
+[6.121s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPickAndPlace.h:4[m[K,
+[6.121s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp:1[m[K:
+[6.122s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[6.122s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[6.122s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[6.122s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[6.175s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h:7[m[K,
+[6.175s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h:7[m[K,
+[6.175s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h:7[m[K,
+[6.175s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskScanScene.h:4[m[K,
+[6.175s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskScanScene.cpp:1[m[K:
+[6.175s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[6.175s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[6.175s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[6.175s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[6.195s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h:7[m[K,
+[6.195s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h:7[m[K,
+[6.195s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h:7[m[K,
+[6.195s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:4[m[K,
+[6.195s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePlace.cpp:1[m[K:
+[6.196s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[6.196s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[6.196s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[6.196s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[6.277s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Robot.h:7[m[K,
+[6.277s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/ObjectContainer.h:7[m[K,
+[6.277s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/ObjectContainer.cpp:1[m[K:
+[6.277s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[6.277s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[6.277s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[6.277s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[6.291s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Scene.cpp:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject(std::string) const[m[K’:
+[6.296s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Scene.cpp:15:94:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kid[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[6.296s]    15 | std::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject([01;35m[Kconst std::string id[m[K) const
+[6.296s]       |                                                                            [01;35m[K~~~~~~~~~~~~~~~~~~^~[m[K
+[6.322s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h:7[m[K,
+[6.322s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h:7[m[K,
+[6.322s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h:7[m[K,
+[6.322s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:4[m[K,
+[6.322s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPick.cpp:1[m[K:
+[6.322s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[6.323s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[6.323s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[6.323s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[6.377s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h:7[m[K,
+[6.378s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h:7[m[K,
+[6.378s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h:7[m[K,
+[6.378s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:4[m[K,
+[6.378s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPlace.cpp:1[m[K:
+[6.378s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[6.378s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[6.378s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[6.378s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[6.419s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPickAndPlace.h:6[m[K,
+[6.419s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:11[m[K:
+[6.419s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPick.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPick::GetTaskGripperClose() const[m[K’:
+[6.420s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPick.h:70:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[6.420s]    70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+[6.420s]       |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[6.422s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPick.h:70:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[6.422s]    70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+[6.422s]       |                                                                                                [01;35m[K^[m[K
+[6.426s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPickAndPlace.h:7[m[K,
+[6.427s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:11[m[K:
+[6.427s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPlace.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPlace::GetTaskGripperClose() const[m[K’:
+[6.427s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPlace.h:48:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[6.427s]    48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+[6.427s]       |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[6.429s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPlace.h:48:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[6.429s]    48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+[6.430s]       |                                                                                                [01;35m[K^[m[K
+[6.467s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPickAndPlace.h:6[m[K,
+[6.467s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp:1[m[K:
+[6.467s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPick::GetTaskGripperClose() const[m[K’:
+[6.467s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:70:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[6.467s]    70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+[6.467s]       |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[6.467s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:70:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[6.468s]    70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+[6.468s]       |                                                                                                [01;35m[K^[m[K
+[6.470s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPickAndPlace.h:7[m[K,
+[6.470s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp:1[m[K:
+[6.470s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPlace::GetTaskGripperClose() const[m[K’:
+[6.470s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:48:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[6.470s]    48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+[6.470s]       |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[6.471s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:48:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[6.471s]    48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+[6.471s]       |                                                                                                [01;35m[K^[m[K
+[6.476s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/SceneObjects/../../include/Robot.h:7[m[K,
+[6.476s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/SceneObjects/../../include/ObjectContainer.h:7[m[K,
+[6.476s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/SceneObjects/SceneObjectClampingDevice.cpp:2[m[K:
+[6.476s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/SceneObjects/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[6.476s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/SceneObjects/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[6.476s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[6.476s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[6.477s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h:7[m[K,
+[6.477s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h:7[m[K,
+[6.477s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h:7[m[K,
+[6.477s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChangePick.h:4[m[K,
+[6.477s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePick.cpp:1[m[K:
+[6.477s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:[m[K In constructor ‘[01m[KWzlPlanner::GripperDeburringSpindle::GripperDeburringSpindle(std::string, int)[m[K’:
+[6.477s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h:118:69:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KioRun[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[6.478s]   118 |             GripperDeburringSpindle(const std::string id, [01;35m[Kconst int ioRun[m[K)
+[6.478s]       |                                                           [01;35m[K~~~~~~~~~~^~~~~[m[K
+[6.505s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePlace.cpp:1[m[K:
+[6.505s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:[m[K In member function ‘[01m[Kvoid WzlPlanner::TaskGripperChangePlace::Initialize(WzlPlanner::SceneObjectGripperChangeStation)[m[K’:
+[6.505s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:26:79:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KchangeStation[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[6.505s]    26 |             void Initialize([01;35m[Kconst WzlPlanner::SceneObjectGripperChangeStation changeStation[m[K)
+[6.506s]       |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[6.643s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPick.cpp:1[m[K:
+[6.644s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPick::GetTaskGripperClose() const[m[K’:
+[6.644s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:70:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[6.644s]    70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+[6.644s]       |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[6.646s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:70:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[6.646s]    70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+[6.646s]       |                                                                                                [01;35m[K^[m[K
+[6.879s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPlace.cpp:1[m[K:
+[6.879s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPlace::GetTaskGripperClose() const[m[K’:
+[6.879s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:48:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[6.880s]    48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+[6.880s]       |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[6.881s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:48:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[6.882s]    48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+[6.882s]       |                                                                                                [01;35m[K^[m[K
+[11.463s] [ 77%] [32m[1mLinking CXX executable robo_planner[0m
+[12.309s] [100%] Built target robo_planner
+[12.319s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/robo_planner' returned '0': CMAKE_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/robo_planner:/home/aw/restackcell/ws_moveit2/install/moveit_backend:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/hello_ur /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[12.358s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/robo_planner': CMAKE_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/robo_planner:/home/aw/restackcell/ws_moveit2/install/moveit_backend:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/hello_ur /usr/bin/cmake --install /home/aw/restackcell/ws_moveit2/build/robo_planner
+[12.363s] -- Install configuration: ""
+[12.363s] -- Installing: /home/aw/restackcell/ws_moveit2/install/robo_planner/lib/robo_planner/robo_planner
+[12.365s] -- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/robo_planner/lib/robo_planner/robo_planner" to ""
+[12.365s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/package_run_dependencies/robo_planner
+[12.365s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/parent_prefix_path/robo_planner
+[12.366s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/ament_prefix_path.sh
+[12.366s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/ament_prefix_path.dsv
+[12.366s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/path.sh
+[12.366s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/path.dsv
+[12.366s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.bash
+[12.366s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.sh
+[12.366s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.zsh
+[12.366s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.dsv
+[12.366s] -- Installing: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.dsv
+[12.366s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/packages/robo_planner
+[12.367s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/cmake/robo_plannerConfig.cmake
+[12.367s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/cmake/robo_plannerConfig-version.cmake
+[12.367s] -- Up-to-date: /home/aw/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.xml
+[12.368s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/robo_planner' returned '0': CMAKE_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/robo_planner:/home/aw/restackcell/ws_moveit2/install/moveit_backend:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/hello_ur /usr/bin/cmake --install /home/aw/restackcell/ws_moveit2/build/robo_planner

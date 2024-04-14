@@ -15,10 +15,18 @@ namespace WzlPlanner
         protected:            
 
         public:
-            virtual bool SetValueBool(int slot, bool value) = 0;
+            virtual bool SetValueBool(const int slot, const bool value) = 0;
     };
 
-    class IoInterfaceOpcUa : public IoInterfaceBase
+    // io interface for testing purpose
+    class IoInterfaceDummy 
+        : public IoInterfaceBase
+    {
+        bool SetValueBool(const int slot, const bool value) override;
+    };
+
+    class IoInterfaceOpcUa 
+        : public IoInterfaceBase
     {
         public:
             IoInterfaceOpcUa(const std::shared_ptr<rclcpp::Node> node)
@@ -28,7 +36,7 @@ namespace WzlPlanner
                 client_ = node_->create_client<wzlscheduler_interfaces::srv::SetValueIoInterface>("set_value_opcua");
             }
 
-            bool SetValueBool(int slot, bool value) override;
+            bool SetValueBool(const int slot, const bool value) override;
 
         private:
             std::shared_ptr<rclcpp::Node> node_;

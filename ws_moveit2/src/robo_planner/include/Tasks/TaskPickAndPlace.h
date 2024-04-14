@@ -11,15 +11,31 @@ namespace WzlPlanner
 
     class TaskPickAndPlace : public Task
     {
-        private:
-            std::shared_ptr<TaskPick> taskPick;
-            std::shared_ptr<TaskPlace> taskPlace;
-
         public:
-            void SetTaskPick(std::shared_ptr<TaskPick> taskPick) { this->taskPick = taskPick; }
-            void SetTaskPlace(std::shared_ptr<TaskPlace> taskPlace) { this->taskPlace = taskPlace; }
 
-            void Execute() override;
+            TaskPickAndPlace()
+            {
+                taskPick_ = std::make_shared<TaskPick>();
+                taskPlace_ = std::make_shared<TaskPlace>();
+
+                subTasks_.push_back(taskPick_);
+                subTasks_.push_back(taskPlace_);
+            }
+
+            void SetId(const std::string id) override 
+            {
+                Task::SetId(id);
+
+                taskPick_->SetId(id + "_Pick");
+                taskPlace_->SetId(id + "_Place");
+            }
+
+            std::shared_ptr<TaskPick> GetTaskPick() const { return taskPick_; }
+            std::shared_ptr<TaskPlace> GetTaskPlace() const { return taskPlace_; }
+
+        private:
+            std::shared_ptr<TaskPick> taskPick_;
+            std::shared_ptr<TaskPlace> taskPlace_;
     };
 
 }

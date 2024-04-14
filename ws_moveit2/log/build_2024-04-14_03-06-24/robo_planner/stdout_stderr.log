@@ -1,0 +1,167 @@
+[35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[  4%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Gripper.cpp.o[0m
+[  9%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[ 13%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Scene.cpp.o[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o[0m
+[ 31%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o[0m
+[ 40%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o[0m
+[ 45%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o[0m
+[ 54%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o[0m
+[ 59%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o[0m
+[ 63%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o[0m
+[ 68%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o[0m
+[ 72%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o[0m
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:10:29:[m[K [01;31m[Kerror: [m[K‘[01m[KIoInterfaceBase[m[K’ is not a member of ‘[01m[KWzlPlanner[m[K’
+   10 | std::shared_ptr<WzlPlanner::[01;31m[KIoInterfaceBase[m[K> GetIoInterface()
+      |                             [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:10:44:[m[K [01;31m[Kerror: [m[Ktemplate argument 1 is invalid
+   10 | std::shared_ptr<WzlPlanner::IoInterfaceBase[01;31m[K>[m[K GetIoInterface()
+      |                                            [01;31m[K^[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:[m[K In function ‘[01m[Kint GetIoInterface()[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:12:24:[m[K [01;31m[Kerror: [m[K‘[01m[KWzlPlanner::ObjectContainer[m[K’ has not been declared
+   12 |     return WzlPlanner::[01;31m[KObjectContainer[m[K::Get()->GetioInterface();
+      |                        [01;31m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:[m[K In function ‘[01m[Kvoid OpenWaitClose(int, std::chrono::milliseconds)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:17:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+   17 |     GetIoInterface()[01;31m[K->[m[KSetValueBool(ioSlotIndex, true);
+      |                     [01;31m[K^~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:22:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+   22 |     GetIoInterface()[01;31m[K->[m[KSetValueBool(ioSlotIndex, false);
+      |                     [01;31m[K^~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::GripperPneumaticDouble::Open()[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:37:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+   37 |     GetIoInterface()[01;31m[K->[m[KSetValueBool(this->ioOpen1, true);
+      |                     [01;31m[K^~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:38:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+   38 |     GetIoInterface()[01;31m[K->[m[KSetValueBool(this->ioOpen2, true);
+      |                     [01;31m[K^~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:41:32:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Ksleep_for(time_t (&)(time_t*) noexcept)[m[K’
+   41 |     [01;31m[Kstd::this_thread::sleep_for(time)[m[K;
+      |     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/thread:44[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:6[m[K:
+[01m[K/usr/include/c++/11/bits/this_thread_sleep.h:70:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Rep, class _Period> void std::this_thread::sleep_for(const std::chrono::duration<_Rep1, _Period1>&)[m[K’
+   70 |       [01;36m[Ksleep_for[m[K(const chrono::duration<_Rep, _Period>& __rtime)
+      |       [01;36m[K^~~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/this_thread_sleep.h:70:7:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:41:32:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst std::chrono::duration<_Rep1, _Period1>[m[K’ and ‘[01m[Ktime_t(time_t*) noexcept[m[K’ {aka ‘[01m[Klong int(long int*) noexcept[m[K’}
+   41 |     [01;36m[Kstd::this_thread::sleep_for(time)[m[K;
+      |     [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:43:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+   43 |     GetIoInterface()[01;31m[K->[m[KSetValueBool(this->ioOpen1, false);
+      |                     [01;31m[K^~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:44:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+   44 |     GetIoInterface()[01;31m[K->[m[KSetValueBool(this->ioOpen2, false);
+      |                     [01;31m[K^~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::GripperPneumaticDouble::Close()[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:49:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+   49 |     GetIoInterface()[01;31m[K->[m[KSetValueBool(this->ioClose1, true);
+      |                     [01;31m[K^~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:50:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+   50 |     GetIoInterface()[01;31m[K->[m[KSetValueBool(this->ioClose2, true);
+      |                     [01;31m[K^~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:53:32:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Ksleep_for(time_t (&)(time_t*) noexcept)[m[K’
+   53 |     [01;31m[Kstd::this_thread::sleep_for(time)[m[K;
+      |     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+In file included from [01m[K/usr/include/c++/11/thread:44[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:6[m[K:
+[01m[K/usr/include/c++/11/bits/this_thread_sleep.h:70:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class _Rep, class _Period> void std::this_thread::sleep_for(const std::chrono::duration<_Rep1, _Period1>&)[m[K’
+   70 |       [01;36m[Ksleep_for[m[K(const chrono::duration<_Rep, _Period>& __rtime)
+      |       [01;36m[K^~~~~~~~~[m[K
+[01m[K/usr/include/c++/11/bits/this_thread_sleep.h:70:7:[m[K [01;36m[Knote: [m[K  template argument deduction/substitution failed:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:53:32:[m[K [01;36m[Knote: [m[K  mismatched types ‘[01m[Kconst std::chrono::duration<_Rep1, _Period1>[m[K’ and ‘[01m[Ktime_t(time_t*) noexcept[m[K’ {aka ‘[01m[Klong int(long int*) noexcept[m[K’}
+   53 |     [01;36m[Kstd::this_thread::sleep_for(time)[m[K;
+      |     [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:55:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+   55 |     GetIoInterface()[01;31m[K->[m[KSetValueBool(this->ioClose1, false);
+      |                     [01;31m[K^~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:56:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+   56 |     GetIoInterface()[01;31m[K->[m[KSetValueBool(this->ioClose2, false);
+      |                     [01;31m[K^~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::GripperDeburringSpindle::Open()[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:69:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+   69 |     GetIoInterface()[01;31m[K->[m[KSetValueBool(this->ioRun_, true);
+      |                     [01;31m[K^~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::GripperDeburringSpindle::Close()[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Gripper.cpp:75:21:[m[K [01;31m[Kerror: [m[Kbase operand of ‘[01m[K->[m[K’ is not a pointer
+   75 |     GetIoInterface()[01;31m[K->[m[KSetValueBool(this->ioRun_, false);
+      |                     [01;31m[K^~[m[K
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:76: CMakeFiles/robo_planner.dir/src/Gripper.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Scene.cpp:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject(std::string) const[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Scene.cpp:15:94:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kid[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   15 | std::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject([01;35m[Kconst std::string id[m[K) const
+      |                                                                            [01;35m[K~~~~~~~~~~~~~~~~~~^~[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePlace.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:[m[K In member function ‘[01m[Kvoid WzlPlanner::TaskGripperChangePlace::Initialize(WzlPlanner::SceneObjectGripperChangeStation)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:26:79:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KchangeStation[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   26 |             void Initialize([01;35m[Kconst WzlPlanner::SceneObjectGripperChangeStation changeStation[m[K)
+      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPick.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPick::GetTaskGripperClose() const[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:70:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+   70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+      |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:70:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+   70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+      |                                                                                                [01;35m[K^[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChange.h:6[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChange.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:[m[K In member function ‘[01m[Kvoid WzlPlanner::TaskGripperChangePlace::Initialize(WzlPlanner::SceneObjectGripperChangeStation)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h:26:79:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[KchangeStation[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+   26 |             void Initialize([01;35m[Kconst WzlPlanner::SceneObjectGripperChangeStation changeStation[m[K)
+      |                             [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/Task.cpp:[m[K In function ‘[01m[Kvoid LogExecutionFailed(std::string)[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/Task.cpp:9:43:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+    9 | void LogExecutionFailed([01;35m[Kconst std::string msg[m[K)
+      |                         [01;35m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPickAndPlace.h:6[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPick::GetTaskGripperClose() const[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:70:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+   70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+      |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:70:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+   70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+      |                                                                                                [01;35m[K^[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPickAndPlace.h:7[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPlace::GetTaskGripperClose() const[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:48:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+   48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+      |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:48:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+   48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+      |                                                                                                [01;35m[K^[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPlace.cpp:1[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPlace::GetTaskGripperClose() const[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:48:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+   48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+      |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:48:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+   48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+      |                                                                                                [01;35m[K^[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPickAndPlace.h:6[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:11[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPick.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPick::GetTaskGripperClose() const[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPick.h:70:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+   70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+      |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPick.h:70:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+   70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+      |                                                                                                [01;35m[K^[m[K
+In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPickAndPlace.h:7[m[K,
+                 from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:11[m[K:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPlace.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPlace::GetTaskGripperClose() const[m[K’:
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPlace.h:48:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+   48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+      |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPlace.h:48:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+   48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+      |                                                                                                [01;35m[K^[m[K
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

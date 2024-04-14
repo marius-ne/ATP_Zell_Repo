@@ -6,5 +6,5 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I/home/aw/restackcell/ws_moveit2/src/mtc_tutorial/include
 
-CXX_FLAGS = -O2 -g -DNDEBUG -Wall -Wextra -Wpedantic
+CXX_FLAGS = -Wall -Wextra -Wpedantic
 

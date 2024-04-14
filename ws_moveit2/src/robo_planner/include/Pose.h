@@ -19,6 +19,9 @@ namespace WzlPlanner
         public:
             Pose();
             Pose(Pose &copy);
+            Pose(const double x, const double y, const double z);
+            Pose(const double x, const double y, const double z,
+                const double rx, const double ry, const double rz);
 
             void Set();
             void Set(const double x, const double y, const double z,

@@ -1,0 +1,13 @@
+[0.150s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/robo_planner': CMAKE_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/robo_planner:/home/aw/restackcell/ws_moveit2/install/moveit_backend:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/hello_ur /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[0.186s] [35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[0.229s] [  4%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Gripper.cpp.o[0m
+[4.416s] [  9%] [32m[1mLinking CXX executable robo_planner[0m
+[4.483s] /usr/bin/ld: CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o: in function `GetIoInterface()':
+[4.483s] SceneObjectClampingDevice.cpp:(.text+0x0): multiple definition of `GetIoInterface()'; CMakeFiles/robo_planner.dir/src/Gripper.cpp.o:Gripper.cpp:(.text+0x0): first defined here
+[4.483s] /usr/bin/ld: CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o: in function `OpenWaitClose(int, std::chrono::duration<long, std::ratio<1l, 1000l> >)':
+[4.483s] SceneObjectClampingDevice.cpp:(.text+0x50): multiple definition of `OpenWaitClose(int, std::chrono::duration<long, std::ratio<1l, 1000l> >)'; CMakeFiles/robo_planner.dir/src/Gripper.cpp.o:Gripper.cpp:(.text+0x50): first defined here
+[5.157s] collect2: error: ld returned 1 exit status
+[5.158s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:756: robo_planner] Error 1
+[5.158s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+[5.158s] gmake: *** [Makefile:146: all] Error 2
+[5.160s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/robo_planner' returned '2': CMAKE_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/robo_planner:/home/aw/restackcell/ws_moveit2/install/moveit_backend:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/hello_ur /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16

@@ -1,8 +1,8 @@
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/TaskGripperChange.cpp \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChange.cpp \
  /usr/include/stdc-predef.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/TaskGripperChange.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/Task.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChange.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -76,7 +76,6 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/x86_64-linux-gnu/bits/wchar2.h \
  /usr/include/c++/11/bits/shared_ptr_base.h /usr/include/c++/11/typeinfo \
  /usr/include/c++/11/bits/allocated_ptr.h \
  /usr/include/c++/11/bits/refwrap.h \
@@ -140,128 +139,22 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /usr/include/x86_64-linux-gnu/sys/select.h \
  /usr/include/x86_64-linux-gnu/bits/select.h \
  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
- /usr/include/x86_64-linux-gnu/bits/select2.h /usr/include/alloca.h \
- /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
- /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
- /usr/include/x86_64-linux-gnu/bits/stdlib.h \
+ /usr/include/alloca.h /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/include/c++/11/bits/std_abs.h /usr/include/c++/11/cstdio \
  /usr/include/stdio.h /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
- /usr/include/x86_64-linux-gnu/bits/stdio.h \
- /usr/include/x86_64-linux-gnu/bits/stdio2.h /usr/include/c++/11/cerrno \
- /usr/include/errno.h /usr/include/x86_64-linux-gnu/bits/errno.h \
- /usr/include/linux/errno.h /usr/include/x86_64-linux-gnu/asm/errno.h \
+ /usr/include/c++/11/cerrno /usr/include/errno.h \
+ /usr/include/x86_64-linux-gnu/bits/errno.h /usr/include/linux/errno.h \
+ /usr/include/x86_64-linux-gnu/asm/errno.h \
  /usr/include/asm-generic/errno.h /usr/include/asm-generic/errno-base.h \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/TaskMoveToPose.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../Pose.h \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/transform.h \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__struct.h \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.h \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.h \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__functions.h \
- /usr/include/c++/11/stdlib.h \
- /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/visibility_control.h \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_c__visibility_control.h \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__type_support.h \
- /opt/ros/humble/include/rosidl_typesupport_interface/rosidl_typesupport_interface/macros.h \
- /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/message_type_support_struct.h \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/transform_stamped.hpp \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__struct.hpp \
- /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
- /usr/include/c++/11/bits/algorithmfwd.h \
- /usr/include/c++/11/bits/stl_heap.h \
- /usr/include/c++/11/bits/uniform_int_dist.h \
- /usr/include/c++/11/pstl/glue_algorithm_defs.h \
- /usr/include/c++/11/functional /usr/include/c++/11/bits/std_function.h \
- /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
- /usr/include/c++/11/bits/hashtable_policy.h \
- /usr/include/c++/11/bits/enable_special_members.h \
- /usr/include/c++/11/bits/node_handle.h \
- /usr/include/c++/11/bits/unordered_map.h \
- /usr/include/c++/11/bits/erase_if.h \
- /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/bounded_vector.hpp \
- /usr/include/c++/11/stdexcept \
- /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/message_initialization.hpp \
- /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/message_initialization.h \
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.hpp \
- /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.hpp \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__struct.hpp \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.hpp \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.hpp \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__builder.hpp \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__traits.hpp \
- /usr/include/c++/11/sstream /usr/include/c++/11/istream \
- /usr/include/c++/11/ios /usr/include/c++/11/bits/ios_base.h \
- /usr/include/c++/11/bits/locale_classes.h \
- /usr/include/c++/11/bits/locale_classes.tcc \
- /usr/include/c++/11/system_error \
- /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
- /usr/include/c++/11/streambuf /usr/include/c++/11/bits/streambuf.tcc \
- /usr/include/c++/11/bits/basic_ios.h \
- /usr/include/c++/11/bits/locale_facets.h /usr/include/c++/11/cwctype \
- /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
- /usr/include/c++/11/bits/streambuf_iterator.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
- /usr/include/c++/11/bits/locale_facets.tcc \
- /usr/include/c++/11/bits/basic_ios.tcc /usr/include/c++/11/ostream \
- /usr/include/c++/11/bits/ostream.tcc \
- /usr/include/c++/11/bits/istream.tcc \
- /usr/include/c++/11/bits/sstream.tcc \
- /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/traits.hpp \
- /usr/include/c++/11/codecvt /usr/include/c++/11/bits/codecvt.h \
- /usr/include/c++/11/iomanip /usr/include/c++/11/locale \
- /usr/include/c++/11/bits/locale_facets_nonio.h /usr/include/c++/11/ctime \
- /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/11/bits/locale_facets_nonio.tcc \
- /usr/include/c++/11/bits/locale_conv.h \
- /usr/include/c++/11/bits/quoted_string.h \
- /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp \
- /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__traits.hpp \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__traits.hpp \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__traits.hpp \
- /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__traits.hpp \
- /opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.h \
- /opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.h \
- /opt/ros/humble/include/tf2/tf2/LinearMath/Scalar.h \
- /usr/include/c++/11/math.h /usr/include/c++/11/cmath /usr/include/math.h \
- /usr/include/x86_64-linux-gnu/bits/math-vector.h \
- /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
- /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
- /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
- /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
- /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
- /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/limits \
- /usr/include/c++/11/tr1/gamma.tcc \
- /usr/include/c++/11/tr1/special_function_util.h \
- /usr/include/c++/11/tr1/bessel_function.tcc \
- /usr/include/c++/11/tr1/beta_function.tcc \
- /usr/include/c++/11/tr1/ell_integral.tcc \
- /usr/include/c++/11/tr1/exp_integral.tcc \
- /usr/include/c++/11/tr1/hypergeometric.tcc \
- /usr/include/c++/11/tr1/legendre_function.tcc \
- /usr/include/c++/11/tr1/modified_bessel_func.tcc \
- /usr/include/c++/11/tr1/poly_hermite.tcc \
- /usr/include/c++/11/tr1/poly_laguerre.tcc \
- /usr/include/c++/11/tr1/riemann_zeta.tcc /usr/include/c++/11/cfloat \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h /usr/include/assert.h \
- /opt/ros/humble/include/tf2/tf2/LinearMath/MinMax.h \
- /opt/ros/humble/include/tf2/tf2/visibility_control.h \
- /opt/ros/humble/include/tf2/tf2/LinearMath/QuadWord.h \
- /opt/ros/humble/include/tf2_ros/tf2_ros/transform_broadcaster.h \
- /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/IoInterface.h \
  /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp \
  /usr/include/c++/11/csignal /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
@@ -286,7 +179,6 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/confname.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
- /usr/include/x86_64-linux-gnu/bits/unistd.h \
  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
  /usr/include/linux/close_range.h \
  /usr/include/x86_64-linux-gnu/bits/ss_flags.h \
@@ -296,26 +188,57 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/executors.hpp \
  /usr/include/c++/11/future /usr/include/c++/11/mutex \
  /usr/include/c++/11/chrono /usr/include/c++/11/ratio \
+ /usr/include/c++/11/limits /usr/include/c++/11/ctime \
  /usr/include/c++/11/bits/parse_numbers.h \
- /usr/include/c++/11/bits/std_mutex.h \
+ /usr/include/c++/11/system_error \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
+ /usr/include/c++/11/stdexcept /usr/include/c++/11/bits/std_mutex.h \
  /usr/include/c++/11/bits/unique_lock.h \
  /usr/include/c++/11/condition_variable /usr/include/c++/11/atomic \
  /usr/include/c++/11/bits/atomic_futex.h \
+ /usr/include/c++/11/bits/std_function.h \
  /usr/include/c++/11/bits/std_thread.h \
  /opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp \
  /usr/include/c++/11/set /usr/include/c++/11/bits/stl_tree.h \
+ /usr/include/c++/11/bits/node_handle.h \
  /usr/include/c++/11/bits/stl_set.h \
- /usr/include/c++/11/bits/stl_multiset.h /usr/include/c++/11/thread \
+ /usr/include/c++/11/bits/stl_multiset.h \
+ /usr/include/c++/11/bits/erase_if.h /usr/include/c++/11/thread \
  /usr/include/c++/11/bits/this_thread_sleep.h \
+ /usr/include/c++/11/unordered_map /usr/include/c++/11/bits/hashtable.h \
+ /usr/include/c++/11/bits/hashtable_policy.h \
+ /usr/include/c++/11/bits/enable_special_members.h \
+ /usr/include/c++/11/bits/unordered_map.h \
  /opt/ros/humble/include/rclcpp/rclcpp/executor.hpp \
- /usr/include/c++/11/cassert /usr/include/c++/11/iostream \
- /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
- /usr/include/c++/11/bits/list.tcc /usr/include/c++/11/map \
- /usr/include/c++/11/bits/stl_map.h \
+ /usr/include/c++/11/algorithm /usr/include/c++/11/bits/stl_algo.h \
+ /usr/include/c++/11/bits/algorithmfwd.h \
+ /usr/include/c++/11/bits/stl_heap.h \
+ /usr/include/c++/11/bits/uniform_int_dist.h \
+ /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/11/functional /usr/include/c++/11/cassert \
+ /usr/include/assert.h /usr/include/c++/11/iostream \
+ /usr/include/c++/11/ostream /usr/include/c++/11/ios \
+ /usr/include/c++/11/bits/ios_base.h \
+ /usr/include/c++/11/bits/locale_classes.h \
+ /usr/include/c++/11/bits/locale_classes.tcc \
+ /usr/include/c++/11/streambuf /usr/include/c++/11/bits/streambuf.tcc \
+ /usr/include/c++/11/bits/basic_ios.h \
+ /usr/include/c++/11/bits/locale_facets.h /usr/include/c++/11/cwctype \
+ /usr/include/wctype.h /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
+ /usr/include/c++/11/bits/streambuf_iterator.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
+ /usr/include/c++/11/bits/locale_facets.tcc \
+ /usr/include/c++/11/bits/basic_ios.tcc \
+ /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
+ /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/list \
+ /usr/include/c++/11/bits/stl_list.h /usr/include/c++/11/bits/list.tcc \
+ /usr/include/c++/11/map /usr/include/c++/11/bits/stl_map.h \
  /usr/include/c++/11/bits/stl_multimap.h \
  /opt/ros/humble/include/rcl/rcl/guard_condition.h \
  /opt/ros/humble/include/rcl/rcl/allocator.h \
  /opt/ros/humble/include/rcutils/rcutils/allocator.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
  /opt/ros/humble/include/rcutils/rcutils/macros.h \
  /opt/ros/humble/include/rcutils/rcutils/testing/fault_injection.h \
  /opt/ros/humble/include/rcutils/rcutils/visibility_control.h \
@@ -337,9 +260,8 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /opt/ros/humble/include/rmw/rmw/types.h \
  /opt/ros/humble/include/rcutils/rcutils/logging.h \
  /opt/ros/humble/include/rcutils/rcutils/error_handling.h \
- /usr/include/string.h /usr/include/strings.h \
- /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
- /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
+ /usr/include/c++/11/stdlib.h /usr/include/string.h \
+ /usr/include/strings.h \
  /opt/ros/humble/include/rcutils/rcutils/snprintf.h \
  /opt/ros/humble/include/rcutils/rcutils/time.h \
  /opt/ros/humble/include/rcutils/rcutils/types.h \
@@ -368,6 +290,8 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /opt/ros/humble/include/rcl/rcl/wait.h \
  /opt/ros/humble/include/rcl/rcl/client.h \
  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h \
+ /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/visibility_control.h \
+ /opt/ros/humble/include/rosidl_typesupport_interface/rosidl_typesupport_interface/macros.h \
  /opt/ros/humble/include/rcl/rcl/event_callback.h \
  /opt/ros/humble/include/rmw/rmw/event_callback_type.h \
  /opt/ros/humble/include/rcl/rcl/node.h \
@@ -375,6 +299,7 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /opt/ros/humble/include/rcl/rcl/domain_id.h \
  /opt/ros/humble/include/rcl/rcl/service.h \
  /opt/ros/humble/include/rcl/rcl/subscription.h \
+ /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/message_type_support_struct.h \
  /opt/ros/humble/include/rmw/rmw/message_sequence.h \
  /opt/ros/humble/include/rcl/rcl/timer.h \
  /opt/ros/humble/include/rcl/rcl/time.h \
@@ -401,7 +326,8 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/client.hpp \
- /usr/include/c++/11/optional /usr/include/c++/11/variant \
+ /usr/include/c++/11/optional /usr/include/c++/11/sstream \
+ /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/variant \
  /opt/ros/humble/include/rcl/rcl/error_handling.h \
  /opt/ros/humble/include/rclcpp/rclcpp/detail/cpp_callback_trampoline.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/exceptions.hpp \
@@ -427,8 +353,20 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/duration.hpp \
  /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/duration.hpp \
  /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__struct.hpp \
+ /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/bounded_vector.hpp \
+ /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/message_initialization.hpp \
+ /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/message_initialization.h \
  /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__builder.hpp \
  /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/duration__traits.hpp \
+ /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/traits.hpp \
+ /usr/include/c++/11/codecvt /usr/include/c++/11/bits/codecvt.h \
+ /usr/include/c++/11/iomanip /usr/include/c++/11/locale \
+ /usr/include/c++/11/bits/locale_facets_nonio.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/11/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/11/bits/locale_conv.h \
+ /usr/include/c++/11/bits/quoted_string.h \
  /opt/ros/humble/include/rcl/rcl/logging_rosout.h \
  /opt/ros/humble/include/rmw/rmw/incompatible_qos_events_statuses.h \
  /opt/ros/humble/include/rclcpp/rclcpp/type_support_decl.hpp \
@@ -480,7 +418,9 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/clock.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/time.hpp \
  /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/time.hpp \
+ /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.hpp \
  /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__builder.hpp \
+ /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__traits.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/rate.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_base_interface.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/subscription.hpp \
@@ -508,6 +448,28 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/statistic_data_point__traits.hpp \
  /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/visibility_control.hpp \
  /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/moving_average_statistics/types.hpp \
+ /usr/include/c++/11/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+ /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+ /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+ /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+ /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+ /usr/include/c++/11/bits/specfun.h /usr/include/c++/11/tr1/gamma.tcc \
+ /usr/include/c++/11/tr1/special_function_util.h \
+ /usr/include/c++/11/tr1/bessel_function.tcc \
+ /usr/include/c++/11/tr1/beta_function.tcc \
+ /usr/include/c++/11/tr1/ell_integral.tcc \
+ /usr/include/c++/11/tr1/exp_integral.tcc \
+ /usr/include/c++/11/tr1/hypergeometric.tcc \
+ /usr/include/c++/11/tr1/legendre_function.tcc \
+ /usr/include/c++/11/tr1/modified_bessel_func.tcc \
+ /usr/include/c++/11/tr1/poly_hermite.tcc \
+ /usr/include/c++/11/tr1/poly_laguerre.tcc \
+ /usr/include/c++/11/tr1/riemann_zeta.tcc \
  /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/constants.hpp \
  /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/received_message_age.hpp \
  /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/constants.hpp \
@@ -640,6 +602,41 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/thread_safe_synchronization.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_policies/detail/write_preferring_read_write_lock.hpp \
  /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp \
+ /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/set_value_io_interface.hpp \
+ /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/set_value_io_interface__struct.hpp \
+ /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/set_value_io_interface__builder.hpp \
+ /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/set_value_io_interface__traits.hpp \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Pose.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/transform.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__struct.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__functions.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/rosidl_generator_c__visibility_control.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__type_support.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/transform_stamped.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__struct.hpp \
+ /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__struct.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__builder.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__traits.hpp \
+ /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__traits.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__traits.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__traits.hpp \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.h \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.h \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/Scalar.h \
+ /usr/include/c++/11/math.h /usr/include/c++/11/cfloat \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/MinMax.h \
+ /opt/ros/humble/include/tf2/tf2/visibility_control.h \
+ /opt/ros/humble/include/tf2/tf2/LinearMath/QuadWord.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/transform_broadcaster.h \
+ /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/tf_message.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__struct.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__builder.hpp \
@@ -875,33 +872,29 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__traits.hpp \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/SceneObjectInclude.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/SceneObject.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/../Pose.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/SceneObjectType.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/SceneObjectCarrier.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/../Part.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/../Pose.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/SceneObjectClampingDevice.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/SceneObjectDoor.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/../IoInterface.h \
- /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/set_value_io_interface.hpp \
- /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/set_value_io_interface__struct.hpp \
- /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/set_value_io_interface__builder.hpp \
- /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/set_value_io_interface__traits.hpp \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/SceneObjectGripperChangeStation.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/../Gripper.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/SceneObjectInclude.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/../SceneObjects/SceneObjectVisualScanTower.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Tasks/TaskGripperChangePick.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/ObjectContainer.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/IoInterface.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Robot.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Pose.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Gripper.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h \
  /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/robot_move_to_position.hpp \
  /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/robot_move_to_position__struct.hpp \
  /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/robot_move_to_position__builder.hpp \
  /home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/robot_move_to_position__traits.hpp \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/Scene.h \
- /home/aw/restackcell/ws_moveit2/src/hello_moveit/src/Tasks/../../include/SceneObjects/SceneObjectInclude.h
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Scene.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectInclude.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObject.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/../Pose.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectType.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectCarrier.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/../Part.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/../Pose.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectClampingDevice.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectDoor.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/../IoInterface.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectGripperChangeStation.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/../Gripper.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectInclude.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectVisualScanTower.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChangePlace.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskMoveToPose.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../Pose.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../SceneObjects/SceneObjectInclude.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperChangePick.h \
+ /home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/ObjectContainer.h

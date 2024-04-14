@@ -8,6 +8,8 @@
 #include "../include/IoInterface.h"
 #include "../include/ObjectContainer.h"
 
+#include "../include/Tasks/TaskPickAndPlace.h"
+
 #include <math.h>
 #include <memory>
 
@@ -63,13 +65,13 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
 
   // clamping device jaws
   RCLCPP_INFO(node->get_logger(), "Initialize Clamping device jaw");
-  auto clampingDeviceJaws = std::make_shared<WzlPlanner::SceneObjectClampingDeviceJaws>("ClampingDeviceJaw");
+  auto clampingDeviceJaws = std::make_shared<WzlPlanner::SceneObjectClampingDeviceJaws>("ClampingDeviceJaw", 0, 1);
   scene->AddSceneObject(clampingDeviceJaws);
   clampingDeviceJaws->GetTransform()->GetPoseRelative()->SetPositionXYZ(5, 0, 0);
 
   // clamping device elevation
   RCLCPP_INFO(node->get_logger(), "Initialize clamping device elevation");
-  auto clampingDeviceElevation = std::make_shared<WzlPlanner::SceneObjectClampingDeviceJaws>("ClampingDeviceElavation");
+  auto clampingDeviceElevation = std::make_shared<WzlPlanner::SceneObjectClampingDeviceJaws>("ClampingDeviceElavation", 2, 3);
   scene->AddSceneObject(clampingDeviceElevation);
   clampingDeviceElevation->GetTransform()->GetPoseRelative()->SetPositionXYZ(5, 0, 0);
 
@@ -82,13 +84,54 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
   // carrier
   RCLCPP_INFO(node->get_logger(), "Initialize carrier");
   auto carrier = std::make_shared<WzlPlanner::SceneObjectCarrier>("Carrier");
-  RCLCPP_INFO(node->get_logger(), "Initialize carrier");
   scene->AddSceneObject(carrier);
-  RCLCPP_INFO(node->get_logger(), "Initialize carrier");
   carrier->GetTransform()->GetPoseRelative()->SetPositionXYZ(-5, 0, 0);
-  RCLCPP_INFO(node->get_logger(), "Initialize carrier");
 
   RCLCPP_INFO(node->get_logger(), "Robot scheduler cell environment initialization end.");
+
+  
+}
+
+void PickAndPlaceTest()
+{
+  auto dummyIoInterface = std::make_shared<WzlPlanner::IoInterfaceDummy>();
+  WzlPlanner::ObjectContainer::Get()->SetIoInterface(dummyIoInterface);
+  auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
+  auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
+  auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("RoboGripper", 0, 1);
+
+  robot->SetGripper(gripper);
+
+  RCLCPP_INFO(node->get_logger(), "Initialize Task Pick & Place");
+
+  auto taskPickAndPlace = std::make_shared<WzlPlanner::TaskPickAndPlace>();
+  auto taskPick = taskPickAndPlace->GetTaskPick();
+  auto taskPlace = taskPickAndPlace->GetTaskPlace();
+
+  auto posePickApproach = std::make_shared<WzlPlanner::Pose>(10, 10, 2);
+  auto posePickExceute = std::make_shared<WzlPlanner::Pose>(10, 10, 0);
+  auto posePickEnd = std::make_shared<WzlPlanner::Pose>(10, 10, 2);
+
+  auto posePlaceApproach = std::make_shared<WzlPlanner::Pose>(5, 5, 2);
+  auto posePlaceExceute = std::make_shared<WzlPlanner::Pose>(5, 5, 0);
+  auto posePlaceEnd = std::make_shared<WzlPlanner::Pose>(5, 5, 2);
+
+  taskPickAndPlace->SetId("TestTask");
+
+  taskPick->GetTaskMoveToPoseApproach()->SetTargetPose(posePickApproach);
+  taskPick->GetTaskMoveToPosePick()->SetTargetPose(posePickExceute);
+  taskPick->GetTaskMoveToEnd()->SetTargetPose(posePlaceEnd);
+
+  taskPlace->GetTaskMoveToPoseApproach()->SetTargetPose(posePlaceApproach);
+  taskPlace->GetTaskMoveToPosePlace()->SetTargetPose(posePlaceExceute);
+  taskPlace->GetTaskMoveToEnd()->SetTargetPose(posePlaceEnd);
+
+  RCLCPP_INFO(node->get_logger(), "Execute Task Pick & Place");
+
+  taskPickAndPlace->Execute();
+
+  RCLCPP_INFO(node->get_logger(), "Excecution successful");
+
 }
 
 void OpcUaTest(const std::shared_ptr<rclcpp::Node> node)
@@ -98,11 +141,11 @@ void OpcUaTest(const std::shared_ptr<rclcpp::Node> node)
 
   if (testCall)
   {
-    std::cout << "OpcUa Test Call was successful" << std::endl;
+    RCLCPP_INFO(node->get_logger(), "OpcUa Test Call was successful.");
   }
   else 
   {
-    std::cout << "OpcUa Test Call failed" << std::endl;
+    RCLCPP_INFO(node->get_logger(), "OpcUa Test Call failed.");
   }
 }
 
@@ -115,11 +158,11 @@ int main(int argc, char* argv[])
 
   auto const node = std::make_shared<rclcpp::Node>(
       "robot_planer", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
-  std::cout << "Test" << std::endl;
   
   RCLCPP_DEBUG(node->get_logger(), "My log message %d", 4);
-  std::cout << "Test" << std::endl;
+
   CreateCell(node);
+  PickAndPlaceTest();
   OpcUaTest(node);
 
   rclcpp::spin(node);

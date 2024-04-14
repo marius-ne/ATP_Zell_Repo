@@ -1,0 +1,56 @@
+[0.137s] Invoking command in '/home/aw/restackcell/ws_moveit2/build/robo_planner': CMAKE_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/robo_planner:/home/aw/restackcell/ws_moveit2/install/moveit_backend:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/hello_ur /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[0.178s] [35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[0.226s] [  4%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[0.226s] [  9%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o[0m
+[2.676s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPickAndPlace.h:6[m[K,
+[2.676s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:11[m[K:
+[2.676s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPick.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPick::GetTaskGripperClose() const[m[K’:
+[2.676s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPick.h:70:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[2.676s]    70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+[2.676s]       |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[2.676s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPick.h:70:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[2.676s]    70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+[2.676s]       |                                                                                                [01;35m[K^[m[K
+[2.677s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPickAndPlace.h:7[m[K,
+[2.677s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:11[m[K:
+[2.677s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPlace.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPlace::GetTaskGripperClose() const[m[K’:
+[2.677s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPlace.h:48:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[2.677s]    48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+[2.677s]       |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[2.677s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPlace.h:48:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[2.677s]    48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+[2.677s]       |                                                                                                [01;35m[K^[m[K
+[2.677s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:11[m[K:
+[2.677s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPickAndPlace.h:[m[K At global scope:
+[2.677s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPickAndPlace.h:16:13:[m[K [01;31m[Kerror: [m[Kextra qualification ‘[01m[KWzlPlanner::TaskPickAndPlace::[m[K’ on member ‘[01m[KTaskPickAndPlace[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.677s]    16 |             [01;31m[KTaskPickAndPlace[m[K::TaskPickAndPlace()
+[2.677s]       |             [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[2.698s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPickAndPlace.h:6[m[K,
+[2.698s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp:1[m[K:
+[2.698s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPick::GetTaskGripperClose() const[m[K’:
+[2.698s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:70:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[2.698s]    70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+[2.698s]       |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[2.698s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h:70:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[2.698s]    70 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+[2.699s]       |                                                                                                [01;35m[K^[m[K
+[2.699s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPickAndPlace.h:7[m[K,
+[2.699s]                  from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp:1[m[K:
+[2.699s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskGripperClose> WzlPlanner::TaskPlace::GetTaskGripperClose() const[m[K’:
+[2.699s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:48:77:[m[K [01;35m[Kwarning: [m[Kstatement has no effect [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-value-Wunused-value]8;;[m[K]
+[2.699s]    48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { [01;35m[KtaskGripperClose_[m[K; }
+[2.700s]       |                                                                             [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[2.700s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:48:96:[m[K [01;35m[Kwarning: [m[Kno return statement in function returning non-void [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wreturn-type-Wreturn-type]8;;[m[K]
+[2.700s]    48 |             std::shared_ptr<TaskGripperClose> GetTaskGripperClose() const { taskGripperClose_; [01;35m[K}[m[K
+[2.700s]       |                                                                                                [01;35m[K^[m[K
+[2.700s] In file included from [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp:1[m[K:
+[2.700s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPickAndPlace.h:[m[K At global scope:
+[2.700s] [01m[K/home/aw/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPickAndPlace.h:16:13:[m[K [01;31m[Kerror: [m[Kextra qualification ‘[01m[KWzlPlanner::TaskPickAndPlace::[m[K’ on member ‘[01m[KTaskPickAndPlace[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-fpermissive-fpermissive]8;;[m[K]
+[2.700s]    16 |             [01;31m[KTaskPickAndPlace[m[K::TaskPickAndPlace()
+[2.700s]       |             [01;31m[K^~~~~~~~~~~~~~~~[m[K
+[4.147s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:328: CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o] Error 1
+[4.147s] gmake[2]: *** Waiting for unfinished jobs....
+[4.242s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:104: CMakeFiles/robo_planner.dir/src/Main.cpp.o] Error 1
+[4.243s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+[4.243s] gmake: *** [Makefile:146: all] Error 2
+[4.245s] Invoked command in '/home/aw/restackcell/ws_moveit2/build/robo_planner' returned '2': CMAKE_PREFIX_PATH=/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/robo_planner:/home/aw/restackcell/ws_moveit2/install/moveit_backend:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/hello_ur /usr/bin/cmake --build /home/aw/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16

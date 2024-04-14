@@ -1,8 +1,9 @@
-#include "IoInterface.h"
+#include "../include/IoInterface.h"
 
 #include <chrono>
+#include "IoInterface.h"
 
-bool WzlPlanner::IoInterfaceOpcUa::SetValueBool(int slot, bool value)
+bool WzlPlanner::IoInterfaceOpcUa::SetValueBool(const int slot, const bool value)
 {
     auto valueInt = 0;
     if (value) valueInt = 1;
@@ -32,4 +33,13 @@ bool WzlPlanner::IoInterfaceOpcUa::SetValueBool(int slot, bool value)
     }
 
     return result.get()->result;
+}
+
+bool WzlPlanner::IoInterfaceDummy::SetValueBool(const int slot, const bool value)
+{
+    // silence 'variable unused' warning
+    (void)slot;
+    (void)value;
+
+    return true;
 }

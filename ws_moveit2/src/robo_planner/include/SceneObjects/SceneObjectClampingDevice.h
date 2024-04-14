@@ -6,17 +6,27 @@
 
 namespace WzlPlanner
 {    
+    enum ClampingDeviceStateOpen
+    {
+        IsOpened,
+        IsClosed,
+        IsOpening,
+        IsClosing
+    };
+
     class SceneObjectClampingDeviceBase : public SceneObject
     {
         protected:
-            SceneObjectClampingDeviceBase(std::string id) 
+            SceneObjectClampingDeviceBase(const std::string id, const int ioOpen, const int ioClose) 
                 : SceneObject(id)
             {
+                this->ioOpen_ = ioOpen;
+                this->ioClose_ = ioClose;
             }
 
             // Interface for Closing/opening the clamping device
-            int ioOpen, ioClose;
-            bool isOpen, isClose;
+            int ioOpen_, ioClose_;
+            ClampingDeviceStateOpen gripperState_;
 
             void SetOpen(const bool isOpened);
 
@@ -24,15 +34,15 @@ namespace WzlPlanner
             virtual void Open() = 0;
             virtual void Close() = 0;
 
-            bool IsOpen() const { return this->isOpen; }
-            bool IsClose() const { return this->isClose; }
+            bool IsOpen() const { return this->gripperState_ == ClampingDeviceStateOpen::IsOpened; }
+            bool IsClose() const { return this->gripperState_ == ClampingDeviceStateOpen::IsClosed; }
     };
 
     class SceneObjectClampingDeviceJaws : public SceneObjectClampingDeviceBase
     {
         public:
-            SceneObjectClampingDeviceJaws(std::string id) 
-                : SceneObjectClampingDeviceBase(id)
+            SceneObjectClampingDeviceJaws(const std::string id, const int ioOpen, const int ioClose) 
+                : SceneObjectClampingDeviceBase(id, ioOpen, ioClose)
             {
             }
 
@@ -45,8 +55,8 @@ namespace WzlPlanner
     class SceneObjectClampingDeviceElevation : public SceneObjectClampingDeviceBase
     {
         public:
-            SceneObjectClampingDeviceElevation(std::string id) 
-                : SceneObjectClampingDeviceBase(id)
+            SceneObjectClampingDeviceElevation(const std::string id, const int ioOpen, const int ioClose) 
+                : SceneObjectClampingDeviceBase(id, ioOpen, ioClose)
             {
             }
 

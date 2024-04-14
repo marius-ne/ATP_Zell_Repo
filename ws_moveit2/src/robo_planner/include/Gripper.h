@@ -5,6 +5,15 @@
 
 namespace WzlPlanner
 {
+
+    enum GripperStateOpen
+    {
+        Opened,
+        Closed,
+        Opening,
+        Closing
+    };
+
     // base class for gripper
     class GripperBase
     {
@@ -38,11 +47,19 @@ namespace WzlPlanner
         
         private: 
             // io indizes for communication with the pneumatic control unit
-            int ioOpen, ioClose;
+            int ioOpen_, ioClose_;
+            GripperStateOpen gripperState_;
 
         public:
-            GripperPneumaticSingle(const std::string id) : GripperBase(id)
-            {} 
+            GripperPneumaticSingle(const std::string id, const int ioOpen, const int ioClose) 
+                : GripperBase(id)
+            {
+                this->ioOpen_ = ioOpen;
+                this->ioClose_ = ioClose;
+            } 
+
+            bool IsOpen() const { return this->gripperState_ == GripperStateOpen::Opened; }
+            bool IsClose() const { return this->gripperState_ == GripperStateOpen::Closed; }
 
             void Open() override;
             void Close() override;
@@ -58,13 +75,24 @@ namespace WzlPlanner
             // io indizes for communication with the pneumatic control unit for gripper 2
             int ioOpen2, ioClose2;
 
+            GripperStateOpen gripperState_;
+
         public:
-            GripperPneumaticDouble(const std::string id) : GripperBase(id)
-            {}
+            GripperPneumaticDouble(const std::string id, const int ioOpen1, const int ioClose1,
+                const int ioOpen2, const int ioClose2) 
+                    : GripperBase(id)
+            {
+                this->ioOpen1 = ioOpen1;
+                this->ioClose1 = ioClose1;
+                this->ioOpen2 = ioOpen2;
+                this->ioClose2 = ioClose2;
+            }
+
+            bool IsOpen() const { return this->gripperState_ == GripperStateOpen::Opened; }
+            bool IsClose() const { return this->gripperState_ == GripperStateOpen::Closed; }
 
             void Open() override;
             void Close() override;
-
 
     };
 
@@ -84,14 +112,21 @@ namespace WzlPlanner
     class GripperDeburringSpindle : public GripperBase
     {
         private:
+            int ioRun_;
 
         public:
-            GripperDeburringSpindle(const std::string id) : GripperBase(id)
-            {}
+            GripperDeburringSpindle(const std::string id, const int ioRun) 
+                : GripperBase(id)
+            {
+                this->ioRun_ = ioRun;
+            }
 
-            void Open() override {}
-            void Close() override {}
-            void Activate();
+            // start deburring spindle
+            void Open() override;
+
+            // stio deburring spindle
+            void Close() override;
+           
     };
 
 } // namespace WzlPlanner
