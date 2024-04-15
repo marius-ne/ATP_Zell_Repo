@@ -1,0 +1,45 @@
+[0.100s] Invoking command in '/home/alex/restackcell/ws_moveit2/build/robo_planner': AMENT_PREFIX_PATH=/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig:${PKG_CONFIG_PATH} PYTHONPATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share:${ROS_PACKAGE_PATH} /usr/bin/cmake --build /home/alex/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[0.182s] [35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[0.274s] [ 22%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o[0m
+[0.274s] [ 22%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o[0m
+[0.274s] [ 22%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[0.274s] [ 22%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o[0m
+[0.274s] [ 22%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o[0m
+[0.780s] In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskGripperChange.h:6[m[K,
+[0.780s]                  from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChange.cpp:1[m[K:
+[0.780s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskGripperChangePlace.h:6:10:[m[K [01;31m[Kfatal error: [m[K.../Atomic/TaskMoveToPose.h: No such file or directory
+[0.780s]     6 | #include [01;31m[K".../Atomic/TaskMoveToPose.h"[m[K
+[0.781s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.781s] compilation terminated.
+[0.781s] In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskGripperChange.h:6[m[K,
+[0.781s]                  from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskInclude.h:14[m[K,
+[0.781s]                  from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:11[m[K:
+[0.781s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskGripperChangePlace.h:6:10:[m[K [01;31m[Kfatal error: [m[K.../Atomic/TaskMoveToPose.h: No such file or directory
+[0.781s]     6 | #include [01;31m[K".../Atomic/TaskMoveToPose.h"[m[K
+[0.781s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.781s] compilation terminated.
+[0.781s] In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskPickAndPlace.h:7[m[K,
+[0.781s]                  from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp:1[m[K:
+[0.781s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskPlace.h:9:10:[m[K [01;31m[Kfatal error: [m[KTaskMoveToPose.h: No such file or directory
+[0.782s]     9 | #include [01;31m[K"TaskMoveToPose.h"[m[K
+[0.782s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[0.782s] compilation terminated.
+[0.785s] In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPlace.cpp:1[m[K:
+[0.786s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskPlace.h:9:10:[m[K [01;31m[Kfatal error: [m[KTaskMoveToPose.h: No such file or directory
+[0.786s]     9 | #include [01;31m[K"TaskMoveToPose.h"[m[K
+[0.786s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+[0.786s] compilation terminated.
+[0.789s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:216: CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o] Error 1
+[0.789s] gmake[2]: *** Waiting for unfinished jobs....
+[0.789s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:328: CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o] Error 1
+[0.789s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:104: CMakeFiles/robo_planner.dir/src/Main.cpp.o] Error 1
+[0.793s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:342: CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o] Error 1
+[0.796s] In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePlace.cpp:1[m[K:
+[0.796s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskGripperChangePlace.h:6:10:[m[K [01;31m[Kfatal error: [m[K.../Atomic/TaskMoveToPose.h: No such file or directory
+[0.796s]     6 | #include [01;31m[K".../Atomic/TaskMoveToPose.h"[m[K
+[0.797s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.797s] compilation terminated.
+[0.802s] gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:244: CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o] Error 1
+[0.803s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+[0.803s] gmake: *** [Makefile:146: all] Error 2
+[0.807s] Invoked command in '/home/alex/restackcell/ws_moveit2/build/robo_planner' returned '2': AMENT_PREFIX_PATH=/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig:${PKG_CONFIG_PATH} PYTHONPATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share:${ROS_PACKAGE_PATH} /usr/bin/cmake --build /home/alex/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16

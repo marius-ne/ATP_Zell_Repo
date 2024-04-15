@@ -1,4 +1,4 @@
-#include "../../include/Tasks/TaskGripperClose.h"
+#include "../../include/Tasks/Atomic/TaskGripperClose.h"
 #include "../../include/ObjectContainer.h"
 
 void WzlPlanner::TaskGripperClose::Execute()

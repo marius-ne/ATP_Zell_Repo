@@ -8,7 +8,7 @@
 #include "../include/IoInterface.h"
 #include "../include/ObjectContainer.h"
 
-#include "../include/Tasks/TaskPickAndPlace.h"
+#include "../include/Tasks/TaskInclude.h"
 
 #include <math.h>
 #include <memory>

@@ -895,14 +895,33 @@ CMakeFiles/robo_planner.dir/src/Main.cpp.o: \
  /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/ObjectContainer.h \
  /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/IoInterface.h \
  /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Scene.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPickAndPlace.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Task.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/../../include/ObjectContainer.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPick.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/../Pose.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/../SceneObjects/SceneObject.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/../Part.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskMoveToPose.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskGripperOpen.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskGripperClose.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPlace.h
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskInclude.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Atomic/TaskGetObjectInScene.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Atomic/../Task.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Atomic/../../../include/ObjectContainer.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Atomic/../../../include/SceneObjects/SceneObjectInclude.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Atomic/TaskGripperClose.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Atomic/TaskGripperOpen.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Atomic/TaskMoveToPose.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Atomic/../../Pose.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Atomic/TaskOpenDoor.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskGripperChange.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/../Task.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskGripperChangePlace.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/../Atomic/TaskMoveToPose.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/../../SceneObjects/SceneObjectInclude.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskGripperChangePick.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskGripperChangePick.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskGripperChangePlace.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskPick.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/../../Pose.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/../../SceneObjects/SceneObject.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/../../Part.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/../Atomic/TaskGripperOpen.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/../Atomic/TaskGripperClose.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskPickAndPlace.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskPick.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskPlace.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskPlace.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskScanScene.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/../../Robot.h

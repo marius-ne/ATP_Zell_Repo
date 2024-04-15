@@ -1,4 +1,4 @@
-#include "../../include/Tasks/TaskGripperChangePlace.h"
+#include "../../include/Tasks/Composed/TaskGripperChangePlace.h"
 
 #include "../../include/ObjectContainer.h"
 

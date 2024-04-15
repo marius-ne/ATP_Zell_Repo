@@ -9,6 +9,8 @@
 
 namespace WzlPlanner
 {
+    // The representation of a physical object inside a scene.
+    // Each scene object contans 
     class SceneObject
     {
         private:

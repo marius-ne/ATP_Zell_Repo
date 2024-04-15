@@ -1,12 +1,8 @@
-#include "../../include/Tasks/TaskGripperOpen.h"
+#include "../../include/Tasks/Atomic/TaskGripperOpen.h"
 #include "../../include/ObjectContainer.h"
 
 void WzlPlanner::TaskGripperOpen::Execute()
 {
-    //auto slotGripperOpen = WzlPlanner::ObjectContainer_->GetRobot()->
-
-    //WzlPlanner::ObjectContainer_->GetioInterface()->SetValueBool(this->)
-
     LogStart();
 
     auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();

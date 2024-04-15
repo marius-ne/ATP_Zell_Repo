@@ -1,0 +1,42 @@
+[ 13%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o[0m
+[ 13%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o[0m
+[ 13%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o[0m
+In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePlace.cpp:1[m[K:
+[01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskGripperChangePlace.h:6:10:[m[K [01;31m[Kfatal error: [m[K.../Atomic/TaskMoveToPose.h: No such file or directory
+    6 | #include [01;31m[K".../Atomic/TaskMoveToPose.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPlace.cpp:1[m[K:
+[01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskPlace.h:9:10:[m[K [01;31m[Kfatal error: [m[KTaskMoveToPose.h: No such file or directory
+    9 | #include [01;31m[K"TaskMoveToPose.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskPickAndPlace.h:7[m[K,
+                 from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp:1[m[K:
+[01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskPlace.h:9:10:[m[K [01;31m[Kfatal error: [m[KTaskMoveToPose.h: No such file or directory
+    9 | #include [01;31m[K"TaskMoveToPose.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskGripperChange.h:6[m[K,
+                 from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChange.cpp:1[m[K:
+[01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskGripperChangePlace.h:6:10:[m[K [01;31m[Kfatal error: [m[K.../Atomic/TaskMoveToPose.h: No such file or directory
+    6 | #include [01;31m[K".../Atomic/TaskMoveToPose.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskGripperChange.h:6[m[K,
+                 from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskInclude.h:14[m[K,
+                 from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:11[m[K:
+[01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/Composed/TaskGripperChangePlace.h:6:10:[m[K [01;31m[Kfatal error: [m[K.../Atomic/TaskMoveToPose.h: No such file or directory
+    6 | #include [01;31m[K".../Atomic/TaskMoveToPose.h"[m[K
+      |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+compilation terminated.
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:244: CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:342: CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o] Error 1
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:328: CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o] Error 1
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:216: CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o] Error 1
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:104: CMakeFiles/robo_planner.dir/src/Main.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

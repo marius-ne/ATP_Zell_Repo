@@ -1,8 +1,8 @@
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o: \
  /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPick.cpp \
  /usr/include/stdc-predef.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPick.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Task.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/TaskPick.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../Task.h \
  /usr/include/c++/11/vector /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -153,8 +153,8 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
  /usr/include/c++/11/bits/charconv.h \
  /usr/include/c++/11/bits/basic_string.tcc \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/ObjectContainer.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/IoInterface.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/ObjectContainer.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/IoInterface.h \
  /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp \
  /usr/include/c++/11/csignal /usr/include/signal.h \
  /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
@@ -606,8 +606,8 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o: \
  /home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/set_value_io_interface__struct.hpp \
  /home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/set_value_io_interface__builder.hpp \
  /home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/set_value_io_interface__traits.hpp \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Robot.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Pose.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/Robot.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/Pose.h \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/transform.h \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__struct.h \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3__struct.h \
@@ -872,33 +872,31 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o: \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__traits.hpp \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Gripper.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/Gripper.h \
  /home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/robot_move_to_position.hpp \
  /home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/robot_move_to_position__struct.hpp \
  /home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/robot_move_to_position__builder.hpp \
  /home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/srv/detail/robot_move_to_position__traits.hpp \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/Scene.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectInclude.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObject.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/../Pose.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectType.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectCarrier.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/../Part.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/../Pose.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectClampingDevice.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectDoor.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/../IoInterface.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectGripperChangeStation.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/../Gripper.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectInclude.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../../include/SceneObjects/SceneObjectVisualScanTower.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../Pose.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../SceneObjects/SceneObject.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/../Part.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskMoveToPose.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperOpen.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperClose.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskList.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskMoveToPose.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperOpen.h \
- /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskGripperClose.h
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/Scene.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/SceneObjectInclude.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/SceneObject.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/../Pose.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/SceneObjectType.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/SceneObjectCarrier.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/../Part.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/../Pose.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/SceneObjectClampingDevice.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/SceneObjectDoor.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/../IoInterface.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/SceneObjectGripperChangeStation.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/../Gripper.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/SceneObjectInclude.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../../include/SceneObjects/SceneObjectVisualScanTower.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../Pose.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../SceneObjects/SceneObject.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../../Part.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../Atomic/TaskMoveToPose.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../Atomic/../Task.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../Atomic/../../Pose.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../Atomic/TaskGripperOpen.h \
+ /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/Composed/../Atomic/TaskGripperClose.h

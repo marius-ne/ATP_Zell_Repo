@@ -1,4 +1,4 @@
-#include "../../include/Tasks/TaskScanScene.h"
+#include "../../include/Tasks/Composed/TaskScanScene.h"
 
 
 void WzlPlanner::TaskScanScene::Execute()
