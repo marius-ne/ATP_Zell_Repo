@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/wzlscheduler_interfaces/_wzlscheduler_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
   "../rosidl_generator_py/wzlscheduler_interfaces/_wzlscheduler_interfaces_s.ep.rosidl_typesupport_introspection_c.c"
   "../rosidl_generator_py/wzlscheduler_interfaces/srv/__init__.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_load_object.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_load_object_s.c"
   "../rosidl_generator_py/wzlscheduler_interfaces/srv/_robot_move_to_position.py"
   "../rosidl_generator_py/wzlscheduler_interfaces/srv/_robot_move_to_position_s.c"
   "../rosidl_generator_py/wzlscheduler_interfaces/srv/_set_value_io_interface.py"

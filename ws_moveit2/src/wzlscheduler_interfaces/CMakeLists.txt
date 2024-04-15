@@ -6,10 +6,13 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 endif()
 
 find_package(rosidl_default_generators REQUIRED)
+find_package(geometry_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SetValueIoInterface.srv"
   "srv/RobotMoveToPosition.srv"
+  "srv/LoadObject.srv"
+  DEPENDENCIES geometry_msgs
 )
 
 if(BUILD_TESTING)

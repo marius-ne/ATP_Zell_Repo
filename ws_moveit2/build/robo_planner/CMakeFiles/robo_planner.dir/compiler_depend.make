@@ -2604,17 +2604,36 @@ CMakeFiles/robo_planner.dir/src/Main.cpp.o: /home/alex/restackcell/ws_moveit2/sr
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/ObjectContainer.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/IoInterface.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Scene.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskPickAndPlace.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskInclude.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGetObjectInScene.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Task.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/ObjectContainer.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskPick.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObjectInclude.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGripperClose.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGripperOpen.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskMoveToPose.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Pose.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskOpenDoor.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskGripperChange.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Task.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskGripperChangePlace.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskMoveToPose.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObjectInclude.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskGripperChangePick.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskGripperChangePick.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskGripperChangePlace.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskPick.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Pose.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObject.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Part.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskMoveToPose.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskGripperOpen.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskGripperClose.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskPlace.h
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGripperOpen.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGripperClose.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskPickAndPlace.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskPick.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskPlace.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskPlace.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskScanScene.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Robot.h
 
 CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o: /home/alex/restackcell/ws_moveit2/src/robo_planner/src/ObjectContainer.cpp \
   /usr/include/stdc-predef.h \
@@ -17045,7 +17064,7 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o: /home/alex/restackcell/ws_
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o: /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp \
   /usr/include/stdc-predef.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskPickAndPlace.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskPickAndPlace.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Task.h \
   /usr/include/c++/11/vector \
   /usr/include/c++/11/bits/stl_algobase.h \
@@ -18008,18 +18027,20 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o: /home/alex/restack
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Gripper.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObjectInclude.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObjectVisualScanTower.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskPick.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskPick.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Pose.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObject.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Part.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskMoveToPose.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskGripperOpen.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskGripperClose.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskPlace.h
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskMoveToPose.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Task.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Pose.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGripperOpen.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGripperClose.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskPlace.h
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o: /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPlace.cpp \
   /usr/include/stdc-predef.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskPlace.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskPlace.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Task.h \
   /usr/include/c++/11/vector \
   /usr/include/c++/11/bits/stl_algobase.h \
@@ -18984,9 +19005,11 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o: /home/alex/restackcell/ws
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObjectVisualScanTower.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Pose.h \
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObject.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskMoveToPose.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskGripperOpen.h \
-  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskGripperClose.h
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskMoveToPose.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Task.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Pose.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGripperOpen.h \
+  /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGripperClose.h
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskScanScene.cpp \
   /usr/include/stdc-predef.h \
@@ -19957,31 +19980,29 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/alex/restackcel
   /home/alex/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObject.h
 
 
-/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskScanScene.cpp:
-
 /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp:
 
 /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskList.h:
 
 /home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskList.cpp:
 
+/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskPickAndPlace.h:
+
+/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskGripperChangePick.h:
+
+/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskGripperChangePlace.h:
+
+/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskMoveToPose.h:
+
 /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGripperOpen.h:
 
 /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGripperClose.h:
 
-/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskGripperChangePick.h:
-
-/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskMoveToPose.h:
-
-/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskGripperChangePlace.h:
-
-/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskPlace.h:
-
-/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskMoveToPose.h:
-
-/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskPick.h:
-
 /home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Task.h:
+
+/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskScanScene.cpp:
+
+/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGetObjectInScene.h:
 
 /home/alex/restackcell/ws_moveit2/src/robo_planner/src/IoInterface.cpp:
 
@@ -20028,6 +20049,8 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/alex/restackcel
 /usr/include/eigen3/Eigen/src/Geometry/Scaling.h:
 
 /usr/include/eigen3/Eigen/src/Geometry/Translation.h:
+
+/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskPlace.h:
 
 /usr/include/eigen3/Eigen/src/Geometry/AngleAxis.h:
 
@@ -20096,6 +20119,8 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/alex/restackcel
 /usr/include/eigen3/Eigen/src/Core/Solve.h:
 
 /usr/include/eigen3/Eigen/src/Core/CommaInitializer.h:
+
+/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskOpenDoor.h:
 
 /usr/include/eigen3/Eigen/src/Core/Redux.h:
 
@@ -20282,8 +20307,6 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/alex/restackcel
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__struct.hpp:
-
-/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskPickAndPlace.h:
 
 /usr/include/eigen3/Eigen/src/Householder/BlockHouseholder.h:
 
@@ -21439,8 +21462,6 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/alex/restackcel
 
 /opt/ros/humble/include/rcutils/rcutils/error_handling.h:
 
-/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskGripperClose.h:
-
 /usr/include/c++/11/stdlib.h:
 
 /opt/ros/humble/include/rmw/rmw/impl/cpp/demangle.hpp:
@@ -21448,8 +21469,6 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/alex/restackcel
 /opt/ros/humble/include/rcutils/rcutils/snprintf.h:
 
 /opt/ros/humble/include/rcutils/rcutils/time.h:
-
-/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskGripperOpen.h:
 
 /opt/ros/humble/include/rcutils/rcutils/types.h:
 
@@ -21802,6 +21821,8 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/alex/restackcel
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
 
 /opt/ros/humble/include/tracetools/tracetools/utils.hpp:
+
+/home/alex/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskInclude.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/parameter_map.hpp:
 

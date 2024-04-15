@@ -248,8 +248,20 @@ CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/ros
   rosidl_generator_c/wzlscheduler_interfaces/srv/detail/set_value_io_interface__functions.h \
   rosidl_generator_c/wzlscheduler_interfaces/srv/detail/robot_move_to_position__type_support.h \
   rosidl_generator_c/wzlscheduler_interfaces/srv/detail/robot_move_to_position__struct.h \
-  rosidl_generator_c/wzlscheduler_interfaces/srv/detail/robot_move_to_position__functions.h
+  rosidl_generator_c/wzlscheduler_interfaces/srv/detail/robot_move_to_position__functions.h \
+  rosidl_generator_c/wzlscheduler_interfaces/srv/detail/load_object__type_support.h \
+  rosidl_generator_c/wzlscheduler_interfaces/srv/detail/load_object__struct.h \
+  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/string.h \
+  /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/primitives_sequence.h \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.h \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.h \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.h \
+  rosidl_generator_c/wzlscheduler_interfaces/srv/detail/load_object__functions.h
 
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.h:
+
+/opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/string.h:
 
 rosidl_generator_c/wzlscheduler_interfaces/srv/detail/robot_move_to_position__functions.h:
 
@@ -321,6 +333,8 @@ rosidl_generator_c/wzlscheduler_interfaces/msg/rosidl_generator_c__visibility_co
 
 /usr/include/python3.10/code.h:
 
+rosidl_generator_c/wzlscheduler_interfaces/srv/detail/load_object__type_support.h:
+
 /usr/include/python3.10/pycapsule.h:
 
 /usr/include/python3.10/cpython/fileobject.h:
@@ -352,6 +366,8 @@ rosidl_generator_c/wzlscheduler_interfaces/srv/detail/set_value_io_interface__st
 /usr/include/python3.10/floatobject.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__struct.h:
 
 /usr/include/wchar.h:
 
@@ -388,6 +404,8 @@ rosidl_generator_c/wzlscheduler_interfaces/srv/detail/set_value_io_interface__fu
 /usr/include/python3.10/fileobject.h:
 
 /usr/include/x86_64-linux-gnu/bits/statx-generic.h:
+
+/opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/primitives_sequence.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
@@ -446,6 +464,8 @@ rosidl_generator_c/wzlscheduler_interfaces/srv/detail/set_value_io_interface__fu
 /usr/include/linux/errno.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+rosidl_generator_c/wzlscheduler_interfaces/srv/detail/load_object__struct.h:
 
 /usr/include/python3.10/cpython/pytime.h:
 
@@ -589,6 +609,8 @@ rosidl_generator_c/wzlscheduler_interfaces/srv/detail/set_value_io_interface__ty
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
+rosidl_generator_c/wzlscheduler_interfaces/srv/detail/load_object__functions.h:
+
 /usr/include/x86_64-linux-gnu/python3.10/pyconfig.h:
 
 /usr/include/x86_64-linux-gnu/bits/uio_lim.h:
@@ -606,6 +628,8 @@ rosidl_generator_c/wzlscheduler_interfaces/srv/detail/set_value_io_interface__ty
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.h:
 
 /usr/include/python3.10/cpython/pythonrun.h:
 

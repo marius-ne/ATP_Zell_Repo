@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/wzlscheduler_interfaces__rosidl_generator_py.dir/rosidl_generator_py/wzlscheduler_interfaces/srv/_load_object_s.c.o"
+  "CMakeFiles/wzlscheduler_interfaces__rosidl_generator_py.dir/rosidl_generator_py/wzlscheduler_interfaces/srv/_load_object_s.c.o.d"
   "CMakeFiles/wzlscheduler_interfaces__rosidl_generator_py.dir/rosidl_generator_py/wzlscheduler_interfaces/srv/_robot_move_to_position_s.c.o"
   "CMakeFiles/wzlscheduler_interfaces__rosidl_generator_py.dir/rosidl_generator_py/wzlscheduler_interfaces/srv/_robot_move_to_position_s.c.o.d"
   "CMakeFiles/wzlscheduler_interfaces__rosidl_generator_py.dir/rosidl_generator_py/wzlscheduler_interfaces/srv/_set_value_io_interface_s.c.o"
