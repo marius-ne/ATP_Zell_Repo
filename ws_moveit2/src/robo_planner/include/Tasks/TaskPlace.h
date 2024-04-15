@@ -31,6 +31,17 @@ namespace WzlPlanner
                 subTasks_.push_back(taskMoveToPoseEnd_);
             }
 
+            void SetId(const std::string id) override 
+            {
+                Task::SetId(id);
+
+                taskMoveToPoseApproach_->SetId(id + "_MoveToPoseApproach");
+                taskGripperOpen_->SetId(id + "_GripperOpen");
+                taskMoveToPosePlace_->SetId(id + "_MoveToPosePlace");
+                taskGripperClose_->SetId(id + "_GripperClose");
+                taskMoveToPoseEnd_->SetId(id + "_MoveToPoseEnd");
+            }
+
             void Initialize(const std::shared_ptr<WzlPlanner::SceneObject> sceneObject)
             {
                 auto poseApproach = sceneObject->GeTransformAppraocah()->GetPoseAbsolute();

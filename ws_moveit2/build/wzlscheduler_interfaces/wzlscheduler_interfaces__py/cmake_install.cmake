@@ -1,8 +1,8 @@
-# Install script for directory: /home/aw/restackcell/ws_moveit2/build/wzlscheduler_interfaces/wzlscheduler_interfaces__py
+# Install script for directory: /home/alex/restackcell/ws_moveit2/build/wzlscheduler_interfaces/wzlscheduler_interfaces__py
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces")
+  set(CMAKE_INSTALL_PREFIX "/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

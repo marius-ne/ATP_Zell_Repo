@@ -1,0 +1,30 @@
+[35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[ 13%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[ 13%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o[0m
+[ 13%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o[0m
+In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPlace.cpp:1[m[K:
+[01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::TaskPlace::SetId(std::string)[m[K’:
+[01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:40:17:[m[K [01;31m[Kerror: [m[K‘[01m[KtaskMoveToPosePick_[m[K’ was not declared in this scope; did you mean ‘[01m[KtaskMoveToPosePlace_[m[K’?
+   40 |                 [01;31m[KtaskMoveToPosePick_[m[K->SetId(id + "_MoveToPosePlace");
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+      |                 [32m[KtaskMoveToPosePlace_[m[K
+In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPickAndPlace.h:7[m[K,
+                 from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:11[m[K:
+[01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPlace.h:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::TaskPlace::SetId(std::string)[m[K’:
+[01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/../include/Tasks/TaskPlace.h:40:17:[m[K [01;31m[Kerror: [m[K‘[01m[KtaskMoveToPosePick_[m[K’ was not declared in this scope; did you mean ‘[01m[KtaskMoveToPosePlace_[m[K’?
+   40 |                 [01;31m[KtaskMoveToPosePick_[m[K->SetId(id + "_MoveToPosePlace");
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+      |                 [32m[KtaskMoveToPosePlace_[m[K
+In file included from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPickAndPlace.h:7[m[K,
+                 from [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskPickAndPlace.cpp:1[m[K:
+[01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:[m[K In member function ‘[01m[Kvirtual void WzlPlanner::TaskPlace::SetId(std::string)[m[K’:
+[01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/../../include/Tasks/TaskPlace.h:40:17:[m[K [01;31m[Kerror: [m[K‘[01m[KtaskMoveToPosePick_[m[K’ was not declared in this scope; did you mean ‘[01m[KtaskMoveToPosePlace_[m[K’?
+   40 |                 [01;31m[KtaskMoveToPosePick_[m[K->SetId(id + "_MoveToPosePlace");
+      |                 [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+      |                 [32m[KtaskMoveToPosePlace_[m[K
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:342: CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o] Error 1
+gmake[2]: *** Waiting for unfinished jobs....
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:328: CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o] Error 1
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:104: CMakeFiles/robo_planner.dir/src/Main.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/aw/restackcell/ws_moveit2/src/mtc_tutorial/include
+CXX_INCLUDES = -I/home/alex/restackcell/ws_moveit2/src/mtc_tutorial/include
 
 CXX_FLAGS = -Wall -Wextra -Wpedantic
 

@@ -1,0 +1,155 @@
+[0.088s] Invoking command in '/home/alex/restackcell/ws_moveit2/build/robo_planner': AMENT_PREFIX_PATH=/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake /home/alex/restackcell/ws_moveit2/src/robo_planner -DCMAKE_INSTALL_PREFIX=/home/alex/restackcell/ws_moveit2/install/robo_planner
+[0.159s] -- The C compiler identification is GNU 11.4.0
+[0.216s] -- The CXX compiler identification is GNU 11.4.0
+[0.224s] -- Detecting C compiler ABI info
+[0.318s] -- Detecting C compiler ABI info - done
+[0.323s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.323s] -- Detecting C compile features
+[0.323s] -- Detecting C compile features - done
+[0.326s] -- Detecting CXX compiler ABI info
+[0.429s] -- Detecting CXX compiler ABI info - done
+[0.434s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.434s] -- Detecting CXX compile features
+[0.434s] -- Detecting CXX compile features - done
+[0.436s] -- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.583s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.665s] -- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)
+[0.703s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.707s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.714s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.727s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.743s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.799s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.803s] -- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.949s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.985s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.044s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.059s] -- Looking for pthread.h
+[1.157s] -- Looking for pthread.h - found
+[1.157s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.261s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.262s] -- Found Threads: TRUE  
+[1.392s] -- Found moveit_ros_planning_interface: 2.5.5 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[1.461s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[2.100s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[2.111s] -- Found parameter_traits: 0.3.7 (/opt/ros/humble/share/parameter_traits/cmake)
+[2.137s] -- Found rclcpp_lifecycle: 16.0.8 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[2.173s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[2.333s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[2.455s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[2.455s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.863s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[3.244s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[3.422s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[3.721s] -- Found moveit_visual_tools: 4.1.0 (/home/alex/ws_moveit2/install/moveit_visual_tools/share/moveit_visual_tools/cmake)
+[4.019s] -- Setting OGRE_DIR to: '/opt/ros/humble/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'
+[4.019s] -- Found OGRE
+[4.019s] --   static     : OFF
+[4.020s] --   components : HLMS;MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume
+[4.020s] --   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[4.020s] --   media      : /opt/ros/humble/opt/rviz_ogre_vendor/share/OGRE/Media
+[4.020s] -- OGRE_LIBRARIES: OgreHLMS;OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain
+[4.020s] -- OGRE_LIBRARY_DIRS: /opt/ros/humble/opt/rviz_ogre_vendor/lib
+[4.020s] -- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[4.020s] -- OGRE_PLUGIN_DIR: /opt/ros/humble/opt/rviz_ogre_vendor/lib/OGRE
+[4.020s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[4.020s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[4.020s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[4.020s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[4.022s] -- Could not find freeimage library
+[4.046s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+[4.053s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+[4.211s] -- Found X11: /usr/include   
+[4.211s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+[4.316s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+[4.316s] -- Looking for gethostbyname
+[4.415s] -- Looking for gethostbyname - found
+[4.416s] -- Looking for connect
+[4.518s] -- Looking for connect - found
+[4.519s] -- Looking for remove
+[4.617s] -- Looking for remove - found
+[4.617s] -- Looking for shmat
+[4.720s] -- Looking for shmat - found
+[4.720s] -- Looking for IceConnectionNumber in ICE
+[4.822s] -- Looking for IceConnectionNumber in ICE - found
+[4.825s] -- rviz_ogre_vendor::RenderSystem_GL for IMPORTED_LOCATION_RELEASE: _render_system_gl_static_library_abs-NOTFOUND
+[4.825s] -- rviz_ogre_vendor::RenderSystem_GL for IMPORTED_LOCATION_DEBUG: _render_system_gl_static_library_abs-NOTFOUND
+[5.380s] -- Found wzlscheduler_interfaces: 0.0.0 (/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/cmake)
+[5.393s] -- Found tutorial_interfaces: 0.0.0 (/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/share/tutorial_interfaces/cmake)
+[5.416s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[5.565s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[5.565s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/alex/restackcell/ws_moveit2/src/robo_planner/include>
+[5.565s] -- Configured cppcheck exclude dirs and/or files: 
+[5.576s] -- Added test 'flake8' to check Python code syntax and style conventions
+[5.597s] -- Added test 'lint_cmake' to check CMake code style
+[5.608s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[5.684s] -- Added test 'uncrustify' to check C / C++ code style
+[5.684s] -- Configured uncrustify additional arguments: 
+[5.695s] -- Added test 'xmllint' to check XML markup files
+[5.697s] -- Configuring done
+[5.733s] -- Generating done
+[5.735s] -- Build files have been written to: /home/alex/restackcell/ws_moveit2/build/robo_planner
+[5.754s] Invoked command in '/home/alex/restackcell/ws_moveit2/build/robo_planner' returned '0': AMENT_PREFIX_PATH=/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake /home/alex/restackcell/ws_moveit2/src/robo_planner -DCMAKE_INSTALL_PREFIX=/home/alex/restackcell/ws_moveit2/install/robo_planner
+[5.756s] Invoking command in '/home/alex/restackcell/ws_moveit2/build/robo_planner': AMENT_PREFIX_PATH=/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/alex/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[5.854s] [ 22%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o[0m
+[5.854s] [ 22%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Scene.cpp.o[0m
+[5.854s] [ 31%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[5.854s] [ 31%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Robot.cpp.o[0m
+[5.854s] [ 31%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o[0m
+[5.854s] [ 31%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o[0m
+[5.855s] [ 40%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o[0m
+[5.855s] [ 45%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Pose.cpp.o[0m
+[5.855s] [ 50%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o[0m
+[5.855s] [ 54%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o[0m
+[5.855s] [ 40%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o[0m
+[5.855s] [ 50%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Part.cpp.o[0m
+[5.856s] [ 59%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Gripper.cpp.o[0m
+[5.857s] [ 63%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o[0m
+[5.859s] [ 68%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o[0m
+[5.872s] [ 72%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o[0m
+[11.923s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/Task.cpp:[m[K In function ‘[01m[Kvoid LogExecutionFailed(std::string)[m[K’:
+[11.923s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Tasks/Task.cpp:9:43:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[11.923s]     9 | void LogExecutionFailed([01;35m[Kconst std::string msg[m[K)
+[11.923s]       |                         [01;35m[K~~~~~~~~~~~~~~~~~~^~~[m[K
+[12.078s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Scene.cpp:[m[K In member function ‘[01m[Kstd::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject(std::string) const[m[K’:
+[12.078s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Scene.cpp:15:94:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kid[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[12.078s]    15 | std::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject([01;35m[Kconst std::string id[m[K) const
+[12.078s]       |                                                                            [01;35m[K~~~~~~~~~~~~~~~~~~^~[m[K
+[12.135s] [ 77%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o[0m
+[12.892s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Pose.cpp:[m[K In member function ‘[01m[Kvoid WzlPlanner::Transform::UpdateRelative(std::shared_ptr<WzlPlanner::Transform>)[m[K’:
+[12.892s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Pose.cpp:282:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KparentRotationX[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+[12.892s]   282 |     auto [01;35m[KparentRotationX[m[K = 0.0;
+[12.892s]       |          [01;35m[K^~~~~~~~~~~~~~~[m[K
+[12.892s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Pose.cpp:283:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KparentRotationY[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+[12.892s]   283 |     auto [01;35m[KparentRotationY[m[K = 0.0;
+[12.892s]       |          [01;35m[K^~~~~~~~~~~~~~~[m[K
+[12.892s] [01m[K/home/alex/restackcell/ws_moveit2/src/robo_planner/src/Pose.cpp:284:10:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[KparentRotationZ[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+[12.892s]   284 |     auto [01;35m[KparentRotationZ[m[K = 0.0;
+[12.893s]       |          [01;35m[K^~~~~~~~~~~~~~~[m[K
+[15.273s] [ 81%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o[0m
+[15.723s] [ 86%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o[0m
+[15.779s] [ 90%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o[0m
+[15.998s] [ 95%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o[0m
+[21.751s] [100%] [32m[1mLinking CXX executable robo_planner[0m
+[22.562s] [100%] Built target robo_planner
+[22.579s] Invoked command in '/home/alex/restackcell/ws_moveit2/build/robo_planner' returned '0': AMENT_PREFIX_PATH=/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/alex/restackcell/ws_moveit2/build/robo_planner -- -j16 -l16
+[22.783s] Invoking command in '/home/alex/restackcell/ws_moveit2/build/robo_planner': AMENT_PREFIX_PATH=/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake --install /home/alex/restackcell/ws_moveit2/build/robo_planner
+[22.794s] -- Install configuration: ""
+[22.794s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/lib/robo_planner/robo_planner
+[22.798s] -- Set runtime path of "/home/alex/restackcell/ws_moveit2/install/robo_planner/lib/robo_planner/robo_planner" to ""
+[22.798s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/package_run_dependencies/robo_planner
+[22.798s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/parent_prefix_path/robo_planner
+[22.798s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/ament_prefix_path.sh
+[22.799s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/ament_prefix_path.dsv
+[22.799s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/path.sh
+[22.799s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/path.dsv
+[22.799s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.bash
+[22.799s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.sh
+[22.799s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.zsh
+[22.799s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.dsv
+[22.799s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.dsv
+[22.799s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/packages/robo_planner
+[22.799s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/cmake/robo_plannerConfig.cmake
+[22.799s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/cmake/robo_plannerConfig-version.cmake
+[22.800s] -- Installing: /home/alex/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.xml
+[22.802s] Invoked command in '/home/alex/restackcell/ws_moveit2/build/robo_planner' returned '0': AMENT_PREFIX_PATH=/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/alex/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake --install /home/alex/restackcell/ws_moveit2/build/robo_planner
