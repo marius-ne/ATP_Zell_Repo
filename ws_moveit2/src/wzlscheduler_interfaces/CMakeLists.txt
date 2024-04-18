@@ -12,6 +12,9 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SetValueIoInterface.srv"
   "srv/RobotMoveToPosition.srv"
   "srv/LoadObject.srv"
+  "srv/SceneObjectAdd.srv"
+  "srv/SceneObjectRemove.srv"
+  "srv/SceneObjectSetPose.srv"
   DEPENDENCIES geometry_msgs
 )
 

@@ -27,10 +27,17 @@ namespace WzlPlanner
             // the transform in which the execution happens (e.g. pick/place position)
             std::shared_ptr<WzlPlanner::Transform> transformExecution_;
 
+            // the reference key to the corresponding collision object of the scene object
+            std::string collisionObjectKey_;
 
-            SceneObject(std::string id) 
+            // the reference key to the corresponding visualization mesh to display
+            std::string meshObjectKey_;
+
+            SceneObject(const std::string id, const std::string collisionObjectKey = "", const std::string meshObjectKey = "") 
             {
                 id_ = id;
+                collisionObjectKey_ = collisionObjectKey;
+                meshObjectKey_ = meshObjectKey;
             }
 
         public:
@@ -38,6 +45,8 @@ namespace WzlPlanner
             virtual std::shared_ptr<Transform> GetTransform() const { return this->transformOrigin_; }
             std::shared_ptr<Transform> GeTransformAppraocah() const { return this->transformApproach_; }
             std::shared_ptr<Transform> GeTransformExecution() const { return this->transformExecution_; }
+            std::string GetCollisionObjectKey() const { return this->collisionObjectKey_; }
+            std::string GetMeshObjectKey() const { return this->meshObjectKey_; }
 
             virtual SceneObjectType GetObjectType() const = 0;
             std::string GetId() const { return id_; };
