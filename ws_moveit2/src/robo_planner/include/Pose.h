@@ -17,11 +17,17 @@ namespace WzlPlanner
     {
 
         public:
+            RCLCPP_SMART_PTR_DEFINITIONS(WzlPlanner::Pose)
+
             Pose();
             Pose(Pose &copy);
             Pose(const double x, const double y, const double z);
             Pose(const double x, const double y, const double z,
                 const double rx, const double ry, const double rz);
+            Pose(const double x, const double y, const double z,
+                const double i, const double j, const double k, const double w);
+            Pose(const geometry_msgs::msg::Pose& pose);
+            Pose(const geometry_msgs::msg::Transform& pose);
 
             void Set();
             void Set(const double x, const double y, const double z,
@@ -49,18 +55,18 @@ namespace WzlPlanner
 
             void SetRotationQuaternion(const double i, const double j, const double k, const double w);
 
-            double GetPositionX() const { return x; }
-            double GetPositionY() const { return y; }
-            double GetPositionZ() const { return z; }
+            double GetPositionX() const { return x_; }
+            double GetPositionY() const { return y_; }
+            double GetPositionZ() const { return z_; }
 
-            double GetRotationX() const{ return rx; }
-            double GetRotationY() const{ return ry; }
-            double GetRotationZ() const{ return rz; }
+            double GetRotationX() const{ return rx_; }
+            double GetRotationY() const{ return ry_; }
+            double GetRotationZ() const{ return rz_; }
 
-            double GetRotationI() const { return i; }
-            double getRotationJ() const { return j; }
-            double GetRotationK() const { return k; }
-            double GetRotationW() const { return w; }
+            double GetRotationI() const { return i_; }
+            double GetRotationJ() const { return j_; }
+            double GetRotationK() const { return k_; }
+            double GetRotationW() const { return w_; }
 
             void Reset() { this->isDirty = false; }
             bool IsDirty() const { return this->isDirty; }
@@ -68,11 +74,11 @@ namespace WzlPlanner
         private:
 
             bool isDirty;
-            geometry_msgs::msg::Transform transform;
+            geometry_msgs::msg::Transform transform_;
 
-            double x, y, z;
-            double rx, ry, rz;
-            double i, j, k, w;
+            double x_, y_, z_;
+            double rx_, ry_, rz_;
+            double i_, j_, k_, w_;
 
             void UpdatePosition();
             void UpdateRotationQuaternionFromEuler();
@@ -97,7 +103,13 @@ namespace WzlPlanner
             std::shared_ptr<Transform> GetParent() const { return parent_; }
 
             void SetParent(const std::shared_ptr<Transform> parent);
-            
+
+            // Gets the Ros geometry msg as a relative transform (transform between this coordinate frame and it's parent)            
+            geometry_msgs::msg::Transform GetGeometryMsgTransform() const;
+
+            // Gets the ros geometry msg as an absolute pose (absolute pose in the world coordinate frame)
+            geometry_msgs::msg::Pose GetGeometryMsgPose() const;
+
             // Updates the absolute poses of this Transform and all it's children
             void Update(const std::shared_ptr<Transform> parent = nullptr);
             void UpdateRelative(const std::shared_ptr<Transform> parent = nullptr);

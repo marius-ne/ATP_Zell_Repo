@@ -1,8 +1,9 @@
 #include "../include/Scene.h"
 
 #include "../include/ObjectContainer.h"
+#include "Scene.h"
 
-void WzlPlanner::Scene::AddSceneObject(std::shared_ptr<SceneObject> sceneObject)
+void WzlPlanner::Scene::AddSceneObject(const std::shared_ptr<SceneObject> sceneObject, const std::shared_ptr<Pose> poseAbsolute)
 {
     if (sceneObjects_.count(sceneObject->GetId()) > 0)
     {
@@ -17,45 +18,17 @@ void WzlPlanner::Scene::AddSceneObject(std::shared_ptr<SceneObject> sceneObject)
 
     sceneObjects_.insert({sceneObject->GetId(), sceneObject});
     sceneObject->InitializeTransform(this->transformBase_);
+    sceneObject->GetTransform()->GetPoseRelative()->Set(*poseAbsolute.get());
+    sceneObject->GetTransform()->GetPoseAbsolute()->Set(*poseAbsolute.get());
 
     // trigger ros node to add scene object to the planning scene
-    auto request = std::make_shared<wzlscheduler_interfaces::srv::SceneObjectAdd::Request>();
-    request->name = sceneObject->GetId();
-    request->collisionobjectkey = sceneObject->GetCollisionObjectKey();
+
+    auto request = wzlscheduler_interfaces::msg::SceneObjectAdd();
+    request.name = sceneObject->GetId();
+    request.collisionobjectkey = sceneObject->GetCollisionObjectKey();
+    request.coordinates = sceneObject->GetTransform()->GetGeometryMsgPose();
     
-     while (!this->serviceSceenObjectAdd_->wait_for_service(1s)) 
-     {
-        if (!rclcpp::ok()) 
-        {
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
-            return;
-        }
-
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
-    }
-
-    auto result = serviceSceenObjectAdd_->async_send_request(request);
-
-    // Wait for the result.
-    if (rclcpp::spin_until_future_complete(ObjectContainer::Get()->GetNode(), result) ==
-        rclcpp::FutureReturnCode::SUCCESS)
-    {
-        auto output = result.get()->result;
-
-        if (output == 1)
-        {
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Successfully to call service SceneObjectAdd");
-        }
-        else
-        {
-            std::string msg = "Error in call service SceneObjectAdd: " + std::to_string(output);
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), msg.c_str());
-        }
-    } 
-    else 
-    {
-        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service SceneObjectAdd");
-    }
+    publisherSceenObjectAdd_->publish(request);
 }
 
 std::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject(const std::string id) const
@@ -88,4 +61,33 @@ void WzlPlanner::Scene::RemoveSceneObject(const std::shared_ptr<SceneObject> sce
     sceneObjects_.erase(sceneObject->GetId());
 
     // trigger ros node to remove scene object from the planning scene
+    auto request = wzlscheduler_interfaces::msg::SceneObjectRemove();
+    request.name = sceneObject->GetId();
+
+    publisherSceenObjectRemove_->publish(request);
+}
+
+
+void WzlPlanner::Scene::SceneObjectSetPositionAbsolute(const std::shared_ptr<SceneObject> sceneObject, const std::shared_ptr<Pose> pose)
+{
+    sceneObject->GetTransform()->GetPoseAbsolute()->Set(*pose.get());
+    sceneObject->GetTransform()->GetParent()->Update();
+
+    SendSceneObjectPoseService(sceneObject);
+}
+
+void WzlPlanner::Scene::SceneObjectSetPositionRelative(const std::shared_ptr<SceneObject> sceneObject, const std::shared_ptr<Pose> pose)
+{
+    sceneObject->GetTransform()->GetPoseRelative()->Set(*pose.get());
+    sceneObject->GetTransform()->GetParent()->Update();
+
+    SendSceneObjectPoseService(sceneObject);
+}
+
+void WzlPlanner::Scene::SendSceneObjectPoseService(const std::shared_ptr<WzlPlanner::SceneObject> sceneObject)
+{
+    // trigger ros node to move scene object to the absolute target pose
+    auto request = wzlscheduler_interfaces::msg::SceneObjectSetPose();
+    request.name = sceneObject->GetId();
+    request.coordinates = sceneObject->GetTransform()->GetGeometryMsgPose();
 }

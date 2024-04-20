@@ -4,31 +4,29 @@
 #include <string>
 #include <memory>
 
+#include "SceneObjects/SceneObject.h"
 #include "Pose.h"
 
 namespace WzlPlanner
 {
-    class PartBase
+    class PartBase : public SceneObject
     {
         protected:
-            // pose offset for robot gripping: opse is applied to the grip position 
-            // first the rotation, then the translation is applied
-            std::shared_ptr<Transform> transformOrigin_;
-            std::shared_ptr<Transform> transformApproach_;
-            std::shared_ptr<Transform> transformExecute_;
+            PartBase(const std::string id, const std::string collisionObjectKey = "", const std::string meshObjectKey = "")
+                : SceneObject(id, collisionObjectKey, meshObjectKey) 
+            {}
 
         public:
             virtual std::string GetPartName() const = 0;
-            std::shared_ptr<Transform> GetTransnformOrigin() const { return transformOrigin_; }    
-            std::shared_ptr<Transform> GetTransnformApproach() const { return transformApproach_; }    
-            std::shared_ptr<Transform> GetTransnformExecute() const { return transformExecute_; }    
-
-            //std::shared_ptr<Pose> GetGrippingPose() const { return this->grippingPose; }
     };
 
     class PartChassis : public PartBase
     {
         public:
+            PartChassis(const std::string id, const std::string collisionObjectKey = "", const std::string meshObjectKey = "")
+                : PartBase(id, collisionObjectKey, meshObjectKey) 
+            {}
+
             std::string GetPartName() const override { return "Chassis"; }
             PartChassis();
     };

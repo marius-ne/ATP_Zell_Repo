@@ -13,8 +13,14 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/RobotMoveToPosition.srv"
   "srv/LoadObject.srv"
   "srv/SceneObjectAdd.srv"
+  "srv/SceneObjectAttach.srv"
+  "srv/SceneObjectDetach.srv"
   "srv/SceneObjectRemove.srv"
   "srv/SceneObjectSetPose.srv"
+  "msg/SceneObjectRemove.msg"
+  "msg/SceneObjectAdd.msg"
+  "msg/SceneObjectSetPose.msg"
+
   DEPENDENCIES geometry_msgs
 )
 

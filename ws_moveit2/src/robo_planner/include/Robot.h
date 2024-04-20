@@ -6,7 +6,11 @@
 #include "Pose.h"
 #include "Gripper.h"
 #include "rclcpp/rclcpp.hpp"
+#include "rclcpp/client.hpp"
+#include "rclcpp/clock.hpp"
 #include "wzlscheduler_interfaces/srv/robot_move_to_position.hpp"
+#include "wzlscheduler_interfaces/srv/scene_object_detach.hpp"
+#include "wzlscheduler_interfaces/srv/scene_object_attach.hpp"
 
 namespace WzlPlanner
 {
@@ -25,7 +29,13 @@ namespace WzlPlanner
             std::shared_ptr<GripperBase> GetGripper() const { return gripper_; }
             void SetGripper(const std::shared_ptr<GripperBase> gripper) { gripper_ = gripper; }
 
-            virtual bool MoveToPose(std::shared_ptr<WzlPlanner::Pose> targetPose) = 0;
+            virtual bool MoveToPose(Pose::ConstSharedPtr targetPose) = 0;
+            
+            // attaches a part with the given key in the scene to the robot
+            virtual void PartAttach(const std::string partKey) = 0;
+
+            // detaches an attached part from the robot and places it back into the scene 
+            virtual void PartDetach() = 0;
     };
 
     class RobotDummy : public Robot
@@ -37,7 +47,9 @@ namespace WzlPlanner
                 client_ = node_->create_client<wzlscheduler_interfaces::srv::RobotMoveToPosition>("robot_move_to_position");
             }
 
-            bool MoveToPose(std::shared_ptr<WzlPlanner::Pose> targetPose) override; 
+            bool MoveToPose(Pose::ConstSharedPtr targetPose) override; 
+            void PartAttach(const std::string partKey) override;
+            void PartDetach() override;
 
         private:
             std::shared_ptr<rclcpp::Node> node_;
@@ -53,11 +65,15 @@ namespace WzlPlanner
                 client_ = node_->create_client<wzlscheduler_interfaces::srv::RobotMoveToPosition>("robot_move_to_position");
             }
 
-            bool MoveToPose(std::shared_ptr<WzlPlanner::Pose> targetPose) override; 
+            bool MoveToPose(Pose::ConstSharedPtr targetPose) override; 
+            void PartAttach(const std::string partKey) override;
+            void PartDetach() override;
 
         private:
             std::shared_ptr<rclcpp::Node> node_;
             rclcpp::Client<wzlscheduler_interfaces::srv::RobotMoveToPosition>::SharedPtr client_;
+            rclcpp::Client<wzlscheduler_interfaces::srv::SceneObjectAttach>::SharedPtr serviceSceenObjectAttach_;
+            rclcpp::Client<wzlscheduler_interfaces::srv::SceneObjectDetach>::SharedPtr serviceSceenObjectDetach_;
     };
 
 } // namespace WzlPlanner

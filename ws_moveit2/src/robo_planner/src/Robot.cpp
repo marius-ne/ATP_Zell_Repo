@@ -1,10 +1,12 @@
 #include "../include/Robot.h"
+#include "../include/ObjectContainer.h"
 
 #include <chrono>
+#include "Robot.h"
 
 using namespace std::chrono_literals;
 
-bool WzlPlanner::RobotUR::MoveToPose(std::shared_ptr<WzlPlanner::Pose> targetPose)
+bool WzlPlanner::RobotUR::MoveToPose(Pose::ConstSharedPtr targetPose)
 {
     auto request = std::make_shared<wzlscheduler_interfaces::srv::RobotMoveToPosition::Request>();
     request->posx = targetPose->GetPositionX();
@@ -37,7 +39,91 @@ bool WzlPlanner::RobotUR::MoveToPose(std::shared_ptr<WzlPlanner::Pose> targetPos
     return result.get()->result;
 }
 
-bool WzlPlanner::RobotDummy::MoveToPose(std::shared_ptr<WzlPlanner::Pose> targetPose)
+void WzlPlanner::RobotUR::PartAttach(const std::string partKey)
+{
+    auto request = std::make_shared<wzlscheduler_interfaces::srv::SceneObjectAttach::Request>();
+
+    while (!this->serviceSceenObjectAttach_->wait_for_service(1s)) 
+    {
+        if (!rclcpp::ok()) 
+        {
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
+            return;
+        }
+
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
+    }
+
+    auto result = serviceSceenObjectAttach_->async_send_request(request);
+
+    // Wait for the result.
+    if (rclcpp::spin_until_future_complete(ObjectContainer::Get()->GetNode(), result) ==
+        rclcpp::FutureReturnCode::SUCCESS)
+    {
+        auto output = result.get()->result;
+
+        if (output == 1)
+        {
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Successfully called service SceneObjectAttach");
+        }
+        else
+        {
+            std::string msg = "Error in call service SceneObjectAttach: " + std::to_string(output);
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), msg.c_str());
+        }
+    } 
+    else 
+    {
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service SceneObjectDetach");
+    }
+}
+
+void WzlPlanner::RobotUR::PartDetach()
+{
+    auto request = std::make_shared<wzlscheduler_interfaces::srv::SceneObjectDetach::Request>();
+
+    while (!this->serviceSceenObjectDetach_->wait_for_service(1s)) 
+    {
+        if (!rclcpp::ok()) 
+        {
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the service. Exiting.");
+            return;
+        }
+
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
+    }
+
+    auto result = serviceSceenObjectDetach_->async_send_request(request);
+
+    // Wait for the result.
+    if (rclcpp::spin_until_future_complete(ObjectContainer::Get()->GetNode(), result) ==
+        rclcpp::FutureReturnCode::SUCCESS)
+    {
+        auto output = result.get()->result;
+
+        if (output == 1)
+        {
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Successfully calles service SceneObjectDetach");
+
+            auto coordinates = result.get()->coordinates;
+            auto partName = result.get()->name;
+            auto part = ObjectContainer::Get()->GetScene()->GetSceneObject(partName);
+
+            ObjectContainer::Get()->GetScene()->SceneObjectSetPositionAbsolute(part, std::make_shared<WzlPlanner::Pose>(coordinates));
+        }
+        else
+        {
+            std::string msg = "Error in call service SceneObjectDetach: " + std::to_string(output);
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), msg.c_str());
+        }
+    } 
+    else 
+    {
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service SceneObjectDetach");
+    }
+}
+
+bool WzlPlanner::RobotDummy::MoveToPose(Pose::ConstSharedPtr  targetPose)
 {
     auto msg = std::string("Move dummy robot to target Pose; X:") + std::to_string(targetPose->GetPositionX())
      + std::string(", Y:") + std::to_string(targetPose->GetPositionY())
@@ -49,4 +135,19 @@ bool WzlPlanner::RobotDummy::MoveToPose(std::shared_ptr<WzlPlanner::Pose> target
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
 
     return true;
+}
+
+void WzlPlanner::RobotDummy::PartAttach(const std::string partKey)
+{
+    auto msg = std::string("Trying to attach a part from the scene with the key: ") + partKey;
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
+
+    //if (ObjectContainer::Get()->GetScene()->)
+
+}   
+
+void WzlPlanner::RobotDummy::PartDetach()
+{
+    // trigger ros node to detah the part from the robot
+    
 }

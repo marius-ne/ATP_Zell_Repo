@@ -28,23 +28,23 @@ void WzlPlanner::Pose::Set(const double x, const double y, const double z,
 
 void WzlPlanner::Pose::Set(Pose &pose)
 {
-    Set(pose.x, pose.y, pose.z, pose.rx, pose.ry, pose.rz);
+    Set(pose.x_, pose.y_, pose.z_, pose.rx_, pose.ry_, pose.rz_);
 }
 
 WzlPlanner::Pose::Pose(Pose &copy)
 {
-    this->x = copy.x;
-    this->y = copy.y;
-    this->z = copy.z;
+    this->x_ = copy.x_;
+    this->y_ = copy.y_;
+    this->z_ = copy.z_;
 
-    this->rx = copy.rx;
-    this->ry = copy.ry;
-    this->rz = copy.rz;
+    this->rx_ = copy.rx_;
+    this->ry_ = copy.ry_;
+    this->rz_ = copy.rz_;
 
-    this->i = copy.i;
-    this->j = copy.j;
-    this->k = copy.k;
-    this->w = copy.w;
+    this->i_ = copy.i_;
+    this->j_ = copy.j_;
+    this->k_ = copy.k_;
+    this->w_ = copy.w_;
 }
 
 WzlPlanner::Pose::Pose(const double x, const double y, const double z)
@@ -58,99 +58,126 @@ WzlPlanner::Pose::Pose(const double x, const double y, const double z, const dou
     this->Set(x, y, z, rx, ry, rz);
 }
 
+WzlPlanner::Pose::Pose(const double x, const double y, const double z, const double i, const double j, const double k, const double w)
+{
+    this->Set(x, y, z, i, j, k, w);
+}
+
+WzlPlanner::Pose::Pose(const geometry_msgs::msg::Pose& pose)
+{
+    this->Set(pose.position.x,
+        pose.position.y,
+        pose.position.z,
+        pose.orientation.x,
+        pose.orientation.y,
+        pose.orientation.z,
+        pose.orientation.w);
+}
+
+WzlPlanner::Pose::Pose(const geometry_msgs::msg::Transform& transform)
+{
+    this->Set(transform.translation.x,
+        transform.translation.y,
+        transform.translation.z,
+        transform.rotation.x,
+        transform.rotation.y,
+        transform.rotation.z,
+        transform.rotation.w);
+}
+
 void WzlPlanner::Pose::SetPositionX(const double x)
 {
-    this->x = x;
+    this->x_ = x;
     UpdatePosition();
 }
 
 void WzlPlanner::Pose::SetPositionY(const double y)
 {
-    this->y = y;
+    this->y_ = y;
     UpdatePosition();
 }
 
 void WzlPlanner::Pose::SetPositionZ(const double z)
 {
-    this->z = z;
+    this->z_ = z;
     UpdatePosition();
 }
 
 void WzlPlanner::Pose::SetPositionXYZ(const double x, const double y, const double z)
 {
-    this->x = x;
-    this->y = y;
-    this->z = z;
+    this->x_ = x;
+    this->y_ = y;
+    this->z_ = z;
 
     UpdatePosition();
 }
 
 void WzlPlanner::Pose::SetRotationX(const double rx)
 {
-    this->rx = rx;
+    this->rx_ = rx;
     this->UpdateRotationQuaternionFromEuler();
 }
 
 
 void WzlPlanner::Pose::SetRotationY(const double ry)
 {
-    this->ry = ry;
+    this->ry_ = ry;
     this->UpdateRotationQuaternionFromEuler();
 }
 
 void WzlPlanner::Pose::SetRotationZ(const double rz)
 {
-    this->rz = rz;
+    this->rz_ = rz;
     this->UpdateRotationQuaternionFromEuler();
 }
 
 void WzlPlanner::Pose::SetRotationXYZ(double rx, double ry, double rz)
 {
-    this->rx = rx;
-    this->ry = ry;
-    this->rz = rz;
+    this->rx_ = rx;
+    this->ry_ = ry;
+    this->rz_ = rz;
     UpdateRotationQuaternionFromEuler();
 }
 
 void WzlPlanner::Pose::SetRotationI(const double i)
 {
-    this->i = i;
+    this->i_ = i;
     this->UpdateRotationEulerFromQuaternion();
 }
 
 void WzlPlanner::Pose::SetRotationJ(const double j)
 {
-    this->j = j;
+    this->j_ = j;
     this->UpdateRotationEulerFromQuaternion();
 }
 
 void WzlPlanner::Pose::SetRotationK(const double k)
 {
-    this->k = k;
+    this->k_ = k;
     this->UpdateRotationEulerFromQuaternion();
 }
 
 void WzlPlanner::Pose::SetRotationW(const double w)
 {
-    this->w = w;
+    this->w_ = w;
     this->UpdateRotationEulerFromQuaternion();
 }
 
 void WzlPlanner::Pose::SetRotationQuaternion(const double i, const double j, const double k, const double w)
 {
-    this->i = i;
-    this->j = j;
-    this->k = k;
-    this->w = w;
+    this->i_ = i;
+    this->j_ = j;
+    this->k_ = k;
+    this->w_ = w;
 
     UpdateRotationEulerFromQuaternion();
 }
 
 void WzlPlanner::Pose::UpdatePosition()
 {
-    transform.translation.x = x;
-    transform.translation.y = y;
-    transform.translation.z = z;
+    transform_.translation.x = x_;
+    transform_.translation.y = y_;
+    transform_.translation.z = z_;
 
     isDirty = true;
 }
@@ -158,47 +185,25 @@ void WzlPlanner::Pose::UpdatePosition()
 void WzlPlanner::Pose::UpdateRotationQuaternionFromEuler()
 {
     tf2::Quaternion q;
-    q.setRPY(rx, ry, rz);
+    q.setRPY(rx_, ry_, rz_);
 
-    i = q.getX();
-    j = q.getY();
-    k = q.getZ();
-    w = q.getW();
+    i_= q.getX();
+    j_= q.getY();
+    k_= q.getZ();
+    w_= q.getW();
     
-    transform.rotation.x = q.getX();
-    transform.rotation.y = q.getY();
-    transform.rotation.z = q.getZ();
-    transform.rotation.w = q.getW();
+    transform_.rotation.x = q.getX();
+    transform_.rotation.y = q.getY();
+    transform_.rotation.z = q.getZ();
+    transform_.rotation.w = q.getW();
 
     isDirty = true;
-/*
-    // test stuff with parent/children transforms
-    tf2::Transform tr1;
-    tf2::Transform tr2;
-    geometry_msgs::msg::TransformStamped trStamped;
-    
-
-    tf2::doTransform<tf2::Transform>(tr1, tr2, trStamped);
-
-
-
-def quaternion_mult(q,r):
-    return [r[0]*q[0]-r[1]*q[1]-r[2]*q[2]-r[3]*q[3],
-            r[0]*q[1]+r[1]*q[0]-r[2]*q[3]+r[3]*q[2],
-            r[0]*q[2]+r[1]*q[3]+r[2]*q[0]-r[3]*q[1],
-            r[0]*q[3]-r[1]*q[2]+r[2]*q[1]+r[3]*q[0]]
-
-def point_rotation_by_quaternion(point,q):
-    r = [0]+point
-    q_conj = [q[0],-1*q[1],-1*q[2],-1*q[3]]
-    return quaternion_mult(quaternion_mult(q,r),q_conj)[1:]
-    */
 }
 
 void WzlPlanner::Pose::UpdateRotationEulerFromQuaternion()
 {
-    tf2::Quaternion q(tf2::Vector3(i, j, k), w);
-    tf2::getEulerYPR(q, rx, ry, rz);
+    tf2::Quaternion q(tf2::Vector3(i_, j_, k_), w_);
+    tf2::getEulerYPR(q, rx_, ry_, rz_);
 
     isDirty = true;
 }
@@ -211,13 +216,6 @@ void WzlPlanner::Transform::GetChildrenRecursive(std::vector<std::shared_ptr<Tra
         collectedTransforms.push_back(val);
         GetChildrenRecursive(collectedTransforms);
     }
-
-    // old implementation withn childrens as list
-    //for(auto&& child: children_)
-    //{
-    //    collectedTransforms.push_back(child);
-    //    GetChildrenRecursive(collectedTransforms);
-    //}
 }
 
 Eigen::Affine3d create_rotation_matrix(double ax, double ay, double az) 
@@ -293,9 +291,7 @@ void WzlPlanner::Transform::UpdateRelative(const std::shared_ptr<Transform> pare
         parentRotationX = parent->poseAbsolute_->GetRotationX();
         parentRotationY = parent->poseAbsolute_->GetRotationY();
         parentRotationZ = parent->poseAbsolute_->GetRotationZ();
-    }
-
-    
+    }    
 }
 
 void WzlPlanner::Transform::Print(int depth)
@@ -384,6 +380,43 @@ void WzlPlanner::Transform::SetParent(const std::shared_ptr<Transform> parent)
     parent->Update();
 }
 
+geometry_msgs::msg::Transform WzlPlanner::Transform::GetGeometryMsgTransform() const
+{
+    auto poseRelative = GetPoseRelative();
+    auto transform = geometry_msgs::msg::Transform();
+    transform.translation.x = poseRelative->GetPositionX();
+    transform.translation.y = poseRelative->GetPositionY();
+    transform.translation.z = poseRelative->GetPositionZ();
+
+    tf2::Quaternion q;
+    q.setRPY(poseRelative->GetRotationZ(), poseRelative->GetRotationY(), poseRelative->GetRotationZ());
+
+    transform.rotation.x = q.getX();
+    transform.rotation.y = q.getY();
+    transform.rotation.z = q.getZ();
+    transform.rotation.w = q.getW();
+
+    return transform;
+}
+
+geometry_msgs::msg::Pose WzlPlanner::Transform::GetGeometryMsgPose() const
+{
+    auto poseAbsolute = GetPoseAbsolute();
+    auto transform = geometry_msgs::msg::Pose();
+    transform.position.x = poseAbsolute->GetPositionX();
+    transform.position.y = poseAbsolute->GetPositionY();
+    transform.position.z = poseAbsolute->GetPositionZ();
+
+    tf2::Quaternion q;
+    q.setRPY(poseAbsolute->GetRotationZ(), poseAbsolute->GetRotationY(), poseAbsolute->GetRotationZ());
+
+    transform.orientation.x = q.getX();
+    transform.orientation.y = q.getY();
+    transform.orientation.z = q.getZ();
+    transform.orientation.w = q.getW();
+
+    return transform;
+}
 
 void WzlPlanner::TransformBroadcaster::Broadcast(std::shared_ptr<Transform> transformBase, rclcpp::Clock &clock)
 {

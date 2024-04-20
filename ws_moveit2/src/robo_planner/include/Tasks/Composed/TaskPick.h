@@ -55,9 +55,9 @@ namespace WzlPlanner
 
             void Initialize(const std::shared_ptr<WzlPlanner::PartBase> scenePart)
             {
-                auto poseApproach = scenePart->GetTransnformApproach()->GetPoseAbsolute();
-                auto posePick = scenePart->GetTransnformExecute()->GetPoseAbsolute();
-                auto poseEnd = scenePart->GetTransnformApproach()->GetPoseAbsolute();
+                auto poseApproach = scenePart->GeTransformAppraocah()->GetPoseAbsolute();
+                auto posePick = scenePart->GeTransformExecution()->GetPoseAbsolute();
+                auto poseEnd = scenePart->GeTransformAppraocah()->GetPoseAbsolute();
 
                 taskMoveToPoseApproach_->SetTargetPose(poseApproach);
                 taskMoveToPosePick_->SetTargetPose(posePick);

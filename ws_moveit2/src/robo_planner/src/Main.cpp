@@ -45,7 +45,7 @@ int TransformTest() {
 void CreateCell(const std::shared_ptr<rclcpp::Node> node)
 {
   auto robot = std::make_shared<WzlPlanner::RobotDummy>(node);
-  auto scene = std::make_shared<WzlPlanner::Scene>(robot);
+  auto scene = std::make_shared<WzlPlanner::Scene>(robot, node);
   auto ioInterfaceOpcUa = std::make_shared<WzlPlanner::IoInterfaceOpcUa>(node);
   
   RCLCPP_INFO(node->get_logger(), "Robot scheduler cell environment initialization start.");
@@ -60,36 +60,29 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
   // gripper change station
   RCLCPP_INFO(node->get_logger(), "Initialize Gripper change station");
   auto gripperChangeStation = std::make_shared<WzlPlanner::SceneObjectGripperChangeStation>("GripperChangeStation");
-  scene->AddSceneObject(gripperChangeStation);
-  gripperChangeStation->GetTransform()->GetPoseRelative()->SetPositionXYZ(0, 10, 0);
+  scene->AddSceneObject(gripperChangeStation, std::make_shared<WzlPlanner::Pose>(0, 10, 0));
 
   // clamping device jaws
   RCLCPP_INFO(node->get_logger(), "Initialize Clamping device jaw");
   auto clampingDeviceJaws = std::make_shared<WzlPlanner::SceneObjectClampingDeviceJaws>("ClampingDeviceJaw", 0, 1);
-  scene->AddSceneObject(clampingDeviceJaws);
-  clampingDeviceJaws->GetTransform()->GetPoseRelative()->SetPositionXYZ(5, 0, 0);
+  scene->AddSceneObject(clampingDeviceJaws, std::make_shared<WzlPlanner::Pose>(5, 0, 0));
 
   // clamping device elevation
   RCLCPP_INFO(node->get_logger(), "Initialize clamping device elevation");
   auto clampingDeviceElevation = std::make_shared<WzlPlanner::SceneObjectClampingDeviceJaws>("ClampingDeviceElavation", 2, 3);
-  scene->AddSceneObject(clampingDeviceElevation);
-  clampingDeviceElevation->GetTransform()->GetPoseRelative()->SetPositionXYZ(5, 0, 0);
+  scene->AddSceneObject(clampingDeviceElevation, std::make_shared<WzlPlanner::Pose>(5, 0, 0));
 
   // scanning tower
   RCLCPP_INFO(node->get_logger(), "Initialize visual scan tower");
   auto scanningTower = std::make_shared<WzlPlanner::SceneObjectVisualScanTower>("VisualScanTower");
-  scene->AddSceneObject(scanningTower);
-  scanningTower->GetTransform()->GetPoseRelative()->SetPositionXYZ(5, 5, 0);
+  scene->AddSceneObject(scanningTower, std::make_shared<WzlPlanner::Pose>(5, 5, 0));
 
   // carrier
   RCLCPP_INFO(node->get_logger(), "Initialize carrier");
   auto carrier = std::make_shared<WzlPlanner::SceneObjectCarrier>("Carrier");
-  scene->AddSceneObject(carrier);
-  carrier->GetTransform()->GetPoseRelative()->SetPositionXYZ(-5, 0, 0);
+  scene->AddSceneObject(carrier, std::make_shared<WzlPlanner::Pose>(-5, 0, 0));
 
   RCLCPP_INFO(node->get_logger(), "Robot scheduler cell environment initialization end.");
-
-  
 }
 
 void PickAndPlaceTest()
