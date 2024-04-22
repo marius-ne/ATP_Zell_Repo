@@ -13,6 +13,10 @@
 
 #include <rclcpp/rclcpp.hpp>
 #include <moveit/move_group_interface/move_group_interface.h>
+#include "moveit/planning_scene_interface/planning_scene_interface.h"
+#include "moveit/planning_scene_monitor/planning_scene_monitor.h"
+#include "geometric_shapes/shape_operations.h"
+#include "ament_index_cpp/get_package_share_directory.hpp"
 
 using moveit::planning_interface::MoveGroupInterface;
 
@@ -51,6 +55,7 @@ using moveit::planning_interface::MoveGroupInterface;
 
 
 std::shared_ptr<MoveGroupInterface> move_group_interface_;
+moveit::planning_interface::PlanningSceneInterface planning_scene_interface_;
 
 rclcpp::Service<wzlscheduler_interfaces::srv::RobotMoveToPosition>::SharedPtr service_robot_move_toposition_;
 rclcpp::Service<wzlscheduler_interfaces::srv::SceneObjectAttach>::SharedPtr service_scene_object_attach;
@@ -92,13 +97,42 @@ class RobotPanda : public rclcpp::Node
     void service_callback_scene_object_attach(const std::shared_ptr<wzlscheduler_interfaces::srv::SceneObjectAttach::Request> request,
       std::shared_ptr<wzlscheduler_interfaces::srv::SceneObjectAttach::Response> response)
     {
+      // Attach the object to the end effector of the robot
+      const std::string& endEffectorLink = move_group_interface_->getEndEffectorLink();
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Attach the object '%s' to the robots end effector link", request->name.c_str());
+      std::vector<std::string> touch_links = {endEffectorLink};
+      
+      if (!move_group_interface_->attachObject(request->name, endEffectorLink, touch_links))
+      {
+        RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Attach object failed");
+      }
 
+      response->result = 1;
     }
 
     void service_callback_scene_object_detach(const std::shared_ptr<wzlscheduler_interfaces::srv::SceneObjectDetach::Request> request,
       std::shared_ptr<wzlscheduler_interfaces::srv::SceneObjectDetach::Response> response)
     {
+      // Detach the object from the robot
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Detach the object '%s' from the robot", request->name.c_str());
+      
+      if (!move_group_interface_->detachObject(request->name))
+      {
+        RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Detach object failed");
+      }
 
+      geometry_msgs::msg::Pose msg;
+      //msg.orientation.w = 1.0; // todo: set also the orientation
+      //msg.position.x = request->posx;
+      //msg.position.y = request->posy;
+      //msg.position.z = request->posz;
+      //msg.orientation.x = request->rotx;
+      //msg.orientation.y = request->roty;
+      //msg.orientation.z = request->rotz;
+
+      response->result = 1;
+      response->name = request->name;
+      response->coordinates = msg;
     }
 
 
@@ -116,7 +150,7 @@ class RobotPanda : public rclcpp::Node
       msg.orientation.x = request->rotx;
       msg.orientation.y = request->roty;
       msg.orientation.z = request->rotz;
-      msg.orientation.w = request->;
+      //msg.orientation.w = request->
     
       move_group_interface_->setPoseTarget(msg);
 
@@ -133,13 +167,79 @@ class RobotPanda : public rclcpp::Node
       response->result = true;
     }  
 
+
+
+    // Callback method for constructing a mesh collision object and addding it to the planning scene interface
+    // the path of the mesh is defined in the config file in the resource folder of the package
     void topic_callback_scene_object_add(const wzlscheduler_interfaces::msg::SceneObjectAdd& msg) const
     {
+      // Get the planning frame
+      std::string frame_id = move_group_interface_->getPlanningFrame();
 
+      // Create a CollisionObject
+      moveit_msgs::msg::CollisionObject collision_object;
+      collision_object.header.frame_id = frame_id;
+      std::string objectName = msg.name;
+      collision_object.id = objectName;
+
+      // Get the path to the config file in the package directory
+      std::string package_path = ament_index_cpp::get_package_share_directory("ur16e");
+      std::string configPath = package_path + "/config/mesh_config.csv";
+
+      // Retrieve the path to the mesh from the config fill
+      std::string filePath = std::make_shared<FileLoader>()->get_object_path(objectName, configPath);
+
+      // Create a mesh from the specified path from the config file
+      shapes::Mesh * original_mesh = shapes::createMeshFromResource(filePath);
+
+      // Create a scaled copy of the original mesh with padding (scale factor extracted from the LoadObject message)
+      shapes::Mesh * scaled_mesh = new shapes::Mesh(*original_mesh);
+      //scaled_mesh->scaleAndPadd(msg.scale, 0.0);  
+      scaled_mesh->scaleAndPadd(1, 0.0);  
+      
+      // Convert the scaled mesh to shape_msgs::Mesh
+      shape_msgs::msg::Mesh shelf_mesh;
+      shapes::ShapeMsg shelf_mesh_msg;
+      shapes::constructMsgFromShape(scaled_mesh, shelf_mesh_msg);
+      shelf_mesh = boost::get<shape_msgs::msg::Mesh>(shelf_mesh_msg);
+
+      // Convert the coordinates from the LoadObject message to a geometry_msgs::Pose
+      geometry_msgs::msg::Pose meshPose;
+      meshPose.position = msg.coordinates.position;
+      meshPose.orientation = msg.coordinates.orientation;
+
+      // Add the mesh and pose to the CollisionObject
+      collision_object.meshes.push_back(shelf_mesh);
+      collision_object.mesh_poses.push_back(meshPose);
+      collision_object.operation = collision_object.ADD;
+
+      // Add collision object to planning scene interface -> planningSceneInterface reference will be changed
+      planning_scene_interface_.applyCollisionObject(collision_object);
+
+      // Create a ROS logger
+      const rclcpp::Logger logger = rclcpp::get_logger("addMeshCollisionObject_LOGGER");
+      RCLCPP_INFO(logger, ("Collision mesh: " + objectName + " added to scene!").c_str());
+
+      // Clean up the memory allocated for the scaled mesh
+      delete scaled_mesh;
     }
 
     void topic_callback_scene_object_remove(const wzlscheduler_interfaces::msg::SceneObjectRemove& msg) const
     {
+      // Convert the message to a string
+      std::string objectId = msg.name;
+
+      // Contruct the collision object
+      moveit_msgs::msg::CollisionObject collision_object;
+      collision_object.id = objectId;
+      collision_object.operation = collision_object.REMOVE; 
+
+      // Remove collision object to planning scene interface -> planningSceneInterface reference will be changed
+      planning_scene_interface_.applyCollisionObject(collision_object);
+
+      // Create a ROS logger
+      const rclcpp::Logger logger = rclcpp::get_logger("rclcpp");
+      RCLCPP_INFO(logger, ("Collision mesh: " + objectId + " removed from scene!").c_str());
 
     }
 

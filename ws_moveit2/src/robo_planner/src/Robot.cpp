@@ -41,6 +41,9 @@ bool WzlPlanner::RobotUR::MoveToPose(Pose::ConstSharedPtr targetPose)
 
 void WzlPlanner::RobotUR::PartAttach(const std::string partKey)
 {
+    auto msg = std::string("Trying to attach a part from the scene with the key: ") + partKey;
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
+
     auto request = std::make_shared<wzlscheduler_interfaces::srv::SceneObjectAttach::Request>();
 
     while (!this->serviceSceenObjectAttach_->wait_for_service(1s)) 
@@ -139,15 +142,13 @@ bool WzlPlanner::RobotDummy::MoveToPose(Pose::ConstSharedPtr  targetPose)
 
 void WzlPlanner::RobotDummy::PartAttach(const std::string partKey)
 {
-    auto msg = std::string("Trying to attach a part from the scene with the key: ") + partKey;
+    auto msg = std::string("Dummy attach part to robot") + partKey;
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
-
-    //if (ObjectContainer::Get()->GetScene()->)
-
 }   
 
 void WzlPlanner::RobotDummy::PartDetach()
 {
     // trigger ros node to detah the part from the robot
-    
+    auto msg = std::string("Dummy detach part from root");
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
 }
