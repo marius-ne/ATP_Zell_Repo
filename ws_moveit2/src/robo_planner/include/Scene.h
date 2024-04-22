@@ -25,9 +25,9 @@ namespace WzlPlanner
                 robot_ = robot;
                 transformBase_ = std::make_shared<Transform>("World");
 
-                publisherSceenObjectAdd_ = node->create_publisher<wzlscheduler_interfaces::msg::SceneObjectAdd>("SceneObjectAdd", 10);
-                publisherSceenObjectRemove_ = node->create_publisher<wzlscheduler_interfaces::msg::SceneObjectRemove>("SceneObjectRemove", 10);
-                publisherSceenObjectSetPose_ = node->create_publisher<wzlscheduler_interfaces::msg::SceneObjectSetPose>("SceneObjectSetPose", 10);
+                publisherSceenObjectAdd_ = node->create_publisher<wzlscheduler_interfaces::msg::SceneObjectAdd>("scene_object_add", 10);
+                publisherSceenObjectRemove_ = node->create_publisher<wzlscheduler_interfaces::msg::SceneObjectRemove>("scene_object_remove", 10);
+                publisherSceenObjectSetPose_ = node->create_publisher<wzlscheduler_interfaces::msg::SceneObjectSetPose>("scene_object_set_pose", 10);
             }
 
             std::shared_ptr<WzlPlanner::Transform> GetTransformBase() const { return transformBase_; }
