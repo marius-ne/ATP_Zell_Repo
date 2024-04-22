@@ -63,8 +63,8 @@ namespace WzlPlanner
             {
                 node_ = node;
                 client_ = node_->create_client<wzlscheduler_interfaces::srv::RobotMoveToPosition>("robot_move_to_position");
-                serviceSceenObjectAttach_ = node_->create_client<wzlscheduler_interfaces::srv::SceneObjectDetach>("scene_object_detach");
                 serviceSceenObjectAttach_ = node_->create_client<wzlscheduler_interfaces::srv::SceneObjectAttach>("scene_object_attach");
+                serviceSceenObjectDetach_ = node_->create_client<wzlscheduler_interfaces::srv::SceneObjectDetach>("scene_object_detach");
             }
 
             bool MoveToPose(Pose::ConstSharedPtr targetPose) override; 
