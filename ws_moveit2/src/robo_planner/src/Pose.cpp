@@ -173,6 +173,43 @@ void WzlPlanner::Pose::SetRotationQuaternion(const double i, const double j, con
     UpdateRotationEulerFromQuaternion();
 }
 
+geometry_msgs::msg::Transform WzlPlanner::Pose::GetGeometryMsgTransformFromPose() const
+{
+    auto transform = geometry_msgs::msg::Transform();
+    transform.translation.x = x_;
+    transform.translation.y = y_;
+    transform.translation.z = z_;
+
+    tf2::Quaternion q;
+    q.setRPY(rx_, ry_, rz_);
+
+    transform.rotation.x = q.getX();
+    transform.rotation.y = q.getY();
+    transform.rotation.z = q.getZ();
+    transform.rotation.w = q.getW();
+
+    return transform;
+}
+
+
+geometry_msgs::msg::Pose WzlPlanner::Pose::GetGeometryMsgPoseFromPose() const
+{
+    auto pose = geometry_msgs::msg::Pose();
+    pose.position.x = x_;
+    pose.position.y = y_;
+    pose.position.z = z_;
+
+    tf2::Quaternion q;
+    q.setRPY(rx_, ry_, rz_);
+
+    pose.orientation.x = q.getX();
+    pose.orientation.y = q.getY();
+    pose.orientation.z = q.getZ();
+    pose.orientation.w = q.getW();
+
+    return pose;
+}
+
 void WzlPlanner::Pose::UpdatePosition()
 {
     transform_.translation.x = x_;
@@ -382,40 +419,12 @@ void WzlPlanner::Transform::SetParent(const std::shared_ptr<Transform> parent)
 
 geometry_msgs::msg::Transform WzlPlanner::Transform::GetGeometryMsgTransform() const
 {
-    auto poseRelative = GetPoseRelative();
-    auto transform = geometry_msgs::msg::Transform();
-    transform.translation.x = poseRelative->GetPositionX();
-    transform.translation.y = poseRelative->GetPositionY();
-    transform.translation.z = poseRelative->GetPositionZ();
-
-    tf2::Quaternion q;
-    q.setRPY(poseRelative->GetRotationZ(), poseRelative->GetRotationY(), poseRelative->GetRotationZ());
-
-    transform.rotation.x = q.getX();
-    transform.rotation.y = q.getY();
-    transform.rotation.z = q.getZ();
-    transform.rotation.w = q.getW();
-
-    return transform;
+    return GetPoseRelative()->GetGeometryMsgTransformFromPose();
 }
 
 geometry_msgs::msg::Pose WzlPlanner::Transform::GetGeometryMsgPose() const
 {
-    auto poseAbsolute = GetPoseAbsolute();
-    auto transform = geometry_msgs::msg::Pose();
-    transform.position.x = poseAbsolute->GetPositionX();
-    transform.position.y = poseAbsolute->GetPositionY();
-    transform.position.z = poseAbsolute->GetPositionZ();
-
-    tf2::Quaternion q;
-    q.setRPY(poseAbsolute->GetRotationZ(), poseAbsolute->GetRotationY(), poseAbsolute->GetRotationZ());
-
-    transform.orientation.x = q.getX();
-    transform.orientation.y = q.getY();
-    transform.orientation.z = q.getZ();
-    transform.orientation.w = q.getW();
-
-    return transform;
+    return GetPoseAbsolute()->GetGeometryMsgPoseFromPose();
 }
 
 void WzlPlanner::TransformBroadcaster::Broadcast(std::shared_ptr<Transform> transformBase, rclcpp::Clock &clock)

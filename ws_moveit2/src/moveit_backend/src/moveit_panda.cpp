@@ -12,49 +12,14 @@
 
 
 #include <rclcpp/rclcpp.hpp>
-#include <moveit/move_group_interface/move_group_interface.h>
+#include "moveit/move_group_interface/move_group_interface.h"
 #include "moveit/planning_scene_interface/planning_scene_interface.h"
 #include "moveit/planning_scene_monitor/planning_scene_monitor.h"
 #include "geometric_shapes/shape_operations.h"
 #include "ament_index_cpp/get_package_share_directory.hpp"
 
-using moveit::planning_interface::MoveGroupInterface;
 
-    void MoveToPosition(const std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Request> request,
-            std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Response> response)
-    {
-    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request (move to position)\nX: %g" " Y: %g Z: %g RotX: %g RotY %g RotZ %g",
-                  request->posx, request->posy, request->posz, request->rotx, request->roty, request->rotz);
-    //RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "sending back response: [%ld]", (long int)response->sum);
-
-    // Set a target Pose
-    geometry_msgs::msg::Pose msg;
-    msg.orientation.w = 1.0; // todo: set also the orientation
-    msg.position.x = request->posx;
-    msg.position.y = request->posy;
-    msg.position.z = request->posz;
-    msg.orientation.x = request->rotx;
-    msg.orientation.y = request->roty;
-    msg.orientation.z = request->rotz;
-    //msg.orientation.w = request->rotw;
-
-    //move_group_interface_->setPoseTarget(msg);
-
-    //moveit::planning_interface::MoveGroupInterface::Plan msg2;
-    //auto const success = static_cast<bool>(move_group_interface_->plan(msg2));
-//
-    //// Execute the plan
-    //if(success) {
-    //  move_group_interface_->execute(msg2);
-    //} else {
-    //  RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Planing failed!");
-    //}
-    
-    response->result = true;
-  }  
-
-
-std::shared_ptr<MoveGroupInterface> move_group_interface_;
+std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface_;
 moveit::planning_interface::PlanningSceneInterface planning_scene_interface_;
 
 rclcpp::Service<wzlscheduler_interfaces::srv::RobotMoveToPosition>::SharedPtr service_robot_move_toposition_;
@@ -90,7 +55,7 @@ class RobotPanda : public rclcpp::Node
     void Initialize(std::shared_ptr<RobotPanda> robot)
     {
       // Create the MoveIt MoveGroup Interface
-      move_group_interface_ = std::make_shared<MoveGroupInterface>(robot, "panda_arm");
+      move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(robot, "panda_arm");
     }
 
   private:
@@ -139,18 +104,15 @@ class RobotPanda : public rclcpp::Node
     void service_callback_robot_move_to_position(const std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Request> request,
             std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Response> response)
     {
-      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request (move to position)\nX: %g" " Y: %g Z: %g RotX: %g RotY %g RotZ %g",
-                    request->posx, request->posy, request->posz, request->rotx, request->roty, request->rotz);
+      auto position = request->pose.position;
+      auto orientation = request->pose.orientation;
+
+      RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request (move to position)\nX: %g" " Y: %g Z: %g RotX: %g RotY %g RotZ %g RotW %g",
+                    position.x,position.y, position.z, orientation.x, orientation.y, orientation.z, orientation.w);
       // Set a target Pose
       geometry_msgs::msg::Pose msg;
-      msg.orientation.w = 1.0; // todo: set also the orientation
-      msg.position.x = request->posx;
-      msg.position.y = request->posy;
-      msg.position.z = request->posz;
-      msg.orientation.x = request->rotx;
-      msg.orientation.y = request->roty;
-      msg.orientation.z = request->rotz;
-      //msg.orientation.w = request->
+      msg.position = position;
+      msg.orientation = orientation;
     
       move_group_interface_->setPoseTarget(msg);
 

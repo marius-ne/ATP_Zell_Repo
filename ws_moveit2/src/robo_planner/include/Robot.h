@@ -29,7 +29,7 @@ namespace WzlPlanner
             std::shared_ptr<GripperBase> GetGripper() const { return gripper_; }
             void SetGripper(const std::shared_ptr<GripperBase> gripper) { gripper_ = gripper; }
 
-            virtual bool MoveToPose(Pose::ConstSharedPtr targetPose) = 0;
+            virtual bool MoveToPose(std::shared_ptr<Pose> targetPose) = 0;
             
             // attaches a part with the given key in the scene to the robot
             virtual void PartAttach(const std::string partKey) = 0;
@@ -47,7 +47,7 @@ namespace WzlPlanner
                 client_ = node_->create_client<wzlscheduler_interfaces::srv::RobotMoveToPosition>("robot_move_to_position");
             }
 
-            bool MoveToPose(Pose::ConstSharedPtr targetPose) override; 
+            bool MoveToPose(std::shared_ptr<Pose> targetPose) override; 
             void PartAttach(const std::string partKey) override;
             void PartDetach() override;
 
@@ -67,7 +67,7 @@ namespace WzlPlanner
                 serviceSceenObjectDetach_ = node_->create_client<wzlscheduler_interfaces::srv::SceneObjectDetach>("scene_object_detach");
             }
 
-            bool MoveToPose(Pose::ConstSharedPtr targetPose) override; 
+            bool MoveToPose(std::shared_ptr<Pose> targetPose) override; 
             void PartAttach(const std::string partKey) override;
             void PartDetach() override;
 

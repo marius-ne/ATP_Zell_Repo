@@ -6,15 +6,9 @@
 
 using namespace std::chrono_literals;
 
-bool WzlPlanner::RobotUR::MoveToPose(Pose::ConstSharedPtr targetPose)
+bool WzlPlanner::RobotUR::MoveToPose(std::shared_ptr<Pose> targetPose)
 {
     auto request = std::make_shared<wzlscheduler_interfaces::srv::RobotMoveToPosition::Request>();
-    request->posx = targetPose->GetPositionX();
-    request->posy = targetPose->GetPositionY();
-    request->posz = targetPose->GetPositionZ();
-    request->rotx = targetPose->GetRotationX();
-    request->roty = targetPose->GetRotationY();
-    request->rotz = targetPose->GetRotationZ();
 
     while (!client_->wait_for_service(1s)) 
     {
@@ -126,7 +120,7 @@ void WzlPlanner::RobotUR::PartDetach()
     }
 }
 
-bool WzlPlanner::RobotDummy::MoveToPose(Pose::ConstSharedPtr  targetPose)
+bool WzlPlanner::RobotDummy::MoveToPose(std::shared_ptr<Pose>  targetPose)
 {
     auto msg = std::string("Move dummy robot to target Pose; X:") + std::to_string(targetPose->GetPositionX())
      + std::string(", Y:") + std::to_string(targetPose->GetPositionY())

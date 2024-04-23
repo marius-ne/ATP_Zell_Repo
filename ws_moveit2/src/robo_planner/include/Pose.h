@@ -71,6 +71,12 @@ namespace WzlPlanner
             void Reset() { this->isDirty = false; }
             bool IsDirty() const { return this->isDirty; }
 
+            // Gets the Ros geometry msg as a relative transform (transform between this coordinate frame and it's parent)            
+            geometry_msgs::msg::Transform GetGeometryMsgTransformFromPose() const;
+
+            // Gets the ros geometry msg as an absolute pose (absolute pose in the world coordinate frame)
+            geometry_msgs::msg::Pose GetGeometryMsgPoseFromPose() const;
+
         private:
 
             bool isDirty;
