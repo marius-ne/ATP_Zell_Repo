@@ -1,0 +1,14 @@
+[0.056s] Invoking command in '/home/alex/Downloads/lucid_vision_driver-main/build/lucid_vision_driver': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/Downloads/lucid_vision_driver-main/build/lucid_vision_driver -- -j16 -l16
+[0.120s] [35m[1mConsolidate compiler generated dependencies of target arena_camera_node_exe[0m
+[0.121s] [35m[1mConsolidate compiler generated dependencies of target arena_camera_node[0m
+[0.146s] [ 33%] Built target arena_camera_node_exe
+[0.147s] [ 50%] [32mBuilding CXX object CMakeFiles/arena_camera_node.dir/src/arena_camera_node.cpp.o[0m
+[0.432s] In file included from [01m[K/home/alex/Downloads/lucid_vision_driver-main/src/arena_camera_node.cpp:17[m[K:
+[0.432s] [01m[K/home/alex/Downloads/lucid_vision_driver-main/include/arena_camera/arena_camera_node.h:27:10:[m[K [01;31m[Kfatal error: [m[Kcamera_info_manager/camera_info_manager.hpp: No such file or directory
+[0.432s]    27 | #include [01;31m[K<camera_info_manager/camera_info_manager.hpp>[m[K
+[0.432s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[0.432s] compilation terminated.
+[0.446s] gmake[2]: *** [CMakeFiles/arena_camera_node.dir/build.make:76: CMakeFiles/arena_camera_node.dir/src/arena_camera_node.cpp.o] Error 1
+[0.446s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/arena_camera_node.dir/all] Error 2
+[0.446s] gmake: *** [Makefile:146: all] Error 2
+[0.450s] Invoked command in '/home/alex/Downloads/lucid_vision_driver-main/build/lucid_vision_driver' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/alex/Downloads/lucid_vision_driver-main/build/lucid_vision_driver -- -j16 -l16

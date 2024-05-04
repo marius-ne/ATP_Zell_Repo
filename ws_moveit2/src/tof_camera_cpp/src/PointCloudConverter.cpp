@@ -5,14 +5,14 @@
 
 std::shared_ptr<sensor_msgs::msg::PointCloud2> PointCloudConverter::Convert(Arena::IImage *img)
 {
-    
+    /*
     // prepare info from input buffer
-    size_t width = pImage->GetWidth();
-    size_t height = pImage->GetHeight();
+    size_t width = img->GetWidth();
+    size_t height = img->GetHeight();
     size_t size = width * height;
-    size_t srcBpp = pImage->GetBitsPerPixel();
+    size_t srcBpp = img->GetBitsPerPixel();
     size_t srcPixelSize = srcBpp / 8;
-    pInput = pImage->GetData();
+    pInput = img->GetData();
     pIn = pInput;
 
     // using strcmp to avoid conversion issue
@@ -76,4 +76,7 @@ std::shared_ptr<sensor_msgs::msg::PointCloud2> PointCloudConverter::Convert(Aren
     {
         std::cout << "The tof publisher requires the camera to be in either 3D image format Coord3D_ABCY16\n\n";
     }
+    */
+
+   return nullptr;
 }

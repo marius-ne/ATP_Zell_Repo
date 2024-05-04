@@ -11,7 +11,8 @@
 #include <pcl_conversions/pcl_conversions.h>
 
 #include "ArenaApi.h"
-
+#include <pcl/io/ply_io.h>
+#include <pcl/io/pcd_io.h>
 
 using namespace std::chrono_literals;
 
@@ -26,17 +27,34 @@ using namespace std::chrono_literals;
 #define TAB2 "    "
 #define TAB3 "      "
 
+ // HLT settings 
+ #define HLT_Operating_Mode "Distance1250mmSingleFreq" 
+ // options:  
+ //	 Distance8333mmMultiFreq 
+ //	 Distance6000mmSingleFreq 
+ //	 Distance5000mmMultiFreq 
+ //	 Distance4000mmSingleFreq 
+ //	 Distance3000mmSingleFreq 
+ //	 Distance1250mmSingleFreq 
+ // single-frequency operating modes have faster image capture
+ #define HLT_Exposure_Time "Exp1000Us" 
+ // options: 
+ //	 Exp1000Us 
+ //	 Exp250Us 
+ //	 Exp62_5Us 
+ // shorter exposure time has faster image capture 
+
 
 class MinimalPublisher : public rclcpp::Node
 {
   public:
     MinimalPublisher()
-    : Node("minimal_publisher"), count_(0)
+    : Node("ToF_Pointcloud_Publisher"), count_(0)
     {
       publisher_pointcloud_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("tof_point_cloud", 10);
       publisher_ = this->create_publisher<std_msgs::msg::String>("topic", 10);
-      timer_ = this->create_wall_timer(100ms, std::bind(&MinimalPublisher::timer_callback_message, this));
-      timer_pointcloud_ = this->create_wall_timer(100ms, std::bind(&MinimalPublisher::timer_callback_pointcloud, this));
+      //timer_ = this->create_wall_timer(100ms, std::bind(&MinimalPublisher::timer_callback_message, this));
+      //timer_pointcloud_ = this->create_wall_timer(100ms, std::bind(&MinimalPublisher::timer_callback_pointcloud, this));
     }
 
     int InitializeCamera()
@@ -44,14 +62,32 @@ class MinimalPublisher : public rclcpp::Node
       pSystem = Arena::OpenSystem();
       pSystem->UpdateDevices(100);
       std::vector<Arena::DeviceInfo> deviceInfos = pSystem->GetDevices();
+      
       if (deviceInfos.size() == 0)
       {
         std::cout << "\nNo camera connected\nPress enter to complete\n";
         std::getchar();
         return 0;
       }
+      else
+      {
+        std::cout << "\nNumber of camera devices found: " << std::to_string(deviceInfos.size()) << "\n";
+      }
+
+      int counter = 0; 
+ 		  for (auto& deviceInfo : deviceInfos) { 
+ 			  std::cout << TAB1 << "Device " << counter << " : " << deviceInfo.ModelName() << std::endl; 
+ 			  counter++; 
+ 		  } 
+
+      std::cout << "Create virtual device: " << std::endl;
+      
       pDevice = pSystem->CreateDevice(deviceInfos[0]);
+
+      std::cout << "Create node map:" << std::endl;
       pNodeMap = pDevice->GetNodeMap();
+
+      std::cout << "Set camera parameters:" << std::endl;
 
       // Set acquisition mode
       //    Set acquisition mode before starting the stream. Starting the stream
@@ -100,14 +136,10 @@ class MinimalPublisher : public rclcpp::Node
       }
 
       // check if Helios2 camera used for the example
-      bool isHelios2 = false;
       GenICam::gcstring deviceModelName = Arena::GetNodeValue<GenICam::gcstring>(pDevice->GetNodeMap(), "DeviceModelName");
       std::string deviceModelName_tmp = deviceModelName.c_str();
-      if (deviceModelName_tmp.rfind("HLT", 0) == 0 || deviceModelName_tmp.rfind("HTP", 0) == 0)
-      {
-        isHelios2 = true;
-      }
 
+      
 
       // get node values that will be changed in order to return their values at
       // the end of the example
@@ -120,18 +152,14 @@ class MinimalPublisher : public rclcpp::Node
       Arena::SetNodeValue<GenICam::gcstring>(pNodeMap, "PixelFormat", PIXEL_FORMAT);
 
       // set operating mode distance
-      if (isHelios2)
-      {
-        std::cout << TAB1 << "Set 3D operating mode to Distance3000mm\n";
-        Arena::SetNodeValue<GenICam::gcstring>(pNodeMap, "Scan3dOperatingMode", "Distance3000mmSingleFreq");
-      }
-      else
-      {
-        std::cout << TAB1 << "Set 3D operating mode to Distance1500mm\n";
-        Arena::SetNodeValue<GenICam::gcstring>(pNodeMap, "Scan3dOperatingMode", "Distance1500mm");
-      }
+      std::cout << TAB1 << "Set 3D operating mode to " << HLT_Operating_Mode << "\n";
+      Arena::SetNodeValue<GenICam::gcstring>(pNodeMap, "Scan3dOperatingMode", HLT_Operating_Mode);
 
-      // get the coordinate scale in order to convert x, y and z values to mm as
+      // set exposure time
+      std::cout << TAB1 << "Set exposure time to " << HLT_Exposure_Time << "\n";
+      Arena::SetNodeValue<GenICam::gcstring>(pDevice->GetNodeMap(), "ExposureTimeSelector", HLT_Exposure_Time); 
+
+      // get the coordinate scale in order to convert x, y and z values to mmf as
       // well as the offset for x and y to correctly adjust values when in an
       // unsigned pixel format
       std::cout << TAB1 << "Get xyz coordinate scales and offsets\n\n";
@@ -158,9 +186,11 @@ class MinimalPublisher : public rclcpp::Node
       Arena::SetNodeValue<bool>(pDevice->GetTLStreamNodeMap(), "StreamPacketResendEnable", true);
 
       // retrieve image
-      std::cout << TAB2 << "Acquire image\n";
+      std::cout << TAB2 << "Start stream\n";
 
       pDevice->StartStream();
+
+      timer_pointcloud_ = this->create_wall_timer(100ms, std::bind(&MinimalPublisher::AcquireImageAndInterpretData, this));
 
       return 1;
     }
@@ -174,6 +204,7 @@ class MinimalPublisher : public rclcpp::Node
       delete[] pIn;
       pDevice->RequeueBuffer(pImage);
       pDevice->StopStream();
+      pSystem->DestroyDevice(pDevice);
 
       // return nodes to their initial values
       Arena::SetNodeValue<GenICam::gcstring>(pNodeMap, "Scan3dOperatingMode", operatingModeInitial);
@@ -186,7 +217,7 @@ class MinimalPublisher : public rclcpp::Node
     // (2) interprets ABCY data to get x, y, z and intensity
     // (3) stores data for point with min and max z values
     // (4) displays 3D data for min and max points
-    void AcquireImageAndInterpretData(Arena::IDevice* pDevice)
+    void AcquireImageAndInterpretData()
     {
       pImage = pDevice->GetImage(IMAGE_TIMEOUT);
 
@@ -199,69 +230,63 @@ class MinimalPublisher : public rclcpp::Node
       pInput = pImage->GetData();
       pIn = pInput;
 
-      // using strcmp to avoid conversion issue
-      int compareResult_ABCY16 = strcmp(PIXEL_FORMAT, "Coord3D_ABCY16");	 // if they are equal compareResult_ABCY16 = 0
-
-      bool isSignedPixelFormat = false;
-
       pcl::PointCloud<pcl::PointXYZRGB> cloud_;
 
-      // if PIXEL_FORMAT is equal to Coord3D_ABCY16
-      if (compareResult_ABCY16 == 0)
+      for (size_t i = 0; i < size; i++)
       {
-        for (size_t i = 0; i < size; i++)
+        // Extract point data to signed 16 bit integer
+        //    The first channel is the x coordinate, second channel is the y
+        //    coordinate, the third channel is the z coordinate and the
+        //    fourth channel is intensity. We offset pIn by 2 for each
+        //    channel because pIn is an 8 bit integer and we want to read it
+        //    as a 16 bit integer.
+        uint16_t x = *reinterpret_cast<const uint16_t*>(pIn);
+        uint16_t y = *reinterpret_cast<const uint16_t*>((pIn + 2));
+        uint16_t z = *reinterpret_cast<const uint16_t*>((pIn + 4));
+        uint16_t intensity = *reinterpret_cast<const uint16_t*>((pIn + 6));
+
+        // if z is less than max value, as invalid values get filtered to
+        // 65535
+        if (z < 65535)
         {
-          // Extract point data to signed 16 bit integer
-          //    The first channel is the x coordinate, second channel is the y
-          //    coordinate, the third channel is the z coordinate and the
-          //    fourth channel is intensity. We offset pIn by 2 for each
-          //    channel because pIn is an 8 bit integer and we want to read it
-          //    as a 16 bit integer.
-          uint16_t x = *reinterpret_cast<const uint16_t*>(pIn);
-          uint16_t y = *reinterpret_cast<const uint16_t*>((pIn + 2));
-          uint16_t z = *reinterpret_cast<const uint16_t*>((pIn + 4));
-          uint16_t intensity = *reinterpret_cast<const uint16_t*>((pIn + 6));
+          // Convert x, y and z to millimeters
+          //    Using each coordinates' appropriate scales, convert x, y
+          //    and z values to m. For the x and y coordinates in an
+          //    unsigned pixel format, we must then add the offset to our
+          //    converted values in order to get the correct position in
+          //    millimeters. Afterwards, the values get converted into m 
+          //    for the conversion into a sensor_msg pointcloud
+          pcl::PointXYZRGB pt;
+          pt.r = 255;
+          pt.g = 255;
+          pt.b = 255;
+          pt.x = (float(x) * scaleX + offsetX) * 0.001f;
+          pt.y = (float(y) * scaleY + offsetY) * 0.001f;;
+          pt.z = (float(z) * scaleZ + offsetZ) * 0.001f;;
 
-          // if z is less than max value, as invalid values get filtered to
-          // 65535
-          if (z < 65535)
-          {
-            // Convert x, y and z to millimeters
-            //    Using each coordinates' appropriate scales, convert x, y
-            //    and z values to m. For the x and y coordinates in an
-            //    unsigned pixel format, we must then add the offset to our
-            //    converted values in order to get the correct position in
-            //    millimeters. Afterwards, the values get converted into m 
-            //    for the conversion into a sensor_msg pointcloud
-            pcl::PointXYZRGB pt;
-            pt.r = 255;
-            pt.g = 255;
-            pt.b = 255;
-            pt.x = (float(x) * scaleX + offsetX) * 0.001f;
-            pt.y = (float(y) * scaleY + offsetZ) * 0.001f;;
-            pt.z = (float(z) * scaleY + offsetZ) * 0.001f;;
-          }
-
-          pIn += srcPixelSize;
+          cloud_.push_back(pt);
         }
 
-        pDevice->RequeueBuffer(pImage);
-
-        auto pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
-        pcl::toROSMsg(cloud_, *pc2_msg_);
-        pc2_msg_->header.frame_id = "map";
-     
-        pc2_msg_->header.stamp = now();
-        publisher_pointcloud_->publish(*pc2_msg_.get());
-
-        RCLCPP_INFO(this->get_logger(), "Publishing point cloud");
+        pIn += srcPixelSize;
       }
-      else
-      {
-        std::cout << "The tof publisher requires the camera to be in either 3D image format Coord3D_ABCY16\n\n";
-      }
+
+      pDevice->RequeueBuffer(pImage);
+
+      auto pc2_msg_ = std::make_shared<sensor_msgs::msg::PointCloud2>();
+      //pcl::io::savePLYFile("/home/alex/pointcloudTest.ply", cloud_);
+      //pcl::io::savePCDFileASCII ("/home/alex/pointcloudTest.pcd", cloud_);
+      pcl::toROSMsg(cloud_, *pc2_msg_);
+      pc2_msg_->header.frame_id = "map";
+      
+      //pcl::PLYWriter::write("pointcloudTest", cloud_);
+      //writer.write("pointcloudTest", cloud_);
+    
+      
+
+      pc2_msg_->header.stamp = now();
+      publisher_pointcloud_->publish(*pc2_msg_.get());
     }
-
+  
 
   private:
 
@@ -322,9 +347,13 @@ int main(int argc, char * argv[])
   rclcpp::init(argc, argv);
 
   auto node = std::make_shared<MinimalPublisher>();
-  node->InitializeCamera();
-  rclcpp::spin(node);
-  node->DisposeCamera();
+  
+  if (node->InitializeCamera())
+  {
+    rclcpp::spin(node);
+    node->DisposeCamera();
+  }
+  
   rclcpp::shutdown();
   
   return 0;

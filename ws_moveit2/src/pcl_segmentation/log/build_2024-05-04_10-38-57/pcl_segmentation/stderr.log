@@ -1,0 +1,23 @@
+[0m** WARNING ** io features related to pcap will be disabled[0m
+[0m** WARNING ** io features related to png will be disabled[0m
+[33mCMake Warning (dev) at CMakeLists.txt:28 (find_package):
+  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+  command to set the policy and suppress this warning.
+
+  CMake variable PCL_ROOT is set to:
+
+    /usr
+
+  For compatibility, CMake is ignoring the variable.
+This warning is for project developers.  Use -Wno-dev to suppress it.
+[0m
+[31mCMake Error at CMakeLists.txt:38 (add_executable):
+  add_executable cannot create target "pcl_segmentation" because an imported
+  target with the same name already exists.
+
+[0m
+[31mCMake Error at CMakeLists.txt:67 (install):
+  install TARGETS given target "pcl_segmentation" which does not exist.
+
+[0m

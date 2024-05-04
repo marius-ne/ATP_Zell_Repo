@@ -10,7 +10,7 @@ class PointCloudConverter
 {
 
     public:
-        std::make_shared<sensor_msgs::msg::PointCloud2> Convert(Arena::IImage* img);
+        std::shared_ptr<sensor_msgs::msg::PointCloud2> Convert(Arena::IImage* img);
 };
 
 #endif
