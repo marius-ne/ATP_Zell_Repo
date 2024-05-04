@@ -35,12 +35,22 @@ include_directories(
 )
 
 # Add executable
-add_executable(robo_planner_segmentation src/Segmentation.cpp)
+add_executable(robo_planner_segmentation 
+  src/Segmentation.cpp
+  src/Clustering.cpp
+  )
+add_executable(robo_planner_pointcloud_subscriber src/PointcloudSubscriber.cpp)
 #add_executable(rs_pcl_filter src/filter/rspcl_filter_node.cpp src/filter/rspcl_filter_component.cpp)
 #add_executable(rs_pcl_clustering src/clustering/rspcl_clustering_node.cpp src/clustering/rspcl_clustering_component.cpp)
 #add_executable(rs_pcl_marker src/visualization_marker/rspcl_marker.cpp)
 
 ament_target_dependencies(robo_planner_segmentation
+  rclcpp 
+  sensor_msgs
+  pcl_conversions
+)
+
+ament_target_dependencies(robo_planner_pointcloud_subscriber
   rclcpp 
   sensor_msgs
   pcl_conversions
@@ -65,14 +75,15 @@ ament_target_dependencies(robo_planner_segmentation
 #  visualization_msgs
 #  pcl_conversions
 #)
-#target_link_libraries(rs_pcl_filter ${PCL_LIBRARIES})
-#target_link_libraries(rs_pcl_clustering ${PCL_LIBRARIES})
+
+target_link_libraries(robo_planner_segmentation ${PCL_LIBRARIES})
+target_link_libraries(robo_planner_pointcloud_subscriber ${PCL_LIBRARIES})
 #target_link_libraries(rs_pcl_marker ${PCL_LIBRARIES})
 
 # Install Cpp executables
 install(TARGETS
   robo_planner_segmentation
-  #rs_pcl_clustering
+  robo_planner_pointcloud_subscriber
   #rs_pcl_marker
   DESTINATION lib/${PROJECT_NAME}
 )

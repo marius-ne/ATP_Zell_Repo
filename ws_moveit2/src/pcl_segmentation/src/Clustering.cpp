@@ -18,7 +18,7 @@
 Clustering::Clustering() : Node("pclsub")
 {
   subscriber_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
-    "/camera/pointcloud", 
+    "/tof_point_cloud", 
     10, 
     std::bind(&Clustering::timer_callback, this, std::placeholders::_1)\
   );
