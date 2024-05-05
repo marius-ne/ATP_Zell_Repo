@@ -1,120 +1,104 @@
-#include <pcl/point_cloud.h>
-#include <pcl/point_types.h>
-#include <pcl/common/common.h>
-#include <pcl/io/pcd_io.h>
-#include <pcl/io/ply_io.h>
-#include <pcl_conversions/pcl_conversions.h>
-#include <pcl/filters/voxel_grid.h>
+#include <memory>
+
+#include "rclcpp/rclcpp.hpp"
+#include "sensor_msgs/msg/point_cloud2.hpp"
+
+#include <iostream>
 #include <pcl/ModelCoefficients.h>
+#include <pcl/io/pcd_io.h>
+#include <pcl/point_types.h>
+#include <pcl/sample_consensus/method_types.h>
+#include <pcl/sample_consensus/model_types.h>
 #include <pcl/segmentation/sac_segmentation.h>
 #include <pcl/filters/extract_indices.h>
 
 #include <pcl/kdtree/kdtree.h>
 #include <pcl/segmentation/extract_clusters.h>
 
-#include "../include/Clustering.h"
+#include <pcl_conversions/pcl_conversions.h>
 
 
-Clustering::Clustering() : Node("pclsub")
+using std::placeholders::_1;
+
+class Clustering : public rclcpp::Node
 {
-  subscriber_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
-    "/tof_point_cloud", 
-    10, 
-    std::bind(&Clustering::timer_callback, this, std::placeholders::_1)\
-  );
+  public:
+    Clustering()
+    : Node("clustering")
+    {
+        subscriber_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
+            "tof_point_cloud_filtered_plane_inverted", 10, std::bind(&Clustering::topic_callback, this, _1));
 
-  using namespace std::chrono_literals;
-  publisher_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/pcl_data", 10);
-}
+        using namespace std::chrono_literals;
+        publisher_cluster_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/tof_point_cloud_clustered", 10);
 
+        RCLCPP_INFO(this->get_logger(), "Start plane filter");
+    }
 
-void Clustering::timer_callback(const sensor_msgs::msg::PointCloud2::SharedPtr cloud_msg)
-{
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud(new pcl::PointCloud<pcl::PointXYZRGB>);
-  pcl::fromROSMsg(*cloud_msg, *cloud);
+  private:
+    void topic_callback(const sensor_msgs::msg::PointCloud2 & msg) const
+    {
+      using namespace std;
 
-  RCLCPP_INFO(this->get_logger(), "points_size(%d,%d)",cloud_msg->height,cloud_msg->width);
+      // -- convert point cloud --
+      pcl::PCLPointCloud2 cloud;
+      pcl_conversions::toPCL(msg, cloud);
+      pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_raw(new pcl::PointCloud<pcl::PointXYZRGB>);
+      pcl::fromPCLPointCloud2(cloud,*cloud_raw);
 
-  // define a new container for the data
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_filtered(new pcl::PointCloud<pcl::PointXYZRGB>);
+      RCLCPP_INFO(this->get_logger(), (string("Received pointcloud with points: ") + string(to_string(cloud_raw->size()))).c_str());
 
-  // Voxel Grid: pattern 1
-  pcl::VoxelGrid<pcl::PointXYZRGB> voxelGrid;
-  voxelGrid.setInputCloud(cloud);
-  // set the leaf size (x, y, z)
-  voxelGrid.setLeafSize(0.02, 0.02, 0.02);
-  // apply the filter to dereferenced cloudVoxel
-  voxelGrid.filter(*cloud_filtered);
+      RCLCPP_INFO(this->get_logger(), "Build kd-tree");
+      // Create the KdTree object for the search method of the extraction
+      pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZRGB>);
+      tree->setInputCloud (cloud_raw);
 
-  // LeafSizeを細かくしすぎると、エラーとなり、止まる
-  // [pcl::VoxelGrid::applyFilter] Leaf size is too small for the input dataset. Integer indices would overflow.
+      RCLCPP_INFO(this->get_logger(), "Created cluster");
+      // create the extraction object for the clusters
+      std::vector<pcl::PointIndices> cluster_indices;
+      pcl::EuclideanClusterExtraction<pcl::PointXYZRGB> ece;
+      // specify euclidean cluster parameters
+      ece.setClusterTolerance (5);
+      ece.setMinClusterSize (2000);
+      ece.setMaxClusterSize (1000000);
+      ece.setSearchMethod (tree);
+      ece.setInputCloud (cloud_raw);
+      // exctract the indices pertaining to each cluster and store in a vector of pcl::PointIndices
+      ece.extract (cluster_indices);
 
-  // SAC Segmentation
-  pcl::ModelCoefficients::Ptr coefficients (new pcl::ModelCoefficients);  
-  pcl::PointIndices::Ptr inliers (new pcl::PointIndices);  
-  // Create the segmentation object  
-  pcl::SACSegmentation<pcl::PointXYZRGB> seg;  
-  double threshould = 0.01;
-  // Optional  
-  seg.setOptimizeCoefficients (true);  
-  // Mandatory  
-  seg.setModelType (pcl::SACMODEL_PLANE);  
-  seg.setMethodType (pcl::SAC_RANSAC);  
-  seg.setDistanceThreshold (threshould);  
-  seg.setInputCloud (cloud_filtered);  
-  seg.segment (*inliers, *coefficients);  
-
-  for (size_t i = 0; i < inliers->indices.size (); ++i) {
-    cloud_filtered->points[inliers->indices[i]].r = 255;  
-    cloud_filtered->points[inliers->indices[i]].g = 0;  
-    cloud_filtered->points[inliers->indices[i]].b = 0;  
-  }  
-
-  // Extract the planar inliers from the input cloud
-  pcl::ExtractIndices<pcl::PointXYZRGB> extract;
-  extract.setInputCloud (cloud_filtered);
-  extract.setIndices(inliers);
-  extract.setNegative(true);
-  extract.filter (*cloud_filtered);
-
-
-  // Create the KdTree object for the search method of the extraction
-  pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZRGB>);
-  tree->setInputCloud (cloud_filtered);
-
-  // create the extraction object for the clusters
-  std::vector<pcl::PointIndices> cluster_indices;
-  pcl::EuclideanClusterExtraction<pcl::PointXYZRGB> ece;
-  // specify euclidean cluster parameters
-  ece.setClusterTolerance (0.02); // 2cm
-  ece.setMinClusterSize (20);
-  ece.setMaxClusterSize (10000);
-  ece.setSearchMethod (tree);
-  ece.setInputCloud (cloud_filtered);
-  // exctract the indices pertaining to each cluster and store in a vector of pcl::PointIndices
-  ece.extract (cluster_indices);
-
-
-  pcl::PCDWriter writer;
-  int j = 0;  
-  float colors[6][3] ={{255, 0, 0}, {0,255,0}, {0,0,255}, {255,255,0}, {0,255,255}, {255,0,255}};  
-  pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_cluster(new pcl::PointCloud<pcl::PointXYZRGB>);  
-  pcl::copyPointCloud(*cloud_filtered, *cloud_cluster);  
-  for (std::vector<pcl::PointIndices>::const_iterator it = cluster_indices.begin (); it != cluster_indices.end (); ++it)  
-    {  
-      for (std::vector<int>::const_iterator pit = it->indices.begin (); pit != it->indices.end (); pit++) {  
-  cloud_cluster->points[*pit].r = colors[j%6][0];  
-  cloud_cluster->points[*pit].g = colors[j%6][1];  
-  cloud_cluster->points[*pit].b = colors[j%6][2];  
+      RCLCPP_INFO(this->get_logger(), (string("Set cluster colors with classes count: ") + string(to_string(cluster_indices.size()))).c_str() );
+      
+      int j = 0;  
+      float colors[6][3] ={{255, 0, 0}, {0,255,0}, {0,0,255}, {255,255,0}, {0,255,255}, {255,0,255}};  
+      pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_cluster(new pcl::PointCloud<pcl::PointXYZRGB>);  
+      pcl::copyPointCloud(*cloud_raw, *cloud_cluster);
+      for (std::vector<pcl::PointIndices>::const_iterator it = cluster_indices.begin (); it != cluster_indices.end (); ++it)  
+      {  
+        for (std::vector<int>::const_iterator pit = it->indices.begin (); pit != it->indices.end (); pit++) 
+        {  
+          cloud_cluster->points[*pit].r = colors[j%6][0];  
+          cloud_cluster->points[*pit].g = colors[j%6][1];  
+          cloud_cluster->points[*pit].b = colors[j%6][2];  
+        }  
+        j++;  
       }  
-      // std::cout << "PointCloud representing the Cluster: " << cloud_cluster->points.size () << " data points." << std::endl;  
-      // std::stringstream ss;  
-      // ss << "cloud_cluster_" << j << ".pcd";  
-      // writer.write<pcl::PointXYZRGB> (ss.str (), *cloud_cluster, false);  
-      j++;  
-    }  
+      
+      // publish point cloud
+      RCLCPP_INFO(this->get_logger(), "Publish point");
+      sensor_msgs::msg::PointCloud2 sensor_msg_plane;
+      pcl::toROSMsg(*cloud_cluster, sensor_msg_plane);
+    
+      publisher_cluster_->publish(sensor_msg_plane);      
+    }
 
-  sensor_msgs::msg::PointCloud2 sensor_msg;
-  pcl::toROSMsg(*cloud_cluster, sensor_msg);
-  publisher_->publish(sensor_msg);
+    rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscriber_;
+    rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr publisher_cluster_;
+};
+
+int main(int argc, char * argv[])
+{
+  rclcpp::init(argc, argv);
+  rclcpp::spin(std::make_shared<Clustering>());
+  rclcpp::shutdown();
+  return 0;
 }

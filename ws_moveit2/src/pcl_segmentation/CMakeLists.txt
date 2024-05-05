@@ -35,56 +35,60 @@ include_directories(
 )
 
 # Add executable
-add_executable(robo_planner_segmentation 
-  src/Segmentation.cpp
+add_executable(file_publisher
+  src/FilePublisher.cpp
+)
+
+add_executable(downsampling 
+  src/Downsampling.cpp
+)
+
+add_executable(clustering
   src/Clustering.cpp
-  )
-add_executable(robo_planner_pointcloud_subscriber src/PointcloudSubscriber.cpp)
-#add_executable(rs_pcl_filter src/filter/rspcl_filter_node.cpp src/filter/rspcl_filter_component.cpp)
-#add_executable(rs_pcl_clustering src/clustering/rspcl_clustering_node.cpp src/clustering/rspcl_clustering_component.cpp)
-#add_executable(rs_pcl_marker src/visualization_marker/rspcl_marker.cpp)
+)
 
-ament_target_dependencies(robo_planner_segmentation
+add_executable(plane_filter
+  src/PlaneRemover.cpp
+)
+
+
+ament_target_dependencies(file_publisher
   rclcpp 
   sensor_msgs
   pcl_conversions
 )
 
-ament_target_dependencies(robo_planner_pointcloud_subscriber
+ament_target_dependencies(downsampling
   rclcpp 
   sensor_msgs
   pcl_conversions
 )
 
-#ament_target_dependencies(rs_pcl_filter
-#  rclcpp 
-#  sensor_msgs
-#  pcl_conversions
-#)
+ament_target_dependencies(clustering
+  rclcpp 
+  sensor_msgs
+  pcl_conversions
+)
 
-#ament_target_dependencies(rs_pcl_clustering
-#  rclcpp 
-#  sensor_msgs
-#  pcl_conversions
-#)
+ament_target_dependencies(plane_filter
+  rclcpp 
+  sensor_msgs
+  pcl_conversions
+)
 
-#ament_target_dependencies(rs_pcl_marker
-#  rclcpp 
-#  sensor_msgs
-#  geometry_msgs
-#  visualization_msgs
-#  pcl_conversions
-#)
 
-target_link_libraries(robo_planner_segmentation ${PCL_LIBRARIES})
-target_link_libraries(robo_planner_pointcloud_subscriber ${PCL_LIBRARIES})
-#target_link_libraries(rs_pcl_marker ${PCL_LIBRARIES})
+
+target_link_libraries(file_publisher ${PCL_LIBRARIES})
+target_link_libraries(downsampling ${PCL_LIBRARIES})
+target_link_libraries(clustering ${PCL_LIBRARIES})
+target_link_libraries(plane_filter ${PCL_LIBRARIES})
 
 # Install Cpp executables
 install(TARGETS
-  robo_planner_segmentation
-  robo_planner_pointcloud_subscriber
-  #rs_pcl_marker
+  file_publisher
+  downsampling
+  clustering
+  plane_filter
   DESTINATION lib/${PROJECT_NAME}
 )
 

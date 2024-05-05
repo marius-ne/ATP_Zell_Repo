@@ -1,0 +1,501 @@
+[0.000000] (-) TimerEvent: {}
+[0.000607] (-) JobUnselected: {'identifier': 'asyncua'}
+[0.000767] (-) JobUnselected: {'identifier': 'cpp_tof_camera'}
+[0.000813] (-) JobUnselected: {'identifier': 'hello_ur'}
+[0.000844] (-) JobUnselected: {'identifier': 'interface_opcua'}
+[0.000873] (-) JobUnselected: {'identifier': 'lucid_vision_driver'}
+[0.000903] (-) JobUnselected: {'identifier': 'moveit_backend'}
+[0.000931] (-) JobUnselected: {'identifier': 'mtc_tutorial'}
+[0.000961] (-) JobUnselected: {'identifier': 'py_pubsub'}
+[0.000990] (-) JobUnselected: {'identifier': 'robo_planner'}
+[0.001018] (-) JobUnselected: {'identifier': 'robo_planner_py'}
+[0.001046] (-) JobUnselected: {'identifier': 'tod_camera_cpp'}
+[0.001075] (-) JobUnselected: {'identifier': 'tutorial_interfaces'}
+[0.001103] (-) JobUnselected: {'identifier': 'wzlscheduler_interfaces'}
+[0.001134] (pcl_segmentation) JobQueued: {'identifier': 'pcl_segmentation', 'dependencies': OrderedDict()}
+[0.001167] (pcl_segmentation) JobStarted: {'identifier': 'pcl_segmentation'}
+[0.008316] (pcl_segmentation) JobProgress: {'identifier': 'pcl_segmentation', 'progress': 'cmake'}
+[0.008515] (pcl_segmentation) Command: {'cmd': ['/usr/bin/cmake', '/home/aw/restackcell/ws_moveit2/src/pcl_segmentation', '-DCMAKE_INSTALL_PREFIX=/home/aw/restackcell/ws_moveit2/install/pcl_segmentation'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/pcl_segmentation', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('ROS_PACKAGE_PATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/restackcell/ws_moveit2/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/115688_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/aw/restackcell/ws_moveit2/install/asyncua/bin:/opt/ros/humble/bin:/home/aw/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files/Meld/:/mnt/c/Users/unnor/AppData/Local/Programs/Python/Launcher/:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('ARENA_ROOT', '/home/aw/ArenaSDK_Linux_x64'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/cpp_tof_camera:/home/aw/restackcell/ws_moveit2/install/robo_planner_py:/home/aw/restackcell/ws_moveit2/install/py_pubsub:/home/aw/restackcell/ws_moveit2/install/pcl_segmentation:/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/pcl_segmentation'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/home/aw/restackcell/ws_moveit2/install/asyncua/lib/python3.10/site-packages:/home/aw/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/aw/restackcell/ws_moveit2/install/py_pubsub/lib/python3.10/site-packages:/home/aw/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/cpp_tof_camera:/home/aw/restackcell/ws_moveit2/install/pcl_segmentation:/home/aw/restackcell/ws_moveit2/install/robo_planner_py:/home/aw/restackcell/ws_moveit2/install/py_pubsub:/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[0.085410] (pcl_segmentation) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[0.099310] (-) TimerEvent: {}
+[0.199601] (-) TimerEvent: {}
+[0.299921] (-) TimerEvent: {}
+[0.336926] (pcl_segmentation) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[0.400144] (-) TimerEvent: {}
+[0.500675] (-) TimerEvent: {}
+[0.528566] (pcl_segmentation) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[0.600842] (-) TimerEvent: {}
+[0.611138] (pcl_segmentation) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[0.615861] (pcl_segmentation) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[0.616148] (pcl_segmentation) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[0.616318] (pcl_segmentation) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[0.618155] (pcl_segmentation) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[0.700989] (-) TimerEvent: {}
+[0.712106] (pcl_segmentation) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[0.716948] (pcl_segmentation) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[0.717230] (pcl_segmentation) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[0.717724] (pcl_segmentation) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[0.719448] (pcl_segmentation) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.801184] (-) TimerEvent: {}
+[0.825937] (pcl_segmentation) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[0.884196] (pcl_segmentation) StdoutLine: {'line': b'-- Found sensor_msgs: 4.2.3 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[0.901319] (-) TimerEvent: {}
+[0.969461] (pcl_segmentation) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.972330] (pcl_segmentation) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.977719] (pcl_segmentation) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.986021] (pcl_segmentation) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.001461] (pcl_segmentation) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.001744] (-) TimerEvent: {}
+[1.102085] (-) TimerEvent: {}
+[1.143907] (pcl_segmentation) StdoutLine: {'line': b'-- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[1.187381] (pcl_segmentation) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.188982] (pcl_segmentation) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.202358] (-) TimerEvent: {}
+[1.302828] (-) TimerEvent: {}
+[1.403351] (-) TimerEvent: {}
+[1.503874] (-) TimerEvent: {}
+[1.604269] (-) TimerEvent: {}
+[1.704596] (-) TimerEvent: {}
+[1.804932] (-) TimerEvent: {}
+[1.896433] (pcl_segmentation) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[1.905142] (-) TimerEvent: {}
+[2.005542] (-) TimerEvent: {}
+[2.105997] (-) TimerEvent: {}
+[2.206342] (-) TimerEvent: {}
+[2.306630] (-) TimerEvent: {}
+[2.406947] (-) TimerEvent: {}
+[2.507230] (-) TimerEvent: {}
+[2.607554] (-) TimerEvent: {}
+[2.616861] (pcl_segmentation) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[2.707663] (-) TimerEvent: {}
+[2.808014] (-) TimerEvent: {}
+[2.908375] (-) TimerEvent: {}
+[3.008726] (-) TimerEvent: {}
+[3.109067] (-) TimerEvent: {}
+[3.209444] (-) TimerEvent: {}
+[3.309918] (-) TimerEvent: {}
+[3.410384] (-) TimerEvent: {}
+[3.510742] (-) TimerEvent: {}
+[3.611143] (-) TimerEvent: {}
+[3.711439] (-) TimerEvent: {}
+[3.811765] (-) TimerEvent: {}
+[3.912099] (-) TimerEvent: {}
+[3.923055] (pcl_segmentation) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[3.929919] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[4.012238] (-) TimerEvent: {}
+[4.012465] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[4.012635] (pcl_segmentation) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[4.109156] (pcl_segmentation) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[4.110021] (pcl_segmentation) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[4.112388] (-) TimerEvent: {}
+[4.196904] (pcl_segmentation) StdoutLine: {'line': b'-- Found visualization_msgs: 4.2.3 (/opt/ros/humble/share/visualization_msgs/cmake)\n'}
+[4.212511] (-) TimerEvent: {}
+[4.280116] (pcl_segmentation) StdoutLine: {'line': b'-- Found pcl_conversions: 2.4.0 (/opt/ros/humble/share/pcl_conversions/cmake)\n'}
+[4.312699] (-) TimerEvent: {}
+[4.373079] (pcl_segmentation) StdoutLine: {'line': b"-- Checking for module 'eigen3'\n"}
+[4.380913] (pcl_segmentation) StdoutLine: {'line': b'--   Found eigen3, version 3.4.0\n'}
+[4.396343] (pcl_segmentation) StdoutLine: {'line': b'-- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") \n'}
+[4.396503] (pcl_segmentation) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[4.407545] (pcl_segmentation) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.65.0") found components: system filesystem date_time iostreams serialization \n'}
+[4.412814] (-) TimerEvent: {}
+[4.440392] (pcl_segmentation) StdoutLine: {'line': b"-- Checking for module 'libusb-1.0'\n"}
+[4.449105] (pcl_segmentation) StdoutLine: {'line': b'--   Found libusb-1.0, version 1.0.25\n'}
+[4.512056] (pcl_segmentation) StdoutLine: {'line': b'-- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  \n'}
+[4.512823] (pcl_segmentation) StdoutLine: {'line': b'-- Found OpenNI: /usr/lib/libOpenNI.so;libusb::libusb (found version "1.5.4.0") \n'}
+[4.512951] (-) TimerEvent: {}
+[4.513078] (pcl_segmentation) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[4.613117] (-) TimerEvent: {}
+[4.628981] (pcl_segmentation) StdoutLine: {'line': b'-- Found OpenNI2: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb (found version "2.2.0.33") \n'}
+[4.629466] (pcl_segmentation) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[4.629553] (pcl_segmentation) StderrLine: {'line': b'\x1b[0m** WARNING ** io features related to pcap will be disabled\x1b[0m\n'}
+[4.629622] (pcl_segmentation) StderrLine: {'line': b'\x1b[0m** WARNING ** io features related to png will be disabled\x1b[0m\n'}
+[4.653939] (pcl_segmentation) StdoutLine: {'line': b'-- Found GLEW: /usr/lib/x86_64-linux-gnu/libGLEW.so  \n'}
+[4.698387] (pcl_segmentation) StdoutLine: {'line': b'-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so  found components: OpenGL GLX \n'}
+[4.713215] (-) TimerEvent: {}
+[4.813593] (-) TimerEvent: {}
+[4.817547] (pcl_segmentation) StdoutLine: {'line': b'-- Found MPI_C: /usr/lib/x86_64-linux-gnu/libmpi.so (found version "3.1") \n'}
+[4.817811] (pcl_segmentation) StdoutLine: {'line': b'-- Found MPI: TRUE (found version "3.1") found components: C \n'}
+[4.819544] (pcl_segmentation) StdoutLine: {'line': b'-- Found JsonCpp: /usr/lib/x86_64-linux-gnu/libjsoncpp.so (found suitable version "1.9.5", minimum required is "0.7.0") \n'}
+[4.913732] (-) TimerEvent: {}
+[5.014038] (-) TimerEvent: {}
+[5.082794] (pcl_segmentation) StdoutLine: {'line': b'-- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") \n'}
+[5.114148] (-) TimerEvent: {}
+[5.214458] (-) TimerEvent: {}
+[5.314787] (-) TimerEvent: {}
+[5.404601] (pcl_segmentation) StdoutLine: {'line': b'-- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.37") \n'}
+[5.411986] (pcl_segmentation) StdoutLine: {'line': b'-- Found Eigen3: /usr/include/eigen3 (found version "3.4.0") \n'}
+[5.414880] (-) TimerEvent: {}
+[5.515172] (-) TimerEvent: {}
+[5.615488] (-) TimerEvent: {}
+[5.715792] (-) TimerEvent: {}
+[5.816123] (-) TimerEvent: {}
+[5.916471] (-) TimerEvent: {}
+[6.016775] (-) TimerEvent: {}
+[6.073295] (pcl_segmentation) StdoutLine: {'line': b'-- Found X11: /usr/include   \n'}
+[6.073658] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so\n'}
+[6.116885] (-) TimerEvent: {}
+[6.162670] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found\n'}
+[6.162808] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for gethostbyname\n'}
+[6.217001] (-) TimerEvent: {}
+[6.243689] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for gethostbyname - found\n'}
+[6.243848] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for connect\n'}
+[6.317151] (-) TimerEvent: {}
+[6.330676] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for connect - found\n'}
+[6.330851] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for remove\n'}
+[6.415444] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for remove - found\n'}
+[6.415666] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for shmat\n'}
+[6.417246] (-) TimerEvent: {}
+[6.490467] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for shmat - found\n'}
+[6.490652] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE\n'}
+[6.517381] (-) TimerEvent: {}
+[6.581723] (pcl_segmentation) StdoutLine: {'line': b'-- Looking for IceConnectionNumber in ICE - found\n'}
+[6.617497] (-) TimerEvent: {}
+[6.717815] (-) TimerEvent: {}
+[6.818119] (-) TimerEvent: {}
+[6.918732] (-) TimerEvent: {}
+[7.019070] (-) TimerEvent: {}
+[7.119422] (-) TimerEvent: {}
+[7.145273] (pcl_segmentation) StdoutLine: {'line': b'-- Found EXPAT: /usr/lib/x86_64-linux-gnu/libexpat.so (found version "2.4.7") \n'}
+[7.148211] (pcl_segmentation) StdoutLine: {'line': b'-- Found double-conversion: /usr/lib/x86_64-linux-gnu/libdouble-conversion.so  \n'}
+[7.150866] (pcl_segmentation) StdoutLine: {'line': b'-- Found LZ4: /usr/lib/x86_64-linux-gnu/liblz4.so (found version "1.9.3") \n'}
+[7.153034] (pcl_segmentation) StdoutLine: {'line': b'-- Found LZMA: /usr/lib/x86_64-linux-gnu/liblzma.so (found version "5.2.5") \n'}
+[7.219546] (-) TimerEvent: {}
+[7.237166] (pcl_segmentation) StdoutLine: {'line': b'-- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80") \n'}
+[7.319650] (-) TimerEvent: {}
+[7.320738] (pcl_segmentation) StdoutLine: {'line': b'-- Found TIFF: /usr/lib/x86_64-linux-gnu/libtiff.so (found version "4.3.0")  \n'}
+[7.323176] (pcl_segmentation) StdoutLine: {'line': b'-- Found Freetype: /usr/lib/x86_64-linux-gnu/libfreetype.so (found version "2.11.1") \n'}
+[7.326999] (pcl_segmentation) StdoutLine: {'line': b'-- Found utf8cpp: /usr/include/utf8cpp  \n'}
+[7.349187] (pcl_segmentation) StdoutLine: {'line': b'-- Eigen found (include: /usr/include/eigen3, version: 3.4.0)\n'}
+[7.349429] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_COMMON\n'}
+[7.349847] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  \n'}
+[7.349995] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_OCTREE\n'}
+[7.350446] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  \n'}
+[7.350569] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_IO\n'}
+[7.350993] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  \n'}
+[7.351271] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL: pcl_common;pcl_octree;pcl_io;Boost::system;Boost::filesystem;Boost::date_time;Boost::iostreams;Boost::serialization;/usr/lib/libOpenNI.so;libusb::libusb;/usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb;VTK::ChartsCore;VTK::CommonColor;VTK::CommonComputationalGeometry;VTK::CommonCore;VTK::CommonDataModel;VTK::CommonExecutionModel;VTK::CommonMath;VTK::CommonMisc;VTK::CommonTransforms;VTK::FiltersCore;VTK::FiltersExtraction;VTK::FiltersGeneral;VTK::FiltersGeometry;VTK::FiltersModeling;VTK::FiltersSources;VTK::ImagingCore;VTK::ImagingSources;VTK::InteractionImage;VTK::InteractionStyle;VTK::InteractionWidgets;VTK::IOCore;VTK::IOGeometry;VTK::IOImage;VTK::IOLegacy;VTK::IOPLY;VTK::RenderingAnnotation;VTK::RenderingCore;VTK::RenderingContext2D;VTK::RenderingLOD;VTK::RenderingFreeType;VTK::ViewsCore;VTK::ViewsContext2D;VTK::RenderingOpenGL2;VTK::GUISupportQt  \n'}
+[7.351556] (pcl_segmentation) StderrLine: {'line': b'\x1b[33mCMake Warning (dev) at CMakeLists.txt:28 (find_package):\n'}
+[7.351655] (pcl_segmentation) StderrLine: {'line': b'  Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.\n'}
+[7.351695] (pcl_segmentation) StderrLine: {'line': b'  Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy\n'}
+[7.351730] (pcl_segmentation) StderrLine: {'line': b'  command to set the policy and suppress this warning.\n'}
+[7.351765] (pcl_segmentation) StderrLine: {'line': b'\n'}
+[7.351798] (pcl_segmentation) StderrLine: {'line': b'  CMake variable PCL_ROOT is set to:\n'}
+[7.351829] (pcl_segmentation) StderrLine: {'line': b'\n'}
+[7.351861] (pcl_segmentation) StderrLine: {'line': b'    /usr\n'}
+[7.351892] (pcl_segmentation) StderrLine: {'line': b'\n'}
+[7.351924] (pcl_segmentation) StderrLine: {'line': b'  For compatibility, CMake is ignoring the variable.\n'}
+[7.351956] (pcl_segmentation) StderrLine: {'line': b'This warning is for project developers.  Use -Wno-dev to suppress it.\n'}
+[7.351987] (pcl_segmentation) StderrLine: {'line': b'\x1b[0m\n'}
+[7.419762] (-) TimerEvent: {}
+[7.520063] (-) TimerEvent: {}
+[7.620355] (-) TimerEvent: {}
+[7.720716] (-) TimerEvent: {}
+[7.821011] (-) TimerEvent: {}
+[7.921313] (-) TimerEvent: {}
+[7.982545] (pcl_segmentation) StdoutLine: {'line': b"-- Checking for module 'flann'\n"}
+[7.989581] (pcl_segmentation) StdoutLine: {'line': b'--   Found flann, version 1.9.1\n'}
+[8.021442] (-) TimerEvent: {}
+[8.121724] (-) TimerEvent: {}
+[8.174458] (pcl_segmentation) StdoutLine: {'line': b'-- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  \n'}
+[8.174768] (pcl_segmentation) StdoutLine: {'line': b'-- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)\n'}
+[8.221876] (-) TimerEvent: {}
+[8.322184] (-) TimerEvent: {}
+[8.422469] (-) TimerEvent: {}
+[8.522766] (-) TimerEvent: {}
+[8.623102] (-) TimerEvent: {}
+[8.723503] (-) TimerEvent: {}
+[8.823821] (-) TimerEvent: {}
+[8.924140] (-) TimerEvent: {}
+[9.024477] (-) TimerEvent: {}
+[9.124854] (-) TimerEvent: {}
+[9.225203] (-) TimerEvent: {}
+[9.284262] (pcl_segmentation) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[9.288497] (pcl_segmentation) StdoutLine: {'line': b'-- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)\n'}
+[9.325326] (-) TimerEvent: {}
+[9.425700] (-) TimerEvent: {}
+[9.526245] (-) TimerEvent: {}
+[9.626659] (-) TimerEvent: {}
+[9.727120] (-) TimerEvent: {}
+[9.827521] (-) TimerEvent: {}
+[9.928033] (-) TimerEvent: {}
+[10.028525] (-) TimerEvent: {}
+[10.128958] (-) TimerEvent: {}
+[10.229278] (-) TimerEvent: {}
+[10.329603] (-) TimerEvent: {}
+[10.400634] (pcl_segmentation) StdoutLine: {'line': b'-- Found Qhull version 8.0.2\n'}
+[10.429711] (-) TimerEvent: {}
+[10.530021] (-) TimerEvent: {}
+[10.630320] (-) TimerEvent: {}
+[10.730644] (-) TimerEvent: {}
+[10.830957] (-) TimerEvent: {}
+[10.931278] (-) TimerEvent: {}
+[11.031562] (-) TimerEvent: {}
+[11.131874] (-) TimerEvent: {}
+[11.232189] (-) TimerEvent: {}
+[11.332492] (-) TimerEvent: {}
+[11.432805] (-) TimerEvent: {}
+[11.471660] (pcl_segmentation) StdoutLine: {'line': b'-- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)\n'}
+[11.532944] (-) TimerEvent: {}
+[11.633278] (-) TimerEvent: {}
+[11.733591] (-) TimerEvent: {}
+[11.833948] (-) TimerEvent: {}
+[11.934351] (-) TimerEvent: {}
+[12.034640] (-) TimerEvent: {}
+[12.134972] (-) TimerEvent: {}
+[12.235286] (-) TimerEvent: {}
+[12.335609] (-) TimerEvent: {}
+[12.435950] (-) TimerEvent: {}
+[12.536383] (-) TimerEvent: {}
+[12.542231] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_KDTREE\n'}
+[12.542792] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  \n'}
+[12.543059] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_SEARCH\n'}
+[12.543335] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  \n'}
+[12.543602] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_SAMPLE_CONSENSUS\n'}
+[12.543947] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  \n'}
+[12.544042] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_FILTERS\n'}
+[12.544441] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  \n'}
+[12.544536] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_2D\n'}
+[12.544714] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_2D: /usr/include/pcl-1.12  \n'}
+[12.544936] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_GEOMETRY\n'}
+[12.545051] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_GEOMETRY: /usr/include/pcl-1.12  \n'}
+[12.545243] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_FEATURES\n'}
+[12.545523] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  \n'}
+[12.545906] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_ML\n'}
+[12.546456] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  \n'}
+[12.546600] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_SEGMENTATION\n'}
+[12.547091] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  \n'}
+[12.547261] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_VISUALIZATION\n'}
+[12.547752] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  \n'}
+[12.547902] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_SURFACE\n'}
+[12.548386] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  \n'}
+[12.548526] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_REGISTRATION\n'}
+[12.549016] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  \n'}
+[12.549242] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_KEYPOINTS\n'}
+[12.549578] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  \n'}
+[12.549781] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_TRACKING\n'}
+[12.550171] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  \n'}
+[12.550414] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_RECOGNITION\n'}
+[12.550672] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  \n'}
+[12.550899] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_STEREO\n'}
+[12.551314] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  \n'}
+[12.551470] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_APPS\n'}
+[12.551811] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  \n'}
+[12.552325] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_IN_HAND_SCANNER\n'}
+[12.552515] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  \n'}
+[12.552578] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_MODELER\n'}
+[12.552674] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_MODELER: /usr/include/pcl-1.12  \n'}
+[12.552764] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_POINT_CLOUD_EDITOR\n'}
+[12.552943] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  \n'}
+[12.553033] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_OUTOFCORE\n'}
+[12.553459] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  \n'}
+[12.553630] (pcl_segmentation) StdoutLine: {'line': b'-- looking for PCL_PEOPLE\n'}
+[12.554109] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  \n'}
+[12.554659] (pcl_segmentation) StdoutLine: {'line': b'-- Found PCL: pcl_common;pcl_octree;pcl_io;pcl_kdtree;pcl_search;pcl_sample_consensus;pcl_filters;pcl_features;pcl_ml;pcl_segmentation;pcl_visualization;pcl_surface;pcl_registration;pcl_keypoints;pcl_tracking;pcl_recognition;pcl_stereo;pcl_apps;pcl_outofcore;pcl_people;Boost::system;Boost::filesystem;Boost::date_time;Boost::iostreams;Boost::serialization;/usr/lib/libOpenNI.so;libusb::libusb;/usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb;VTK::ChartsCore;VTK::CommonColor;VTK::CommonComputationalGeometry;VTK::CommonCore;VTK::CommonDataModel;VTK::CommonExecutionModel;VTK::CommonMath;VTK::CommonMisc;VTK::CommonTransforms;VTK::FiltersCore;VTK::FiltersExtraction;VTK::FiltersGeneral;VTK::FiltersGeometry;VTK::FiltersModeling;VTK::FiltersSources;VTK::ImagingCore;VTK::ImagingSources;VTK::InteractionImage;VTK::InteractionStyle;VTK::InteractionWidgets;VTK::IOCore;VTK::IOGeometry;VTK::IOImage;VTK::IOLegacy;VTK::IOPLY;VTK::RenderingAnnotation;VTK::RenderingCore;VTK::RenderingContext2D;VTK::RenderingLOD;VTK::RenderingFreeType;VTK::ViewsCore;VTK::ViewsContext2D;VTK::RenderingOpenGL2;VTK::GUISupportQt;FLANN::FLANN;QHULL::QHULL (Required is at least version "1.1") \n'}
+[12.636569] (-) TimerEvent: {}
+[12.713466] (pcl_segmentation) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)\n'}
+[12.736739] (-) TimerEvent: {}
+[12.764776] (pcl_segmentation) StdoutLine: {'line': b"-- Added test 'copyright' to check source files copyright and LICENSE\n"}
+[12.767481] (pcl_segmentation) StdoutLine: {'line': b"-- Added test 'cppcheck' to perform static code analysis on C / C++ code\n"}
+[12.767844] (pcl_segmentation) StdoutLine: {'line': b'-- Configured cppcheck include dirs: /home/aw/restackcell/ws_moveit2/src/pcl_segmentation/include\n'}
+[12.767920] (pcl_segmentation) StdoutLine: {'line': b'-- Configured cppcheck exclude dirs and/or files: \n'}
+[12.770386] (pcl_segmentation) StdoutLine: {'line': b"-- Added test 'cpplint' to check C / C++ code against the Google style\n"}
+[12.770496] (pcl_segmentation) StdoutLine: {'line': b'-- Configured cpplint exclude dirs and/or files: \n'}
+[12.771235] (pcl_segmentation) StdoutLine: {'line': b"-- Added test 'flake8' to check Python code syntax and style conventions\n"}
+[12.772209] (pcl_segmentation) StdoutLine: {'line': b"-- Added test 'lint_cmake' to check CMake code style\n"}
+[12.773153] (pcl_segmentation) StdoutLine: {'line': b"-- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257\n"}
+[12.775476] (pcl_segmentation) StdoutLine: {'line': b"-- Added test 'uncrustify' to check C / C++ code style\n"}
+[12.775565] (pcl_segmentation) StdoutLine: {'line': b'-- Configured uncrustify additional arguments: \n'}
+[12.776145] (pcl_segmentation) StdoutLine: {'line': b"-- Added test 'xmllint' to check XML markup files\n"}
+[12.777151] (pcl_segmentation) StdoutLine: {'line': b'-- Configuring done\n'}
+[12.823495] (pcl_segmentation) StdoutLine: {'line': b'-- Generating done\n'}
+[12.825246] (pcl_segmentation) StdoutLine: {'line': b'-- Build files have been written to: /home/aw/restackcell/ws_moveit2/build/pcl_segmentation\n'}
+[12.836345] (pcl_segmentation) CommandEnded: {'returncode': 0}
+[12.839191] (-) TimerEvent: {}
+[12.839837] (pcl_segmentation) JobProgress: {'identifier': 'pcl_segmentation', 'progress': 'build'}
+[12.839885] (pcl_segmentation) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/aw/restackcell/ws_moveit2/build/pcl_segmentation', '--', '-j16', '-l16'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/pcl_segmentation', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('ROS_PACKAGE_PATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/restackcell/ws_moveit2/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/115688_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/aw/restackcell/ws_moveit2/install/asyncua/bin:/opt/ros/humble/bin:/home/aw/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files/Meld/:/mnt/c/Users/unnor/AppData/Local/Programs/Python/Launcher/:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('ARENA_ROOT', '/home/aw/ArenaSDK_Linux_x64'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/cpp_tof_camera:/home/aw/restackcell/ws_moveit2/install/robo_planner_py:/home/aw/restackcell/ws_moveit2/install/py_pubsub:/home/aw/restackcell/ws_moveit2/install/pcl_segmentation:/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/pcl_segmentation'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/home/aw/restackcell/ws_moveit2/install/asyncua/lib/python3.10/site-packages:/home/aw/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/aw/restackcell/ws_moveit2/install/py_pubsub/lib/python3.10/site-packages:/home/aw/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/cpp_tof_camera:/home/aw/restackcell/ws_moveit2/install/pcl_segmentation:/home/aw/restackcell/ws_moveit2/install/robo_planner_py:/home/aw/restackcell/ws_moveit2/install/py_pubsub:/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[12.870424] (pcl_segmentation) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/clustering.dir/src/Clustering.cpp.o\x1b[0m\n'}
+[12.870575] (pcl_segmentation) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/downsampling.dir/src/Downsampling.cpp.o\x1b[0m\n'}
+[12.870624] (pcl_segmentation) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/file_publisher.dir/src/FilePublisher.cpp.o\x1b[0m\n'}
+[12.870664] (pcl_segmentation) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/plane_filter.dir/src/PlaneRemover.cpp.o\x1b[0m\n'}
+[12.939404] (-) TimerEvent: {}
+[13.039924] (-) TimerEvent: {}
+[13.140658] (-) TimerEvent: {}
+[13.241280] (-) TimerEvent: {}
+[13.342024] (-) TimerEvent: {}
+[13.442567] (-) TimerEvent: {}
+[13.543467] (-) TimerEvent: {}
+[13.644146] (-) TimerEvent: {}
+[13.744643] (-) TimerEvent: {}
+[13.845188] (-) TimerEvent: {}
+[13.945700] (-) TimerEvent: {}
+[14.046278] (-) TimerEvent: {}
+[14.146797] (-) TimerEvent: {}
+[14.247420] (-) TimerEvent: {}
+[14.348125] (-) TimerEvent: {}
+[14.448932] (-) TimerEvent: {}
+[14.549932] (-) TimerEvent: {}
+[14.650320] (-) TimerEvent: {}
+[14.750698] (-) TimerEvent: {}
+[14.851126] (-) TimerEvent: {}
+[14.951472] (-) TimerEvent: {}
+[15.051821] (-) TimerEvent: {}
+[15.152170] (-) TimerEvent: {}
+[15.252498] (-) TimerEvent: {}
+[15.352815] (-) TimerEvent: {}
+[15.453172] (-) TimerEvent: {}
+[15.553584] (-) TimerEvent: {}
+[15.653995] (-) TimerEvent: {}
+[15.754386] (-) TimerEvent: {}
+[15.854770] (-) TimerEvent: {}
+[15.955184] (-) TimerEvent: {}
+[16.055561] (-) TimerEvent: {}
+[16.155916] (-) TimerEvent: {}
+[16.256238] (-) TimerEvent: {}
+[16.356649] (-) TimerEvent: {}
+[16.457044] (-) TimerEvent: {}
+[16.557374] (-) TimerEvent: {}
+[16.657697] (-) TimerEvent: {}
+[16.758158] (-) TimerEvent: {}
+[16.858705] (-) TimerEvent: {}
+[16.959375] (-) TimerEvent: {}
+[17.059759] (-) TimerEvent: {}
+[17.160196] (-) TimerEvent: {}
+[17.260537] (-) TimerEvent: {}
+[17.360952] (-) TimerEvent: {}
+[17.461309] (-) TimerEvent: {}
+[17.561663] (-) TimerEvent: {}
+[17.662061] (-) TimerEvent: {}
+[17.722772] (pcl_segmentation) StderrLine: {'line': b'\x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/pcl_segmentation/src/FilePublisher.cpp:59:40:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Ksensor_msgs::msg::PointCloud2_<std::allocator<void> >::Ptr\x1b[m\x1b[K\xe2\x80\x99 is deprecated [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[17.723076] (pcl_segmentation) StderrLine: {'line': b'   59 |     sensor_msgs::msg::PointCloud2::Ptr \x1b[01;35m\x1b[Ksensor_msg_\x1b[m\x1b[K;\n'}
+[17.723147] (pcl_segmentation) StderrLine: {'line': b'      |                                        \x1b[01;35m\x1b[K^~~~~~~~~~~\x1b[m\x1b[K\n'}
+[17.723187] (pcl_segmentation) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/point_cloud2.hpp:7\x1b[m\x1b[K,\n'}
+[17.723232] (pcl_segmentation) StderrLine: {'line': b'                 from \x1b[01m\x1b[K/home/aw/restackcell/ws_moveit2/src/pcl_segmentation/src/FilePublisher.cpp:4\x1b[m\x1b[K:\n'}
+[17.723269] (pcl_segmentation) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/point_cloud2__struct.hpp:191:5:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[17.723305] (pcl_segmentation) StderrLine: {'line': b'  191 |     \x1b[01;36m\x1b[KPtr\x1b[m\x1b[K;\n'}
+[17.723342] (pcl_segmentation) StderrLine: {'line': b'      |     \x1b[01;36m\x1b[K^~~\x1b[m\x1b[K\n'}
+[17.762223] (-) TimerEvent: {}
+[17.862611] (-) TimerEvent: {}
+[17.962945] (-) TimerEvent: {}
+[18.063286] (-) TimerEvent: {}
+[18.163687] (-) TimerEvent: {}
+[18.264113] (-) TimerEvent: {}
+[18.364437] (-) TimerEvent: {}
+[18.464742] (-) TimerEvent: {}
+[18.565104] (-) TimerEvent: {}
+[18.665428] (-) TimerEvent: {}
+[18.765779] (-) TimerEvent: {}
+[18.866284] (-) TimerEvent: {}
+[18.966725] (-) TimerEvent: {}
+[19.067070] (-) TimerEvent: {}
+[19.167379] (-) TimerEvent: {}
+[19.267813] (-) TimerEvent: {}
+[19.368219] (-) TimerEvent: {}
+[19.468700] (-) TimerEvent: {}
+[19.569088] (-) TimerEvent: {}
+[19.669530] (-) TimerEvent: {}
+[19.769969] (-) TimerEvent: {}
+[19.870302] (-) TimerEvent: {}
+[19.970687] (-) TimerEvent: {}
+[20.071041] (-) TimerEvent: {}
+[20.171416] (-) TimerEvent: {}
+[20.271735] (-) TimerEvent: {}
+[20.338525] (pcl_segmentation) StdoutLine: {'line': b'[ 62%] \x1b[32m\x1b[1mLinking CXX executable file_publisher\x1b[0m\n'}
+[20.371871] (-) TimerEvent: {}
+[20.472219] (-) TimerEvent: {}
+[20.572717] (-) TimerEvent: {}
+[20.673259] (-) TimerEvent: {}
+[20.773757] (-) TimerEvent: {}
+[20.874138] (-) TimerEvent: {}
+[20.927656] (pcl_segmentation) StdoutLine: {'line': b'[ 62%] Built target file_publisher\n'}
+[20.974327] (-) TimerEvent: {}
+[21.074831] (-) TimerEvent: {}
+[21.175224] (-) TimerEvent: {}
+[21.275581] (-) TimerEvent: {}
+[21.375969] (-) TimerEvent: {}
+[21.476307] (-) TimerEvent: {}
+[21.576748] (-) TimerEvent: {}
+[21.677119] (-) TimerEvent: {}
+[21.777540] (-) TimerEvent: {}
+[21.877932] (-) TimerEvent: {}
+[21.978279] (-) TimerEvent: {}
+[22.078604] (-) TimerEvent: {}
+[22.178995] (-) TimerEvent: {}
+[22.279352] (-) TimerEvent: {}
+[22.379687] (-) TimerEvent: {}
+[22.480120] (-) TimerEvent: {}
+[22.580713] (-) TimerEvent: {}
+[22.681094] (-) TimerEvent: {}
+[22.781481] (-) TimerEvent: {}
+[22.881783] (-) TimerEvent: {}
+[22.982177] (-) TimerEvent: {}
+[23.082571] (-) TimerEvent: {}
+[23.182945] (-) TimerEvent: {}
+[23.283358] (-) TimerEvent: {}
+[23.383708] (-) TimerEvent: {}
+[23.484075] (-) TimerEvent: {}
+[23.584448] (-) TimerEvent: {}
+[23.684779] (-) TimerEvent: {}
+[23.698875] (pcl_segmentation) StdoutLine: {'line': b'[ 75%] \x1b[32m\x1b[1mLinking CXX executable clustering\x1b[0m\n'}
+[23.784969] (-) TimerEvent: {}
+[23.885425] (-) TimerEvent: {}
+[23.892081] (pcl_segmentation) StdoutLine: {'line': b'[ 87%] \x1b[32m\x1b[1mLinking CXX executable downsampling\x1b[0m\n'}
+[23.985629] (-) TimerEvent: {}
+[24.086228] (-) TimerEvent: {}
+[24.186827] (-) TimerEvent: {}
+[24.287342] (-) TimerEvent: {}
+[24.387814] (-) TimerEvent: {}
+[24.488264] (-) TimerEvent: {}
+[24.588668] (-) TimerEvent: {}
+[24.689295] (-) TimerEvent: {}
+[24.789912] (-) TimerEvent: {}
+[24.890328] (-) TimerEvent: {}
+[24.990742] (-) TimerEvent: {}
+[25.031768] (pcl_segmentation) StdoutLine: {'line': b'[ 87%] Built target downsampling\n'}
+[25.090910] (-) TimerEvent: {}
+[25.109436] (pcl_segmentation) StdoutLine: {'line': b'[ 87%] Built target clustering\n'}
+[25.191159] (-) TimerEvent: {}
+[25.200479] (pcl_segmentation) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable plane_filter\x1b[0m\n'}
+[25.291431] (-) TimerEvent: {}
+[25.391993] (-) TimerEvent: {}
+[25.492573] (-) TimerEvent: {}
+[25.593260] (-) TimerEvent: {}
+[25.693868] (-) TimerEvent: {}
+[25.794505] (-) TimerEvent: {}
+[25.894927] (-) TimerEvent: {}
+[25.995396] (-) TimerEvent: {}
+[26.095911] (-) TimerEvent: {}
+[26.196385] (-) TimerEvent: {}
+[26.296791] (-) TimerEvent: {}
+[26.397110] (-) TimerEvent: {}
+[26.497502] (-) TimerEvent: {}
+[26.538380] (pcl_segmentation) StdoutLine: {'line': b'[100%] Built target plane_filter\n'}
+[26.546431] (pcl_segmentation) CommandEnded: {'returncode': 0}
+[26.566466] (pcl_segmentation) JobProgress: {'identifier': 'pcl_segmentation', 'progress': 'install'}
+[26.571532] (pcl_segmentation) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/aw/restackcell/ws_moveit2/build/pcl_segmentation'], 'cwd': '/home/aw/restackcell/ws_moveit2/build/pcl_segmentation', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'aw'), ('ROS_PACKAGE_PATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/aw'), ('OLDPWD', '/home/aw/restackcell'), ('ROS_PYTHON_VERSION', '3'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/aw/restackcell/ws_moveit2/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'aw'), ('NAME', 'DESKTOP-SOE5Q36'), ('WSL_INTEROP', '/run/WSL/115688_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/aw/restackcell/ws_moveit2/install/asyncua/bin:/opt/ros/humble/bin:/home/aw/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/CanonicalGroupLimited.Ubuntu22.04LTS_2204.3.63.0_x64__79rhkp1fndgsc:/mnt/c/Program Files/Common Files/Oracle/Java/javapath:/mnt/c/Program Files/Microsoft/jdk-11.0.16.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/NVIDIA Corporation/PhysX/Common:/mnt/c/Program Files/NVIDIA Corporation/NVIDIA NvDLISR:/mnt/c/Program Files/Microsoft SQL Server/130/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files/Git/cmd:/mnt/c/Program Files/Docker/Docker/resources/bin:/mnt/c/Program Files/Meld/:/mnt/c/Users/unnor/AppData/Local/Programs/Python/Launcher/:/mnt/c/Users/unnor/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/gitkraken/bin:/mnt/c/Users/unnor/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/unnor/.dotnet/tools:/mnt/c/Users/unnor/AppData/Local/Programs/Microsoft VS Code/bin:/snap/bin'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('ARENA_ROOT', '/home/aw/ArenaSDK_Linux_x64'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('AMENT_PREFIX_PATH', '/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/cpp_tof_camera:/home/aw/restackcell/ws_moveit2/install/robo_planner_py:/home/aw/restackcell/ws_moveit2/install/py_pubsub:/home/aw/restackcell/ws_moveit2/install/pcl_segmentation:/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('PWD', '/home/aw/restackcell/ws_moveit2/build/pcl_segmentation'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces/local/lib/python3.10/dist-packages:/home/aw/restackcell/ws_moveit2/install/asyncua/lib/python3.10/site-packages:/home/aw/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/aw/restackcell/ws_moveit2/install/py_pubsub/lib/python3.10/site-packages:/home/aw/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/aw/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/aw/restackcell/ws_moveit2/install/tutorial_interfaces:/home/aw/restackcell/ws_moveit2/install/mtc_tutorial:/home/aw/restackcell/ws_moveit2/install/cpp_tof_camera:/home/aw/restackcell/ws_moveit2/install/pcl_segmentation:/home/aw/restackcell/ws_moveit2/install/robo_planner_py:/home/aw/restackcell/ws_moveit2/install/py_pubsub:/home/aw/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble'), ('WSLENV', '')]), 'shell': False}
+[26.576624] (pcl_segmentation) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[26.576900] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/lib/pcl_segmentation/file_publisher\n'}
+[26.577868] (pcl_segmentation) StdoutLine: {'line': b'-- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/pcl_segmentation/lib/pcl_segmentation/file_publisher" to ""\n'}
+[26.577987] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/lib/pcl_segmentation/downsampling\n'}
+[26.580185] (pcl_segmentation) StdoutLine: {'line': b'-- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/pcl_segmentation/lib/pcl_segmentation/downsampling" to ""\n'}
+[26.580308] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/lib/pcl_segmentation/clustering\n'}
+[26.582080] (pcl_segmentation) StdoutLine: {'line': b'-- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/pcl_segmentation/lib/pcl_segmentation/clustering" to ""\n'}
+[26.582175] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/lib/pcl_segmentation/plane_filter\n'}
+[26.584295] (pcl_segmentation) StdoutLine: {'line': b'-- Set runtime path of "/home/aw/restackcell/ws_moveit2/install/pcl_segmentation/lib/pcl_segmentation/plane_filter" to ""\n'}
+[26.584590] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/ament_index/resource_index/package_run_dependencies/pcl_segmentation\n'}
+[26.584728] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/ament_index/resource_index/parent_prefix_path/pcl_segmentation\n'}
+[26.584919] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/pcl_segmentation/environment/ament_prefix_path.sh\n'}
+[26.585078] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/pcl_segmentation/environment/ament_prefix_path.dsv\n'}
+[26.585196] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/pcl_segmentation/environment/path.sh\n'}
+[26.585369] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/pcl_segmentation/environment/path.dsv\n'}
+[26.585468] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/pcl_segmentation/local_setup.bash\n'}
+[26.585575] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/pcl_segmentation/local_setup.sh\n'}
+[26.585751] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/pcl_segmentation/local_setup.zsh\n'}
+[26.585801] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/pcl_segmentation/local_setup.dsv\n'}
+[26.585889] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/pcl_segmentation/package.dsv\n'}
+[26.585996] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/ament_index/resource_index/packages/pcl_segmentation\n'}
+[26.586166] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/pcl_segmentation/cmake/pcl_segmentationConfig.cmake\n'}
+[26.586215] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/pcl_segmentation/cmake/pcl_segmentationConfig-version.cmake\n'}
+[26.586252] (pcl_segmentation) StdoutLine: {'line': b'-- Installing: /home/aw/restackcell/ws_moveit2/install/pcl_segmentation/share/pcl_segmentation/package.xml\n'}
+[26.587335] (pcl_segmentation) CommandEnded: {'returncode': 0}
+[26.597710] (-) TimerEvent: {}
+[26.620323] (pcl_segmentation) JobEnded: {'identifier': 'pcl_segmentation', 'rc': 0}
+[26.621256] (-) EventReactorShutdown: {}
