@@ -1,4 +1,5 @@
 #include <memory>
+#include <vector>
 
 #include "rclcpp/rclcpp.hpp"
 #include "sensor_msgs/msg/point_cloud2.hpp"
@@ -17,6 +18,9 @@
 
 #include <pcl_conversions/pcl_conversions.h>
 
+#include "wzlscheduler_interfaces/msg/labeled_point_cloud.hpp"
+#include "wzlscheduler_interfaces/msg/labeled_point_clouds.hpp"
+
 
 using std::placeholders::_1;
 
@@ -30,7 +34,8 @@ class Clustering : public rclcpp::Node
             "tof_point_cloud_filtered_plane_inverted", 10, std::bind(&Clustering::topic_callback, this, _1));
 
         using namespace std::chrono_literals;
-        publisher_cluster_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/tof_point_cloud_clustered", 10);
+        publisher_colored_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/tof_point_cloud_colored", 10);
+        publisher_clustered_ = this->create_publisher<wzlscheduler_interfaces::msg::LabeledPointClouds>("/tof_point_cloud_clustered", 10);
 
         RCLCPP_INFO(this->get_logger(), "Start plane filter");
     }
@@ -70,29 +75,54 @@ class Clustering : public rclcpp::Node
       
       int j = 0;  
       float colors[6][3] ={{255, 0, 0}, {0,255,0}, {0,0,255}, {255,255,0}, {0,255,255}, {255,0,255}};  
-      pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_cluster(new pcl::PointCloud<pcl::PointXYZRGB>);  
+      pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_cluster(new pcl::PointCloud<pcl::PointXYZRGB>);
       pcl::copyPointCloud(*cloud_raw, *cloud_cluster);
+      
+      std::vector<pcl::PointCloud<pcl::PointXYZRGB>::Ptr> clusters;
+
       for (std::vector<pcl::PointIndices>::const_iterator it = cluster_indices.begin (); it != cluster_indices.end (); ++it)  
       {  
-        for (std::vector<int>::const_iterator pit = it->indices.begin (); pit != it->indices.end (); pit++) 
-        {  
-          cloud_cluster->points[*pit].r = colors[j%6][0];  
-          cloud_cluster->points[*pit].g = colors[j%6][1];  
-          cloud_cluster->points[*pit].b = colors[j%6][2];  
-        }  
-        j++;  
+          pcl::PointCloud<pcl::PointXYZRGB>::Ptr cluster_cloud(new pcl::PointCloud<pcl::PointXYZRGB>);  
+          pcl::copyPointCloud(*cloud_raw, it->indices, *cluster_cloud);
+
+          clusters.push_back(cluster_cloud);
+
+          for (std::vector<int>::const_iterator pit = it->indices.begin (); pit != it->indices.end (); pit++) 
+          {  
+            cloud_cluster->points[*pit].r = colors[j%6][0];  
+            cloud_cluster->points[*pit].g = colors[j%6][1];  
+            cloud_cluster->points[*pit].b = colors[j%6][2];  
+          }  
+          j++;  
       }  
       
-      // publish point cloud
+      // publish point cloud (colored)
       RCLCPP_INFO(this->get_logger(), "Publish point");
       sensor_msgs::msg::PointCloud2 sensor_msg_plane;
       pcl::toROSMsg(*cloud_cluster, sensor_msg_plane);
     
-      publisher_cluster_->publish(sensor_msg_plane);      
+      publisher_colored_->publish(sensor_msg_plane);      
+
+      // publish point cloud (clusters)
+      wzlscheduler_interfaces::msg::LabeledPointClouds msg_pointclouds;
+
+      for (auto cloud : clusters)
+      {
+        wzlscheduler_interfaces::msg::LabeledPointCloud msg_pointcloud;
+        msg_pointcloud.label = "unlabeled";
+
+        sensor_msgs::msg::PointCloud2 sensor_msg_cluster;
+        pcl::toROSMsg(*cloud_cluster, sensor_msg_cluster);
+        
+        msg_pointcloud.pointcloud = sensor_msg_cluster;
+      }
+
+      publisher_clustered_->publish(msg_pointclouds);
     }
 
     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscriber_;
-    rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr publisher_cluster_;
+    rclcpp::Publisher<sensor_msgs::msg::PointCloud2>::SharedPtr publisher_colored_;
+    rclcpp::Publisher<wzlscheduler_interfaces::msg::LabeledPointClouds>::SharedPtr publisher_clustered_;
 };
 
 int main(int argc, char * argv[])

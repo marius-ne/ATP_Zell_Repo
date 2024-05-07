@@ -18,12 +18,13 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
-find_package(sensor_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 find_package(visualization_msgs REQUIRED)
 find_package(pcl_conversions REQUIRED)
 find_package(PCL REQUIRED COMPONENTS common io)
+find_package(wzlscheduler_interfaces REQUIRED)
 
 find_package(PCL 1.1 REQUIRED)
 include_directories(${PCL_INCLUDE_DIRS})
@@ -51,6 +52,14 @@ add_executable(plane_filter
   src/PlaneRemover.cpp
 )
 
+add_executable(classification
+  src/Classification.cpp
+)
+
+add_executable(matching
+  src/Matching.cpp
+)
+
 
 ament_target_dependencies(file_publisher
   rclcpp 
@@ -68,6 +77,7 @@ ament_target_dependencies(clustering
   rclcpp 
   sensor_msgs
   pcl_conversions
+  wzlscheduler_interfaces
 )
 
 ament_target_dependencies(plane_filter
@@ -76,12 +86,28 @@ ament_target_dependencies(plane_filter
   pcl_conversions
 )
 
+ament_target_dependencies(classification
+  rclcpp 
+  sensor_msgs
+  pcl_conversions
+  wzlscheduler_interfaces
+)
+
+ament_target_dependencies(matching
+  rclcpp 
+  sensor_msgs
+  pcl_conversions
+  wzlscheduler_interfaces
+)
+
 
 
 target_link_libraries(file_publisher ${PCL_LIBRARIES})
 target_link_libraries(downsampling ${PCL_LIBRARIES})
 target_link_libraries(clustering ${PCL_LIBRARIES})
 target_link_libraries(plane_filter ${PCL_LIBRARIES})
+target_link_libraries(classification ${PCL_LIBRARIES})
+target_link_libraries(matching ${PCL_LIBRARIES})
 
 # Install Cpp executables
 install(TARGETS
