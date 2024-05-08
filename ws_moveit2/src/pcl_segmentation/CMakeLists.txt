@@ -60,6 +60,10 @@ add_executable(matching
   src/Matching.cpp
 )
 
+add_executable(pose_snapper
+  src/PoseSnapper.cpp
+)
+
 
 ament_target_dependencies(file_publisher
   rclcpp 
@@ -100,7 +104,12 @@ ament_target_dependencies(matching
   wzlscheduler_interfaces
 )
 
-
+ament_target_dependencies(pose_snapper
+  rclcpp 
+  sensor_msgs
+  pcl_conversions
+  wzlscheduler_interfaces
+)
 
 target_link_libraries(file_publisher ${PCL_LIBRARIES})
 target_link_libraries(downsampling ${PCL_LIBRARIES})
@@ -108,6 +117,7 @@ target_link_libraries(clustering ${PCL_LIBRARIES})
 target_link_libraries(plane_filter ${PCL_LIBRARIES})
 target_link_libraries(classification ${PCL_LIBRARIES})
 target_link_libraries(matching ${PCL_LIBRARIES})
+target_link_libraries(pose_snapper ${PCL_LIBRARIES})
 
 # Install Cpp executables
 install(TARGETS
@@ -115,6 +125,9 @@ install(TARGETS
   downsampling
   clustering
   plane_filter
+  classification
+  matching
+  pose_snapper
   DESTINATION lib/${PROJECT_NAME}
 )
 

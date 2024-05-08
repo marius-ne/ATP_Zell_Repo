@@ -31,7 +31,7 @@ class Classification : public rclcpp::Node
     : Node("classification")
     {
         subscriber_ = this->create_subscription<wzlscheduler_interfaces::msg::LabeledPointClouds>(
-            "/tof_point_cloud_clustered", 10, std::bind(&Classification::topic_callback, this, _1));
+           "/tof_point_cloud_clustered", 10, std::bind(&Classification::topic_callback, this, _1));
 
         using namespace std::chrono_literals;
         publisher_cluster_ = this->create_publisher<wzlscheduler_interfaces::msg::LabeledPointClouds>("/tof_point_cloud_classified", 10);
@@ -56,11 +56,11 @@ class Classification : public rclcpp::Node
         // todo: find features to classifiy and label the point cloud
     }
 
-    void topic_callback(wzlscheduler_interfaces::msg::LabeledPointClouds & msg) const
+    void topic_callback(const wzlscheduler_interfaces::msg::LabeledPointClouds & msg) const
     {
         for (auto&& cluster : msg.elements)
         {
-            perform_classification(cluster);
+            //perform_classification(cluster);
         }        
 
         // publish point cloud

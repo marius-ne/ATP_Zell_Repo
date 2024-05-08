@@ -101,14 +101,13 @@ class PlaneRemover : public rclcpp::Node
 
       Eigen::Vector3f rotation_vector = xy_plane_normal_vector.cross(floor_plane_normal_vector);
       float theta = -atan2(rotation_vector.norm(), xy_plane_normal_vector.dot(floor_plane_normal_vector)) + M_PI;
-      //float theta = acos(floor_plane_normal_vector.dot(xy_plane_normal_vector)/sqrt( pow(coefficients->values[0],2)+ pow(coefficients->values[1],2) + pow(coefficients->values[2],2)));
 
-      Eigen::Affine3f transform_2 = Eigen::Affine3f::Identity();
-      transform_2.translation() << 0, 0, -coefficients->values[3];
-      transform_2.rotate (Eigen::AngleAxisf (theta, rotation_vector.normalized()));
-      std::cout << "Transformation matrix: " << std::endl << transform_2.matrix() << std::endl;
-      pcl::transformPointCloud (*cloud_filtered, *cloud_filtered, transform_2);
-      pcl::transformPointCloud (*cloud_filtered_inverted, *cloud_filtered_inverted, transform_2);
+      Eigen::Affine3f transform = Eigen::Affine3f::Identity();
+      transform.translation() << 0, 0, -coefficients->values[3]; // add plane normal distance as z translation
+      transform.rotate (Eigen::AngleAxisf (theta, rotation_vector.normalized()));
+      std::cout << "Transformation matrix: " << std::endl << transform.matrix() << std::endl;
+      pcl::transformPointCloud (*cloud_filtered, *cloud_filtered, transform);
+      pcl::transformPointCloud (*cloud_filtered_inverted, *cloud_filtered_inverted, transform);
 
       // delete all points which are located below the plane
       pcl::PassThrough<pcl::PointXYZ> pass;
@@ -126,9 +125,6 @@ class PlaneRemover : public rclcpp::Node
       sensor_msgs::msg::PointCloud2 sensor_msg_plane_inverted;
       pcl::toROSMsg(*cloud_filtered_inverted, sensor_msg_plane_inverted);
       publisher_plane_inverted_->publish(sensor_msg_plane_inverted);   
-
-
-      
     }
 
     rclcpp::Subscription<sensor_msgs::msg::PointCloud2>::SharedPtr subscriber_;

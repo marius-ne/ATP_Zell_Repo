@@ -24,14 +24,14 @@
 
 using std::placeholders::_1;
 
-class Matching : public rclcpp::Node
+class PoseSnapper : public rclcpp::Node
 {
   public:
-    Matching()
-    : Node("matching")
+    PoseSnapper()
+    : Node("posesnapper")
     {
         subscriber_ = this->create_subscription<wzlscheduler_interfaces::msg::LabeledPointClouds>(
-            "tof_point_cloud_clustered", 10, std::bind(&Matching::topic_callback, this, _1));
+            "tof_point_cloud_clustered", 10, std::bind(&PoseSnapper::topic_callback, this, _1));
 
         using namespace std::chrono_literals;
         publisher_ = this->create_publisher<wzlscheduler_interfaces::msg::LabeledPointClouds>("/tof_point_cloud_matched", 10);
@@ -41,17 +41,21 @@ class Matching : public rclcpp::Node
 
   private:
 
-    void estimate_pose(const wzlscheduler_interfaces::msg::LabeledPointCloud & msg) const
+    void snap_pose(const wzlscheduler_interfaces::msg::LabeledPointCloud & msg) const
     {
       (void) msg;
-      // todo: do pose estimation using matching algos
+      // todo: pose snapping 
+      // infos needed: grid origin in robot/world/coordinates
+      // grid hole distance
+      // roughly estimated pose which needs to be snapped
+      // positions of drill holes on the equipment (in the equipments local coordinate system)
     }
 
     void topic_callback(const wzlscheduler_interfaces::msg::LabeledPointClouds & msg) const
     {
         for (auto&& cluster : msg.elements)
         {
-            estimate_pose(cluster);
+            snap_pose(cluster);
         }        
 
         // publish point cloud
@@ -67,7 +71,7 @@ class Matching : public rclcpp::Node
 int main(int argc, char * argv[])
 {
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<Matching>());
+  rclcpp::spin(std::make_shared<PoseSnapper>());
   rclcpp::shutdown();
   return 0;
 }
