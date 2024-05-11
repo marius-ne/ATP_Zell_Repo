@@ -17,23 +17,38 @@
 #include <pcl_conversions/pcl_conversions.h>
 #include <math.h>
 
+#define PARAM_SUBSCRIPTION_NAME "subscription_name"
+#define PARAM_PUBLISHER_PLANE_NAME "publisher_name_plane"
+#define PARAM_PUBLISHER_PLANE_INVERTED_NAME "publisher_name_plane_inverted"
+#define PARAM_DISTANCE_THRESHOLD "cluster_tolerance"
+#define PARAM_MAX_ITERATIONS "cluster_size_min"
+#define PARAM_FILTER_LIMITS_Z_MIN "cluster_filter_limits_z_min"
+#define PARAM_FILTER_LIMITS_Z_MAX "cluster_filter_limits_z_max"
 
 using std::placeholders::_1;
 
 class PlaneRemover : public rclcpp::Node
 {
   public:
-    PlaneRemover()
+    PlaneRemover(const std::string& subscription_name, const std::string& publisher_plane_name, const std::string& publisher_plane_inverted_name)
     : Node("plane_remover")
     {
+        RCLCPP_INFO(this->get_logger(), "Start plane filter");
+
+        this->declare_parameter(PARAM_SUBSCRIPTION_NAME, subscription_name);
+        this->declare_parameter(PARAM_PUBLISHER_PLANE_NAME, publisher_plane_name);
+        this->declare_parameter(PARAM_PUBLISHER_PLANE_INVERTED_NAME, publisher_plane_inverted_name);
+        this->declare_parameter(PARAM_DISTANCE_THRESHOLD, 10);
+        this->declare_parameter(PARAM_MAX_ITERATIONS, 1000);
+        this->declare_parameter(PARAM_FILTER_LIMITS_Z_MIN, 0.0);
+        this->declare_parameter(PARAM_FILTER_LIMITS_Z_MAX, 100000.0);
+
         subscriber_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
-            "tof_point_cloud_downsampled", 10, std::bind(&PlaneRemover::topic_callback, this, _1));
+            get_parameter(PARAM_SUBSCRIPTION_NAME).as_string(), 10, std::bind(&PlaneRemover::topic_callback, this, _1));
 
         using namespace std::chrono_literals;
-        publisher_plane_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/tof_point_cloud_filtered_plane", 10);
-        publisher_plane_inverted_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/tof_point_cloud_filtered_plane_inverted", 10);
-
-        RCLCPP_INFO(this->get_logger(), "Start plane filter");
+        publisher_plane_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(get_parameter(PARAM_PUBLISHER_PLANE_NAME).as_string(), 10);
+        publisher_plane_inverted_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(get_parameter(PARAM_PUBLISHER_PLANE_INVERTED_NAME).as_string(), 10);
     }
 
   private:
@@ -59,8 +74,8 @@ class PlaneRemover : public rclcpp::Node
       // Mandatory
       seg.setModelType (pcl::SACMODEL_PLANE);
       seg.setMethodType (pcl::SAC_RANSAC);
-      seg.setDistanceThreshold (10.0);
-      seg.setMaxIterations (1000);
+      seg.setDistanceThreshold (get_parameter(PARAM_DISTANCE_THRESHOLD).as_double());
+      seg.setMaxIterations (get_parameter(PARAM_DISTANCE_THRESHOLD).as_int());
       seg.setInputCloud (cloud_unfiltered);
       seg.segment (*inliers, *coefficients);
 
@@ -113,7 +128,7 @@ class PlaneRemover : public rclcpp::Node
       pcl::PassThrough<pcl::PointXYZ> pass;
       pass.setInputCloud (cloud_filtered_inverted);
       pass.setFilterFieldName ("z");
-      pass.setFilterLimits (0.0, 100000.0);
+      pass.setFilterLimits (get_parameter(PARAM_FILTER_LIMITS_Z_MIN).as_int(), get_parameter(PARAM_FILTER_LIMITS_Z_MAX).as_int());
       
       pass.filter (*cloud_filtered_inverted);
 
@@ -134,8 +149,12 @@ class PlaneRemover : public rclcpp::Node
 
 int main(int argc, char * argv[])
 {
+  std::string subscription_name = (argc >= 2) ? argv[1] : "/tof_point_cloud_downsampled";
+  std::string publisher_plane_name = (argc >= 3) ? argv[2] : "/tof_point_cloud_filtered_plane";
+  std::string publisher_plane_inverted_name = (argc >= 4) ? argv[3] : "/tof_point_cloud_filtered_plane_inverted";
+
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<PlaneRemover>());
+  rclcpp::spin(std::make_shared<PlaneRemover>(subscription_name, publisher_plane_name, publisher_plane_inverted_name));
   rclcpp::shutdown();
   return 0;
 }

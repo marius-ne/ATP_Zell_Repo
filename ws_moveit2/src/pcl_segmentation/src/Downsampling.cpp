@@ -21,22 +21,54 @@
 
 using std::placeholders::_1;
 
+#define PARAM_SUBSCRIPTION_NAME "subscription_name"
+#define PARAM_PUBLISHER_NAME "publisher_name"
+#define PARAM_LEAF_SIZE "leaf_size"
+
 class Downsampling : public rclcpp::Node
 {
   public:
-    Downsampling()
+    Downsampling(const std::string subscription_name, const std::string& publisher_name)
     : Node("downsampling")
     {
+        RCLCPP_INFO(this->get_logger(), "Start downsampling\n");
+
+        this->declare_parameter(PARAM_SUBSCRIPTION_NAME, subscription_name);
+        this->declare_parameter(PARAM_PUBLISHER_NAME, publisher_name);
+        this->declare_parameter(PARAM_LEAF_SIZE, 3.0);
+
+        print_params();
+
         subscriber_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
-            "tof_point_cloud", 10, std::bind(&Downsampling::topic_callback, this, _1));
+            this->get_parameter(PARAM_SUBSCRIPTION_NAME).as_string(), 10, std::bind(&Downsampling::topic_callback, this, _1));
 
         using namespace std::chrono_literals;
-        publisher_cluster_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/tof_point_cloud_downsampled", 10);
-
-        RCLCPP_INFO(this->get_logger(), "Start plane filter");
+        publisher_cluster_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(this->get_parameter(PARAM_PUBLISHER_NAME).as_string(), 10);
     }
 
   private:
+    void print_params() const
+    {
+      std::vector<std::string> param_names = 
+      {
+        PARAM_SUBSCRIPTION_NAME, 
+        PARAM_PUBLISHER_NAME,
+        PARAM_LEAF_SIZE
+      };
+
+      std::vector<rclcpp::Parameter> params = this->get_parameters(param_names);
+
+      RCLCPP_INFO(this->get_logger(), "__________ PARAMS __________\n");
+
+      for (auto &param : params)
+      {
+          RCLCPP_INFO(this->get_logger(), "%s: %s",
+                      param.get_name().c_str(), param.value_to_string().c_str());
+      }
+
+      RCLCPP_INFO(this->get_logger(), "............................\n");
+    }
+
     void topic_callback(const sensor_msgs::msg::PointCloud2 & msg) const
     {
         using namespace std;
@@ -54,7 +86,11 @@ class Downsampling : public rclcpp::Node
         pcl::VoxelGrid<pcl::PointXYZRGB> voxelGrid;
         voxelGrid.setInputCloud(cloud_raw);
         // set the leaf size (x, y, z)
-        voxelGrid.setLeafSize(3.0, 3.0, 3.0);
+        float leaf_size_x = this->get_parameter(PARAM_LEAF_SIZE).as_double();
+        float leaf_size_y = this->get_parameter(PARAM_LEAF_SIZE).as_double();
+        float leaf_size_z = this->get_parameter(PARAM_LEAF_SIZE).as_double();
+
+        voxelGrid.setLeafSize(leaf_size_x, leaf_size_y, leaf_size_z);
         // apply the filter to dereferenced cloudVoxel
         voxelGrid.filter(*cloud_filtered);
         
@@ -74,8 +110,11 @@ class Downsampling : public rclcpp::Node
 
 int main(int argc, char * argv[])
 {
+  std::string subscription_name = (argc >= 2) ? argv[1] : "/tof_point_cloud";
+  std::string publisher_name = (argc >= 3) ? argv[2] : "/tof_point_cloud_downsampled";
+
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<Downsampling>());
+  rclcpp::spin(std::make_shared<Downsampling>(subscription_name, publisher_name));
   rclcpp::shutdown();
   return 0;
 }

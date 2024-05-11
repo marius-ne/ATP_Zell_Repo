@@ -25,6 +25,8 @@ find_package(visualization_msgs REQUIRED)
 find_package(pcl_conversions REQUIRED)
 find_package(PCL REQUIRED COMPONENTS common io)
 find_package(wzlscheduler_interfaces REQUIRED)
+find_package(tf2 REQUIRED)
+find_package(tf2_ros REQUIRED)
 
 find_package(PCL 1.1 REQUIRED)
 include_directories(${PCL_INCLUDE_DIRS})
@@ -62,6 +64,14 @@ add_executable(matching
 
 add_executable(pose_snapper
   src/PoseSnapper.cpp
+)
+
+add_executable(transformation_robot
+  src/TransformationRobot.cpp
+)
+
+add_executable(hand_eye_transform_publisher
+  src/HandEyeTransformPublisher.cpp
 )
 
 
@@ -111,6 +121,24 @@ ament_target_dependencies(pose_snapper
   wzlscheduler_interfaces
 )
 
+ament_target_dependencies(transformation_robot
+  rclcpp 
+  sensor_msgs
+  pcl_conversions
+  wzlscheduler_interfaces
+  geometry_msgs
+  tf2
+  tf2_ros
+)
+
+ament_target_dependencies(hand_eye_transform_publisher
+  rclcpp 
+  geometry_msgs
+  tf2
+  tf2_ros
+)
+
+
 target_link_libraries(file_publisher ${PCL_LIBRARIES})
 target_link_libraries(downsampling ${PCL_LIBRARIES})
 target_link_libraries(clustering ${PCL_LIBRARIES})
@@ -118,6 +146,7 @@ target_link_libraries(plane_filter ${PCL_LIBRARIES})
 target_link_libraries(classification ${PCL_LIBRARIES})
 target_link_libraries(matching ${PCL_LIBRARIES})
 target_link_libraries(pose_snapper ${PCL_LIBRARIES})
+target_link_libraries(transformation_robot ${PCL_LIBRARIES})
 
 # Install Cpp executables
 install(TARGETS
@@ -128,6 +157,8 @@ install(TARGETS
   classification
   matching
   pose_snapper
+  transformation_robot
+  hand_eye_transform_publisher
   DESTINATION lib/${PROJECT_NAME}
 )
 

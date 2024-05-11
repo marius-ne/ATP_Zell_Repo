@@ -21,26 +21,64 @@
 #include "wzlscheduler_interfaces/msg/labeled_point_cloud.hpp"
 #include "wzlscheduler_interfaces/msg/labeled_point_clouds.hpp"
 
+#define PARAM_SUBSCRIPTION_NAME "subscription_name"
+#define PARAM_PUBLISHER_COLORED_NAME "publisher_name_colored"
+#define PARAM_PUBLISHER_CLUSTERED_NAME "publisher_name_clustered"
+#define PARAM_CLUSTER_TOLERANCE "cluster_tolerance"
+#define PARAM_CLUSTER_SIZE_MIN "cluster_size_min"
+#define PARAM_CLUSTER_SIZE_MAX "cluster_size_max"
 
 using std::placeholders::_1;
 
 class Clustering : public rclcpp::Node
 {
   public:
-    Clustering()
+    Clustering(const std::string& subscription_name, const std::string& publisher_colored_name, const std::string& publisher_clustered_name)
     : Node("clustering")
     {
+        RCLCPP_INFO(this->get_logger(), "Start clustering");
+
+        this->declare_parameter(PARAM_SUBSCRIPTION_NAME, subscription_name);
+        this->declare_parameter(PARAM_PUBLISHER_COLORED_NAME, publisher_colored_name);
+        this->declare_parameter(PARAM_PUBLISHER_CLUSTERED_NAME, publisher_clustered_name);
+        this->declare_parameter(PARAM_CLUSTER_TOLERANCE, 5);
+        this->declare_parameter(PARAM_CLUSTER_SIZE_MIN, 2000);
+        this->declare_parameter(PARAM_CLUSTER_SIZE_MAX, 1000000);
+
         subscriber_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
-            "tof_point_cloud_filtered_plane_inverted", 10, std::bind(&Clustering::topic_callback, this, _1));
+            subscription_name, 10, std::bind(&Clustering::topic_callback, this, _1));
 
         using namespace std::chrono_literals;
-        publisher_colored_ = this->create_publisher<sensor_msgs::msg::PointCloud2>("/tof_point_cloud_colored", 10);
-        publisher_clustered_ = this->create_publisher<wzlscheduler_interfaces::msg::LabeledPointClouds>("/tof_point_cloud_clustered", 10);
-
-        RCLCPP_INFO(this->get_logger(), "Start plane filter");
+        publisher_colored_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(publisher_colored_name, 10);
+        publisher_clustered_ = this->create_publisher<wzlscheduler_interfaces::msg::LabeledPointClouds>(publisher_clustered_name, 10);
     }
 
   private:
+    void print_params() const
+    {
+      std::vector<std::string> param_names = 
+      {
+        PARAM_SUBSCRIPTION_NAME,
+        PARAM_PUBLISHER_COLORED_NAME,
+        PARAM_PUBLISHER_CLUSTERED_NAME,
+        PARAM_CLUSTER_TOLERANCE,
+        PARAM_CLUSTER_SIZE_MIN,
+        PARAM_CLUSTER_SIZE_MAX
+      };
+
+      std::vector<rclcpp::Parameter> params = this->get_parameters(param_names);
+
+      RCLCPP_INFO(this->get_logger(), "__________ PARAMS __________\n");
+
+      for (auto &param : params)
+      {
+          RCLCPP_INFO(this->get_logger(), "%s: %s",
+                      param.get_name().c_str(), param.value_to_string().c_str());
+      }
+
+      RCLCPP_INFO(this->get_logger(), "............................\n");
+    }
+
     void topic_callback(const sensor_msgs::msg::PointCloud2 & msg) const
     {
       using namespace std;
@@ -62,10 +100,11 @@ class Clustering : public rclcpp::Node
       // create the extraction object for the clusters
       std::vector<pcl::PointIndices> cluster_indices;
       pcl::EuclideanClusterExtraction<pcl::PointXYZRGB> ece;
+
       // specify euclidean cluster parameters
-      ece.setClusterTolerance (5);
-      ece.setMinClusterSize (2000);
-      ece.setMaxClusterSize (1000000);
+      ece.setClusterTolerance (get_parameter(PARAM_CLUSTER_TOLERANCE).as_double());
+      ece.setMinClusterSize (get_parameter(PARAM_CLUSTER_SIZE_MIN).as_double());
+      ece.setMaxClusterSize (get_parameter(PARAM_CLUSTER_SIZE_MAX).as_double());
       ece.setSearchMethod (tree);
       ece.setInputCloud (cloud_raw);
       // exctract the indices pertaining to each cluster and store in a vector of pcl::PointIndices
@@ -127,8 +166,12 @@ class Clustering : public rclcpp::Node
 
 int main(int argc, char * argv[])
 {
+  std::string subscription_name = (argc >= 2) ? argv[1] : "/tof_point_cloud_filtered_plane_inverted";
+  std::string publisher_colored_name = (argc >= 3) ? argv[2] : "/tof_point_cloud_colored";
+  std::string publisher_clustered_name = (argc >= 4) ? argv[3] : "/tof_point_cloud_clustered";
+
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<Clustering>());
+  rclcpp::spin(std::make_shared<Clustering>(subscription_name, publisher_colored_name, publisher_clustered_name));
   rclcpp::shutdown();
   return 0;
 }
