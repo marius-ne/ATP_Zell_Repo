@@ -5,6 +5,21 @@ def generate_launch_description():
     return LaunchDescription([
         Node(
             package="pcl_segmentation",
+            executable="hand_eye_transform_publisher",
+            name="hand_eye_transform_publisher_param_node",
+            parameters=[{
+                "tf2_hand_frame_name": "tcp_frame",
+                "tf2_eye_frame_name": "eye_frame",
+                "tf2_translation_x": 0,
+                "tf2_translation_y": 0,
+                "tf2_translation_z": 0,
+                "tf2_rotation_rad_x": 0,
+                "tf2_rotation_rad_y": 0,
+                "tf2_rotation_rad_z": 0,
+            }]
+        ),
+        Node(
+            package="pcl_segmentation",
             executable="file_publisher",
             name="file_publisher_param_node",
             parameters=[{

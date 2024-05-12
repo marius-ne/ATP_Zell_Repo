@@ -22,6 +22,19 @@ class HandEyeTransformPublisher : public rclcpp::Node
     {
         RCLCPP_INFO(this->get_logger(), "Start hand eye transform publisher");
 
+        this->declare_parameter(PARAM_TF2_HAND_FRAME_NAME, "tcp_frame");
+        this->declare_parameter(PARAM_TF2_EYE_FRAME_NAME, "eye_frame");
+        this->declare_parameter(PARAM_TF2_TRANLSATION_X, 0.0);
+        this->declare_parameter(PARAM_TF2_TRANLSATION_Y, 0.0);
+        this->declare_parameter(PARAM_TF2_TRANLSATION_Z, 0.0);
+        this->declare_parameter(PARAM_TF2_ROTATION_RAD_X, 0.0);
+        this->declare_parameter(PARAM_TF2_ROTATION_RAD_Y, 0.0);
+        this->declare_parameter(PARAM_TF2_ROTATION_RAD_Z, 0.0);
+
+        this->print_params();
+
+        tf_static_broadcaster_ = std::make_shared<tf2_ros::StaticTransformBroadcaster>(this);
+
         // Publish static transforms once at startup
         this->make_transforms();
     }
@@ -65,6 +78,7 @@ class HandEyeTransformPublisher : public rclcpp::Node
       t.transform.translation.x = get_parameter(PARAM_TF2_TRANLSATION_X).as_double();
       t.transform.translation.y = get_parameter(PARAM_TF2_TRANLSATION_Y).as_double();
       t.transform.translation.z = get_parameter(PARAM_TF2_TRANLSATION_Z).as_double();
+
       tf2::Quaternion q;
       q.setRPY(
         get_parameter(PARAM_TF2_ROTATION_RAD_X).as_double(),
