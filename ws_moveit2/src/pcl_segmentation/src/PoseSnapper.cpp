@@ -23,6 +23,9 @@
 
 #define PARAM_SUBSCRIPTION_NAME "subscription_name"
 #define PARAM_PUBLISHER_NAME "publisher_name"
+#define PARAM_MARKER_DISTANCE = "param_marker_distance_name"
+#define PARAM_MARKER_OFFSET_X = "param_marker_offset_x"
+#define PARAM_MARKER_OFFSET_Y = "param_marker_offset_y"
 
 using std::placeholders::_1;
 
@@ -36,6 +39,9 @@ class PoseSnapper : public rclcpp::Node
 
         this->declare_parameter(PARAM_SUBSCRIPTION_NAME, subscription_name);
         this->declare_parameter(PARAM_PUBLISHER_NAME, publisher_name);
+        this->declare_parameter(PARAM_MARKER_DISTANCE, 0.1f);
+        this->declare_parameter(PARAM_MARKER_OFFSET_X, 0.0);
+        this->declare_parameter(PARAM_MARKER_OFFSET_Y, 0.0);
 
         subscriber_ = this->create_subscription<wzlscheduler_interfaces::msg::LabeledPointClouds>(
             get_parameter(PARAM_SUBSCRIPTION_NAME).as_string(), 10, std::bind(&PoseSnapper::topic_callback, this, _1));
@@ -50,7 +56,10 @@ class PoseSnapper : public rclcpp::Node
       std::vector<std::string> param_names = 
       {
         PARAM_SUBSCRIPTION_NAME, 
-        PARAM_PUBLISHER_NAME
+        PARAM_PUBLISHER_NAME,
+        PARAM_MARKER_DISTANCE,
+        PARAM_MARKER_OFFSET_X,
+        PARAM_MARKER_OFFSET_Y
       };
 
       std::vector<rclcpp::Parameter> params = this->get_parameters(param_names);
@@ -74,6 +83,19 @@ class PoseSnapper : public rclcpp::Node
       // grid hole distance
       // roughly estimated pose which needs to be snapped
       // positions of drill holes on the equipment (in the equipments local coordinate system)
+      auto snap_distance = get_parameter(PARAM_MARKER_DISTANCE).as_double();
+
+      auto new_position_x = msg.poseorigin.position.x + 0.5 * snap_distance;
+      auto new_position_y = msg.poseorigin.position.y + 0.5 * snap_distance;
+      auto new_position_z = 0;
+
+      new_position_x = (int)new_position_x;
+      new_position_y = (int)new_position_y;
+
+
+      auto msg_snapped = std::make_shared<wzlscheduler_interfaces::msg::LabeledPointCloud>();
+      msg_snapped->pointcloud = msg.pointcloud;
+      msg_snapped->posecad = 
     }
 
     void topic_callback(const wzlscheduler_interfaces::msg::LabeledPointClouds & msg) const

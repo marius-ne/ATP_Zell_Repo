@@ -120,6 +120,7 @@ class PlaneRemover : public rclcpp::Node
       Eigen::Affine3f transform = Eigen::Affine3f::Identity();
       transform.translation() << 0, 0, -coefficients->values[3]; // add plane normal distance as z translation
       transform.rotate (Eigen::AngleAxisf (theta, rotation_vector.normalized()));
+      
       std::cout << "Transformation matrix: " << std::endl << transform.matrix() << std::endl;
       pcl::transformPointCloud (*cloud_filtered, *cloud_filtered, transform);
       pcl::transformPointCloud (*cloud_filtered_inverted, *cloud_filtered_inverted, transform);
