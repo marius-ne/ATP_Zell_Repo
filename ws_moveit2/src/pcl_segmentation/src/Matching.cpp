@@ -32,7 +32,7 @@ class Matching : public rclcpp::Node
     Matching(const std::string subscription_name, const std::string& publisher_name)
     : Node("matching")
     {
-        RCLCPP_INFO(this->get_logger(), "Start plane filter");
+        RCLCPP_INFO(this->get_logger(), "Start matching");
 
         this->declare_parameter(PARAM_SUBSCRIPTION_NAME, subscription_name);
         this->declare_parameter(PARAM_PUBLISHER_NAME, publisher_name);

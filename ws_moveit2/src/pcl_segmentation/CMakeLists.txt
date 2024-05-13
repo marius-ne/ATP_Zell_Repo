@@ -74,6 +74,9 @@ add_executable(hand_eye_transform_publisher
   src/HandEyeTransformPublisher.cpp
 )
 
+add_executable(test_robot_pose_publisher
+  src/Test/TestPoseHandPublisher.cpp
+)
 
 ament_target_dependencies(file_publisher
   rclcpp 
@@ -138,6 +141,13 @@ ament_target_dependencies(hand_eye_transform_publisher
   tf2_ros
 )
 
+ament_target_dependencies(test_robot_pose_publisher
+  rclcpp 
+  geometry_msgs
+  tf2
+  tf2_ros
+)
+
 
 target_link_libraries(file_publisher ${PCL_LIBRARIES})
 target_link_libraries(downsampling ${PCL_LIBRARIES})
@@ -147,6 +157,7 @@ target_link_libraries(classification ${PCL_LIBRARIES})
 target_link_libraries(matching ${PCL_LIBRARIES})
 target_link_libraries(pose_snapper ${PCL_LIBRARIES})
 target_link_libraries(transformation_robot ${PCL_LIBRARIES})
+target_link_libraries(test_robot_pose_publisher ${PCL_LIBRARIES})
 
 # Install Cpp executables
 install(TARGETS
@@ -159,6 +170,7 @@ install(TARGETS
   pose_snapper
   transformation_robot
   hand_eye_transform_publisher
+  test_robot_pose_publisher
   DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -41,16 +41,18 @@ class Clustering : public rclcpp::Node
         this->declare_parameter(PARAM_SUBSCRIPTION_NAME, subscription_name);
         this->declare_parameter(PARAM_PUBLISHER_COLORED_NAME, publisher_colored_name);
         this->declare_parameter(PARAM_PUBLISHER_CLUSTERED_NAME, publisher_clustered_name);
-        this->declare_parameter(PARAM_CLUSTER_TOLERANCE, 5);
-        this->declare_parameter(PARAM_CLUSTER_SIZE_MIN, 2000);
-        this->declare_parameter(PARAM_CLUSTER_SIZE_MAX, 1000000);
+        this->declare_parameter(PARAM_CLUSTER_TOLERANCE, 5.0);
+        this->declare_parameter(PARAM_CLUSTER_SIZE_MIN, 2000.0);
+        this->declare_parameter(PARAM_CLUSTER_SIZE_MAX, 1000000.0);
+
+        print_params();
 
         subscriber_ = this->create_subscription<sensor_msgs::msg::PointCloud2>(
-            subscription_name, 10, std::bind(&Clustering::topic_callback, this, _1));
+            get_parameter(PARAM_SUBSCRIPTION_NAME).as_string(), 10, std::bind(&Clustering::topic_callback, this, _1));
 
         using namespace std::chrono_literals;
-        publisher_colored_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(publisher_colored_name, 10);
-        publisher_clustered_ = this->create_publisher<wzlscheduler_interfaces::msg::LabeledPointClouds>(publisher_clustered_name, 10);
+        publisher_colored_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(get_parameter(PARAM_PUBLISHER_COLORED_NAME).as_string(), 10);
+        publisher_clustered_ = this->create_publisher<wzlscheduler_interfaces::msg::LabeledPointClouds>(get_parameter(PARAM_PUBLISHER_CLUSTERED_NAME).as_string(), 10);
     }
 
   private:
