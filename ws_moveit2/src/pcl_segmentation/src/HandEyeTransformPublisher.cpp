@@ -77,13 +77,14 @@ class HandEyeTransformPublisher : public rclcpp::Node
       t.transform.translation.x = get_parameter(PARAM_TF2_TRANLSATION_X).as_double();
       t.transform.translation.y = get_parameter(PARAM_TF2_TRANLSATION_Y).as_double();
       t.transform.translation.z = get_parameter(PARAM_TF2_TRANLSATION_Z).as_double();
+
       tf2::Quaternion q;
       q.setRPY(
         get_parameter(PARAM_TF2_ROTATION_RAD_X).as_double(),
         get_parameter(PARAM_TF2_ROTATION_RAD_Y).as_double(),
         get_parameter(PARAM_TF2_ROTATION_RAD_Z).as_double()
       );
-
+    
       t.transform.rotation.x = q.x();
       t.transform.rotation.y = q.y();
       t.transform.rotation.z = q.z();

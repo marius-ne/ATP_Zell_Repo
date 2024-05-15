@@ -23,9 +23,9 @@
 
 #define PARAM_SUBSCRIPTION_NAME "subscription_name"
 #define PARAM_PUBLISHER_NAME "publisher_name"
-#define PARAM_MARKER_DISTANCE = "param_marker_distance_name"
-#define PARAM_MARKER_OFFSET_X = "param_marker_offset_x"
-#define PARAM_MARKER_OFFSET_Y = "param_marker_offset_y"
+#define PARAM_MARKER_DISTANCE "param_marker_distance_name"
+#define PARAM_MARKER_OFFSET_X "param_marker_offset_x"
+#define PARAM_MARKER_OFFSET_Y "param_marker_offset_y"
 
 using std::placeholders::_1;
 
@@ -83,6 +83,7 @@ class PoseSnapper : public rclcpp::Node
       // grid hole distance
       // roughly estimated pose which needs to be snapped
       // positions of drill holes on the equipment (in the equipments local coordinate system)
+      /*
       auto snap_distance = get_parameter(PARAM_MARKER_DISTANCE).as_double();
 
       auto new_position_x = msg.poseorigin.position.x + 0.5 * snap_distance;
@@ -96,6 +97,7 @@ class PoseSnapper : public rclcpp::Node
       auto msg_snapped = std::make_shared<wzlscheduler_interfaces::msg::LabeledPointCloud>();
       msg_snapped->pointcloud = msg.pointcloud;
       msg_snapped->posecad = 
+      */
     }
 
     void topic_callback(const wzlscheduler_interfaces::msg::LabeledPointClouds & msg) const
