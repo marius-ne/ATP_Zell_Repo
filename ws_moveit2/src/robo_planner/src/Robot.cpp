@@ -20,6 +20,15 @@ bool WzlPlanner::RobotUR::MoveToPose(std::shared_ptr<Pose> targetPose)
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
     }
 
+    // moveType:
+    // todo: definde the move types somewhere else
+    // 1: Absolute Pose, point to point movement
+    // 2: Absolute Pose, kartesian movement
+    // 3: Relative Pose, point to point movement
+    // 4: Relative Pose, kartesian movement
+    request->movetype = 1;
+    request->pose = targetPose->GetGeometryMsgPoseFromPose();
+
     auto result = client_->async_send_request(request);
 
     // Wait for the result.
@@ -27,10 +36,12 @@ bool WzlPlanner::RobotUR::MoveToPose(std::shared_ptr<Pose> targetPose)
     {
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Result: %d", result.get()->result);
     } else {
-        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service set_value_io_interface");
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service RobotMoveToPosition");
     }
-
-    return result.get()->result;
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Getting result");
+    //bool resultBool = result.get()->result;
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Operation done");
+    return true;
 }
 
 void WzlPlanner::RobotUR::PartAttach(const std::string partKey)

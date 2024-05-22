@@ -44,7 +44,8 @@ int TransformTest() {
 
 void CreateCell(const std::shared_ptr<rclcpp::Node> node)
 {
-  auto robot = std::make_shared<WzlPlanner::RobotDummy>(node);
+  //auto robot = std::make_shared<WzlPlanner::RobotDummy>(node);
+  auto robot = std::make_shared<WzlPlanner::RobotUR>(node);
   auto scene = std::make_shared<WzlPlanner::Scene>(robot, node);
   auto ioInterfaceOpcUa = std::make_shared<WzlPlanner::IoInterfaceOpcUa>(node);
   
@@ -100,7 +101,7 @@ void PickAndPlaceTest()
   auto taskPickAndPlace = std::make_shared<WzlPlanner::TaskPickAndPlace>();
   auto taskPick = taskPickAndPlace->GetTaskPick();
   auto taskPlace = taskPickAndPlace->GetTaskPlace();
-
+  /*
   auto posePickApproach = std::make_shared<WzlPlanner::Pose>(10, 10, 2);
   auto posePickExceute = std::make_shared<WzlPlanner::Pose>(10, 10, 0);
   auto posePickEnd = std::make_shared<WzlPlanner::Pose>(10, 10, 2);
@@ -108,7 +109,17 @@ void PickAndPlaceTest()
   auto posePlaceApproach = std::make_shared<WzlPlanner::Pose>(5, 5, 2);
   auto posePlaceExceute = std::make_shared<WzlPlanner::Pose>(5, 5, 0);
   auto posePlaceEnd = std::make_shared<WzlPlanner::Pose>(5, 5, 2);
+*/
 
+
+
+  auto posePickApproach = std::make_shared<WzlPlanner::Pose>(0.30, 0.30, 0.3, M_PI, 0, 0);
+  auto posePickExceute = std::make_shared<WzlPlanner::Pose>(0.30, 0.50, 0.1, M_PI, 0, 0);
+  auto posePickEnd = std::make_shared<WzlPlanner::Pose>(0.30, 0.50, 0.3, M_PI, 0, 0);
+
+  auto posePlaceApproach = std::make_shared<WzlPlanner::Pose>(0.5, 0.5, 0.3, M_PI, 0, 0);
+  auto posePlaceExceute = std::make_shared<WzlPlanner::Pose>(0.5, 0.5, 0.1, M_PI, 0, 0);
+  auto posePlaceEnd = std::make_shared<WzlPlanner::Pose>(0.5, 0.5, 0.3, M_PI, 0, 0);
   taskPickAndPlace->SetId("TestTask");
 
   taskPick->GetTaskMoveToPoseApproach()->SetTargetPose(posePickApproach);
@@ -149,6 +160,8 @@ int main(int argc, char* argv[])
 
   //auto trWorld = std::make_shared<WzlPlanner::Transform>("world");
 
+  rclcpp::sleep_for(500ms);
+
   auto const node = std::make_shared<rclcpp::Node>(
       "robot_planer", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
   
@@ -156,7 +169,7 @@ int main(int argc, char* argv[])
 
   CreateCell(node);
   PickAndPlaceTest();
-  OpcUaTest(node);
+  //OpcUaTest(node);
 
   rclcpp::spin(node);
 

@@ -9,13 +9,12 @@ void WzlPlanner::TaskMoveToPose::Execute()
 
     if (this->targetPose != nullptr)
     {
-        
-        robot->MoveToPose(targetPose);
 
-        // todo: replace this garbage code with some kind of callback 
-        while (robot->GetIsProcessing())
-        {
-        }
+        robot->MoveToPose(targetPose);
+        // todo: replace this garbage code with some kind of callback
+        //while (robot->GetIsProcessing())
+       //{
+        //}
     }
     else
     {

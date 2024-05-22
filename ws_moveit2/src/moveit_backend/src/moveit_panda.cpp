@@ -34,12 +34,16 @@ class RobotPanda : public rclcpp::Node
 {
   public:
     RobotPanda()
-      : Node("robot panda", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true))
+      : Node("robot panda")//, rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true))
     {
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize services"));
+
         // connect the ros services
         service_robot_move_toposition_ = this->create_service<wzlscheduler_interfaces::srv::RobotMoveToPosition>("robot_move_to_position", std::bind(&RobotPanda::service_callback_robot_move_to_position, this, std::placeholders::_1, std::placeholders::_2));
         service_scene_object_attach = this->create_service<wzlscheduler_interfaces::srv::SceneObjectAttach>("service_callback_scene_object_attach", std::bind(&RobotPanda::service_callback_scene_object_attach, this, std::placeholders::_1, std::placeholders::_2));
         service_scene_object_detach = this->create_service<wzlscheduler_interfaces::srv::SceneObjectDetach>("service_callback_scene_object_detach", std::bind(&RobotPanda::service_callback_scene_object_detach, this, std::placeholders::_1, std::placeholders::_2));
+
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize topics"));
 
         // connect topics
         subscription_scene_object_add_ = this->create_subscription<wzlscheduler_interfaces::msg::SceneObjectAdd>
@@ -52,7 +56,7 @@ class RobotPanda : public rclcpp::Node
           ("scene_object_set_pose", 10, std::bind(&RobotPanda::topic_callback_scene_object_set_pose, this, std::placeholders::_1));
     }
 
-    void Initialize(std::shared_ptr<RobotPanda> robot)
+    void Init(std::shared_ptr<RobotPanda> robot)
     {
       // Create the MoveIt MoveGroup Interface
       move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(robot, "panda_arm");
@@ -207,20 +211,23 @@ class RobotPanda : public rclcpp::Node
 
     void topic_callback_scene_object_set_pose(const wzlscheduler_interfaces::msg::SceneObjectSetPose& msg) const
     {
-
     }
 };
 
 
 int main(int argc, char * argv[])
 {
+  std::cout << "Run node moveit backend" << std::endl;
+/*
   // Initialize ROS and create the Node
   rclcpp::init(argc, argv);
+  RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize robot"));
   auto const node = std::make_shared<RobotPanda>();
-  node->Initialize(node);
+  node->Init(node);
   rclcpp::spin(node);
 
   // Shutdown ROS
   rclcpp::shutdown();
+  */
   return 0;
 }

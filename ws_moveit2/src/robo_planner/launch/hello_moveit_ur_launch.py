@@ -52,7 +52,7 @@ def get_robot_description():
             "ur",
             " ",
             "ur_type:=",
-            "ur3e",
+            "ur16e",
             " ",
             "prefix:=",
             '""',
@@ -92,14 +92,23 @@ def generate_launch_description():
     robot_description = get_robot_description()
     robot_description_semantic = get_robot_description_semantic()
     demo_node = Node(
-        package="hello_moveit",
-        executable="hello_moveit",
-        name="hello_moveit",
+        package="moveit_backend",
+        executable="moveit_ur",
+        name="moveit_backend_ur",
         output="screen",
         parameters=[
             robot_description,
             robot_description_semantic,
         ],
     )
+    robo_planner_node = Node(
+        package="robo_planner",
+        executable="robo_planner",
+        name="robo_planner",
+        output="screen",
+        parameters=[
+        ],
+    )
 
-    return launch.LaunchDescription([demo_node])
+
+    return launch.LaunchDescription([demo_node, robo_planner_node])

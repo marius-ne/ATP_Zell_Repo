@@ -11,20 +11,47 @@ find_package(moveit_ros_planning_interface REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(wzlscheduler_interfaces REQUIRED)
 
-add_executable(moveit_panda src/moveit_panda.cpp)
-target_include_directories(moveit_panda PUBLIC
+add_executable(moveit_panda 
+  src/moveit_panda.cpp)
+
+add_executable(moveit_ur 
+  src/moveit_ur.cpp)
+
+target_include_directories(moveit_panda  PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
+
+target_include_directories(moveit_ur  PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+
 target_compile_features(moveit_panda PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-ament_target_dependencies(
-  moveit_panda
+
+ament_target_dependencies(moveit_panda
   "moveit_ros_planning_interface"
   "wzlscheduler_interfaces"
   "rclcpp"
 )
 
-install(TARGETS moveit_panda
+ament_target_dependencies(moveit_ur
+  "moveit_ros_planning_interface"
+  "wzlscheduler_interfaces"
+  "rclcpp"
+)
+
+install(TARGETS 
+  moveit_panda
+  moveit_ur
   DESTINATION lib/${PROJECT_NAME})
+
+install(
+    DIRECTORY config meshes urdf
+    DESTINATION share/${PROJECT_NAME})  
+
+
+install(
+  DIRECTORY config meshes urdf
+  DESTINATION install/${PROJECT_NAME})  
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
