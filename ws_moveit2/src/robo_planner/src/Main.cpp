@@ -114,21 +114,21 @@ void PickAndPlaceTest()
 
 
   auto posePickApproach = std::make_shared<WzlPlanner::Pose>(0.30, 0.30, 0.3, M_PI, 0, 0);
-  auto posePickExceute = std::make_shared<WzlPlanner::Pose>(0.30, 0.50, 0.1, M_PI, 0, 0);
-  auto posePickEnd = std::make_shared<WzlPlanner::Pose>(0.30, 0.50, 0.3, M_PI, 0, 0);
+  auto posePickExceute = std::make_shared<WzlPlanner::Pose>(0.0, 0.0, -0.1, 0, 0, 0);
+  auto posePickEnd = std::make_shared<WzlPlanner::Pose>(0.0, 0.0, 0.1, 0, 0, 0);
 
   auto posePlaceApproach = std::make_shared<WzlPlanner::Pose>(0.5, 0.5, 0.3, M_PI, 0, 0);
-  auto posePlaceExceute = std::make_shared<WzlPlanner::Pose>(0.5, 0.5, 0.1, M_PI, 0, 0);
-  auto posePlaceEnd = std::make_shared<WzlPlanner::Pose>(0.5, 0.5, 0.3, M_PI, 0, 0);
+  auto posePlaceExceute = std::make_shared<WzlPlanner::Pose>(0.0, 0.0, -0.1, 0, 0, 0);
+  auto posePlaceEnd = std::make_shared<WzlPlanner::Pose>(0.0, 0.0, 0.1, 0, 0, 0);
   taskPickAndPlace->SetId("TestTask");
 
-  taskPick->GetTaskMoveToPoseApproach()->SetTargetPose(posePickApproach);
-  taskPick->GetTaskMoveToPosePick()->SetTargetPose(posePickExceute);
-  taskPick->GetTaskMoveToEnd()->SetTargetPose(posePlaceEnd);
+  taskPick->GetTaskMoveToPoseApproach()->SetTargetPose(posePickApproach)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
+  taskPick->GetTaskMoveToPosePick()->SetTargetPose(posePickExceute)->SetMoveType(WzlPlanner::RobotMoveType::RelativeCartesian);
+  taskPick->GetTaskMoveToEnd()->SetTargetPose(posePlaceEnd)->SetMoveType(WzlPlanner::RobotMoveType::RelativeCartesian);
 
-  taskPlace->GetTaskMoveToPoseApproach()->SetTargetPose(posePlaceApproach);
-  taskPlace->GetTaskMoveToPosePlace()->SetTargetPose(posePlaceExceute);
-  taskPlace->GetTaskMoveToEnd()->SetTargetPose(posePlaceEnd);
+  taskPlace->GetTaskMoveToPoseApproach()->SetTargetPose(posePlaceApproach)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
+  taskPlace->GetTaskMoveToPosePlace()->SetTargetPose(posePlaceExceute)->SetMoveType(WzlPlanner::RobotMoveType::RelativeCartesian);
+  taskPlace->GetTaskMoveToEnd()->SetTargetPose(posePlaceEnd)->SetMoveType(WzlPlanner::RobotMoveType::RelativeCartesian);
 
   RCLCPP_INFO(node->get_logger(), "Execute Task Pick & Place");
 

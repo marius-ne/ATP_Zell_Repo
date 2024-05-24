@@ -11,6 +11,7 @@ namespace WzlPlanner
         
         private:
             std::shared_ptr<Pose> targetPose;
+            RobotMoveType moveType;
 
         public:
             TaskMoveToPose()
@@ -20,7 +21,9 @@ namespace WzlPlanner
 
             void Execute() override;
         
-            void SetTargetPose(std::shared_ptr<Pose> targetPose) { this->targetPose = targetPose; }
+            TaskMoveToPose* SetTargetPose(std::shared_ptr<Pose> targetPose) { this->targetPose = targetPose; return this; }
+            TaskMoveToPose* SetMoveType(const RobotMoveType moveType) { this->moveType = moveType; return this; }
+            RobotMoveType GetMoveType() const { return moveType; }
 
     };
 }

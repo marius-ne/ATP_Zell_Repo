@@ -6,7 +6,7 @@
 
 using namespace std::chrono_literals;
 
-bool WzlPlanner::RobotUR::MoveToPose(std::shared_ptr<Pose> targetPose)
+bool WzlPlanner::RobotUR::MoveToPose(const std::shared_ptr<Pose> targetPose, const RobotMoveType moveType)
 {
     auto request = std::make_shared<wzlscheduler_interfaces::srv::RobotMoveToPosition::Request>();
 
@@ -20,13 +20,7 @@ bool WzlPlanner::RobotUR::MoveToPose(std::shared_ptr<Pose> targetPose)
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
     }
 
-    // moveType:
-    // todo: definde the move types somewhere else
-    // 1: Absolute Pose, point to point movement
-    // 2: Absolute Pose, kartesian movement
-    // 3: Relative Pose, point to point movement
-    // 4: Relative Pose, kartesian movement
-    request->movetype = 1;
+    request->movetype = moveType;
     request->pose = targetPose->GetGeometryMsgPoseFromPose();
 
     auto result = client_->async_send_request(request);
@@ -131,14 +125,15 @@ void WzlPlanner::RobotUR::PartDetach()
     }
 }
 
-bool WzlPlanner::RobotDummy::MoveToPose(std::shared_ptr<Pose>  targetPose)
+bool WzlPlanner::RobotDummy::MoveToPose(const std::shared_ptr<Pose> targetPose, const RobotMoveType moveType)
 {
     auto msg = std::string("Move dummy robot to target Pose; X:") + std::to_string(targetPose->GetPositionX())
      + std::string(", Y:") + std::to_string(targetPose->GetPositionY())
      + std::string(", Z:") + std::to_string(targetPose->GetPositionZ())
      + std::string(", RotX:") + std::to_string(targetPose->GetRotationX())
      + std::string(", RotY:") + std::to_string(targetPose->GetRotationY())
-     + std::string(", RotZ:") + std::to_string(targetPose->GetRotationZ());
+     + std::string(", RotZ:") + std::to_string(targetPose->GetRotationZ())
+     + std::string(", MoveType:") + std::to_string(moveType);
     
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
 

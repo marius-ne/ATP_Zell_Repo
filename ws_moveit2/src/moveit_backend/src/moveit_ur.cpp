@@ -14,7 +14,8 @@
 #include "wzlscheduler_interfaces/msg/scene_object_remove.hpp"
 #include "wzlscheduler_interfaces/msg/scene_object_set_pose.hpp"
 
-
+static const std::string PLANNING_GROUP = "ur_manipulator";
+static const std::string BASE_FRAME = "world";
 
 class RobotUr : public rclcpp::Node
 {
@@ -50,47 +51,10 @@ class RobotUr : public rclcpp::Node
 
             // Create the MoveIt MoveGroup Interface
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize group interface"));
-            move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(robot, "ur_manipulator");
+            move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(robot, PLANNING_GROUP);
             
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize Collision boxes"));
             
-            // initialize collision ground plane for the robot to avoid
-            /*
-            auto const collision_object = [frame_id = this->move_group_interface_->getPlanningFrame()] {
-            moveit_msgs::msg::CollisionObject collision_object;
-            collision_object.header.frame_id = frame_id;
-            collision_object.id = "ground_plane";
-            shape_msgs::msg::SolidPrimitive primitive;
-
-            
-            // Define the size of the box in meters
-            auto witdh = 2.0;
-            auto depth = 2.0;
-            auto height = 0.1;
-
-            primitive.type = primitive.BOX;
-            primitive.dimensions.resize(3);
-            primitive.dimensions[primitive.BOX_X] = witdh;
-            primitive.dimensions[primitive.BOX_Y] = depth;
-            primitive.dimensions[primitive.BOX_Z] = height;
-
-            // Define the pose of the box (relative to the frame_id)
-            geometry_msgs::msg::Pose box_pose;
-            box_pose.orientation.w = 1.0;
-            box_pose.position.x = 0.0;
-            box_pose.position.y = 0.0;
-            box_pose.position.z = - height - 0.001;
-
-            collision_object.primitives.push_back(primitive);
-            collision_object.primitive_poses.push_back(box_pose);
-            collision_object.operation = collision_object.ADD;
-
-            return collision_object;
-            }();
-
-            this->planning_scene_interface_->applyCollisionObject(collision_object);
-            */
-
             auto size = 1.6;
             auto size05 = size * 0.5;
             auto thickness = 0.01;
@@ -101,13 +65,23 @@ class RobotUr : public rclcpp::Node
             add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
 
-            add_collision_box("wall5", thickness, size05, 1.0, 0, -size05 * 0.5 - 0.1, 0.5);
-
-
+        
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialization done"));
         }
 
     private:
+        void set_path_constraints()
+        {
+            moveit_msgs::msg::OrientationConstraint ocm;
+            ocm.link_name = PLANNING_GROUP;
+            ocm.header.frame_id = BASE_FRAME;
+            ocm.orientation.w = 1.0;
+            ocm.absolute_x_axis_tolerance = 0.1;
+            ocm.absolute_y_axis_tolerance = 0.1;
+            ocm.absolute_z_axis_tolerance = 0.1;
+            ocm.weight = 1.0;
+        }
+
         void add_collision_box(const std::string name, const float width, const float depth, const float height,
             const float x, const float y, const float z)
             {
@@ -140,6 +114,9 @@ class RobotUr : public rclcpp::Node
         void service_callback_robot_move_to_position(const std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Request> request,
             std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Response> response)
         {
+            move_group_interface_->setMaxVelocityScalingFactor(0.05);
+            move_group_interface_->setMaxAccelerationScalingFactor(0.05);
+
             auto position = request->pose.position;
             auto orientation = request->pose.orientation;
 
@@ -150,19 +127,66 @@ class RobotUr : public rclcpp::Node
             msg.position = position;
             msg.orientation = orientation;
             
-            move_group_interface_->setPoseTarget(msg);
+            if (request->movetype == 1) // absolute pose
+            {
+                move_group_interface_->setPoseTarget(msg);
+            }
+            else if (request->movetype == 2) // relative pose
+            {
+                geometry_msgs::msg::Pose target_pose = move_group_interface_->getCurrentPose().pose;
+                target_pose.position.x += position.x;
+                target_pose.position.y += position.y;
+                target_pose.position.z += position.z; 
+
+                msg.position = target_pose.position;
+
+                move_group_interface_->setPoseTarget(msg);
+            }
+            else if (request->movetype == 3) // absolute pose cartesian movement
+            {
+                //move_group_interface_->computeCartesianPath
+            }
+            else if (request->movetype == 4) // relative pose cartesian movement
+            {
+                //
+
+                const moveit::core::JointModelGroup* joint_model_group = move_group_interface_->getCurrentState()->getJointModelGroup(PLANNING_GROUP);
+                
+                moveit::core::RobotStatePtr current_state = move_group_interface_->getCurrentState(10);
+                
+                std::vector<double> joint_group_positions;
+                current_state->copyJointGroupPositions(joint_model_group, joint_group_positions);
+
+        
+                move_group_interface_->setStartStateToCurrentState();
+
+                std::vector<geometry_msgs::msg::Pose> waypoints;
+
+                geometry_msgs::msg::Pose target_pose = move_group_interface_->getCurrentPose().pose;
+                target_pose.position.x += position.x;
+                target_pose.position.y += position.y;
+                target_pose.position.z -= position.z;
+                waypoints.push_back(target_pose);  
+            }
+
+            
+
+
+            
 
             moveit::planning_interface::MoveGroupInterface::Plan msg2;
             auto const success = static_cast<bool>(move_group_interface_->plan(msg2));
-
+            
             // Execute the plan
             if(success) {
                 move_group_interface_->execute(msg2);
+                response->result = true;
             } else {
                 RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Planing failed!");
+                response->result = false;
             }
 
-            response->result = true;
+            
         }
 
         void service_callback_scene_object_attach(const std::shared_ptr<wzlscheduler_interfaces::srv::SceneObjectAttach::Request> request,
@@ -285,6 +309,7 @@ class RobotUr : public rclcpp::Node
         {
         }
 
+        
         std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface_;
         std::shared_ptr<moveit::planning_interface::PlanningSceneInterface> planning_scene_interface_;
 
