@@ -32,7 +32,7 @@ class FilePublisher : public rclcpp::Node
         this->declare_parameter(PARAM_PUBLISHER_NAME, publisher_name);
 
         print_params();
-        load_from_file(file_path);
+        load_from_file(get_parameter(PARAM_FILE_PATH).as_string());
 
         using namespace std::chrono_literals;
         publisher_ = this->create_publisher<sensor_msgs::msg::PointCloud2>(this->get_parameter(PARAM_PUBLISHER_NAME).as_string(), 10);

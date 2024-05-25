@@ -17,11 +17,21 @@ using std::placeholders::_1;
 class HandEyeTransformPublisher : public rclcpp::Node
 {
   public:
-    HandEyeTransformPublisher(const std::string subscription_name, const std::string& publisher_name)
+    HandEyeTransformPublisher()
     : Node("hand_eye_transform_publisher")
     {
+        this->declare_parameter(PARAM_TF2_HAND_FRAME_NAME, "frame_hand");
+        this->declare_parameter(PARAM_TF2_EYE_FRAME_NAME, "frame_eye");
+        this->declare_parameter(PARAM_TF2_TRANLSATION_X, 0.0);
+        this->declare_parameter(PARAM_TF2_TRANLSATION_Y, 0.0);
+        this->declare_parameter(PARAM_TF2_TRANLSATION_Z, 0.0);
+        this->declare_parameter(PARAM_TF2_ROTATION_RAD_X, 0.0);
+        this->declare_parameter(PARAM_TF2_ROTATION_RAD_Y, 0.0);
+        this->declare_parameter(PARAM_TF2_ROTATION_RAD_Z, 0.0);
+
         RCLCPP_INFO(this->get_logger(), "Start hand eye transform publisher");
 
+<<<<<<< HEAD
         this->declare_parameter(PARAM_TF2_HAND_FRAME_NAME, "tcp_frame");
         this->declare_parameter(PARAM_TF2_EYE_FRAME_NAME, "eye_frame");
         this->declare_parameter(PARAM_TF2_TRANLSATION_X, 0.0);
@@ -33,6 +43,9 @@ class HandEyeTransformPublisher : public rclcpp::Node
 
         this->print_params();
 
+=======
+        print_params();
+>>>>>>> aee984907d58250aa246a3cd030bab0a2e42963b
         tf_static_broadcaster_ = std::make_shared<tf2_ros::StaticTransformBroadcaster>(this);
 
         // Publish static transforms once at startup
@@ -85,7 +98,7 @@ class HandEyeTransformPublisher : public rclcpp::Node
         get_parameter(PARAM_TF2_ROTATION_RAD_Y).as_double(),
         get_parameter(PARAM_TF2_ROTATION_RAD_Z).as_double()
       );
-
+    
       t.transform.rotation.x = q.x();
       t.transform.rotation.y = q.y();
       t.transform.rotation.z = q.z();
@@ -94,17 +107,13 @@ class HandEyeTransformPublisher : public rclcpp::Node
       tf_static_broadcaster_->sendTransform(t);
   }
 
-  geometry_msgs::msg::Transform::Ptr hand_eye_transform_;
   std::shared_ptr<tf2_ros::StaticTransformBroadcaster> tf_static_broadcaster_;
 };
 
 int main(int argc, char * argv[])
 {
-  std::string subscription_name = (argc >= 2) ? argv[1] : "/tof_point_cloud_pose_snapped";
-  std::string publisher_name = (argc >= 3) ? argv[2] : "/tof_point_cloud_robot_coordinates";
-
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<HandEyeTransformPublisher>(subscription_name, publisher_name));
+  rclcpp::spin(std::make_shared<HandEyeTransformPublisher>());
   rclcpp::shutdown();
   return 0;
 }

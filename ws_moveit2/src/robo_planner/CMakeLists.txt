@@ -49,8 +49,6 @@ target_include_directories(robo_planner PUBLIC
 target_compile_features(robo_planner PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
 ament_target_dependencies(
   robo_planner
-  "moveit_ros_planning_interface"
-  "moveit_visual_tools"
   "rclcpp"
   "geometric_shapes"
   "geometry_msgs"

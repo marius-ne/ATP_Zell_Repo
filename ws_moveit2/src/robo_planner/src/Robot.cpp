@@ -6,7 +6,7 @@
 
 using namespace std::chrono_literals;
 
-bool WzlPlanner::RobotUR::MoveToPose(std::shared_ptr<Pose> targetPose)
+bool WzlPlanner::RobotUR::MoveToPose(const std::shared_ptr<Pose> targetPose, const RobotMoveType moveType)
 {
     auto request = std::make_shared<wzlscheduler_interfaces::srv::RobotMoveToPosition::Request>();
 
@@ -20,6 +20,9 @@ bool WzlPlanner::RobotUR::MoveToPose(std::shared_ptr<Pose> targetPose)
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "service not available, waiting again...");
     }
 
+    request->movetype = moveType;
+    request->pose = targetPose->GetGeometryMsgPoseFromPose();
+
     auto result = client_->async_send_request(request);
 
     // Wait for the result.
@@ -27,10 +30,12 @@ bool WzlPlanner::RobotUR::MoveToPose(std::shared_ptr<Pose> targetPose)
     {
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Result: %d", result.get()->result);
     } else {
-        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service set_value_io_interface");
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service RobotMoveToPosition");
     }
-
-    return result.get()->result;
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Getting result");
+    //bool resultBool = result.get()->result;
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Operation done");
+    return true;
 }
 
 void WzlPlanner::RobotUR::PartAttach(const std::string partKey)
@@ -120,14 +125,15 @@ void WzlPlanner::RobotUR::PartDetach()
     }
 }
 
-bool WzlPlanner::RobotDummy::MoveToPose(std::shared_ptr<Pose>  targetPose)
+bool WzlPlanner::RobotDummy::MoveToPose(const std::shared_ptr<Pose> targetPose, const RobotMoveType moveType)
 {
     auto msg = std::string("Move dummy robot to target Pose; X:") + std::to_string(targetPose->GetPositionX())
      + std::string(", Y:") + std::to_string(targetPose->GetPositionY())
      + std::string(", Z:") + std::to_string(targetPose->GetPositionZ())
      + std::string(", RotX:") + std::to_string(targetPose->GetRotationX())
      + std::string(", RotY:") + std::to_string(targetPose->GetRotationY())
-     + std::string(", RotZ:") + std::to_string(targetPose->GetRotationZ());
+     + std::string(", RotZ:") + std::to_string(targetPose->GetRotationZ())
+     + std::string(", MoveType:") + std::to_string(moveType);
     
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
 
