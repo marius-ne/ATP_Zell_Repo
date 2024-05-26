@@ -168,7 +168,7 @@ int main(int argc, char* argv[])
   RCLCPP_DEBUG(node->get_logger(), "My log message %d", 4);
 
   CreateCell(node);
-  PickAndPlaceTest();
+  //PickAndPlaceTest();
   //OpcUaTest(node);
 
   rclcpp::spin(node);

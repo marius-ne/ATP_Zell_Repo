@@ -135,19 +135,24 @@ namespace WzlPlanner
     class TransformBroadcaster
     {
         public:
-            TransformBroadcaster(rclcpp::Node& node);
+            TransformBroadcaster(const rclcpp::Node::SharedPtr node)
+            {
+                clock_ = node->get_clock();
+                tf_broadcaster_ = std::make_unique<tf2_ros::TransformBroadcaster>(*node);
+            }
 
-            void Broadcast(std::shared_ptr<Transform> transformBase, rclcpp::Clock& clock);
+            void Broadcast(std::shared_ptr<Transform> transformBase);
 
         private:
-            std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
-
             void GetChildrenRecursive(std::shared_ptr<Transform> baseTransform, std::vector<std::shared_ptr<Transform>>& collectedTransforms);
 
-            void MakeTransform(geometry_msgs::msg::TransformStamped& t, rclcpp::Clock& clock,
+            void MakeTransform(geometry_msgs::msg::TransformStamped& t,
                 std::string parentFrame, std::string childFrame,
                 float x, float y, float z,
                 float roll, float pitch, float yaw);
+
+            std::unique_ptr<tf2_ros::TransformBroadcaster> tf_broadcaster_;
+            rclcpp::Clock::SharedPtr clock_;
     };
     
 } // namespace WzlPlanner

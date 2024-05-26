@@ -251,7 +251,7 @@ void WzlPlanner::Transform::GetChildrenRecursive(std::vector<std::shared_ptr<Tra
     for (auto const& [key, val] : children_)
     {
         collectedTransforms.push_back(val);
-        GetChildrenRecursive(collectedTransforms);
+        val->GetChildrenRecursive(collectedTransforms);
     }
 }
 
@@ -427,7 +427,7 @@ geometry_msgs::msg::Pose WzlPlanner::Transform::GetGeometryMsgPose() const
     return GetPoseAbsolute()->GetGeometryMsgPoseFromPose();
 }
 
-void WzlPlanner::TransformBroadcaster::Broadcast(std::shared_ptr<Transform> transformBase, rclcpp::Clock &clock)
+void WzlPlanner::TransformBroadcaster::Broadcast(std::shared_ptr<Transform> transformBase)
 {
     std::vector<std::shared_ptr<Transform>> allTransforms;
     std::vector<geometry_msgs::msg::TransformStamped> tfTransforms;
@@ -439,12 +439,13 @@ void WzlPlanner::TransformBroadcaster::Broadcast(std::shared_ptr<Transform> tran
     {
         if (transform->GetParent() == nullptr)
         {
-            continue;
+            //continue;
         }
 
+        auto transformParent = transform->GetParent() == nullptr ? transformBase->GetId() : transform->GetParent()->GetId();
         auto pose = transform->GetPoseRelative();
         geometry_msgs::msg::TransformStamped tfTransform;
-        MakeTransform(tfTransform, clock, transformBase->GetId(), transform->GetId(),
+        MakeTransform(tfTransform, transformParent, transform->GetId(),
           pose->GetPositionX(),
           pose->GetPositionY(),
           pose->GetPositionZ(),
@@ -456,15 +457,16 @@ void WzlPlanner::TransformBroadcaster::Broadcast(std::shared_ptr<Transform> tran
     }
 
     // broadcast
+    std::cout << "Broadcast transforms: " << std::to_string(tfTransforms.size()) << std::endl;
     this->tf_broadcaster_->sendTransform(tfTransforms);
 }
 
-void WzlPlanner::TransformBroadcaster::MakeTransform(geometry_msgs::msg::TransformStamped &t, rclcpp::Clock& clock, 
+void WzlPlanner::TransformBroadcaster::MakeTransform(geometry_msgs::msg::TransformStamped &t,
     std::string parentFrame, std::string childFrame, 
     float x, float y, float z, 
     float roll, float pitch, float yaw)
 {
-    t.header.stamp = clock.now();
+    t.header.stamp = clock_->now();
     t.header.frame_id = parentFrame;
     t.child_frame_id = childFrame;
     
