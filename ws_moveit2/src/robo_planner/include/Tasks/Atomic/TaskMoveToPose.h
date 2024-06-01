@@ -6,6 +6,7 @@
 
 namespace WzlPlanner
 {
+
     class TaskMoveToPose : public Task
     {
         
@@ -19,7 +20,7 @@ namespace WzlPlanner
                 targetPose = nullptr;
             }
 
-            void Execute() override;
+            bool Execute() override;
         
             TaskMoveToPose* SetTargetPose(std::shared_ptr<Pose> targetPose) { this->targetPose = targetPose; return this; }
             TaskMoveToPose* SetMoveType(const RobotMoveType moveType) { this->moveType = moveType; return this; }

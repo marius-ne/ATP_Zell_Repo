@@ -14,13 +14,17 @@ namespace WzlPlanner
         public:
             Task();
 
-            virtual void Execute() 
+            virtual bool Execute() 
             { 
                 LogStart();
 
                 for (auto &&subtask: subTasks_)
                 {
-                    subtask->Execute();
+                    if (!subtask->Execute())
+                    {
+                        Log("Subtask execution failed of: " + std::string(subtask->id_));
+                        return false;
+                    }
                 }
 
                 LogEnd();

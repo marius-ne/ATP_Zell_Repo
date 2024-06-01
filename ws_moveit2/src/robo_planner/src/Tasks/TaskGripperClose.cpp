@@ -1,7 +1,7 @@
 #include "../../include/Tasks/Atomic/TaskGripperClose.h"
 #include "../../include/ObjectContainer.h"
 
-void WzlPlanner::TaskGripperClose::Execute()
+bool WzlPlanner::TaskGripperClose::Execute()
 {
     LogStart();
 
@@ -14,7 +14,10 @@ void WzlPlanner::TaskGripperClose::Execute()
     else
     {
         RCLCPP_INFO(WzlPlanner::ObjectContainer::Get()->GetNode()->get_logger(), "Can't close gripper: Robot has no gripper attached.");
+        return false;
     }
 
     LogEnd();
+
+    return true;
 }

@@ -15,7 +15,7 @@ namespace WzlPlanner
             std::vector<std::shared_ptr<SceneObject>> lastScan;
 
         public:
-            void Execute() override;
+            bool Execute() override;
     };
 }
 

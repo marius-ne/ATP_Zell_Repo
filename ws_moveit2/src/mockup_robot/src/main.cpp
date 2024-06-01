@@ -10,7 +10,6 @@
 #include "wzlscheduler_interfaces/msg/scene_object_set_pose.hpp"
 
 #include "rclcpp/rclcpp.hpp"
-#include "../include/Robot.h"
 
 using namespace std;
 

@@ -21,7 +21,7 @@ namespace WzlPlanner
                 subTaskChangeGripperPick_ = std::make_shared<TaskChangeGripperPick>(gripperChangingStationId, gripperId);
             }
 
-            void Execute() override;
+            bool Execute() override;
 
             std::string GetGripperId() { return gripperId_; }
             void SetGripperId(const std::string gripperId) { gripperId_ = gripperId; }

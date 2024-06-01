@@ -1,6 +1,7 @@
 #include "../../include/Tasks/Composed/TaskGripperChangePick.h"
 
-void WzlPlanner::TaskChangeGripperPick::Execute()
+bool WzlPlanner::TaskChangeGripperPick::Execute()
 {
+    return false;
 }
 

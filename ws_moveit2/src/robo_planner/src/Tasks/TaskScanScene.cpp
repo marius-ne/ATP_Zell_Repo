@@ -1,9 +1,9 @@
 #include "../../include/Tasks/Composed/TaskScanScene.h"
 
 
-void WzlPlanner::TaskScanScene::Execute()
+bool WzlPlanner::TaskScanScene::Execute()
 {
-
+    return false;
 }
 
 void WzlPlanner::TaskScanScene::Initialize(

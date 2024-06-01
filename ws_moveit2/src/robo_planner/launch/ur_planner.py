@@ -8,24 +8,24 @@ from launch_ros.substitutions import FindPackageShare
 
 def get_robot_description():
     joint_limit_params = PathJoinSubstitution(
-        [FindPackageShare("moveit_backend"), "config", "ur16e", "joint_limits.yaml"]
+        [FindPackageShare("ur_description"), "config", "ur16e", "joint_limits.yaml"]
     )
     kinematics_params = PathJoinSubstitution(
-        [FindPackageShare("moveit_backend"), "config", "ur16e", "default_kinematics.yaml"]
+        [FindPackageShare("ur_description"), "config", "ur16e", "default_kinematics.yaml"]
     )
     physical_params = PathJoinSubstitution(
-        [FindPackageShare("moveit_backend"), "config", "ur16e", "physical_parameters.yaml"]
+        [FindPackageShare("ur_description"), "config", "ur16e", "physical_parameters.yaml"]
     )
     visual_params = PathJoinSubstitution(
-        [FindPackageShare("moveit_backend"), "config", "ur16e", "visual_parameters.yaml"]
+        [FindPackageShare("ur_description"), "config", "ur16e", "visual_parameters.yaml"]
     )
     robot_description_content = Command(
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
-            PathJoinSubstitution([FindPackageShare("moveit_backend"), "urdf", "ur.urdf.xacro"]),
+            PathJoinSubstitution([FindPackageShare("ur_description"), "urdf", "ur.urdf.xacro"]),
             " ",
-            "robot_ip:=172.17.0.2",
+            "robot_ip:=192.168.56.101",
             " ",
             "joint_limit_params:=",
             joint_limit_params,
@@ -91,6 +91,9 @@ def generate_launch_description():
     # generate_common_hybrid_launch_description() returns a list of nodes to launch
     robot_description = get_robot_description()
     robot_description_semantic = get_robot_description_semantic()
+
+    robot_description_kinematics = PathJoinSubstitution([FindPackageShare("ur_moveit_config"), "config", "kinematics.yaml"])
+
     demo_node = Node(
         package="moveit_backend",
         executable="moveit_ur",
@@ -99,6 +102,7 @@ def generate_launch_description():
         parameters=[
             robot_description,
             robot_description_semantic,
+            robot_description_kinematics
         ],
     )
     robo_planner_node = Node(

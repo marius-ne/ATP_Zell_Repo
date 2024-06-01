@@ -7,6 +7,8 @@
 
 
 #include "wzlscheduler_interfaces/srv/robot_move_to_position.hpp"
+#include "wzlscheduler_interfaces/srv/robot_follow_trajectory.hpp"
+#include "wzlscheduler_interfaces/srv/robot_set_velocity.hpp"
 #include "wzlscheduler_interfaces/srv/scene_object_attach.hpp"
 #include "wzlscheduler_interfaces/srv/scene_object_detach.hpp"
 
@@ -27,8 +29,10 @@ class RobotUr : public rclcpp::Node
 
             // connect the ros services
             service_robot_move_toposition_ = this->create_service<wzlscheduler_interfaces::srv::RobotMoveToPosition>("robot_move_to_position", std::bind(&RobotUr::service_callback_robot_move_to_position, this, std::placeholders::_1, std::placeholders::_2));
-            service_scene_object_attach = this->create_service<wzlscheduler_interfaces::srv::SceneObjectAttach>("service_callback_scene_object_attach", std::bind(&RobotUr::service_callback_scene_object_attach, this, std::placeholders::_1, std::placeholders::_2));
-            service_scene_object_detach = this->create_service<wzlscheduler_interfaces::srv::SceneObjectDetach>("service_callback_scene_object_detach", std::bind(&RobotUr::service_callback_scene_object_detach, this, std::placeholders::_1, std::placeholders::_2));
+            service_robot_follow_trajectory_ = this->create_service<wzlscheduler_interfaces::srv::RobotFollowTrajectory>("robot_follow_trajectory", std::bind(&RobotUr::service_callback_robot_follow_trajectory, this, std::placeholders::_1, std::placeholders::_2));
+            service_robot_set_velocity_ = this->create_service<wzlscheduler_interfaces::srv::RobotSetVelocity>("robot_set_velocity", std::bind(&RobotUr::service_callback_robot_set_velocity, this, std::placeholders::_1, std::placeholders::_2));
+            service_scene_object_attach = this->create_service<wzlscheduler_interfaces::srv::SceneObjectAttach>("cene_object_attach", std::bind(&RobotUr::service_callback_scene_object_attach, this, std::placeholders::_1, std::placeholders::_2));
+            service_scene_object_detach = this->create_service<wzlscheduler_interfaces::srv::SceneObjectDetach>("scene_object_detach", std::bind(&RobotUr::service_callback_scene_object_detach, this, std::placeholders::_1, std::placeholders::_2));
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize topics"));
 
@@ -41,6 +45,7 @@ class RobotUr : public rclcpp::Node
 
             subscription_scene_object_set_pose_ = this->create_subscription<wzlscheduler_interfaces::msg::SceneObjectSetPose>
                 ("scene_object_set_pose", 10, std::bind(&RobotUr::topic_callback_scene_object_set_pose, this, std::placeholders::_1));
+
         }
 
         void Init(std::shared_ptr<RobotUr> robot)
@@ -55,7 +60,7 @@ class RobotUr : public rclcpp::Node
             
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize Collision boxes"));
             
-            auto size = 1.6;
+            auto size = 1.9;
             auto size05 = size * 0.5;
             auto thickness = 0.01;
             add_collision_box("ground_plane", size, size, thickness, 0, 0, -thickness * 0.5 - 0.0001);
@@ -64,8 +69,14 @@ class RobotUr : public rclcpp::Node
             add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);
             add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
+            add_collision_box("gripper_change_station", 0.7, 0.25, 0.45, 0, 0.775, 0.225);
+            add_collision_box("scan_tower", 0.3, 0.15, 1, -0.67, 0.725, 0.5);
 
-        
+            //add_collision_box("forbidden_quarter", 1.0, 1.0, 1.0, -size05, 0, 0.5);
+
+
+
+
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialization done"));
         }
 
@@ -111,28 +122,58 @@ class RobotUr : public rclcpp::Node
             
         }
 
+        void add_collision_box(const std::string name, const float width, const float depth, const float height, const geometry_msgs::msg::Pose& pose)
+            {
+                moveit_msgs::msg::CollisionObject collision_object;
+                collision_object.header.frame_id = this->move_group_interface_->getPlanningFrame();
+                collision_object.id = name;
+                shape_msgs::msg::SolidPrimitive primitive;
+
+                primitive.type = primitive.BOX;
+                primitive.dimensions.resize(3);
+                primitive.dimensions[primitive.BOX_X] = width;
+                primitive.dimensions[primitive.BOX_Y] = depth;
+                primitive.dimensions[primitive.BOX_Z] = height;
+
+                collision_object.primitives.push_back(primitive);
+                collision_object.primitive_poses.push_back(pose);
+                collision_object.operation = collision_object.ADD;
+
+                this->planning_scene_interface_->applyCollisionObject(collision_object);
+            
+        }
+
         void service_callback_robot_move_to_position(const std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Request> request,
             std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Response> response)
         {
-            move_group_interface_->setMaxVelocityScalingFactor(0.05);
-            move_group_interface_->setMaxAccelerationScalingFactor(0.05);
+            move_group_interface_->setMaxVelocityScalingFactor(1);
+            move_group_interface_->setMaxAccelerationScalingFactor(1);
 
             auto position = request->pose.position;
             auto orientation = request->pose.orientation;
+            auto moveType = request->movetype;
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request (move to position)\nX: %g" " Y: %g Z: %g RotX: %g RotY %g RotZ %g RotW %g",
-                            position.x,position.y, position.z, orientation.x, orientation.y, orientation.z, orientation.w);
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request (move to position)\nX: %g Y: %g Z: %g RotX: %g RotY %g RotZ %g RotW %g",
+                            position.x, position.y, position.z, orientation.x, orientation.y, orientation.z, orientation.w);
             // Set a target Pose
             geometry_msgs::msg::Pose msg;
             msg.position = position;
             msg.orientation = orientation;
+
+            auto is_movement_normal = moveType == 1 || moveType == 2;
+            auto is_movement_cartesian = moveType == 3 || moveType == 4;
             
-            if (request->movetype == 1) // absolute pose
+            moveit_msgs::msg::RobotTrajectory trajectory;
+
+            if (moveType == 1) // absolute pose
             {
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "MoveType: Absolute pose normal movement");
                 move_group_interface_->setPoseTarget(msg);
+                last_pose_ = msg;
             }
-            else if (request->movetype == 2) // relative pose
+            else if (moveType == 2) // relative pose
             {
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "MoveType: Relative pose normal movement");
                 geometry_msgs::msg::Pose target_pose = move_group_interface_->getCurrentPose().pose;
                 target_pose.position.x += position.x;
                 target_pose.position.y += position.y;
@@ -141,52 +182,105 @@ class RobotUr : public rclcpp::Node
                 msg.position = target_pose.position;
 
                 move_group_interface_->setPoseTarget(msg);
+                last_pose_ = target_pose;
             }
-            else if (request->movetype == 3) // absolute pose cartesian movement
+            else if (moveType == 3) // absolute pose cartesian movement
             {
-                //move_group_interface_->computeCartesianPath
-            }
-            else if (request->movetype == 4) // relative pose cartesian movement
-            {
-                //
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "MoveType: Absolute pose cartesian movement");
 
+                std::vector<geometry_msgs::msg::Pose> waypoints;
+
+                waypoints.push_back(last_pose_);
+                waypoints.push_back(msg);  
+
+                move_group_interface_->computeCartesianPath(waypoints, 0.01, 0, trajectory, false);
+
+                last_pose_ = msg;
+            }
+            else if (moveType == 4) // relative pose cartesian movement
+            {
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "MoveType: Relative pose cartesian movement");
                 const moveit::core::JointModelGroup* joint_model_group = move_group_interface_->getCurrentState()->getJointModelGroup(PLANNING_GROUP);
                 
                 moveit::core::RobotStatePtr current_state = move_group_interface_->getCurrentState(10);
                 
                 std::vector<double> joint_group_positions;
                 current_state->copyJointGroupPositions(joint_model_group, joint_group_positions);
-
         
                 move_group_interface_->setStartStateToCurrentState();
 
                 std::vector<geometry_msgs::msg::Pose> waypoints;
 
+                waypoints.push_back(move_group_interface_->getCurrentPose().pose);
                 geometry_msgs::msg::Pose target_pose = move_group_interface_->getCurrentPose().pose;
                 target_pose.position.x += position.x;
                 target_pose.position.y += position.y;
-                target_pose.position.z -= position.z;
+                target_pose.position.z += position.z;
                 waypoints.push_back(target_pose);  
+
+                move_group_interface_->computeCartesianPath(waypoints, 0.01, 0, trajectory, false);
+
+                last_pose_ = target_pose;
             }
 
-            
-
-
-            
-
-            moveit::planning_interface::MoveGroupInterface::Plan msg2;
-            auto const success = static_cast<bool>(move_group_interface_->plan(msg2));
-            
-            // Execute the plan
-            if(success) {
-                move_group_interface_->execute(msg2);
+            if (is_movement_normal)
+            {
+                moveit::planning_interface::MoveGroupInterface::Plan msg2;
+                auto const success = static_cast<bool>(move_group_interface_->plan(msg2));
+                
+                // Execute the plan
+                if(success) {
+                    move_group_interface_->execute(msg2);
+                    response->result = true;
+                } else {
+                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Planning failed!");
+                    response->result = false;
+                }
+            }
+            else if (is_movement_cartesian)
+            {
+                auto const success = static_cast<bool>(move_group_interface_->execute(trajectory));
+    
                 response->result = true;
-            } else {
-                RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Planing failed!");
+            }
+            else
+            {
                 response->result = false;
             }
+        }
 
+        void service_callback_robot_follow_trajectory(const std::shared_ptr<wzlscheduler_interfaces::srv::RobotFollowTrajectory::Request> request,
+            std::shared_ptr<wzlscheduler_interfaces::srv::RobotFollowTrajectory::Response> response)
+        {
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request (follow trajectory)");
             
+            moveit_msgs::msg::RobotTrajectory trajectory;
+            std::vector<geometry_msgs::msg::Pose> waypoints;
+
+            waypoints.push_back(last_pose_);
+            auto points = request->supportpoints;
+
+            for (const auto& point : points)
+            {
+                waypoints.push_back(point);
+            }
+
+            waypoints.push_back(last_pose_);
+
+            move_group_interface_->computeCartesianPath(waypoints, 0.002, 0, trajectory, false);
+
+
+            auto const success = static_cast<bool>(move_group_interface_->execute(trajectory));
+    
+            response->result = true;
+        }
+
+        void service_callback_robot_set_velocity(const std::shared_ptr<wzlscheduler_interfaces::srv::RobotSetVelocity::Request> request,
+            std::shared_ptr<wzlscheduler_interfaces::srv::RobotSetVelocity::Response> response)
+        {
+            move_group_interface_->setMaxVelocityScalingFactor(request->value);
+            move_group_interface_->setMaxAccelerationScalingFactor(request->value);
+            response->result = true;
         }
 
         void service_callback_scene_object_attach(const std::shared_ptr<wzlscheduler_interfaces::srv::SceneObjectAttach::Request> request,
@@ -309,11 +403,14 @@ class RobotUr : public rclcpp::Node
         {
         }
 
+        geometry_msgs::msg::Pose last_pose_;
         
         std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface_;
         std::shared_ptr<moveit::planning_interface::PlanningSceneInterface> planning_scene_interface_;
 
         rclcpp::Service<wzlscheduler_interfaces::srv::RobotMoveToPosition>::SharedPtr service_robot_move_toposition_;
+        rclcpp::Service<wzlscheduler_interfaces::srv::RobotFollowTrajectory>::SharedPtr service_robot_follow_trajectory_;
+        rclcpp::Service<wzlscheduler_interfaces::srv::RobotSetVelocity>::SharedPtr service_robot_set_velocity_;
         rclcpp::Service<wzlscheduler_interfaces::srv::SceneObjectAttach>::SharedPtr service_scene_object_attach;
         rclcpp::Service<wzlscheduler_interfaces::srv::SceneObjectDetach>::SharedPtr service_scene_object_detach;
 

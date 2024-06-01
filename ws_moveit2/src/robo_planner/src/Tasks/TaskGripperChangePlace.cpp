@@ -2,14 +2,14 @@
 
 #include "../../include/ObjectContainer.h"
 
-void WzlPlanner::TaskGripperChangePlace::Execute()
+bool WzlPlanner::TaskGripperChangePlace::Execute()
 {
     auto gripperChangeStation = ObjectContainer::Get()->GetScene()->GetSceneObject(this->gripperChangingStationId_);
     
     if (gripperChangeStation == nullptr)
     {
         //LogExecutionFailed(std::string("Gripper change station with the id not found: ") + this->gripperChangingStationId_);
-        return;
+        return false;
     }
 
     auto gripperChangeStationCast = std::static_pointer_cast<WzlPlanner::SceneObjectGripperChangeStation>(gripperChangeStation);
@@ -23,7 +23,7 @@ void WzlPlanner::TaskGripperChangePlace::Execute()
         if (freeSlot == nullptr)
         {
             //LogExecutionFailed(std::string("Gripper change station with the id has not free slot to place the current gripper: ") + this->gripperChangingStationId_);
-            return;
+            return false;
         }
 
         targetSlot = gripperChangeStationCast->GetNextFreeGripperSlot()->GetIndex();
@@ -36,7 +36,7 @@ void WzlPlanner::TaskGripperChangePlace::Execute()
 
     // move robot tcp to target post approach position
 
-
+    return false;
 
 
 }

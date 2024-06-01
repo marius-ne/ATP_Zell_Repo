@@ -16,7 +16,7 @@ namespace WzlPlanner
                 gripperId_ = gripperId;
             }
 
-            void Execute() override;
+            bool Execute() override;
 
         private:
             //TaskChangeGripperPick(const TaskChangeGripperPick& copy) {}

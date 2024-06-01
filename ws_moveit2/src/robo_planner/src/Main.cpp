@@ -49,6 +49,8 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
   auto scene = std::make_shared<WzlPlanner::Scene>(robot, node);
   auto ioInterfaceOpcUa = std::make_shared<WzlPlanner::IoInterfaceOpcUa>(node);
   
+  robot->SetGripper(std::make_shared<WzlPlanner::GripperMockup>("TestGripper"));
+  
   RCLCPP_INFO(node->get_logger(), "Robot scheduler cell environment initialization start.");
   RCLCPP_INFO(node->get_logger(), "Initialize ObjectContainer");
 
@@ -84,13 +86,18 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
   scene->AddSceneObject(carrier, std::make_shared<WzlPlanner::Pose>(-5, 0, 0));
 
   RCLCPP_INFO(node->get_logger(), "Robot scheduler cell environment initialization end.");
+
 }
 
 void PickAndPlaceTest()
 {
+  auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
+  
+  RCLCPP_INFO(node->get_logger(), "Initialize Pick & Place test.");
+  
   auto dummyIoInterface = std::make_shared<WzlPlanner::IoInterfaceDummy>();
   WzlPlanner::ObjectContainer::Get()->SetIoInterface(dummyIoInterface);
-  auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
+  
   auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
   auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("RoboGripper", 0, 1);
 
@@ -101,18 +108,44 @@ void PickAndPlaceTest()
   auto taskPickAndPlace = std::make_shared<WzlPlanner::TaskPickAndPlace>();
   auto taskPick = taskPickAndPlace->GetTaskPick();
   auto taskPlace = taskPickAndPlace->GetTaskPlace();
-  /*
-  auto posePickApproach = std::make_shared<WzlPlanner::Pose>(10, 10, 2);
-  auto posePickExceute = std::make_shared<WzlPlanner::Pose>(10, 10, 0);
-  auto posePickEnd = std::make_shared<WzlPlanner::Pose>(10, 10, 2);
 
-  auto posePlaceApproach = std::make_shared<WzlPlanner::Pose>(5, 5, 2);
-  auto posePlaceExceute = std::make_shared<WzlPlanner::Pose>(5, 5, 0);
-  auto posePlaceEnd = std::make_shared<WzlPlanner::Pose>(5, 5, 2);
+  auto taskPickAndPlace2 = std::make_shared<WzlPlanner::TaskPickAndPlace>();
+  auto taskPick2 = taskPickAndPlace2->GetTaskPick();
+  auto taskPlace2 = taskPickAndPlace2->GetTaskPlace();
+  
+  auto taskSetRobotSpeed = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>();
+  taskSetRobotSpeed->SetValue(1);
+  
+
+  // use just absolute poses
+  
+  auto posePickApproach = std::make_shared<WzlPlanner::Pose>(0.30, -0.30, 0.4, M_PI, 0, 0);
+  auto posePickExceute = std::make_shared<WzlPlanner::Pose>(0.30, -0.30, 0.3, M_PI, 0, 0);
+  auto posePickEnd = std::make_shared<WzlPlanner::Pose>(0.30, -0.30, 0.4, M_PI, 0, 0);
+
+  auto posePlaceApproach = std::make_shared<WzlPlanner::Pose>(0.5, -0.5, 0.4, M_PI, 0, 0);
+  auto posePlaceExceute = std::make_shared<WzlPlanner::Pose>(0.5, -0.5, 0.3, M_PI, 0, 0);
+  auto posePlaceEnd = std::make_shared<WzlPlanner::Pose>(0.5, -0.5, 0.4, M_PI, 0, 0);
+
+  auto posePickApproach2 = std::make_shared<WzlPlanner::Pose>(-0.30, -0.30, 0.4, M_PI, 0, 0);
+  auto posePickExceute2 = std::make_shared<WzlPlanner::Pose>(-0.30, -0.30, 0.3, M_PI, 0, 0);
+  auto posePickEnd2 = std::make_shared<WzlPlanner::Pose>(-0.30, -0.30, 0.4, M_PI, 0, 0);
+
+  auto posePlaceApproach2 = std::make_shared<WzlPlanner::Pose>(-0.5, -0.5, 0.4, M_PI, 0, 0);
+  auto posePlaceExceute2 = std::make_shared<WzlPlanner::Pose>(-0.5, -0.5, 0.3, M_PI, 0, 0);
+  auto posePlaceEnd2 = std::make_shared<WzlPlanner::Pose>(-0.5, -0.5, 0.4, M_PI, 0, 0);
+  
+/*
+  auto posePickApproach = std::make_shared<WzlPlanner::Pose>(-0.39255, -0.611, 0.4, M_PI, 0, 0);
+  auto posePickExceute = std::make_shared<WzlPlanner::Pose>(-0.39255, -0.611, 0.2, M_PI, 0, 0);
+  auto posePickEnd = std::make_shared<WzlPlanner::Pose>(-0.39255, -0.611, 0.4, M_PI, 0, 0);
+
+  auto posePlaceApproach = std::make_shared<WzlPlanner::Pose>(-0.393, -0.611, 0.4, M_PI, 0, 0);
+  auto posePlaceExceute = std::make_shared<WzlPlanner::Pose>(-0.393, -0.611, 0.2, M_PI, 0, 0);
+  auto posePlaceEnd = std::make_shared<WzlPlanner::Pose>(-0.393, -0.611, 0.4, M_PI, 0, 0);
 */
-
-
-
+  /*
+  // use relative movements
   auto posePickApproach = std::make_shared<WzlPlanner::Pose>(0.30, 0.30, 0.3, M_PI, 0, 0);
   auto posePickExceute = std::make_shared<WzlPlanner::Pose>(0.0, 0.0, -0.1, 0, 0, 0);
   auto posePickEnd = std::make_shared<WzlPlanner::Pose>(0.0, 0.0, 0.1, 0, 0, 0);
@@ -120,19 +153,39 @@ void PickAndPlaceTest()
   auto posePlaceApproach = std::make_shared<WzlPlanner::Pose>(0.5, 0.5, 0.3, M_PI, 0, 0);
   auto posePlaceExceute = std::make_shared<WzlPlanner::Pose>(0.0, 0.0, -0.1, 0, 0, 0);
   auto posePlaceEnd = std::make_shared<WzlPlanner::Pose>(0.0, 0.0, 0.1, 0, 0, 0);
+  */
+
   taskPickAndPlace->SetId("TestTask");
 
   taskPick->GetTaskMoveToPoseApproach()->SetTargetPose(posePickApproach)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
-  taskPick->GetTaskMoveToPosePick()->SetTargetPose(posePickExceute)->SetMoveType(WzlPlanner::RobotMoveType::RelativeCartesian);
-  taskPick->GetTaskMoveToEnd()->SetTargetPose(posePlaceEnd)->SetMoveType(WzlPlanner::RobotMoveType::RelativeCartesian);
+  taskPick->GetTaskMoveToPosePick()->SetTargetPose(posePickExceute)->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
+  taskPick->GetTaskMoveToEnd()->SetTargetPose(posePickEnd)->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
 
   taskPlace->GetTaskMoveToPoseApproach()->SetTargetPose(posePlaceApproach)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
-  taskPlace->GetTaskMoveToPosePlace()->SetTargetPose(posePlaceExceute)->SetMoveType(WzlPlanner::RobotMoveType::RelativeCartesian);
-  taskPlace->GetTaskMoveToEnd()->SetTargetPose(posePlaceEnd)->SetMoveType(WzlPlanner::RobotMoveType::RelativeCartesian);
+  taskPlace->GetTaskMoveToPosePlace()->SetTargetPose(posePlaceExceute)->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
+  taskPlace->GetTaskMoveToEnd()->SetTargetPose(posePlaceEnd)->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
+
+  taskPickAndPlace2->SetId("TestTask2");
+
+  taskPick2->GetTaskMoveToPoseApproach()->SetTargetPose(posePickApproach2)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
+  taskPick2->GetTaskMoveToPosePick()->SetTargetPose(posePickExceute2)->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
+  taskPick2->GetTaskMoveToEnd()->SetTargetPose(posePickEnd2)->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
+
+  taskPlace2->GetTaskMoveToPoseApproach()->SetTargetPose(posePlaceApproach2)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
+  taskPlace2->GetTaskMoveToPosePlace()->SetTargetPose(posePlaceExceute2)->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
+  taskPlace2->GetTaskMoveToEnd()->SetTargetPose(posePlaceEnd2)->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
+
+
 
   RCLCPP_INFO(node->get_logger(), "Execute Task Pick & Place");
+  taskSetRobotSpeed->Execute();
 
-  taskPickAndPlace->Execute();
+  while (true)
+  {
+    taskPickAndPlace->Execute();
+    taskPickAndPlace2->Execute();
+  }
+  
 
   RCLCPP_INFO(node->get_logger(), "Excecution successful");
 
@@ -168,7 +221,7 @@ int main(int argc, char* argv[])
   RCLCPP_DEBUG(node->get_logger(), "My log message %d", 4);
 
   CreateCell(node);
-  //PickAndPlaceTest();
+  PickAndPlaceTest();
   //OpcUaTest(node);
 
   rclcpp::spin(node);

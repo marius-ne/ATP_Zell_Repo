@@ -1,7 +1,14 @@
 #include "../../include/Tasks/TaskList.h"
 
-void WzlPlanner::TaskList::Execute()
+bool WzlPlanner::TaskList::Execute()
 {
     for(auto&& elem: this->tasks)
-        elem->Execute(); // virtual dispatch
+    {
+        if (!elem->Execute()) // virtual dispatch
+        {
+            return false;
+        }
+    }
+
+    return true;
 }

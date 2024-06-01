@@ -18,7 +18,7 @@ namespace WzlPlanner
 
         public:
         
-            void Execute() override;
+            bool Execute() override;
             void Initialize(
                 float minX, float maxX, int scanCountX,
                 float minY, float maxY, int scaneCountY, 

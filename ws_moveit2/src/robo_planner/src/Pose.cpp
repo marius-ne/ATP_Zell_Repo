@@ -207,6 +207,11 @@ geometry_msgs::msg::Pose WzlPlanner::Pose::GetGeometryMsgPoseFromPose() const
     pose.orientation.z = q.getZ();
     pose.orientation.w = q.getW();
 
+    if (pose.orientation.x < 0.00001) pose.orientation.x = 0;
+    if (pose.orientation.y < 0.00001) pose.orientation.y = 0;
+    if (pose.orientation.z < 0.00001) pose.orientation.z = 0;
+    if (pose.orientation.w < 0.00001) pose.orientation.w = 0;
+
     return pose;
 }
 
@@ -437,11 +442,6 @@ void WzlPlanner::TransformBroadcaster::Broadcast(std::shared_ptr<Transform> tran
     // construct tf transforms
     for (auto&& transform: allTransforms)
     {
-        if (transform->GetParent() == nullptr)
-        {
-            //continue;
-        }
-
         auto transformParent = transform->GetParent() == nullptr ? transformBase->GetId() : transform->GetParent()->GetId();
         auto pose = transform->GetPoseRelative();
         geometry_msgs::msg::TransformStamped tfTransform;
@@ -457,7 +457,6 @@ void WzlPlanner::TransformBroadcaster::Broadcast(std::shared_ptr<Transform> tran
     }
 
     // broadcast
-    std::cout << "Broadcast transforms: " << std::to_string(tfTransforms.size()) << std::endl;
     this->tf_broadcaster_->sendTransform(tfTransforms);
 }
 

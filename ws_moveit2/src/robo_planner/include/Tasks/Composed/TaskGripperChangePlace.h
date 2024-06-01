@@ -21,7 +21,7 @@ namespace WzlPlanner
 
             }
 
-            void Execute() override;
+            bool Execute() override;
 
             //void Initialize(const WzlPlanner::SceneObjectGripperChangeStation changeStation){}
 

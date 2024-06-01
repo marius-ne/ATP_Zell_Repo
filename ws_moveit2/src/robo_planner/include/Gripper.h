@@ -41,6 +41,29 @@ namespace WzlPlanner
             
     };
 
+    // mockup gripper for testing purpose
+    class GripperMockup : public GripperBase
+    {
+        
+        private: 
+            // io indizes for communication with the pneumatic control unit
+            int ioOpen_, ioClose_;
+            GripperStateOpen gripperState_;
+
+        public:
+            GripperMockup(const std::string id) 
+                : GripperBase(id)
+            {
+                gripperState_ = GripperStateOpen::Opened;
+            } 
+
+            bool IsOpen() const { return this->gripperState_ == GripperStateOpen::Opened; }
+            bool IsClose() const { return this->gripperState_ == GripperStateOpen::Closed; }
+
+            void Open() override { gripperState_ = GripperStateOpen::Opened; }
+            void Close() override { gripperState_ = GripperStateOpen::Closed; }
+    };
+
     // simple single jaw gripper with pneumatic actuator
     class GripperPneumaticSingle : public GripperBase
     {

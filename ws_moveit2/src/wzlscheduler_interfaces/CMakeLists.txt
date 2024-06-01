@@ -12,6 +12,8 @@ find_package(sensor_msgs REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/SetValueIoInterface.srv"
   "srv/RobotMoveToPosition.srv"
+  "srv/RobotSetVelocity.srv"
+  "srv/RobotFollowTrajectory.srv"
   "srv/LoadObject.srv"
   "srv/SceneObjectAdd.srv"
   "srv/SceneObjectAttach.srv"

@@ -8,7 +8,7 @@ namespace WzlPlanner
     class TaskGripperClose : public Task
     {
         public:
-            void Execute() override;
+            bool Execute() override;
     };
 }
 

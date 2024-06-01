@@ -35,7 +35,7 @@ std::shared_ptr<WzlPlanner::SceneObject> WzlPlanner::Scene::GetSceneObject(const
 {
     if (sceneObjects_.count(id) > 0)
     {
-        auto msg = std::string("Trying to call GetSceneObject with a non eisting scene object id: ") + id; 
+        auto msg = std::string("Trying to call GetSceneObject with a non existing scene object id: ") + id; 
         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
 
         return nullptr;

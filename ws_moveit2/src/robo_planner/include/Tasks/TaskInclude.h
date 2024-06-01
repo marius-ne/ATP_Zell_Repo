@@ -9,6 +9,7 @@
 #include "Atomic/TaskGripperOpen.h"
 #include "Atomic/TaskMoveToPose.h"
 #include "Atomic/TaskOpenDoor.h"
+#include "Atomic/TaskSetRobotValueVelocity.h"
 
 // include composed tasks
 #include "Composed/TaskGripperChange.h"

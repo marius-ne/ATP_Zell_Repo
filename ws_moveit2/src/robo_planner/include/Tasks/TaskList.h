@@ -14,7 +14,7 @@ namespace WzlPlanner
         public:
             void AddTask(std::shared_ptr<Task> task) { tasks.push_back(task); }
 
-            void Execute() override;
+            bool Execute() override;
 
         private:
             std::vector<std::shared_ptr<Task>> tasks;
