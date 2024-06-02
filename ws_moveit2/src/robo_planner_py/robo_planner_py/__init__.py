@@ -76,6 +76,9 @@ class TaskBase:
     _id : str
 
 class TaskList(TaskBase):
+    def __init__(self, id):
+        super.__init__(self, id)
+
     def Execute(self):
         for subtask in self._subtasks:
             subtask.Execute()
@@ -93,13 +96,128 @@ class TaskList(TaskBase):
 
 #region Atomic Tasks
 
-class TaskFollowTrajectory:
-    def Execute(self):
+class TaskFollowTrajectory(TaskBase):
+    def __init__(self, id):
+        super.__init__(self, id)
 
+    def Execute(self):
+        pass
+
+    _fixpoints : list[TaskBase]
+
+class TaskGripperClose(TaskBase):
+    def __init__(self, id):
+        super.__init__(self, id)
+
+    def Execute(self):
+        pass
+
+class TaskGripperOpen(TaskBase):
+    def __init__(self, id):
+        super.__init__(self, id)
+
+    def Execute(self):
+        pass
+
+class TaskMoveToPose(TaskBase):
+    def __init__(self, id):
+        super.__init__(self, id)
+
+    def Execute(self):
+        pass
+
+    _targetPose : Pose
+    _moveType : RobotMoveType
+
+class TaskSetRobotValueVelocity(TaskBase):
+    def __init__(self, id):
+        super.__init__(self, id)
+
+    def Execute(self):
+        pass
+
+    _value : float
 
 #endregion
 
 #region Composed Tasks
+
+class TaskGripperChangePick(TaskList):
+    def __init__(self, id):
+        super.__init__(self, id)
+
+        self._subtasks.append(self._subTaskPoseApproach)
+        self._subtasks.append(self._subTaskPosePick)
+        self._subtasks.append(self._subTaskPosePick)
+        self._subtasks.append(self._subTaskPoseFinish)
+
+    def Execute(self):
+        pass
+
+    _gripperChangingStationId : str
+    _gripperId : str
+    _subTaskPoseApproach : TaskMoveToPose
+    _subTaskPosePick : TaskMoveToPose
+    _subTaskPosePostAppraoch : TaskMoveToPose
+    _subTaskPoseFinish : TaskMoveToPose
+
+class TaskGripperChangePlace(TaskList):
+    def __init__(self, id):
+        super.__init__(self, id)
+
+        self._subtasks.append(self._subTaskPoseApproach)
+        self._subtasks.append(self._subTaskPosePick)
+        self._subtasks.append(self._subTaskPosePick)
+        self._subtasks.append(self._subTaskPoseFinish)
+
+    def Execute(self):
+        pass
+
+    _gripperChangingStationId : str
+    _changeStationSlot : int
+    _subTaskPoseApproach : TaskMoveToPose
+    _subTaskPosePick : TaskMoveToPose
+    _subTaskPosePostAppraoch : TaskMoveToPose
+    _subTaskPoseFinish : TaskMoveToPose
+
+class TaskGripperChange(TaskList):
+    def __init__(self, id):
+        super.__init__(self, id)
+
+    def Execute(self):
+        pass
+
+    _subTaskGripperChangePick : TaskGripperChangePick
+    _subTaskGripperChangePlace : TaskGripperChangePlace
+
+class TaskPick(TaskList):
+    def __init__(self, id):
+        super.__init__(self, id)
+
+
+    def Execute(self):
+        pass
+
+class TaskPlace(TaskList):
+    def __init__(self, id):
+        super.__init__(self, id)
+
+    def Execute(self):
+        pass
+
+    class TaskPickAndPlace(TaskList):
+    def __init__(self, id):
+        super.__init__(self, id)
+
+    def Execute(self):
+        pass
+
+class TaskScanScene(TaskList):
+    def __init__(self, id):
+        super.__init__(self, id)
+
+    def Execute(self):
+        pass
 
 #endregion
 
