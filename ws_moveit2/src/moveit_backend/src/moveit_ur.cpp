@@ -69,8 +69,8 @@ class RobotUr : public rclcpp::Node
             add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);
             add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
-            add_collision_box("gripper_change_station", 0.7, 0.25, 0.45, 0, 0.775, 0.225);
-            add_collision_box("scan_tower", 0.3, 0.15, 1, -0.67, 0.725, 0.5);
+            //add_collision_box("gripper_change_station", 0.7, 0.25, 0.45, 0, -0.775, 0.225);
+            //add_collision_box("scan_tower", 0.3, 0.15, 1, +0.67, -0.725, 0.5);
 
             //add_collision_box("forbidden_quarter", 1.0, 1.0, 1.0, -size05, 0, 0.5);
 
@@ -159,6 +159,10 @@ class RobotUr : public rclcpp::Node
             geometry_msgs::msg::Pose msg;
             msg.position = position;
             msg.orientation = orientation;
+            msg.orientation.x = -0.0669645220041275;
+            msg.orientation.y = 0.997612476348877;
+            msg.orientation.z = 0.0017909521702677011;
+            msg.orientation.w = -0.01670403964817524;
 
             auto is_movement_normal = moveType == 1 || moveType == 2;
             auto is_movement_cartesian = moveType == 3 || moveType == 4;
