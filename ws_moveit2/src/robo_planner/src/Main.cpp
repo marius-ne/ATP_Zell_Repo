@@ -9,6 +9,7 @@
 #include "../include/ObjectContainer.h"
 
 #include "../include/Tasks/TaskInclude.h"
+#include "../include/OpcUaData.h"
 
 #include <math.h>
 #include <memory>
@@ -105,6 +106,24 @@ void PickAndPlaceTest()
 
   RCLCPP_INFO(node->get_logger(), "Initialize Task Pick & Place");
 
+  auto taskIoBemi1Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteAuf());
+
+  auto taskIoBemi1Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteZu());
+
+  auto taskIoBemi2Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteAuf());
+
+  auto taskIoBemi2Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteZu());
+
+  auto taskIoGripperOpen = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWriteAuf());
+
+  auto taskIoGripperClose = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWritZu());
+
   auto taskPickAndPlace = std::make_shared<WzlPlanner::TaskPickAndPlace>();
   auto taskPick = taskPickAndPlace->GetTaskPick();
   auto taskPlace = taskPickAndPlace->GetTaskPlace();
@@ -139,7 +158,8 @@ void PickAndPlaceTest()
 
   // BEMI 1
 
-  auto offset_z = 0.58 -0.182;
+  //auto offset_z = 0.58 -0.182;
+  auto offset_z = 0.00;
 
   auto posePickApproach = std::make_shared<WzlPlanner::Pose>(0.0934, 0.61288, -0.023 + offset_z, M_PI, 0, 0);
   auto posePickExceute = std::make_shared<WzlPlanner::Pose>(0.0934, 0.61288, 0.123 + offset_z, M_PI, 0, 0);
@@ -204,10 +224,41 @@ void PickAndPlaceTest()
   RCLCPP_INFO(node->get_logger(), "Execute Task Pick & Place");
   taskSetRobotSpeed->Execute();
 
+  // setup custom task
+  auto taskList = std::make_shared<WzlPlanner::TaskList>();
+  taskList->AddTask(taskPick->GetTaskMoveToPoseApproach());
+  taskList->AddTask(taskIoBemi1Open);
+  taskList->AddTask(taskIoGripperOpen);
+  taskList->AddTask(taskPick->GetTaskMoveToPosePick());
+  taskList->AddTask(taskIoGripperClose);
+  taskList->AddTask(taskPick->GetTaskMoveToEnd());
+
+  taskList->AddTask(taskPlace->GetTaskMoveToPoseApproach());
+  taskList->AddTask(taskIoBemi1Open);
+  taskList->AddTask(taskPlace->GetTaskMoveToPosePlace());
+  taskList->AddTask(taskIoGripperOpen);
+  taskList->AddTask(taskIoBemi1Close);
+  taskList->AddTask(taskPlace->GetTaskMoveToEnd());
+
+  taskList->AddTask(taskPick2->GetTaskMoveToPoseApproach());
+  taskList->AddTask(taskIoBemi1Open);
+  taskList->AddTask(taskIoGripperOpen);
+  taskList->AddTask(taskPick2->GetTaskMoveToPosePick());
+  taskList->AddTask(taskIoGripperClose);
+  taskList->AddTask(taskPick2->GetTaskMoveToEnd());
+
+  taskList->AddTask(taskPlace2->GetTaskMoveToPoseApproach());
+  taskList->AddTask(taskIoBemi1Open);
+  taskList->AddTask(taskPlace2->GetTaskMoveToPosePlace());
+  taskList->AddTask(taskIoGripperOpen);
+  taskList->AddTask(taskIoBemi1Close);
+  taskList->AddTask(taskPlace2->GetTaskMoveToEnd());
+
   while (true)
   {
-    taskPickAndPlace->Execute();
-    taskPickAndPlace2->Execute();
+    taskList->Execute();
+    //taskPickAndPlace->Execute();
+    //taskPickAndPlace2->Execute();
   }
   
 

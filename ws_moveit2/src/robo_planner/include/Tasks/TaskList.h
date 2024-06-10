@@ -12,7 +12,7 @@ namespace WzlPlanner
     {
 
         public:
-            void AddTask(std::shared_ptr<Task> task) { tasks.push_back(task); }
+            void AddTask(std::shared_ptr<Task> task) { subTasks_.push_back(task); }
 
             bool Execute() override;
 

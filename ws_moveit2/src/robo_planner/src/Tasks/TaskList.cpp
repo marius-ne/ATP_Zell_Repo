@@ -2,6 +2,7 @@
 
 bool WzlPlanner::TaskList::Execute()
 {
+    /*
     for(auto&& elem: this->tasks)
     {
         if (!elem->Execute()) // virtual dispatch
@@ -9,6 +10,7 @@ bool WzlPlanner::TaskList::Execute()
             return false;
         }
     }
+    */
 
-    return true;
+    return Task::Execute();
 }

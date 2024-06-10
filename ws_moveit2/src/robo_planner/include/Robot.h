@@ -40,7 +40,7 @@ namespace WzlPlanner
             std::shared_ptr<GripperBase> GetGripper() const { return gripper_; }
             void SetGripper(const std::shared_ptr<GripperBase> gripper) { gripper_ = gripper; }
 
-            // service calll of a move to pose cmd to the robot backend which then calculates the robot trajetory and send it to the simulated or real robot 
+            // service calll of a move to pose cmd to the robot backend which then calculates the robot trajectory and send it to the simulated or real robot 
             virtual bool MoveToPose(const std::shared_ptr<Pose> targetPose, const RobotMoveType moveType = AbsolutePTP) = 0;
 
             // the robot tcp follows a trjaevtory containing a list of fixed points

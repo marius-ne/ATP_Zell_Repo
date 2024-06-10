@@ -3,6 +3,7 @@
 #include <chrono>
 #include "IoInterface.h"
 
+
 bool WzlPlanner::IoInterfaceOpcUa::SetValueBool(const int slot, const bool value)
 {
     auto valueInt = 0;
@@ -33,6 +34,17 @@ bool WzlPlanner::IoInterfaceOpcUa::SetValueBool(const int slot, const bool value
     }
 
     return result.get()->result;
+}
+
+void WzlPlanner::IoInterfaceOpcUa::OpcaUaActuatorWrite(const std::shared_ptr<const OpcUaData> data) const
+{
+    auto message = opcua_interfaces::msg::ActuatorWrite();
+    message.actuator_id = data->actuatorId;
+    message.actuator_write_type  = data->actuatorWriteType;
+    message.actuator_command_bool1 = data->actuatorCommandBool1;
+    message.actuator_command_bool2 = data->actuatorCommandBool2;
+    
+    opcua_actuator_write_publisher_->publish(message);
 }
 
 bool WzlPlanner::IoInterfaceDummy::SetValueBool(const int slot, const bool value)

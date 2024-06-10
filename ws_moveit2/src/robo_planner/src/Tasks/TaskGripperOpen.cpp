@@ -1,12 +1,12 @@
 #include "../../include/Tasks/Atomic/TaskGripperOpen.h"
 #include "../../include/ObjectContainer.h"
 
+
 bool WzlPlanner::TaskGripperOpen::Execute()
 {
     LogStart();
 
     auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
-
 
     if (robot->HasGripper())
     {
