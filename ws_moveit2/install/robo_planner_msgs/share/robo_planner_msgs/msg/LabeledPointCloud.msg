@@ -1,4 +1,0 @@
-string label
-geometry_msgs/Pose poseorigin
-geometry_msgs/Pose posecad
-sensor_msgs/PointCloud2 pointcloud

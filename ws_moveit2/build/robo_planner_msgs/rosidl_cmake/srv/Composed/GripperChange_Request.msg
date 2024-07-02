@@ -1,2 +1,0 @@
-int32 subtaskgripperhangepick
-int32 subtaskgripperhangeplace
