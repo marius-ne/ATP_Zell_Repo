@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "../rosidl_generator_py/wzlscheduler_interfaces/_wzlscheduler_interfaces_s.ep.rosidl_typesupport_c.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/_wzlscheduler_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/_wzlscheduler_interfaces_s.ep.rosidl_typesupport_introspection_c.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/msg/__init__.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/msg/_labeled_point_cloud.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/msg/_labeled_point_cloud_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/msg/_labeled_point_clouds.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/msg/_labeled_point_clouds_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/msg/_scene_object_add.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/msg/_scene_object_add_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/msg/_scene_object_remove.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/msg/_scene_object_remove_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/msg/_scene_object_set_pose.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/msg/_scene_object_set_pose_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/__init__.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_load_object.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_load_object_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_robot_follow_trajectory.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_robot_follow_trajectory_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_robot_move_to_position.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_robot_move_to_position_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_robot_set_velocity.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_robot_set_velocity_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_scene_object_add.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_scene_object_add_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_scene_object_attach.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_scene_object_attach_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_scene_object_detach.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_scene_object_detach_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_scene_object_remove.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_scene_object_remove_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_scene_object_set_pose.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_scene_object_set_pose_s.c"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_set_value_io_interface.py"
+  "../rosidl_generator_py/wzlscheduler_interfaces/srv/_set_value_io_interface_s.c"
+  "CMakeFiles/wzlscheduler_interfaces__py"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang )
+  include(CMakeFiles/wzlscheduler_interfaces__py.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

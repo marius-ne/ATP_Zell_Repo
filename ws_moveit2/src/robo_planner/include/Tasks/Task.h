@@ -28,6 +28,8 @@ namespace WzlPlanner
                 }
 
                 LogEnd();
+
+                return true;
             };
 
             virtual void SetId(const std::string id) { id_ = id; }

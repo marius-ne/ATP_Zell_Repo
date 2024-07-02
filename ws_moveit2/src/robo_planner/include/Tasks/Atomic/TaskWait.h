@@ -23,9 +23,13 @@ namespace WzlPlanner
 
             bool Execute() override
             {
+                LogStart();
+
                 // wait 1 sec
                 std::this_thread::sleep_for(time_);
                 
+                LogEnd();
+
                 return true;
             }
 

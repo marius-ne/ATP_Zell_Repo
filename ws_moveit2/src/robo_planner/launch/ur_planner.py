@@ -94,7 +94,16 @@ def generate_launch_description():
 
     robot_description_kinematics = PathJoinSubstitution([FindPackageShare("ur_moveit_config"), "config", "kinematics.yaml"])
 
-    demo_node = Node(
+    opcua_client_node = Node(
+        package="opcua_client",
+        executable="client_node",
+        name="opcua_client",
+        output="screen",
+        parameters=[
+        ],
+    )
+
+    moveit_node = Node(
         package="moveit_backend",
         executable="moveit_ur",
         name="moveit_backend_ur",
@@ -115,4 +124,4 @@ def generate_launch_description():
     )
 
 
-    return launch.LaunchDescription([demo_node, robo_planner_node])
+    return launch.LaunchDescription([opcua_client_node, moveit_node, robo_planner_node])

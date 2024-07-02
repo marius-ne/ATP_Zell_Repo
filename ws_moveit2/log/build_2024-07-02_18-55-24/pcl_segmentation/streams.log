@@ -1,0 +1,285 @@
+[0.019s] Invoking command in '/home/alex/restackcell/ws_moveit2/build/pcl_segmentation': CMAKE_PREFIX_PATH=/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake /home/alex/restackcell/ws_moveit2/src/pcl_segmentation -DCMAKE_INSTALL_PREFIX=/home/alex/restackcell/ws_moveit2/install/pcl_segmentation
+[0.090s] -- The C compiler identification is GNU 11.4.0
+[0.145s] -- The CXX compiler identification is GNU 11.4.0
+[0.153s] -- Detecting C compiler ABI info
+[0.244s] -- Detecting C compiler ABI info - done
+[0.249s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.249s] -- Detecting C compile features
+[0.249s] -- Detecting C compile features - done
+[0.251s] -- Detecting CXX compiler ABI info
+[0.351s] -- Detecting CXX compiler ABI info - done
+[0.356s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.356s] -- Detecting CXX compile features
+[0.357s] -- Detecting CXX compile features - done
+[0.359s] -- Found ament_cmake: 1.3.8 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.496s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.572s] -- Found rclcpp: 16.0.8 (/opt/ros/humble/share/rclcpp/cmake)
+[0.613s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.620s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.628s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.640s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.657s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.722s] -- Found rmw_implementation_cmake: 6.1.1 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.725s] -- Found rmw_fastrtps_cpp: 6.2.6 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.884s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[0.918s] -- Found FastRTPS: /opt/ros/humble/include  
+[0.972s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.986s] -- Looking for pthread.h
+[1.083s] -- Looking for pthread.h - found
+[1.083s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.177s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.178s] -- Found Threads: TRUE  
+[1.289s] -- Found geometry_msgs: 4.2.3 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.319s] -- Found sensor_msgs: 4.2.3 (/opt/ros/humble/share/sensor_msgs/cmake)
+[1.374s] -- Found visualization_msgs: 4.2.3 (/opt/ros/humble/share/visualization_msgs/cmake)
+[1.452s] -- Found pcl_conversions: 2.4.0 (/opt/ros/humble/share/pcl_conversions/cmake)
+[1.562s] -- Checking for module 'eigen3'
+[1.589s] --   Found eigen3, version 3.4.0
+[1.653s] -- Found Eigen: /usr/include/eigen3 (Required is at least version "3.1") 
+[1.653s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[1.704s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found suitable version "1.74.0", minimum required is "1.65.0") found components: system filesystem date_time iostreams serialization 
+[1.808s] -- Checking for module 'libusb-1.0'
+[1.832s] --   Found libusb-1.0, version 1.0.25
+[1.894s] -- Found libusb: /usr/lib/x86_64-linux-gnu/libusb-1.0.so  
+[1.895s] -- Found OpenNI: /usr/lib/libOpenNI.so;libusb::libusb (found version "1.5.4.0") 
+[1.895s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[1.992s] -- Found OpenNI2: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb (found version "2.2.0.33") 
+[1.992s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[1.992s] [0m** WARNING ** io features related to pcap will be disabled[0m
+[1.992s] [0m** WARNING ** io features related to png will be disabled[0m
+[2.015s] -- Found GLEW: /usr/lib/x86_64-linux-gnu/libGLEW.so  
+[2.021s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so  found components: OpenGL GLX 
+[2.195s] -- Found MPI_C: /usr/lib/x86_64-linux-gnu/libmpi.so (found version "3.1") 
+[2.195s] -- Found MPI: TRUE (found version "3.1") found components: C 
+[2.197s] -- Found JsonCpp: /usr/lib/x86_64-linux-gnu/libjsoncpp.so (found suitable version "1.9.5", minimum required is "0.7.0") 
+[2.206s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+[2.221s] -- Found PNG: /usr/lib/x86_64-linux-gnu/libpng.so (found version "1.6.37") 
+[2.230s] -- Found Eigen3: /usr/include/eigen3 (found version "3.4.0") 
+[2.369s] -- Found X11: /usr/include   
+[2.369s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+[2.465s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+[2.465s] -- Looking for gethostbyname
+[2.559s] -- Looking for gethostbyname - found
+[2.559s] -- Looking for connect
+[2.655s] -- Looking for connect - found
+[2.655s] -- Looking for remove
+[2.749s] -- Looking for remove - found
+[2.749s] -- Looking for shmat
+[2.846s] -- Looking for shmat - found
+[2.846s] -- Looking for IceConnectionNumber in ICE
+[2.939s] -- Looking for IceConnectionNumber in ICE - found
+[3.063s] -- Found EXPAT: /usr/lib/x86_64-linux-gnu/libexpat.so (found version "2.4.7") 
+[3.065s] -- Found double-conversion: /usr/lib/x86_64-linux-gnu/libdouble-conversion.so  
+[3.066s] -- Found LZ4: /usr/lib/x86_64-linux-gnu/liblz4.so (found version "1.9.3") 
+[3.068s] -- Found LZMA: /usr/lib/x86_64-linux-gnu/liblzma.so (found version "5.2.5") 
+[3.080s] -- Found JPEG: /usr/lib/x86_64-linux-gnu/libjpeg.so (found version "80") 
+[3.087s] -- Found TIFF: /usr/lib/x86_64-linux-gnu/libtiff.so (found version "4.3.0")  
+[3.090s] -- Found Freetype: /usr/lib/x86_64-linux-gnu/libfreetype.so (found version "2.11.1") 
+[3.094s] -- Found utf8cpp: /usr/include/utf8cpp  
+[3.122s] -- Eigen found (include: /usr/include/eigen3, version: 3.4.0)
+[3.122s] -- looking for PCL_COMMON
+[3.123s] -- Found PCL_COMMON: /usr/lib/x86_64-linux-gnu/libpcl_common.so  
+[3.123s] -- looking for PCL_OCTREE
+[3.124s] -- Found PCL_OCTREE: /usr/lib/x86_64-linux-gnu/libpcl_octree.so  
+[3.124s] -- looking for PCL_IO
+[3.124s] -- Found PCL_IO: /usr/lib/x86_64-linux-gnu/libpcl_io.so  
+[3.125s] -- Found PCL: pcl_common;pcl_octree;pcl_io;Boost::system;Boost::filesystem;Boost::date_time;Boost::iostreams;Boost::serialization;/usr/lib/libOpenNI.so;libusb::libusb;/usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb;VTK::ChartsCore;VTK::CommonColor;VTK::CommonComputationalGeometry;VTK::CommonCore;VTK::CommonDataModel;VTK::CommonExecutionModel;VTK::CommonMath;VTK::CommonMisc;VTK::CommonTransforms;VTK::FiltersCore;VTK::FiltersExtraction;VTK::FiltersGeneral;VTK::FiltersGeometry;VTK::FiltersModeling;VTK::FiltersSources;VTK::ImagingCore;VTK::ImagingSources;VTK::InteractionImage;VTK::InteractionStyle;VTK::InteractionWidgets;VTK::IOCore;VTK::IOGeometry;VTK::IOImage;VTK::IOLegacy;VTK::IOPLY;VTK::RenderingAnnotation;VTK::RenderingCore;VTK::RenderingContext2D;VTK::RenderingLOD;VTK::RenderingFreeType;VTK::ViewsCore;VTK::ViewsContext2D;VTK::RenderingOpenGL2;VTK::GUISupportQt  
+[3.127s] -- Found wzlscheduler_interfaces: 0.0.0 (/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/cmake)
+[3.181s] -- Found tf2: 0.25.6 (/opt/ros/humble/share/tf2/cmake)
+[3.199s] -- Found tf2_ros: 0.25.6 (/opt/ros/humble/share/tf2_ros/cmake)
+[3.430s] [33mCMake Warning (dev) at CMakeLists.txt:31 (find_package):
+[3.431s]   Policy CMP0074 is not set: find_package uses <PackageName>_ROOT variables.
+[3.431s]   Run "cmake --help-policy CMP0074" for policy details.  Use the cmake_policy
+[3.431s]   command to set the policy and suppress this warning.
+[3.431s] 
+[3.431s]   CMake variable PCL_ROOT is set to:
+[3.431s] 
+[3.431s]     /usr
+[3.431s] 
+[3.431s]   For compatibility, CMake is ignoring the variable.
+[3.431s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[3.431s] [0m
+[3.460s] -- Checking for module 'flann'
+[3.487s] --   Found flann, version 1.9.1
+[3.556s] -- Found FLANN: /usr/lib/x86_64-linux-gnu/libflann_cpp.so  
+[3.556s] -- FLANN found (include: /usr/include, lib: /usr/lib/x86_64-linux-gnu/libflann_cpp.so)
+[3.697s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[3.704s] -- OpenNI2 found (version: 2.2.0.33, include: /usr/include/openni2, lib: /usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb)
+[3.842s] -- Found Qhull version 8.0.2
+[3.981s] -- OpenNI found (version: 1.5.4.0, include: /usr/include/ni, lib: /usr/lib/libOpenNI.so;libusb::libusb)
+[4.115s] -- looking for PCL_KDTREE
+[4.116s] -- Found PCL_KDTREE: /usr/lib/x86_64-linux-gnu/libpcl_kdtree.so  
+[4.116s] -- looking for PCL_SEARCH
+[4.116s] -- Found PCL_SEARCH: /usr/lib/x86_64-linux-gnu/libpcl_search.so  
+[4.116s] -- looking for PCL_SAMPLE_CONSENSUS
+[4.117s] -- Found PCL_SAMPLE_CONSENSUS: /usr/lib/x86_64-linux-gnu/libpcl_sample_consensus.so  
+[4.117s] -- looking for PCL_FILTERS
+[4.117s] -- Found PCL_FILTERS: /usr/lib/x86_64-linux-gnu/libpcl_filters.so  
+[4.117s] -- looking for PCL_2D
+[4.118s] -- Found PCL_2D: /usr/include/pcl-1.12  
+[4.118s] -- looking for PCL_GEOMETRY
+[4.118s] -- Found PCL_GEOMETRY: /usr/include/pcl-1.12  
+[4.118s] -- looking for PCL_FEATURES
+[4.118s] -- Found PCL_FEATURES: /usr/lib/x86_64-linux-gnu/libpcl_features.so  
+[4.118s] -- looking for PCL_ML
+[4.119s] -- Found PCL_ML: /usr/lib/x86_64-linux-gnu/libpcl_ml.so  
+[4.119s] -- looking for PCL_SEGMENTATION
+[4.120s] -- Found PCL_SEGMENTATION: /usr/lib/x86_64-linux-gnu/libpcl_segmentation.so  
+[4.120s] -- looking for PCL_VISUALIZATION
+[4.120s] -- Found PCL_VISUALIZATION: /usr/lib/x86_64-linux-gnu/libpcl_visualization.so  
+[4.120s] -- looking for PCL_SURFACE
+[4.121s] -- Found PCL_SURFACE: /usr/lib/x86_64-linux-gnu/libpcl_surface.so  
+[4.121s] -- looking for PCL_REGISTRATION
+[4.121s] -- Found PCL_REGISTRATION: /usr/lib/x86_64-linux-gnu/libpcl_registration.so  
+[4.122s] -- looking for PCL_KEYPOINTS
+[4.122s] -- Found PCL_KEYPOINTS: /usr/lib/x86_64-linux-gnu/libpcl_keypoints.so  
+[4.122s] -- looking for PCL_TRACKING
+[4.123s] -- Found PCL_TRACKING: /usr/lib/x86_64-linux-gnu/libpcl_tracking.so  
+[4.123s] -- looking for PCL_RECOGNITION
+[4.123s] -- Found PCL_RECOGNITION: /usr/lib/x86_64-linux-gnu/libpcl_recognition.so  
+[4.123s] -- looking for PCL_STEREO
+[4.124s] -- Found PCL_STEREO: /usr/lib/x86_64-linux-gnu/libpcl_stereo.so  
+[4.124s] -- looking for PCL_APPS
+[4.124s] -- Found PCL_APPS: /usr/lib/x86_64-linux-gnu/libpcl_apps.so  
+[4.125s] -- looking for PCL_IN_HAND_SCANNER
+[4.125s] -- Found PCL_IN_HAND_SCANNER: /usr/include/pcl-1.12  
+[4.125s] -- looking for PCL_MODELER
+[4.125s] -- Found PCL_MODELER: /usr/include/pcl-1.12  
+[4.125s] -- looking for PCL_POINT_CLOUD_EDITOR
+[4.125s] -- Found PCL_POINT_CLOUD_EDITOR: /usr/include/pcl-1.12  
+[4.126s] -- looking for PCL_OUTOFCORE
+[4.126s] -- Found PCL_OUTOFCORE: /usr/lib/x86_64-linux-gnu/libpcl_outofcore.so  
+[4.126s] -- looking for PCL_PEOPLE
+[4.127s] -- Found PCL_PEOPLE: /usr/lib/x86_64-linux-gnu/libpcl_people.so  
+[4.127s] -- Found PCL: pcl_common;pcl_octree;pcl_io;pcl_kdtree;pcl_search;pcl_sample_consensus;pcl_filters;pcl_features;pcl_ml;pcl_segmentation;pcl_visualization;pcl_surface;pcl_registration;pcl_keypoints;pcl_tracking;pcl_recognition;pcl_stereo;pcl_apps;pcl_outofcore;pcl_people;Boost::system;Boost::filesystem;Boost::date_time;Boost::iostreams;Boost::serialization;/usr/lib/libOpenNI.so;libusb::libusb;/usr/lib/x86_64-linux-gnu/libOpenNI2.so;libusb::libusb;VTK::ChartsCore;VTK::CommonColor;VTK::CommonComputationalGeometry;VTK::CommonCore;VTK::CommonDataModel;VTK::CommonExecutionModel;VTK::CommonMath;VTK::CommonMisc;VTK::CommonTransforms;VTK::FiltersCore;VTK::FiltersExtraction;VTK::FiltersGeneral;VTK::FiltersGeometry;VTK::FiltersModeling;VTK::FiltersSources;VTK::ImagingCore;VTK::ImagingSources;VTK::InteractionImage;VTK::InteractionStyle;VTK::InteractionWidgets;VTK::IOCore;VTK::IOGeometry;VTK::IOImage;VTK::IOLegacy;VTK::IOPLY;VTK::RenderingAnnotation;VTK::RenderingCore;VTK::RenderingContext2D;VTK::RenderingLOD;VTK::RenderingFreeType;VTK::ViewsCore;VTK::ViewsContext2D;VTK::RenderingOpenGL2;VTK::GUISupportQt;FLANN::FLANN;QHULL::QHULL (Required is at least version "1.1") 
+[4.661s] -- Found ament_lint_auto: 0.12.10 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[4.750s] -- Added test 'copyright' to check source files copyright and LICENSE
+[4.760s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[4.761s] -- Configured cppcheck include dirs: /home/alex/restackcell/ws_moveit2/src/pcl_segmentation/include
+[4.761s] -- Configured cppcheck exclude dirs and/or files: 
+[4.771s] -- Added test 'cpplint' to check C / C++ code against the Google style
+[4.772s] -- Configured cpplint exclude dirs and/or files: 
+[4.774s] -- Added test 'flake8' to check Python code syntax and style conventions
+[4.778s] -- Added test 'lint_cmake' to check CMake code style
+[4.780s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[4.794s] -- Added test 'uncrustify' to check C / C++ code style
+[4.794s] -- Configured uncrustify additional arguments: 
+[4.796s] -- Added test 'xmllint' to check XML markup files
+[4.799s] -- Configuring done
+[5.013s] -- Generating done
+[5.016s] -- Build files have been written to: /home/alex/restackcell/ws_moveit2/build/pcl_segmentation
+[5.046s] Invoked command in '/home/alex/restackcell/ws_moveit2/build/pcl_segmentation' returned '0': CMAKE_PREFIX_PATH=/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake /home/alex/restackcell/ws_moveit2/src/pcl_segmentation -DCMAKE_INSTALL_PREFIX=/home/alex/restackcell/ws_moveit2/install/pcl_segmentation
+[5.048s] Invoking command in '/home/alex/restackcell/ws_moveit2/build/pcl_segmentation': CMAKE_PREFIX_PATH=/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/alex/restackcell/ws_moveit2/build/pcl_segmentation -- -j16 -l16
+[5.138s] [ 22%] [32mBuilding CXX object CMakeFiles/transformation_robot.dir/src/TransformationRobot.cpp.o[0m
+[5.138s] [ 22%] [32mBuilding CXX object CMakeFiles/pose_snapper.dir/src/PoseSnapper.cpp.o[0m
+[5.138s] [ 22%] [32mBuilding CXX object CMakeFiles/scene_scan_matching.dir/src/SceneScanMatching.cpp.o[0m
+[5.139s] [ 22%] [32mBuilding CXX object CMakeFiles/plane_filter.dir/src/PlaneRemover.cpp.o[0m
+[5.139s] [ 22%] [32mBuilding CXX object CMakeFiles/clustering.dir/src/Clustering.cpp.o[0m
+[5.139s] [ 27%] [32mBuilding CXX object CMakeFiles/downsampling.dir/src/Downsampling.cpp.o[0m
+[5.139s] [ 36%] [32mBuilding CXX object CMakeFiles/classification.dir/src/Classification.cpp.o[0m
+[5.139s] [ 40%] [32mBuilding CXX object CMakeFiles/matching.dir/src/Matching.cpp.o[0m
+[5.140s] [ 45%] [32mBuilding CXX object CMakeFiles/file_publisher.dir/src/FilePublisher.cpp.o[0m
+[5.140s] [ 45%] [32mBuilding CXX object CMakeFiles/hand_eye_transform_publisher.dir/src/HandEyeTransformPublisher.cpp.o[0m
+[5.140s] [ 50%] [32mBuilding CXX object CMakeFiles/test_robot_pose_publisher.dir/src/Test/TestPoseHandPublisher.cpp.o[0m
+[8.617s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/Test/TestPoseHandPublisher.cpp:94:38:[m[K [01;35m[Kwarning: [m[K‘[01m[Kgeometry_msgs::msg::Transform_<std::allocator<void> >::Ptr[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[8.618s]    94 |   geometry_msgs::msg::Transform::Ptr [01;35m[Khand_eye_transform_[m[K;
+[8.618s]       |                                      [01;35m[K^~~~~~~~~~~~~~~~~~~[m[K
+[8.618s] In file included from [01m[K/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__struct.hpp:22[m[K,
+[8.618s]                  from [01m[K/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/transform_stamped.hpp:7[m[K,
+[8.618s]                  from [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/Test/TestPoseHandPublisher.cpp:2[m[K:
+[8.618s] [01m[K/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__struct.hpp:112:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[8.618s]   112 |     [01;36m[KPtr[m[K;
+[8.618s]       |     [01;36m[K^~~[m[K
+[8.630s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/HandEyeTransformPublisher.cpp:[m[K In constructor ‘[01m[KHandEyeTransformPublisher::HandEyeTransformPublisher()[m[K’:
+[8.631s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/HandEyeTransformPublisher.cpp:34:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+[8.631s]    34 | [01;31m[K<<<<<<<[m[K HEAD
+[8.631s]       | [01;31m[K^~~~~~~[m[K
+[8.631s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/HandEyeTransformPublisher.cpp:46:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+[8.631s]    46 | [01;31m[K=======[m[K
+[8.631s]       | [01;31m[K^~~~~~~[m[K
+[8.631s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/HandEyeTransformPublisher.cpp:48:1:[m[K [01;31m[Kerror: [m[Kversion control conflict marker in file
+[8.631s]    48 | [01;31m[K>>>>>>>[m[K aee984907d58250aa246a3cd030bab0a2e42963b
+[8.631s]       | [01;31m[K^~~~~~~[m[K
+[9.259s] gmake[2]: *** [CMakeFiles/hand_eye_transform_publisher.dir/build.make:76: CMakeFiles/hand_eye_transform_publisher.dir/src/HandEyeTransformPublisher.cpp.o] Error 1
+[9.259s] gmake[1]: *** [CMakeFiles/Makefile2:391: CMakeFiles/hand_eye_transform_publisher.dir/all] Error 2
+[9.260s] gmake[1]: *** Waiting for unfinished jobs....
+[10.521s] [ 54%] [32m[1mLinking CXX executable test_robot_pose_publisher[0m
+[11.066s] [ 54%] Built target test_robot_pose_publisher
+[11.085s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/FilePublisher.cpp:87:40:[m[K [01;35m[Kwarning: [m[K‘[01m[Ksensor_msgs::msg::PointCloud2_<std::allocator<void> >::Ptr[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[11.085s]    87 |     sensor_msgs::msg::PointCloud2::Ptr [01;35m[Ksensor_msg_[m[K;
+[11.085s]       |                                        [01;35m[K^~~~~~~~~~~[m[K
+[11.085s] In file included from [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/point_cloud2.hpp:7[m[K,
+[11.085s]                  from [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/FilePublisher.cpp:4[m[K:
+[11.085s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/point_cloud2__struct.hpp:191:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[11.085s]   191 |     [01;36m[KPtr[m[K;
+[11.085s]       |     [01;36m[K^~~[m[K
+[12.435s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/Classification.cpp:[m[K In member function ‘[01m[Kvoid Classification::topic_callback(const LabeledPointClouds&) const[m[K’:
+[12.435s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/Classification.cpp:89:21:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcluster[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[12.435s]    89 |         for (auto&& [01;35m[Kcluster[m[K : msg.elements)
+[12.435s]       |                     [01;35m[K^~~~~~~[m[K
+[13.808s] [ 59%] [32m[1mLinking CXX executable file_publisher[0m
+[14.048s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/SceneScanMatching.cpp:159:78:[m[K [01;35m[Kwarning: [m[K‘[01m[Ksensor_msgs::msg::PointCloud2_<std::allocator<void> >::Ptr[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[14.048s]   159 |  const std::string frame_name_tcp, const std::string frame_name_camera[01;35m[K)[m[K
+[14.048s]       |                                                                       [01;35m[K^[m[K
+[14.048s] 
+[14.048s] In file included from [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/point_cloud2.hpp:7[m[K,
+[14.048s]                  from [01m[K/opt/ros/humble/include/pcl_conversions/pcl_conversions.h:58[m[K,
+[14.048s]                  from [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/SceneScanMatching.cpp:19[m[K:
+[14.048s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/point_cloud2__struct.hpp:191:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[14.048s]   191 |     [01;36m[KPtr[m[K;
+[14.048s]       |     [01;36m[K^~~[m[K
+[14.055s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/SceneScanMatching.cpp:248:40:[m[K [01;35m[Kwarning: [m[K‘[01m[Ksensor_msgs::msg::PointCloud2_<std::allocator<void> >::Ptr[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[14.055s]   248 |     sensor_msgs::msg::PointCloud2::Ptr [01;35m[Ksensor_msg_1_[m[K;
+[14.055s]       |                                        [01;35m[K^~~~~~~~~~~~~[m[K
+[14.055s] In file included from [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/point_cloud2.hpp:7[m[K,
+[14.055s]                  from [01m[K/opt/ros/humble/include/pcl_conversions/pcl_conversions.h:58[m[K,
+[14.055s]                  from [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/SceneScanMatching.cpp:19[m[K:
+[14.055s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/point_cloud2__struct.hpp:191:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[14.055s]   191 |     [01;36m[KPtr[m[K;
+[14.055s]       |     [01;36m[K^~~[m[K
+[14.057s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/SceneScanMatching.cpp:251:40:[m[K [01;35m[Kwarning: [m[K‘[01m[Ksensor_msgs::msg::PointCloud2_<std::allocator<void> >::Ptr[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[14.058s]   251 |     sensor_msgs::msg::PointCloud2::Ptr [01;35m[Ksensor_msg_2_[m[K;
+[14.058s]       |                                        [01;35m[K^~~~~~~~~~~~~[m[K
+[14.058s] In file included from [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/point_cloud2.hpp:7[m[K,
+[14.058s]                  from [01m[K/opt/ros/humble/include/pcl_conversions/pcl_conversions.h:58[m[K,
+[14.058s]                  from [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/SceneScanMatching.cpp:19[m[K:
+[14.058s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/point_cloud2__struct.hpp:191:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[14.058s]   191 |     [01;36m[KPtr[m[K;
+[14.058s]       |     [01;36m[K^~~[m[K
+[14.058s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/SceneScanMatching.cpp:254:40:[m[K [01;35m[Kwarning: [m[K‘[01m[Ksensor_msgs::msg::PointCloud2_<std::allocator<void> >::Ptr[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[14.058s]   254 |     sensor_msgs::msg::PointCloud2::Ptr [01;35m[Ksensor_msg_3_[m[K;
+[14.058s]       |                                        [01;35m[K^~~~~~~~~~~~~[m[K
+[14.058s] In file included from [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/point_cloud2.hpp:7[m[K,
+[14.058s]                  from [01m[K/opt/ros/humble/include/pcl_conversions/pcl_conversions.h:58[m[K,
+[14.058s]                  from [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/SceneScanMatching.cpp:19[m[K:
+[14.058s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/point_cloud2__struct.hpp:191:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[14.058s]   191 |     [01;36m[KPtr[m[K;
+[14.058s]       |     [01;36m[K^~~[m[K
+[14.059s] [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/SceneScanMatching.cpp:257:40:[m[K [01;35m[Kwarning: [m[K‘[01m[Ksensor_msgs::msg::PointCloud2_<std::allocator<void> >::Ptr[m[K’ is deprecated [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[14.059s]   257 |     sensor_msgs::msg::PointCloud2::Ptr [01;35m[Ksensor_msg_fused_[m[K;
+[14.059s]       |                                        [01;35m[K^~~~~~~~~~~~~~~~~[m[K
+[14.059s] In file included from [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/point_cloud2.hpp:7[m[K,
+[14.059s]                  from [01m[K/opt/ros/humble/include/pcl_conversions/pcl_conversions.h:58[m[K,
+[14.059s]                  from [01m[K/home/alex/restackcell/ws_moveit2/src/pcl_segmentation/src/SceneScanMatching.cpp:19[m[K:
+[14.059s] [01m[K/opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/point_cloud2__struct.hpp:191:5:[m[K [01;36m[Knote: [m[Kdeclared here
+[14.059s]   191 |     [01;36m[KPtr[m[K;
+[14.059s]       |     [01;36m[K^~~[m[K
+[14.431s] [ 59%] Built target file_publisher
+[18.230s] [ 63%] [32m[1mLinking CXX executable pose_snapper[0m
+[18.700s] [ 68%] [32m[1mLinking CXX executable clustering[0m
+[18.914s] [ 72%] [32m[1mLinking CXX executable downsampling[0m
+[19.287s] [ 72%] Built target pose_snapper
+[20.113s] [ 77%] [32m[1mLinking CXX executable plane_filter[0m
+[20.562s] [ 81%] [32m[1mLinking CXX executable classification[0m
+[20.599s] [ 86%] [32m[1mLinking CXX executable transformation_robot[0m
+[20.660s] [ 86%] Built target downsampling
+[20.870s] [ 86%] Built target clustering
+[21.536s] [ 86%] Built target classification
+[21.636s] [ 86%] Built target transformation_robot
+[21.798s] [ 90%] [32m[1mLinking CXX executable scene_scan_matching[0m
+[22.112s] [ 90%] Built target plane_filter
+[22.428s] [ 90%] Built target scene_scan_matching
+[29.173s] [ 95%] [32m[1mLinking CXX executable matching[0m
+[31.931s] [ 95%] Built target matching
+[31.932s] gmake: *** [Makefile:146: all] Error 2
+[31.935s] Invoked command in '/home/alex/restackcell/ws_moveit2/build/pcl_segmentation' returned '2': CMAKE_PREFIX_PATH=/home/alex/ws_moveit2/install/moveit_configs_utils:/home/alex/ws_moveit2/install/launch_param_builder:/opt/ros/humble:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/alex/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/alex/restackcell/ws_moveit2/build/pcl_segmentation -- -j16 -l16

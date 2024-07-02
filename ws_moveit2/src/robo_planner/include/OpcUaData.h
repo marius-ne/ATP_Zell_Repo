@@ -168,7 +168,7 @@ namespace WzlPlanner
     static std::shared_ptr<WzlPlanner::OpcUaData> GetOpcUaData_GreiferWriteAuf()
     {
         auto data = std::make_shared<WzlPlanner::OpcUaData>();
-        data->actuatorId = "ns=4;i=5008";
+        data->actuatorId = "ns=4;i=5004";
         data->actuatorWriteType = 2;
         data->actuatorCommandBool1 = false;
         data->actuatorCommandBool2 = false;
@@ -179,7 +179,7 @@ namespace WzlPlanner
     static std::shared_ptr<WzlPlanner::OpcUaData> GetOpcUaData_GreiferWritZu()
     {
         auto data = std::make_shared<WzlPlanner::OpcUaData>();
-        data->actuatorId = "ns=4;i=5008";
+        data->actuatorId = "ns=4;i=5004";
         data->actuatorWriteType = 2;
         data->actuatorCommandBool1 = true;
         data->actuatorCommandBool2 = true;
@@ -190,7 +190,7 @@ namespace WzlPlanner
     static std::shared_ptr<WzlPlanner::OpcUaData> GetOpcUaData_GreiferWritNeutral()
     {
         auto data = std::make_shared<WzlPlanner::OpcUaData>();
-        data->actuatorId = "ns=4;i=5008";
+        data->actuatorId = "ns=4;i=5004";
         data->actuatorWriteType = 2;
         data->actuatorCommandBool1 = true;
         data->actuatorCommandBool2 = true;
@@ -259,9 +259,6 @@ namespace WzlPlanner
     }
 
     };
-
-    
-
 
 } // namepspace
 

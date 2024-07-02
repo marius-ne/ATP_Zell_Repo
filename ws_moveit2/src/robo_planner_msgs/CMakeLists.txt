@@ -10,16 +10,20 @@ find_package(geometry_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "srv/SetValueIoInterface.srv"
-  "srv/RobotMoveToPosition.srv"
-  "srv/RobotSetVelocity.srv"
-  "srv/RobotFollowTrajectory.srv"
-  "srv/LoadObject.srv"
-  "srv/SceneObjectAdd.srv"
-  "srv/SceneObjectAttach.srv"
-  "srv/SceneObjectDetach.srv"
-  "srv/SceneObjectRemove.srv"
-  "srv/SceneObjectSetPose.srv"
+  "srv/Atomic/FollowTrajectory.srv"
+  "srv/Atomic/GripperClose.srv"
+  "srv/Atomic/GripperOpen.srv"
+  "srv/Atomic/MoveToPose.srv"
+  "srv/Atomic/OpenDoor.srv"
+  "srv/Atomic/SetRobotValueVelocity.srv"
+
+  "srv/Composed/GripperChange.srv"
+  "srv/Composed/GripperChangePick.srv"
+  "srv/Composed/GripperChangePlace.srv"
+  "srv/Composed/Pick.srv"
+  "srv/Composed/PickAndPlace.srv"
+  "srv/Composed/Place.srv"
+
   "msg/LabeledPointCloud.msg"
   "msg/LabeledPointClouds.msg"
   "msg/SceneObjectRemove.msg"

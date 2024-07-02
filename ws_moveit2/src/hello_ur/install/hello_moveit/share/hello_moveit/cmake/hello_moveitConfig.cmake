@@ -1,1 +1,0 @@
-/home/alex/ws_moveit2/src/hello_moveit/build/hello_moveit/ament_cmake_core/hello_moveitConfig.cmake

@@ -62,15 +62,19 @@ class RobotUr : public rclcpp::Node
             
             auto size = 1.9;
             auto size05 = size * 0.5;
-            auto thickness = 0.01;
+            //auto thickness = 0.01;
+            auto thickness = 0.2;
             add_collision_box("ground_plane", size, size, thickness, 0, 0, -thickness * 0.5 - 0.0001);
 
             add_collision_box("wall1", size, thickness, 1.0, 0, size05, 0.5);
             add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);
             add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
-            //add_collision_box("gripper_change_station", 0.7, 0.25, 0.45, 0, -0.775, 0.225);
+            add_collision_box("gripper_change_station", 0.7, 0.4, 0.45, 0, -0.775, 0.225);
+            add_collision_box("ceiling", size, size, 0.1, 0, 0, 1);
+
             //add_collision_box("scan_tower", 0.3, 0.15, 1, +0.67, -0.725, 0.5);
+            add_collision_box("scan_tower", 0.3, 0.3, 1, +0.67, -0.7, 0.5);
 
             //add_collision_box("forbidden_quarter", 1.0, 1.0, 1.0, -size05, 0, 0.5);
 
@@ -146,9 +150,6 @@ class RobotUr : public rclcpp::Node
         void service_callback_robot_move_to_position(const std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Request> request,
             std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Response> response)
         {
-            move_group_interface_->setMaxVelocityScalingFactor(1);
-            move_group_interface_->setMaxAccelerationScalingFactor(1);
-
             auto position = request->pose.position;
             auto orientation = request->pose.orientation;
             auto moveType = request->movetype;

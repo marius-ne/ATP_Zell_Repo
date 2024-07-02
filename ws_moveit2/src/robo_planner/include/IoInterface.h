@@ -36,7 +36,7 @@ namespace WzlPlanner
                 node_ = node;
 
                 client_ = node_->create_client<wzlscheduler_interfaces::srv::SetValueIoInterface>("set_value_opcua");
-                opcua_actuator_write_publisher_ = node->create_publisher<opcua_interfaces::msg::ActuatorWrite>("opcua_actuator_write", 10);
+                opcua_actuator_write_publisher_ = node->create_publisher<opcua_interfaces::msg::ActuatorWrite>("Actuator_Write", 10);
             }
 
             bool SetValueBool(const int slot, const bool value) override;

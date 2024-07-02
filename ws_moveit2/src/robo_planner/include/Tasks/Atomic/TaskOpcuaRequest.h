@@ -34,7 +34,13 @@ namespace WzlPlanner
 
             bool Execute() override
             {
+                LogStart();
+                std::cout << "opcua call" << std::endl;
                 interface_opcua_->OpcaUaActuatorWrite(data_);
+
+                LogEnd();
+
+                return true;
             }
         
     };

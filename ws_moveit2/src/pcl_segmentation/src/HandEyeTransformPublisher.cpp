@@ -31,7 +31,6 @@ class HandEyeTransformPublisher : public rclcpp::Node
 
         RCLCPP_INFO(this->get_logger(), "Start hand eye transform publisher");
 
-<<<<<<< HEAD
         this->declare_parameter(PARAM_TF2_HAND_FRAME_NAME, "tcp_frame");
         this->declare_parameter(PARAM_TF2_EYE_FRAME_NAME, "eye_frame");
         this->declare_parameter(PARAM_TF2_TRANLSATION_X, 0.0);
@@ -43,9 +42,6 @@ class HandEyeTransformPublisher : public rclcpp::Node
 
         this->print_params();
 
-=======
-        print_params();
->>>>>>> aee984907d58250aa246a3cd030bab0a2e42963b
         tf_static_broadcaster_ = std::make_shared<tf2_ros::StaticTransformBroadcaster>(this);
 
         // Publish static transforms once at startup

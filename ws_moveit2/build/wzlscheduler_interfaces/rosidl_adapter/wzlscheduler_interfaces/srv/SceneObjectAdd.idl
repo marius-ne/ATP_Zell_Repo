@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from wzlscheduler_interfaces/srv/SceneObjectAdd.srv
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+
+module wzlscheduler_interfaces {
+  module srv {
+    struct SceneObjectAdd_Request {
+      string name;
+
+      string collisionobjectkey;
+
+      geometry_msgs::msg::Pose coordinates;
+    };
+    struct SceneObjectAdd_Response {
+      int32 result;
+    };
+  };
+};
