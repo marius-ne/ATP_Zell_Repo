@@ -1,8 +1,11 @@
 
 class Robot:
     def __init__(self):
-        _positionX = 1
+        pass
     
-    _positionX = 0
-    _positionY = 0
-    _positionZ = 1
+    # input: list of 'Pose' objects
+    def FollowTrajectory(self, points):
+        # todo: make the ros service call
+        pass
+
+robot = Robot()
