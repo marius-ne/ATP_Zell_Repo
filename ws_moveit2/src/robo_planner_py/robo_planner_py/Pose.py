@@ -23,7 +23,6 @@ class Transform:
 
     _poseRelative : Pose
     _poseAbsolute : Pose
-    _parent : Transform
     _id : str
 
     
