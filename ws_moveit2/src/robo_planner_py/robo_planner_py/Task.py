@@ -5,7 +5,9 @@ from robo_planner_py.Robot import Robot
 import robo_planner_py.Robot
 from enum import Enum
 import time
-from robo_planner_py import OpcuaInterface
+from robo_planner_py.Opcua import OpcuaData
+
+
 
 class TestSerializationClass:
     def __init__(self):
@@ -42,13 +44,35 @@ class TaskBase:
         TaskBase.CurrentTabsCount -= 1
         TaskBase.UpdateTabs()
 
-
     def __init__(self):
         self._subtasks = []
+        self._type = self.GetType()
+
+    def GetType(self):
+        return str(TaskBase.__name__)
+
+    def AsDictionary(self):
+        dictionary = {
+            "Type": self.GetType(),
+            "Id": self._id,
+            "Name": self._name
+        }
+        
+        self.AddDictionaryValues(dictionary)
+
+        list = []
+        for subtask in self._subtasks:
+            list.append(subtask.AsDictionary())
+
+        dictionary["Subtasks"] = list
+
+        return dictionary    
+    
+    def AddDictionaryValues(self, dictionary):
+        pass
 
     def AddSubtask(self, subtask):
         self._subtasks.append(subtask)
-
 
     def Execute(self) -> bool:
         self.LogStart()
@@ -81,6 +105,35 @@ class TaskBase:
     def SerializeContent(self, content : str) -> str:
         return content
 
+    def Deserialize(dict):
+        type = dict["Type"]
+        instance : TaskBase
+
+        if type == str(TaskBase.__name__):
+            instance = TaskBase()
+        if type == str(TaskFollowTrajectory.__name__):
+            instance = TaskFollowTrajectory()
+        if type == str(TaskMoveToPose.__name__):
+            instance = TaskMoveToPose()
+        if type == str(TaskOpcuaRequest.__name__):
+            instance = TaskOpcuaRequest()
+        if type == str(TaskWait.__name__):
+            instance = TaskWait()
+
+        instance._id = dict["Id"]
+        instance._name = dict["Name"]
+        instance.DeSerializeContent(dict)
+
+        for subtaskDict in dict["Subtasks"]:
+            instanceSubtask = TaskBase.Deserialize(subtaskDict)
+            instance._subtasks.append(instanceSubtask)
+
+        return instance
+        
+
+    def DeSerializeContent(self, dictionary):
+        pass
+
     def LogStart(self):
         pass
 
@@ -89,6 +142,7 @@ class TaskBase:
 
     _id : str
     _name : str
+    _type: str
 
 
 
@@ -97,6 +151,9 @@ class TaskFollowTrajectory(TaskBase):
         TaskBase.__init__(self)
         self._id = "Follow Trajectory"
         self._targetPoses = [] # list of type 'Pose'
+
+    def GetType(self):
+        return str(TaskFollowTrajectory)
 
     def AddPose(self, pose : Pose):
          self._targetPoses.append(pose)
@@ -121,6 +178,9 @@ class TaskMoveToPose(TaskBase):
         self._moveType = RobotMoveType.AbsoluteCartesian
         self._targetPose = Pose()
 
+    def GetType(self):
+        return str(TaskMoveToPose.__name__)
+
     def Execute(self) -> bool:
         TaskBase.LogStart()
         Robot.robot.MoveToPose(self._targetPose, self._moveType)
@@ -133,17 +193,39 @@ class TaskMoveToPose(TaskBase):
         SerializeVarName("TagetPose", "X: " + str(self._targetPose._x) + ", Y: " + str(self._targetPose._y) + ", Z: " + str(self._targetPose._z))
 
         return content
+    
+    def DeSerializeContent(self, dictionary):
+        self._targetPose = Pose.Deserialize(dictionary["TargetPose"])
+        moveType = dictionary["MoveType"]
+
+        if moveType == 1:
+            self._moveType = RobotMoveType.AbsolutePTP
+        if moveType == 2:
+            self._moveType = RobotMoveType.RelativePTP
+        if moveType == 3:
+            self._moveType = RobotMoveType.AbsoluteCartesian
+        if moveType == 4:
+            self._moveType = RobotMoveType.RelativeCartesian
+
+        self._moveType = moveType
+
+
+    def AddDictionaryValues(self, dictionary):
+        dictionary["TargetPose"] = self._targetPose.AsDictionary()
+        dictionary["MoveType"] = 1
 
     _targetPose : Pose
-    _moveType : RobotMoveType
+    _moveType : int
 
 
 class TaskOpcuaRequest(TaskBase):
     def __init__(self) -> None:
         TaskBase.__init__(self)
         self._id = "Opcua request"
-        self._opcuaData = OpcuaInterface.OpcuaData()
+        self._opcuaData = OpcuaData()
         
+    def GetType(self):
+        return str(TaskOpcuaRequest.__name__)
         
     def Execute(self) -> bool:
         TaskBase.LogStart()
@@ -163,8 +245,18 @@ class TaskOpcuaRequest(TaskBase):
 
         return content
 
+    def AddDictionaryValues(self, dictionary):
+        if self._opcuaData == None:
+            print ("Opcuadata is null")
 
-    #_opcuaData : OpcuaInterface.OpcuaData
+        dictionary["OpcuaData"] = self._opcuaData.AsDictionary()
+
+
+    def DeSerializeContent(self, dictionary):
+        self._targetPose = OpcuaData.Deserialize(dictionary["OpcuaData"])
+
+
+    _opcuaData : OpcuaData
 
 
 
@@ -177,6 +269,9 @@ class SetRobotValueVelocity(TaskBase):
         self._id = "Set robot velocity"
         self._value = 1.0
 
+    def GetType(self):
+        return str(SetRobotValueVelocity.__name__)
+
     def Execute(self) -> bool:
         TaskBase.LogStart()
         Robot.robot.SetVelocity(self._value)
@@ -186,6 +281,9 @@ class SetRobotValueVelocity(TaskBase):
         content += SerializeVarName("Value", self._value)
 
         return content
+    
+    def AddDictionaryValues(self, dictionary):
+        dictionary["Value"] = self._value
 
 
 class TaskWait(TaskBase):
@@ -194,6 +292,9 @@ class TaskWait(TaskBase):
         TaskBase.__init__(self)
         self._id = "Wait"
         self._value = 1.0
+
+    def GetType(self):
+        return str(TaskWait.__name__)
 
     def Execute(self) -> bool:
         TaskBase.LogStart()

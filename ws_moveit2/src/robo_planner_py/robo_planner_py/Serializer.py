@@ -3,23 +3,22 @@ import json
 from xml.dom.minidom import parseString
 
 def SerializeClass(instance, path):
-    #with open(path, 'w') as f:
-    #    json.dumps(instance, default=lambda o: o.__dict__, indent=4)
+    with open(path, mode="w", encoding="utf-8") as write_file:
+        json.dump(instance, write_file, indent=4)
 
-    f = open(path, "w")
-    f.write("Woops! \n\tI have deleted the content!")
-    f.close()
-
-#def SerializeXml(instance, path):
-#    person = vars(instance()) # vars is pythonic way of converting to dictionary
-#    xml = dicttoxml(person, attr_type=False, custom_root='Person') # set root node to Person
-#    print(xml)
-
-#    dom = parseString(xml)
-#    print(dom.toprettyxml())
 
 def DeserializeClass(path):
-    with open(path, 'r') as f:
-        data = json.load(f)
+    with open(path, 'r', encoding="utf-8") as read_file:
+        data = json.load(read_file)
 
     return data
+
+
+def SerializeXml(instance, path):
+    #person = vars(instance()) # vars is pythonic way of converting to dictionary
+    xml = dicttoxml(instance, attr_type=False) # set root node to Person
+    print(xml)
+
+    dom = parseString(xml)
+    print(dom.toprettyxml())
+

@@ -4,10 +4,12 @@ from rclpy.node import Node
 from std_msgs.msg import String
 
 from robo_planner_py import Task
-from robo_planner_py import OpcuaInterface
 from robo_planner_py import Serializer
 from robo_planner_py import Pose
 from robo_planner_py import Logger
+from robo_planner_py import Opcua
+import json
+
 
 
 class MinimalPublisher(Node):
@@ -51,7 +53,9 @@ def main(args=None):
 
     openGripperCarrier = Task.TaskOpcuaRequest()
     openGripperCarrier._name = "Open gripper carrier"
-    openGripperCarrier._opcuaData = OpcuaInterface.OpcuaCmds["GreiferWriteAuf"]
+    openGripperCarrier._opcuaData = Opcua.OpcuaCmds["GreiferWriteAuf"]
+    openGripperCarrier._opcuaData = Opcua.OpcuaData()
+    #openGripperCarrier._opcuaData.GreiferWriteAuf()
     program.AddSubtask(openGripperCarrier)
 
     moveCarrier2 = Task.TaskMoveToPose()
@@ -64,7 +68,9 @@ def main(args=None):
 
     closeGripperCarrier = Task.TaskOpcuaRequest()
     closeGripperCarrier._name = "Close gripper carrier"
-    closeGripperCarrier._opcuaData = OpcuaInterface.OpcuaCmds["GreiferWriteZu"]
+    closeGripperCarrier._opcuaData = Opcua.OpcuaCmds["GreiferWriteZu"]
+    closeGripperCarrier._opcuaData = Opcua.OpcuaData()
+    closeGripperCarrier._opcuaData.GreiferWriteZu()
     program.AddSubtask(closeGripperCarrier)
 
     moveCarrier3 = Task.TaskMoveToPose()
@@ -87,7 +93,9 @@ def main(args=None):
 
     openBemi = Task.TaskOpcuaRequest()
     openBemi._name = "Open Bemi"
-    openBemi._opcuaData = OpcuaInterface.OpcuaCmds["BemiWriteAuf"]
+    openBemi._opcuaData = Opcua.OpcuaCmds["BemiWriteAuf"]
+    openBemi._opcuaData = Opcua.OpcuaData()
+    openBemi._opcuaData.BemiWriteAuf()
     program.AddSubtask(openBemi)
 
     movebemi2 = Task.TaskMoveToPose()
@@ -100,12 +108,16 @@ def main(args=None):
 
     closeGripperBemi = Task.TaskOpcuaRequest()
     closeGripperBemi._name = "Close Bemi"
-    closeGripperBemi._opcuaData = OpcuaInterface.OpcuaCmds["BemiWriteZu"]
+    closeGripperBemi._opcuaData = Opcua.OpcuaCmds["BemiWriteZu"]
+    closeGripperBemi._opcuaData = Opcua.OpcuaData()
+    closeGripperBemi._opcuaData.BemiWriteZu()
     program.AddSubtask(closeGripperBemi)
 
     openGripperBemi = Task.TaskOpcuaRequest()
     openGripperBemi._name = "Open gripper Bemi"
-    openGripperBemi._opcuaData = OpcuaInterface.OpcuaCmds["GreiferWriteAuf"]
+    openGripperBemi._opcuaData = Opcua.OpcuaCmds["GreiferWriteAuf"]
+    openGripperBemi._opcuaData = Opcua.OpcuaData()
+    openGripperBemi._opcuaData.GreiferWriteAuf()
     program.AddSubtask(openGripperBemi)
 
     moveBemi3 = Task.TaskMoveToPose()
@@ -118,18 +130,38 @@ def main(args=None):
     program.__dict__
     testjson = Task.TestSerializationClass()
     
-    Task.CurrentTabs = ""
-    Task.CurrentTabsCount = 0
+    Logger.Instance.LogInfo("installed ssyslink ")
+
+    testdic = program.AsDictionary()
+    Logger.Instance.LogInfo("Testdic start")
+    #Logger.Instance.LogInfo(testdic)
+    Logger.Instance.LogInfo("Testdic end")
+    
+
 
     serializedString = ""
-    serializedString = program.Serialize(serializedString)
+    #serializedString = program.Serialize(serializedString)
+    serializedString = json.dumps(testdic)
 
-    f = open("/home/alex/serialization/test.json", "w")
-    f.write(serializedString)
-    f.close()
+    path = "/home/aw/serialization/test.json"
 
-    Logger.Instance.LogInfo(program.__dict__)
-    Serializer.SerializeClass(program, "/home/alex/serialization/test.json")
+    Serializer.SerializeClass(testdic, path)
+    deserialized = Serializer.DeserializeClass(path)
+    deserializedProgram = Task.TaskBase.Deserialize(deserialized)
+    deserializedDict = deserializedProgram.AsDictionary()
+
+    Logger.Instance.LogInfo("Serialization 2 start")
+
+    Serializer.SerializeClass(deserializedDict, "/home/aw/serialization/test2.json")
+
+    Logger.Instance.LogInfo("Serialization 2 end")
+
+    #f = open("/home/aw/serialization/test.json", "w")
+    #f.write(serializedString)
+    #f.close()
+
+    #Logger.Instance.LogInfo(program.__dict__)
+    #Serializer.SerializeClass(program, "/home/aw/serialization/test.json")
 
     return
 

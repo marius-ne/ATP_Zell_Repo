@@ -16,6 +16,18 @@ class Pose:
     _k : float
     _w : float
 
+    def AsDictionary(self):
+        self.__dict__.keys
+        return self.__dict__
+    
+    def Deserialize(dictionary):
+        pose = Pose()
+        
+        for entry in dictionary:
+            pose.__setattr__(entry, dictionary[entry])
+
+        return pose
+
 class Transform:
     def __init__(self):
         _parent = None # parent of type 'Transform'
