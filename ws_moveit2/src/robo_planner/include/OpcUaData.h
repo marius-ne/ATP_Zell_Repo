@@ -236,7 +236,7 @@ namespace WzlPlanner
         data->actuatorCommandBool1 = true;
 
         return data;
-    }
+    
 
     static std::shared_ptr<WzlPlanner::OpcUaData> GetOpcUaData_Bemi3WriteAuf()
     {

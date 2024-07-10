@@ -58,6 +58,7 @@ void WzlPlanner::IoInterfaceOpcUa::OpcaUaActuatorWrite(const std::shared_ptr<con
     opcua_actuator_write_publisher_->publish(message);
 }
 
+// method is deprecated; use 'OpcaUaActuatorWrite' instead
 bool WzlPlanner::IoInterfaceDummy::SetValueBool(const int slot, const bool value)
 {
     // silence 'variable unused' warning

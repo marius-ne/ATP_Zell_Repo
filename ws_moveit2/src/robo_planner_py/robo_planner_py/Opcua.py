@@ -1,4 +1,8 @@
+import opcua_interfaces.msg
 from robo_planner_py.Logger import Logger
+from rclpy.node import Node
+import opcua_interfaces
+from opcua_interfaces.msg import ActuatorWrite
 
 class OpcuaData:
     def __init__(self):
@@ -203,13 +207,27 @@ OpcuaCmds = { "AlarmWriteAus": OpcuaData.AlarmWriteAus(),
               "Bemi3WriteZu": OpcuaData.Bemi3WriteZu(),
 }    
 
-class OpcuaInterface:
-    def OpcuaActuatorWrite(data : OpcuaData):
-        # todo: make opcua service call
-        pass
+class OpcuaInterface():
+    def __init__(self, node : Node) -> None:
+        self.opcua_actuator_write_publisher_ = node.create_publisher(ActuatorWrite, "Actuator_Write", 10)
+
+    def OpcuaActuatorWrite(self, data : OpcuaData):
+        msg = ActuatorWrite()
+        msg.actuator_id = data.actuatorId
+        msg.actuator_write_type = data.actuatorWriteType
+
+        if data.actuatorWriteType == 1:
+            msg.actuator_command_bool1 = data.actuatorCommandBool1
+
+        if data._actuatorWriteType == 2:
+            msg.actuator_command_bool1 = data.actuatorCommandBool1
+            msg.actuator_command_bool2 = data.actuatorCommandBool2
+
+        self.opcua_actuator_write_publisher_.publish(msg)
+
 
 class OpcuaInterfaceDummy:
-    def OpcuaActuatorWrite(data : OpcuaData):
+    def OpcuaActuatorWrite(self, data : OpcuaData):
         Logger.LogInfo("Opcua call")
 
 Instance = OpcuaInterfaceDummy()

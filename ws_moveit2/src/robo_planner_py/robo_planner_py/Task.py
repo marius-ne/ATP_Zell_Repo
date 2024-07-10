@@ -6,43 +6,12 @@ import robo_planner_py.Robot
 from enum import Enum
 import time
 from robo_planner_py.Opcua import OpcuaData
+import robo_planner_py.Opcua
 
-
-
-class TestSerializationClass:
-    def __init__(self):
-        self.tesNumber = 10
-        self.testStr = "Test"
-
-def SerializeVarName(name : str, content, useComma = True, useLinebreak = True) -> str:
-    result = TaskBase.CurrentTabs + "\"" + name + "\": " + content 
-
-    if useComma:
-        result += ","
-
-    if useLinebreak:
-        result += "\n"
-
-    return result
-    
 
 class TaskBase:
     CurrentTabsCount = 0
     CurrentTabs = ""
-
-    def UpdateTabs():
-        TaskBase.CurrentTabs = ""
-        
-        for i in range(TaskBase.CurrentTabsCount):
-            TaskBase.CurrentTabs += "\t"
-
-    def TabsIncrease():
-        TaskBase.CurrentTabsCount += 1
-        TaskBase.UpdateTabs()
-
-    def TabsDecrease():
-        TaskBase.CurrentTabsCount -= 1
-        TaskBase.UpdateTabs()
 
     def __init__(self):
         self._subtasks = []
@@ -84,27 +53,6 @@ class TaskBase:
         self.LogEnd()
         return True
     
-    def Serialize(self, content) -> str:
-        content += SerializeVarName("Id", self._id)
-        content += SerializeVarName("Name", self._name)
-
-        content = self.SerializeContent(content)
-        content += SerializeVarName("Subtasks", "[\n", False, True)
-
-        TaskBase.TabsIncrease()
-        
-        for subtask in self._subtasks:
-            content = subtask.Serialize(content)
-
-        content += "]"
-
-        TaskBase.TabsDecrease()
-
-        return content
-
-    def SerializeContent(self, content : str) -> str:
-        return content
-
     def Deserialize(dict):
         type = dict["Type"]
         instance : TaskBase
@@ -188,12 +136,6 @@ class TaskMoveToPose(TaskBase):
 
         return True
 
-    def SerializeContent(self, content : str) -> str:
-        SerializeVarName("MovementType", self._moveType.name)
-        SerializeVarName("TagetPose", "X: " + str(self._targetPose._x) + ", Y: " + str(self._targetPose._y) + ", Z: " + str(self._targetPose._z))
-
-        return content
-    
     def DeSerializeContent(self, dictionary):
         self._targetPose = Pose.Deserialize(dictionary["TargetPose"])
         moveType = dictionary["MoveType"]
@@ -229,21 +171,8 @@ class TaskOpcuaRequest(TaskBase):
         
     def Execute(self) -> bool:
         TaskBase.LogStart()
-        OpcuaInterface.Instance.OpcuaActuatorWrite(self._opcuaData)
+        robo_planner_py.Opcua.Instance.OpcuaActuatorWrite(self._opcuaData)
         TaskBase.LogEnd()
-
-    def SerializeContent(self, content : str) -> str:
-        opcuaContent = "{"
-        opcuaContent += "ActuatorId: " + str(self._opcuaData._actuatorId) + ", "
-        opcuaContent += "ActuatorWriteType: " + str(self._opcuaData._actuatorWriteType) + ", "
-        opcuaContent += "ActuatorReadType: " + str(self._opcuaData._actuatorReadType) + ", "
-        opcuaContent += "ActuatorCommandBool1: " + str(self._opcuaData._actuatorCommandBool1) + ", "
-        opcuaContent += "ActuatorCommandBool2: " + str(self._opcuaData._actuatorCommandBool2) + ", "
-        opcuaContent += "}"
-
-        content += SerializeVarName("OpcuaData", opcuaContent)
-
-        return content
 
     def AddDictionaryValues(self, dictionary):
         if self._opcuaData == None:
@@ -251,10 +180,8 @@ class TaskOpcuaRequest(TaskBase):
 
         dictionary["OpcuaData"] = self._opcuaData.AsDictionary()
 
-
     def DeSerializeContent(self, dictionary):
         self._targetPose = OpcuaData.Deserialize(dictionary["OpcuaData"])
-
 
     _opcuaData : OpcuaData
 
@@ -276,12 +203,7 @@ class SetRobotValueVelocity(TaskBase):
         TaskBase.LogStart()
         Robot.robot.SetVelocity(self._value)
         TaskBase.LogEnd()
-
-    def SerializeContent(self, content : str) -> str:
-        content += SerializeVarName("Value", self._value)
-
-        return content
-    
+            
     def AddDictionaryValues(self, dictionary):
         dictionary["Value"] = self._value
 
@@ -300,11 +222,6 @@ class TaskWait(TaskBase):
         TaskBase.LogStart()
         time.sleep(self._value)
         TaskBase.LogEnd()
-
-    def SerializeContent(self, content : str) -> str:
-        content += SerializeVarName("Value", self._value)
-
-        return content
 
     _value : float # sleep time in seconds
 

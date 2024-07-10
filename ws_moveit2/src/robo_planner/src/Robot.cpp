@@ -78,6 +78,7 @@ void WzlPlanner::RobotUR::PartAttach(const std::string partKey)
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
 
     auto request = std::make_shared<wzlscheduler_interfaces::srv::SceneObjectAttach::Request>();
+    request.name = partKey;
 
     while (!this->serviceSceenObjectAttach_->wait_for_service(1s)) 
     {
