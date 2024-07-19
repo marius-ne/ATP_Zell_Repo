@@ -128,7 +128,7 @@ namespace WzlPlanner
             std::shared_ptr<Transform> parent_;
             std::shared_ptr<Pose> poseRelative_;
             std::shared_ptr<Pose> poseAbsolute_;
-            Eigen::Matrix4d baseTransform_; // transform of the coordinate base (in relation to it's parent coordinate system)
+            //Eigen::Matrix4d baseTransform_; // transform of the coordinate base (in relation to it's parent coordinate system)
 
     };
 

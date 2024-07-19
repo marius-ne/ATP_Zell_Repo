@@ -15,6 +15,7 @@ class SceneObjectPrefab:
             "TransformOrigin", self._transformOrigin.AsDictionary(),
             "TransformApproach", self._transformApproach.AsDictionary(),
             "TransformExecution", self._transformExecution.AsDictionary(),
+            "TransformFinish", self._transformFinish.AsDictionary(),
             "CollisionObjectKey", self._collisionObjectKey,
             "MeshObjectKey", self._meshObjectKey }
 
@@ -34,6 +35,7 @@ class SceneObjectPrefab:
         instance._transformOrigin = dict["TransformOrigin"].Deserialize()
         instance._transformApproach = dict["TransformApproach"].Deserialize()
         instance._transformExecution = dict["TransformExecution"].Deserialize()
+        instance._transformFinish = dict["TransformFinish"].Deserialize()
         instance._collisionObjectKey = dict["CollisionObjectKey"]
         instance._meshObjectKey = dict["MeshObjectKey"]
 
@@ -58,6 +60,9 @@ class SceneObjectPrefab:
 
     # the transform in which the execution happens (e.g. pick/place position)
     _transformExecution : Pose
+
+    # the transform in which the robot remains after the execution finished
+    _transformFinish : Pose
 
     # the reference key to the corresponding collision object of the scene object
     _collisionObjectKey : str

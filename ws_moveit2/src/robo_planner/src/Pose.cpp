@@ -272,6 +272,7 @@ Eigen::Affine3d create_rotation_matrix(double ax, double ay, double az)
 
 void WzlPlanner::Transform::Update(const std::shared_ptr<Transform> parent)
 {
+    /*
     Eigen::Matrix4d parentBaseTransform;
     auto parentRotationX = 0.0;
     auto parentRotationY = 0.0;
@@ -314,10 +315,12 @@ void WzlPlanner::Transform::Update(const std::shared_ptr<Transform> parent)
     {
         child.second->Update(shared_from_this());
     }
+    */
 }
 
 void WzlPlanner::Transform::UpdateRelative(const std::shared_ptr<Transform> parent)
 {
+    /*
     Eigen::Matrix4d parentBaseTransform;
     auto parentRotationX = 0.0;
     auto parentRotationY = 0.0;
@@ -333,7 +336,8 @@ void WzlPlanner::Transform::UpdateRelative(const std::shared_ptr<Transform> pare
         parentRotationX = parent->poseAbsolute_->GetRotationX();
         parentRotationY = parent->poseAbsolute_->GetRotationY();
         parentRotationZ = parent->poseAbsolute_->GetRotationZ();
-    }    
+    }  
+    */  
 }
 
 void WzlPlanner::Transform::Print(int depth)
