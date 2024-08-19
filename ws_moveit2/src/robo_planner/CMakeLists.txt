@@ -61,6 +61,9 @@ ament_target_dependencies(
 
 install(TARGETS robo_planner
   DESTINATION lib/${PROJECT_NAME})
+  
+install(FILES launch/ur_planner.py
+  DESTINATION share/${PROJECT_NAME}/launch)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

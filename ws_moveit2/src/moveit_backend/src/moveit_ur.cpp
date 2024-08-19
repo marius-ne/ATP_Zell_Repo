@@ -16,6 +16,8 @@
 #include "wzlscheduler_interfaces/msg/scene_object_remove.hpp"
 #include "wzlscheduler_interfaces/msg/scene_object_set_pose.hpp"
 
+//#include <iterative_time_parameterization.h>
+
 static const std::string PLANNING_GROUP = "ur_manipulator";
 static const std::string BASE_FRAME = "world";
 
@@ -58,20 +60,29 @@ class RobotUr : public rclcpp::Node
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize group interface"));
             move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(robot, PLANNING_GROUP);
             
+            move_group_interface_->setPlannerId("PRMkConfigDefault");
+            move_group_interface_->setNumPlanningAttempts(20);
+            move_group_interface_->setPlanningTime(10);
+            move_group_interface_->setReplanAttempts(10);
+
+
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize Collision boxes"));
             
             auto size = 1.9;
             auto size05 = size * 0.5;
+
+            move_group_interface_->setWorkspace(-size05, -size05, 0, size05, size05, 1);
+
             //auto thickness = 0.01;
             auto thickness = 0.2;
-            add_collision_box("ground_plane", size, size, thickness, 0, 0, -thickness * 0.5 - 0.0001);
+            //add_collision_box("ground_plane", size, size, thickness, 0, 0, -thickness * 0.5 - 0.0001);
 
-            add_collision_box("wall1", size, thickness, 1.0, 0, size05, 0.5);
-            add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);
-            add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
-            add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
+            //add_collision_box("wall1", size, thickness, 1.0, 0, size05, 0.5);
+            //add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);
+            //add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
+            //add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
             add_collision_box("gripper_change_station", 0.7, 0.4, 0.45, 0, -0.775, 0.225);
-            add_collision_box("ceiling", size, size, 0.1, 0, 0, 1);
+            //add_collision_box("ceiling", size, size, 0.1, 0, 0, 1);
 
             //add_collision_box("scan_tower", 0.3, 0.15, 1, +0.67, -0.725, 0.5);
             add_collision_box("scan_tower", 0.3, 0.3, 1, +0.67, -0.7, 0.5);
@@ -150,6 +161,16 @@ class RobotUr : public rclcpp::Node
         void service_callback_robot_move_to_position(const std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Request> request,
             std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Response> response)
         {
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Get the current robot pose_____");
+            auto state = move_group_interface_->getCurrentState();
+            
+            
+            geometry_msgs::msg::Pose p = move_group_interface_->getCurrentPose().pose;
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Current pose\nX: %g Y: %g Z: %g RotX: %g RotY %g RotZ %g RotW %g",
+                            p.position.x, p.position.y, p.position.z, p.orientation.x, p.orientation.y, p.orientation.z, p.orientation.w);
+
+
+
             auto position = request->pose.position;
             auto orientation = request->pose.orientation;
             auto moveType = request->movetype;
@@ -160,10 +181,6 @@ class RobotUr : public rclcpp::Node
             geometry_msgs::msg::Pose msg;
             msg.position = position;
             msg.orientation = orientation;
-            msg.orientation.x = -0.0669645220041275;
-            msg.orientation.y = 0.997612476348877;
-            msg.orientation.z = 0.0017909521702677011;
-            msg.orientation.w = -0.01670403964817524;
 
             auto is_movement_normal = moveType == 1 || moveType == 2;
             auto is_movement_cartesian = moveType == 3 || moveType == 4;
@@ -198,9 +215,22 @@ class RobotUr : public rclcpp::Node
                 waypoints.push_back(last_pose_);
                 waypoints.push_back(msg);  
 
-                move_group_interface_->computeCartesianPath(waypoints, 0.01, 0, trajectory, false);
+                move_group_interface_->computeCartesianPath(waypoints, 0.001, 0, trajectory, false);
 
                 last_pose_ = msg;
+
+                robot_trajectory::RobotTrajectory robot_trajectory(move_group_interface_->getRobotModel(), PLANNING_GROUP);
+                robot_trajectory.setRobotTrajectoryMsg(*move_group_interface_->getCurrentState(), trajectory);
+                /*
+                trajectory_processing::IterativeParabolicTimeParameterization time_param;
+                bool success3 = time_param.computeTimeStamps(robot_trajectory, 0.1, 0.1); // for speed control
+
+                if (!success3)
+                {
+                    RCLCPP_WARN(node->get_logger(), "Time parameterization failed!");
+                }
+                */
+                
             }
             else if (moveType == 4) // relative pose cartesian movement
             {
@@ -285,6 +315,7 @@ class RobotUr : public rclcpp::Node
         {
             move_group_interface_->setMaxVelocityScalingFactor(request->value);
             move_group_interface_->setMaxAccelerationScalingFactor(request->value);
+            
             response->result = true;
         }
 

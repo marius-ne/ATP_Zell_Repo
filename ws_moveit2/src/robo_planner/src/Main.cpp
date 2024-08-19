@@ -250,6 +250,104 @@ void PickAndPlaceTest()
 }
 
 
+void TaskRotationTest()
+{
+  auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
+  auto useOpcua = false;
+  
+  RCLCPP_INFO(node->get_logger(), "Initialize Rotation test.");
+  
+  auto dummyIoInterface = std::make_shared<WzlPlanner::IoInterfaceDummy>();
+  WzlPlanner::ObjectContainer::Get()->SetIoInterface(dummyIoInterface);
+  
+  auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
+  auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("RoboGripper", 0, 1);
+
+  robot->SetGripper(gripper);
+
+  RCLCPP_INFO(node->get_logger(), "Initialize Rotation task");
+
+  auto taskIoBemi1Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteAuf());
+
+  auto taskIoBemi1Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteZu());
+
+  auto taskIoBemi2Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteAuf());
+
+  auto taskIoBemi2Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteZu());
+
+  auto taskIoGripperOpen = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWriteAuf());
+
+  auto taskIoGripperClose = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWritZu());
+
+  auto task1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto task2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto task3 = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto task4 = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  
+  auto taskSetRobotSpeed = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>();
+  taskSetRobotSpeed->SetValue(1.0);
+
+  double rotX = M_PI;
+  double rotY = 0;
+  double rotZ = 0; 
+
+  double posStartZ = 416.63;
+  double posEndZ = 0.44686;
+
+  double stationYApproach = -0.40759;
+  double stationYExecute = -0.55759;
+  double stationX1 = -0.19138;
+  double stationX2 = 0.13816;
+  double stationX3 = 0.29433;
+  double stationX4 = -0.016;
+
+
+  // Station 1
+  auto pose1 = std::make_shared<WzlPlanner::Pose>(stationX1, stationYApproach, posStartZ, rotX, rotY, 0);
+  auto pose2 = std::make_shared<WzlPlanner::Pose>(stationX1, stationYApproach, posStartZ, rotX, rotY, M_PI * 0.5);
+  auto pose3 = std::make_shared<WzlPlanner::Pose>(stationX1, stationYApproach, posStartZ, rotX, rotY, M_PI * 1.0);
+  auto pose4 = std::make_shared<WzlPlanner::Pose>(stationX1, stationYApproach, posStartZ, rotX, rotY, M_PI * 1.5);
+
+
+  // misc
+  auto taskWait = std::make_shared<WzlPlanner::TaskWait>();
+  taskWait->time_ = 500ms;
+
+  task1->SetTargetPose(pose1)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
+  task2->SetTargetPose(pose2)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
+  task3->SetTargetPose(pose3)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
+  task4->SetTargetPose(pose4)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
+ 
+
+
+  RCLCPP_INFO(node->get_logger(), "Execute Task Pick & Place");
+  taskSetRobotSpeed->Execute();
+
+  // setup custom task
+  auto taskList = std::make_shared<WzlPlanner::TaskList>();
+  taskList->AddTask(task1);
+  taskList->AddTask(task2);
+  taskList->AddTask(task3);
+  taskList->AddTask(task4);
+
+  while (true)
+  {
+    taskList->Execute();
+    rclcpp::spin_some(node);
+  }
+  
+
+  RCLCPP_INFO(node->get_logger(), "Excecution successful");
+
+}
+
+
 
 void TaskChangingStationTest()
 {
@@ -295,17 +393,17 @@ void TaskChangingStationTest()
   auto taskPlace2 = taskPickAndPlace2->GetTaskPlace();
 
   auto taskPickAndPlace3 = std::make_shared<WzlPlanner::TaskPickAndPlace>();
-  auto taskPick3 = taskPickAndPlace2->GetTaskPick();
-  auto taskPlace3 = taskPickAndPlace2->GetTaskPlace();
+  auto taskPick3 = taskPickAndPlace3->GetTaskPick();
+  auto taskPlace3 = taskPickAndPlace3->GetTaskPlace();
 
   auto taskPickAndPlace4 = std::make_shared<WzlPlanner::TaskPickAndPlace>();
-  auto taskPick4 = taskPickAndPlace2->GetTaskPick();
-  auto taskPlace4 = taskPickAndPlace2->GetTaskPlace();
+  auto taskPick4 = taskPickAndPlace4->GetTaskPick();
+  auto taskPlace4 = taskPickAndPlace4->GetTaskPlace();
   
   auto taskSetRobotSpeed = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>();
   taskSetRobotSpeed->SetValue(0.1);
   
-
+/*
   // Station 1
   auto posePickApproach = std::make_shared<WzlPlanner::Pose>(-0.19138, -0.40759, 0.41686, 2.214, 2.238, 0.011);
   auto posePickExceute = std::make_shared<WzlPlanner::Pose>(-0.19138, -0.55759, 0.41686, 2.214, 2.238, 0.011);
@@ -341,7 +439,59 @@ void TaskChangingStationTest()
   auto posePlaceApproach4 = std::make_shared<WzlPlanner::Pose>(-0.016, -0.55351, 0.44438, 2.346, 2.091, 0.001);
   auto posePlaceExceute4 = std::make_shared<WzlPlanner::Pose>(-0.016, -0.55351, 0.41438, 2.346, 2.091, 0.001);
   auto posePlaceEnd4 = std::make_shared<WzlPlanner::Pose>(-0.016, -0.40351, 0.41438, 2.346, 2.091, 0.001);
+*/
 
+  double rotX = M_PI;
+  double rotY = 0;
+  double rotZ = M_PI * -0.5; 
+
+  double posStartZ = 0.41663;
+  double posEndZ = 0.44686;
+
+  double stationYApproach = -0.40759;
+  //double stationYExecute = -0.55759;
+  double stationYExecute = -0.54759;
+  double stationX1 = -0.19138;
+  double stationX2 = 0.13816;
+  double stationX3 = 0.29433;
+  double stationX4 = -0.016;
+
+
+  // Station 1
+  auto posePickApproach = std::make_shared<WzlPlanner::Pose>(stationX1, stationYApproach, posStartZ, rotX, rotY, rotZ);
+  auto posePickExceute = std::make_shared<WzlPlanner::Pose>(stationX1, stationYExecute, posStartZ, rotX, rotY, rotZ);
+  auto posePickEnd = std::make_shared<WzlPlanner::Pose>(stationX1, stationYExecute, posEndZ, rotX, rotY, rotZ);
+
+  auto posePlaceApproach = std::make_shared<WzlPlanner::Pose>(stationX1, stationYExecute, posEndZ, rotX, rotY, rotZ);
+  auto posePlaceExceute = std::make_shared<WzlPlanner::Pose>(stationX1, stationYExecute, posStartZ, rotX, rotY, rotZ);
+  auto posePlaceEnd = std::make_shared<WzlPlanner::Pose>(stationX1, stationYApproach, posStartZ, rotX, rotY, rotZ);
+
+  // Station 2
+  auto posePickApproach2 = std::make_shared<WzlPlanner::Pose>(stationX2, stationYApproach, posStartZ, rotX, rotY, rotZ);
+  auto posePickExceute2 = std::make_shared<WzlPlanner::Pose>(stationX2, stationYExecute, posStartZ, rotX, rotY, rotZ);
+  auto posePickEnd2 = std::make_shared<WzlPlanner::Pose>(stationX2, stationYExecute, posEndZ, rotX, rotY, rotZ);
+
+  auto posePlaceApproach2 = std::make_shared<WzlPlanner::Pose>(stationX2, stationYExecute, posEndZ, rotX, rotY, rotZ);
+  auto posePlaceExceute2 = std::make_shared<WzlPlanner::Pose>(stationX2, stationYExecute, posStartZ, rotX, rotY, rotZ);
+  auto posePlaceEnd2 = std::make_shared<WzlPlanner::Pose>(stationX2, stationYApproach, posStartZ, rotX, rotY, rotZ);
+
+  // Station 3
+  auto posePickApproach3 = std::make_shared<WzlPlanner::Pose>(stationX3, stationYApproach, posStartZ, rotX, rotY, rotZ);
+  auto posePickExceute3 = std::make_shared<WzlPlanner::Pose>(stationX3, stationYExecute, posStartZ, rotX, rotY, rotZ);
+  auto posePickEnd3 = std::make_shared<WzlPlanner::Pose>(stationX3, stationYExecute, posEndZ, rotX, rotY, rotZ);
+
+  auto posePlaceApproach3 = std::make_shared<WzlPlanner::Pose>(stationX3, stationYExecute, posEndZ, rotX, rotY, rotZ);
+  auto posePlaceExceute3 = std::make_shared<WzlPlanner::Pose>(stationX3, stationYExecute, posStartZ, rotX, rotY, rotZ);
+  auto posePlaceEnd3 = std::make_shared<WzlPlanner::Pose>(stationX3, stationYApproach, posStartZ, rotX, rotY, rotZ);
+
+  // Station 4
+  auto posePickApproach4 = std::make_shared<WzlPlanner::Pose>(stationX4, stationYApproach, posStartZ, rotX, rotY, rotZ);
+  auto posePickExceute4 = std::make_shared<WzlPlanner::Pose>(stationX4, -stationYExecute, posStartZ, rotX, rotY, rotZ);
+  auto posePickEnd4 = std::make_shared<WzlPlanner::Pose>(stationX4, stationYExecute, posEndZ, rotX, rotY, rotZ);
+
+  auto posePlaceApproach4 = std::make_shared<WzlPlanner::Pose>(stationX4, stationYExecute, posEndZ, rotX, rotY, rotZ);
+  auto posePlaceExceute4 = std::make_shared<WzlPlanner::Pose>(stationX4, stationYExecute, posStartZ, rotX, rotY, rotZ);
+  auto posePlaceEnd4 = std::make_shared<WzlPlanner::Pose>(stationX4, stationYApproach, posStartZ, rotX, rotY, rotZ);
 
   // misc
   auto taskWait = std::make_shared<WzlPlanner::TaskWait>();
@@ -396,14 +546,19 @@ void TaskChangingStationTest()
 
   // setup custom task
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
-
+  taskList->AddTask(taskPickAndPlace);
+  taskList->AddTask(taskPickAndPlace2);
+  taskList->AddTask(taskPickAndPlace3);
+  taskList->AddTask(taskPickAndPlace4);
 
   while (true)
   {
-    //taskList->Execute();
+    taskList->Execute();
     rclcpp::spin_some(node);
-    taskPickAndPlace->Execute();
-    taskPickAndPlace2->Execute();
+    //taskPickAndPlace->Execute();
+    //taskPickAndPlace2->Execute();
+    //taskPickAndPlace3->Execute();
+    //taskPickAndPlace4->Execute();
   }
   
 
@@ -508,7 +663,11 @@ int main(int argc, char* argv[])
   RCLCPP_DEBUG(node->get_logger(), "My log message %d", 4);
 
   CreateCell(node);
-  PickAndPlaceTest();
+  //PickAndPlaceTest();
+  //TaskRotationTest();
+
+  rclcpp::sleep_for(2000ms);
+  TaskChangingStationTest();
   //OpcuaTaskTest(node);
 
   rclcpp::spin(node);

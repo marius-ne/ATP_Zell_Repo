@@ -123,16 +123,5 @@ def generate_launch_description():
         ],
     )
 
-    #publlish TF
-    robot_state_publisher = Node(
-        package="robot_state_publisher",
-        executable="robot_state_publisher",
-        name="robot_state_publisher",
-        output="both",
-        parameters=[
-            robot_description
-        ],
-    )
 
-
-    return launch.LaunchDescription([opcua_client_node, moveit_node, robo_planner_node, robot_state_publisher])
+    return launch.LaunchDescription([opcua_client_node, moveit_node, robo_planner_node])

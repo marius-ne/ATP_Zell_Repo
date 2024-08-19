@@ -207,10 +207,27 @@ geometry_msgs::msg::Pose WzlPlanner::Pose::GetGeometryMsgPoseFromPose() const
     pose.orientation.z = q.getZ();
     pose.orientation.w = q.getW();
 
-    if (pose.orientation.x < 0.00001) pose.orientation.x = 0;
-    if (pose.orientation.y < 0.00001) pose.orientation.y = 0;
-    if (pose.orientation.z < 0.00001) pose.orientation.z = 0;
-    if (pose.orientation.w < 0.00001) pose.orientation.w = 0;
+    std::cout << "Calculating quaternion: " << std::endl;
+    std::cout << "X: " << q.getX() << std::endl;
+    std::cout << "Y: " << q.getY() << std::endl;
+    std::cout << "Z: " << q.getZ() << std::endl;
+    std::cout << "W: " << q.getW() << std::endl;
+
+    auto qx = sin(rx_/2) * cos(ry_/2) * cos(rz_/2) - cos(rx_/2) * sin(ry_/2) * sin(rz_/2);
+    auto qy = cos(rx_/2) * sin(ry_/2) * cos(rz_/2) + sin(rx_/2) * cos(ry_/2) * sin(rz_/2);
+    auto qz = cos(rx_/2) * cos(ry_/2) * sin(rz_/2) - sin(rx_/2) * sin(ry_/2) * cos(rz_/2);
+    auto qw = cos(rx_/2) * cos(ry_/2) * cos(rz_/2) + sin(rx_/2) * sin(ry_/2) * sin(rz_/2);       
+
+    std::cout << "------------" << std::endl;
+    std::cout << "X: " << qx << std::endl;
+    std::cout << "Y: " << qy << std::endl;
+    std::cout << "Z: " << qz << std::endl;
+    std::cout << "W: " << qw << std::endl;
+
+    //if (pose.orientation.x < 0.00001) pose.orientation.x = 0;
+    //if (pose.orientation.y < 0.00001) pose.orientation.y = 0;
+    //if (pose.orientation.z < 0.00001) pose.orientation.z = 0;
+    //if (pose.orientation.w < 0.00001) pose.orientation.w = 0;
 
     return pose;
 }
