@@ -33,7 +33,7 @@ class RobotUr : public rclcpp::Node
             service_robot_move_toposition_ = this->create_service<wzlscheduler_interfaces::srv::RobotMoveToPosition>("robot_move_to_position", std::bind(&RobotUr::service_callback_robot_move_to_position, this, std::placeholders::_1, std::placeholders::_2));
             service_robot_follow_trajectory_ = this->create_service<wzlscheduler_interfaces::srv::RobotFollowTrajectory>("robot_follow_trajectory", std::bind(&RobotUr::service_callback_robot_follow_trajectory, this, std::placeholders::_1, std::placeholders::_2));
             service_robot_set_velocity_ = this->create_service<wzlscheduler_interfaces::srv::RobotSetVelocity>("robot_set_velocity", std::bind(&RobotUr::service_callback_robot_set_velocity, this, std::placeholders::_1, std::placeholders::_2));
-            service_scene_object_attach = this->create_service<wzlscheduler_interfaces::srv::SceneObjectAttach>("cene_object_attach", std::bind(&RobotUr::service_callback_scene_object_attach, this, std::placeholders::_1, std::placeholders::_2));
+            service_scene_object_attach = this->create_service<wzlscheduler_interfaces::srv::SceneObjectAttach>("scene_object_attach", std::bind(&RobotUr::service_callback_scene_object_attach, this, std::placeholders::_1, std::placeholders::_2));
             service_scene_object_detach = this->create_service<wzlscheduler_interfaces::srv::SceneObjectDetach>("scene_object_detach", std::bind(&RobotUr::service_callback_scene_object_detach, this, std::placeholders::_1, std::placeholders::_2));
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize topics"));
@@ -163,7 +163,7 @@ class RobotUr : public rclcpp::Node
         {
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Get the current robot pose_____");
             auto state = move_group_interface_->getCurrentState();
-            
+            auto pos = state->get
             
             geometry_msgs::msg::Pose p = move_group_interface_->getCurrentPose().pose;
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Current pose\nX: %g Y: %g Z: %g RotX: %g RotY %g RotZ %g RotW %g",

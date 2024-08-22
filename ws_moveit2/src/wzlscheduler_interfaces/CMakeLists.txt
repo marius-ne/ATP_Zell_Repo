@@ -27,6 +27,10 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/SceneObjectRemove.msg"
   "msg/SceneObjectAdd.msg"
   "msg/SceneObjectSetPose.msg"
+  "msg/LabeledBoundingBox.msg"
+  "msg/LabeledBoundingBoxes.msg"
+  "msg/LabeledPose.msg"
+  "msg/LabeledPoses.msg"
 
   DEPENDENCIES geometry_msgs
   DEPENDENCIES sensor_msgs
