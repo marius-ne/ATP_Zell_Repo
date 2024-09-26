@@ -91,7 +91,6 @@ def generate_launch_description():
     # generate_common_hybrid_launch_description() returns a list of nodes to launch
     robot_description = get_robot_description()
     robot_description_semantic = get_robot_description_semantic()
-
     robot_description_kinematics = PathJoinSubstitution([FindPackageShare("ur_moveit_config"), "config", "kinematics.yaml"])
 
     opcua_client_node = Node(
@@ -102,6 +101,7 @@ def generate_launch_description():
         parameters=[
         ],
     )
+
 
     moveit_node = Node(
         package="moveit_backend",
@@ -123,7 +123,7 @@ def generate_launch_description():
         ],
     )
 
-    #publlish TF
+    #publish TF
     robot_state_publisher = Node(
         package="robot_state_publisher",
         executable="robot_state_publisher",

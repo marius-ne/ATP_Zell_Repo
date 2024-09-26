@@ -10,6 +10,7 @@ find_package(ament_cmake REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(wzlscheduler_interfaces REQUIRED)
+find_package(moveit_task_constructor_core REQUIRED)
 
 add_executable(moveit_panda 
   src/moveit_panda.cpp)

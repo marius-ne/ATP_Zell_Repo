@@ -53,7 +53,7 @@ namespace WzlPlanner
             virtual void PartDetach() = 0;
 
             // sets the movement velocity 
-            virtual void SetVelocity(const double value) = 0;
+            virtual void SetVelocity(const double velocity = 1.0, const double acceleration = 1.0, const int type = 0) = 0;
     };
 
     class RobotDummy : public Robot
@@ -69,7 +69,7 @@ namespace WzlPlanner
             bool FollowTrajectory(const std::vector<std::shared_ptr<Pose>> points) override;
             void PartAttach(const std::string partKey) override;
             void PartDetach() override;
-            void SetVelocity(const double value) override;
+            void SetVelocity(const double velocity = 1.0, const double acceleration = 1.0, const int type = 0) override;
 
         private:
             std::shared_ptr<rclcpp::Node> node_;
@@ -93,7 +93,7 @@ namespace WzlPlanner
             bool FollowTrajectory(const std::vector<std::shared_ptr<Pose>> points) override;
             void PartAttach(const std::string partKey) override;
             void PartDetach() override;
-            void SetVelocity(const double value) override;
+            void SetVelocity(const double velocity = 1.0, const double acceleration = 1.0, const int type = 0) override;
 
         private:
             std::shared_ptr<rclcpp::Node> node_;

@@ -33,6 +33,7 @@ add_executable(robo_planner
   src/Tasks/TaskGripperChangePlace.cpp
   src/Tasks/TaskGripperClose.cpp
   src/Tasks/TaskGripperOpen.cpp
+  src/Tasks/TaskFollowTrajectory.cpp
   src/Tasks/TaskList.cpp
   src/Tasks/TaskMoveToPose.cpp
   src/Tasks/TaskPick.cpp
@@ -60,9 +61,11 @@ ament_target_dependencies(
 
 install(TARGETS robo_planner
   DESTINATION lib/${PROJECT_NAME})
-  
-install(FILES launch/ur_planner.py
-  DESTINATION share/${PROJECT_NAME}/launch)
+
+install(
+  DIRECTORY launch config
+  DESTINATION share/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)

@@ -13,6 +13,7 @@
 #include "Atomic/TaskOpenDoor.h"
 #include "Atomic/TaskSetRobotValueVelocity.h"
 #include "Atomic/TaskOpcuaRequest.h"
+#include "Atomic/TaskFollowTrajectory.h"
 #include "Atomic/TaskWait.h"
 
 // include composed tasks

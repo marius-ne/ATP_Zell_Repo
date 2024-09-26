@@ -193,7 +193,7 @@ namespace WzlPlanner
             data->actuatorId = "ns=4;i=5004";
             data->actuatorWriteType = 2;
             data->actuatorCommandBool1 = true;
-            data->actuatorCommandBool2 = true;
+            data->actuatorCommandBool2 = false;
 
             return data;
         }

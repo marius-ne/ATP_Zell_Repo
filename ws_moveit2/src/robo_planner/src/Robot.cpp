@@ -161,13 +161,21 @@ void WzlPlanner::RobotUR::PartDetach()
     }
 }
 
-void WzlPlanner::RobotUR::SetVelocity(const double value)
+// type: 0: ompl; 1: pilz industrial planner
+void WzlPlanner::RobotUR::SetVelocity(const double velocity, const double acceleration, const int type)
 {
-    auto msg = std::string("Set relative robot velocity to value: ") + std::to_string(value);
+    std::string plannerTypeStr = type == 0 ? std::string("ompl") : std::string("Pilz industrial planner");
+
+    auto msg = std::string("Set relative robot velocity to value: ") + std::to_string(velocity)
+        + std::string("and acceleration to value: ") + std::to_string(acceleration)
+        + std::string("for the planner type: ") + plannerTypeStr;
+
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
 
     auto request = std::make_shared<wzlscheduler_interfaces::srv::RobotSetVelocity::Request>();
-    request->value = value;
+    request->velocityscalingfactor = velocity;
+    request->accelerationscalingfactor = acceleration;
+    request->type = type;
 
     while (!this->serviceRobotSetVelocity_->wait_for_service(1s)) 
     {
@@ -256,9 +264,14 @@ void WzlPlanner::RobotDummy::PartDetach()
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
 }
 
-void WzlPlanner::RobotDummy::SetVelocity(const double value)
+void WzlPlanner::RobotDummy::SetVelocity(const double velocity, const double acceleration, const int type)
 {
     // set the relative movement velocity [0..1] of the robot
-    auto msg = std::string("Set robot velocity to: ") + std::to_string(value);
+    std::string plannerTypeStr = type == 0 ? std::string("ompl") : std::string("Pilz industrial planner");
+
+    auto msg = std::string("Set relative robot velocity to value: ") + std::to_string(velocity)
+        + std::string("and acceleration to value: ") + std::to_string(acceleration)
+        + std::string("for the planner type: ") + plannerTypeStr;
+        
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
 }
