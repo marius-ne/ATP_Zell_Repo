@@ -9,7 +9,11 @@ bool WzlPlanner::TaskMoveToPose::Execute()
 
     if (this->targetPose != nullptr)
     {
-        robot->MoveToPose(targetPose, moveType);
+        if (!robot->MoveToPose(targetPose, moveType))
+        {
+            Log("Unable to perform MoveToPose Task.");
+            return false;
+        }
     }
     else
     {

@@ -117,8 +117,8 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(int stationInd
   double posEndZOffset = 0.03;
   double posPlaceOffsetZ = -0.005;
 
-  double stationYApproach = -0.40759;
-  double stationYExecute = -0.55;
+  double stationYApproach = -0.35;
+  double stationYExecute = -0.5549700856208801;
 
   double posX = stationXValues[stationIndex - 1];
   double posStartZ = stationZValues[stationIndex - 1];
@@ -184,8 +184,8 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(int stationInde
   double posEndZOffset = 0.03;
   double posPlaceOffsetZ = -0.005;
 
-  double stationYApproach = -0.40759;
-  double stationYExecute = -0.55;
+  double stationYApproach = -0.35;
+  double stationYExecute = -0.5549700856208801;
 
   double posX = stationXValues[stationIndex - 1];
   double posStartZ = stationZValues[stationIndex - 1];
@@ -226,6 +226,30 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(int stationInde
   taskList->AddTask(taskMove5);  
 
   return taskList;
+}
+
+std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double radius, std::shared_ptr<WzlPlanner::Pose> posePointCenter)
+{
+  double posMidX = posePointCenter->GetPositionX();
+  double posMidY = posePointCenter->GetPositionY();
+  double posMidZ = posePointCenter->GetPositionZ();
+
+  double rotX = posePointCenter->GetRotationX();
+  double rotY = posePointCenter->GetRotationY();
+  double rotZ = posePointCenter->GetRotationZ();
+
+  auto taskMoveTrjajectory = std::make_shared<WzlPlanner::TaskFollowTrajectory>();
+  
+  for (double i = 0; i < 2 * M_PI; i += 0.01)
+  {
+    double posX = posMidX + sin(i) * radius;
+    double posY = posMidY + cos(i) * radius;
+
+    auto pose = std::make_shared<WzlPlanner::Pose>(posX, posY, posMidZ, rotX, rotY, rotZ);
+    taskMoveTrjajectory->AddPose(pose);
+  }
+
+  return taskMoveTrjajectory;
 }
 
 
@@ -303,18 +327,20 @@ void UseCase1()
   double bemi1X = -0.4475369453430176;
   double bemi1Y = 0.3396724462509155;
 
+  auto poseInit = std::make_shared<WzlPlanner::Pose>(0.3122745752334595, 0.09810880571603775, 0.4534417390823364, rotX, rotY, rotZ);
+  auto poseFixpoint = std::make_shared<WzlPlanner::Pose>(0.364556223154068, -0.05057888105511665, 0.5055627226829529, rotX, rotY, rotZ);
   auto poseApproachBemi1 = std::make_shared<WzlPlanner::Pose>(bemi1X, bemi1Y, placementBemi1Z, rotX, rotY, rotZ);
   auto poseExceuteBemi1 = std::make_shared<WzlPlanner::Pose>(bemi1X, bemi1Y, executionBemi1Z, rotX, rotY, rotZ);
   auto poseEndBemi1 = std::make_shared<WzlPlanner::Pose>(bemi1X, bemi1Y, placementBemi1Z, rotX, rotY, rotZ);
 
   double executionBemi2Z = 0.3107452988624573;
   double placementBemi2Z = executionBemi1Z + placementOffsetZ;
-  double bemi2X = 0.36473026871681213;
-  double bemi2Y = 0.6826684474945068;
+  double bemi2X = 0.3677471876144409;
+  double bemi2Y = 0.6782312393188477;
 
-  rotX = 3.141;
-  rotY = 0.005;
-  rotZ = -M_PI + 0.065; 
+  rotX = 3.14;
+  rotY = 0.009;
+  rotZ = -M_PI + 0.051; 
 
   auto poseApproachBemi2 = std::make_shared<WzlPlanner::Pose>(bemi2X, bemi2Y, placementBemi2Z, rotX, rotY, rotZ);
   auto poseExceuteBemi2 = std::make_shared<WzlPlanner::Pose>(bemi2X, bemi2Y, executionBemi2Z, rotX, rotY, rotZ);
@@ -324,10 +350,16 @@ void UseCase1()
   rotY = 0;
   rotZ = -M_PI; 
 
+  auto taskInitPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto taskFixPoint = std::make_shared<WzlPlanner::TaskMoveToPose>();
+
   auto taskPickApproach1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskPickExecute1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskPickEnd1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   
+  taskInitPose->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseInit);
+  taskFixPoint->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseFixpoint);
+
   taskPickApproach1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBemi1);
   taskPickExecute1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseExceuteBemi1);
   taskPickEnd1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBemi1);
@@ -341,7 +373,7 @@ void UseCase1()
   taskPlaceEnd1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBemi2);
 
   // Change tool: Gripper -> deburring spindle 
-  auto taskGripperUnequip = GetChangingStationTaskPlace(1);
+  auto taskGripperUnequip = GetChangingStationTaskPlace(3);
   auto taskDeburringSpindleEquip = GetChangingStationTaskPick(2);
 
   // do deburring
@@ -350,19 +382,22 @@ void UseCase1()
   double rotDeburZ = M_PI * -0.5; 
 
   auto taskDeburApproach1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  auto taskDeburApproach2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto taskDeburExecute = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskDeburEnd1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  auto taskDeburEnd2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  
+  auto deburApporachOffsetZ = 0.1;
+  auto poseApporachBemi1Debur = std::make_shared<WzlPlanner::Pose>(0.36059075593948364, 0.6857767701148987, 0.4643709659576416 + deburApporachOffsetZ, rotX, rotY, rotZ);
+  auto poseExecuteDebur = std::make_shared<WzlPlanner::Pose>(0.36059075593948364, 0.6857767701148987, 0.4643709659576416 + 0.03, rotX, rotY, rotZ);
 
-  taskDeburApproach1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBemi1);
-  taskDeburApproach2->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBemi1);
-  taskDeburEnd1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBemi1);
-  taskDeburEnd2->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBemi1);
+  auto taskDeburCircle = CreateTaskMoveInCircle(0.023, poseExecuteDebur);
+  taskDeburApproach1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApporachBemi1Debur);
+  taskDeburExecute->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseExecuteDebur);
+  taskDeburEnd1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseApporachBemi1Debur);
 
 
   // change tool: deburring spindle -> Gripper
   auto taskDeburringSpindleUnequip = GetChangingStationTaskPlace(2);
-  auto taskGripperEquip = GetChangingStationTaskPick(1);
+  auto taskGripperEquip = GetChangingStationTaskPick(3);
 
   // pick part and hold it in front of the sensor
   auto taskPickApproach2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
@@ -373,13 +408,28 @@ void UseCase1()
   taskPickExecute2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseExceuteBemi2);
   taskPickEnd2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBemi2);
 
+  // do quality inspection
+  auto taskQualityInspection = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto poseQualityInspection = std::make_shared<WzlPlanner::Pose>(bemi2X, bemi2Y, placementBemi2Z, 0, 0, 0);
+
 
   RCLCPP_INFO(node->get_logger(), "Execute Task Use Case 1");
 
   // setup custom task
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
 
+  // set pneumatic to neutral
+  taskList->AddTask(taskIoGripperNeutral);
+  taskList->AddTask(taskIoDeburringSpindleDeactivate);
+
+  // set robot speed
   taskList->AddTask(taskSetSpeedPtp);
+
+  // move to innitial pose
+  taskList->AddTask(taskInitPose);
+
+  // take gripper from changing station
+  taskList->AddTask(taskGripperEquip);
 
   // pick up part from carrier
   taskList->AddTask(taskSetSpeedCartesianFast);
@@ -407,19 +457,21 @@ void UseCase1()
   taskList->AddTask(taskIoGripperNeutral);
 
   // change equip: gripper -> deburring spindle
+  //taskList->AddTask(poseFixpoint);
   taskList->AddTask(taskSetSpeedCartesianSlow);
   taskList->AddTask(taskGripperUnequip);
   taskList->AddTask(taskDeburringSpindleEquip);
   taskList->AddTask(taskIoDeburringSpindleDeactivate);
 
   // do the deburring process
+  taskList->AddTask(taskDeburApproach1);
+  taskList->AddTask(taskDeburExecute);
   taskList->AddTask(taskIoDeburringSpindleActivate);
   taskList->AddTask(taskWait);
-  taskList->AddTask(taskWait);
-  taskList->AddTask(taskWait);
-  taskList->AddTask(taskWait);
+  taskList->AddTask(taskDeburCircle);
   taskList->AddTask(taskWait);
   taskList->AddTask(taskIoDeburringSpindleDeactivate);
+  taskList->AddTask(taskDeburEnd1);
 
   // change equip: deburring spindle -> gripper
   taskList->AddTask(taskSetSpeedCartesianSlow);
@@ -427,6 +479,8 @@ void UseCase1()
   taskList->AddTask(taskGripperEquip);
 
   // pick up part again from clamping device
+  //taskList->AddTask(poseFixpoint);
+
   taskList->AddTask(taskSetSpeedCartesianFast);
   taskList->AddTask(taskPlaceApproach1);
   taskList->AddTask(taskIoBemi1Open);
@@ -437,6 +491,9 @@ void UseCase1()
   taskList->AddTask(taskWait);
   taskList->AddTask(taskPlaceEnd1);
 
+  // do quality inspection
+  //taskList->AddTask(taskQualityInspection);
+
   // take back part to carrier box
   taskList->AddTask(taskSetSpeedCartesianSlow);
   taskList->AddTask(taskPickApproach1);
@@ -445,11 +502,24 @@ void UseCase1()
   taskList->AddTask(taskWait);
   taskList->AddTask(taskSetSpeedCartesianFast);
   taskList->AddTask(taskPickEnd1);
+
+  // unequip gripper
+  taskList->AddTask(taskIoGripperNeutral);
+  taskList->AddTask(taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperUnequip);
+
+  // move back to idle pose
+  taskList->AddTask(taskInitPose);
   
 
   while (true)
   {
-    taskList->Execute();
+    if (!taskList->Execute())
+    {
+      RCLCPP_INFO(node->get_logger(), "Excecution failed");
+      return;
+    }
+
     rclcpp::spin_some(node);
   }
   
@@ -457,9 +527,6 @@ void UseCase1()
   RCLCPP_INFO(node->get_logger(), "Excecution successful");
 
 }
-
-
-
 
 void PickAndPlaceTest()
 {
@@ -716,6 +783,8 @@ void TaskRotationTest()
   RCLCPP_INFO(node->get_logger(), "Excecution successful");
 
 }
+
+
 
 void TaskMoveInCircleTest()
 {

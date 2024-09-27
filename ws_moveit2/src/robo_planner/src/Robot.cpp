@@ -28,12 +28,14 @@ bool WzlPlanner::RobotUR::MoveToPose(const std::shared_ptr<Pose> targetPose, con
     // Wait for the result.
     if (rclcpp::spin_until_future_complete(node_, result) == rclcpp::FutureReturnCode::SUCCESS)
     {
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Result: %d", result.get()->result);
+        auto success = result.get()->result;
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Result of MoveToPose: %d", success);
+
+        return success;
     } else {
         RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service RobotMoveToPosition");
+        return false;
     }
-    
-    return true;
 }
 
 bool WzlPlanner::RobotUR::FollowTrajectory(const std::vector<std::shared_ptr<Pose>> points)

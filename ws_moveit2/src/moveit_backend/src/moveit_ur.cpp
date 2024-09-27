@@ -61,10 +61,10 @@ class RobotUr : public rclcpp::Node
             move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(robot, PLANNING_GROUP);
             move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(robot, PLANNING_GROUP);
 
-            move_group_interface_->setPlannerId("PRMkConfigDefault");
-            move_group_interface_->setNumPlanningAttempts(20);
-            move_group_interface_->setPlanningTime(10);
-            move_group_interface_->setReplanAttempts(10);
+            //move_group_interface_->setPlannerId("PRMkConfigDefault");
+            //move_group_interface_->setNumPlanningAttempts(20);
+            //move_group_interface_->setPlanningTime(10);
+            //move_group_interface_->setReplanAttempts(10);
 
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize Collision boxes"));
@@ -74,15 +74,46 @@ class RobotUr : public rclcpp::Node
 
             move_group_interface_->setWorkspace(-size05, -size05, 0, size05, size05, 1);
 
-            //auto thickness = 0.01;
-            auto thickness = 0.2;
-
-            //add_collision_box("scan_tower", 0.3, 0.15, 1, +0.67, -0.725, 0.5);
-            
-
+            auto thickness = 0.04;            
+            //add_collision_box("floor", 2, 2, 0.02, 0, 0, -0.01);
             //add_collision_box("gripper_change_station", 0.7, 0.4, 0.45, 0, -0.65, 0.225);
-            add_collision_box("scan_tower", 0.3, 0.3, 1, +0.7, -0.25, 0.5);
-            
+            add_collision_box("scan_tower", 0.3, 0.3, 1, +0.65, -0.25, 0.5);
+            add_collision_box("scan_tower_sensor", 0.16, 0.1, 0.1, 0.56, -0.265334, 0.73);
+
+            //WERKSTÜCK BOXEN
+            add_hollow_box_collision("BOX1",0.56,0.36,0.125,0.012,-0.65,0.23,0.125/2);
+            //add_hollow_box_collision("BOX2",0.4,0.8,0.1,0.02,0.5,0.5,0.05);
+
+            add_collision_box("wall1", size, thickness, 1.0, 0, size05, 0.5);
+            add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);
+            add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
+            add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
+            add_collision_box("gripper_change_station", 0.7, 0.4, 0.45, 0, -0.775, 0.225);
+        
+            //add_collision_box("ceiling", size, size, 0.1, 0, 0, 1);
+
+            //BEMI BOXEN//
+            //auto bemi_höhe = 0.215; // Gibt zwei Arten, einer is höher als der Andere
+            auto bemi_höhe = 0.235;
+            auto bemi_breite = 0.065;
+            auto bemi_tiefe = 0.1;
+            //BEMI_1
+            auto bemi_1_x = 0.375;
+            auto bemi_1_y = 0.51;
+            add_collision_box("BEMI_1_1",bemi_tiefe,bemi_breite,bemi_höhe,bemi_1_x,bemi_1_y,bemi_höhe/2);
+            add_collision_box("BEMI_1_2",bemi_tiefe,bemi_breite,bemi_höhe,bemi_1_x+0.03,bemi_1_y+0.26,bemi_höhe/2);
+            //BEMI_2
+            auto bemi_2_x = 0.109;
+            auto bemi_2_y = 0.443;
+            add_collision_box("BEMI_2_1",bemi_tiefe,bemi_breite,bemi_höhe,bemi_2_x,bemi_2_y,bemi_höhe/2);
+            add_collision_box("BEMI_2_2",bemi_breite,bemi_tiefe,bemi_höhe,bemi_2_x-0.08,bemi_2_y+0.215,bemi_höhe/2);
+            //BEMI_3
+            auto bemi_3_x = 0.53;
+            auto bemi_3_y = 0.258;
+            add_collision_box("BEMI_3_1",bemi_breite,bemi_tiefe,bemi_höhe,bemi_3_x,bemi_3_y,bemi_höhe/2);
+            add_collision_box("BEMI_3_2",bemi_breite,bemi_tiefe,bemi_höhe,bemi_3_x+0.26,bemi_3_y+0.02,bemi_höhe/2);
+            add_collision_box("BEMI_3_3",bemi_tiefe,bemi_breite,bemi_höhe,bemi_3_x+0.075,bemi_3_y-0.215,bemi_höhe/2);
+
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialization done"));
         }
@@ -98,6 +129,63 @@ class RobotUr : public rclcpp::Node
             ocm.absolute_y_axis_tolerance = 0.001;
             ocm.absolute_z_axis_tolerance = 0.001;
             ocm.weight = 1.0;
+        }
+
+        void add_hollow_box_collision(const std::string name, const float width, const float depth, const float height,
+            const float wall_thickness, const float x, const float y, const float z)
+        {
+            // Collision object initialization
+            moveit_msgs::msg::CollisionObject collision_object;
+            collision_object.header.frame_id = this->move_group_interface_->getPlanningFrame();
+            collision_object.id = name;
+
+            shape_msgs::msg::SolidPrimitive primitive;
+            primitive.type = primitive.BOX;
+            primitive.dimensions.resize(3);
+
+            geometry_msgs::msg::Pose box_pose;
+            box_pose.orientation.w = 1.0;
+
+            // Create and add the four walls of the hollow box
+
+            // Wall 1 (front)
+            primitive.dimensions[primitive.BOX_X] = width;
+            primitive.dimensions[primitive.BOX_Y] = wall_thickness;
+            primitive.dimensions[primitive.BOX_Z] = height;
+
+            box_pose.position.x = x;
+            box_pose.position.y = y + (depth / 2) - (wall_thickness / 2);
+            box_pose.position.z = z;
+
+            collision_object.primitives.push_back(primitive);
+            collision_object.primitive_poses.push_back(box_pose);
+
+            // Wall 2 (back)
+            box_pose.position.y = y - (depth / 2) + (wall_thickness / 2);
+
+            collision_object.primitives.push_back(primitive);
+            collision_object.primitive_poses.push_back(box_pose);
+
+            // Wall 3 (left)
+            primitive.dimensions[primitive.BOX_X] = wall_thickness;
+            primitive.dimensions[primitive.BOX_Y] = depth;
+            primitive.dimensions[primitive.BOX_Z] = height;
+
+            box_pose.position.x = x - (width / 2) + (wall_thickness / 2);
+            box_pose.position.y = y;
+
+            collision_object.primitives.push_back(primitive);
+            collision_object.primitive_poses.push_back(box_pose);
+
+            // Wall 4 (right)
+            box_pose.position.x = x + (width / 2) - (wall_thickness / 2);
+
+            collision_object.primitives.push_back(primitive);
+            collision_object.primitive_poses.push_back(box_pose);
+
+            // Apply the collision object
+            collision_object.operation = collision_object.ADD;
+            this->planning_scene_interface_->applyCollisionObject(collision_object);
         }
 
         void add_collision_box(const std::string name, const float width, const float depth, const float height,
@@ -200,18 +288,20 @@ class RobotUr : public rclcpp::Node
             
             if (is_movement_normal)
             {
-                add_collision_box("gripper_change_station", 0.7, 0.4, 0.45, 0, -0.7, 0.225);
+                add_collision_box("gripper_change_station", 0.7, 0.45, 0.45, 0, -0.7, 0.225);
+                add_collision_box("floor", 2, 2, 0.02, 0, 0, -0.01);
 
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Set pipeline to ompl");
                 move_group_interface_->setPlanningPipelineId("ompl");
-                move_group_interface_->setPlannerId("PRMkConfigDefault");
+                //move_group_interface_->setPlannerId("PRMkConfigDefault");
+                move_group_interface_->setPlannerId("SemiPersistentLazyPRMstar");
 
                 move_group_interface_->setMaxVelocityScalingFactor(scaling_velocity_ompl);
                 move_group_interface_->setMaxAccelerationScalingFactor(scaling_acceleration_ompl);
 
-                move_group_interface_->setNumPlanningAttempts(100);
-                move_group_interface_->setPlanningTime(100);
-                move_group_interface_->setReplanAttempts(100);
+                move_group_interface_->setNumPlanningAttempts(20);
+                move_group_interface_->setPlanningTime(10);
+                
 
                 auto size = 1.9;
                 auto size05 = size * 0.5;
@@ -288,15 +378,25 @@ class RobotUr : public rclcpp::Node
                 auto const success = static_cast<bool>(move_group_interface_->plan(msg2));
                 
                 // Execute the plan
-                if(success) {
-                    move_group_interface_->execute(msg2);
-                    response->result = true;
+                if(success) 
+                {
+                    if (!move_group_interface_->execute(msg2))
+                    {
+                        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "OMPL Planner - Execution failed!");
+                        response->result = false;
+                    }
+                    else
+                    {
+                        response->result = true;
+                    }
+                
                 } else {
-                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Planning failed!");
+                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "OMPL Planner - Planning failed!");
                     response->result = false;
                 }
 
                 remove_collision_object("gripper_change_station");
+                remove_collision_object("floor");
             }
             else if (is_movement_cartesian)
             {
@@ -308,11 +408,19 @@ class RobotUr : public rclcpp::Node
                 auto const success = static_cast<bool>(move_group_interface_->plan(msg2));
                 
                 // Execute the plan
-                if(success) {
-                    move_group_interface_->execute(msg2);
-                    response->result = true;
+                if(success) 
+                {
+                    if (!move_group_interface_->execute(msg2))
+                    {
+                        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "PILZ planner - Execution failed!");
+                        response->result = false;
+                    }
+                    else
+                    {
+                        response->result = true;
+                    }
                 } else {
-                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Planning failed!");
+                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "PILZ planner - Planning failed!");
                     response->result = false;
                 }
             }
