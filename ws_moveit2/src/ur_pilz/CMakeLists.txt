@@ -8,8 +8,6 @@ endif()
 # find dependencies
 find_package(ament_cmake REQUIRED)
 find_package(geometric_shapes REQUIRED)
-find_package(moveit_ros_planning_interface REQUIRED)
-find_package(moveit_visual_tools REQUIRED)
 find_package(rclcpp REQUIRED)
 
 if(BUILD_TESTING)
