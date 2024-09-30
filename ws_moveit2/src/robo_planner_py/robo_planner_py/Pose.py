@@ -1,12 +1,22 @@
 class Pose:
     def __init__(self):
-        _x = 0
-        _y = 0
-        _z = 0
-        _i = 0
-        _j = 0
-        _k = 0
-        _w = 0
+        self._x = 0
+        self._y = 0
+        self._z = 0
+        self._i = 0
+        self._j = 0
+        self._k = 0
+        self._w = 0
+
+    def __init__(self, x : float, y : float, z : float):
+        self._x = x
+        self._y = y
+        self._z = z
+        self._i = 0
+        self._j = 0
+        self._k = 0
+        self._w = 0
+
 
     _x : float
     _y : float

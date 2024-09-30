@@ -52,9 +52,14 @@ class Robot:
         repsonse = future.result()
         Logger.LogInfo("Service result: " + repsonse.result)
 
-    def SetVelocity(self, value : float):
+    # valueVelocity [0..1] relative to robots max velocity
+    # valueAcceleration [0..1] relative to robots max acceleration
+    # type: 0 -> ompl PTP movements; 1 -> pilz linear movements
+    def SetVelocity(self, valueVelocity : float, valueAcceleration : float, type : int):
         request = RobotSetVelocity.Request()
-        request.value = value
+        request.velocity = valueVelocity
+        request.acceleration = valueAcceleration
+        request.type = type
 
         future = self.serviceRobotSetVelocity_.call_async(request)
         rclpy.spin_until_future_complete(self.node_, future)
@@ -90,7 +95,7 @@ class RobotDummy():
         Logger.LogInfo("Robot dummy - MoveToPose")
         pass
 
-    def SetVelocity(self, value : float):
+    def SetVelocity(self, valueVelocity : float, valueAcceleration : float, type : int):
         Logger.LogInfo("Robot dummy - SetVelocity")
         pass
 

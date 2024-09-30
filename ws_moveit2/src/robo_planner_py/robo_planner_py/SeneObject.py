@@ -1,6 +1,7 @@
 from robo_planner_py.Pose import Pose
 from robo_planner_py.Pose import Transform
 import robo_planner_py.Core
+from robo_planner_py.ActorOperation import ActorOperation
 
 class SceneObjectPrefab:
 
@@ -49,7 +50,8 @@ class SceneObjectPrefab:
     def DeSerializeContent(self, dict):
         pass
 
-    _id : str
+    _key : str
+    _displayName : str
     _type : str
 
     # origin of the scene object
@@ -71,7 +73,7 @@ class SceneObjectPrefab:
     _meshObjectKey : str
 
 
-class SceneObjectPartPrefab:
+class SceneObjectPartPrefab(SceneObjectPrefab):
 
     def GetType(self):
         return str(SceneObjectPartPrefab.__name__)
@@ -79,8 +81,10 @@ class SceneObjectPartPrefab:
     def DeSerializeContent(self, dict):
         pass
 
-class SceneObjectEquipmentPrefab:
+class SceneObjectEquipmentPrefab(SceneObjectPrefab):
     
+    _operations : dict[str, ActorOperation]
+
     def GetType(self):
         return str(SceneObjectEquipmentPrefab.__name__)
     
@@ -89,8 +93,10 @@ class SceneObjectEquipmentPrefab:
 
 class SceneObjectInstance:
 
-    _id : str
+    _key : str
+    _displayName : str
     _prefab : SceneObjectPrefab
+    _pose : Pose
 
     def __init__(self, prefab : SceneObjectPrefab, id : str) -> None:
         self._id = id

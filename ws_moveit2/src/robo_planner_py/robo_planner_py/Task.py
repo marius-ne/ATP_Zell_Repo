@@ -189,23 +189,29 @@ class TaskOpcuaRequest(TaskBase):
 
 class SetRobotValueVelocity(TaskBase):
 
-    _value : float
+    _velocity : float
+    _acceleration : float
+    _type : int # 0 = ompl PTP; 1 = PILZ linear/cartesian movement
 
     def __init__(self) -> None:
         TaskBase.__init__(self)
         self._id = "Set robot velocity"
-        self._value = 1.0
+        self._velocity = 1.0
+        self._acceleration = 1.0
+        self._type = 0
 
     def GetType(self):
         return str(SetRobotValueVelocity.__name__)
 
     def Execute(self) -> bool:
         TaskBase.LogStart()
-        Robot.robot.SetVelocity(self._value)
+        Robot.robot.SetVelocity(self._velocity, self._acceleration, self._type)
         TaskBase.LogEnd()
             
     def AddDictionaryValues(self, dictionary):
-        dictionary["Value"] = self._value
+        dictionary["Velocity"] = self._velocity
+        dictionary["Acceleration"] = self._acceleration
+        dictionary["Type"] = self._type
 
 
 class TaskWait(TaskBase):

@@ -8,6 +8,9 @@ from robo_planner_py import Serializer
 from robo_planner_py import Pose
 from robo_planner_py import Logger
 from robo_planner_py import Opcua
+from robo_planner_py import ActorOperation
+from robo_planner_py import Gripper
+from robo_planner_py import SceneObject
 import json
 
 
@@ -28,6 +31,90 @@ class MinimalPublisher(Node):
         self.get_logger().info('Publishing: "%s"' % msg.data)
         self.i += 1
 
+def UseCaseTest():
+    # create actor operations
+    keyActorOperationGripperOpen = "GripperOpen"
+    keyActorOperationGripperClose = "GripperClose"
+    keyActorOperationGripperNeutral = "GripperNeutral"
+    keyActorOperationBemi1Open = "Bemi1Open"
+    keyActorOperationBemi1Close = "Bemi1Close"
+    keyActorOperationSpindleActivate = "SpindleActivate"
+    keyActorOperationSpindleDeactivate = "SpindleDeactivate"
+
+    ActorOperationGripperOpen = ActorOperation()
+    ActorOperationGripperOpen._displayName = keyActorOperationGripperOpen
+    ActorOperationGripperOpen._key = keyActorOperationGripperOpen
+    ActorOperationGripperOpen._opcuaData = Opcua.OpcuaCmds["GreiferWriteAuf"]
+
+    ActorOperationGripperClose = ActorOperation()
+    ActorOperationGripperClose._displayName = keyActorOperationGripperClose
+    ActorOperationGripperClose._key = keyActorOperationGripperClose
+    ActorOperationGripperClose._opcuaData = Opcua.OpcuaCmds["GreiferWriteZu"]
+
+    ActorOperationGripperNeutral = ActorOperation()
+    ActorOperationGripperNeutral._displayName = keyActorOperationGripperNeutral
+    ActorOperationGripperNeutral._key = keyActorOperationGripperNeutral
+    ActorOperationGripperNeutral._opcuaData = Opcua.OpcuaCmds["GreiferWriteNeutral"]   
+
+    ActorOperationBemi1Open = ActorOperation()
+    ActorOperationBemi1Open._displayName = keyActorOperationBemi1Open
+    ActorOperationBemi1Open._key = keyActorOperationBemi1Open
+    ActorOperationBemi1Open._opcuaData = Opcua.OpcuaCmds["Bemi1Open"]
+
+    ActorOperationBemi1Close = ActorOperation()
+    ActorOperationBemi1Close._displayName = keyActorOperationBemi1Close
+    ActorOperationBemi1Close._key = keyActorOperationBemi1Close
+    ActorOperationBemi1Close._opcuaData = Opcua.OpcuaCmds["Bemi1Close"]
+
+    ActorOperationSpindleActivate = ActorOperation()
+    ActorOperationSpindleActivate._displayName = keyActorOperationSpindleActivate
+    ActorOperationSpindleActivate._key = keyActorOperationSpindleActivate
+    ActorOperationSpindleActivate._opcuaData = Opcua.OpcuaCmds["SpindelWriteAn"]
+
+    ActorOperationSpindleDeactivate = ActorOperation()
+    ActorOperationSpindleDeactivate._displayName = keyActorOperationSpindleDeactivate
+    ActorOperationSpindleDeactivate._key = keyActorOperationSpindleDeactivate
+    ActorOperationSpindleDeactivate._opcuaData = Opcua.OpcuaCmds["SpindelWriteAus"]       
+
+    # create grippers
+    keyGripperGripper = "Gripper"
+    keyGripperDeburringSpindle = "DeburringSpindle"
+
+    GripperGripper = Gripper.GripperBase()
+    GripperGripper._id = keyGripperGripper
+    GripperGripper._displayName = keyGripperGripper
+    GripperGripper._operations[ActorOperationBemi1Open._key] = ActorOperationBemi1Open
+    GripperGripper._operations[ActorOperationGripperClose._key] = ActorOperationGripperClose
+    GripperGripper._operations[ActorOperationGripperNeutral._key] = ActorOperationGripperNeutral
+    
+    GripperDeburringSpindle = Gripper.GripperBase()
+    GripperDeburringSpindle._id = keyGripperDeburringSpindle
+    GripperDeburringSpindle._displayName = keyGripperDeburringSpindle
+    GripperDeburringSpindle._operations[ActorOperationSpindleActivate._key] = ActorOperationSpindleActivate
+    GripperDeburringSpindle._operations[ActorOperationSpindleDeactivate._key] = ActorOperationSpindleDeactivate
+
+    # create equipment
+    keyEquipmentClampingDevice1 = "ClampingDevice1"
+
+    equipmentClampingDevice1Prefab = SceneObject.SceneObjectEquipmentPrefab()
+    equipmentClampingDevice1Prefab._key = keyEquipmentClampingDevice1
+    equipmentClampingDevice1Prefab._displayName = keyEquipmentClampingDevice1
+    equipmentClampingDevice1Prefab._operations[ActorOperationBemi1Open._key] = ActorOperationBemi1Open
+    equipmentClampingDevice1Prefab._operations[ActorOperationBemi1Close._key] = ActorOperationBemi1Close
+
+    # create program
+    program = Task.TaskBase()
+    program._id = "Program"
+    program._name = "Use Case 1"
+
+    moveCarrier1 = Task.TaskMoveToPose()
+    moveCarrier1._name = "Init position"
+    moveCarrier1._moveType = Task.RobotMoveType.AbsoluteCartesian
+    moveCarrier1._targetPose = Pose.Pose(10, 5, 2)
+    moveCarrier1._targetPose._x = 10
+    moveCarrier1._targetPose._y = 5
+    moveCarrier1._targetPose._z = 2
+    program.AddSubtask(moveCarrier1)
 
 def main(args=None):
     rclpy.init(args=args)
