@@ -34,7 +34,6 @@ ament_target_dependencies(moveit_panda
 )
 
 ament_target_dependencies(moveit_ur
-  moveit_task_constructor_core
   "moveit_ros_planning_interface"
   "wzlscheduler_interfaces"
   "rclcpp"
