@@ -72,7 +72,7 @@ class RobotUr : public rclcpp::Node
             auto size = 1.9;
             auto size05 = size * 0.5;
 
-            move_group_interface_->setWorkspace(-size05, -size05, 0, size05, size05, 1);
+            //move_group_interface_->setWorkspace(-size05, -size05, 0, size05, size05, 1);
 
             auto thickness = 0.04;            
             //add_collision_box("floor", 2, 2, 0.02, 0, 0, -0.01);
@@ -81,8 +81,8 @@ class RobotUr : public rclcpp::Node
             add_collision_box("scan_tower_sensor", 0.16, 0.1, 0.1, 0.56, -0.265334, 0.73);
 
             //WERKSTÜCK BOXEN
-            add_hollow_box_collision("BOX1",0.56,0.36,0.125,0.012,-0.65,0.23,0.125/2);
-            //add_hollow_box_collision("BOX2",0.4,0.8,0.1,0.02,0.5,0.5,0.05);
+            add_hollow_box_collision("BOX1",0.56,0.36,0.125,0.012,-0.55,0.23,0.125/2);
+            add_hollow_box_collision("BOX2",0.56,0.36,0.125,0.012,-0.55,-0.23,0.125/2);
 
             add_collision_box("wall1", size, thickness, 1.0, 0, size05, 0.5);
             add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);
@@ -289,24 +289,24 @@ class RobotUr : public rclcpp::Node
             if (is_movement_normal)
             {
                 add_collision_box("gripper_change_station", 0.7, 0.45, 0.45, 0, -0.7, 0.225);
-                add_collision_box("floor", 2, 2, 0.02, 0, 0, -0.01);
+                add_collision_box("floor", 2, 2, 0.02, 0, 0, -0.011);
 
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Set pipeline to ompl");
                 move_group_interface_->setPlanningPipelineId("ompl");
-                //move_group_interface_->setPlannerId("PRMkConfigDefault");
-                move_group_interface_->setPlannerId("SemiPersistentLazyPRMstar");
+                move_group_interface_->setPlannerId("RRTConnectkConfigDefault");
+                //move_group_interface_->setPlannerId("SemiPersistentLazyPRMstar");
 
                 move_group_interface_->setMaxVelocityScalingFactor(scaling_velocity_ompl);
                 move_group_interface_->setMaxAccelerationScalingFactor(scaling_acceleration_ompl);
 
-                move_group_interface_->setNumPlanningAttempts(20);
-                move_group_interface_->setPlanningTime(10);
+                move_group_interface_->setNumPlanningAttempts(5);
+                move_group_interface_->setPlanningTime(5);
                 
 
                 auto size = 1.9;
                 auto size05 = size * 0.5;
 
-                move_group_interface_->setWorkspace(-size05, -size05, 0, size05, size05, 1);                
+                //move_group_interface_->setWorkspace(-size05, -size05, 0, size05, size05, 1);                
             }
             else if (is_movement_cartesian)
             {

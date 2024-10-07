@@ -324,8 +324,10 @@ void UseCase1()
 
   double executionBemi1Z = 0.25;
   double placementBemi1Z = executionBemi1Z + placementOffsetZ;
-  double bemi1X = -0.4475369453430176;
-  double bemi1Y = 0.3396724462509155;
+  //double bemi1X = -0.4475369453430176;
+  //double bemi1Y = 0.3396724462509155;
+  double bemi1X = -0.35041;
+  double bemi1Y = 0.34231;
 
   auto poseInit = std::make_shared<WzlPlanner::Pose>(0.3122745752334595, 0.09810880571603775, 0.4534417390823364, rotX, rotY, rotZ);
   auto poseFixpoint = std::make_shared<WzlPlanner::Pose>(0.364556223154068, -0.05057888105511665, 0.5055627226829529, rotX, rotY, rotZ);
@@ -335,12 +337,15 @@ void UseCase1()
 
   double executionBemi2Z = 0.3107452988624573;
   double placementBemi2Z = executionBemi1Z + placementOffsetZ;
-  double bemi2X = 0.3677471876144409;
-  double bemi2Y = 0.6782312393188477;
+  //double bemi2X = 0.3677471876144409;
+  //double bemi2Y = 0.6782312393188477;
+  double bemi2X = 0.36556;
+  double bemi2Y = 0.67974;
 
   rotX = 3.14;
   rotY = 0.009;
-  rotZ = -M_PI + 0.051; 
+  rotZ = -M_PI + 0.022; 
+ // rotZ = -M_PI + 0.051; 
 
   auto poseApproachBemi2 = std::make_shared<WzlPlanner::Pose>(bemi2X, bemi2Y, placementBemi2Z, rotX, rotY, rotZ);
   auto poseExceuteBemi2 = std::make_shared<WzlPlanner::Pose>(bemi2X, bemi2Y, executionBemi2Z, rotX, rotY, rotZ);

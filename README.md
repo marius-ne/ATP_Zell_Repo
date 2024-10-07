@@ -227,7 +227,7 @@ ros2 launch ur_moveit_config ur_moveit.launch.py ur_type:=ur16e robot_ip:=192.16
 Soll zusätzlich der Pilz-Industrial Motion Planner parallel zum Ompl-Planner (für PTP-Bewegungen) für lineare/kartesische Bewegungen verwendet werden, dann muss folgende Launch-Datei gestartet werden:
 
 ```
-ros2 launch robo_planner ur_planner_pilz_launch.py ur_type:=ur16e use_fake_hardware:=false launch_rviz:=true description_package:=ur_description ur_type:=ur16e description_file:=ur.urdf.xacro
+ros2 launch ur_pilz ur_pilz.launch.py ur_type:=ur16e use_fake_hardware:=false launch_rviz:=true description_package:=ur_description ur_type:=ur16e description_file:=ur.urdf.xacro
 ```
 
 Das Ablaufprogramm des Schdulers/Planners wird über diese Launch-Datei gestartet:
