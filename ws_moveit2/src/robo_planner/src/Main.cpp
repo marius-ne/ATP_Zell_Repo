@@ -17,7 +17,14 @@
 
 using namespace std::chrono_literals;
 
-// Function to get a parameter value
+/**
+ * @brief Retrieves a parameter value from a ROS node
+ *
+ * @param node The ROS node to retrieve the parameter from
+ * @param name The name of the parameter
+ * @param default_value The default value to return if the parameter does not exist
+ * @return The value of the parameter
+ */
 template <typename T>
 T get_parameter(const rclcpp::Node::SharedPtr &node, const std::string &name, const T &default_value)
 {
@@ -346,8 +353,8 @@ void UseCase1(const rclcpp::Node::SharedPtr &node)
   double placementBemi2Z = executionBemi1Z + placementOffsetZ;
   // double bemi2X = 0.3677471876144409;
   // double bemi2Y = 0.6782312393188477;
-  double bemi2X = 0.36556;
-  double bemi2Y = 0.67974;
+  double bemi2X = get_parameter<double>(node, "positions.bemi2.x", 0.36556);
+  double bemi2Y = get_parameter<double>(node, "positions.bemi2.y", 0.67974);
 
   rotX = 3.14;
   rotY = 0.009;
