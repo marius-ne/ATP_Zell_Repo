@@ -1,3 +1,4 @@
+from ament_index_python import get_package_share_directory
 import launch
 import os
 import sys
@@ -92,7 +93,11 @@ def generate_launch_description():
     robot_description = get_robot_description()
     robot_description_semantic = get_robot_description_semantic()
     robot_description_kinematics = PathJoinSubstitution([FindPackageShare("ur_moveit_config"), "config", "kinematics.yaml"])
-
+    cell_config = os.path.join(
+            get_package_share_directory('robo_planner'),
+            'config',
+            'cell_config.yaml'
+        )
     opcua_client_node = Node(
         package="opcua_client",
         executable="client_node",
@@ -119,7 +124,7 @@ def generate_launch_description():
         executable="robo_planner",
         name="robo_planner",
         output="screen",
-        parameters=[
+        parameters=[cell_config
         ],
     )
 

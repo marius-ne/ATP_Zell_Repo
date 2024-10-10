@@ -17,8 +17,16 @@
 
 using namespace std::chrono_literals;
 
+// Function to get a parameter value
+template <typename T>
+T get_parameter(const rclcpp::Node::SharedPtr &node, const std::string &name, const T &default_value)
+{
+  node->declare_parameter(name, default_value);
+  return node->get_parameter(name).get_value<T>();
+}
 
-int TransformTest() {
+int TransformTest()
+{
 
   std::shared_ptr<WzlPlanner::Transform> trWorld = std::make_shared<WzlPlanner::Transform>("world");
   std::shared_ptr<WzlPlanner::Transform> trStation = std::make_shared<WzlPlanner::Transform>("station");
@@ -32,7 +40,7 @@ int TransformTest() {
 
   std::shared_ptr<WzlPlanner::Transform> trSlot3 = std::make_shared<WzlPlanner::Transform>("slot3");
   trSlot3->SetParent(trStation);
-  
+
   trStation->GetPoseRelative()->SetPositionXYZ(10, 0, 0);
   trStation->GetPoseRelative()->SetRotationZ(M_PI_2);
   trSlot1->GetPoseRelative()->SetPositionXYZ(0, -1, 2);
@@ -47,51 +55,49 @@ int TransformTest() {
 
 void CreateCell(const std::shared_ptr<rclcpp::Node> node)
 {
-  //auto robot = std::make_shared<WzlPlanner::RobotDummy>(node);
+  // auto robot = std::make_shared<WzlPlanner::RobotDummy>(node);
   auto robot = std::make_shared<WzlPlanner::RobotUR>(node);
   auto scene = std::make_shared<WzlPlanner::Scene>(robot, node);
   auto ioInterfaceOpcUa = std::make_shared<WzlPlanner::IoInterfaceOpcUa>(node);
-  
+
   robot->SetGripper(std::make_shared<WzlPlanner::GripperMockup>("TestGripper"));
-  
+
   RCLCPP_INFO(node->get_logger(), "Robot scheduler cell environment initialization start.");
   RCLCPP_INFO(node->get_logger(), "Initialize ObjectContainer");
 
   WzlPlanner::ObjectContainer::Get()->Initialize(
-    ioInterfaceOpcUa, 
-    robot, 
-    scene,
-    node);
+      ioInterfaceOpcUa,
+      robot,
+      scene,
+      node);
 
   // gripper change station
   RCLCPP_INFO(node->get_logger(), "Initialize Gripper change station");
   auto gripperChangeStation = std::make_shared<WzlPlanner::SceneObjectGripperChangeStation>("GripperChangeStation");
-  //scene->AddSceneObject(gripperChangeStation, std::make_shared<WzlPlanner::Pose>(0, 10, 0));
+  // scene->AddSceneObject(gripperChangeStation, std::make_shared<WzlPlanner::Pose>(0, 10, 0));
 
   // clamping device jaws
   RCLCPP_INFO(node->get_logger(), "Initialize Clamping device jaw");
   auto clampingDeviceJaws = std::make_shared<WzlPlanner::SceneObjectClampingDeviceJaws>("ClampingDeviceJaw", 0, 1);
-  //scene->AddSceneObject(clampingDeviceJaws, std::make_shared<WzlPlanner::Pose>(5, 0, 0));
+  // scene->AddSceneObject(clampingDeviceJaws, std::make_shared<WzlPlanner::Pose>(5, 0, 0));
 
   // clamping device elevation
   RCLCPP_INFO(node->get_logger(), "Initialize clamping device elevation");
   auto clampingDeviceElevation = std::make_shared<WzlPlanner::SceneObjectClampingDeviceJaws>("ClampingDeviceElavation", 2, 3);
-  //scene->AddSceneObject(clampingDeviceElevation, std::make_shared<WzlPlanner::Pose>(5, 0, 0));
+  // scene->AddSceneObject(clampingDeviceElevation, std::make_shared<WzlPlanner::Pose>(5, 0, 0));
 
   // scanning tower
   RCLCPP_INFO(node->get_logger(), "Initialize visual scan tower");
   auto scanningTower = std::make_shared<WzlPlanner::SceneObjectVisualScanTower>("VisualScanTower");
-  //scene->AddSceneObject(scanningTower, std::make_shared<WzlPlanner::Pose>(5, 5, 0));
+  // scene->AddSceneObject(scanningTower, std::make_shared<WzlPlanner::Pose>(5, 5, 0));
 
   // carrier
   RCLCPP_INFO(node->get_logger(), "Initialize carrier");
   auto carrier = std::make_shared<WzlPlanner::SceneObjectCarrier>("Carrier");
-  //scene->AddSceneObject(carrier, std::make_shared<WzlPlanner::Pose>(-5, 0, 0));
+  // scene->AddSceneObject(carrier, std::make_shared<WzlPlanner::Pose>(-5, 0, 0));
 
   RCLCPP_INFO(node->get_logger(), "Robot scheduler cell environment initialization end.");
-
 }
-
 
 // The Changing station place task contains these steps:
 // - 1.) Approach the changing station (PTP)
@@ -99,26 +105,26 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
 // - 3.) Lift up (Cartesian movement)
 // - 4.) Drive back (Cartesian movement)
 // - 5.) Drop down into start position (Cartesian movement)
-std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(int stationIndex)
+std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const rclcpp::Node::SharedPtr &node, int stationIndex)
 {
   if (stationIndex < 1 || stationIndex > 4)
   {
     std::cout << "The chanigng station index: " << std::to_string(stationIndex) << " in method 'GetChangingStationTaskPlace' is not defined." << std::endl;
-      return nullptr;
+    return nullptr;
   }
 
   double rotX = M_PI;
   double rotY = 0;
-  double rotZ = M_PI * -0.5; 
-  
-  double stationXValues[4] = { -0.189, -0.0167, 0.1375, 0.29433 };
-  double stationZValues[4] = { 0.416, 0.41356, 0.41005, 0.408 };
+  double rotZ = M_PI * -0.5;
 
-  double posEndZOffset = 0.03;
-  double posPlaceOffsetZ = -0.005;
+  std::vector<double> stationXValues = get_parameter<std::vector<double>>(node, "positions.station.x_positions", {-0.189, -0.0167, 0.1375, 0.29433});
+  std::vector<double> stationZValues = get_parameter<std::vector<double>>(node, "positions.station.z_values", {0.416, 0.41356, 0.41005, 0.408});
 
-  double stationYApproach = -0.35;
-  double stationYExecute = -0.5549700856208801;
+  double posEndZOffset = get_parameter<double>(node, "safety.pos_end_z_offset", 0.03);
+  double posPlaceOffsetZ = get_parameter<double>(node, "safety.pos_place_offset_z", -0.005);
+
+  double stationYApproach = get_parameter<double>(node, "positions.station.y_approach", -0.35);
+  double stationYExecute = get_parameter<double>(node, "positions.station.y_execute", -0.5549700856208801);
 
   double posX = stationXValues[stationIndex - 1];
   double posStartZ = stationZValues[stationIndex - 1];
@@ -132,7 +138,7 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(int stationInd
   auto taskMove1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
   taskMove1->SetTargetPose(targetPose1);
-  
+
   auto taskMove2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
   taskMove2->SetTargetPose(targetPose2);
@@ -155,7 +161,7 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(int stationInd
   taskList->AddTask(taskMove2);
   taskList->AddTask(taskMove3);
   taskList->AddTask(taskMove4);
-  taskList->AddTask(taskMove5);  
+  taskList->AddTask(taskMove5);
 
   return taskList;
 }
@@ -164,22 +170,22 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(int stationInd
 // - Approach the changing station (PTP movement)
 // - Lift up (cartesian movement)
 // - Drive into execution pose (Cartesian movement)
-// - Drop down and dock the new equipment 
+// - Drop down and dock the new equipment
 // - Drive back (cartesian movement)
 std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(int stationIndex)
 {
   if (stationIndex < 1 || stationIndex > 4)
   {
     std::cout << "The chanigng station index: " << std::to_string(stationIndex) << " in method 'GetChangingStationTaskPlace' is not defined." << std::endl;
-      return nullptr;
+    return nullptr;
   }
 
   double rotX = M_PI;
   double rotY = 0;
-  double rotZ = M_PI * -0.5; 
+  double rotZ = M_PI * -0.5;
 
-  double stationXValues[4] = { -0.189, -0.0167, 0.1375, 0.29433 };
-  double stationZValues[4] = { 0.416, 0.41356, 0.41005, 0.408 };
+  double stationXValues[4] = {-0.189, -0.0167, 0.1375, 0.29433};
+  double stationZValues[4] = {0.416, 0.41356, 0.41005, 0.408};
 
   double posEndZOffset = 0.03;
   double posPlaceOffsetZ = -0.005;
@@ -196,11 +202,10 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(int stationInde
   auto targetPose4 = std::make_shared<WzlPlanner::Pose>(posX, stationYExecute, posStartZ + posPlaceOffsetZ, rotX, rotY, rotZ);
   auto targetPose5 = std::make_shared<WzlPlanner::Pose>(posX, stationYApproach, posStartZ, rotX, rotY, rotZ);
 
-
   auto taskMove1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
   taskMove1->SetTargetPose(targetPose1);
-  
+
   auto taskMove2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
   taskMove2->SetTargetPose(targetPose2);
@@ -223,7 +228,7 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(int stationInde
   taskList->AddTask(taskMove2);
   taskList->AddTask(taskMove3);
   taskList->AddTask(taskMove4);
-  taskList->AddTask(taskMove5);  
+  taskList->AddTask(taskMove5);
 
   return taskList;
 }
@@ -239,7 +244,7 @@ std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double 
   double rotZ = posePointCenter->GetRotationZ();
 
   auto taskMoveTrjajectory = std::make_shared<WzlPlanner::TaskFollowTrajectory>();
-  
+
   for (double i = 0; i < 2 * M_PI; i += 0.01)
   {
     double posX = posMidX + sin(i) * radius;
@@ -252,17 +257,16 @@ std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double 
   return taskMoveTrjajectory;
 }
 
-
-void UseCase1()
+void UseCase1(const rclcpp::Node::SharedPtr &node)
 {
-  auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
+  // auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
   auto useOpcua = false;
-  
+
   RCLCPP_INFO(node->get_logger(), "Initialize Pick & Place test.");
-  
+
   auto dummyIoInterface = std::make_shared<WzlPlanner::IoInterfaceOpcUa>(node);
   WzlPlanner::ObjectContainer::Get()->SetIoInterface(dummyIoInterface);
-  
+
   auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
   auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("RoboGripper", 0, 1);
 
@@ -271,43 +275,43 @@ void UseCase1()
   RCLCPP_INFO(node->get_logger(), "Initialize Task Pick & Place");
 
   auto taskWait = std::make_shared<WzlPlanner::TaskWait>();
-  taskWait->time_ = 1000ms;
+  taskWait->time_ = std::chrono::milliseconds(get_parameter<int>(node, "timings.default_wait", 1000));
 
   auto taskIoBemi1Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteAuf());
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteAuf());
   taskIoBemi1Open->SetId("taskIoBemi1Open");
 
   auto taskIoBemi1Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteZu());
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteZu());
   taskIoBemi1Close->SetId("taskIoBemi1Close");
 
   auto taskIoBemi2Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteAuf());
-    taskIoBemi2Open->SetId("taskIoBemi2Open");
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteAuf());
+  taskIoBemi2Open->SetId("taskIoBemi2Open");
 
   auto taskIoBemi2Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteZu());
-    taskIoBemi2Close->SetId("taskIoBemi2Close");
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteZu());
+  taskIoBemi2Close->SetId("taskIoBemi2Close");
 
   auto taskIoGripperOpen = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWriteAuf());
-    taskIoGripperOpen->SetId("taskIoGripperOpen");
+      WzlPlanner::OpcUaData::GetOpcUaData_GreiferWriteAuf());
+  taskIoGripperOpen->SetId("taskIoGripperOpen");
 
   auto taskIoGripperClose = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWritZu());
-    taskIoGripperClose->SetId("taskIoGripperClose");
+      WzlPlanner::OpcUaData::GetOpcUaData_GreiferWritZu());
+  taskIoGripperClose->SetId("taskIoGripperClose");
 
   auto taskIoGripperNeutral = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWritNeutral());
-    taskIoGripperClose->SetId("taskIoGripperNeutral");
+      WzlPlanner::OpcUaData::GetOpcUaData_GreiferWritNeutral());
+  taskIoGripperClose->SetId("taskIoGripperNeutral");
 
-  auto taskIoDeburringSpindleDeactivate  = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_SpindelWriteAn());
-    taskIoGripperClose->SetId("taskIoDeburringSindleOn");
+  auto taskIoDeburringSpindleDeactivate = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+      WzlPlanner::OpcUaData::GetOpcUaData_SpindelWriteAn());
+  taskIoGripperClose->SetId("taskIoDeburringSindleOn");
 
-  auto taskIoDeburringSpindleActivate= std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_SpindelWriteAus());
-    taskIoGripperClose->SetId("taskIoDeburringSindleOff");
+  auto taskIoDeburringSpindleActivate = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+      WzlPlanner::OpcUaData::GetOpcUaData_SpindelWriteAus());
+  taskIoGripperClose->SetId("taskIoDeburringSindleOff");
 
   auto taskSetSpeedPtp = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.3, 1, 0);
   auto taskSetSpeedCartesianFast = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.1, 0.1, 1);
@@ -316,18 +320,21 @@ void UseCase1()
   // use just absolute poses
   double placementOffsetZ = 0.2;
 
-
   // Pick part from carrier and place it into clamping device
   double rotX = M_PI;
   double rotY = 0;
-  double rotZ = -M_PI; 
+  double rotZ = -M_PI;
 
-  double executionBemi1Z = 0.25;
+  // double executionBemi1Z = 0.25;
+  double executionBemi1Z = get_parameter<double>(node, "positions.bemi1.z", 0.25);
   double placementBemi1Z = executionBemi1Z + placementOffsetZ;
-  //double bemi1X = -0.4475369453430176;
-  //double bemi1Y = 0.3396724462509155;
-  double bemi1X = -0.35041;
-  double bemi1Y = 0.34231;
+
+  // double bemi1X = -0.4475369453430176;
+  // double bemi1Y = 0.3396724462509155;
+  // double bemi1X = -0.35041;
+  // double bemi1Y = 0.34231;
+  double bemi1X = get_parameter<double>(node, "positions.bemi1.x", -0.35041);
+  double bemi1Y = get_parameter<double>(node, "positions.bemi1.y", 0.34231);
 
   auto poseInit = std::make_shared<WzlPlanner::Pose>(0.3122745752334595, 0.09810880571603775, 0.4534417390823364, rotX, rotY, rotZ);
   auto poseFixpoint = std::make_shared<WzlPlanner::Pose>(0.364556223154068, -0.05057888105511665, 0.5055627226829529, rotX, rotY, rotZ);
@@ -337,15 +344,15 @@ void UseCase1()
 
   double executionBemi2Z = 0.3107452988624573;
   double placementBemi2Z = executionBemi1Z + placementOffsetZ;
-  //double bemi2X = 0.3677471876144409;
-  //double bemi2Y = 0.6782312393188477;
+  // double bemi2X = 0.3677471876144409;
+  // double bemi2Y = 0.6782312393188477;
   double bemi2X = 0.36556;
   double bemi2Y = 0.67974;
 
   rotX = 3.14;
   rotY = 0.009;
-  rotZ = -M_PI + 0.022; 
- // rotZ = -M_PI + 0.051; 
+  rotZ = -M_PI + 0.022;
+  // rotZ = -M_PI + 0.051;
 
   auto poseApproachBemi2 = std::make_shared<WzlPlanner::Pose>(bemi2X, bemi2Y, placementBemi2Z, rotX, rotY, rotZ);
   auto poseExceuteBemi2 = std::make_shared<WzlPlanner::Pose>(bemi2X, bemi2Y, executionBemi2Z, rotX, rotY, rotZ);
@@ -353,7 +360,7 @@ void UseCase1()
 
   rotX = M_PI;
   rotY = 0;
-  rotZ = -M_PI; 
+  rotZ = -M_PI;
 
   auto taskInitPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskFixPoint = std::make_shared<WzlPlanner::TaskMoveToPose>();
@@ -361,7 +368,7 @@ void UseCase1()
   auto taskPickApproach1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskPickExecute1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskPickEnd1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  
+
   taskInitPose->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseInit);
   taskFixPoint->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseFixpoint);
 
@@ -372,24 +379,24 @@ void UseCase1()
   auto taskPlaceApproach1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskPlaceExecute1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskPlaceEnd1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  
+
   taskPlaceApproach1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBemi2);
   taskPlaceExecute1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseExceuteBemi2);
   taskPlaceEnd1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBemi2);
 
-  // Change tool: Gripper -> deburring spindle 
+  // Change tool: Gripper -> deburring spindle
   auto taskGripperUnequip = GetChangingStationTaskPlace(3);
   auto taskDeburringSpindleEquip = GetChangingStationTaskPick(2);
 
   // do deburring
   double rotDeburX = M_PI;
   double rotDeburY = 0;
-  double rotDeburZ = M_PI * -0.5; 
+  double rotDeburZ = M_PI * -0.5;
 
   auto taskDeburApproach1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskDeburExecute = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskDeburEnd1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  
+
   auto deburApporachOffsetZ = 0.1;
   auto poseApporachBemi1Debur = std::make_shared<WzlPlanner::Pose>(0.36059075593948364, 0.6857767701148987, 0.4643709659576416 + deburApporachOffsetZ, rotX, rotY, rotZ);
   auto poseExecuteDebur = std::make_shared<WzlPlanner::Pose>(0.36059075593948364, 0.6857767701148987, 0.4643709659576416 + 0.03, rotX, rotY, rotZ);
@@ -399,7 +406,6 @@ void UseCase1()
   taskDeburExecute->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseExecuteDebur);
   taskDeburEnd1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseApporachBemi1Debur);
 
-
   // change tool: deburring spindle -> Gripper
   auto taskDeburringSpindleUnequip = GetChangingStationTaskPlace(2);
   auto taskGripperEquip = GetChangingStationTaskPick(3);
@@ -408,7 +414,7 @@ void UseCase1()
   auto taskPickApproach2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskPickExecute2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskPickEnd2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  
+
   taskPickApproach2->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBemi2);
   taskPickExecute2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseExceuteBemi2);
   taskPickEnd2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBemi2);
@@ -416,7 +422,6 @@ void UseCase1()
   // do quality inspection
   auto taskQualityInspection = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto poseQualityInspection = std::make_shared<WzlPlanner::Pose>(bemi2X, bemi2Y, placementBemi2Z, 0, 0, 0);
-
 
   RCLCPP_INFO(node->get_logger(), "Execute Task Use Case 1");
 
@@ -462,7 +467,7 @@ void UseCase1()
   taskList->AddTask(taskIoGripperNeutral);
 
   // change equip: gripper -> deburring spindle
-  //taskList->AddTask(poseFixpoint);
+  // taskList->AddTask(poseFixpoint);
   taskList->AddTask(taskSetSpeedCartesianSlow);
   taskList->AddTask(taskGripperUnequip);
   taskList->AddTask(taskDeburringSpindleEquip);
@@ -484,7 +489,7 @@ void UseCase1()
   taskList->AddTask(taskGripperEquip);
 
   // pick up part again from clamping device
-  //taskList->AddTask(poseFixpoint);
+  // taskList->AddTask(poseFixpoint);
 
   taskList->AddTask(taskSetSpeedCartesianFast);
   taskList->AddTask(taskPlaceApproach1);
@@ -497,7 +502,7 @@ void UseCase1()
   taskList->AddTask(taskPlaceEnd1);
 
   // do quality inspection
-  //taskList->AddTask(taskQualityInspection);
+  // taskList->AddTask(taskQualityInspection);
 
   // take back part to carrier box
   taskList->AddTask(taskSetSpeedCartesianSlow);
@@ -515,7 +520,6 @@ void UseCase1()
 
   // move back to idle pose
   taskList->AddTask(taskInitPose);
-  
 
   while (true)
   {
@@ -527,22 +531,20 @@ void UseCase1()
 
     rclcpp::spin_some(node);
   }
-  
 
   RCLCPP_INFO(node->get_logger(), "Excecution successful");
-
 }
 
 void PickAndPlaceTest()
 {
   auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
   auto useOpcua = false;
-  
+
   RCLCPP_INFO(node->get_logger(), "Initialize Pick & Place test.");
-  
+
   auto dummyIoInterface = std::make_shared<WzlPlanner::IoInterfaceOpcUa>(node);
   WzlPlanner::ObjectContainer::Get()->SetIoInterface(dummyIoInterface);
-  
+
   auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
   auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("RoboGripper", 0, 1);
 
@@ -551,29 +553,28 @@ void PickAndPlaceTest()
   RCLCPP_INFO(node->get_logger(), "Initialize Task Pick & Place");
 
   auto taskIoBemi1Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteAuf());
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteAuf());
   taskIoBemi1Open->SetId("taskIoBemi1Open");
 
   auto taskIoBemi1Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteZu());
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteZu());
   taskIoBemi1Close->SetId("taskIoBemi1Close");
 
   auto taskIoBemi2Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteAuf());
-    taskIoBemi2Open->SetId("taskIoBemi2Open");
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteAuf());
+  taskIoBemi2Open->SetId("taskIoBemi2Open");
 
   auto taskIoBemi2Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteZu());
-    taskIoBemi2Close->SetId("taskIoBemi2Close");
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteZu());
+  taskIoBemi2Close->SetId("taskIoBemi2Close");
 
   auto taskIoGripperOpen = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWriteAuf());
-    taskIoGripperOpen->SetId("taskIoGripperOpen");
+      WzlPlanner::OpcUaData::GetOpcUaData_GreiferWriteAuf());
+  taskIoGripperOpen->SetId("taskIoGripperOpen");
 
   auto taskIoGripperClose = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWritZu());
-    taskIoGripperClose->SetId("taskIoGripperClose");
-
+      WzlPlanner::OpcUaData::GetOpcUaData_GreiferWritZu());
+  taskIoGripperClose->SetId("taskIoGripperClose");
 
   auto taskPickAndPlace = std::make_shared<WzlPlanner::TaskPickAndPlace>();
   auto taskPick = taskPickAndPlace->GetTaskPick();
@@ -582,12 +583,11 @@ void PickAndPlaceTest()
   auto taskPickAndPlace2 = std::make_shared<WzlPlanner::TaskPickAndPlace>();
   auto taskPick2 = taskPickAndPlace2->GetTaskPick();
   auto taskPlace2 = taskPickAndPlace2->GetTaskPlace();
-  
+
   auto taskSetRobotSpeed = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.3, 0.3);
 
   // use just absolute poses
   double placementOffsetZ = 0.2;
-
 
   // BEMI 1
   double executionBemi1Z = 0.11785902827978134;
@@ -634,15 +634,12 @@ void PickAndPlaceTest()
   taskPlace2->GetTaskMoveToPosePlace()->SetTargetPose(posePlaceExceute2)->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
   taskPlace2->GetTaskMoveToEnd()->SetTargetPose(posePlaceEnd2)->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
 
-
-
   RCLCPP_INFO(node->get_logger(), "Execute Task Pick & Place");
   taskSetRobotSpeed->Execute();
 
   // setup custom task
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
 
-  
   taskList->AddTask(taskPick->GetTaskMoveToPoseApproach());
   taskList->AddTask(taskIoGripperClose);
   taskList->AddTask(taskWait);
@@ -686,23 +683,20 @@ void PickAndPlaceTest()
     taskList->Execute();
     rclcpp::spin_some(node);
   }
-  
 
   RCLCPP_INFO(node->get_logger(), "Excecution successful");
-
 }
-
 
 void TaskRotationTest()
 {
   auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
   auto useOpcua = false;
-  
+
   RCLCPP_INFO(node->get_logger(), "Initialize Rotation test.");
-  
+
   auto dummyIoInterface = std::make_shared<WzlPlanner::IoInterfaceDummy>();
   WzlPlanner::ObjectContainer::Get()->SetIoInterface(dummyIoInterface);
-  
+
   auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
   auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("RoboGripper", 0, 1);
 
@@ -711,33 +705,33 @@ void TaskRotationTest()
   RCLCPP_INFO(node->get_logger(), "Initialize Rotation task");
 
   auto taskIoBemi1Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteAuf());
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteAuf());
 
   auto taskIoBemi1Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteZu());
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteZu());
 
   auto taskIoBemi2Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteAuf());
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteAuf());
 
   auto taskIoBemi2Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteZu());
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteZu());
 
   auto taskIoGripperOpen = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWriteAuf());
+      WzlPlanner::OpcUaData::GetOpcUaData_GreiferWriteAuf());
 
   auto taskIoGripperClose = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWritZu());
+      WzlPlanner::OpcUaData::GetOpcUaData_GreiferWritZu());
 
   auto task1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto task2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto task3 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto task4 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  
+
   auto taskSetRobotSpeed = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(1.0, 1.0);
 
   double rotX = M_PI;
   double rotY = 0;
-  double rotZ = 0; 
+  double rotZ = 0;
 
   double posStartZ = 416.63;
   double posEndZ = 0.44686;
@@ -749,13 +743,11 @@ void TaskRotationTest()
   double stationX3 = 0.29433;
   double stationX4 = -0.016;
 
-
   // Station 1
   auto pose1 = std::make_shared<WzlPlanner::Pose>(stationX1, stationYApproach, posStartZ, rotX, rotY, 0);
   auto pose2 = std::make_shared<WzlPlanner::Pose>(stationX1, stationYApproach, posStartZ, rotX, rotY, M_PI * 0.5);
   auto pose3 = std::make_shared<WzlPlanner::Pose>(stationX1, stationYApproach, posStartZ, rotX, rotY, M_PI * 1.0);
   auto pose4 = std::make_shared<WzlPlanner::Pose>(stationX1, stationYApproach, posStartZ, rotX, rotY, M_PI * 1.5);
-
 
   // misc
   auto taskWait = std::make_shared<WzlPlanner::TaskWait>();
@@ -765,8 +757,6 @@ void TaskRotationTest()
   task2->SetTargetPose(pose2)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
   task3->SetTargetPose(pose3)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
   task4->SetTargetPose(pose4)->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
- 
-
 
   RCLCPP_INFO(node->get_logger(), "Execute Task Pick & Place");
   taskSetRobotSpeed->Execute();
@@ -783,24 +773,20 @@ void TaskRotationTest()
     taskList->Execute();
     rclcpp::spin_some(node);
   }
-  
 
   RCLCPP_INFO(node->get_logger(), "Excecution successful");
-
 }
-
-
 
 void TaskMoveInCircleTest()
 {
   auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
   auto useOpcua = false;
-  
+
   RCLCPP_INFO(node->get_logger(), "Initialize Trajectory circle test.");
-  
+
   auto dummyIoInterface = std::make_shared<WzlPlanner::IoInterfaceDummy>();
   WzlPlanner::ObjectContainer::Get()->SetIoInterface(dummyIoInterface);
-  
+
   auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
   auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("RoboGripper", 0, 1);
 
@@ -815,14 +801,14 @@ void TaskMoveInCircleTest()
 
   double rotX = M_PI;
   double rotY = 0;
-  double rotZ = M_PI * -0.5; 
+  double rotZ = M_PI * -0.5;
 
   auto taskStartPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskStartPose->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
   taskStartPose->SetTargetPose(std::make_shared<WzlPlanner::Pose>(posMidX, posMidY, posMidZ, rotX, rotY, rotZ));
 
   auto taskMoveTrjajectory = std::make_shared<WzlPlanner::TaskFollowTrajectory>();
-  
+
   for (double i = 0; i < 2 * M_PI; i += 0.01)
   {
     double posX = posMidX + sin(i) * radius;
@@ -844,26 +830,25 @@ void TaskMoveInCircleTest()
     taskList->Execute();
     rclcpp::spin_some(node);
   }
-
 }
 
 void TaskChangingStationTest()
 {
   auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
   auto useOpcua = false;
-  
+
   RCLCPP_INFO(node->get_logger(), "Initialize Task Changing station - 2.");
-  
+
   auto dummyIoInterface = std::make_shared<WzlPlanner::IoInterfaceDummy>();
   WzlPlanner::ObjectContainer::Get()->SetIoInterface(dummyIoInterface);
-  
+
   auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
   auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("RoboGripper", 0, 1);
 
   robot->SetGripper(gripper);
-  
+
   auto taskSetRobotSpeed = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.1, 0.1);
-  
+
   auto taskPlace1 = GetChangingStationTaskPlace(1);
   auto taskPick1 = GetChangingStationTaskPick(1);
 
@@ -875,8 +860,6 @@ void TaskChangingStationTest()
 
   auto taskPlace4 = GetChangingStationTaskPlace(4);
   auto taskPick4 = GetChangingStationTaskPick(4);
-
-
 
   RCLCPP_INFO(node->get_logger(), "Execute Task Changing station - 2");
   taskSetRobotSpeed->Execute();
@@ -901,52 +884,50 @@ void TaskChangingStationTest()
   RCLCPP_INFO(node->get_logger(), "Excecution successful");
 }
 
-
 void OpcuaTaskTest(const std::shared_ptr<rclcpp::Node> node)
 {
   auto robot = std::make_shared<WzlPlanner::RobotUR>(node);
   auto scene = std::make_shared<WzlPlanner::Scene>(robot, node);
   auto ioInterfaceOpcUa = std::make_shared<WzlPlanner::IoInterfaceOpcUa>(node);
-  
+
   robot->SetGripper(std::make_shared<WzlPlanner::GripperMockup>("TestGripper"));
-  
+
   RCLCPP_INFO(node->get_logger(), "Robot scheduler cell environment initialization start.");
   RCLCPP_INFO(node->get_logger(), "Initialize ObjectContainer");
 
   WzlPlanner::ObjectContainer::Get()->Initialize(
-    ioInterfaceOpcUa, 
-    robot, 
-    scene,
-    node);
+      ioInterfaceOpcUa,
+      robot,
+      scene,
+      node);
 
   RCLCPP_INFO(node->get_logger(), "Initialize Pick & Place test.");
-  
 
   RCLCPP_INFO(node->get_logger(), "Iitialize Opcua Task test");
 
   auto taskIoBemi1Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteAuf());
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteAuf());
   taskIoBemi1Open->SetId("taskIoBemi1Open");
 
   auto taskIoBemi1Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteZu());
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteZu());
   taskIoBemi1Close->SetId("taskIoBemi1Close");
 
   auto taskIoBemi2Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteAuf());
-    taskIoBemi2Open->SetId("taskIoBemi2Open");
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteAuf());
+  taskIoBemi2Open->SetId("taskIoBemi2Open");
 
   auto taskIoBemi2Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteZu());
-    taskIoBemi2Close->SetId("taskIoBemi2Close");
+      WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteZu());
+  taskIoBemi2Close->SetId("taskIoBemi2Close");
 
   auto taskIoGripperOpen = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWriteAuf());
-    taskIoGripperOpen->SetId("taskIoGripperOpen");
+      WzlPlanner::OpcUaData::GetOpcUaData_GreiferWriteAuf());
+  taskIoGripperOpen->SetId("taskIoGripperOpen");
 
   auto taskIoGripperClose = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-    WzlPlanner::OpcUaData::GetOpcUaData_GreiferWritZu());
-    taskIoGripperClose->SetId("taskIoGripperClose");
+      WzlPlanner::OpcUaData::GetOpcUaData_GreiferWritZu());
+  taskIoGripperClose->SetId("taskIoGripperClose");
 
   // misc
   auto taskWait = std::make_shared<WzlPlanner::TaskWait>();
@@ -974,41 +955,37 @@ void OpcuaTaskTest(const std::shared_ptr<rclcpp::Node> node)
     taskList->Execute();
     rclcpp::spin_some(node);
   }
-  
 
   RCLCPP_INFO(node->get_logger(), "Excecution successful");
-
 }
 
-
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
   // Initialize ROS and create the Node
   std::cout << "Initialize robo planner node" << std::endl;
   rclcpp::init(argc, argv);
-  
-  //auto trWorld = std::make_shared<WzlPlanner::Transform>("world");
-  
+
+  // auto trWorld = std::make_shared<WzlPlanner::Transform>("world");
+
   rclcpp::sleep_for(500ms);
-  
+
   auto const node = std::make_shared<rclcpp::Node>(
       "robot_planer", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
 
-
   CreateCell(node);
-  //PickAndPlaceTest();
-  //TaskRotationTest();
+  // PickAndPlaceTest();
+  // TaskRotationTest();
 
   rclcpp::sleep_for(3000ms);
-  //TaskMoveInCircleTest();
-  //TaskChangingStationTest();
-  UseCase1();
-  //OpcuaTaskTest(node);
+  // TaskMoveInCircleTest();
+  // TaskChangingStationTest();
+  UseCase1(node);
+  // OpcuaTaskTest(node);
 
   rclcpp::spin(node);
 
   // Shutdown ROS
   rclcpp::shutdown();
-  //spinner.join();
+  // spinner.join();
   return 0;
 }
