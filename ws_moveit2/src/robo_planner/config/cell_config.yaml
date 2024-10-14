@@ -1,24 +1,38 @@
-robot_planner:
+robo_planner:
   ros__parameters:
     # Robot position parameters
     positions:
       # BEMI 1 position
       bemi1:
-        x: -0.35041  # X-coordinate of BEMI 1
-        y: 0.34231   # Y-coordinate of BEMI 1
-        z: 0.25      # Z-coordinate of BEMI 1
-      
+        x: 0.3644  # X-coordinate of BEMI 1
+        y: 0.6805  # Y-coordinate of BEMI 1
+        z: 0.3107452988624573   # Z-coordinate of BEMI 1
+        RZ_offset: 0.03 # Z-rotation offset of BEMI 1 
       # BEMI 2 position
       bemi2:
-        x: 0.36556   # X-coordinate of BEMI 2
-        y: 0.67974   # Y-coordinate of BEMI 2
-        z: 0.3107452988624573  # Z-coordinate of BEMI 2
+        x: 0.0  # X-coordinate of BEMI 2
+        y: 0.0   # Y-coordinate of BEMI 2
+        z: 0.0  # Z-coordinate of BEMI 2
+        RZ_offset: 0.0 # Z-rotation offset of BEMI 2 
+
+      # BEMI 3 position
+      bemi3:
+        x: 0.0
+        y: 0.0
+        z: 0.0
+        RZ_offset: 0.0 # Z-rotation offset of BEMI 3 
       
+      # Part Carrier 1, position 1
+      PC_1_1:
+        x: -0.350
+        y: 0.342 
+        z: 0.25      
+
       # Station positions
       station:
         y_approach: -0.40759  # Y-coordinate for approach position
         y_execute: -0.55759   # Y-coordinate for execution position
-        x_positions: [-0.19138, 0.13816, 0.29433, -0.016]  # X-coordinates for different stations
+        x_positions: [-0.189, -0.0167, 0.1375, 0.29433]  # X-coordinates for different stations
     
     # Robot speed parameters 
     # TODO not implemented in code yet

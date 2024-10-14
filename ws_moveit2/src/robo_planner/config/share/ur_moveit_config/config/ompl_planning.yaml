@@ -50,13 +50,30 @@ planner_configs:
   PRMkConfigDefault:
     type: geometric::PRM
     max_nearest_neighbors: 10  # use k nearest neighbors. default: 10
-  SemiPersistentLazyPRMstar: # reuses roadmap during lifetime of node but doesn't save/load roadmap to/from disk
-    type: geometric::LazyPRMstar
-    multi_query_planning_enabled: true
-    store_planner_data: false
-    load_planner_data: false
   PRMstarkConfigDefault:
     type: geometric::PRMstar
+  PersistentLazyPRMstar: # use this with a representative environment to create a roadmap
+    type: geometric::LazyPRMstar
+    multi_query_planning_enabled: 1
+    store_planner_data: 1
+    load_planner_data: 0
+    planner_data_path: /tmp/roadmap.graph
+  PersistentLazyPRM: # use this to load a previously created roadmap
+    type: geometric::LazyPRM
+    multi_query_planning_enabled: 1
+    store_planner_data: 0
+    load_planner_data: 1
+    planner_data_path: /tmp/roadmap.graph
+  SemiPersistentLazyPRMstar: # reuses roadmap during lifetime of node but doesn't save/load roadmap to/from disk
+    type: geometric::LazyPRMstar
+    multi_query_planning_enabled: 1
+    store_planner_data: 0
+    load_planner_data: 0
+  SemiPersistentLazyPRM: # reuses roadmap during lifetime of node but doesn't save/load roadmap to/from disk
+    type: geometric::LazyPRM
+    multi_query_planning_enabled: 1
+    store_planner_data: 0
+    load_planner_data: 0
 ur_manipulator:
   planner_configs:
     - SBLkConfigDefault
@@ -70,6 +87,10 @@ ur_manipulator:
     - TRRTkConfigDefault
     - PRMkConfigDefault
     - PRMstarkConfigDefault
+    - PersistentLazyPRMstar
+    - PersistentLazyPRM
+    - SemiPersistentLazyPRMstar
+    - SemiPersistentLazyPRM
   ##Note: commenting the following line lets moveit chose RRTConnect as default planner rather than LBKPIECE
   #projection_evaluator: joints(shoulder_pan_joint,shoulder_lift_joint)
   longest_valid_segment_fraction: 0.0005

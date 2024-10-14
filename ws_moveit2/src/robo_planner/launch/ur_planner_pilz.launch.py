@@ -140,10 +140,10 @@ def launch_setup(context, *args, **kwargs):
         "robot_description_planning":{},
     }
 
-    pilz_planning_yaml = load_yaml("ur_pilz_demo", "config/pilz_industrial_motion_planner_planning.yaml")
+    pilz_planning_yaml = load_yaml("robo_planner", "config/pilz_industrial_motion_planner_planning.yaml")
     planning_pipeline_config["pilz_industrial_motion_planner"].update(pilz_planning_yaml) 
 
-    pilz_cartesian_limits_yaml = load_yaml("ur_pilz_demo", "config/pilz_cartesian_limits.yaml")
+    pilz_cartesian_limits_yaml = load_yaml("robo_planner", "config/pilz_cartesian_limits.yaml")
     planning_pipeline_config["robot_description_planning"].update(pilz_cartesian_limits_yaml)
 
     ompl_planning_yaml = load_yaml("ur_moveit_config", "config/ompl_planning.yaml")
