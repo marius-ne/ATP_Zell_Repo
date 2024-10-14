@@ -25,39 +25,15 @@ using namespace std::chrono_literals;
  * @param default_value The default value to return if the parameter does not exist
  * @return The value of the parameter
  */
+
 template <typename T>
 T get_parameter(const rclcpp::Node::SharedPtr &node, const std::string &name, const T &default_value)
 {
-  node->declare_parameter(name, default_value);
+  if (!node->has_parameter(name))
+  {
+    node->declare_parameter(name, default_value);
+  }
   return node->get_parameter(name).get_value<T>();
-}
-
-int TransformTest()
-{
-
-  std::shared_ptr<WzlPlanner::Transform> trWorld = std::make_shared<WzlPlanner::Transform>("world");
-  std::shared_ptr<WzlPlanner::Transform> trStation = std::make_shared<WzlPlanner::Transform>("station");
-  trStation->SetParent(trWorld);
-
-  std::shared_ptr<WzlPlanner::Transform> trSlot1 = std::make_shared<WzlPlanner::Transform>("slot1");
-  trSlot1->SetParent(trStation);
-
-  std::shared_ptr<WzlPlanner::Transform> trSlot2 = std::make_shared<WzlPlanner::Transform>("slot2");
-  trSlot2->SetParent(trStation);
-
-  std::shared_ptr<WzlPlanner::Transform> trSlot3 = std::make_shared<WzlPlanner::Transform>("slot3");
-  trSlot3->SetParent(trStation);
-
-  trStation->GetPoseRelative()->SetPositionXYZ(10, 0, 0);
-  trStation->GetPoseRelative()->SetRotationZ(M_PI_2);
-  trSlot1->GetPoseRelative()->SetPositionXYZ(0, -1, 2);
-  trSlot2->GetPoseRelative()->SetPositionXYZ(0, 0, 2);
-  trSlot3->GetPoseRelative()->SetPositionXYZ(0, 1, 2);
-
-  trWorld->Update();
-  trWorld->Print();
-
-  return 0;
 }
 
 void CreateCell(const std::shared_ptr<rclcpp::Node> node)
@@ -106,12 +82,22 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
   RCLCPP_INFO(node->get_logger(), "Robot scheduler cell environment initialization end.");
 }
 
-// The Changing station place task contains these steps:
-// - 1.) Approach the changing station (PTP)
-// - 2.) Drive in execution pose (Cartesian Movemment)
-// - 3.) Lift up (Cartesian movement)
-// - 4.) Drive back (Cartesian movement)
-// - 5.) Drop down into start position (Cartesian movement)
+/**
+ * Changing Station Place Task:
+ * ---------------------------
+ * This task involves the following steps:
+ * 1. Approach the changing station (PTP)
+ * 2. Drive in execution pose (Cartesian Movement)
+ * 3. Lift up (Cartesian Movement)
+ * 4. Drive back (Cartesian Movement)
+ * 5. Drop down into start position (Cartesian Movement)
+ *
+ * @brief Retrieves a task list for the changing station place task
+ *
+ * @param node The ROS node to retrieve parameters from
+ * @param stationIndex The index of the changing station (1-4)
+ * @return A shared pointer to the task list
+ */
 std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const rclcpp::Node::SharedPtr &node, int stationIndex)
 {
   if (stationIndex < 1 || stationIndex > 4)
@@ -128,7 +114,7 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const rclcpp::
   std::vector<double> stationZValues = get_parameter<std::vector<double>>(node, "positions.station.z_values", {0.416, 0.41356, 0.41005, 0.408});
 
   double posEndZOffset = get_parameter<double>(node, "safety.pos_end_z_offset", 0.03);
-  double posPlaceOffsetZ = get_parameter<double>(node, "safety.pos_place_offset_z", -0.005);
+  // double posPlaceOffsetZ = get_parameter<double>(node, "safety.pos_place_offset_z", -0.005);
 
   double stationYApproach = get_parameter<double>(node, "positions.station.y_approach", -0.35);
   double stationYExecute = get_parameter<double>(node, "positions.station.y_execute", -0.5549700856208801);
@@ -173,12 +159,19 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const rclcpp::
   return taskList;
 }
 
-// The changing station pick taskm contains these steps:
-// - Approach the changing station (PTP movement)
-// - Lift up (cartesian movement)
-// - Drive into execution pose (Cartesian movement)
-// - Drop down and dock the new equipment
-// - Drive back (cartesian movement)
+/**
+ * @brief Creates a task list for picking up a station
+ *
+ * The changing station pick taskm contains these steps:
+ * 1. Approach the changing station (PTP movement)
+ * 2. Lift up (cartesian movement)
+ * 3. Drive into execution pose (Cartesian movement)
+ * 4. Drop down and dock the new equipment
+ * 5. Drive back (cartesian movement)
+ *
+ * @param stationIndex The index of the station to pick up (1-4)
+ * @return A shared pointer to the task list
+ */
 std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(int stationIndex)
 {
   if (stationIndex < 1 || stationIndex > 4)
@@ -239,7 +232,13 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(int stationInde
 
   return taskList;
 }
-
+/**
+ * @brief Creates a task list for a circular movement around a given point
+ *
+ * @param radius The radius of the circle to move around
+ * @param posePointCenter The point around which to move in a circle
+ * @return A shared pointer to the TaskFollowTrajectory
+ */
 std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double radius, std::shared_ptr<WzlPlanner::Pose> posePointCenter)
 {
   double posMidX = posePointCenter->GetPositionX();
@@ -264,10 +263,18 @@ std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double 
   return taskMoveTrjajectory;
 }
 
+/**
+ * @brief Main function for the UseCase1
+ *
+ * Contains all tasks for UseCase1
+ * It will execute all tasks in the correct order.
+ *
+ * @param node ROS2 node object
+ */
 void UseCase1(const rclcpp::Node::SharedPtr &node)
 {
   // auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
-  auto useOpcua = false;
+  [[maybe_unused]] auto useOpcua = false;
 
   RCLCPP_INFO(node->get_logger(), "Initialize Pick & Place test.");
 
@@ -392,13 +399,13 @@ void UseCase1(const rclcpp::Node::SharedPtr &node)
   taskPlaceEnd1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBemi2);
 
   // Change tool: Gripper -> deburring spindle
-  auto taskGripperUnequip = GetChangingStationTaskPlace(3);
+  auto taskGripperUnequip = GetChangingStationTaskPlace(node, 3);
   auto taskDeburringSpindleEquip = GetChangingStationTaskPick(2);
 
   // do deburring
-  double rotDeburX = M_PI;
-  double rotDeburY = 0;
-  double rotDeburZ = M_PI * -0.5;
+  [[maybe_unused]] double rotDeburX = M_PI;
+  [[maybe_unused]] double rotDeburY = 0;
+  [[maybe_unused]] double rotDeburZ = M_PI * -0.5;
 
   auto taskDeburApproach1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   auto taskDeburExecute = std::make_shared<WzlPlanner::TaskMoveToPose>();
@@ -414,7 +421,7 @@ void UseCase1(const rclcpp::Node::SharedPtr &node)
   taskDeburEnd1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseApporachBemi1Debur);
 
   // change tool: deburring spindle -> Gripper
-  auto taskDeburringSpindleUnequip = GetChangingStationTaskPlace(2);
+  auto taskDeburringSpindleUnequip = GetChangingStationTaskPlace(node, 2);
   auto taskGripperEquip = GetChangingStationTaskPick(3);
 
   // pick part and hold it in front of the sensor
@@ -542,6 +549,35 @@ void UseCase1(const rclcpp::Node::SharedPtr &node)
   RCLCPP_INFO(node->get_logger(), "Excecution successful");
 }
 
+#ifdef RUN_TESTS
+
+int TransformTest()
+{
+
+  std::shared_ptr<WzlPlanner::Transform> trWorld = std::make_shared<WzlPlanner::Transform>("world");
+  std::shared_ptr<WzlPlanner::Transform> trStation = std::make_shared<WzlPlanner::Transform>("station");
+  trStation->SetParent(trWorld);
+
+  std::shared_ptr<WzlPlanner::Transform> trSlot1 = std::make_shared<WzlPlanner::Transform>("slot1");
+  trSlot1->SetParent(trStation);
+
+  std::shared_ptr<WzlPlanner::Transform> trSlot2 = std::make_shared<WzlPlanner::Transform>("slot2");
+  trSlot2->SetParent(trStation);
+
+  std::shared_ptr<WzlPlanner::Transform> trSlot3 = std::make_shared<WzlPlanner::Transform>("slot3");
+  trSlot3->SetParent(trStation);
+
+  trStation->GetPoseRelative()->SetPositionXYZ(10, 0, 0);
+  trStation->GetPoseRelative()->SetRotationZ(M_PI_2);
+  trSlot1->GetPoseRelative()->SetPositionXYZ(0, -1, 2);
+  trSlot2->GetPoseRelative()->SetPositionXYZ(0, 0, 2);
+  trSlot3->GetPoseRelative()->SetPositionXYZ(0, 1, 2);
+
+  trWorld->Update();
+  trWorld->Print();
+
+  return 0;
+}
 void PickAndPlaceTest()
 {
   auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
@@ -693,7 +729,6 @@ void PickAndPlaceTest()
 
   RCLCPP_INFO(node->get_logger(), "Excecution successful");
 }
-
 void TaskRotationTest()
 {
   auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
@@ -856,16 +891,16 @@ void TaskChangingStationTest()
 
   auto taskSetRobotSpeed = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.1, 0.1);
 
-  auto taskPlace1 = GetChangingStationTaskPlace(1);
+  auto taskPlace1 = GetChangingStationTaskPlace(node, 1);
   auto taskPick1 = GetChangingStationTaskPick(1);
 
-  auto taskPlace2 = GetChangingStationTaskPlace(2);
+  auto taskPlace2 = GetChangingStationTaskPlace(node, 2);
   auto taskPick2 = GetChangingStationTaskPick(2);
 
-  auto taskPlace3 = GetChangingStationTaskPlace(3);
+  auto taskPlace3 = GetChangingStationTaskPlace(node, 3);
   auto taskPick3 = GetChangingStationTaskPick(3);
 
-  auto taskPlace4 = GetChangingStationTaskPlace(4);
+  auto taskPlace4 = GetChangingStationTaskPlace(node, 4);
   auto taskPick4 = GetChangingStationTaskPick(4);
 
   RCLCPP_INFO(node->get_logger(), "Execute Task Changing station - 2");
@@ -965,6 +1000,7 @@ void OpcuaTaskTest(const std::shared_ptr<rclcpp::Node> node)
 
   RCLCPP_INFO(node->get_logger(), "Excecution successful");
 }
+#endif
 
 int main(int argc, char *argv[])
 {
