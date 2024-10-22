@@ -4,10 +4,10 @@ robo_planner:
     positions:
       # BEMI 1 position
       bemi1:
-        x: 0.3644  # X-coordinate of BEMI 1
-        y: 0.6805  # Y-coordinate of BEMI 1
-        z: 0.310   # Z-coordinate of BEMI 1
-        RZ_offset: 0.03 # Z-rotation offset of BEMI 1 
+        x: 0.3634  # X-coordinate of BEMI 1
+        y: 0.6815  # Y-coordinate of BEMI 1
+        z: 0.320   # Z-coordinate of BEMI 1
+        RZ_offset: 0.0475 # Z-rotation offset of BEMI 1 
       # BEMI 2 position
       bemi2:
         x: 0.0  # X-coordinate of BEMI 2
@@ -22,11 +22,11 @@ robo_planner:
         z: 0.0
         RZ_offset: 0.0 # Z-rotation offset of BEMI 3 
       
-      # Part Carrier 1, position 1
-      PC_1_1:
-        x: -0.351
-        y: 0.341 
-        z: 0.25      
+      # Part Carrier 1, x offset=10.5cm
+      PC_1:
+        x: [-0.351, -0.456, -0.561, -0.666, -0.771]
+        y: [0.341, 0.341, 0.341, 0.341, 0.341] 
+        z: 0.26      
 
       # Station positions
       station:

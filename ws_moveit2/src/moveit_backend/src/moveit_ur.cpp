@@ -61,39 +61,31 @@ class RobotUr : public rclcpp::Node
             move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(robot, PLANNING_GROUP);
             move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(robot, PLANNING_GROUP);
 
-            //move_group_interface_->setPlannerId("PRMkConfigDefault");
-            //move_group_interface_->setNumPlanningAttempts(20);
-            //move_group_interface_->setPlanningTime(10);
-            //move_group_interface_->setReplanAttempts(10);
-
-
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize Collision boxes"));
             
             auto size = 1.9;
             auto size05 = size * 0.5;
+            auto thickness = 0.04;    
 
-            //move_group_interface_->setWorkspace(-size05, -size05, 0, size05, size05, 1);
 
-            auto thickness = 0.04;            
-            //add_collision_box("floor", 2, 2, 0.02, 0, 0, -0.01);
-            //add_collision_box("gripper_change_station", 0.7, 0.4, 0.45, 0, -0.65, 0.225);
-            add_collision_box("scan_tower", 0.3, 0.3, 1, +0.65, -0.25, 0.5);
-            add_collision_box("scan_tower_sensor", 0.16, 0.1, 0.1, 0.56, -0.265334, 0.73);
 
             //WERKSTÜCK BOXEN
             add_hollow_box_collision("BOX1",0.56,0.36,0.125,0.012,-0.55,0.23,0.125/2);
             add_hollow_box_collision("BOX2",0.56,0.36,0.125,0.012,-0.55,-0.23,0.125/2);
 
+            //ZELLE
             add_collision_box("wall1", size, thickness, 1.0, 0, size05, 0.5);
             add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);
             add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
+            
             add_collision_box("gripper_change_station", 0.7, 0.4, 0.45, 0, -0.775, 0.225);
-        
+            add_collision_box("floor", 2, 2, 0.02, 0, 0, -0.01);
+            add_collision_box("scan_tower", 0.3, 0.3, 1, +0.65, -0.25, 0.5);
+            add_collision_box("scan_tower_sensor", 0.16, 0.1, 0.1, 0.56, -0.265334, 0.73);
             //add_collision_box("ceiling", size, size, 0.1, 0, 0, 1);
 
             //BEMI BOXEN//
-            //auto bemi_höhe = 0.215; // Gibt zwei Arten, einer is höher als der Andere
             auto bemi_höhe = 0.235;
             auto bemi_breite = 0.065;
             auto bemi_tiefe = 0.1;
@@ -113,7 +105,6 @@ class RobotUr : public rclcpp::Node
             add_collision_box("BEMI_3_1",bemi_breite,bemi_tiefe,bemi_höhe,bemi_3_x,bemi_3_y,bemi_höhe/2);
             add_collision_box("BEMI_3_2",bemi_breite,bemi_tiefe,bemi_höhe,bemi_3_x+0.26,bemi_3_y+0.02,bemi_höhe/2);
             add_collision_box("BEMI_3_3",bemi_tiefe,bemi_breite,bemi_höhe,bemi_3_x+0.075,bemi_3_y-0.215,bemi_höhe/2);
-
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialization done"));
         }
@@ -253,18 +244,18 @@ class RobotUr : public rclcpp::Node
             RCLCPP_INFO(logger, ("Collision mesh: " + objectId + " removed from scene!").c_str());
         }
         
-        void set_execute_duration_for_trajectory(moveit_msgs::msg::RobotTrajectory& input_trajectory, double execute_duration)
-        {
-            std::vector<trajectory_msgs::msg::JointTrajectoryPoint>& joint_trajectories = input_trajectory.joint_trajectory.points;
-            size_t size = joint_trajectories.size();
-            execute_duration = execute_duration/size;
-            for (int i=0; i<size; i++)
-            {
-                builtin_interfaces::msg::Duration duration = builtin_interfaces::msg::Duration();
-                duration.set__sec(execute_duration * i);
-                joint_trajectories[i].time_from_start = duration;
-            }
-        }
+        // void set_execute_duration_for_trajectory(moveit_msgs::msg::RobotTrajectory& input_trajectory, double execute_duration)
+        // {
+        //     std::vector<trajectory_msgs::msg::JointTrajectoryPoint>& joint_trajectories = input_trajectory.joint_trajectory.points;
+        //     size_t size = joint_trajectories.size();
+        //     execute_duration = execute_duration/size;
+        //     for (int i=0; i<size; i++)
+        //     {
+        //         builtin_interfaces::msg::Duration duration = builtin_interfaces::msg::Duration();
+        //         duration.set__sec(execute_duration * i);
+        //         joint_trajectories[i].time_from_start = duration;
+        //     }
+        // }
 
         void service_callback_robot_move_to_position(const std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Request> request,
             std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition::Response> response)
@@ -275,6 +266,7 @@ class RobotUr : public rclcpp::Node
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request (move to position)\nX: %g Y: %g Z: %g RotX: %g RotY %g RotZ %g RotW %g",
                             position.x, position.y, position.z, orientation.x, orientation.y, orientation.z, orientation.w);
+            
             // Set a target Pose
             geometry_msgs::msg::Pose msg;
             msg.position = position;
@@ -294,19 +286,13 @@ class RobotUr : public rclcpp::Node
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Set pipeline to ompl");
                 move_group_interface_->setPlanningPipelineId("ompl");
                 move_group_interface_->setPlannerId("RRTConnectkConfigDefault");
-                //move_group_interface_->setPlannerId("SemiPersistentLazyPRMstar");
+                //move_group_interface_->setPlannerId("PersistentPRMstar");
 
                 move_group_interface_->setMaxVelocityScalingFactor(scaling_velocity_ompl);
                 move_group_interface_->setMaxAccelerationScalingFactor(scaling_acceleration_ompl);
 
-                move_group_interface_->setNumPlanningAttempts(5);
-                move_group_interface_->setPlanningTime(5);
-                
-
-                auto size = 1.9;
-                auto size05 = size * 0.5;
-
-                //move_group_interface_->setWorkspace(-size05, -size05, 0, size05, size05, 1);                
+                move_group_interface_->setNumPlanningAttempts(3);
+                move_group_interface_->setPlanningTime(2.0);
             }
             else if (is_movement_cartesian)
             {
@@ -316,6 +302,8 @@ class RobotUr : public rclcpp::Node
 
                 move_group_interface_->setMaxVelocityScalingFactor(scaling_velocity_pilz);
                 move_group_interface_->setMaxAccelerationScalingFactor(scaling_acceleration_pilz);
+                move_group_interface_->setNumPlanningAttempts(1);
+                move_group_interface_->setPlanningTime(1.0);
             }
 
             if (moveType == 1) // absolute pose
@@ -582,10 +570,10 @@ class RobotUr : public rclcpp::Node
         }
 
         geometry_msgs::msg::Pose last_pose_;
-        int current_mode_; // 0: ompl; 1: pilz industrial planner
-        
-        double scaling_velocity_ompl = 1.0;
-        double scaling_acceleration_ompl = 1.0;
+
+        // Default speed values
+        double scaling_velocity_ompl = 0.2;
+        double scaling_acceleration_ompl = 0.2;
         double scaling_velocity_pilz = 0.03;
         double scaling_acceleration_pilz = 0.03;
 

@@ -331,9 +331,10 @@ void UseCase1(const rclcpp::Node::SharedPtr &node)
       WzlPlanner::OpcUaData::GetOpcUaData_SpindelWriteAus());
   taskIoGripperClose->SetId("taskIoDeburringSindleOff");
 
-  auto taskSetSpeedPtp = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.3, 1, 0);
+  // Set movement speeds: velocity, acelleration, type(normal:0, cartesian:1)
+  auto taskSetSpeedPtp = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.5, 1.0, 0);
   auto taskSetSpeedCartesianFast = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.1, 0.1, 1);
-  auto taskSetSpeedCartesianSlow = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.03, 0.03, 1);
+  auto taskSetSpeedCartesianSlow = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.06, 0.03, 1);
 
   // Constants
   double placementOffsetZ = 0.2;
@@ -348,15 +349,15 @@ void UseCase1(const rclcpp::Node::SharedPtr &node)
   auto taskInitPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskInitPose->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseInit);
   
-  // Part Carrier 1, part 1: POSE DEF
-  double PC1X1 = get_parameter<double>(node, "positions.PC_1_1.x", -0.35041);
-  double PC1Y1 = get_parameter<double>(node, "positions.PC_1_1.y", 0.34231);
-  double executionPC1Z = get_parameter<double>(node, "positions.PC_1_1.z", 0.25);
+  // Part Carrier 1: POSE DEF
+  std::vector<double> PC1X = get_parameter<std::vector<double>>(node, "positions.PC_1.x", {-0.351, -0.361});
+  std::vector<double> PC1Y = get_parameter<std::vector<double>>(node, "positions.PC_1.y", {0.341, 0.341});
+  double executionPC1Z = get_parameter<double>(node, "positions.PC_1.z", 0.26);
   double placementPC1Z = executionPC1Z + placementOffsetZ;
 
-  auto posePC1Approach1 = std::make_shared<WzlPlanner::Pose>(PC1X1, PC1Y1, placementPC1Z, rotX, rotY, rotZ);
-  auto posePC1Execute1 = std::make_shared<WzlPlanner::Pose>(PC1X1, PC1Y1, executionPC1Z, rotX, rotY, rotZ);
-  auto posePC1End1 = std::make_shared<WzlPlanner::Pose>(PC1X1, PC1Y1, placementPC1Z, rotX, rotY, rotZ);
+  auto posePC1Approach1 = std::make_shared<WzlPlanner::Pose>(PC1X[2], PC1Y[2], placementPC1Z, rotX, rotY, rotZ);
+  auto posePC1Execute1 = std::make_shared<WzlPlanner::Pose>(PC1X[2], PC1Y[2], executionPC1Z, rotX, rotY, rotZ);
+  auto posePC1End1 = std::make_shared<WzlPlanner::Pose>(PC1X[2], PC1Y[2], placementPC1Z, rotX, rotY, rotZ);
 
   // Part Carrier 1, part 1: TASK DEF
   auto taskPC1Approach1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
