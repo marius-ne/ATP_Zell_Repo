@@ -79,10 +79,10 @@ class RobotUr : public rclcpp::Node
             add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
             
-            add_collision_box("gripper_change_station", 0.7, 0.4, 0.45, 0, -0.775, 0.225);
+            add_collision_box("gripper_change_station", 0.7, 0.5, 0.5, 0, -0.7, 0.25);
             add_collision_box("floor", 2, 2, 0.02, 0, 0, -0.01);
             add_collision_box("scan_tower", 0.3, 0.3, 1, +0.65, -0.25, 0.5);
-            add_collision_box("scan_tower_sensor", 0.16, 0.1, 0.1, 0.56, -0.265334, 0.73);
+            add_collision_box("scan_tower_sensor", 0.16, 0.15, 0.15, 0.56, -0.265334, 0.73);
             //add_collision_box("ceiling", size, size, 0.1, 0, 0, 1);
 
             //BEMI BOXEN//
@@ -280,9 +280,6 @@ class RobotUr : public rclcpp::Node
             
             if (is_movement_normal)
             {
-                add_collision_box("gripper_change_station", 0.7, 0.45, 0.45, 0, -0.7, 0.225);
-                add_collision_box("floor", 2, 2, 0.02, 0, 0, -0.011);
-
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Set pipeline to ompl");
                 move_group_interface_->setPlanningPipelineId("ompl");
                 move_group_interface_->setPlannerId("RRTConnectkConfigDefault");
@@ -296,6 +293,9 @@ class RobotUr : public rclcpp::Node
             }
             else if (is_movement_cartesian)
             {
+                remove_collision_object("gripper_change_station");
+                remove_collision_object("floor");
+
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Set pipeline to pilz industrial planner");
                 move_group_interface_->setPlanningPipelineId("pilz_industrial_motion_planner");
                 move_group_interface_->setPlannerId("LIN");
@@ -382,9 +382,6 @@ class RobotUr : public rclcpp::Node
                     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "OMPL Planner - Planning failed!");
                     response->result = false;
                 }
-
-                remove_collision_object("gripper_change_station");
-                remove_collision_object("floor");
             }
             else if (is_movement_cartesian)
             {
@@ -411,6 +408,9 @@ class RobotUr : public rclcpp::Node
                     RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "PILZ planner - Planning failed!");
                     response->result = false;
                 }
+
+                add_collision_box("gripper_change_station", 0.7, 0.5, 0.5, 0, -0.7, 0.25);
+                add_collision_box("floor", 2, 2, 0.02, 0, 0, -0.011);
             }
             else
             {
