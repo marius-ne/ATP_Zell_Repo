@@ -110,18 +110,6 @@ class RobotUr : public rclcpp::Node
         }
 
     private:
-        void set_path_constraints()
-        {
-            moveit_msgs::msg::OrientationConstraint ocm;
-            ocm.link_name = PLANNING_GROUP;
-            ocm.header.frame_id = BASE_FRAME;
-            ocm.orientation.w = 1.0;
-            ocm.absolute_x_axis_tolerance = 0.001;
-            ocm.absolute_y_axis_tolerance = 0.001;
-            ocm.absolute_z_axis_tolerance = 0.001;
-            ocm.weight = 1.0;
-        }
-
         void add_hollow_box_collision(const std::string name, const float width, const float depth, const float height,
             const float wall_thickness, const float x, const float y, const float z)
         {
