@@ -59,15 +59,40 @@ class RobotUr : public rclcpp::Node
             // Create the MoveIt MoveGroup Interface
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize group interface"));
             move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(robot, PLANNING_GROUP);
-            move_group_interface_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(robot, PLANNING_GROUP);
+
+            //move_group_interface_->startStateMonitor(10.0);
+
+            // print current pose
+            geometry_msgs::msg::Pose current_pose = move_group_interface_->getCurrentPose().pose;
+
+            // Print the current pose of the end effector
+            RCLCPP_INFO(robot->get_logger(), "Current pose: %f %f %f %f %f %f %f",
+            current_pose.position.x,
+            current_pose.position.y,
+            current_pose.position.z,
+            current_pose.orientation.x,
+            current_pose.orientation.y,
+            current_pose.orientation.z,
+            current_pose.orientation.w);
+
+            // print current pose
+            current_pose = move_group_interface_->getCurrentPose().pose;
+
+            // Print the current pose of the end effector
+            RCLCPP_INFO(robot->get_logger(), "Current pose: %f %f %f %f %f %f %f",
+            current_pose.position.x,
+            current_pose.position.y,
+            current_pose.position.z,
+            current_pose.orientation.x,
+            current_pose.orientation.y,
+            current_pose.orientation.z,
+            current_pose.orientation.w);
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize Collision boxes"));
             
             auto size = 1.9;
             auto size05 = size * 0.5;
             auto thickness = 0.04;    
-
-
 
             //WERKSTÜCK BOXEN
             add_hollow_box_collision("BOX1",0.56,0.36,0.125,0.012,-0.55,0.23,0.125/2);
@@ -84,6 +109,9 @@ class RobotUr : public rclcpp::Node
             add_collision_box("scan_tower", 0.3, 0.3, 1, +0.65, -0.25, 0.5);
             add_collision_box("scan_tower_sensor", 0.16, 0.15, 0.15, 0.56, -0.265334, 0.73);
             //add_collision_box("ceiling", size, size, 0.1, 0, 0, 1);
+
+            // Tools
+            add_composite_spindel("spindel", 0.0, 0, -1);
 
             //BEMI BOXEN//
             auto bemi_höhe = 0.235;
@@ -110,6 +138,55 @@ class RobotUr : public rclcpp::Node
         }
 
     private:
+    
+        void add_composite_spindel(const std::string name, const float x, const float y, const float z)
+        {
+            moveit_msgs::msg::CollisionObject collision_object;
+            collision_object.header.frame_id = move_group_interface_->getPlanningFrame();
+            collision_object.id = name;
+
+            // Define both parts
+            std::vector<shape_msgs::msg::SolidPrimitive> primitives;
+            std::vector<geometry_msgs::msg::Pose> poses;
+
+            // Upper cylinder part
+            shape_msgs::msg::SolidPrimitive upper;
+            upper.type = upper.CYLINDER;
+            upper.dimensions.resize(2);
+            upper.dimensions[0] = 0.22;  // Length
+            upper.dimensions[1] = 0.045; // Radius
+            primitives.push_back(upper);
+
+            geometry_msgs::msg::Pose upper_pose;
+            upper_pose.orientation.w = 1.0;
+            upper_pose.position.x = x;
+            upper_pose.position.y = y;
+            upper_pose.position.z = z - 0.1102; // Offset down from the top
+            poses.push_back(upper_pose);
+
+            // Lower cylinder part  
+            shape_msgs::msg::SolidPrimitive lower;
+            lower.type = lower.CYLINDER;
+            lower.dimensions.resize(2);
+            lower.dimensions[0] = 0.10;  // Length
+            lower.dimensions[1] = 0.014; // Radius
+            primitives.push_back(lower);
+
+            geometry_msgs::msg::Pose lower_pose;
+            lower_pose.orientation.w = 1.0;
+            lower_pose.position.x = x;
+            lower_pose.position.y = y;
+            lower_pose.position.z = z - 0.2704; // Offset further down from the top
+            poses.push_back(lower_pose);
+
+            // Add both parts to collision object
+            collision_object.primitives = primitives;
+            collision_object.primitive_poses = poses;
+            collision_object.operation = collision_object.ADD;
+
+            planning_scene_interface_->applyCollisionObject(collision_object);
+        }
+
         void add_hollow_box_collision(const std::string name, const float width, const float depth, const float height,
             const float wall_thickness, const float x, const float y, const float z)
         {
@@ -457,22 +534,25 @@ class RobotUr : public rclcpp::Node
         void service_callback_scene_object_attach(const std::shared_ptr<wzlscheduler_interfaces::srv::SceneObjectAttach::Request> request,
             std::shared_ptr<wzlscheduler_interfaces::srv::SceneObjectAttach::Response> response)
         {
-            // Attach the object to the end effector of the robot
-            const std::string& endEffectorLink = move_group_interface_->getEndEffectorLink();
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Attach the object '%s' to the robots end effector link", request->name.c_str());
-            std::vector<std::string> touch_links = {endEffectorLink};
-            
-            if (!move_group_interface_->attachObject(request->name, endEffectorLink, touch_links))
-            {
-                RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Attach object failed");
-            }
+            // print current pose
+            geometry_msgs::msg::Pose current_pose = move_group_interface_->getCurrentPose().pose;
 
-            response->result = 1;
+            // Print the current pose of the end effector
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Current pose: %f %f %f %f %f %f %f",
+            current_pose.position.x,
+            current_pose.position.y,
+            current_pose.position.z,
+            current_pose.orientation.x,
+            current_pose.orientation.y,
+            current_pose.orientation.z,
+            current_pose.orientation.w);
+    
         }
 
         void service_callback_scene_object_detach(const std::shared_ptr<wzlscheduler_interfaces::srv::SceneObjectDetach::Request> request,
             std::shared_ptr<wzlscheduler_interfaces::srv::SceneObjectDetach::Response> response)
         {
+            /* Original version
             // Detach the object from the robot
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Detach the object '%s' from the robot", request->name.c_str());
             
@@ -486,6 +566,62 @@ class RobotUr : public rclcpp::Node
             response->result = 1;
             response->name = request->name;
             response->coordinates = msg;
+            */
+
+            // New version - detach and place object below robot base
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Detaching object '%s' and moving it below robot base", request->name.c_str());
+            
+            // First detach the object
+            if (!move_group_interface_->detachObject(request->name))
+            {
+                RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Detach object failed");
+                response->result = 0;
+                return;
+            }
+
+            // Get the object from planning scene
+            std::map<std::string, moveit_msgs::msg::CollisionObject> objects = planning_scene_interface_->getObjects({request->name});
+            if (objects.find(request->name) == objects.end()) {
+                RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Object not found in scene after detach");
+                response->result = 0;
+                return;
+            }
+
+            // Create new collision object with updated pose
+            moveit_msgs::msg::CollisionObject object = objects[request->name];
+            geometry_msgs::msg::Pose new_pose;
+            
+            // Set position 1 meter below robot base (z = -1.0)
+            new_pose.position.x = 0.0;
+            new_pose.position.y = 0.0;
+            new_pose.position.z = -1.0;
+            
+            // Keep upright orientation
+            new_pose.orientation.x = 0.0;
+            new_pose.orientation.y = 0.0;
+            new_pose.orientation.z = 0.0;
+            new_pose.orientation.w = 1.0;
+
+            // Update object pose
+            object.operation = moveit_msgs::msg::CollisionObject::MOVE;
+            if (!object.primitive_poses.empty()) {
+                object.primitive_poses[0] = new_pose;
+            }
+            if (!object.mesh_poses.empty()) {
+                object.mesh_poses[0] = new_pose;
+            }
+
+            // Apply the updated object to planning scene
+            if (!planning_scene_interface_->applyCollisionObject(object)) {
+                RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Failed to update object position");
+                response->result = 0;
+                return;
+            }
+
+            // Set response
+            response->result = 1;
+            response->name = request->name;
+            response->coordinates = new_pose;
         }
 
         // Callback method for constructing a mesh collision object and addding it to the planning scene interface
@@ -579,8 +715,6 @@ class RobotUr : public rclcpp::Node
         rclcpp::Subscription<wzlscheduler_interfaces::msg::SceneObjectSetPose>::SharedPtr subscription_scene_object_set_pose_;
 };
 
-
-
 int main(int argc, char * argv[])
 {
   std::cout << "Run node moveit backend" << std::endl;
@@ -595,11 +729,22 @@ int main(int argc, char * argv[])
   }
 
   auto const node = std::make_shared<RobotUr>();
-  node->Init(node);
-  rclcpp::spin(node);
 
-  // Shutdown ROS
-  rclcpp::shutdown();
-  
-  return 0;
+    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("spin node"));
+
+    rclcpp::executors::SingleThreadedExecutor executor;
+    executor.add_node(node);
+    std::thread spinner = std::thread([&executor]() { executor.spin(); });
+
+    // rclcpp::executors::MultiThreadedExecutor executor;
+    // executor.add_node(node);
+    // auto spinner = std::thread([&executor]() { executor.spin(); });
+
+    node->Init(node);
+
+    // Move these lines to the end to ensure proper shutdown
+    spinner.join();
+    rclcpp::shutdown();
+
+    return 0;
 }

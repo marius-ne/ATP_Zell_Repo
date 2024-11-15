@@ -91,11 +91,24 @@ class MiscTasks {
     std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi1Close;
     std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi2Open;
     std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi2Close;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi3Open;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi3Close;
     std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoGripperOpen;
     std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoGripperClose;
     std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoGripperNeutral;
     std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoDeburringSpindleDeactivate;
     std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoDeburringSpindleActivate;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoDeburringSpindleAnpressdruckActivate;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoDeburringSpindleAnpressdruckDeactivate;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoLampRed;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoLampGreen;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoLampOrange;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoLampOff;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoTuerAuf;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoTuerZu;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoTuerStop;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoAlarmOn;
+    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoAlarmOff;
     std::shared_ptr<WzlPlanner::TaskSetRobotValueVelocity> taskSetSpeedPtp;
     std::shared_ptr<WzlPlanner::TaskSetRobotValueVelocity> taskSetSpeedCartesianFast;
     std::shared_ptr<WzlPlanner::TaskSetRobotValueVelocity> taskSetSpeedCartesianSlow;
@@ -103,7 +116,8 @@ class MiscTasks {
     // Constructor initializes all tasks
     MiscTasks(const rclcpp::Node::SharedPtr& node) {
     taskWait = std::make_shared<WzlPlanner::TaskWait>();
-    taskWait->time_ = std::chrono::milliseconds(get_parameter<int>(node, "timings.default_wait", 700));
+    taskWait->time_ = std::chrono::milliseconds(get_parameter<int>(node, "timings.default_wait", 300));
+    taskWait->SetId("taskWait");
 
     taskIoBemi1Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
         WzlPlanner::OpcUaData::GetOpcUaData_Bemi1WriteAuf());
@@ -120,6 +134,14 @@ class MiscTasks {
     taskIoBemi2Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
         WzlPlanner::OpcUaData::GetOpcUaData_Bemi2WriteZu());
     taskIoBemi2Close->SetId("taskIoBemi2Close");
+
+    taskIoBemi3Open = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_Bemi3WriteAuf());
+    taskIoBemi3Open->SetId("taskIoBemi3Open");
+
+    taskIoBemi3Close = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_Bemi3WriteZu());
+    taskIoBemi3Close->SetId("taskIoBemi3Close");
 
     taskIoGripperOpen = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
         WzlPlanner::OpcUaData::GetOpcUaData_GreiferWriteAuf());
@@ -141,10 +163,62 @@ class MiscTasks {
         WzlPlanner::OpcUaData::GetOpcUaData_SpindelWriteAus());
     taskIoDeburringSpindleActivate->SetId("taskIoDeburringSpindleOff");
 
-    // Set movement speeds: velocity, acelleration, type(normal:0, cartesian:1)
-    taskSetSpeedPtp = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.5, 1.0, 0);
-    taskSetSpeedCartesianFast = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.1, 0.1, 1);
-    taskSetSpeedCartesianSlow = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(0.1, 0.05, 1);
+    taskIoDeburringSpindleAnpressdruckActivate = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_AnpressdruckSpindelWriteAn());
+    taskIoDeburringSpindleActivate->SetId("taskIoDeburringSpindleAnpressdruckOn");
+
+    taskIoDeburringSpindleAnpressdruckActivate = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_AnpressdruckSpindelWriteAus());
+    taskIoDeburringSpindleActivate->SetId("taskIoDeburringSpindleAnpressdruckOff");
+
+    taskIoLampRed = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_LampeFarbeWriteRot());
+    taskIoLampRed->SetId("taskIoLampRed");
+
+    taskIoLampGreen = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_LampeFarbeWriteGrün());
+    taskIoLampGreen->SetId("taskIoLampGreen");
+
+    taskIoLampOrange = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_LampeFarbeWriteOrange());
+    taskIoLampOrange->SetId("taskIoLampOrange");
+
+    taskIoLampOff = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_LampeFarbeWriteAus());
+    taskIoLampOff->SetId("taskIoLampOff");
+
+    taskIoTuerAuf = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_TuerWriteAuf());
+    taskIoTuerAuf->SetId("taskIoTuerAuf");
+
+    taskIoTuerZu = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_TuerWriteZu());
+    taskIoTuerZu->SetId("taskIoTuerZu");
+
+    taskIoTuerStop = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_TuerWriteStop());
+    taskIoTuerStop->SetId("taskIoTuerStop");
+
+    taskIoAlarmOn = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_AlarmWriteAn());
+    taskIoAlarmOn->SetId("taskIoAlarmOn");
+
+    taskIoAlarmOff = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+        WzlPlanner::OpcUaData::GetOpcUaData_AlarmWriteAus());
+    taskIoAlarmOff->SetId("taskIoAlarmOff");
+
+    // Set movement speeds from config parameters 
+    double ptp_speed = get_parameter<double>(node, "speeds.ptp", 0.3);
+    double cartesian_fast = get_parameter<double>(node, "speeds.cartesian_fast", 0.1);
+    double cartesian_slow = get_parameter<double>(node, "speeds.cartesian_slow", 0.03);
+    
+    taskSetSpeedPtp = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(ptp_speed, 1.0, 0);
+    taskSetSpeedCartesianFast = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(cartesian_fast, 0.1, 1);
+    taskSetSpeedCartesianSlow = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(cartesian_slow, 0.05, 1);
+    
+    taskSetSpeedPtp->SetId("taskSetSpeedPtp");
+    taskSetSpeedCartesianFast->SetId("taskSetSpeedCartesianFast"); 
+    taskSetSpeedCartesianSlow->SetId("taskSetSpeedCartesianSlow");
 
     RCLCPP_INFO(node->get_logger(), "Miscellaneous tasks initialized.");  
   }
@@ -240,28 +314,26 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const rclcpp::
  * @param stationIndex The index of the station to pick up (1-4)
  * @return A shared pointer to the task list
  */
-std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(int stationIndex)
+std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(const rclcpp::Node::SharedPtr &node, int stationIndex)
 {
   if (stationIndex < 1 || stationIndex > 4)
   {
-    std::cout << "The chanigng station index: " << std::to_string(stationIndex) << " in method 'GetChangingStationTaskPlace' is not defined." << std::endl;
+    std::cout << "The changing station index: " << std::to_string(stationIndex) << " in method 'GetChangingStationTaskPlace' is not defined." << std::endl;
     return nullptr;
   }
 
-  //double rotX = M_PI;
   double rotX = M_PI - M_PI/256; // Offset weil tool change station nicht gerade ist
   double rotY = 0;
   double rotZ = M_PI * -0.5;
 
-  double stationXValues[4] = {-0.189, -0.0167, 0.1375, 0.27893};
-  double stationZValues[4] = {0.416, 0.41356, 0.41005, 0.408};
-  //double stationZValues[4] = {0.416, 0.41356, 0.405, 0.408};
+  std::vector<double> stationXValues = get_parameter<std::vector<double>>(node, "positions.station.x_positions", {-0.189, -0.0167, 0.1375, 0.27893});
+  std::vector<double> stationZValues = get_parameter<std::vector<double>>(node, "positions.station.z_values", {0.416, 0.41356, 0.41005, 0.408});
 
-  double posEndZOffset = 0.03;
-  double posPlaceOffsetZ = -0.005;
+  double posEndZOffset = get_parameter<double>(node, "safety.pos_end_z_offset", 0.03);
+  double posPlaceOffsetZ = get_parameter<double>(node, "safety.placement_offset_z", -0.005);
 
-  double stationYApproach = -0.35;
-  double stationYExecute = -0.5549700856208801;
+  double stationYApproach = get_parameter<double>(node, "positions.station.y_approach", -0.35);
+  double stationYExecute = get_parameter<double>(node, "positions.station.y_execute", -0.5549700856208801);
 
   double posX = stationXValues[stationIndex - 1];
   double posStartZ = stationZValues[stationIndex - 1];
@@ -717,11 +789,11 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   
   // Change tool: Gripper -> deburring spindle
   auto taskGripperUnequip = GetChangingStationTaskPlace(node, 3);
-  auto taskDeburringSpindleEquip = GetChangingStationTaskPick(2);
+  auto taskDeburringSpindleEquip = GetChangingStationTaskPick(node, 2);
 
   // Small Gripper Equip/Unequip
-  auto taskSmallGripperEquip = GetChangingStationTaskPick(4);
-  auto taskSmallGripperUnequip = GetChangingStationTaskPlace(node,4);
+  auto taskSmallGripperEquip = GetChangingStationTaskPick(node, 4);
+  auto taskSmallGripperUnequip = GetChangingStationTaskPlace(node, 4);
 
   // Deburring Pose and Task DEF
   double rotDeburX = M_PI;
@@ -743,102 +815,106 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
 
   // change tool: deburring spindle -> Gripper
   auto taskDeburringSpindleUnequip = GetChangingStationTaskPlace(node, 2);
-  auto taskGripperEquip = GetChangingStationTaskPick(3);
+  auto taskGripperEquip = GetChangingStationTaskPick(node, 3);
 
   // TASK SCHEDULING //
   RCLCPP_INFO(node->get_logger(), "Execute Task Use Case 1");
 
   // setup custom task
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
+  
+  robot->PartAttach("spindel");
 
   // set pneumatic to neutral
-  taskList->AddTask(tasks->taskIoGripperNeutral);
-  taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  //taskList->AddTask(tasks->taskIoGripperNeutral);
+  //taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
 
   // set robot speed
-  taskList->AddTask(tasks->taskSetSpeedPtp);
+  //taskList->AddTask(tasks->taskSetSpeedPtp);
 
   // move to initial pose
-  taskList->AddTask(taskInitPose);
+  //taskList->AddTask(taskInitPose);
 
-/* // Wälzlager tasks
-  taskList->AddTask(taskSetSpeedCartesianSlow);
-  taskList->AddTask(taskSmallGripperEquip);
-  taskList->AddTask(taskInitPose);
-  taskList->AddTask(taskIoGripperClose);
-  taskList->AddTask(taskWait);
-  taskList->AddTask(taskIoGripperOpen);
-  taskList->AddTask(taskWait);
-  taskList->AddTask(taskIoGripperNeutral);
-  taskList->AddTask(taskSetSpeedCartesianSlow);
-  taskList->AddTask(taskSmallGripperUnequip); 
-  taskList->AddTask(taskSetSpeedCartesianFast);
-  taskList->AddTask(taskApproachWaelzlager);
-  taskList->AddTask(taskIoGripperClose);
-  taskList->AddTask(taskWait);
-  taskList->AddTask(taskSetSpeedCartesianSlow);
-  taskList->AddTask(taskExecuteWaelzlager);
-  taskList->AddTask(taskIoGripperOpen);
-  taskList->AddTask(taskWait);
-  taskList->AddTask(taskEndWaelzlager); */
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  robot->PartAttach("spindel");
+
+  //robot->PartDetach("spindel");
 
   // take gripper from changing station
   //taskList->AddTask(taskGripperEquip);
 
   // pick up part 1 from part carrier 1 (PC 1)
-
-  taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 1));
-  taskList->AddTask(CreateTaskPlacePC(node, tasks, 2, 1));
-  taskList->AddTask(CreateTaskPickPC(node, tasks, 2, 1));
-  taskList->AddTask(CreateTaskPlacePC(node, tasks, 3, 1));
-  taskList->AddTask(CreateTaskPickPC(node, tasks, 3, 1));
-  taskList->AddTask(CreateTaskPlacePC(node, tasks, 4, 1));
-  taskList->AddTask(CreateTaskPickPC(node, tasks, 4, 1));
-  taskList->AddTask(CreateTaskPlacePC(node, tasks, 5, 1));
-  taskList->AddTask(CreateTaskPickPC(node, tasks, 5, 1));
+  // taskList->AddTask(CreateTaskPickPC(node, tasks, 6, 1));
+  // taskList->AddTask(CreateTaskPlacePC(node, tasks, 7, 1));
+  // taskList->AddTask(CreateTaskPickPC(node, tasks, 7, 1));
+  // taskList->AddTask(CreateTaskPlacePC(node, tasks, 8, 1));
+  // taskList->AddTask(CreateTaskPickPC(node, tasks, 8, 1));
   
-  taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1));
-  taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1));
+  // taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 2));
+  // taskList->AddTask(CreateTaskPickBEMI(node, tasks, 2));
 
-  taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
+  // taskList->AddTask(CreateTaskPlacePC(node, tasks, 6, 1));
+
+  // taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 1));
+  // taskList->AddTask(CreateTaskPlacePC(node, tasks, 2, 1));
+  // taskList->AddTask(CreateTaskPickPC(node, tasks, 2, 1));
+  // taskList->AddTask(CreateTaskPlacePC(node, tasks, 3, 1));
+
+  // taskList->AddTask(CreateTaskPickPC(node, tasks, 3, 1));
+  // taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1));
+  // taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1));
+
+  // taskList->AddTask(CreateTaskPlacePC(node, tasks, 4, 1));
+  // taskList->AddTask(CreateTaskPickPC(node, tasks, 4, 1));
+  // taskList->AddTask(CreateTaskPlacePC(node, tasks, 5, 1));
+  // taskList->AddTask(CreateTaskPickPC(node, tasks, 5, 1));
+  
+  // taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1));
+  // taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1));
+
+  // taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
+
+  // taskList->AddTask(taskInitPose);
 
   // place part into clamping device BEMI 1
   //taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1));
 
-  // // change equip: gripper -> deburring spindle
-  // taskList->AddTask(taskSetSpeedCartesianSlow);
-  // taskList->AddTask(taskGripperUnequip);
-  // taskList->AddTask(taskDeburringSpindleEquip);
-  // taskList->AddTask(taskIoDeburringSpindleDeactivate);
+  // change equip: gripper -> deburring spindle
+   //taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+   //taskList->AddTask(taskGripperUnequip);
+   //taskList->AddTask(taskDeburringSpindleEquip);
+   //taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
 
   // // do the deburring process
-  // taskList->AddTask(taskDeburApproach1);
-  // taskList->AddTask(taskDeburExecute);
-  // taskList->AddTask(taskIoDeburringSpindleActivate);
-  // taskList->AddTask(taskWait);
-  // taskList->AddTask(taskDeburCircle);
-  // taskList->AddTask(taskWait);
-  // taskList->AddTask(taskIoDeburringSpindleDeactivate);
-  // taskList->AddTask(taskDeburEnd1);
+  //  taskList->AddTask(taskDeburApproach1);
+  //  taskList->AddTask(taskDeburExecute);
+  //  taskList->AddTask(tasks->taskIoDeburringSpindleActivate);
+  //  taskList->AddTask(tasks->taskWait);
+  //  taskList->AddTask(taskDeburCircle);
+  //  taskList->AddTask(tasks->taskWait);
+  //  taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  //  taskList->AddTask(taskDeburEnd1);
 
   // // change equip: deburring spindle -> gripper
-  // taskList->AddTask(taskSetSpeedCartesianSlow);
+  // taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
   // taskList->AddTask(taskDeburringSpindleUnequip);
   // taskList->AddTask(taskGripperEquip);
 
-  // pick up part again from clamping device BEMI 1
-  //taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1));
+  // //pick up part again from clamping device BEMI 1
+  // taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1));
 
-  // take back part to carrier box
-  //taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
+  // //take back part to carrier box
+  // taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
 
   // // unequip gripper
-  // taskList->AddTask(taskIoGripperNeutral);
-  // taskList->AddTask(taskSetSpeedCartesianSlow);
+  // taskList->AddTask(tasks->taskIoGripperNeutral);
+  // taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
   // taskList->AddTask(taskGripperUnequip); 
 
   // move back to idle pose
-  taskList->AddTask(taskInitPose);
+  //taskList->AddTask(taskInitPose);
 
   while (true)
   {
@@ -870,7 +946,7 @@ int main(int argc, char *argv[])
   CreateCell(node);
   rclcpp::sleep_for(3000ms);
   auto misc_tasks = std::make_shared<MiscTasks>(node);
-  rclcpp::sleep_for(100ms);
+  rclcpp::sleep_for(5000ms);
 
   UseCase1(node, misc_tasks);
 
