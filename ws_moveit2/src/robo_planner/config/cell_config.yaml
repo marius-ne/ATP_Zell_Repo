@@ -20,8 +20,8 @@ robo_planner:
 
       # Station positions
       station:
-        y_approach: -0.40759  # Y-coordinate for approach position
-        y_execute: -0.55759   # Y-coordinate for execution position
+        y_approach: -0.35  # Y-coordinate for approach position
+        y_execute: -0.554 #-0.5549700856208801   # Y-coordinate for execution position
         x_positions: [-0.189, -0.0167, 0.1375, 0.27893]  # X-coordinates for different stations
     
     # Robot speed parameters 
@@ -45,7 +45,7 @@ robo_planner:
     
     # Safety parameters
     safety:
-      placement_offset_z: 0.2  # Z-axis offset for safe placement
+      placement_offset_z: -0.005 # Z-axis offset for safe placement
     
     # Trajectory parameters
     trajectory:

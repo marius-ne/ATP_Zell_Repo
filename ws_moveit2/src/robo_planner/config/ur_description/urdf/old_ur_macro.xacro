@@ -271,6 +271,49 @@
       </xacro:cylinder_inertial>
     </link>
     
+    <link name="${tf_prefix}gripper_link_upper">
+      <visual>
+        <geometry>
+            <!--<box size="0.0 0.0 0.0"/>-->
+	    <!--<box size="0.1 0.1 0.3"/>-->
+	    <cylinder length="0.22" radius="0.045"/>
+        </geometry>
+        <origin xyz="0 0 0.1102" rpy="0 0 0"/>
+        <material name="grau">
+            <color rgba="0.365 0.37 0.388 1.0"/>
+        </material>
+
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.1102" rpy="0 0 0"/>
+        <geometry>
+            <!--<box size="0.1 0.1 0.3"/>-->
+            <cylinder length="0.22" radius="0.045"/>
+	    <!--<box size="0.1 0.1 0.2"/>-->
+        </geometry>
+      </collision>
+    </link>
+    <link name="${tf_prefix}gripper_link_lower">
+      <visual>
+        <geometry>
+            <!--<box size="0.0 0.0 0.0"/>-->
+	    <!--<box size="0.1 0.1 0.3"/>-->
+	    <cylinder length="0.10" radius="0.014"/>
+        </geometry>
+        <origin xyz="0 0 0.2704" rpy="0 0 0"/>
+	<material name="grau">
+            <color rgba="0.365 0.37 0.388 1.0"/>
+        </material>
+      </visual>
+      <collision>
+        <origin xyz="0 0 0.2704" rpy="0 0 0"/>
+        <geometry>
+            <!--<box size="0.1 0.1 0.3"/>-->
+            <cylinder length="0.10" radius="0.014"/>
+	    <!--<box size="0.1 0.1 0.2"/>-->
+        </geometry>
+      </collision>
+    </link>
     <link name="${tf_prefix}cable_mount_link">
       <visual>
         <geometry>
@@ -404,6 +447,17 @@
       <dynamics damping="0" friction="0"/>
     </joint>
  
+    <joint name="${tf_prefix}gripper_joint_upper" type="fixed">
+      <parent link="${tf_prefix}tool0"/>
+      <child link="${tf_prefix}gripper_link_upper"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>   
+    
+    <joint name="${tf_prefix}gripper_joint_lower" type="fixed">
+      <parent link="${tf_prefix}tool0"/>
+      <child link="${tf_prefix}gripper_link_lower"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>   
 
     <joint name="${tf_prefix}cable_mount_joint" type="fixed">
       <parent link="${tf_prefix}tool0"/>
