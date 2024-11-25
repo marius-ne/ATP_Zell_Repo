@@ -36,23 +36,23 @@ def launch_setup(context, *args, **kwargs):
     launch_servo = LaunchConfiguration("launch_servo")
 
     joint_limit_params = PathJoinSubstitution(
-        [FindPackageShare(description_package), "config", ur_type, "joint_limits.yaml"]
+        [FindPackageShare(description_package), "config", "custom_ur_description", "joint_limits.yaml"]
     )
     kinematics_params = PathJoinSubstitution(
-        [FindPackageShare(description_package), "config", ur_type, "default_kinematics.yaml"]
+        [FindPackageShare(description_package), "config", "custom_ur_description", "default_kinematics.yaml"]
     )
     physical_params = PathJoinSubstitution(
-        [FindPackageShare(description_package), "config", ur_type, "physical_parameters.yaml"]
+        [FindPackageShare(description_package), "config", "custom_ur_description", "physical_parameters.yaml"]
     )
     visual_params = PathJoinSubstitution(
-        [FindPackageShare(description_package), "config", ur_type, "visual_parameters.yaml"]
+        [FindPackageShare(description_package), "config", "custom_ur_description", "visual_parameters.yaml"]
     )
 
     robot_description_content = Command(
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
-            PathJoinSubstitution([FindPackageShare(description_package), "urdf", description_file]),
+            PathJoinSubstitution([FindPackageShare(description_package),"config", "custom_ur_description", "urdf", description_file]),
             " ",
             "robot_ip:=xxx.yyy.zzz.www",
             " ",
@@ -102,7 +102,7 @@ def launch_setup(context, *args, **kwargs):
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
             PathJoinSubstitution(
-                [FindPackageShare(moveit_config_package), "srdf", moveit_config_file]
+                [FindPackageShare(moveit_config_package), "config", "custom_moveit_config", "srdf", moveit_config_file]
             ),
             " ",
             "name:=",
@@ -118,7 +118,7 @@ def launch_setup(context, *args, **kwargs):
     robot_description_semantic = {"robot_description_semantic": robot_description_semantic_content}
 
     robot_description_kinematics = PathJoinSubstitution(
-        [FindPackageShare(moveit_config_package), "config", "kinematics.yaml"]
+        [FindPackageShare(moveit_config_package), "config", "custom_moveit_config","config", "kinematics.yaml"]
     )
 
     robot_description_planning = {
@@ -204,7 +204,7 @@ def launch_setup(context, *args, **kwargs):
 
     # rviz with moveit configuration
     rviz_config_file = PathJoinSubstitution(
-        [FindPackageShare(moveit_config_package), "rviz", "view_robot.rviz"]
+        [FindPackageShare(moveit_config_package), "config", "custom_moveit_config", "rviz", "view_robot.rviz"]
     )
     rviz_node = Node(
         package="rviz2",
@@ -249,7 +249,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "ur_type",
-            default_value="ur3e",
+            default_value="ur16e",
             description="Type/series of used UR robot.",
             choices=["ur3", "ur3e", "ur5", "ur5e", "ur10", "ur10e", "ur16e"],
         )
@@ -257,7 +257,7 @@ def generate_launch_description():
     declared_arguments.append(
         DeclareLaunchArgument(
             "use_fake_hardware",
-            default_value="true",
+            default_value="false",
             description="Indicate whether robot is running with fake hardware mirroring command to its states.",
         )
     )
@@ -283,10 +283,11 @@ def generate_launch_description():
         )
     )
     # General arguments
+    # Custom description 
     declared_arguments.append(
         DeclareLaunchArgument(
             "description_package",
-            default_value="ur_description",
+            default_value="robo_planner",
             description="Description package with robot URDF/XACRO files. Usually the argument \
         is not set, it enables use of a custom description.",
         )
@@ -298,10 +299,11 @@ def generate_launch_description():
             description="URDF/XACRO description file with the robot.",
         )
     )
+    # Custom MoveIt config
     declared_arguments.append(
         DeclareLaunchArgument(
             "moveit_config_package",
-            default_value="ur_moveit_config",
+            default_value="robo_planner",
             description="MoveIt config package with robot SRDF/XACRO files. Usually the argument \
         is not set, it enables use of a custom moveit config.",
         )

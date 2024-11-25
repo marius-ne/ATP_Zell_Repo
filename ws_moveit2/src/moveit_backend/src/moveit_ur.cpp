@@ -186,8 +186,8 @@ class RobotUr : public rclcpp::Node
             shape_msgs::msg::SolidPrimitive primitive;
             primitive.type = primitive.CYLINDER;
             primitive.dimensions.resize(2);
-            primitive.dimensions[0] = 0.2; // Length
-            primitive.dimensions[1] = 0.05; // Radius
+            primitive.dimensions[0] = 0.18; // Length
+            primitive.dimensions[1] = 0.035; // Radius
 
             // Offset the position down by half the length to place top at pose
             geometry_msgs::msg::Pose adjusted_pose = pose;
@@ -605,7 +605,7 @@ class RobotUr : public rclcpp::Node
                     return;
                 }
                 
-                std::this_thread::sleep_for(std::chrono::milliseconds(100));
+                std::this_thread::sleep_for(std::chrono::milliseconds(200));
 
                 remove_collision_object(name);
                 response->result = 1;

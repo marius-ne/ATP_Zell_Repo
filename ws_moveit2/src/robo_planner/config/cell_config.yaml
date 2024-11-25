@@ -11,19 +11,27 @@ robo_planner:
 
       # Part Carrier 
       PC:
+        # Parts positions inside part carrier 1
         x_1: [-0.351, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762]
         y_1: [ 0.341,  0.341,  0.341,  0.341,  0.341,  0.144,  0.144,  0.144] 
         z_1: [ 0.260,  0.260,  0.260,  0.260,  0.260,  0.230,  0.230,  0.230]
-        x_2: [-0.50674, 0.0] 
-        y_2: [-0.18692, 0.0]
-        z_2: [0.5453, 0.0] 
-
+        # Bearings positions inside part carrier 2
+        x_2: [-0.3546, 0.0] 
+        y_2: [-0.27372, 0.0]
+        z_2: [0.56526, 0.0] 
+        
       # Station positions
       station:
         y_approach: -0.35  # Y-coordinate for approach position
         y_execute: -0.554 #-0.5549700856208801   # Y-coordinate for execution position
         x_positions: [-0.189, -0.0167, 0.1375, 0.27893]  # X-coordinates for different stations
-    
+
+      # Bearing positions inside part placed in BEMI 1 to 3 [BEMI1, BEMI2, BEMI3]
+      bearing:
+        x: [0.38083, 0.08982]  # X-coordinates for bearing positions
+        y: [0.64933, 0.57029]  # Y-coordinates for bearing positions
+        z: [0.06158, 0.33903]  # Z-coordinates for bearing positions
+  
     # Robot speed parameters 
     speeds:
       ptp: 0.3               # Point-to-Point movement speed

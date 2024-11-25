@@ -32,7 +32,7 @@ T get_parameter(const rclcpp::Node::SharedPtr &node, const std::string &name, co
   if (!node->has_parameter(name))
   {
     node->declare_parameter(name, default_value);
-    RCLCPP_WARN(node->get_logger(), "Parameter %s not found Reverting to default value",name.c_str());
+    RCLCPP_WARN(node->get_logger(), "Parameter %s not found Reverting to default value", name.c_str());
   }
   return node->get_parameter(name).get_value<T>();
 }
@@ -83,44 +83,46 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
   RCLCPP_INFO(node->get_logger(), "Robot scheduler cell environment initialization end.");
 }
 
-class MiscTasks {
-  public:
-    //Task objects are publicly accessible for reuse in other functions
-    std::shared_ptr<WzlPlanner::TaskWait> taskWait;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi1Open;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi1Close;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi2Open;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi2Close;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi3Open;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi3Close;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoGripperOpen;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoGripperClose;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoGripperNeutral;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoDeburringSpindleDeactivate;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoDeburringSpindleActivate;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoDeburringSpindleAnpressdruckActivate;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoDeburringSpindleAnpressdruckDeactivate;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoLampRed;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoLampGreen;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoLampOrange;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoLampOff;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoTuerAuf;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoTuerZu;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoTuerStop;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoAlarmOn;
-    std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoAlarmOff;
-    std::shared_ptr<WzlPlanner::TaskSetRobotValueVelocity> taskSetSpeedPtp;
-    std::shared_ptr<WzlPlanner::TaskSetRobotValueVelocity> taskSetSpeedCartesianFast;
-    std::shared_ptr<WzlPlanner::TaskSetRobotValueVelocity> taskSetSpeedCartesianSlow;
-    std::shared_ptr<WzlPlanner::TaskPartAttach> taskAttachSpindel;
-    std::shared_ptr<WzlPlanner::TaskPartAttach> taskAttachGripper;
-    std::shared_ptr<WzlPlanner::TaskPartAttach> taskAttachSmallGripper;
-    std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSpindel;
-    std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachGripper;
-    std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSmallGripper;
+class MiscTasks
+{
+public:
+  // Task objects are publicly accessible for reuse in other functions
+  std::shared_ptr<WzlPlanner::TaskWait> taskWait;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi1Open;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi1Close;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi2Open;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi2Close;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi3Open;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi3Close;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoGripperOpen;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoGripperClose;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoGripperNeutral;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoDeburringSpindleDeactivate;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoDeburringSpindleActivate;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoDeburringSpindleAnpressdruckActivate;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoDeburringSpindleAnpressdruckDeactivate;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoLampRed;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoLampGreen;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoLampOrange;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoLampOff;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoTuerAuf;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoTuerZu;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoTuerStop;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoAlarmOn;
+  std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoAlarmOff;
+  std::shared_ptr<WzlPlanner::TaskSetRobotValueVelocity> taskSetSpeedPtp;
+  std::shared_ptr<WzlPlanner::TaskSetRobotValueVelocity> taskSetSpeedCartesianFast;
+  std::shared_ptr<WzlPlanner::TaskSetRobotValueVelocity> taskSetSpeedCartesianSlow;
+  std::shared_ptr<WzlPlanner::TaskPartAttach> taskAttachSpindel;
+  std::shared_ptr<WzlPlanner::TaskPartAttach> taskAttachGripper;
+  std::shared_ptr<WzlPlanner::TaskPartAttach> taskAttachSmallGripper;
+  std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSpindel;
+  std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachGripper;
+  std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSmallGripper;
 
-    // Constructor initializes all tasks
-    MiscTasks(const rclcpp::Node::SharedPtr& node) {
+  // Constructor initializes all tasks
+  MiscTasks(const rclcpp::Node::SharedPtr &node)
+  {
     taskWait = std::make_shared<WzlPlanner::TaskWait>();
     taskWait->time_ = std::chrono::milliseconds(get_parameter<int>(node, "timings.default_wait", 300));
     taskWait->SetId("taskWait");
@@ -213,40 +215,40 @@ class MiscTasks {
         WzlPlanner::OpcUaData::GetOpcUaData_AlarmWriteAus());
     taskIoAlarmOff->SetId("taskIoAlarmOff");
 
-    // Set movement speeds from config parameters 
+    // Set movement speeds from config parameters
     double ptp_speed = get_parameter<double>(node, "speeds.ptp", 0.3);
     double cartesian_fast = get_parameter<double>(node, "speeds.cartesian_fast", 0.1);
     double cartesian_slow = get_parameter<double>(node, "speeds.cartesian_slow", 0.03);
-    
+
     taskSetSpeedPtp = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(ptp_speed, 1.0, 0);
     taskSetSpeedCartesianFast = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(cartesian_fast, 0.1, 1);
     taskSetSpeedCartesianSlow = std::make_shared<WzlPlanner::TaskSetRobotValueVelocity>(cartesian_slow, 0.05, 1);
-    
+
     taskSetSpeedPtp->SetId("taskSetSpeedPtp");
-    taskSetSpeedCartesianFast->SetId("taskSetSpeedCartesianFast"); 
+    taskSetSpeedCartesianFast->SetId("taskSetSpeedCartesianFast");
     taskSetSpeedCartesianSlow->SetId("taskSetSpeedCartesianSlow");
 
-    //Part Attach-Detach
+    // Part Attach-Detach
 
     taskAttachSpindel = std::make_shared<WzlPlanner::TaskPartAttach>("spindel");
     taskAttachSpindel->SetId("taskAttachSpindel");
-    
-    taskAttachGripper = std::make_shared<WzlPlanner::TaskPartAttach>("gripper"); 
+
+    taskAttachGripper = std::make_shared<WzlPlanner::TaskPartAttach>("gripper");
     taskAttachGripper->SetId("taskAttachGripper");
-    
+
     taskAttachSmallGripper = std::make_shared<WzlPlanner::TaskPartAttach>("small_gripper");
     taskAttachSmallGripper->SetId("taskAttachSmallGripper");
 
     taskDetachSpindel = std::make_shared<WzlPlanner::TaskPartDetach>("spindel");
     taskDetachSpindel->SetId("taskDetachSpindel");
-    
+
     taskDetachGripper = std::make_shared<WzlPlanner::TaskPartDetach>("gripper");
     taskDetachGripper->SetId("taskDetachGripper");
-    
+
     taskDetachSmallGripper = std::make_shared<WzlPlanner::TaskPartDetach>("small_gripper");
     taskDetachSmallGripper->SetId("taskDetachSmallGripper");
 
-    RCLCPP_INFO(node->get_logger(), "Miscellaneous tasks initialized.");  
+    RCLCPP_INFO(node->get_logger(), "Miscellaneous tasks initialized.");
   }
 };
 
@@ -348,7 +350,7 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(const rclcpp::N
     return nullptr;
   }
 
-  double rotX = M_PI - M_PI/256; // Offset weil tool change station nicht gerade ist
+  double rotX = M_PI - M_PI / 256; // Offset weil tool change station nicht gerade ist
   double rotY = 0;
   double rotZ = M_PI * -0.5;
 
@@ -419,7 +421,7 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(const rclcpp::N
  * @param PCNr The Part Carrier Number 1-2
  * @return A shared pointer to the task list
  */
-std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks>& tasks, int PCIndex, int PCNr)
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, int PCIndex, int PCNr)
 {
   if (PCNr < 1 || PCNr > 2)
   {
@@ -441,18 +443,19 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::Share
   if (PCNr == 1)
   {
     PC1X = get_parameter<std::vector<double>>(node, "positions.PC.x_1", {-0.351, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762});
-    PC1Y = get_parameter<std::vector<double>>(node, "positions.PC.y_1", {0.341,  0.341,  0.341,  0.341,  0.341,  0.144,  0.144,  0.144});
-    PC1Z = get_parameter<std::vector<double>>(node, "positions.PC.z_1", {0.260,  0.260,  0.260,  0.260,  0.260,  0.230,  0.230,  0.230});
-    rotZ = -M_PI - M_PI/4;
-  } else if (PCNr == 2)
+    PC1Y = get_parameter<std::vector<double>>(node, "positions.PC.y_1", {0.341, 0.341, 0.341, 0.341, 0.341, 0.144, 0.144, 0.144});
+    PC1Z = get_parameter<std::vector<double>>(node, "positions.PC.z_1", {0.260, 0.260, 0.260, 0.260, 0.260, 0.230, 0.230, 0.230});
+    rotZ = -M_PI - M_PI / 4;
+  }
+  else if (PCNr == 2)
   {
     PC1X = get_parameter<std::vector<double>>(node, "positions.PC.x_2", {-0.50674, 0.0});
     PC1Y = get_parameter<std::vector<double>>(node, "positions.PC.y_2", {-0.18692, 0.0});
     PC1Z = get_parameter<std::vector<double>>(node, "positions.PC.z_2", {0.5453, 0.0});
-    rotZ = -M_PI; 
+    rotZ = -M_PI;
   }
 
-  int PC_index = PCIndex-1;
+  int PC_index = PCIndex - 1;
 
   double placementPC1Z = PC1Z[PC_index] + placementOffsetZ;
 
@@ -501,7 +504,7 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::Share
  * @param PCNr The Part Carrier Number 1-2
  * @return A shared pointer to the task list
  */
-std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlacePC(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks>& tasks, int PCIndex, int PCNr)
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlacePC(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, int PCIndex, int PCNr)
 {
   if (PCNr < 1 || PCNr > 2)
   {
@@ -523,18 +526,19 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlacePC(const rclcpp::Node::Shar
   if (PCNr == 1)
   {
     PC1X = get_parameter<std::vector<double>>(node, "positions.PC.x_1", {-0.351, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762});
-    PC1Y = get_parameter<std::vector<double>>(node, "positions.PC.y_1", {0.341,  0.341,  0.341,  0.341,  0.341,  0.144,  0.144,  0.144});
-    PC1Z = get_parameter<std::vector<double>>(node, "positions.PC.z_1", {0.260,  0.260,  0.260,  0.260,  0.260,  0.230,  0.230,  0.230});
-    rotZ = -M_PI - M_PI/4;
-  } else if (PCNr == 2)
+    PC1Y = get_parameter<std::vector<double>>(node, "positions.PC.y_1", {0.341, 0.341, 0.341, 0.341, 0.341, 0.144, 0.144, 0.144});
+    PC1Z = get_parameter<std::vector<double>>(node, "positions.PC.z_1", {0.260, 0.260, 0.260, 0.260, 0.260, 0.230, 0.230, 0.230});
+    rotZ = -M_PI - M_PI / 4;
+  }
+  else if (PCNr == 2)
   {
     PC1X = get_parameter<std::vector<double>>(node, "positions.PC.x_2", {-0.50674, 0.0});
     PC1Y = get_parameter<std::vector<double>>(node, "positions.PC.y_2", {-0.18692, 0.0});
     PC1Z = get_parameter<std::vector<double>>(node, "positions.PC.z_2", {0.5453, 0.0});
-    rotZ = -M_PI; 
+    rotZ = -M_PI;
   }
 
-  int PC_index = PCIndex-1;
+  int PC_index = PCIndex - 1;
 
   double placementPC1Z = PC1Z[PC_index] + placementOffsetZ;
 
@@ -582,7 +586,7 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlacePC(const rclcpp::Node::Shar
  * @param BEMIIndex The index of the BEMI 1-3
  * @return A shared pointer to the task list
  */
-std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBEMI(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks>& tasks, int BEMIIndex)
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBEMI(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, int BEMIIndex)
 {
   if (BEMIIndex < 1 || BEMIIndex > 3)
   {
@@ -595,23 +599,23 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBEMI(const rclcpp::Node::Sha
 
   double rotX = M_PI;
   double rotY = 0;
-  double rotZ = -M_PI - M_PI/4;
+  double rotZ = -M_PI - M_PI / 4;
 
   // BEMI POSE DEF
 
   std::vector<double> ExecutionBEMIZ = get_parameter<std::vector<double>>(node, "positions.bemi.z", {0.320, 0.2885, 0.0});
 
-  double placementBemiZ = ExecutionBEMIZ[BEMIIndex-1] + placementOffsetZ;
+  double placementBemiZ = ExecutionBEMIZ[BEMIIndex - 1] + placementOffsetZ;
 
   std::vector<double> BEMIX = get_parameter<std::vector<double>>(node, "positions.bemi.x", {0.3634, 0.1184, 0.0});
   std::vector<double> BEMIY = get_parameter<std::vector<double>>(node, "positions.bemi.y", {0.6815, 0.6178, 0.0});
-  
-  std::vector<double> BEMIRZOffset = get_parameter<std::vector<double>>(node, "positions.bemi.RZ_offset", {0.0475, -1.405985086238, 0.0});
-  double BEMIrotZ = rotZ + BEMIRZOffset[BEMIIndex-1];
 
-  auto poseApproachBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex-1], BEMIY[BEMIIndex-1], placementBemiZ, rotX, rotY, BEMIrotZ );
-  auto poseExecuteBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex-1], BEMIY[BEMIIndex-1], ExecutionBEMIZ[BEMIIndex-1], rotX, rotY, BEMIrotZ );
-  auto poseEndBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex-1], BEMIY[BEMIIndex-1], placementBemiZ, rotX, rotY, BEMIrotZ);
+  std::vector<double> BEMIRZOffset = get_parameter<std::vector<double>>(node, "positions.bemi.RZ_offset", {0.0475, -1.405985086238, 0.0});
+  double BEMIrotZ = rotZ + BEMIRZOffset[BEMIIndex - 1];
+
+  auto poseApproachBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex - 1], BEMIY[BEMIIndex - 1], placementBemiZ, rotX, rotY, BEMIrotZ);
+  auto poseExecuteBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex - 1], BEMIY[BEMIIndex - 1], ExecutionBEMIZ[BEMIIndex - 1], rotX, rotY, BEMIrotZ);
+  auto poseEndBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex - 1], BEMIY[BEMIIndex - 1], placementBemiZ, rotX, rotY, BEMIrotZ);
 
   // BEMI TASK DEF
   auto taskApproachBemi = std::make_shared<WzlPlanner::TaskMoveToPose>();
@@ -631,12 +635,13 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBEMI(const rclcpp::Node::Sha
   if (BEMIIndex == 1)
   {
     taskList->AddTask(tasks->taskIoBemi1Open);
-  } else if (BEMIIndex == 2)
+  }
+  else if (BEMIIndex == 2)
   {
     taskList->AddTask(tasks->taskIoBemi2Open);
-  } //else if (BEMIIndex == 3)
+  } // else if (BEMIIndex == 3)
   //{
-    //taskList->AddTask(tasks->taskIoBemi3Open);
+  // taskList->AddTask(tasks->taskIoBemi3Open);
   //}
 
   taskList->AddTask(tasks->taskIoGripperClose);
@@ -670,7 +675,7 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBEMI(const rclcpp::Node::Sha
  * @param BEMIIndex The index of the BEMI 1-3
  * @return A shared pointer to the task list
  */
-std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks>& tasks, int BEMIIndex)
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, int BEMIIndex)
 {
   if (BEMIIndex < 1 || BEMIIndex > 3)
   {
@@ -683,23 +688,23 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::Sh
 
   double rotX = M_PI;
   double rotY = 0;
-  double rotZ = -M_PI - M_PI/4;
+  double rotZ = -M_PI - M_PI / 4;
 
   // BEMI POSE DEF
 
   std::vector<double> ExecutionBEMIZ = get_parameter<std::vector<double>>(node, "positions.bemi.z", {0.320, 0.2885, 0.0});
 
-  double placementBemiZ = ExecutionBEMIZ[BEMIIndex-1] + placementOffsetZ;
+  double placementBemiZ = ExecutionBEMIZ[BEMIIndex - 1] + placementOffsetZ;
 
   std::vector<double> BEMIX = get_parameter<std::vector<double>>(node, "positions.bemi.x", {0.3634, 0.1184, 0.0});
   std::vector<double> BEMIY = get_parameter<std::vector<double>>(node, "positions.bemi.y", {0.6815, 0.6178, 0.0});
-  
-  std::vector<double> BEMIRZOffset = get_parameter<std::vector<double>>(node, "positions.bemi.RZ_offset", {0.0475, -1.405985086238, 0.0});
-  double BEMIrotZ = rotZ + BEMIRZOffset[BEMIIndex-1];
 
-  auto poseApproachBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex-1], BEMIY[BEMIIndex-1], placementBemiZ, rotX, rotY, BEMIrotZ );
-  auto poseExecuteBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex-1], BEMIY[BEMIIndex-1], ExecutionBEMIZ[BEMIIndex-1], rotX, rotY, BEMIrotZ );
-  auto poseEndBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex-1], BEMIY[BEMIIndex-1], placementBemiZ, rotX, rotY, BEMIrotZ);
+  std::vector<double> BEMIRZOffset = get_parameter<std::vector<double>>(node, "positions.bemi.RZ_offset", {0.0475, -1.405985086238, 0.0});
+  double BEMIrotZ = rotZ + BEMIRZOffset[BEMIIndex - 1];
+
+  auto poseApproachBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex - 1], BEMIY[BEMIIndex - 1], placementBemiZ, rotX, rotY, BEMIrotZ);
+  auto poseExecuteBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex - 1], BEMIY[BEMIIndex - 1], ExecutionBEMIZ[BEMIIndex - 1], rotX, rotY, BEMIrotZ);
+  auto poseEndBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex - 1], BEMIY[BEMIIndex - 1], placementBemiZ, rotX, rotY, BEMIrotZ);
 
   // BEMI TASK DEF
   auto taskApproachBemi = std::make_shared<WzlPlanner::TaskMoveToPose>();
@@ -719,7 +724,8 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::Sh
   if (BEMIIndex == 1)
   {
     taskList->AddTask(tasks->taskIoBemi1Open);
-  } else if (BEMIIndex == 2)
+  }
+  else if (BEMIIndex == 2)
   {
     taskList->AddTask(tasks->taskIoBemi2Open);
   }
@@ -735,7 +741,8 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::Sh
   if (BEMIIndex == 1)
   {
     taskList->AddTask(tasks->taskIoBemi1Close);
-  } else if (BEMIIndex == 2)
+  }
+  else if (BEMIIndex == 2)
   {
     taskList->AddTask(tasks->taskIoBemi2Close);
   }
@@ -746,149 +753,160 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::Sh
   return taskList;
 }
 
-/* std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBearingFromBEMI(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks>& tasks, int BEMIIndex)
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBearingInBEMI(
+    const rclcpp::Node::SharedPtr &node,
+    const std::shared_ptr<MiscTasks> &tasks,
+    int BEMIIndex)
 {
   if (BEMIIndex < 1 || BEMIIndex > 3)
   {
-    std::cout << "The BEMI index: " << std::to_string(BEMIIndex) << " in method 'CreateTaskPickBEMI' is not defined." << std::endl;
+    std::cout << "The BEMI index: " << std::to_string(BEMIIndex)
+              << " in method 'CreateTaskPlaceBearingInBEMI' is not defined." << std::endl;
     return nullptr;
   }
 
   // Constants
-  double placementOffsetZ = 0.2;
+  double placementOffsetZ = 0.25; // Offset for bearing placement height
 
   double rotX = M_PI;
   double rotY = 0;
-  double rotZ = -M_PI - M_PI/4;
+   double rotZ = -M_PI - M_PI / 4;
+  //double rotZ = 0;
 
-  // BEMI POSE DEF
+  // Bearing placement poses
+  std::vector<double> BearingX = get_parameter<std::vector<double>>(node, "positions.bearing.x", {0, 0.08982});
+  std::vector<double> BearingY = get_parameter<std::vector<double>>(node, "positions.bearing.y", {0, 0.57029});
+  std::vector<double> BearingZ = get_parameter<std::vector<double>>(node, "positions.bearing.z", {0, 0.33903});
 
-  std::vector<double> ExecutionBEMIZ = get_parameter<std::vector<double>>(node, "positions.bemi.z", {0.320, 0.2885, 0.0});
+  double placementBearingZ = BearingZ[BEMIIndex - 1] + placementOffsetZ;
 
-  double placementBemiZ = ExecutionBEMIZ[BEMIIndex-1] + placementOffsetZ;
+  double bearingRotZ = rotZ;
+  // Bearing rotation offset
+  /*   std::vector<double> BearingRZOffset = get_parameter<std::vector<double>>(
+        node, "positions.bearing.RZ_offset", {0.05, -1.4, 0.1});
+    double bearingRotZ = rotZ + BearingRZOffset[BEMIIndex - 1]; */
 
-  std::vector<double> BEMIX = get_parameter<std::vector<double>>(node, "positions.bemi.x", {0.3634, 0.1184, 0.0});
-  std::vector<double> BEMIY = get_parameter<std::vector<double>>(node, "positions.bemi.y", {0.6815, 0.6178, 0.0});
-  
-  std::vector<double> BEMIRZOffset = get_parameter<std::vector<double>>(node, "positions.bemi.RZ_offset", {0.0475, -1.405985086238, 0.0});
-  double BEMIrotZ = rotZ + BEMIRZOffset[BEMIIndex-1];
+  // Define poses
+  auto poseApproachBearing = std::make_shared<WzlPlanner::Pose>(
+      BearingX[BEMIIndex - 1], BearingY[BEMIIndex - 1], placementBearingZ, rotX, rotY, bearingRotZ);
+  auto posePlaceBearing = std::make_shared<WzlPlanner::Pose>(
+      BearingX[BEMIIndex - 1], BearingY[BEMIIndex - 1], BearingZ[BEMIIndex - 1], rotX, rotY, bearingRotZ);
+  auto poseEndBearing = std::make_shared<WzlPlanner::Pose>(
+      BearingX[BEMIIndex - 1], BearingY[BEMIIndex - 1], placementBearingZ, rotX, rotY, bearingRotZ);
 
-  auto poseApproachBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex-1], BEMIY[BEMIIndex-1], placementBemiZ, rotX, rotY, BEMIrotZ );
-  auto poseExecuteBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex-1], BEMIY[BEMIIndex-1], ExecutionBEMIZ[BEMIIndex-1], rotX, rotY, BEMIrotZ );
-  auto poseEndBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex-1], BEMIY[BEMIIndex-1], placementBemiZ, rotX, rotY, BEMIrotZ);
+  // Define tasks
+  auto taskApproachBearing = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto taskPlaceBearing = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto taskEndBearing = std::make_shared<WzlPlanner::TaskMoveToPose>();
 
-  // BEMI TASK DEF
-  auto taskApproachBemi = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  auto taskExecuteBemi = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  auto taskEndBemi = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  taskApproachBearing->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBearing);
+  taskPlaceBearing->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(posePlaceBearing);
+  taskEndBearing->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBearing);
 
-  taskApproachBemi->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBemi);
-  taskExecuteBemi->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseExecuteBemi);
-  taskEndBemi->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBemi);
-
-  // DEFINE TASK LIST
+  // Define task list
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
 
-  taskList->AddTask(tasks->taskSetSpeedCartesianFast);
-  taskList->AddTask(taskApproachBemi);
-
+  // Redundant check if BEMI is closed
   if (BEMIIndex == 1)
   {
-    taskList->AddTask(tasks->taskIoBemi1Open);
-  } else if (BEMIIndex == 2)
+    taskList->AddTask(tasks->taskIoBemi1Close);
+  }
+  else if (BEMIIndex == 2)
   {
-    taskList->AddTask(tasks->taskIoBemi2Open);
-  } //else if (BEMIIndex == 3)
-  //{
-    //taskList->AddTask(tasks->taskIoBemi3Open);
-  //}
-
-  taskList->AddTask(tasks->taskIoGripperClose);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(taskExecuteBemi);
-  taskList->AddTask(tasks->taskIoGripperOpen);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(taskEndBemi);
-
-  return taskList;
-}
-
-std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBearingInBEMI(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks>& tasks, int BEMIIndex)
-{
-  if (BEMIIndex < 1 || BEMIIndex > 3)
-  {
-    std::cout << "The BEMI index: " << std::to_string(BEMIIndex) << " in method 'CreateTaskPlaceBEMI' is not defined." << std::endl;
-    return nullptr;
+    taskList->AddTask(tasks->taskIoBemi2Close);
   }
 
-  // Constants
-  double placementOffsetZ = 0.2;
-
-  double rotX = M_PI;
-  double rotY = 0;
-  double rotZ = -M_PI - M_PI/4;
-
-  // BEMI POSE DEF
-
-  std::vector<double> ExecutionBEMIZ = get_parameter<std::vector<double>>(node, "positions.bemi.z", {0.320, 0.2885, 0.0});
-
-  double placementBemiZ = ExecutionBEMIZ[BEMIIndex-1] + placementOffsetZ;
-
-  std::vector<double> BEMIX = get_parameter<std::vector<double>>(node, "positions.bemi.x", {0.3634, 0.1184, 0.0});
-  std::vector<double> BEMIY = get_parameter<std::vector<double>>(node, "positions.bemi.y", {0.6815, 0.6178, 0.0});
-  
-  std::vector<double> BEMIRZOffset = get_parameter<std::vector<double>>(node, "positions.bemi.RZ_offset", {0.0475, -1.405985086238, 0.0});
-  double BEMIrotZ = rotZ + BEMIRZOffset[BEMIIndex-1];
-
-  auto poseApproachBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex-1], BEMIY[BEMIIndex-1], placementBemiZ, rotX, rotY, BEMIrotZ );
-  auto poseExecuteBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex-1], BEMIY[BEMIIndex-1], ExecutionBEMIZ[BEMIIndex-1], rotX, rotY, BEMIrotZ );
-  auto poseEndBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex-1], BEMIY[BEMIIndex-1], placementBemiZ, rotX, rotY, BEMIrotZ);
-
-  // BEMI TASK DEF
-  auto taskApproachBemi = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  auto taskExecuteBemi = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  auto taskEndBemi = std::make_shared<WzlPlanner::TaskMoveToPose>();
-
-  taskApproachBemi->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBemi);
-  taskExecuteBemi->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseExecuteBemi);
-  taskEndBemi->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBemi);
-
-  // DEFINE TASK LIST
-  auto taskList = std::make_shared<WzlPlanner::TaskList>();
-
+  // Add tasks to task list
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
-  taskList->AddTask(taskApproachBemi);
-
-  if (BEMIIndex == 1)
-  {
-    taskList->AddTask(tasks->taskIoBemi1Open);
-  } else if (BEMIIndex == 2)
-  {
-    taskList->AddTask(tasks->taskIoBemi2Open);
-  }
-
+  taskList->AddTask(taskApproachBearing);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(taskExecuteBemi);
+  taskList->AddTask(taskPlaceBearing);
+  taskList->AddTask(tasks->taskIoGripperClose); // Check if we should close or open gripper here
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskEndBearing);
   taskList->AddTask(tasks->taskSetSpeedCartesianFast);
-  taskList->AddTask(tasks->taskIoGripperClose);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(taskEndBemi);
-  taskList->AddTask(tasks->taskWait);
-
-  if (BEMIIndex == 1)
-  {
-    taskList->AddTask(tasks->taskIoBemi1Close);
-  } else if (BEMIIndex == 2)
-  {
-    taskList->AddTask(tasks->taskIoBemi2Close);
-  }
-
-  taskList->AddTask(tasks->taskIoGripperOpen);
   taskList->AddTask(tasks->taskIoGripperNeutral);
 
   return taskList;
 }
- */
+
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBearingFromBEMI(
+    const rclcpp::Node::SharedPtr &node,
+    const std::shared_ptr<MiscTasks> &tasks,
+    int BEMIIndex)
+{
+  if (BEMIIndex < 1 || BEMIIndex > 3)
+  {
+    std::cout << "The BEMI index: " << std::to_string(BEMIIndex)
+              << " in method 'CreateTaskPickBearingFromBEMI' is not defined." << std::endl;
+    return nullptr;
+  }
+
+  // Constants
+  double placementOffsetZ = 0.25; // Offset for bearing placement height
+
+  double rotX = M_PI;
+  double rotY = 0;
+   double rotZ = -M_PI - M_PI / 4;
+  //double rotZ = 0;
+
+  // Bearing placement poses
+  std::vector<double> BearingX = get_parameter<std::vector<double>>(node, "positions.bearing.x", {0, 0.08982});
+  std::vector<double> BearingY = get_parameter<std::vector<double>>(node, "positions.bearing.y", {0, 0.57029});
+  std::vector<double> BearingZ = get_parameter<std::vector<double>>(node, "positions.bearing.z", {0, 0.33903});
+
+  double placementBearingZ = BearingZ[BEMIIndex - 1] + placementOffsetZ;
+
+  double bearingRotZ = rotZ;
+  // Bearing rotation offset
+  /*   std::vector<double> BearingRZOffset = get_parameter<std::vector<double>>(
+        node, "positions.bearing.RZ_offset", {0.05, -1.4, 0.1});
+    double bearingRotZ = rotZ + BearingRZOffset[BEMIIndex - 1]; */
+
+  // Define poses
+  auto poseApproachBearing = std::make_shared<WzlPlanner::Pose>(
+      BearingX[BEMIIndex - 1], BearingY[BEMIIndex - 1], placementBearingZ, rotX, rotY, bearingRotZ);
+  auto posePickBearing = std::make_shared<WzlPlanner::Pose>(
+      BearingX[BEMIIndex - 1], BearingY[BEMIIndex - 1], BearingZ[BEMIIndex - 1], rotX, rotY, bearingRotZ);
+  auto poseEndBearing = std::make_shared<WzlPlanner::Pose>(
+      BearingX[BEMIIndex - 1], BearingY[BEMIIndex - 1], placementBearingZ, rotX, rotY, bearingRotZ);
+
+  // Define tasks
+  auto taskApproachBearing = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto taskPickBearing = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto taskEndBearing = std::make_shared<WzlPlanner::TaskMoveToPose>();
+
+  taskApproachBearing->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBearing);
+  taskPickBearing->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(posePickBearing);
+  taskEndBearing->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBearing);
+
+  // Define task list
+  auto taskList = std::make_shared<WzlPlanner::TaskList>();
+
+  // Redundant check if BEMI is closed
+  if (BEMIIndex == 1)
+  {
+    taskList->AddTask(tasks->taskIoBemi1Close);
+  }
+  else if (BEMIIndex == 2)
+  {
+    taskList->AddTask(tasks->taskIoBemi2Close);
+  }
+
+  // Add tasks to task list
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskApproachBearing);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPickBearing);
+  taskList->AddTask(tasks->taskIoGripperOpen); // Check if we should close or open gripper here
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskEndBearing);
+  taskList->AddTask(tasks->taskSetSpeedCartesianFast);
+  taskList->AddTask(tasks->taskIoGripperNeutral);
+
+  return taskList;
+}
+
 /**
  * @brief Creates a task list for a circular movement around a given point
  *
@@ -928,7 +946,7 @@ std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double 
  *
  * @param node ROS2 node object
  */
-void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks>& tasks)
+void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks)
 {
   // auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
   [[maybe_unused]] auto useOpcua = false;
@@ -948,14 +966,14 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   // Constants
   double rotX = M_PI;
   double rotY = 0;
-  double rotZ = -M_PI - M_PI/4;
+  double rotZ = -M_PI - M_PI / 4;
 
   // INIT pose and task def
   auto poseInit = std::make_shared<WzlPlanner::Pose>(0.3122745752334595, 0.09810880571603775, 0.4534417390823364, rotX, rotY, rotZ);
-  
+
   auto taskInitPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskInitPose->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseInit);
-  
+
   // Change tool: Gripper -> deburring spindle
   auto taskGripperUnequip = GetChangingStationTaskPlace(node, 3);
   auto taskDeburringSpindleEquip = GetChangingStationTaskPick(node, 2);
@@ -993,6 +1011,7 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
 
   // Set Pneumatics to neutral
+  taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskIoGripperNeutral);
   taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
 
@@ -1000,41 +1019,43 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   taskList->AddTask(tasks->taskSetSpeedPtp);
 
   // Move to initial pose and wait
-  taskList->AddTask(taskInitPose);
-  taskList->AddTask(tasks->taskWait);
+  //taskList->AddTask(taskInitPose);
 
-  // Equip small gripper
-  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  // Equip small gripper and attach collision model
+  /* taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
   taskList->AddTask(taskSmallGripperEquip);
-  taskList->AddTask(tasks->taskAttachSmallGripper);
+  taskList->AddTask(tasks->taskAttachSmallGripper); */
 
   // Pick up bearing 1 from part carrier 2
-  //taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 2));
+   //taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 2));
 
   // Place bearing 1 into part inside BEMI 1
-  //taskList->AddTask(CreateTaskPlaceBearingInBEMI(node, tasks, 1));
+  //taskList->AddTask(tasks->taskAttachSmallGripper);
+  taskList->AddTask(CreateTaskPlaceBearingInBEMI(node, tasks, 2));
+  taskList->AddTask(CreateTaskPickBearingFromBEMI(node, tasks, 2));
 
   // Place bearing 1 into part carrier 2
-  //taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 2));
+  // taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 2));
 
   // Move to initial pose and wait
-  taskList->AddTask(taskInitPose);
+  //taskList->AddTask(taskInitPose);
   taskList->AddTask(tasks->taskWait);
 
   // Unequip small gripper
+/*    taskList->AddTask(tasks->taskIoGripperNeutral);
   taskList->AddTask(taskSmallGripperUnequip);
-  taskList->AddTask(tasks->taskDetachSmallGripper);
+  taskList->AddTask(tasks->taskDetachSmallGripper);  */
 
-  //taskList->AddTask(tasks->taskSetSpeedPtp);
+  // taskList->AddTask(tasks->taskSetSpeedPtp);
 
   // place part into clamping device BEMI 1
-  //taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1));
+  // taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1));
 
   // change equip: gripper -> deburring spindle
-   //taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
-   //taskList->AddTask(taskGripperUnequip);
-   //taskList->AddTask(taskDeburringSpindleEquip);
-   //taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  // taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  // taskList->AddTask(taskGripperUnequip);
+  // taskList->AddTask(taskDeburringSpindleEquip);
+  // taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
 
   // // do the deburring process
   //  taskList->AddTask(taskDeburApproach1);
@@ -1060,7 +1081,7 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   // // unequip gripper
   // taskList->AddTask(tasks->taskIoGripperNeutral);
   // taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
-  // taskList->AddTask(taskGripperUnequip); 
+  // taskList->AddTask(taskGripperUnequip);
 
   // move back to idle pose
   taskList->AddTask(taskInitPose);
