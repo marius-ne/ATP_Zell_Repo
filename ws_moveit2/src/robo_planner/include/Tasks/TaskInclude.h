@@ -15,6 +15,8 @@
 #include "Atomic/TaskOpcuaRequest.h"
 #include "Atomic/TaskFollowTrajectory.h"
 #include "Atomic/TaskWait.h"
+#include "Atomic/TaskPartAttach.h"
+#include "Atomic/TaskPartDetach.h"
 
 // include composed tasks
 #include "Composed/TaskGripperChange.h"

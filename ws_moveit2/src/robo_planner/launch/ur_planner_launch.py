@@ -1,3 +1,4 @@
+from ament_index_python import get_package_share_directory
 import launch
 import os
 import sys
@@ -8,22 +9,22 @@ from launch_ros.substitutions import FindPackageShare
 
 def get_robot_description():
     joint_limit_params = PathJoinSubstitution(
-        [FindPackageShare("ur_description"), "config", "ur16e", "joint_limits.yaml"]
+        [FindPackageShare("robo_planner"), "config", "custom_ur_description", "joint_limits.yaml"]
     )
     kinematics_params = PathJoinSubstitution(
-        [FindPackageShare("ur_description"), "config", "ur16e", "default_kinematics.yaml"]
+        [FindPackageShare("robo_planner"), "config", "custom_ur_description", "default_kinematics.yaml"]
     )
     physical_params = PathJoinSubstitution(
-        [FindPackageShare("ur_description"), "config", "ur16e", "physical_parameters.yaml"]
+        [FindPackageShare("robo_planner"), "config", "custom_ur_description", "physical_parameters.yaml"]
     )
     visual_params = PathJoinSubstitution(
-        [FindPackageShare("ur_description"), "config", "ur16e", "visual_parameters.yaml"]
+        [FindPackageShare("robo_planner"), "config", "custom_ur_description", "visual_parameters.yaml"]
     )
     robot_description_content = Command(
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
-            PathJoinSubstitution([FindPackageShare("ur_description"), "urdf", "ur.urdf.xacro"]),
+            PathJoinSubstitution([FindPackageShare("robo_planner"),"config","custom_ur_description","urdf", "ur.urdf.xacro"]),
             " ",
             "robot_ip:=192.168.56.101",
             " ",
@@ -70,7 +71,7 @@ def get_robot_description_semantic():
         [
             PathJoinSubstitution([FindExecutable(name="xacro")]),
             " ",
-            PathJoinSubstitution([FindPackageShare("ur_moveit_config"), "srdf", "ur.srdf.xacro"]),
+            PathJoinSubstitution([FindPackageShare("robo_planner"),"config","custom_moveit_config", "srdf", "ur.srdf.xacro"]),
             " ",
             "name:=",
             # Also ur_type parameter could be used but then the planning group names in yaml
@@ -91,8 +92,12 @@ def generate_launch_description():
     # generate_common_hybrid_launch_description() returns a list of nodes to launch
     robot_description = get_robot_description()
     robot_description_semantic = get_robot_description_semantic()
-    robot_description_kinematics = PathJoinSubstitution([FindPackageShare("ur_moveit_config"), "config", "kinematics.yaml"])
-
+    robot_description_kinematics = PathJoinSubstitution([FindPackageShare("robo_planner"), "config","custom_moveit_config","config","kinematics.yaml"])
+    cell_config = os.path.join(
+            get_package_share_directory('robo_planner'),
+            'config',
+            'cell_config.yaml'
+        )
     opcua_client_node = Node(
         package="opcua_client",
         executable="client_node",
@@ -119,7 +124,7 @@ def generate_launch_description():
         executable="robo_planner",
         name="robo_planner",
         output="screen",
-        parameters=[
+        parameters=[cell_config
         ],
     )
 

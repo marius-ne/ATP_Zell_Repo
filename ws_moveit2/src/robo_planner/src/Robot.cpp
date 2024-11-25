@@ -118,9 +118,11 @@ void WzlPlanner::RobotUR::PartAttach(const std::string partKey)
     }
 }
 
-void WzlPlanner::RobotUR::PartDetach()
+void WzlPlanner::RobotUR::PartDetach(const std::string partKey)
 {
     auto request = std::make_shared<wzlscheduler_interfaces::srv::SceneObjectDetach::Request>();
+
+    request->name = partKey;
 
     while (!this->serviceSceenObjectDetach_->wait_for_service(1s)) 
     {
@@ -143,13 +145,7 @@ void WzlPlanner::RobotUR::PartDetach()
 
         if (output == 1)
         {
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Successfully calles service SceneObjectDetach");
-
-            auto coordinates = result.get()->coordinates;
-            auto partName = result.get()->name;
-            auto part = ObjectContainer::Get()->GetScene()->GetSceneObject(partName);
-
-            ObjectContainer::Get()->GetScene()->SceneObjectSetPositionAbsolute(part, std::make_shared<WzlPlanner::Pose>(coordinates));
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Successfully called service SceneObjectDetach");
         }
         else
         {
@@ -259,7 +255,7 @@ void WzlPlanner::RobotDummy::PartAttach(const std::string partKey)
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
 }   
 
-void WzlPlanner::RobotDummy::PartDetach()
+void WzlPlanner::RobotDummy::PartDetach(const std::string partKey)
 {
     // trigger ros node to detach the part from the robot
     auto msg = std::string("Dummy detach part from root");

@@ -1,93 +1,279 @@
-# ReStackCell
+# ReStackCell:
 
+## PointNet
 
+Vision-Modul für die Detektion der Betriebsmittel mittels einer 2D-Topdown-Kamera. Es wurde eine Realsense-Kamera über die Zelle montiert, die orthogonal auf den Zellenboden gerichtet ist.
 
-## Getting started
+Der Ros-Knoten beinhaltet ein YoloV8-Modell, das unter Verwendung gelabelter, realer Bilder trainiert wurde. Es kann folgende Betriebsmittel und Bauteile klassifizieren:
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- Carrier-Boxen
+- Spanneinheiten
+- Getriebe-Bauteile
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Der ROS-Knoten kommuniziert mit den Treibern der RealSense und als Ergebnis wird eine Liste von 2D-Bounding-Boxes mit einer KlassenId gepublished.
 
-## Add your files
+Die linke obere Ecke der Bounding-Box wird in 3D-Koordinaten umgerechnet, wlche der jeweiligen Ecke des Bauteiles in 3D-Koordinaten entspricht.
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+Für die Umrechnung muss desweiteren ein Offset in Weltkoordinaten zwischen gemessener Bauteilecke und Koordinatenursprung des Teiles addiert werden. Die erhaltene 3D-Position des gemesssenen Bauteiles kann auf das Bohrloch-Grid „gesnappt" werden, um Mesungenauigkeiten zu eliminieren. Dies funktioniert, solange die Ungenauigkeit der Messung unter dem halben Abstand zweier Bohrlöcher liegt.
+
+## Unity Synthetic Data Generation
+
+Ein Versuch synthetische Daten mittels Unity zu erzeugen, um das YOLO-Netz zu trainieren. Daten werden erzeugt, haben für YOLO jedoch noch das falsche Format.
+
+Projekt ist depricated, da für die Abteilung das Omniverse das Tool der Wahl ist?
+
+## RestackCell Unity HMI
+
+Aufgrund Zeitmangel nicht fertig gestellt.
+
+## PCL Segmentation
+
+Implementierung der Autopilot Punktwolkenbearbeitung in Ros2 Humble und PCL.
+
+Die Implementierung erfolgte in PCL (Point Cloud Library) und C++, da diese eine direkte und funktionierende Ros-Schnittstelle zur Verfügung stellt, um im richtigen Format auf 3D-Pointclouds zu subscriben.
+
+Die Implementierung führt zunächst eine Segmentierung durch Eliminierung der zur Arbeitsplatte gehörenden Punkte durch.
+
+Danach werden zugehörige Sub-Punktwolken geclustert. Diese werden dann klassifiziert (todo mit PointNet oder klassisch Ransac) und danach zunächst eine grobe Posenbestimmung mit RANSAC. Im Anschluss wird mit Hilfe der initialen Ransac-Pose eine feinere Justierung der Pose mit einem -Matching IPC (Iterarive Point Cloud) , welcher präziser arbeitet, jedoch grobe Initialwerte benötigt, damit das Verfahren nicht in ein falsches lokales Minimum konvergiert.
+
+## Opc Ua Client
+
+Ros-Node, der den Opcua-Client implementiert.
+
+Dieser bietet eine Service-Schnittstelle, um um mit anderen Ros-Nodes zu kommunizieren und sendet eingegangene Anfragen an den Opcua-Server auf der SPS weiter.
+
+Wie wie einzelnen Kanäle der Pneumatik angesprochen werden müssen, ist im Repository dokumentiert.
+
+## Pose Estimation ToF
+
+Matching und Posenbestimmung der Betriebsmittel unter Verwendung der ToF-Kamera.
+
+In dem Verfahren werden die Punkte der Tischplatte aus der ToF-Punktwolke wegsegmentiert, auf die restliche Punktwolke eine DBSCAN durchgeführt, um Ausreißer zu elemenieren.
+
+Auf die resultierenden Punktwolken wird versucht mit einem ICP die jeweilige abgetastete (Punktwolkenformat) CAD-Datei zu matchen. Die Score des ICP wird neben der Posenbestimmung gleichzeitig für die Klassifikation der Betriebsmittelart verwendet (vorsicht bzgtl. Robustheit!)
+
+## Vision 2D Restackcell
+
+Betriebsmittelart
+
+## HeliosToFCameraDriverRos
+
+Die offiziellen Ros-Treiber für die Helios-ToF-Kamera waren zu generalisiert und haben mit dem der vorhandenen Hardware nicht zufriedenstellend funktioniert.
+
+Die eigene Implementierung beinhaltet einen Ros-Knoten, der eine angeschlossene Kamera erkennt, und zyklisch eine Punktwolke published.
+
+Das offizielle Repo für die Helios-ToF gibt es hier:
+https://github.com/lucidvisionlabs/arena_camera_ros2
+
+## RoboScheduler
+
+Zwischenstand zum Scheduler in C++.
+
+Veralteter Stand, aktueller Stand befindet sich im Projekt RestackCell
+
+## RestackCell:
+
+Für den Ablauf zu verwendende Gesamtprojekt, setzt sich zusammen aus:
+
+- Robo Scheduler C++
+- Robo Scheduler Python (WIP, hat nur Teilfunktionalitäten)
+- MoveIt Backend
+- Opcua Client
+- ToF Camera Modul
+- Ros Message Interfaces
+
+### Ros-Knoten:
+
+#### Ros Scheduler C++:
+
+Der Scheduler, oder auch Robo-Planner in C++.
+
+Durch die Launch-Datei im Launch-Folder ur_planner_launch.py wird der Scheduler (Ros-Knoten im genannten Projekt), sowie andere Knoten in der Projektmappe gestartet:
+
+- Robo-Planner/Scheduler
+- OPC-UA Client
+- MoveitBackend
+- Robot State Publisher
+- Todo: Vision Node
+
+Hier eine kurze Erläuterung der Konzepte und wichtigsten Dateien des Projektes.
+
+### Moevit Backend:
+
+Wrapper der Moveit-Library. Bietet Ros-Services an, über die die Szene initialisiert und Roboterbewegungen durchgeführt werden können.
+
+Für PointToPoint-Bewegungen wird der ompl-Planer verwendet, welcher nichtdeterministisch eine Trajektorie um Hindernisse berechnet.
+
+Für gradlinige, kartesische Bewegungen wird der Pilz-Industrial-Planner verwendet.
+
+Nach jetztigem Stand kann der Planner nicht in Hindernisse fahren.
+
+### Config:
+
+Das MoveIt Backend verendet die Urdf-File und die Joint-Limits aus dem Ros-Shared-Folder des Paketes „ur_description" (`/opt/ros/humble/share/ur_description`)
+
+Die Joint Limits wurden, in Anbetracht der Kabelführung und der Kabelführungsschiene nahe des TCP, manuell mit dem derzeitigen Aufbau des UR in der RestackCell ermittelt. Bei einem Ummontieren müssen gegebenfalls die Join-Limits aus der Ur_Description-Config angepasst werden, da der Roboter ansonsten Gefahr laufen kann Suizid durch Selbstverkabelung zu begehen.
+
+Die Standard-Udrf-File (`/opt/ros/humble/share/ur_description/urdf/ur_macro.xacro`) wurde um zwei Kollisionsboxen erweitert, die beide statisch mit dem „tool0"-Link verknüpft sind. Die seitliche Kabelführungsschiene, sowie eine Box entlang der TCP-z-Achse, welche das größte vorhandene Tool umschließt. Da der UseCase eine Werkzeugwechselvorrichtung beinhaltet und eine dynamische Anpassung der Urdf-File während der Laufzeit nicht trivial ist, wurde für die kollisionsfreie Bahnplanung von den Worst Case-Toolmaßen ausgegangen.
+
+Alternativ bleibt zu überprüfen, ob die verschiedenen Tools nicht auch als Objekte in der Werkzeugwechselstation der Szene positioniert werden können, die in Laufzeit über ein „Attach" beim Werkzeugwechsel an den Roboter-Tcp angedockt werden können.
+
+Im Config-Ordner unter (`/opt/ros/humble/share/ur_description/config`) liegen unter anderem die Joint-Limits und die Roboterkalibrierung des verwendeten UR16e-Modells ab.
+
+Die Kalibrierung wurde mit dem Ur16e der RestackCell durchgeführt anhand:
+https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/master/ur_calibration/README.md
+
+Die durch den genannten Link beschriebene Kalibrierungsdatei liegt unter `/opt/ros/humble/share/ur_description/config/ur16e/default_kinematics.yaml` ab.
+
+### MoveIt Config
+
+Die MoveIt-Config-Datei wurde um einen LazyPRM-Planner erweitert, wie hier beschrieben:
+https://moveit.picknik.ai/humble/doc/examples/ompl_interface/ompl_interface_tutorial.html
+
+Es wurde der Planner: SemiPersistentLazyPRMstar ausgewählt.
+
+Grund dafür ist, dass in der Zelle von einer statischen Umwelt ausgegangen werden kann, weswegen diese nur einmalig quantisiert werden muss. Der Default-Planner führt diese Quantisierung vor jeder ompl-Planung durch, was zu hohen Berechnungszeiten vor jeder Trajektorieberechnung geführt hat.
+
+Zudem wurde der Wert der „longest_distance_segment_fraction" reduziert, da der Postprocessor der Trajektorie ansonsten gerne in ein Hindernis geglättet hat und die Bewegung dadurch nicht ausgeführt werden konnte.
+
+## Installation der notwendigen Ressourcen:
+
+### ROS 2 Humble unter Ubuntu 22.04:
+
+https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html
+
+### Roboter-Treiber für den Universal Robot UR:
+
+https://github.com/UniversalRobots/Universal_Robots_ROS2_Driver
+
+### Arena SDK für die 3D ToF-Kamera Helios2 (sofern verwendet):
+
+https://thinklucid.com/downloads-hub/
+
+### MoveIt:
+
+https://moveit.picknik.ai/humble/doc/tutorials/getting_started/getting_started.html
+
+### OPC UA:
+
+Installation über
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.wmaut.de/wlz/restackcell.git
-git branch -M main
-git push -uf origin main
+pip install ipcua
 ```
 
-## Integrate with your tools
+### Setzen der IP-Adresse
 
-- [ ] [Set up project integrations](https://gitlab.wmaut.de/wlz/restackcell/-/settings/integrations)
+Um eine Verbindung zum UR-Roboter herstellen zu können, muss Ubuntu 22.04
 
-## Collaborate with your team
+### Starten des MoveIt-Knotens:
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### Starten des Roboter-Programms
 
-## Test and Deploy
+Das Programm kann entweder in einer simulierten UR-Umgebung oder am echten Roboter gestartet werden. Der simulierte Roboter ist über die gleiche Ethernet-Schnittstelle wie der reale Roboter ansprechbar, weswegen sich nicht viel in der Kommunikation ändert. Beim Aufruf muss lediglich die Roboter-IP umgestellt werden.
 
-Use the built-in continuous integration in GitLab.
+#### UR-Simulation (optional):
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+Soll der UR-Roboter auf dem Rechner simuliert werden:
 
-***
+```
+ros2 run ur_client_library start_ursim.sh -m ur16e
+```
 
-# Editing this README
+Sofern beim oberen Befehl ein Docker Permission denied auftaucht, dann folgendes eingeben:
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+```
+sudo chmod 666 /var/run/docker.sock
+```
 
-## Suggestions for a good README
+Dabei wird ein Docker-Container gestarett und der UR kann über den im Terminal angezeigten Link im Browser simuliert werden. Die Konfiguration des simulierten Roboters funktioniert analog zu dem realen.
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+#### Roboter-treiber
 
-## Name
-Choose a self-explaining name for your project.
+Der Roboter-Treiber übersetzt die ankommenden Ros-Befehle für den Roboter und zurück und kommuniziert mit diesem.
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+In beiden Fällen, ob simulierter UR oder echter über Ethernet-Kabel verbunden, wird der Roboter-Treiber benötigt.
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+Der Befehl mit der IP für den realen Roboter (IP = 192.168.20.20)
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+```
+ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur16e robot_ip:=192.168.20.20 launch_rviz:=false description_package:=ur_description
+```
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+Der Befehl mit der IP für den simulierten Robote (IP = 192.168.56.101)
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+```
+ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur16e robot_ip:=192.168.56.101 description_package:=ur_description launch_rviz:=false
+```
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+Für einen Netzwerktest, ob der pyhsikalische Roboter richtig verbunden ist oder die Simulation läuft, kann der Parameter launch_rviz = true gesetzt werden. Der Roboter sollte in Rviz mit den richtigen Gelenkwinkeln und Kollisions-Erweiterungen aus der URDF-Datei dargestellt werden (derzeit mit einem Quader als Tool-Substituierung, sowie einen Quader für die Kabelhalterung in der Nähe des TCP).
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Wenn der Roboter in der Rviz-darstellung aussieht, als würde er auf dem Boden liegen, besteht keine Verbindung. In dem Fall sollte zunächst über einen „ping"- Befehl an die IP-Adresse des Roboters die Verbindung überprüft werden.
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+Noch einmal die IP-Adresse des Roboters:
+Real: 192.168.20.20
+Simulation (default): 192.168.56.101
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+### UR-CAP
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+### MoveIt:
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Standard-Moveit mit ompl (ohne Pilz Industrial Planner)
 
-## License
-For open source projects, say how it is licensed.
+```
+ros2 launch ur_moveit_config ur_moveit.launch.py ur_type:=ur16e robot_ip:=192.168.56.101 launch_rviz:=true description_package:=ur_description
+```
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Soll zusätzlich der Pilz-Industrial Motion Planner parallel zum Ompl-Planner (für PTP-Bewegungen) für lineare/kartesische Bewegungen verwendet werden, dann muss folgende Launch-Datei gestartet werden:
+
+```
+ros2 launch robo_planner ur_planner_pilz.launch.py ur_type:=ur16e use_fake_hardware:=false launch_rviz:=true description_package:=ur_description ur_type:=ur16e description_file:=ur.urdf.xacro
+```
+
+Das Ablaufprogramm des Schdulers/Planners wird über diese Launch-Datei gestartet:
+
+```
+ros2 launch robo_planner ur_planner_launch.py
+```
+
+Dabei ist zu beachten, dass der workspace im Projekt „Restackcell" gesourced ist.
+
+Die Robo_Planner launch-Datei lädt alle notwendigen Config-Dateien des UR-Roboters aus den Paketen des Shared-Folders unter
+`opt/ros/humble/share/`
+
+Sollte der MoveIt-Teil des Projekktes nicht gebaut werden können, kann dieser build-Befehl verwendet werden
+
+```
+colcon build parallel-workers 1
+```
+
+## Wichtige Fallstricke:
+
+### Koordinatensystem-Unterschiede:
+
+- In MoveIt und ROS sind die X- und Z-Koordinaten des `tool0`-Links (TCP) im Vergleich zum Roboterkoordinatensystem invertiert.
+- Bei der Übertragung ins Roboterprogramm muss in der Z-Rotation ein Wert von `-Pi` (Minus Pi) addiert werden.
+
+### Arbeitsraum-Einschränkungen:
+
+- Die MoveIt-Methode „SetWorkspace" ist für mobile Roboter konzipiert und nicht für stationäre Roboter geeignet.
+- Um Kollisionen mit Zellenwänden zu verhindern, müssen diese als separate Kollisionsobjekte modelliert werden.
+
+### Mögliche Ursachen für fehlgeschlagene MoveIt-Planungen:
+
+1. Aktuelle Gelenkpositionen außerhalb der zulässigen Grenzen
+2. Zielgelenkpositionen außerhalb der zulässigen Grenzen
+3. Bestehende Kollision des Roboters mit sich selbst oder der Umgebung
+4. Kollision in der geplanten Zielpose
+5. Nicht gestarteter oder nicht funktionierender Robotercontroller
+6. Nicht laufendes RemoteCap-Programm auf dem Universal Robot
+
+### Geschwindigkeitskontrolle bei Trajektorien:
+
+- Der Befehl `computeCartesianPath` führt Bewegungen entlang einer Trajektorie immer mit maximaler Geschwindigkeit aus.
+- Für eine präzisere Geschwindigkeitskontrolle wird der **Pilz Industrial Planner** empfohlen.
+
+### Jetson-Board Anmeldedaten
+
+- Username: _Autopilot_
+- Kennwort: _123456_
