@@ -452,7 +452,9 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::Share
     PC1X = get_parameter<std::vector<double>>(node, "positions.PC.x_2", {-0.50674, 0.0});
     PC1Y = get_parameter<std::vector<double>>(node, "positions.PC.y_2", {-0.18692, 0.0});
     PC1Z = get_parameter<std::vector<double>>(node, "positions.PC.z_2", {0.5453, 0.0});
-    rotZ = -M_PI;
+    //rotZ = -M_PI;
+    rotZ = -M_PI + (5.0 / 12.0) * M_PI;
+
   }
 
   int PC_index = PCIndex - 1;
@@ -535,7 +537,8 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlacePC(const rclcpp::Node::Shar
     PC1X = get_parameter<std::vector<double>>(node, "positions.PC.x_2", {-0.50674, 0.0});
     PC1Y = get_parameter<std::vector<double>>(node, "positions.PC.y_2", {-0.18692, 0.0});
     PC1Z = get_parameter<std::vector<double>>(node, "positions.PC.z_2", {0.5453, 0.0});
-    rotZ = -M_PI;
+    //rotZ = -M_PI;
+    rotZ = -M_PI + (5.0 / 12.0) * M_PI;
   }
 
   int PC_index = PCIndex - 1;
@@ -843,7 +846,7 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBearingFromBEMI(
   }
 
   // Constants
-  double placementOffsetZ = 0.25; // Offset for bearing placement height
+  double placementOffsetZ = 0.35; // Offset for bearing placement height
 
   double rotX = M_PI;
   double rotY = 0;
@@ -851,9 +854,9 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBearingFromBEMI(
   //double rotZ = 0;
 
   // Bearing placement poses
-  std::vector<double> BearingX = get_parameter<std::vector<double>>(node, "positions.bearing.x", {0, 0.08982});
-  std::vector<double> BearingY = get_parameter<std::vector<double>>(node, "positions.bearing.y", {0, 0.57029});
-  std::vector<double> BearingZ = get_parameter<std::vector<double>>(node, "positions.bearing.z", {0, 0.33903});
+  std::vector<double> BearingX = get_parameter<std::vector<double>>(node, "positions.bearing.x", {0.38283, 0.08982});
+  std::vector<double> BearingY = get_parameter<std::vector<double>>(node, "positions.bearing.y", {0.64933, 0.57029});
+  std::vector<double> BearingZ = get_parameter<std::vector<double>>(node, "positions.bearing.z", {0.3389, 0.33903});
 
   double placementBearingZ = BearingZ[BEMIIndex - 1] + placementOffsetZ;
 
@@ -948,6 +951,8 @@ std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double 
  */
 void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks)
 {
+  tasks->taskIoLampOrange->Execute();
+  tasks->taskIoAlarmOff->Execute();
   // auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
   [[maybe_unused]] auto useOpcua = false;
 
@@ -1014,83 +1019,70 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskIoGripperNeutral);
   taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  //taskList->AddTask(tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
+
+  // Lamp green 
+  //tasks->taskIoLampGreen->Execute();
 
   // Set Robot speed
   taskList->AddTask(tasks->taskSetSpeedPtp);
+  taskList->AddTask(tasks->taskAttachSmallGripper); 
+ 
 
   // Move to initial pose and wait
   //taskList->AddTask(taskInitPose);
 
   // Equip small gripper and attach collision model
-  /* taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
-  taskList->AddTask(taskSmallGripperEquip);
-  taskList->AddTask(tasks->taskAttachSmallGripper); */
+  //taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  //taskList->AddTask(taskSmallGripperEquip);
+  //taskList->AddTask(tasks->taskAttachSmallGripper); 
+  
 
-  // Pick up bearing 1 from part carrier 2
-   //taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 2));
+  // Pick bearing from PC2
+  taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 2));
 
-  // Place bearing 1 into part inside BEMI 1
-  //taskList->AddTask(tasks->taskAttachSmallGripper);
-  taskList->AddTask(CreateTaskPlaceBearingInBEMI(node, tasks, 2));
-  taskList->AddTask(CreateTaskPickBearingFromBEMI(node, tasks, 2));
+  // Pick bearing from BEMI 2
+  //taskList->AddTask(CreateTaskPickBearingFromBEMI(node, tasks, 2));
 
-  // Place bearing 1 into part carrier 2
-  // taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 2));
+  // Place bearing in BEMI 2
+  //taskList->AddTask(CreateTaskPlaceBearingInBEMI(node, tasks, 2));
 
-  // Move to initial pose and wait
+  // Pick bearing from BEMI 1
+  //taskList->AddTask(CreateTaskPickBearingFromBEMI(node, tasks, 1));
+
+  // Place bearing in BEMI 1
+  //taskList->AddTask(CreateTaskPlaceBearingInBEMI(node, tasks, 1));
+
+  // Pick bearing from BEMI 1
+  //taskList->AddTask(CreateTaskPickBearingFromBEMI(node, tasks, 1));
+
+  // Place bearing 1 in PC2
+  taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 2));
+
+  // Pick bearing 2 from PC2
+  taskList->AddTask(CreateTaskPickPC(node, tasks, 2, 2));
+
+  // Place bearing 2 in PC2
+  taskList->AddTask(CreateTaskPlacePC(node, tasks, 2, 2));
+
+  // move to initial pose
   //taskList->AddTask(taskInitPose);
-  taskList->AddTask(tasks->taskWait);
 
-  // Unequip small gripper
-/*    taskList->AddTask(tasks->taskIoGripperNeutral);
-  taskList->AddTask(taskSmallGripperUnequip);
-  taskList->AddTask(tasks->taskDetachSmallGripper);  */
+  
 
-  // taskList->AddTask(tasks->taskSetSpeedPtp);
-
-  // place part into clamping device BEMI 1
-  // taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1));
-
-  // change equip: gripper -> deburring spindle
-  // taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
-  // taskList->AddTask(taskGripperUnequip);
-  // taskList->AddTask(taskDeburringSpindleEquip);
-  // taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
-
-  // // do the deburring process
-  //  taskList->AddTask(taskDeburApproach1);
-  //  taskList->AddTask(taskDeburExecute);
-  //  taskList->AddTask(tasks->taskIoDeburringSpindleActivate);
-  //  taskList->AddTask(tasks->taskWait);
-  //  taskList->AddTask(taskDeburCircle);
-  //  taskList->AddTask(tasks->taskWait);
-  //  taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
-  //  taskList->AddTask(taskDeburEnd1);
-
-  // // change equip: deburring spindle -> gripper
-  // taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
-  // taskList->AddTask(taskDeburringSpindleUnequip);
-  // taskList->AddTask(taskGripperEquip);
-
-  // //pick up part again from clamping device BEMI 1
-  // taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1));
-
-  // //take back part to carrier box
-  // taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
-
-  // // unequip gripper
-  // taskList->AddTask(tasks->taskIoGripperNeutral);
-  // taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
-  // taskList->AddTask(taskGripperUnequip);
-
-  // move back to idle pose
-  taskList->AddTask(taskInitPose);
+  // Lamp green //
+  //tasks->taskIoLampGreen->Execute();
 
   while (true)
   {
     if (!taskList->Execute())
     {
       RCLCPP_INFO(node->get_logger(), "Execution failed");
+      tasks->taskIoGripperNeutral->Execute();
+      tasks->taskIoDeburringSpindleDeactivate->Execute();
+      tasks->taskIoDeburringSpindleAnpressdruckDeactivate->Execute();
+      tasks->taskIoLampRed->Execute(); // Failure -> Lamp red
+      tasks->taskIoAlarmOn->Execute();  // Failure -> Alarm on
       return;
     }
 
@@ -1124,6 +1116,6 @@ int main(int argc, char *argv[])
 
   // Shutdown ROS
   rclcpp::shutdown();
-  // spinner.join();
+
   return 0;
 }
