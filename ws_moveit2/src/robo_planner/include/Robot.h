@@ -50,7 +50,7 @@ namespace WzlPlanner
             virtual void PartAttach(const std::string partKey) = 0;
 
             // detaches an attached part from the robot and places it back into the scene 
-            virtual void PartDetach() = 0;
+            virtual void PartDetach(const std::string partKey) = 0;
 
             // sets the movement velocity 
             virtual void SetVelocity(const double velocity = 1.0, const double acceleration = 1.0, const int type = 0) = 0;
@@ -68,7 +68,7 @@ namespace WzlPlanner
             bool MoveToPose(const std::shared_ptr<Pose> targetPose, const RobotMoveType moveType = AbsolutePTP) override; 
             bool FollowTrajectory(const std::vector<std::shared_ptr<Pose>> points) override;
             void PartAttach(const std::string partKey) override;
-            void PartDetach() override;
+            void PartDetach(const std::string partKey) override;
             void SetVelocity(const double velocity = 1.0, const double acceleration = 1.0, const int type = 0) override;
 
         private:
@@ -92,7 +92,7 @@ namespace WzlPlanner
             bool MoveToPose(const std::shared_ptr<Pose> targetPose, const RobotMoveType moveType = AbsolutePTP) override; 
             bool FollowTrajectory(const std::vector<std::shared_ptr<Pose>> points) override;
             void PartAttach(const std::string partKey) override;
-            void PartDetach() override;
+            void PartDetach(const std::string partKey) override;
             void SetVelocity(const double velocity = 1.0, const double acceleration = 1.0, const int type = 0) override;
 
         private:

@@ -461,19 +461,32 @@ void WzlPlanner::TransformBroadcaster::Broadcast(std::shared_ptr<Transform> tran
     GetChildrenRecursive(transformBase, allTransforms);
 
     // construct tf transforms
-    for (auto&& transform: allTransforms)
+    for (auto&& transform : allTransforms)
     {
+        // Determine the parent frame
         auto transformParent = transform->GetParent() == nullptr ? transformBase->GetId() : transform->GetParent()->GetId();
+
+        // Skip broadcasting if the parent and child frames are the same (self-referential transform)
+        if (transformParent == transform->GetId())
+        {
+            //RCLCPP_WARN(rclcpp::get_logger("TransformBroadcaster"),
+            // "Skipping self-transform from %s to %s",
+            // transformParent.c_str(), transform->GetId().c_str());
+            continue; // Skip this transform
+        }
+
+        // Get the relative pose and create a TransformStamped message
         auto pose = transform->GetPoseRelative();
         geometry_msgs::msg::TransformStamped tfTransform;
         MakeTransform(tfTransform, transformParent, transform->GetId(),
-          pose->GetPositionX(),
-          pose->GetPositionY(),
-          pose->GetPositionZ(),
-          pose->GetRotationX(),
-          pose->GetRotationY(),
-          pose->GetRotationZ());
+            pose->GetPositionX(),
+            pose->GetPositionY(),
+            pose->GetPositionZ(),
+            pose->GetRotationX(),
+            pose->GetRotationY(),
+            pose->GetRotationZ());
 
+        // Add the valid transform to the list for broadcasting
         tfTransforms.push_back(std::move(tfTransform));
     }
 
