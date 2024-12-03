@@ -53,13 +53,13 @@ class RobotUr : public rclcpp::Node
             subscription_scene_object_set_pose_ = this->create_subscription<wzlscheduler_interfaces::msg::SceneObjectSetPose>
                 ("scene_object_set_pose", 10, std::bind(&RobotUr::topic_callback_scene_object_set_pose, this, std::placeholders::_1));
 
-            // MoveGroupSequence service client
-            action_client = rclcpp_action::create_client<moveit_msgs::action::MoveGroupSequence>(this, "/sequence_move_group");
-
         }
 
-        void Init(std::shared_ptr<rclcpp::Node> robot)
+        void Init(std::shared_ptr<rclcpp::Node> robot, std::shared_ptr<rclcpp::Node> action_service_node)
         {
+            // MoveGroupSequence service client
+            action_client = rclcpp_action::create_client<moveit_msgs::action::MoveGroupSequence>(action_service_node, "/sequence_move_group");
+
             // initialize planning interface
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize planning scene interface"));
             this->planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
@@ -509,6 +509,9 @@ class RobotUr : public rclcpp::Node
         {
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming Trajectory request");
 
+            std::promise<bool> action_completed;
+            std::future<bool> action_completed_future = action_completed.get_future();
+
             moveit_msgs::msg::MotionSequenceRequest sequence_request;  
 
             geometry_msgs::msg::PoseStamped pose;
@@ -543,77 +546,48 @@ class RobotUr : public rclcpp::Node
 
             auto send_goal_options = rclcpp_action::Client<moveit_msgs::action::MoveGroupSequence>::SendGoalOptions();
             send_goal_options.goal_response_callback = [](std::shared_ptr<rclcpp_action::ClientGoalHandle<moveit_msgs::action::MoveGroupSequence>> goal_handle) {
-                try
-                    {
-                    if (!goal_handle)
-                    {
-                        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Goal was rejected by server");
-                    }
-                    else
-                    {
-                        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Goal accepted by server, waiting for result");
-                    }
-                    }
-                    catch (const std::exception& e)
-                    {
-                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Exception while waiting for goal response: %s", e.what());
-                    }
+                if (!goal_handle) {
+                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Goal was rejected by server");
+                } else {
+                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Goal accepted by server, waiting for result");
+                }
             };
-            send_goal_options.result_callback = [](const rclcpp_action::ClientGoalHandle<moveit_msgs::action::MoveGroupSequence>::WrappedResult& result) {
-                    switch (result.code)
-                    {
+            send_goal_options.result_callback = [&action_completed](const rclcpp_action::ClientGoalHandle<moveit_msgs::action::MoveGroupSequence>::WrappedResult& result) {
+                switch (result.code) {
                     case rclcpp_action::ResultCode::SUCCEEDED:
                         RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Goal succeeded");
+                        action_completed.set_value(true);
                         break;
                     case rclcpp_action::ResultCode::ABORTED:
                         RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Goal was aborted. Status: %d", result.result->response.error_code.val);
+                        action_completed.set_value(false);
                         break;
                     case rclcpp_action::ResultCode::CANCELED:
                         RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Goal was canceled");
+                        action_completed.set_value(false);
                         break;
                     default:
                         RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Unknown result code");
+                        action_completed.set_value(false);
                         break;
-                    }
-                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Result received");
+                }
             };
 
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "0000");
+            auto goal_handle_future = action_client->async_send_goal(goal_msg, send_goal_options);
+            if (!goal_handle_future.get()) {
+                RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Goal was rejected by server");
+                response->result = false;
+                return;
+            }
 
-                // Send the action goal
-                auto goal_handle_future = action_client->async_send_goal(goal_msg, send_goal_options);
-RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "1111");
-                // Get result
-                auto action_result_future = action_client->async_get_result(goal_handle_future.get());
-RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "22222");
-                // Wait for the result
-                std::future_status action_status;
-                do
-                {
-                    switch (action_status = action_result_future.wait_for(std::chrono::seconds(1)); action_status)
-                    {
-                    case std::future_status::deferred:
-                        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Deferred");
-                        break;
-                    case std::future_status::timeout:
-                        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Executing trajectory...");
-                        break;
-                    case std::future_status::ready:
-                        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Action ready!");
-                        break;
-                    }
-                } while (action_status != std::future_status::ready);
+            // Wait for the action to complete and get the result
+            if (action_completed_future.wait_for(std::chrono::seconds(60)) == std::future_status::timeout) {
+                RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Action timed out");
+                response->result = false;
+                return;
+            }
 
-                if (action_result_future.valid())
-                {
-                    auto result = action_result_future.get();
-                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Action completed. Result: %d", static_cast<int>(result.code));
-                }
-                else
-                {
-                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Action couldn't be completed.");
-                }
-
+            response->result = action_completed_future.get();
         }
 
         void service_callback_robot_set_velocity(const std::shared_ptr<wzlscheduler_interfaces::srv::RobotSetVelocity::Request> request,
@@ -819,6 +793,7 @@ int main(int argc, char * argv[])
     auto const node = std::make_shared<RobotUr>();
 
     auto const node_move_group = std::make_shared<rclcpp::Node>("move_group_node");
+    auto const node_action_service = std::make_shared<rclcpp::Node>("move_acion_service");
 
     //rclcpp::executors::SingleThreadedExecutor executor;
     //executor.add_node(node);
@@ -833,9 +808,10 @@ int main(int argc, char * argv[])
     rclcpp::executors::SingleThreadedExecutor executor;
     //executor.add_node(node);
     executor.add_node(node_move_group);
+    executor.add_node(node_action_service);
     auto spinner = std::thread([&executor]() { executor.spin(); });
 
-    node->Init(node_move_group);
+    node->Init(node_move_group, node_action_service);
 
     // Spin node
     rclcpp::spin(node);
