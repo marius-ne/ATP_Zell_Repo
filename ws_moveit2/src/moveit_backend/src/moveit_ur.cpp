@@ -16,7 +16,12 @@
 #include "wzlscheduler_interfaces/msg/scene_object_remove.hpp"
 #include "wzlscheduler_interfaces/msg/scene_object_set_pose.hpp"
 
+#include <moveit/kinematic_constraints/utils.h>
+#include <moveit_msgs/action/move_group_sequence.hpp>
+#include <moveit_msgs/msg/motion_sequence_request.hpp>
 //#include <iterative_time_parameterization.h>
+
+using moveit_msgs::action::MoveGroupSequence;
 
 static const std::string PLANNING_GROUP = "ur_manipulator";
 static const std::string BASE_FRAME = "world";
@@ -47,6 +52,9 @@ class RobotUr : public rclcpp::Node
 
             subscription_scene_object_set_pose_ = this->create_subscription<wzlscheduler_interfaces::msg::SceneObjectSetPose>
                 ("scene_object_set_pose", 10, std::bind(&RobotUr::topic_callback_scene_object_set_pose, this, std::placeholders::_1));
+
+            // MoveGroupSequence service client
+            action_client = rclcpp_action::create_client<moveit_msgs::action::MoveGroupSequence>(this, "/sequence_move_group");
 
         }
 
@@ -499,27 +507,113 @@ class RobotUr : public rclcpp::Node
         void service_callback_robot_follow_trajectory(const std::shared_ptr<wzlscheduler_interfaces::srv::RobotFollowTrajectory::Request> request,
             std::shared_ptr<wzlscheduler_interfaces::srv::RobotFollowTrajectory::Response> response)
         {
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming request (follow trajectory)");
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Incoming Trajectory request");
+
+            moveit_msgs::msg::MotionSequenceRequest sequence_request;  
+
+            geometry_msgs::msg::PoseStamped pose;
+            pose.header.frame_id = BASE_FRAME;
+            pose.header.stamp = this->now();
             
-            moveit_msgs::msg::RobotTrajectory trajectory;
-            std::vector<geometry_msgs::msg::Pose> waypoints;
+            moveit_msgs::msg::MotionSequenceItem item;
+            item.blend_radius = 0.01;
+            item.req.group_name = PLANNING_GROUP;
+            item.req.pipeline_id = "pilz_industrial_motion_planner";
+            item.req.planner_id = "LIN";
+            item.req.allowed_planning_time = 2.0;
+            item.req.max_acceleration_scaling_factor = scaling_acceleration_pilz;
+            item.req.max_velocity_scaling_factor = scaling_velocity_pilz;
 
-            waypoints.push_back(last_pose_);
-            auto points = request->supportpoints;
-
-            for (const auto& point : points)
+            for (const auto& point : request->supportpoints)
             {
-                waypoints.push_back(point);
+                pose.pose.position = point.position;
+                pose.pose.orientation = point.orientation;
+                
+                item.req.goal_constraints = {kinematic_constraints::constructGoalConstraints("wrist_3_link", pose)};
+                sequence_request.items.push_back(item);
             }
 
-            waypoints.push_back(last_pose_);
+            sequence_request.items.back().blend_radius = 0.0;
 
-            move_group_interface_->computeCartesianPath(waypoints, 0.002, 0, trajectory, false);
+            auto goal_msg = moveit_msgs::action::MoveGroupSequence::Goal();
+            goal_msg.request = sequence_request;
 
+            goal_msg.planning_options.planning_scene_diff.is_diff = true;
+            goal_msg.planning_options.planning_scene_diff.robot_state.is_diff = true;
 
-            auto const success = static_cast<bool>(move_group_interface_->execute(trajectory));
-    
-            response->result = true;
+            auto send_goal_options = rclcpp_action::Client<moveit_msgs::action::MoveGroupSequence>::SendGoalOptions();
+            send_goal_options.goal_response_callback = [](std::shared_ptr<rclcpp_action::ClientGoalHandle<moveit_msgs::action::MoveGroupSequence>> goal_handle) {
+                try
+                    {
+                    if (!goal_handle)
+                    {
+                        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Goal was rejected by server");
+                    }
+                    else
+                    {
+                        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Goal accepted by server, waiting for result");
+                    }
+                    }
+                    catch (const std::exception& e)
+                    {
+                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Exception while waiting for goal response: %s", e.what());
+                    }
+            };
+            send_goal_options.result_callback = [](const rclcpp_action::ClientGoalHandle<moveit_msgs::action::MoveGroupSequence>::WrappedResult& result) {
+                    switch (result.code)
+                    {
+                    case rclcpp_action::ResultCode::SUCCEEDED:
+                        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Goal succeeded");
+                        break;
+                    case rclcpp_action::ResultCode::ABORTED:
+                        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Goal was aborted. Status: %d", result.result->response.error_code.val);
+                        break;
+                    case rclcpp_action::ResultCode::CANCELED:
+                        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Goal was canceled");
+                        break;
+                    default:
+                        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Unknown result code");
+                        break;
+                    }
+                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Result received");
+            };
+
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "0000");
+
+                // Send the action goal
+                auto goal_handle_future = action_client->async_send_goal(goal_msg, send_goal_options);
+RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "1111");
+                // Get result
+                auto action_result_future = action_client->async_get_result(goal_handle_future.get());
+RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "22222");
+                // Wait for the result
+                std::future_status action_status;
+                do
+                {
+                    switch (action_status = action_result_future.wait_for(std::chrono::seconds(1)); action_status)
+                    {
+                    case std::future_status::deferred:
+                        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Deferred");
+                        break;
+                    case std::future_status::timeout:
+                        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Executing trajectory...");
+                        break;
+                    case std::future_status::ready:
+                        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Action ready!");
+                        break;
+                    }
+                } while (action_status != std::future_status::ready);
+
+                if (action_result_future.valid())
+                {
+                    auto result = action_result_future.get();
+                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Action completed. Result: %d", static_cast<int>(result.code));
+                }
+                else
+                {
+                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Action couldn't be completed.");
+                }
+
         }
 
         void service_callback_robot_set_velocity(const std::shared_ptr<wzlscheduler_interfaces::srv::RobotSetVelocity::Request> request,
@@ -666,7 +760,7 @@ class RobotUr : public rclcpp::Node
             planning_scene_interface_.applyCollisionObject(collision_object);
 
             // Create a ROS logger
-            const rclcpp::Logger logger = rclcpp::get_logger("addMeshCollisionObject_LOGGER");
+            const rclcpp::Logger logger = rclcpp::get_logger("addMeshCollisionObject_rclcpp::get_logger("rclcpp")");
             RCLCPP_INFO(logger, ("Collision mesh: " + objectName + " added to scene!").c_str());
 
             // Clean up the memory allocated for the scaled mesh
@@ -706,6 +800,7 @@ class RobotUr : public rclcpp::Node
         rclcpp::Subscription<wzlscheduler_interfaces::msg::SceneObjectAdd>::SharedPtr subscription_scene_object_add_;
         rclcpp::Subscription<wzlscheduler_interfaces::msg::SceneObjectRemove>::SharedPtr subscription_scene_object_remove_;
         rclcpp::Subscription<wzlscheduler_interfaces::msg::SceneObjectSetPose>::SharedPtr subscription_scene_object_set_pose_;
+        rclcpp_action::Client<moveit_msgs::action::MoveGroupSequence>::SharedPtr action_client;
 };
 
 int main(int argc, char * argv[])

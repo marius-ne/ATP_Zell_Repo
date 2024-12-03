@@ -129,7 +129,7 @@ def launch_setup(context, *args, **kwargs):
 
     planning_pipeline_config = {
         "planning_pipelines": ["pilz_industrial_motion_planner", "ompl"], 
-        "default_planning_pipeline": "ompl",
+        "default_planning_pipeline": "pilz_industrial_motion_planner",
         "pilz_industrial_motion_planner": {},
         "ompl": {
            "planning_plugin": "ompl_interface/OMPLPlanner",
@@ -149,6 +149,10 @@ def launch_setup(context, *args, **kwargs):
     ompl_planning_yaml = load_yaml("ur_moveit_config", "config/ompl_planning.yaml")
     planning_pipeline_config["ompl"].update(ompl_planning_yaml)
    
+    move_group_capabilities = {
+        "capabilities": "pilz_industrial_motion_planner/MoveGroupSequenceAction pilz_industrial_motion_planner/MoveGroupSequenceService"
+    }
+
     # Trajectory Execution Configuration
     controllers_yaml = load_yaml("ur_moveit_config", "config/controllers.yaml")
     # the scaled_joint_trajectory_controller does not work on fake hardware
@@ -199,6 +203,7 @@ def launch_setup(context, *args, **kwargs):
             planning_scene_monitor_parameters,
             {"use_sim_time": use_sim_time},
             warehouse_ros_config,
+            move_group_capabilities,
         ],
     )
 

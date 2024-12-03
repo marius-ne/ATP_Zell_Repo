@@ -164,20 +164,20 @@ public:
     taskIoGripperNeutral->SetId("taskIoGripperNeutral");
 
     taskIoDeburringSpindleDeactivate = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-        WzlPlanner::OpcUaData::GetOpcUaData_SpindelWriteAn());
-    taskIoDeburringSpindleDeactivate->SetId("taskIoDeburringSpindleOn");
+        WzlPlanner::OpcUaData::GetOpcUaData_SpindelWriteAus());
+    taskIoDeburringSpindleDeactivate->SetId("taskIoDeburringSpindleOff");
 
     taskIoDeburringSpindleActivate = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
-        WzlPlanner::OpcUaData::GetOpcUaData_SpindelWriteAus());
-    taskIoDeburringSpindleActivate->SetId("taskIoDeburringSpindleOff");
+        WzlPlanner::OpcUaData::GetOpcUaData_SpindelWriteAn());
+    taskIoDeburringSpindleActivate->SetId("taskIoDeburringSpindleOn");
 
     taskIoDeburringSpindleAnpressdruckActivate = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
         WzlPlanner::OpcUaData::GetOpcUaData_AnpressdruckSpindelWriteAn());
-    taskIoDeburringSpindleActivate->SetId("taskIoDeburringSpindleAnpressdruckOn");
+    taskIoDeburringSpindleAnpressdruckActivate->SetId("taskIoDeburringSpindleAnpressdruckOn");
 
-    taskIoDeburringSpindleAnpressdruckActivate = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
+    taskIoDeburringSpindleAnpressdruckDeactivate = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
         WzlPlanner::OpcUaData::GetOpcUaData_AnpressdruckSpindelWriteAus());
-    taskIoDeburringSpindleActivate->SetId("taskIoDeburringSpindleAnpressdruckOff");
+    taskIoDeburringSpindleAnpressdruckDeactivate->SetId("taskIoDeburringSpindleAnpressdruckOff");
 
     taskIoLampRed = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
         WzlPlanner::OpcUaData::GetOpcUaData_LampeFarbeWriteRot());
@@ -756,10 +756,7 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::Sh
   return taskList;
 }
 
-std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBearingInBEMI(
-    const rclcpp::Node::SharedPtr &node,
-    const std::shared_ptr<MiscTasks> &tasks,
-    int BEMIIndex)
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBearingInBEMI(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, int BEMIIndex)
 {
   if (BEMIIndex < 1 || BEMIIndex > 3)
   {
@@ -833,10 +830,7 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBearingInBEMI(
   return taskList;
 }
 
-std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBearingFromBEMI(
-    const rclcpp::Node::SharedPtr &node,
-    const std::shared_ptr<MiscTasks> &tasks,
-    int BEMIIndex)
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBearingFromBEMI(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, int BEMIIndex)
 {
   if (BEMIIndex < 1 || BEMIIndex > 3)
   {
@@ -952,7 +946,8 @@ std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double 
 void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks)
 {
   tasks->taskIoLampOrange->Execute();
-  tasks->taskIoAlarmOff->Execute();
+  //tasks->taskIoAlarmOff->Execute();
+
   // auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
   [[maybe_unused]] auto useOpcua = false;
 
@@ -1009,80 +1004,49 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   auto taskDeburringSpindleUnequip = GetChangingStationTaskPlace(node, 2);
   auto taskGripperEquip = GetChangingStationTaskPick(node, 3);
 
-  // TASK SCHEDULING //
+  auto taskfollowtrajectory = std::make_shared<WzlPlanner::TaskFollowTrajectory>();
+
+  auto pose1= std::make_shared<WzlPlanner::Pose>(0.35, 0.15, 0.55, rotX, rotY, rotZ);
+  auto pose2= std::make_shared<WzlPlanner::Pose>(0.4, 0.4, 0.6, rotX, rotY, rotZ);
+  auto pose3= std::make_shared<WzlPlanner::Pose>(0.1, 0.4, 0.6, rotX, rotY, rotZ);
+
+  taskfollowtrajectory->AddPose(pose1);
+  taskfollowtrajectory->AddPose(pose2);
+  taskfollowtrajectory->AddPose(pose3);
+  taskfollowtrajectory->SetId("TaskFollowTrajectory");
+
+  ////// TASK SCHEDULING //////
   RCLCPP_INFO(node->get_logger(), "Execute Task Use Case 1");
 
-  // setup custom task
+  // setup custom task list
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
 
+  //HABE IRGENDWIE MIT DER PNEUMATIC PROBLEME, MUSS MAL SCHAUEN WAS GEÄNDERT WURDE UND WARUM ES NICHT MEHR FUNKTIONIERT
+
   // Set Pneumatics to neutral
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoGripperNeutral);
-  taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  //taskList->AddTask(tasks->taskWait);
+  //taskList->AddTask(tasks->taskIoGripperNeutral);
+  //taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
   //taskList->AddTask(tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
+  taskList->AddTask(tasks->taskIoLampGreen);
+  taskList->AddTask(taskInitPose);
 
-  // Lamp green 
-  //tasks->taskIoLampGreen->Execute();
+  taskList->AddTask(tasks->taskWait);
 
-  // Set Robot speed
-  taskList->AddTask(tasks->taskSetSpeedPtp);
-  taskList->AddTask(tasks->taskAttachSmallGripper); 
- 
+  taskList->AddTask(taskfollowtrajectory);
 
-  // Move to initial pose and wait
-  //taskList->AddTask(taskInitPose);
-
-  // Equip small gripper and attach collision model
-  //taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
-  //taskList->AddTask(taskSmallGripperEquip);
-  //taskList->AddTask(tasks->taskAttachSmallGripper); 
-  
-
-  // Pick bearing from PC2
-  taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 2));
-
-  // Pick bearing from BEMI 2
-  //taskList->AddTask(CreateTaskPickBearingFromBEMI(node, tasks, 2));
-
-  // Place bearing in BEMI 2
-  //taskList->AddTask(CreateTaskPlaceBearingInBEMI(node, tasks, 2));
-
-  // Pick bearing from BEMI 1
-  //taskList->AddTask(CreateTaskPickBearingFromBEMI(node, tasks, 1));
-
-  // Place bearing in BEMI 1
-  //taskList->AddTask(CreateTaskPlaceBearingInBEMI(node, tasks, 1));
-
-  // Pick bearing from BEMI 1
-  //taskList->AddTask(CreateTaskPickBearingFromBEMI(node, tasks, 1));
-
-  // Place bearing 1 in PC2
-  taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 2));
-
-  // Pick bearing 2 from PC2
-  taskList->AddTask(CreateTaskPickPC(node, tasks, 2, 2));
-
-  // Place bearing 2 in PC2
-  taskList->AddTask(CreateTaskPlacePC(node, tasks, 2, 2));
-
-  // move to initial pose
-  //taskList->AddTask(taskInitPose);
-
-  
-
-  // Lamp green //
-  //tasks->taskIoLampGreen->Execute();
+  taskList->AddTask(tasks->taskWait);
 
   while (true)
   {
     if (!taskList->Execute())
     {
       RCLCPP_INFO(node->get_logger(), "Execution failed");
-      tasks->taskIoGripperNeutral->Execute();
-      tasks->taskIoDeburringSpindleDeactivate->Execute();
-      tasks->taskIoDeburringSpindleAnpressdruckDeactivate->Execute();
+      //tasks->taskIoGripperNeutral->Execute();
+      //tasks->taskIoDeburringSpindleDeactivate->Execute();
+      //tasks->taskIoDeburringSpindleAnpressdruckDeactivate->Execute();
       tasks->taskIoLampRed->Execute(); // Failure -> Lamp red
-      tasks->taskIoAlarmOn->Execute();  // Failure -> Alarm on
+      //tasks->taskIoAlarmOn->Execute();  // Failure -> Alarm on
       return;
     }
 

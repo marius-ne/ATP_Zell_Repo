@@ -2025,8 +2025,43 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/scene_object_set_pose.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__struct.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
-  /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp
+  /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
+  /opt/ros/humble/include/moveit/kinematic_constraints/utils.h \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/point_stamped.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__builder.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__traits.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/quaternion_stamped.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__struct.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__builder.hpp \
+  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__traits.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/action/move_group_sequence.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/action/detail/move_group_sequence__struct.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_request__struct.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_item__struct.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_response__struct.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/action/detail/move_group_sequence__builder.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/action/detail/move_group_sequence__traits.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_request__traits.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_item__traits.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_response__traits.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/motion_sequence_request.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_request__builder.hpp
 
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/motion_sequence_request.hpp:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_request__traits.hpp:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/action/detail/move_group_sequence__traits.hpp:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/action/detail/move_group_sequence__builder.hpp:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_response__struct.hpp:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/action/move_group_sequence.hpp:
+
+/opt/ros/humble/include/moveit/kinematic_constraints/utils.h:
 
 /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp:
 
@@ -2316,6 +2351,8 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
 
 /usr/include/boost/mpl/aux_/has_size.hpp:
 
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_request__struct.hpp:
+
 /usr/include/boost/mpl/long.hpp:
 
 /usr/include/boost/mpl/aux_/O1_size_impl.hpp:
@@ -2383,6 +2420,8 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
 /usr/include/boost/mpl/aux_/config/bcc.hpp:
 
 /usr/include/boost/mpl/aux_/has_type.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__traits.hpp:
 
 /usr/include/boost/mpl/quote.hpp:
 
@@ -2906,9 +2945,13 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
 
 /opt/ros/humble/include/action_msgs/action_msgs/msg/goal_status.hpp:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__traits.hpp:
+
 /opt/ros/humble/include/action_msgs/action_msgs/srv/detail/cancel_goal__functions.h:
 
 /opt/ros/humble/include/action_msgs/action_msgs/srv/cancel_goal.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__struct.hpp:
 
 /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_status_array__type_support.h:
 
@@ -3135,6 +3178,8 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/wrench__struct.hpp:
 
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/multi_dof_joint_state__struct.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/quaternion_stamped.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_state__struct.hpp:
 
@@ -3460,6 +3505,8 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
 
 /usr/include/c++/11/bits/locale_facets_nonio.h:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/point_stamped.hpp:
+
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__builder.hpp:
 
 /opt/ros/humble/include/rcl/rcl/timer.h:
@@ -3742,6 +3789,8 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/get_node_topics_interface.hpp:
 
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/action/detail/move_group_sequence__struct.hpp:
+
 /usr/include/c++/11/bits/stl_bvector.h:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/cartesian_trajectory__traits.hpp:
@@ -3785,6 +3834,8 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
 /usr/include/c++/11/bits/hashtable_policy.h:
 
 /usr/include/c++/11/bits/hashtable.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__builder.hpp:
 
 /opt/ros/humble/include/ament_index_cpp/ament_index_cpp/visibility_control.h:
 
@@ -4180,6 +4231,8 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
 
 /usr/include/c++/11/bits/shared_ptr.h:
 
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_response__traits.hpp:
+
 /usr/include/boost/mpl/aux_/find_if_pred.hpp:
 
 /usr/include/c++/11/bits/stl_construct.h:
@@ -4299,6 +4352,8 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
 /home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:
 
 /opt/ros/humble/include/rcl/rcl/publisher.h:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_request__builder.hpp:
 
 /usr/include/aarch64-linux-gnu/c++/11/bits/os_defines.h:
 
@@ -4842,6 +4897,8 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__struct.hpp:
 
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_item__traits.hpp:
+
 /usr/include/aarch64-linux-gnu/asm/errno.h:
 
 /usr/include/aarch64-linux-gnu/bits/long-double.h:
@@ -5246,9 +5303,13 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
 
 /usr/include/limits.h:
 
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__builder.hpp:
+
 /usr/include/c++/11/bits/stl_numeric.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/subscription_wait_set_mask.hpp:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_sequence_item__struct.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/wait_result.hpp:
 
@@ -5325,6 +5386,8 @@ CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o: /home/autopilot/ws/restackcell/ws_
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/polygon__traits.hpp:
 
 /opt/ros/humble/include/moveit/robot_model/joint_model.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point_stamped__struct.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/joint_limits__builder.hpp:
 
