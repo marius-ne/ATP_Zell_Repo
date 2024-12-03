@@ -1,0 +1,17 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from wzlscheduler_interfaces/srv/SetValueIoInterface.srv
+// generated code does not contain a copyright notice
+
+
+module wzlscheduler_interfaces {
+  module srv {
+    struct SetValueIoInterface_Request {
+      int64 slotindex;
+
+      int64 value;
+    };
+    struct SetValueIoInterface_Response {
+      boolean result;
+    };
+  };
+};

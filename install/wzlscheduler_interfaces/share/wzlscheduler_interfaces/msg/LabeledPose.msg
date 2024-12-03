@@ -1,0 +1,4 @@
+string label
+geometry_msgs/Pose pose
+int32 drillholeindexx
+int32 drillholeindexy

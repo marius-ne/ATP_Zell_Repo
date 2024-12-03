@@ -1,0 +1,103 @@
+[  4%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const SharedPtr&, int)[m[K’:
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:131:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KposPlaceOffsetZ[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  131 |   double [01;35m[KposPlaceOffsetZ[m[K = get_parameter<double>(node, "safety.pos_place_offset_z", -0.005);
+      |          [01;35m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kvoid UseCase1(const SharedPtr&)[m[K’:
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:395:57:[m[K [01;31m[Kerror: [m[Kinvalid initialization of reference of type ‘[01m[Kconst SharedPtr&[m[K’ {aka ‘[01m[Kconst std::shared_ptr<rclcpp::Node>&[m[K’} from expression of type ‘[01m[Kint[m[K’
+  395 | quip = GetChangingStationTaskPlace([01;31m[K3[m[K);
+      |                                    [01;31m[K^[m[K
+
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:115:98:[m[K [01;36m[Knote: [m[Kin passing argument 1 of ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const SharedPtr&, int)[m[K’
+  115 | [01;36m[Kt rclcpp::Node::SharedPtr &node[m[K, int stationIndex)
+      | [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:417:66:[m[K [01;31m[Kerror: [m[Kinvalid initialization of reference of type ‘[01m[Kconst SharedPtr&[m[K’ {aka ‘[01m[Kconst std::shared_ptr<rclcpp::Node>&[m[K’} from expression of type ‘[01m[Kint[m[K’
+  417 | quip = GetChangingStationTaskPlace([01;31m[K2[m[K);
+      |                                    [01;31m[K^[m[K
+
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:115:98:[m[K [01;36m[Knote: [m[Kin passing argument 1 of ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const SharedPtr&, int)[m[K’
+  115 | [01;36m[Kt rclcpp::Node::SharedPtr &node[m[K, int stationIndex)
+      | [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:270:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KuseOpcua[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  270 |   auto [01;35m[KuseOpcua[m[K = false;
+      |        [01;35m[K^~~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:399:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KrotDeburX[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  399 |   double [01;35m[KrotDeburX[m[K = M_PI;
+      |          [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:400:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KrotDeburY[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  400 |   double [01;35m[KrotDeburY[m[K = 0;
+      |          [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:401:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KrotDeburZ[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  401 |   double [01;35m[KrotDeburZ[m[K = M_PI * -0.5;
+      |          [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kvoid PickAndPlaceTest()[m[K’:
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:548:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KuseOpcua[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  548 |   auto [01;35m[KuseOpcua[m[K = false;
+      |        [01;35m[K^~~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kvoid TaskRotationTest()[m[K’:
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:700:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KuseOpcua[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  700 |   auto [01;35m[KuseOpcua[m[K = false;
+      |        [01;35m[K^~~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:741:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KrotZ[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  741 |   double [01;35m[KrotZ[m[K = 0;
+      |          [01;35m[K^~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:744:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KposEndZ[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  744 |   double [01;35m[KposEndZ[m[K = 0.44686;
+      |          [01;35m[K^~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:747:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KstationYExecute[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  747 |   double [01;35m[KstationYExecute[m[K = -0.55759;
+      |          [01;35m[K^~~~~~~~~~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:749:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KstationX2[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  749 |   double [01;35m[KstationX2[m[K = 0.13816;
+      |          [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:750:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KstationX3[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  750 |   double [01;35m[KstationX3[m[K = 0.29433;
+      |          [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:751:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KstationX4[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  751 |   double [01;35m[KstationX4[m[K = -0.016;
+      |          [01;35m[K^~~~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kvoid TaskMoveInCircleTest()[m[K’:
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:790:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KuseOpcua[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  790 |   auto [01;35m[KuseOpcua[m[K = false;
+      |        [01;35m[K^~~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kvoid TaskChangingStationTest()[m[K’:
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:859:49:[m[K [01;31m[Kerror: [m[Kinvalid initialization of reference of type ‘[01m[Kconst SharedPtr&[m[K’ {aka ‘[01m[Kconst std::shared_ptr<rclcpp::Node>&[m[K’} from expression of type ‘[01m[Kint[m[K’
+  859 | ace1 = GetChangingStationTaskPlace([01;31m[K1[m[K);
+      |                                    [01;31m[K^[m[K
+
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:115:98:[m[K [01;36m[Knote: [m[Kin passing argument 1 of ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const SharedPtr&, int)[m[K’
+  115 | [01;36m[Kt rclcpp::Node::SharedPtr &node[m[K, int stationIndex)
+      | [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:862:49:[m[K [01;31m[Kerror: [m[Kinvalid initialization of reference of type ‘[01m[Kconst SharedPtr&[m[K’ {aka ‘[01m[Kconst std::shared_ptr<rclcpp::Node>&[m[K’} from expression of type ‘[01m[Kint[m[K’
+  862 | ace2 = GetChangingStationTaskPlace([01;31m[K2[m[K);
+      |                                    [01;31m[K^[m[K
+
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:115:98:[m[K [01;36m[Knote: [m[Kin passing argument 1 of ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const SharedPtr&, int)[m[K’
+  115 | [01;36m[Kt rclcpp::Node::SharedPtr &node[m[K, int stationIndex)
+      | [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:865:49:[m[K [01;31m[Kerror: [m[Kinvalid initialization of reference of type ‘[01m[Kconst SharedPtr&[m[K’ {aka ‘[01m[Kconst std::shared_ptr<rclcpp::Node>&[m[K’} from expression of type ‘[01m[Kint[m[K’
+  865 | ace3 = GetChangingStationTaskPlace([01;31m[K3[m[K);
+      |                                    [01;31m[K^[m[K
+
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:115:98:[m[K [01;36m[Knote: [m[Kin passing argument 1 of ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const SharedPtr&, int)[m[K’
+  115 | [01;36m[Kt rclcpp::Node::SharedPtr &node[m[K, int stationIndex)
+      | [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:868:49:[m[K [01;31m[Kerror: [m[Kinvalid initialization of reference of type ‘[01m[Kconst SharedPtr&[m[K’ {aka ‘[01m[Kconst std::shared_ptr<rclcpp::Node>&[m[K’} from expression of type ‘[01m[Kint[m[K’
+  868 | ace4 = GetChangingStationTaskPlace([01;31m[K4[m[K);
+      |                                    [01;31m[K^[m[K
+
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:115:98:[m[K [01;36m[Knote: [m[Kin passing argument 1 of ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const SharedPtr&, int)[m[K’
+  115 | [01;36m[Kt rclcpp::Node::SharedPtr &node[m[K, int stationIndex)
+      | [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:845:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KuseOpcua[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  845 |   auto [01;35m[KuseOpcua[m[K = false;
+      |        [01;35m[K^~~~~~~~[m[K
+gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:104: CMakeFiles/robo_planner.dir/src/Main.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

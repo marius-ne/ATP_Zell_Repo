@@ -1,0 +1,851 @@
+[0.241s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.241s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffffaf4871f0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffffaf486bc0>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffffaf486bc0>>, mixin_verb=('build',))
+[0.628s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.629s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.629s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.629s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.629s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.629s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.629s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/autopilot/ws/restackcell'
+[0.629s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.630s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.630s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.630s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.630s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.630s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.630s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.630s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.631s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.655s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.655s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.656s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.656s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.656s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.656s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.656s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.656s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.657s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.658s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.658s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.658s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extensions ['ignore', 'ignore_ament_install']
+[0.658s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extension 'ignore'
+[0.658s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extension 'ignore_ament_install'
+[0.658s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extensions ['colcon_pkg']
+[0.658s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extension 'colcon_pkg'
+[0.659s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extensions ['colcon_meta']
+[0.659s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extension 'colcon_meta'
+[0.659s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extensions ['ros']
+[0.659s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extension 'ros'
+[0.659s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extensions ['cmake', 'python']
+[0.659s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extension 'cmake'
+[0.659s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extension 'python'
+[0.659s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extensions ['python_setup_py']
+[0.659s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2) by extension 'python_setup_py'
+[0.660s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/build) by extensions ['ignore', 'ignore_ament_install']
+[0.660s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/build) by extension 'ignore'
+[0.660s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/build) ignored
+[0.660s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/install) by extensions ['ignore', 'ignore_ament_install']
+[0.660s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/install) by extension 'ignore'
+[0.660s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/install) ignored
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/log) by extensions ['ignore', 'ignore_ament_install']
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/log) by extension 'ignore'
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/log) ignored
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extensions ['ignore', 'ignore_ament_install']
+[0.661s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extension 'ignore'
+[0.662s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extension 'ignore_ament_install'
+[0.662s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extensions ['colcon_pkg']
+[0.662s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extension 'colcon_pkg'
+[0.662s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extensions ['colcon_meta']
+[0.662s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extension 'colcon_meta'
+[0.662s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extensions ['ros']
+[0.662s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extension 'ros'
+[0.662s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extensions ['cmake', 'python']
+[0.662s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extension 'cmake'
+[0.663s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extension 'python'
+[0.663s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extensions ['python_setup_py']
+[0.663s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src) by extension 'python_setup_py'
+[0.663s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/grid_snapper) by extensions ['ignore', 'ignore_ament_install']
+[0.663s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/grid_snapper) by extension 'ignore'
+[0.663s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/grid_snapper) by extension 'ignore_ament_install'
+[0.663s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/grid_snapper) by extensions ['colcon_pkg']
+[0.664s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/grid_snapper) by extension 'colcon_pkg'
+[0.664s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/grid_snapper) by extensions ['colcon_meta']
+[0.664s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/grid_snapper) by extension 'colcon_meta'
+[0.664s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/grid_snapper) by extensions ['ros']
+[0.664s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/grid_snapper) by extension 'ros'
+[0.669s] DEBUG:colcon.colcon_core.package_identification:Package 'ws_moveit2/src/grid_snapper' with type 'ros.ament_python' and name 'grid_snapper'
+[0.670s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/interface_opcua) by extensions ['ignore', 'ignore_ament_install']
+[0.670s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/interface_opcua) by extension 'ignore'
+[0.670s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/interface_opcua) by extension 'ignore_ament_install'
+[0.670s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/interface_opcua) by extensions ['colcon_pkg']
+[0.670s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/interface_opcua) by extension 'colcon_pkg'
+[0.670s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/interface_opcua) by extensions ['colcon_meta']
+[0.671s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/interface_opcua) by extension 'colcon_meta'
+[0.671s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/interface_opcua) by extensions ['ros']
+[0.671s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/interface_opcua) by extension 'ros'
+[0.672s] DEBUG:colcon.colcon_core.package_identification:Package 'ws_moveit2/src/interface_opcua' with type 'ros.ament_python' and name 'interface_opcua'
+[0.672s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/mockup_robot) by extensions ['ignore', 'ignore_ament_install']
+[0.672s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/mockup_robot) by extension 'ignore'
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/mockup_robot) by extension 'ignore_ament_install'
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/mockup_robot) by extensions ['colcon_pkg']
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/mockup_robot) by extension 'colcon_pkg'
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/mockup_robot) by extensions ['colcon_meta']
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/mockup_robot) by extension 'colcon_meta'
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/mockup_robot) by extensions ['ros']
+[0.673s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/mockup_robot) by extension 'ros'
+[0.675s] DEBUG:colcon.colcon_core.package_identification:Package 'ws_moveit2/src/mockup_robot' with type 'ros.ament_cmake' and name 'mockup_robot'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/moveit_backend) by extensions ['ignore', 'ignore_ament_install']
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/moveit_backend) by extension 'ignore'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/moveit_backend) by extension 'ignore_ament_install'
+[0.675s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/moveit_backend) by extensions ['colcon_pkg']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/moveit_backend) by extension 'colcon_pkg'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/moveit_backend) by extensions ['colcon_meta']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/moveit_backend) by extension 'colcon_meta'
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/moveit_backend) by extensions ['ros']
+[0.676s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/moveit_backend) by extension 'ros'
+[0.677s] DEBUG:colcon.colcon_core.package_identification:Package 'ws_moveit2/src/moveit_backend' with type 'ros.ament_cmake' and name 'moveit_backend'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extensions ['ignore', 'ignore_ament_install']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extension 'ignore'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extension 'ignore_ament_install'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extensions ['colcon_pkg']
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extension 'colcon_pkg'
+[0.678s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extensions ['colcon_meta']
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extension 'colcon_meta'
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extensions ['ros']
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extension 'ros'
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extensions ['cmake', 'python']
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extension 'cmake'
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extension 'python'
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extensions ['python_setup_py']
+[0.679s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua-asyncio) by extension 'python_setup_py'
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_client) by extensions ['ignore', 'ignore_ament_install']
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_client) by extension 'ignore'
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_client) by extension 'ignore_ament_install'
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_client) by extensions ['colcon_pkg']
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_client) by extension 'colcon_pkg'
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_client) by extensions ['colcon_meta']
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_client) by extension 'colcon_meta'
+[0.680s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_client) by extensions ['ros']
+[0.681s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_client) by extension 'ros'
+[0.682s] DEBUG:colcon.colcon_core.package_identification:Package 'ws_moveit2/src/opcua_client' with type 'ros.ament_python' and name 'opcua_client'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_interfaces) by extension 'ignore'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_interfaces) by extension 'ignore_ament_install'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_interfaces) by extensions ['colcon_pkg']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_interfaces) by extension 'colcon_pkg'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_interfaces) by extensions ['colcon_meta']
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_interfaces) by extension 'colcon_meta'
+[0.683s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_interfaces) by extensions ['ros']
+[0.684s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/opcua_interfaces) by extension 'ros'
+[0.685s] DEBUG:colcon.colcon_core.package_identification:Package 'ws_moveit2/src/opcua_interfaces' with type 'ros.ament_cmake' and name 'opcua_interfaces'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/pcl_segmentation) by extensions ['ignore', 'ignore_ament_install']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/pcl_segmentation) by extension 'ignore'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/pcl_segmentation) by extension 'ignore_ament_install'
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/pcl_segmentation) by extensions ['colcon_pkg']
+[0.685s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/pcl_segmentation) by extension 'colcon_pkg'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/pcl_segmentation) by extensions ['colcon_meta']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/pcl_segmentation) by extension 'colcon_meta'
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/pcl_segmentation) by extensions ['ros']
+[0.686s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/pcl_segmentation) by extension 'ros'
+[0.687s] DEBUG:colcon.colcon_core.package_identification:Package 'ws_moveit2/src/pcl_segmentation' with type 'ros.ament_cmake' and name 'pcl_segmentation'
+[0.687s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner) by extension 'ignore'
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner) by extension 'ignore_ament_install'
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner) by extensions ['colcon_pkg']
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner) by extension 'colcon_pkg'
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner) by extensions ['colcon_meta']
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner) by extension 'colcon_meta'
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner) by extensions ['ros']
+[0.688s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner) by extension 'ros'
+[0.691s] DEBUG:colcon.colcon_core.package_identification:Package 'ws_moveit2/src/robo_planner' with type 'ros.ament_cmake' and name 'robo_planner'
+[0.691s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.691s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_msgs) by extension 'ignore'
+[0.691s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_msgs) by extension 'ignore_ament_install'
+[0.691s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_msgs) by extensions ['colcon_pkg']
+[0.691s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_msgs) by extension 'colcon_pkg'
+[0.692s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_msgs) by extensions ['colcon_meta']
+[0.692s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_msgs) by extension 'colcon_meta'
+[0.692s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_msgs) by extensions ['ros']
+[0.692s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_msgs) by extension 'ros'
+[0.693s] DEBUG:colcon.colcon_core.package_identification:Package 'ws_moveit2/src/robo_planner_msgs' with type 'ros.catkin' and name 'robo_planner_msgs'
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_py) by extensions ['ignore', 'ignore_ament_install']
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_py) by extension 'ignore'
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_py) by extension 'ignore_ament_install'
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_py) by extensions ['colcon_pkg']
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_py) by extension 'colcon_pkg'
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_py) by extensions ['colcon_meta']
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_py) by extension 'colcon_meta'
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_py) by extensions ['ros']
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/robo_planner_py) by extension 'ros'
+[0.695s] DEBUG:colcon.colcon_core.package_identification:Package 'ws_moveit2/src/robo_planner_py' with type 'ros.ament_python' and name 'robo_planner_py'
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extensions ['ignore', 'ignore_ament_install']
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extension 'ignore'
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extension 'ignore_ament_install'
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extensions ['colcon_pkg']
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extension 'colcon_pkg'
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extensions ['colcon_meta']
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extension 'colcon_meta'
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extensions ['ros']
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extension 'ros'
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extensions ['cmake', 'python']
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extension 'cmake'
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extension 'python'
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extensions ['python_setup_py']
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/tof_detection_module) by extension 'python_setup_py'
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/ur_pilz) by extensions ['ignore', 'ignore_ament_install']
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/ur_pilz) by extension 'ignore'
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/ur_pilz) by extension 'ignore_ament_install'
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/ur_pilz) by extensions ['colcon_pkg']
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/ur_pilz) by extension 'colcon_pkg'
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/ur_pilz) by extensions ['colcon_meta']
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/ur_pilz) by extension 'colcon_meta'
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/ur_pilz) by extensions ['ros']
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/ur_pilz) by extension 'ros'
+[0.700s] DEBUG:colcon.colcon_core.package_identification:Package 'ws_moveit2/src/ur_pilz' with type 'ros.ament_cmake' and name 'ur_pilz'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/wzlscheduler_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/wzlscheduler_interfaces) by extension 'ignore'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/wzlscheduler_interfaces) by extension 'ignore_ament_install'
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/wzlscheduler_interfaces) by extensions ['colcon_pkg']
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/wzlscheduler_interfaces) by extension 'colcon_pkg'
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/wzlscheduler_interfaces) by extensions ['colcon_meta']
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/wzlscheduler_interfaces) by extension 'colcon_meta'
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/wzlscheduler_interfaces) by extensions ['ros']
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(ws_moveit2/src/wzlscheduler_interfaces) by extension 'ros'
+[0.702s] DEBUG:colcon.colcon_core.package_identification:Package 'ws_moveit2/src/wzlscheduler_interfaces' with type 'ros.catkin' and name 'wzlscheduler_interfaces'
+[0.702s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.702s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.703s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.703s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.703s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.775s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.775s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.781s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 343 installed packages in /opt/ros/humble
+[0.785s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.883s] Level 5:colcon.colcon_core.verb:set package 'interface_opcua' build argument 'cmake_args' from command line to 'None'
+[0.883s] Level 5:colcon.colcon_core.verb:set package 'interface_opcua' build argument 'cmake_target' from command line to 'None'
+[0.883s] Level 5:colcon.colcon_core.verb:set package 'interface_opcua' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.883s] Level 5:colcon.colcon_core.verb:set package 'interface_opcua' build argument 'cmake_clean_cache' from command line to 'False'
+[0.883s] Level 5:colcon.colcon_core.verb:set package 'interface_opcua' build argument 'cmake_clean_first' from command line to 'False'
+[0.883s] Level 5:colcon.colcon_core.verb:set package 'interface_opcua' build argument 'cmake_force_configure' from command line to 'False'
+[0.883s] Level 5:colcon.colcon_core.verb:set package 'interface_opcua' build argument 'ament_cmake_args' from command line to 'None'
+[0.883s] Level 5:colcon.colcon_core.verb:set package 'interface_opcua' build argument 'catkin_cmake_args' from command line to 'None'
+[0.883s] Level 5:colcon.colcon_core.verb:set package 'interface_opcua' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.884s] DEBUG:colcon.colcon_core.verb:Building package 'interface_opcua' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/build/interface_opcua', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/install/interface_opcua', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/interface_opcua', 'symlink_install': False, 'test_result_base': None}
+[0.884s] Level 5:colcon.colcon_core.verb:set package 'opcua_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.884s] Level 5:colcon.colcon_core.verb:set package 'opcua_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.885s] Level 5:colcon.colcon_core.verb:set package 'opcua_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.885s] Level 5:colcon.colcon_core.verb:set package 'opcua_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.885s] Level 5:colcon.colcon_core.verb:set package 'opcua_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.885s] Level 5:colcon.colcon_core.verb:set package 'opcua_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.885s] Level 5:colcon.colcon_core.verb:set package 'opcua_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.885s] Level 5:colcon.colcon_core.verb:set package 'opcua_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.885s] Level 5:colcon.colcon_core.verb:set package 'opcua_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.885s] DEBUG:colcon.colcon_core.verb:Building package 'opcua_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/build/opcua_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/install/opcua_interfaces', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/opcua_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.886s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_msgs' build argument 'cmake_args' from command line to 'None'
+[0.886s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_msgs' build argument 'cmake_target' from command line to 'None'
+[0.886s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_msgs' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.886s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_msgs' build argument 'cmake_clean_cache' from command line to 'False'
+[0.886s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_msgs' build argument 'cmake_clean_first' from command line to 'False'
+[0.886s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_msgs' build argument 'cmake_force_configure' from command line to 'False'
+[0.886s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_msgs' build argument 'ament_cmake_args' from command line to 'None'
+[0.886s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_msgs' build argument 'catkin_cmake_args' from command line to 'None'
+[0.886s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_msgs' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.886s] DEBUG:colcon.colcon_core.verb:Building package 'robo_planner_msgs' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/build/robo_planner_msgs', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/install/robo_planner_msgs', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner_msgs', 'symlink_install': False, 'test_result_base': None}
+[0.887s] Level 5:colcon.colcon_core.verb:set package 'ur_pilz' build argument 'cmake_args' from command line to 'None'
+[0.887s] Level 5:colcon.colcon_core.verb:set package 'ur_pilz' build argument 'cmake_target' from command line to 'None'
+[0.887s] Level 5:colcon.colcon_core.verb:set package 'ur_pilz' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.887s] Level 5:colcon.colcon_core.verb:set package 'ur_pilz' build argument 'cmake_clean_cache' from command line to 'False'
+[0.887s] Level 5:colcon.colcon_core.verb:set package 'ur_pilz' build argument 'cmake_clean_first' from command line to 'False'
+[0.887s] Level 5:colcon.colcon_core.verb:set package 'ur_pilz' build argument 'cmake_force_configure' from command line to 'False'
+[0.887s] Level 5:colcon.colcon_core.verb:set package 'ur_pilz' build argument 'ament_cmake_args' from command line to 'None'
+[0.888s] Level 5:colcon.colcon_core.verb:set package 'ur_pilz' build argument 'catkin_cmake_args' from command line to 'None'
+[0.888s] Level 5:colcon.colcon_core.verb:set package 'ur_pilz' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.888s] DEBUG:colcon.colcon_core.verb:Building package 'ur_pilz' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/build/ur_pilz', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/install/ur_pilz', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/ur_pilz', 'symlink_install': False, 'test_result_base': None}
+[0.888s] Level 5:colcon.colcon_core.verb:set package 'wzlscheduler_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.888s] Level 5:colcon.colcon_core.verb:set package 'wzlscheduler_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.889s] Level 5:colcon.colcon_core.verb:set package 'wzlscheduler_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.889s] Level 5:colcon.colcon_core.verb:set package 'wzlscheduler_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.889s] Level 5:colcon.colcon_core.verb:set package 'wzlscheduler_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.889s] Level 5:colcon.colcon_core.verb:set package 'wzlscheduler_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.889s] Level 5:colcon.colcon_core.verb:set package 'wzlscheduler_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.889s] Level 5:colcon.colcon_core.verb:set package 'wzlscheduler_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.889s] Level 5:colcon.colcon_core.verb:set package 'wzlscheduler_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.889s] DEBUG:colcon.colcon_core.verb:Building package 'wzlscheduler_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/build/wzlscheduler_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/wzlscheduler_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.890s] Level 5:colcon.colcon_core.verb:set package 'grid_snapper' build argument 'cmake_args' from command line to 'None'
+[0.890s] Level 5:colcon.colcon_core.verb:set package 'grid_snapper' build argument 'cmake_target' from command line to 'None'
+[0.890s] Level 5:colcon.colcon_core.verb:set package 'grid_snapper' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.890s] Level 5:colcon.colcon_core.verb:set package 'grid_snapper' build argument 'cmake_clean_cache' from command line to 'False'
+[0.890s] Level 5:colcon.colcon_core.verb:set package 'grid_snapper' build argument 'cmake_clean_first' from command line to 'False'
+[0.890s] Level 5:colcon.colcon_core.verb:set package 'grid_snapper' build argument 'cmake_force_configure' from command line to 'False'
+[0.890s] Level 5:colcon.colcon_core.verb:set package 'grid_snapper' build argument 'ament_cmake_args' from command line to 'None'
+[0.890s] Level 5:colcon.colcon_core.verb:set package 'grid_snapper' build argument 'catkin_cmake_args' from command line to 'None'
+[0.890s] Level 5:colcon.colcon_core.verb:set package 'grid_snapper' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.890s] DEBUG:colcon.colcon_core.verb:Building package 'grid_snapper' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/build/grid_snapper', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/install/grid_snapper', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/grid_snapper', 'symlink_install': False, 'test_result_base': None}
+[0.891s] Level 5:colcon.colcon_core.verb:set package 'mockup_robot' build argument 'cmake_args' from command line to 'None'
+[0.891s] Level 5:colcon.colcon_core.verb:set package 'mockup_robot' build argument 'cmake_target' from command line to 'None'
+[0.891s] Level 5:colcon.colcon_core.verb:set package 'mockup_robot' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.891s] Level 5:colcon.colcon_core.verb:set package 'mockup_robot' build argument 'cmake_clean_cache' from command line to 'False'
+[0.891s] Level 5:colcon.colcon_core.verb:set package 'mockup_robot' build argument 'cmake_clean_first' from command line to 'False'
+[0.891s] Level 5:colcon.colcon_core.verb:set package 'mockup_robot' build argument 'cmake_force_configure' from command line to 'False'
+[0.891s] Level 5:colcon.colcon_core.verb:set package 'mockup_robot' build argument 'ament_cmake_args' from command line to 'None'
+[0.891s] Level 5:colcon.colcon_core.verb:set package 'mockup_robot' build argument 'catkin_cmake_args' from command line to 'None'
+[0.892s] Level 5:colcon.colcon_core.verb:set package 'mockup_robot' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.892s] DEBUG:colcon.colcon_core.verb:Building package 'mockup_robot' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/build/mockup_robot', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/install/mockup_robot', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/mockup_robot', 'symlink_install': False, 'test_result_base': None}
+[0.892s] Level 5:colcon.colcon_core.verb:set package 'moveit_backend' build argument 'cmake_args' from command line to 'None'
+[0.892s] Level 5:colcon.colcon_core.verb:set package 'moveit_backend' build argument 'cmake_target' from command line to 'None'
+[0.892s] Level 5:colcon.colcon_core.verb:set package 'moveit_backend' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.893s] Level 5:colcon.colcon_core.verb:set package 'moveit_backend' build argument 'cmake_clean_cache' from command line to 'False'
+[0.893s] Level 5:colcon.colcon_core.verb:set package 'moveit_backend' build argument 'cmake_clean_first' from command line to 'False'
+[0.893s] Level 5:colcon.colcon_core.verb:set package 'moveit_backend' build argument 'cmake_force_configure' from command line to 'False'
+[0.893s] Level 5:colcon.colcon_core.verb:set package 'moveit_backend' build argument 'ament_cmake_args' from command line to 'None'
+[0.893s] Level 5:colcon.colcon_core.verb:set package 'moveit_backend' build argument 'catkin_cmake_args' from command line to 'None'
+[0.893s] Level 5:colcon.colcon_core.verb:set package 'moveit_backend' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.893s] DEBUG:colcon.colcon_core.verb:Building package 'moveit_backend' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/build/moveit_backend', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/install/moveit_backend', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend', 'symlink_install': False, 'test_result_base': None}
+[0.894s] Level 5:colcon.colcon_core.verb:set package 'opcua_client' build argument 'cmake_args' from command line to 'None'
+[0.894s] Level 5:colcon.colcon_core.verb:set package 'opcua_client' build argument 'cmake_target' from command line to 'None'
+[0.894s] Level 5:colcon.colcon_core.verb:set package 'opcua_client' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.894s] Level 5:colcon.colcon_core.verb:set package 'opcua_client' build argument 'cmake_clean_cache' from command line to 'False'
+[0.894s] Level 5:colcon.colcon_core.verb:set package 'opcua_client' build argument 'cmake_clean_first' from command line to 'False'
+[0.894s] Level 5:colcon.colcon_core.verb:set package 'opcua_client' build argument 'cmake_force_configure' from command line to 'False'
+[0.894s] Level 5:colcon.colcon_core.verb:set package 'opcua_client' build argument 'ament_cmake_args' from command line to 'None'
+[0.894s] Level 5:colcon.colcon_core.verb:set package 'opcua_client' build argument 'catkin_cmake_args' from command line to 'None'
+[0.894s] Level 5:colcon.colcon_core.verb:set package 'opcua_client' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.894s] DEBUG:colcon.colcon_core.verb:Building package 'opcua_client' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/build/opcua_client', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/install/opcua_client', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/opcua_client', 'symlink_install': False, 'test_result_base': None}
+[0.895s] Level 5:colcon.colcon_core.verb:set package 'pcl_segmentation' build argument 'cmake_args' from command line to 'None'
+[0.895s] Level 5:colcon.colcon_core.verb:set package 'pcl_segmentation' build argument 'cmake_target' from command line to 'None'
+[0.895s] Level 5:colcon.colcon_core.verb:set package 'pcl_segmentation' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.895s] Level 5:colcon.colcon_core.verb:set package 'pcl_segmentation' build argument 'cmake_clean_cache' from command line to 'False'
+[0.895s] Level 5:colcon.colcon_core.verb:set package 'pcl_segmentation' build argument 'cmake_clean_first' from command line to 'False'
+[0.895s] Level 5:colcon.colcon_core.verb:set package 'pcl_segmentation' build argument 'cmake_force_configure' from command line to 'False'
+[0.895s] Level 5:colcon.colcon_core.verb:set package 'pcl_segmentation' build argument 'ament_cmake_args' from command line to 'None'
+[0.895s] Level 5:colcon.colcon_core.verb:set package 'pcl_segmentation' build argument 'catkin_cmake_args' from command line to 'None'
+[0.895s] Level 5:colcon.colcon_core.verb:set package 'pcl_segmentation' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.895s] DEBUG:colcon.colcon_core.verb:Building package 'pcl_segmentation' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/build/pcl_segmentation', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/install/pcl_segmentation', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/pcl_segmentation', 'symlink_install': False, 'test_result_base': None}
+[0.896s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'cmake_args' from command line to 'None'
+[0.896s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'cmake_target' from command line to 'None'
+[0.896s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.896s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'cmake_clean_cache' from command line to 'False'
+[0.896s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'cmake_clean_first' from command line to 'False'
+[0.897s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'cmake_force_configure' from command line to 'False'
+[0.897s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'ament_cmake_args' from command line to 'None'
+[0.897s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'catkin_cmake_args' from command line to 'None'
+[0.897s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.897s] DEBUG:colcon.colcon_core.verb:Building package 'robo_planner' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/build/robo_planner', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/install/robo_planner', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner', 'symlink_install': False, 'test_result_base': None}
+[0.897s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_py' build argument 'cmake_args' from command line to 'None'
+[0.898s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_py' build argument 'cmake_target' from command line to 'None'
+[0.898s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_py' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.898s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_py' build argument 'cmake_clean_cache' from command line to 'False'
+[0.898s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_py' build argument 'cmake_clean_first' from command line to 'False'
+[0.898s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_py' build argument 'cmake_force_configure' from command line to 'False'
+[0.898s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_py' build argument 'ament_cmake_args' from command line to 'None'
+[0.898s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_py' build argument 'catkin_cmake_args' from command line to 'None'
+[0.898s] Level 5:colcon.colcon_core.verb:set package 'robo_planner_py' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.898s] DEBUG:colcon.colcon_core.verb:Building package 'robo_planner_py' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/build/robo_planner_py', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/install/robo_planner_py', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner_py', 'symlink_install': False, 'test_result_base': None}
+[0.898s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.902s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.903s] INFO:colcon.colcon_ros.task.catkin.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/wzlscheduler_interfaces' with build type 'catkin'
+[0.903s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/autopilot/ws/restackcell/ws_moveit2/src/wzlscheduler_interfaces'
+[0.911s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.912s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.913s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.927s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/opcua_interfaces' with build type 'ament_cmake'
+[0.927s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/autopilot/ws/restackcell/ws_moveit2/src/opcua_interfaces'
+[0.929s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.930s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.946s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/interface_opcua' with build type 'ament_python'
+[0.947s] Level 1:colcon.colcon_core.shell:create_environment_hook('interface_opcua', 'ament_prefix_path')
+[0.949s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/interface_opcua/share/interface_opcua/hook/ament_prefix_path.ps1'
+[0.951s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/interface_opcua/share/interface_opcua/hook/ament_prefix_path.dsv'
+[0.953s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/interface_opcua/share/interface_opcua/hook/ament_prefix_path.sh'
+[0.956s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.956s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.974s] INFO:colcon.colcon_ros.task.catkin.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner_msgs' with build type 'catkin'
+[0.976s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner_msgs'
+[0.979s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.980s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.008s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/wzlscheduler_interfaces': /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/wzlscheduler_interfaces -- -j4 -l4
+[1.018s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/opcua_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/opcua_interfaces -- -j4 -l4
+[2.474s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/autopilot/ws/restackcell/ws_moveit2/src/interface_opcua'
+[2.475s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.475s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[2.506s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/robo_planner_msgs': /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/robo_planner_msgs -- -j4 -l4
+[3.494s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/opcua_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/opcua_interfaces -- -j4 -l4
+[4.357s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/opcua_interfaces': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/opcua_interfaces
+[4.590s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(opcua_interfaces)
+[4.597s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces' for CMake module files
+[4.603s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces' for CMake config files
+[4.605s] Level 1:colcon.colcon_core.shell:create_environment_hook('opcua_interfaces', 'cmake_prefix_path')
+[4.606s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/hook/cmake_prefix_path.ps1'
+[4.609s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/hook/cmake_prefix_path.dsv'
+[4.611s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/hook/cmake_prefix_path.sh'
+[4.623s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces/lib'
+[4.624s] Level 1:colcon.colcon_core.shell:create_environment_hook('opcua_interfaces', 'ld_library_path_lib')
+[4.624s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/hook/ld_library_path_lib.ps1'
+[4.627s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/hook/ld_library_path_lib.dsv'
+[4.628s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/hook/ld_library_path_lib.sh'
+[4.629s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces/bin'
+[4.629s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces/lib/pkgconfig/opcua_interfaces.pc'
+[4.629s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces/lib/python3.10/site-packages'
+[4.630s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces/bin'
+[4.631s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/package.ps1'
+[4.634s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/opcua_interfaces' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/opcua_interfaces
+[4.635s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/package.dsv'
+[4.639s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/package.sh'
+[4.641s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/package.bash'
+[4.642s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/package.zsh'
+[4.644s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/opcua_interfaces/share/colcon-core/packages/opcua_interfaces)
+[5.103s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/wzlscheduler_interfaces' returned '0': /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/wzlscheduler_interfaces -- -j4 -l4
+[5.204s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/ws_moveit2/src/interface_opcua': PYTHONPATH=/home/autopilot/ws/restackcell/build/interface_opcua/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autopilot/ws/restackcell/install/interface_opcua/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/interface_opcua build --build-base /home/autopilot/ws/restackcell/build/interface_opcua/build install --record /home/autopilot/ws/restackcell/build/interface_opcua/install.log --single-version-externally-managed install_data
+[5.409s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(opcua_interfaces)
+[5.409s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces' for CMake module files
+[5.411s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces' for CMake config files
+[5.412s] Level 1:colcon.colcon_core.shell:create_environment_hook('opcua_interfaces', 'cmake_prefix_path')
+[5.412s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/hook/cmake_prefix_path.ps1'
+[5.413s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/hook/cmake_prefix_path.dsv'
+[5.415s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/hook/cmake_prefix_path.sh'
+[5.418s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces/lib'
+[5.418s] Level 1:colcon.colcon_core.shell:create_environment_hook('opcua_interfaces', 'ld_library_path_lib')
+[5.419s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/hook/ld_library_path_lib.ps1'
+[5.423s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/hook/ld_library_path_lib.dsv'
+[5.425s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/hook/ld_library_path_lib.sh'
+[5.427s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces/bin'
+[5.427s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces/lib/pkgconfig/opcua_interfaces.pc'
+[5.428s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces/lib/python3.10/site-packages'
+[5.428s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_interfaces/bin'
+[5.431s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/package.ps1'
+[5.433s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/package.dsv'
+[5.435s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/package.sh'
+[5.436s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/package.bash'
+[5.440s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/opcua_interfaces/share/opcua_interfaces/package.zsh'
+[5.442s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/opcua_interfaces/share/colcon-core/packages/opcua_interfaces)
+[5.447s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/ur_pilz' with build type 'ament_cmake'
+[5.448s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/autopilot/ws/restackcell/ws_moveit2/src/ur_pilz'
+[5.449s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.449s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[5.482s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/ur_pilz': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/ur_pilz -- -j4 -l4
+[5.505s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/robo_planner_msgs' returned '0': /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/robo_planner_msgs -- -j4 -l4
+[5.604s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/ur_pilz' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/ur_pilz -- -j4 -l4
+[5.770s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/ur_pilz': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/ur_pilz
+[5.811s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur_pilz)
+[5.812s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/ur_pilz' for CMake module files
+[5.813s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/ur_pilz' for CMake config files
+[5.814s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_pilz', 'cmake_prefix_path')
+[5.815s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/hook/cmake_prefix_path.ps1'
+[5.818s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/hook/cmake_prefix_path.dsv'
+[5.823s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/hook/cmake_prefix_path.sh'
+[5.826s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/ur_pilz/bin'
+[5.826s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/ur_pilz/lib/pkgconfig/ur_pilz.pc'
+[5.827s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/ur_pilz/lib/python3.10/site-packages'
+[5.828s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/ur_pilz/bin'
+[5.830s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/package.ps1'
+[5.834s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/ur_pilz' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/ur_pilz
+[5.837s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/package.dsv'
+[5.840s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/package.sh'
+[5.852s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/package.bash'
+[5.856s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/package.zsh'
+[5.858s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/ur_pilz/share/colcon-core/packages/ur_pilz)
+[5.968s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur_pilz)
+[5.969s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/ur_pilz' for CMake module files
+[5.970s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/ur_pilz' for CMake config files
+[5.971s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur_pilz', 'cmake_prefix_path')
+[5.971s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/hook/cmake_prefix_path.ps1'
+[5.973s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/hook/cmake_prefix_path.dsv'
+[5.974s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/hook/cmake_prefix_path.sh'
+[5.975s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/ur_pilz/bin'
+[5.976s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/ur_pilz/lib/pkgconfig/ur_pilz.pc'
+[5.976s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/ur_pilz/lib/python3.10/site-packages'
+[5.977s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/ur_pilz/bin'
+[5.978s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/package.ps1'
+[5.979s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/package.dsv'
+[5.981s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/package.sh'
+[5.984s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/package.bash'
+[5.986s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/ur_pilz/share/ur_pilz/package.zsh'
+[5.987s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/ur_pilz/share/colcon-core/packages/ur_pilz)
+[5.990s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/opcua_client' with build type 'ament_python'
+[5.990s] Level 1:colcon.colcon_core.shell:create_environment_hook('opcua_client', 'ament_prefix_path')
+[5.992s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/opcua_client/share/opcua_client/hook/ament_prefix_path.ps1'
+[5.993s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/opcua_client/share/opcua_client/hook/ament_prefix_path.dsv'
+[5.994s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/opcua_client/share/opcua_client/hook/ament_prefix_path.sh'
+[5.995s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[5.996s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.153s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/autopilot/ws/restackcell/ws_moveit2/src/opcua_client'
+[7.154s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[7.154s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[7.176s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/interface_opcua' for CMake module files
+[7.177s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/interface_opcua' for CMake config files
+[7.178s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/ws_moveit2/src/interface_opcua' returned '0': PYTHONPATH=/home/autopilot/ws/restackcell/build/interface_opcua/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autopilot/ws/restackcell/install/interface_opcua/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/interface_opcua build --build-base /home/autopilot/ws/restackcell/build/interface_opcua/build install --record /home/autopilot/ws/restackcell/build/interface_opcua/install.log --single-version-externally-managed install_data
+[7.181s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/interface_opcua/lib'
+[7.183s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/interface_opcua/bin'
+[7.185s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/interface_opcua/lib/pkgconfig/interface_opcua.pc'
+[7.186s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/interface_opcua/lib/python3.10/site-packages'
+[7.187s] Level 1:colcon.colcon_core.shell:create_environment_hook('interface_opcua', 'pythonpath')
+[7.189s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/interface_opcua/share/interface_opcua/hook/pythonpath.ps1'
+[7.195s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/interface_opcua/share/interface_opcua/hook/pythonpath.dsv'
+[7.199s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/interface_opcua/share/interface_opcua/hook/pythonpath.sh'
+[7.205s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/interface_opcua/bin'
+[7.206s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(interface_opcua)
+[7.208s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/interface_opcua/share/interface_opcua/package.ps1'
+[7.210s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/interface_opcua/share/interface_opcua/package.dsv'
+[7.212s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/interface_opcua/share/interface_opcua/package.sh'
+[7.213s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/interface_opcua/share/interface_opcua/package.bash'
+[7.215s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/interface_opcua/share/interface_opcua/package.zsh'
+[7.216s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/interface_opcua/share/colcon-core/packages/interface_opcua)
+[8.876s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/ws_moveit2/src/opcua_client': AMENT_PREFIX_PATH=/home/autopilot/ws/restackcell/install/opcua_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/install/opcua_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/opcua_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/autopilot/ws/restackcell/build/opcua_client/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autopilot/ws/restackcell/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/install/opcua_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/opcua_client build --build-base /home/autopilot/ws/restackcell/build/opcua_client/build install --record /home/autopilot/ws/restackcell/build/opcua_client/install.log --single-version-externally-managed install_data
+[8.912s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/wzlscheduler_interfaces': /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/wzlscheduler_interfaces
+[9.256s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/robo_planner_msgs': /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/robo_planner_msgs
+[9.475s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/wzlscheduler_interfaces' returned '0': /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/wzlscheduler_interfaces
+[9.690s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/robo_planner_msgs' returned '0': /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/robo_planner_msgs
+[10.630s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_client' for CMake module files
+[10.632s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_client' for CMake config files
+[10.633s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_client/lib'
+[10.633s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_client/bin'
+[10.633s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_client/lib/pkgconfig/opcua_client.pc'
+[10.639s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_client/lib/python3.10/site-packages'
+[10.640s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/ws_moveit2/src/opcua_client' returned '0': AMENT_PREFIX_PATH=/home/autopilot/ws/restackcell/install/opcua_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/install/opcua_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/opcua_interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/autopilot/ws/restackcell/build/opcua_client/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autopilot/ws/restackcell/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/install/opcua_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/opcua_client build --build-base /home/autopilot/ws/restackcell/build/opcua_client/build install --record /home/autopilot/ws/restackcell/build/opcua_client/install.log --single-version-externally-managed install_data
+[10.643s] Level 1:colcon.colcon_core.shell:create_environment_hook('opcua_client', 'pythonpath')
+[10.644s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/opcua_client/share/opcua_client/hook/pythonpath.ps1'
+[10.647s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/opcua_client/share/opcua_client/hook/pythonpath.dsv'
+[10.652s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/opcua_client/share/opcua_client/hook/pythonpath.sh'
+[10.657s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/opcua_client/bin'
+[10.657s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(opcua_client)
+[10.661s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/opcua_client/share/opcua_client/package.ps1'
+[10.667s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/opcua_client/share/opcua_client/package.dsv'
+[10.674s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/opcua_client/share/opcua_client/package.sh'
+[10.676s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/opcua_client/share/opcua_client/package.bash'
+[10.678s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/opcua_client/share/opcua_client/package.zsh'
+[10.679s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/opcua_client/share/colcon-core/packages/opcua_client)
+[10.875s] Level 1:colcon.colcon_core.shell:create_environment_hook('wzlscheduler_interfaces', 'ros_package_path')
+[10.876s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/ros_package_path.ps1'
+[10.877s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/ros_package_path.dsv'
+[10.878s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/ros_package_path.sh'
+[10.879s] Level 1:colcon.colcon_ros.task.catkin:checking '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages'
+[10.880s] Level 1:colcon.colcon_core.shell:create_environment_hook('wzlscheduler_interfaces', 'catkin_pythonpath')
+[10.880s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/catkin_pythonpath.ps1'
+[10.883s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/catkin_pythonpath.dsv'
+[10.884s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/catkin_pythonpath.sh'
+[10.885s] Level 1:colcon.colcon_core.shell:create_environment_hook('wzlscheduler_interfaces', 'pkg_config_path')
+[10.886s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/pkg_config_path.ps1'
+[10.888s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/pkg_config_path.dsv'
+[10.889s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/pkg_config_path.sh'
+[10.895s] Level 1:colcon.colcon_core.shell:create_environment_hook('wzlscheduler_interfaces', 'pkg_config_path_multiarch')
+[10.895s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/pkg_config_path_multiarch.ps1'
+[10.896s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/pkg_config_path_multiarch.dsv'
+[10.897s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/pkg_config_path_multiarch.sh'
+[10.899s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(wzlscheduler_interfaces)
+[10.900s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces' for CMake module files
+[10.901s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces' for CMake config files
+[10.903s] Level 1:colcon.colcon_core.shell:create_environment_hook('wzlscheduler_interfaces', 'cmake_prefix_path')
+[10.904s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/cmake_prefix_path.ps1'
+[10.906s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/cmake_prefix_path.dsv'
+[10.907s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/cmake_prefix_path.sh'
+[10.909s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib'
+[10.910s] Level 1:colcon.colcon_core.shell:create_environment_hook('wzlscheduler_interfaces', 'ld_library_path_lib')
+[10.911s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/ld_library_path_lib.ps1'
+[10.912s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/ld_library_path_lib.dsv'
+[10.914s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/hook/ld_library_path_lib.sh'
+[10.915s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/bin'
+[10.916s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig/wzlscheduler_interfaces.pc'
+[10.916s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/python3.10/site-packages'
+[10.917s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/bin'
+[10.918s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/package.ps1'
+[10.921s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/package.dsv'
+[10.923s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/package.sh'
+[10.924s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/package.bash'
+[10.926s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/package.zsh'
+[10.927s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share/colcon-core/packages/wzlscheduler_interfaces)
+[10.930s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/grid_snapper' with build type 'ament_python'
+[10.931s] Level 1:colcon.colcon_core.shell:create_environment_hook('grid_snapper', 'ament_prefix_path')
+[10.932s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/grid_snapper/share/grid_snapper/hook/ament_prefix_path.ps1'
+[10.934s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/grid_snapper/share/grid_snapper/hook/ament_prefix_path.dsv'
+[10.935s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/grid_snapper/share/grid_snapper/hook/ament_prefix_path.sh'
+[10.937s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[10.937s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[10.944s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/mockup_robot' with build type 'ament_cmake'
+[10.945s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/autopilot/ws/restackcell/ws_moveit2/src/mockup_robot'
+[10.945s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[10.945s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[10.974s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend' with build type 'ament_cmake'
+[10.975s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend'
+[10.975s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[10.976s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[10.989s] Level 1:colcon.colcon_core.shell:create_environment_hook('robo_planner_msgs', 'ros_package_path')
+[10.990s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/ros_package_path.ps1'
+[10.991s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/ros_package_path.dsv'
+[10.992s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/ros_package_path.sh'
+[10.993s] Level 1:colcon.colcon_ros.task.catkin:checking '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages'
+[10.993s] Level 1:colcon.colcon_core.shell:create_environment_hook('robo_planner_msgs', 'catkin_pythonpath')
+[10.995s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/catkin_pythonpath.ps1'
+[10.996s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/catkin_pythonpath.dsv'
+[10.996s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/catkin_pythonpath.sh'
+[10.997s] Level 1:colcon.colcon_core.shell:create_environment_hook('robo_planner_msgs', 'pkg_config_path')
+[10.998s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/pkg_config_path.ps1'
+[10.999s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/pkg_config_path.dsv'
+[10.999s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/pkg_config_path.sh'
+[11.000s] Level 1:colcon.colcon_core.shell:create_environment_hook('robo_planner_msgs', 'pkg_config_path_multiarch')
+[11.001s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/pkg_config_path_multiarch.ps1'
+[11.002s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/pkg_config_path_multiarch.dsv'
+[11.002s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/pkg_config_path_multiarch.sh'
+[11.004s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robo_planner_msgs)
+[11.004s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_msgs' for CMake module files
+[11.007s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_msgs' for CMake config files
+[11.007s] Level 1:colcon.colcon_core.shell:create_environment_hook('robo_planner_msgs', 'cmake_prefix_path')
+[11.008s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/cmake_prefix_path.ps1'
+[11.009s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/cmake_prefix_path.dsv'
+[11.010s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/cmake_prefix_path.sh'
+[11.011s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_msgs/lib'
+[11.012s] Level 1:colcon.colcon_core.shell:create_environment_hook('robo_planner_msgs', 'ld_library_path_lib')
+[11.012s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/ld_library_path_lib.ps1'
+[11.013s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/ld_library_path_lib.dsv'
+[11.014s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/hook/ld_library_path_lib.sh'
+[11.014s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_msgs/bin'
+[11.015s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/pkgconfig/robo_planner_msgs.pc'
+[11.016s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/python3.10/site-packages'
+[11.016s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_msgs/bin'
+[11.017s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/package.ps1'
+[11.019s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/package.dsv'
+[11.020s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/package.sh'
+[11.021s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/package.bash'
+[11.023s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/package.zsh'
+[11.025s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/robo_planner_msgs/share/colcon-core/packages/robo_planner_msgs)
+[11.027s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/pcl_segmentation' with build type 'ament_cmake'
+[11.027s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/autopilot/ws/restackcell/ws_moveit2/src/pcl_segmentation'
+[11.029s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[11.029s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[11.675s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/autopilot/ws/restackcell/ws_moveit2/src/grid_snapper'
+[11.675s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[11.676s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[11.704s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/mockup_robot': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/mockup_robot -- -j4 -l4
+[11.733s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/moveit_backend': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/moveit_backend -- -j4 -l4
+[11.768s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/pcl_segmentation': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/pcl_segmentation -- -j4 -l4
+[12.031s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/mockup_robot' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/mockup_robot -- -j4 -l4
+[12.168s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/mockup_robot': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/mockup_robot
+[12.232s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mockup_robot)
+[12.233s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot' for CMake module files
+[12.234s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot' for CMake config files
+[12.235s] Level 1:colcon.colcon_core.shell:create_environment_hook('mockup_robot', 'cmake_prefix_path')
+[12.235s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/hook/cmake_prefix_path.ps1'
+[12.236s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/hook/cmake_prefix_path.dsv'
+[12.237s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/hook/cmake_prefix_path.sh'
+[12.241s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/mockup_robot' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/mockup_robot
+[12.244s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot/lib'
+[12.245s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot/bin'
+[12.245s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot/lib/pkgconfig/mockup_robot.pc'
+[12.247s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot/lib/python3.10/site-packages'
+[12.248s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot/bin'
+[12.249s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/package.ps1'
+[12.252s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/package.dsv'
+[12.255s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/package.sh'
+[12.257s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/package.bash'
+[12.260s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/package.zsh'
+[12.261s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/mockup_robot/share/colcon-core/packages/mockup_robot)
+[12.379s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(mockup_robot)
+[12.379s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot' for CMake module files
+[12.380s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot' for CMake config files
+[12.381s] Level 1:colcon.colcon_core.shell:create_environment_hook('mockup_robot', 'cmake_prefix_path')
+[12.381s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/hook/cmake_prefix_path.ps1'
+[12.386s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/hook/cmake_prefix_path.dsv'
+[12.388s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/hook/cmake_prefix_path.sh'
+[12.391s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot/lib'
+[12.391s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot/bin'
+[12.392s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot/lib/pkgconfig/mockup_robot.pc'
+[12.393s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot/lib/python3.10/site-packages'
+[12.396s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/mockup_robot/bin'
+[12.398s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/package.ps1'
+[12.401s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/package.dsv'
+[12.405s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/package.sh'
+[12.407s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/package.bash'
+[12.409s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/mockup_robot/share/mockup_robot/package.zsh'
+[12.412s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/mockup_robot/share/colcon-core/packages/mockup_robot)
+[12.416s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner' with build type 'ament_cmake'
+[12.418s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner'
+[12.422s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[12.423s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[12.546s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/robo_planner': AMENT_PREFIX_PATH=/home/autopilot/ws/restackcell/install/opcua_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/install/opcua_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/install/opcua_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/install/opcua_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/robo_planner -- -j4 -l4
+[12.990s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/robo_planner' returned '0': AMENT_PREFIX_PATH=/home/autopilot/ws/restackcell/install/opcua_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/install/opcua_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/install/opcua_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/install/opcua_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/robo_planner -- -j4 -l4
+[13.362s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/ws_moveit2/src/grid_snapper': CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/build/grid_snapper/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autopilot/ws/restackcell/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/grid_snapper build --build-base /home/autopilot/ws/restackcell/build/grid_snapper/build install --record /home/autopilot/ws/restackcell/build/grid_snapper/install.log --single-version-externally-managed install_data
+[13.378s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/robo_planner': AMENT_PREFIX_PATH=/home/autopilot/ws/restackcell/install/opcua_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/install/opcua_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/install/opcua_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/install/opcua_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/robo_planner
+[13.498s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robo_planner)
+[13.499s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner' for CMake module files
+[13.501s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner' for CMake config files
+[13.503s] Level 1:colcon.colcon_core.shell:create_environment_hook('robo_planner', 'cmake_prefix_path')
+[13.504s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/hook/cmake_prefix_path.ps1'
+[13.507s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/hook/cmake_prefix_path.dsv'
+[13.510s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/hook/cmake_prefix_path.sh'
+[13.514s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner/lib'
+[13.516s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner/bin'
+[13.516s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner/lib/pkgconfig/robo_planner.pc'
+[13.517s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner/lib/python3.10/site-packages'
+[13.518s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner/bin'
+[13.520s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/package.ps1'
+[13.528s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/package.dsv'
+[13.532s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/package.sh'
+[13.534s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/package.bash'
+[13.539s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/package.zsh'
+[13.541s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/robo_planner/share/colcon-core/packages/robo_planner)
+[13.620s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/pcl_segmentation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/pcl_segmentation -- -j4 -l4
+[13.623s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/robo_planner' returned '0': AMENT_PREFIX_PATH=/home/autopilot/ws/restackcell/install/opcua_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/install/opcua_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/install/opcua_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/install/opcua_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/robo_planner
+[14.034s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/pcl_segmentation': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/pcl_segmentation
+[14.118s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(pcl_segmentation)
+[14.119s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation' for CMake module files
+[14.120s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation' for CMake config files
+[14.121s] Level 1:colcon.colcon_core.shell:create_environment_hook('pcl_segmentation', 'cmake_prefix_path')
+[14.121s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/hook/cmake_prefix_path.ps1'
+[14.122s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/pcl_segmentation' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/pcl_segmentation
+[14.124s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/hook/cmake_prefix_path.dsv'
+[14.125s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/hook/cmake_prefix_path.sh'
+[14.129s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation/lib'
+[14.129s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation/bin'
+[14.130s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation/lib/pkgconfig/pcl_segmentation.pc'
+[14.131s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation/lib/python3.10/site-packages'
+[14.133s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation/bin'
+[14.137s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/package.ps1'
+[14.142s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/package.dsv'
+[14.147s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/package.sh'
+[14.151s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/package.bash'
+[14.153s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/package.zsh'
+[14.156s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/pcl_segmentation/share/colcon-core/packages/pcl_segmentation)
+[14.208s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robo_planner)
+[14.208s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner' for CMake module files
+[14.209s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner' for CMake config files
+[14.210s] Level 1:colcon.colcon_core.shell:create_environment_hook('robo_planner', 'cmake_prefix_path')
+[14.211s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/hook/cmake_prefix_path.ps1'
+[14.213s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/hook/cmake_prefix_path.dsv'
+[14.214s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/hook/cmake_prefix_path.sh'
+[14.217s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner/lib'
+[14.218s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner/bin'
+[14.218s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner/lib/pkgconfig/robo_planner.pc'
+[14.220s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner/lib/python3.10/site-packages'
+[14.221s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner/bin'
+[14.223s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/package.ps1'
+[14.228s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/package.dsv'
+[14.233s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/package.sh'
+[14.237s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/package.bash'
+[14.241s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner/share/robo_planner/package.zsh'
+[14.245s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/robo_planner/share/colcon-core/packages/robo_planner)
+[14.250s] INFO:colcon.colcon_ros.task.ament_python.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner_py' with build type 'ament_python'
+[14.251s] Level 1:colcon.colcon_core.shell:create_environment_hook('robo_planner_py', 'ament_prefix_path')
+[14.253s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_py/share/robo_planner_py/hook/ament_prefix_path.ps1'
+[14.256s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/robo_planner_py/share/robo_planner_py/hook/ament_prefix_path.dsv'
+[14.258s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_py/share/robo_planner_py/hook/ament_prefix_path.sh'
+[14.262s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[14.263s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[15.346s] INFO:colcon.colcon_core.task.python.build:Building Python package in '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner_py'
+[15.347s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[15.347s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[15.374s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(pcl_segmentation)
+[15.374s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation' for CMake module files
+[15.378s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation' for CMake config files
+[15.379s] Level 1:colcon.colcon_core.shell:create_environment_hook('pcl_segmentation', 'cmake_prefix_path')
+[15.380s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/hook/cmake_prefix_path.ps1'
+[15.382s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/hook/cmake_prefix_path.dsv'
+[15.383s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/hook/cmake_prefix_path.sh'
+[15.386s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation/lib'
+[15.389s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation/bin'
+[15.390s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation/lib/pkgconfig/pcl_segmentation.pc'
+[15.392s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation/lib/python3.10/site-packages'
+[15.394s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/pcl_segmentation/bin'
+[15.397s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/package.ps1'
+[15.402s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/package.dsv'
+[15.406s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/package.sh'
+[15.409s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/package.bash'
+[15.413s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/pcl_segmentation/share/pcl_segmentation/package.zsh'
+[15.417s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/pcl_segmentation/share/colcon-core/packages/pcl_segmentation)
+[15.429s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/grid_snapper' for CMake module files
+[15.430s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/ws_moveit2/src/grid_snapper' returned '0': CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/build/grid_snapper/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autopilot/ws/restackcell/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/grid_snapper build --build-base /home/autopilot/ws/restackcell/build/grid_snapper/build install --record /home/autopilot/ws/restackcell/build/grid_snapper/install.log --single-version-externally-managed install_data
+[15.436s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/grid_snapper' for CMake config files
+[15.444s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/grid_snapper/lib'
+[15.446s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/grid_snapper/bin'
+[15.448s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/grid_snapper/lib/pkgconfig/grid_snapper.pc'
+[15.451s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/grid_snapper/lib/python3.10/site-packages'
+[15.451s] Level 1:colcon.colcon_core.shell:create_environment_hook('grid_snapper', 'pythonpath')
+[15.452s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/grid_snapper/share/grid_snapper/hook/pythonpath.ps1'
+[15.458s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/grid_snapper/share/grid_snapper/hook/pythonpath.dsv'
+[15.461s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/grid_snapper/share/grid_snapper/hook/pythonpath.sh'
+[15.465s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/grid_snapper/bin'
+[15.466s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(grid_snapper)
+[15.469s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/grid_snapper/share/grid_snapper/package.ps1'
+[15.473s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/grid_snapper/share/grid_snapper/package.dsv'
+[15.478s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/grid_snapper/share/grid_snapper/package.sh'
+[15.483s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/grid_snapper/share/grid_snapper/package.bash'
+[15.486s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/grid_snapper/share/grid_snapper/package.zsh'
+[15.490s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/grid_snapper/share/colcon-core/packages/grid_snapper)
+[17.048s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner_py': AMENT_PREFIX_PATH=/home/autopilot/ws/restackcell/install/opcua_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/install/opcua_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/install/opcua_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/build/robo_planner_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autopilot/ws/restackcell/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/install/opcua_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/robo_planner_py build --build-base /home/autopilot/ws/restackcell/build/robo_planner_py/build install --record /home/autopilot/ws/restackcell/build/robo_planner_py/install.log --single-version-externally-managed install_data
+[18.044s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_py' for CMake module files
+[18.045s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_py' for CMake config files
+[18.046s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_py/lib'
+[18.047s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_py/bin'
+[18.047s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_py/lib/pkgconfig/robo_planner_py.pc'
+[18.047s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_py/lib/python3.10/site-packages'
+[18.047s] Level 1:colcon.colcon_core.shell:create_environment_hook('robo_planner_py', 'pythonpath')
+[18.048s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_py/share/robo_planner_py/hook/pythonpath.ps1'
+[18.049s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/robo_planner_py/share/robo_planner_py/hook/pythonpath.dsv'
+[18.051s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner_py' returned '0': AMENT_PREFIX_PATH=/home/autopilot/ws/restackcell/install/opcua_interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/install/opcua_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/install/opcua_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/build/robo_planner_py/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autopilot/ws/restackcell/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/install/opcua_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../../../build/robo_planner_py build --build-base /home/autopilot/ws/restackcell/build/robo_planner_py/build install --record /home/autopilot/ws/restackcell/build/robo_planner_py/install.log --single-version-externally-managed install_data
+[18.053s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/robo_planner_py/share/robo_planner_py/hook/pythonpath.sh'
+[18.055s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/robo_planner_py/bin'
+[18.055s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robo_planner_py)
+[18.056s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner_py/share/robo_planner_py/package.ps1'
+[18.057s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/robo_planner_py/share/robo_planner_py/package.dsv'
+[18.059s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner_py/share/robo_planner_py/package.sh'
+[18.060s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner_py/share/robo_planner_py/package.bash'
+[18.061s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/robo_planner_py/share/robo_planner_py/package.zsh'
+[18.063s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/robo_planner_py/share/colcon-core/packages/robo_planner_py)
+[81.133s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/moveit_backend' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/moveit_backend -- -j4 -l4
+[81.272s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/build/moveit_backend': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/moveit_backend
+[81.508s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(moveit_backend)
+[81.509s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend' for CMake module files
+[81.510s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend' for CMake config files
+[81.521s] Level 1:colcon.colcon_core.shell:create_environment_hook('moveit_backend', 'cmake_prefix_path')
+[81.526s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/hook/cmake_prefix_path.ps1'
+[81.531s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/hook/cmake_prefix_path.dsv'
+[81.536s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/hook/cmake_prefix_path.sh'
+[81.567s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/build/moveit_backend' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/moveit_backend
+[81.568s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend/lib'
+[81.569s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend/bin'
+[81.569s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend/lib/pkgconfig/moveit_backend.pc'
+[81.571s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend/lib/python3.10/site-packages'
+[81.585s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend/bin'
+[81.594s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/package.ps1'
+[81.611s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/package.dsv'
+[81.619s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/package.sh'
+[81.621s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/package.bash'
+[81.622s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/package.zsh'
+[81.623s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/moveit_backend/share/colcon-core/packages/moveit_backend)
+[81.953s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(moveit_backend)
+[81.954s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend' for CMake module files
+[81.963s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend' for CMake config files
+[81.973s] Level 1:colcon.colcon_core.shell:create_environment_hook('moveit_backend', 'cmake_prefix_path')
+[81.975s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/hook/cmake_prefix_path.ps1'
+[81.979s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/hook/cmake_prefix_path.dsv'
+[81.983s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/hook/cmake_prefix_path.sh'
+[81.998s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend/lib'
+[82.002s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend/bin'
+[82.005s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend/lib/pkgconfig/moveit_backend.pc'
+[82.010s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend/lib/python3.10/site-packages'
+[82.013s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/install/moveit_backend/bin'
+[82.015s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/package.ps1'
+[82.021s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/package.dsv'
+[82.026s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/package.sh'
+[82.031s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/package.bash'
+[82.035s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/package.zsh'
+[82.038s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/install/moveit_backend/share/colcon-core/packages/moveit_backend)
+[82.049s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[82.050s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[82.051s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[82.053s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[82.115s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[82.118s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[82.119s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[82.215s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[82.216s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/autopilot/ws/restackcell/install/local_setup.ps1'
+[82.225s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/autopilot/ws/restackcell/install/_local_setup_util_ps1.py'
+[82.237s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/autopilot/ws/restackcell/install/setup.ps1'
+[82.255s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/autopilot/ws/restackcell/install/local_setup.sh'
+[82.269s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/autopilot/ws/restackcell/install/_local_setup_util_sh.py'
+[82.283s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/autopilot/ws/restackcell/install/setup.sh'
+[82.311s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/autopilot/ws/restackcell/install/local_setup.bash'
+[82.316s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/autopilot/ws/restackcell/install/setup.bash'
+[82.327s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/autopilot/ws/restackcell/install/local_setup.zsh'
+[82.345s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/autopilot/ws/restackcell/install/setup.zsh'

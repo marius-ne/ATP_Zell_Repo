@@ -1,0 +1,18 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from robo_planner_msgs/srv/Atomic/FollowTrajectory.srv
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+
+module robo_planner_msgs {
+  module srv {
+    struct FollowTrajectory_Request {
+      sequence<geometry_msgs::msg::Pose> supportpoints;
+
+      double value;
+    };
+    struct FollowTrajectory_Response {
+      int32 result;
+    };
+  };
+};

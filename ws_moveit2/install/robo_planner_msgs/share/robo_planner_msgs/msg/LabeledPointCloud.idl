@@ -1,0 +1,20 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from robo_planner_msgs/msg/LabeledPointCloud.msg
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+#include "sensor_msgs/msg/PointCloud2.idl"
+
+module robo_planner_msgs {
+  module msg {
+    struct LabeledPointCloud {
+      string label;
+
+      geometry_msgs::msg::Pose poseorigin;
+
+      geometry_msgs::msg::Pose posecad;
+
+      sensor_msgs::msg::PointCloud2 pointcloud;
+    };
+  };
+};

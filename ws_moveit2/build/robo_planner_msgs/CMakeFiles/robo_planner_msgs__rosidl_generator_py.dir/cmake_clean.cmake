@@ -1,0 +1,43 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_labeled_point_cloud_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_labeled_point_cloud_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_labeled_point_clouds_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_labeled_point_clouds_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_scene_object_add_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_scene_object_add_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_scene_object_remove_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_scene_object_remove_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_scene_object_set_pose_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_scene_object_set_pose_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_follow_trajectory_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_follow_trajectory_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_change_pick_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_change_pick_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_change_place_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_change_place_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_change_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_change_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_close_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_close_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_open_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_open_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_move_to_pose_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_move_to_pose_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_open_door_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_open_door_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_pick_and_place_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_pick_and_place_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_pick_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_pick_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_place_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_place_s.c.o.d"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_set_robot_value_velocity_s.c.o"
+  "CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_set_robot_value_velocity_s.c.o.d"
+  "rosidl_generator_py/robo_planner_msgs/librobo_planner_msgs__rosidl_generator_py.pdb"
+  "rosidl_generator_py/robo_planner_msgs/librobo_planner_msgs__rosidl_generator_py.so"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang C)
+  include(CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

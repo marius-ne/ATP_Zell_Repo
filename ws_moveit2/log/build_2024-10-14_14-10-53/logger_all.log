@@ -1,0 +1,265 @@
+[0.260s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build', '--packages-select', 'robo_planner']
+[0.261s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=4, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=['robo_planner'], packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0xffff921840a0>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0xffff9214fa30>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0xffff9214fa30>>, mixin_verb=('build',))
+[0.661s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.662s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.662s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.662s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.663s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.663s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.663s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/autopilot/ws/restackcell/ws_moveit2'
+[0.664s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.664s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.664s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.665s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.665s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.665s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.666s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.666s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.666s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.692s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.692s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.693s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.694s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.695s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.696s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.697s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.698s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.699s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.700s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.701s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.702s] Level 1:colcon.colcon_core.package_identification:_identify(src/grid_snapper) by extensions ['ignore', 'ignore_ament_install']
+[0.702s] Level 1:colcon.colcon_core.package_identification:_identify(src/grid_snapper) by extension 'ignore'
+[0.702s] Level 1:colcon.colcon_core.package_identification:_identify(src/grid_snapper) by extension 'ignore_ament_install'
+[0.703s] Level 1:colcon.colcon_core.package_identification:_identify(src/grid_snapper) by extensions ['colcon_pkg']
+[0.703s] Level 1:colcon.colcon_core.package_identification:_identify(src/grid_snapper) by extension 'colcon_pkg'
+[0.703s] Level 1:colcon.colcon_core.package_identification:_identify(src/grid_snapper) by extensions ['colcon_meta']
+[0.704s] Level 1:colcon.colcon_core.package_identification:_identify(src/grid_snapper) by extension 'colcon_meta'
+[0.704s] Level 1:colcon.colcon_core.package_identification:_identify(src/grid_snapper) by extensions ['ros']
+[0.704s] Level 1:colcon.colcon_core.package_identification:_identify(src/grid_snapper) by extension 'ros'
+[0.710s] DEBUG:colcon.colcon_core.package_identification:Package 'src/grid_snapper' with type 'ros.ament_python' and name 'grid_snapper'
+[0.710s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface_opcua) by extensions ['ignore', 'ignore_ament_install']
+[0.711s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface_opcua) by extension 'ignore'
+[0.711s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface_opcua) by extension 'ignore_ament_install'
+[0.712s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface_opcua) by extensions ['colcon_pkg']
+[0.712s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface_opcua) by extension 'colcon_pkg'
+[0.712s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface_opcua) by extensions ['colcon_meta']
+[0.712s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface_opcua) by extension 'colcon_meta'
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface_opcua) by extensions ['ros']
+[0.713s] Level 1:colcon.colcon_core.package_identification:_identify(src/interface_opcua) by extension 'ros'
+[0.715s] DEBUG:colcon.colcon_core.package_identification:Package 'src/interface_opcua' with type 'ros.ament_python' and name 'interface_opcua'
+[0.715s] Level 1:colcon.colcon_core.package_identification:_identify(src/mockup_robot) by extensions ['ignore', 'ignore_ament_install']
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(src/mockup_robot) by extension 'ignore'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(src/mockup_robot) by extension 'ignore_ament_install'
+[0.716s] Level 1:colcon.colcon_core.package_identification:_identify(src/mockup_robot) by extensions ['colcon_pkg']
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(src/mockup_robot) by extension 'colcon_pkg'
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(src/mockup_robot) by extensions ['colcon_meta']
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(src/mockup_robot) by extension 'colcon_meta'
+[0.717s] Level 1:colcon.colcon_core.package_identification:_identify(src/mockup_robot) by extensions ['ros']
+[0.718s] Level 1:colcon.colcon_core.package_identification:_identify(src/mockup_robot) by extension 'ros'
+[0.719s] DEBUG:colcon.colcon_core.package_identification:Package 'src/mockup_robot' with type 'ros.ament_cmake' and name 'mockup_robot'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_backend) by extensions ['ignore', 'ignore_ament_install']
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_backend) by extension 'ignore'
+[0.720s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_backend) by extension 'ignore_ament_install'
+[0.721s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_backend) by extensions ['colcon_pkg']
+[0.721s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_backend) by extension 'colcon_pkg'
+[0.721s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_backend) by extensions ['colcon_meta']
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_backend) by extension 'colcon_meta'
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_backend) by extensions ['ros']
+[0.722s] Level 1:colcon.colcon_core.package_identification:_identify(src/moveit_backend) by extension 'ros'
+[0.724s] DEBUG:colcon.colcon_core.package_identification:Package 'src/moveit_backend' with type 'ros.ament_cmake' and name 'moveit_backend'
+[0.725s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extensions ['ignore', 'ignore_ament_install']
+[0.725s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extension 'ignore'
+[0.725s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extension 'ignore_ament_install'
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extensions ['colcon_pkg']
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extension 'colcon_pkg'
+[0.726s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extensions ['colcon_meta']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extension 'colcon_meta'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extensions ['ros']
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extension 'ros'
+[0.727s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extensions ['cmake', 'python']
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extension 'cmake'
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extension 'python'
+[0.728s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extensions ['python_setup_py']
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua-asyncio) by extension 'python_setup_py'
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_client) by extensions ['ignore', 'ignore_ament_install']
+[0.729s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_client) by extension 'ignore'
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_client) by extension 'ignore_ament_install'
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_client) by extensions ['colcon_pkg']
+[0.730s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_client) by extension 'colcon_pkg'
+[0.731s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_client) by extensions ['colcon_meta']
+[0.731s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_client) by extension 'colcon_meta'
+[0.731s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_client) by extensions ['ros']
+[0.731s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_client) by extension 'ros'
+[0.733s] DEBUG:colcon.colcon_core.package_identification:Package 'src/opcua_client' with type 'ros.ament_python' and name 'opcua_client'
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.734s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_interfaces) by extension 'ignore'
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_interfaces) by extension 'ignore_ament_install'
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_interfaces) by extensions ['colcon_pkg']
+[0.735s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_interfaces) by extension 'colcon_pkg'
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_interfaces) by extensions ['colcon_meta']
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_interfaces) by extension 'colcon_meta'
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_interfaces) by extensions ['ros']
+[0.736s] Level 1:colcon.colcon_core.package_identification:_identify(src/opcua_interfaces) by extension 'ros'
+[0.738s] DEBUG:colcon.colcon_core.package_identification:Package 'src/opcua_interfaces' with type 'ros.ament_cmake' and name 'opcua_interfaces'
+[0.738s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner) by extensions ['ignore', 'ignore_ament_install']
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner) by extension 'ignore'
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner) by extension 'ignore_ament_install'
+[0.739s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner) by extensions ['colcon_pkg']
+[0.740s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner) by extension 'colcon_pkg'
+[0.740s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner) by extensions ['colcon_meta']
+[0.740s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner) by extension 'colcon_meta'
+[0.741s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner) by extensions ['ros']
+[0.741s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner) by extension 'ros'
+[0.743s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robo_planner' with type 'ros.ament_cmake' and name 'robo_planner'
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_msgs) by extensions ['ignore', 'ignore_ament_install']
+[0.744s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_msgs) by extension 'ignore'
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_msgs) by extension 'ignore_ament_install'
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_msgs) by extensions ['colcon_pkg']
+[0.745s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_msgs) by extension 'colcon_pkg'
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_msgs) by extensions ['colcon_meta']
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_msgs) by extension 'colcon_meta'
+[0.746s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_msgs) by extensions ['ros']
+[0.747s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_msgs) by extension 'ros'
+[0.748s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robo_planner_msgs' with type 'ros.catkin' and name 'robo_planner_msgs'
+[0.748s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_py) by extensions ['ignore', 'ignore_ament_install']
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_py) by extension 'ignore'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_py) by extension 'ignore_ament_install'
+[0.749s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_py) by extensions ['colcon_pkg']
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_py) by extension 'colcon_pkg'
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_py) by extensions ['colcon_meta']
+[0.750s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_py) by extension 'colcon_meta'
+[0.751s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_py) by extensions ['ros']
+[0.751s] Level 1:colcon.colcon_core.package_identification:_identify(src/robo_planner_py) by extension 'ros'
+[0.752s] DEBUG:colcon.colcon_core.package_identification:Package 'src/robo_planner_py' with type 'ros.ament_python' and name 'robo_planner_py'
+[0.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_pilz) by extensions ['ignore', 'ignore_ament_install']
+[0.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_pilz) by extension 'ignore'
+[0.753s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_pilz) by extension 'ignore_ament_install'
+[0.754s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_pilz) by extensions ['colcon_pkg']
+[0.754s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_pilz) by extension 'colcon_pkg'
+[0.754s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_pilz) by extensions ['colcon_meta']
+[0.755s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_pilz) by extension 'colcon_meta'
+[0.755s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_pilz) by extensions ['ros']
+[0.755s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur_pilz) by extension 'ros'
+[0.757s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ur_pilz' with type 'ros.ament_cmake' and name 'ur_pilz'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(src/wzlscheduler_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(src/wzlscheduler_interfaces) by extension 'ignore'
+[0.758s] Level 1:colcon.colcon_core.package_identification:_identify(src/wzlscheduler_interfaces) by extension 'ignore_ament_install'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(src/wzlscheduler_interfaces) by extensions ['colcon_pkg']
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(src/wzlscheduler_interfaces) by extension 'colcon_pkg'
+[0.759s] Level 1:colcon.colcon_core.package_identification:_identify(src/wzlscheduler_interfaces) by extensions ['colcon_meta']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(src/wzlscheduler_interfaces) by extension 'colcon_meta'
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(src/wzlscheduler_interfaces) by extensions ['ros']
+[0.760s] Level 1:colcon.colcon_core.package_identification:_identify(src/wzlscheduler_interfaces) by extension 'ros'
+[0.762s] DEBUG:colcon.colcon_core.package_identification:Package 'src/wzlscheduler_interfaces' with type 'ros.catkin' and name 'wzlscheduler_interfaces'
+[0.762s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.762s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.762s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.762s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.762s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.837s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'interface_opcua' in 'src/interface_opcua'
+[0.837s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'opcua_interfaces' in 'src/opcua_interfaces'
+[0.837s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'robo_planner_msgs' in 'src/robo_planner_msgs'
+[0.837s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'ur_pilz' in 'src/ur_pilz'
+[0.838s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'wzlscheduler_interfaces' in 'src/wzlscheduler_interfaces'
+[0.838s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'grid_snapper' in 'src/grid_snapper'
+[0.838s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'mockup_robot' in 'src/mockup_robot'
+[0.838s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'moveit_backend' in 'src/moveit_backend'
+[0.838s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'opcua_client' in 'src/opcua_client'
+[0.838s] INFO:colcon.colcon_core.package_selection:Skipping not selected package 'robo_planner_py' in 'src/robo_planner_py'
+[0.839s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.839s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.845s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 14 installed packages in /home/autopilot/ws/restackcell/ws_moveit2/install
+[0.849s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 343 installed packages in /opt/ros/humble
+[0.852s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.953s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'cmake_args' from command line to 'None'
+[0.953s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'cmake_target' from command line to 'None'
+[0.953s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.953s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'cmake_clean_cache' from command line to 'False'
+[0.953s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'cmake_clean_first' from command line to 'False'
+[0.953s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'cmake_force_configure' from command line to 'False'
+[0.953s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'ament_cmake_args' from command line to 'None'
+[0.953s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'catkin_cmake_args' from command line to 'None'
+[0.953s] Level 5:colcon.colcon_core.verb:set package 'robo_planner' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.953s] DEBUG:colcon.colcon_core.verb:Building package 'robo_planner' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner', 'merge_install': False, 'path': '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner', 'symlink_install': False, 'test_result_base': None}
+[0.954s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.956s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.956s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner' with build type 'ament_cmake'
+[0.957s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner'
+[0.963s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.964s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.964s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.001s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner': CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/pcl_segmentation:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/ur_pilz:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/cmake --build /home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner -- -j4 -l4
+[35.018s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner' returned '0': CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/pcl_segmentation:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/ur_pilz:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/cmake --build /home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner -- -j4 -l4
+[35.174s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner': CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/pcl_segmentation:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/ur_pilz:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/cmake --install /home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner
+[35.249s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robo_planner)
+[35.258s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner' for CMake module files
+[35.260s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner' for CMake config files
+[35.260s] Level 1:colcon.colcon_core.shell:create_environment_hook('robo_planner', 'cmake_prefix_path')
+[35.261s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/hook/cmake_prefix_path.ps1'
+[35.262s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/hook/cmake_prefix_path.dsv'
+[35.263s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/hook/cmake_prefix_path.sh'
+[35.265s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/lib'
+[35.265s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/bin'
+[35.266s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/lib/pkgconfig/robo_planner.pc'
+[35.266s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/lib/python3.10/site-packages'
+[35.278s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/bin'
+[35.279s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.ps1'
+[35.281s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.dsv'
+[35.282s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.sh'
+[35.294s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.bash'
+[35.296s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.zsh'
+[35.297s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/colcon-core/packages/robo_planner)
+[35.322s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner' returned '0': CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/pcl_segmentation:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/ur_pilz:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/cmake --install /home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner
+[35.547s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(robo_planner)
+[35.548s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner' for CMake module files
+[35.549s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner' for CMake config files
+[35.550s] Level 1:colcon.colcon_core.shell:create_environment_hook('robo_planner', 'cmake_prefix_path')
+[35.551s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/hook/cmake_prefix_path.ps1'
+[35.553s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/hook/cmake_prefix_path.dsv'
+[35.555s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/hook/cmake_prefix_path.sh'
+[35.557s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/lib'
+[35.558s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/bin'
+[35.559s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/lib/pkgconfig/robo_planner.pc'
+[35.560s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/lib/python3.10/site-packages'
+[35.563s] Level 1:colcon.colcon_core.environment:checking '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/bin'
+[35.565s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.ps1'
+[35.567s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.dsv'
+[35.569s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.sh'
+[35.571s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.bash'
+[35.573s] INFO:colcon.colcon_core.shell:Creating package script '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.zsh'
+[35.575s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/colcon-core/packages/robo_planner)
+[35.578s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[35.578s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[35.578s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[35.579s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[35.612s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[35.612s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[35.613s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[35.657s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[35.658s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/autopilot/ws/restackcell/ws_moveit2/install/local_setup.ps1'
+[35.662s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/autopilot/ws/restackcell/ws_moveit2/install/_local_setup_util_ps1.py'
+[35.671s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/autopilot/ws/restackcell/ws_moveit2/install/setup.ps1'
+[35.693s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/autopilot/ws/restackcell/ws_moveit2/install/local_setup.sh'
+[35.701s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/autopilot/ws/restackcell/ws_moveit2/install/_local_setup_util_sh.py'
+[35.708s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/autopilot/ws/restackcell/ws_moveit2/install/setup.sh'
+[35.727s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/autopilot/ws/restackcell/ws_moveit2/install/local_setup.bash'
+[35.737s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/autopilot/ws/restackcell/ws_moveit2/install/setup.bash'
+[35.761s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/autopilot/ws/restackcell/ws_moveit2/install/local_setup.zsh'
+[35.765s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/autopilot/ws/restackcell/ws_moveit2/install/setup.zsh'

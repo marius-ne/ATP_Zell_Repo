@@ -1,0 +1,761 @@
+[0.000000] (-) TimerEvent: {}
+[0.000571] (interface_opcua) JobQueued: {'identifier': 'interface_opcua', 'dependencies': OrderedDict()}
+[0.001175] (opcua_interfaces) JobQueued: {'identifier': 'opcua_interfaces', 'dependencies': OrderedDict()}
+[0.001455] (robo_planner_msgs) JobQueued: {'identifier': 'robo_planner_msgs', 'dependencies': OrderedDict()}
+[0.001698] (tod_camera_cpp) JobQueued: {'identifier': 'tod_camera_cpp', 'dependencies': OrderedDict()}
+[0.001793] (wzlscheduler_interfaces) JobQueued: {'identifier': 'wzlscheduler_interfaces', 'dependencies': OrderedDict()}
+[0.001949] (mockup_robot) JobQueued: {'identifier': 'mockup_robot', 'dependencies': OrderedDict([('wzlscheduler_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces')])}
+[0.002035] (moveit_backend) JobQueued: {'identifier': 'moveit_backend', 'dependencies': OrderedDict([('wzlscheduler_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces')])}
+[0.002083] (opcua_client) JobQueued: {'identifier': 'opcua_client', 'dependencies': OrderedDict([('opcua_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces')])}
+[0.002131] (pcl_segmentation) JobQueued: {'identifier': 'pcl_segmentation', 'dependencies': OrderedDict([('wzlscheduler_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces')])}
+[0.002192] (robo_planner) JobQueued: {'identifier': 'robo_planner', 'dependencies': OrderedDict([('opcua_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces'), ('wzlscheduler_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces')])}
+[0.002242] (robo_planner_py) JobQueued: {'identifier': 'robo_planner_py', 'dependencies': OrderedDict([('opcua_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces'), ('wzlscheduler_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces')])}
+[0.002627] (wzlscheduler_interfaces) JobStarted: {'identifier': 'wzlscheduler_interfaces'}
+[0.011943] (opcua_interfaces) JobStarted: {'identifier': 'opcua_interfaces'}
+[0.017307] (interface_opcua) JobStarted: {'identifier': 'interface_opcua'}
+[0.026121] (robo_planner_msgs) JobStarted: {'identifier': 'robo_planner_msgs'}
+[0.035708] (wzlscheduler_interfaces) JobProgress: {'identifier': 'wzlscheduler_interfaces', 'progress': 'cmake'}
+[0.037023] (wzlscheduler_interfaces) JobProgress: {'identifier': 'wzlscheduler_interfaces', 'progress': 'build'}
+[0.038360] (wzlscheduler_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/autopilot/ws/restackcell/ws_moveit2/build/wzlscheduler_interfaces', '--', '-j4', '-l4'], 'cwd': '/home/autopilot/ws/restackcell/ws_moveit2/build/wzlscheduler_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'autopilot'), ('LC_TIME', 'de_DE.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/autopilot'), ('OLDPWD', '/home/autopilot/ws/restackcell/ws_moveit2/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_DE.UTF-8'), ('SYSTEMD_EXEC_PID', '13723'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'autopilot'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'autopilot'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/autopilot:@/tmp/.ICE-unix/13702,unix/autopilot:/tmp/.ICE-unix/13702'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/526a95c0_9700_44aa_b35a_68930afe19ef'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.113'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/autopilot/ws/restackcell/ws_moveit2/build/wzlscheduler_interfaces'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800')]), 'shell': False}
+[0.043597] (opcua_interfaces) JobProgress: {'identifier': 'opcua_interfaces', 'progress': 'cmake'}
+[0.044722] (opcua_interfaces) JobProgress: {'identifier': 'opcua_interfaces', 'progress': 'build'}
+[0.045521] (opcua_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/autopilot/ws/restackcell/ws_moveit2/build/opcua_interfaces', '--', '-j4', '-l4'], 'cwd': '/home/autopilot/ws/restackcell/ws_moveit2/build/opcua_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'autopilot'), ('LC_TIME', 'de_DE.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/autopilot'), ('OLDPWD', '/home/autopilot/ws/restackcell/ws_moveit2/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_DE.UTF-8'), ('SYSTEMD_EXEC_PID', '13723'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'autopilot'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'autopilot'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/autopilot:@/tmp/.ICE-unix/13702,unix/autopilot:/tmp/.ICE-unix/13702'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/526a95c0_9700_44aa_b35a_68930afe19ef'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.113'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/autopilot/ws/restackcell/ws_moveit2/build/opcua_interfaces'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[0.099319] (-) TimerEvent: {}
+[0.199871] (-) TimerEvent: {}
+[0.300640] (-) TimerEvent: {}
+[0.402052] (-) TimerEvent: {}
+[0.502667] (-) TimerEvent: {}
+[0.603217] (-) TimerEvent: {}
+[0.703784] (-) TimerEvent: {}
+[0.804336] (-) TimerEvent: {}
+[0.904882] (-) TimerEvent: {}
+[1.005467] (-) TimerEvent: {}
+[1.106148] (-) TimerEvent: {}
+[1.169562] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[1.170075] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  1%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[1.170261] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_copy_wzlscheduler_interfaces\n'}
+[1.170437] (wzlscheduler_interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[1.170585] (wzlscheduler_interfaces) StdoutLine: {'line': b'creating wzlscheduler_interfaces.egg-info\n'}
+[1.170724] (wzlscheduler_interfaces) StdoutLine: {'line': b'writing wzlscheduler_interfaces.egg-info/PKG-INFO\n'}
+[1.170858] (wzlscheduler_interfaces) StdoutLine: {'line': b'writing dependency_links to wzlscheduler_interfaces.egg-info/dependency_links.txt\n'}
+[1.170989] (wzlscheduler_interfaces) StdoutLine: {'line': b'writing top-level names to wzlscheduler_interfaces.egg-info/top_level.txt\n'}
+[1.171117] (wzlscheduler_interfaces) StdoutLine: {'line': b"writing manifest file 'wzlscheduler_interfaces.egg-info/SOURCES.txt'\n"}
+[1.171239] (wzlscheduler_interfaces) StdoutLine: {'line': b"reading manifest file 'wzlscheduler_interfaces.egg-info/SOURCES.txt'\n"}
+[1.171361] (wzlscheduler_interfaces) StdoutLine: {'line': b"writing manifest file 'wzlscheduler_interfaces.egg-info/SOURCES.txt'\n"}
+[1.171484] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  1%] Built target ament_cmake_python_build_wzlscheduler_interfaces_egg\n'}
+[1.173068] (opcua_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target opcua_interfaces__rosidl_generator_c\x1b[0m\n'}
+[1.173457] (opcua_interfaces) StdoutLine: {'line': b'[  0%] Built target ament_cmake_python_copy_opcua_interfaces\n'}
+[1.173630] (opcua_interfaces) StdoutLine: {'line': b'[ 10%] Built target opcua_interfaces__rosidl_generator_c\n'}
+[1.173783] (opcua_interfaces) StdoutLine: {'line': b'[ 12%] Built target opcua_interfaces__cpp\n'}
+[1.173924] (opcua_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target opcua_interfaces__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[1.174059] (opcua_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target opcua_interfaces__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[1.174186] (opcua_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target opcua_interfaces__rosidl_typesupport_cpp\x1b[0m\n'}
+[1.174312] (opcua_interfaces) StdoutLine: {'line': b'[ 23%] Built target opcua_interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[1.174440] (opcua_interfaces) StdoutLine: {'line': b'[ 34%] Built target opcua_interfaces__rosidl_typesupport_introspection_cpp\n'}
+[1.174570] (opcua_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target opcua_interfaces__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[1.174696] (opcua_interfaces) StdoutLine: {'line': b'[ 44%] Built target opcua_interfaces__rosidl_typesupport_cpp\n'}
+[1.174826] (opcua_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target opcua_interfaces__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[1.174952] (opcua_interfaces) StdoutLine: {'line': b'[ 55%] Built target opcua_interfaces__rosidl_typesupport_fastrtps_c\n'}
+[1.175079] (opcua_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target opcua_interfaces__rosidl_typesupport_c\x1b[0m\n'}
+[1.175205] (opcua_interfaces) StdoutLine: {'line': b'[ 65%] Built target opcua_interfaces__rosidl_typesupport_introspection_c\n'}
+[1.175327] (opcua_interfaces) StdoutLine: {'line': b'[ 76%] Built target opcua_interfaces__rosidl_typesupport_c\n'}
+[1.175453] (opcua_interfaces) StdoutLine: {'line': b'[ 76%] Built target opcua_interfaces\n'}
+[1.175578] (opcua_interfaces) StdoutLine: {'line': b'[ 78%] Built target opcua_interfaces__py\n'}
+[1.175701] (opcua_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target opcua_interfaces__rosidl_generator_py\x1b[0m\n'}
+[1.175823] (opcua_interfaces) StdoutLine: {'line': b'[ 87%] Built target opcua_interfaces__rosidl_generator_py\n'}
+[1.175945] (opcua_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target opcua_interfaces__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[1.176093] (opcua_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target opcua_interfaces__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[1.176216] (opcua_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target opcua_interfaces__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[1.176339] (opcua_interfaces) StdoutLine: {'line': b'[ 91%] Built target opcua_interfaces__rosidl_typesupport_fastrtps_c__pyext\n'}
+[1.176461] (opcua_interfaces) StdoutLine: {'line': b'[ 95%] Built target opcua_interfaces__rosidl_typesupport_c__pyext\n'}
+[1.176586] (opcua_interfaces) StdoutLine: {'line': b'[100%] Built target opcua_interfaces__rosidl_typesupport_introspection_c__pyext\n'}
+[1.176711] (opcua_interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[1.176834] (opcua_interfaces) StdoutLine: {'line': b'writing opcua_interfaces.egg-info/PKG-INFO\n'}
+[1.176956] (opcua_interfaces) StdoutLine: {'line': b'writing dependency_links to opcua_interfaces.egg-info/dependency_links.txt\n'}
+[1.177078] (opcua_interfaces) StdoutLine: {'line': b'writing top-level names to opcua_interfaces.egg-info/top_level.txt\n'}
+[1.177241] (opcua_interfaces) StdoutLine: {'line': b"reading manifest file 'opcua_interfaces.egg-info/SOURCES.txt'\n"}
+[1.177367] (opcua_interfaces) StdoutLine: {'line': b"writing manifest file 'opcua_interfaces.egg-info/SOURCES.txt'\n"}
+[1.181762] (robo_planner_msgs) JobProgress: {'identifier': 'robo_planner_msgs', 'progress': 'cmake'}
+[1.181860] (robo_planner_msgs) JobProgress: {'identifier': 'robo_planner_msgs', 'progress': 'build'}
+[1.181919] (robo_planner_msgs) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner_msgs', '--', '-j4', '-l4'], 'cwd': '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner_msgs', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'autopilot'), ('LC_TIME', 'de_DE.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/autopilot'), ('OLDPWD', '/home/autopilot/ws/restackcell/ws_moveit2/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_DE.UTF-8'), ('SYSTEMD_EXEC_PID', '13723'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'autopilot'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'autopilot'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/autopilot:@/tmp/.ICE-unix/13702,unix/autopilot:/tmp/.ICE-unix/13702'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/526a95c0_9700_44aa_b35a_68930afe19ef'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.113'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner_msgs'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800')]), 'shell': False}
+[1.194679] (opcua_interfaces) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_opcua_interfaces_egg\n'}
+[1.211624] (-) TimerEvent: {}
+[1.226909] (opcua_interfaces) CommandEnded: {'returncode': 0}
+[1.302704] (robo_planner_msgs) StdoutLine: {'line': b'[  0%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[1.311757] (-) TimerEvent: {}
+[1.350216] (robo_planner_msgs) StdoutLine: {'line': b'[  0%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[1.411909] (-) TimerEvent: {}
+[1.447211] (robo_planner_msgs) StdoutLine: {'line': b'[  0%] Built target ament_cmake_python_copy_robo_planner_msgs\n'}
+[1.512051] (-) TimerEvent: {}
+[1.612576] (-) TimerEvent: {}
+[1.713105] (-) TimerEvent: {}
+[1.813701] (-) TimerEvent: {}
+[1.914230] (-) TimerEvent: {}
+[2.014760] (-) TimerEvent: {}
+[2.115253] (-) TimerEvent: {}
+[2.215809] (-) TimerEvent: {}
+[2.242562] (interface_opcua) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/interface_opcua', 'build', '--build-base', '/home/autopilot/ws/restackcell/ws_moveit2/build/interface_opcua/build', 'install', '--record', '/home/autopilot/ws/restackcell/ws_moveit2/build/interface_opcua/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/autopilot/ws/restackcell/ws_moveit2/src/interface_opcua', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'autopilot', 'LC_TIME': 'de_DE.UTF-8', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/autopilot', 'OLDPWD': '/home/autopilot/ws/restackcell/ws_moveit2/src', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'de_DE.UTF-8', 'SYSTEMD_EXEC_PID': '13723', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'autopilot', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'autopilot', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/autopilot:@/tmp/.ICE-unix/13702,unix/autopilot:/tmp/.ICE-unix/13702', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'de_DE.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/526a95c0_9700_44aa_b35a_68930afe19ef', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'de_DE.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.113', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'de_DE.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'de_DE.UTF-8', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'LC_IDENTIFICATION': 'de_DE.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/autopilot/ws/restackcell/ws_moveit2/build/interface_opcua', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/autopilot/ws/restackcell/ws_moveit2/build/interface_opcua/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'de_DE.UTF-8', 'LC_PAPER': 'de_DE.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800'}, 'shell': False}
+[2.317742] (-) TimerEvent: {}
+[2.418288] (-) TimerEvent: {}
+[2.518831] (-) TimerEvent: {}
+[2.552629] (opcua_interfaces) JobProgress: {'identifier': 'opcua_interfaces', 'progress': 'install'}
+[2.599748] (opcua_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/autopilot/ws/restackcell/ws_moveit2/build/opcua_interfaces'], 'cwd': '/home/autopilot/ws/restackcell/ws_moveit2/build/opcua_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'autopilot'), ('LC_TIME', 'de_DE.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/autopilot'), ('OLDPWD', '/home/autopilot/ws/restackcell/ws_moveit2/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_DE.UTF-8'), ('SYSTEMD_EXEC_PID', '13723'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'autopilot'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'autopilot'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/autopilot:@/tmp/.ICE-unix/13702,unix/autopilot:/tmp/.ICE-unix/13702'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/526a95c0_9700_44aa_b35a_68930afe19ef'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.113'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/autopilot/ws/restackcell/ws_moveit2/build/opcua_interfaces'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[2.600926] (robo_planner_msgs) StdoutLine: {'line': b'running egg_info\n'}
+[2.615079] (robo_planner_msgs) StdoutLine: {'line': b'creating robo_planner_msgs.egg-info\n'}
+[2.616046] (robo_planner_msgs) StdoutLine: {'line': b'writing robo_planner_msgs.egg-info/PKG-INFO\n'}
+[2.618935] (-) TimerEvent: {}
+[2.620120] (robo_planner_msgs) StdoutLine: {'line': b'writing dependency_links to robo_planner_msgs.egg-info/dependency_links.txt\n'}
+[2.620954] (robo_planner_msgs) StdoutLine: {'line': b'writing top-level names to robo_planner_msgs.egg-info/top_level.txt\n'}
+[2.621902] (robo_planner_msgs) StdoutLine: {'line': b"writing manifest file 'robo_planner_msgs.egg-info/SOURCES.txt'\n"}
+[2.626952] (robo_planner_msgs) StdoutLine: {'line': b"reading manifest file 'robo_planner_msgs.egg-info/SOURCES.txt'\n"}
+[2.634682] (robo_planner_msgs) StdoutLine: {'line': b"writing manifest file 'robo_planner_msgs.egg-info/SOURCES.txt'\n"}
+[2.639776] (opcua_interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[2.640452] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/ament_index/resource_index/rosidl_interfaces/opcua_interfaces\n'}
+[2.640977] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces\n'}
+[2.641835] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg\n'}
+[2.642039] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/actuator_read.h\n'}
+[2.642331] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[2.642608] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail\n'}
+[2.642882] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__functions.h\n'}
+[2.643299] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__type_support.h\n'}
+[2.643641] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__functions.c\n'}
+[2.644017] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__struct.h\n'}
+[2.644351] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__functions.h\n'}
+[2.644727] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__functions.h\n'}
+[2.646210] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__functions.c\n'}
+[2.646460] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__type_support.h\n'}
+[2.646618] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__functions.c\n'}
+[2.646789] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__type_support.h\n'}
+[2.646930] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__struct.h\n'}
+[2.647190] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__struct.h\n'}
+[2.647381] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/actuator_write.h\n'}
+[2.647604] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/actuator_read_request.h\n'}
+[2.647745] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/environment/library_path.sh\n'}
+[2.647967] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/environment/library_path.dsv\n'}
+[2.648492] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_generator_c.so\n'}
+[2.649418] (opcua_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_generator_c.so" to ""\n'}
+[2.649742] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces\n'}
+[2.650097] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg\n'}
+[2.650268] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[2.661807] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail\n'}
+[2.662269] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__rosidl_typesupport_fastrtps_c.h\n'}
+[2.662593] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__rosidl_typesupport_fastrtps_c.h\n'}
+[2.662879] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__rosidl_typesupport_fastrtps_c.h\n'}
+[2.663363] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[2.664136] (opcua_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[2.664417] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces\n'}
+[2.664701] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg\n'}
+[2.664897] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[2.665137] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail\n'}
+[2.665460] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__type_support.c\n'}
+[2.665753] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__type_support.c\n'}
+[2.666139] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__rosidl_typesupport_introspection_c.h\n'}
+[2.666513] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__rosidl_typesupport_introspection_c.h\n'}
+[2.666861] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__rosidl_typesupport_introspection_c.h\n'}
+[2.667222] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__type_support.c\n'}
+[2.667700] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_typesupport_introspection_c.so\n'}
+[2.668435] (opcua_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_typesupport_introspection_c.so" to ""\n'}
+[2.668738] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_typesupport_c.so\n'}
+[2.669421] (opcua_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_typesupport_c.so" to ""\n'}
+[2.669723] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces\n'}
+[2.670012] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg\n'}
+[2.670190] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/actuator_read_request.hpp\n'}
+[2.670426] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/actuator_read.hpp\n'}
+[2.670693] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail\n'}
+[2.670951] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__struct.hpp\n'}
+[2.671350] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__traits.hpp\n'}
+[2.671709] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__traits.hpp\n'}
+[2.672062] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__builder.hpp\n'}
+[2.672432] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__builder.hpp\n'}
+[2.672801] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__struct.hpp\n'}
+[2.673216] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__struct.hpp\n'}
+[2.673597] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__traits.hpp\n'}
+[2.673979] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__builder.hpp\n'}
+[2.674318] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/actuator_write.hpp\n'}
+[2.674721] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces\n'}
+[2.677562] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg\n'}
+[2.677915] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[2.678170] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail\n'}
+[2.678422] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[2.678805] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[2.679132] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/dds_fastrtps\n'}
+[2.679458] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[2.679960] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[2.680713] (opcua_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[2.685577] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces\n'}
+[2.686231] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg\n'}
+[2.686502] (opcua_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail\n'}
+[2.687093] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__type_support.cpp\n'}
+[2.687715] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__rosidl_typesupport_introspection_cpp.hpp\n'}
+[2.687881] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__rosidl_typesupport_introspection_cpp.hpp\n'}
+[2.688514] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read_request__type_support.cpp\n'}
+[2.688667] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_write__type_support.cpp\n'}
+[2.688822] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/include/opcua_interfaces/opcua_interfaces/msg/detail/actuator_read__rosidl_typesupport_introspection_cpp.hpp\n'}
+[2.689867] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[2.690106] (opcua_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[2.690252] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_typesupport_cpp.so\n'}
+[2.690725] (opcua_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_typesupport_cpp.so" to ""\n'}
+[2.701712] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/environment/pythonpath.sh\n'}
+[2.702299] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/environment/pythonpath.dsv\n'}
+[2.702774] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces-0.0.0-py3.10.egg-info\n'}
+[2.703256] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[2.703624] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[2.704002] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[2.704380] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[2.704861] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces\n'}
+[2.705135] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/_opcua_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[2.705570] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/__init__.py\n'}
+[2.705890] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg\n'}
+[2.706213] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg/_actuator_read_request_s.c\n'}
+[2.706599] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg/_actuator_write_s.c\n'}
+[2.706983] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg/__init__.py\n'}
+[2.707333] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg/_actuator_write.py\n'}
+[2.707707] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg/_actuator_read_request.py\n'}
+[2.708123] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg/_actuator_read.py\n'}
+[2.708518] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg/_actuator_read_s.c\n'}
+[2.708917] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/_opcua_interfaces_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[2.709427] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/_opcua_interfaces_s.ep.rosidl_typesupport_c.c\n'}
+[2.709798] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/opcua_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\n'}
+[2.710220] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/opcua_interfaces_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\n'}
+[2.710625] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/opcua_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\n'}
+[2.711046] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/libopcua_interfaces__rosidl_generator_py.so\n'}
+[2.719066] (-) TimerEvent: {}
+[2.819580] (-) TimerEvent: {}
+[2.829821] (robo_planner_msgs) StdoutLine: {'line': b'[  0%] Built target ament_cmake_python_build_robo_planner_msgs_egg\n'}
+[2.892015] (opcua_interfaces) StdoutLine: {'line': b"Listing '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces'...\n"}
+[2.892401] (opcua_interfaces) StdoutLine: {'line': b"Compiling '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/__init__.py'...\n"}
+[2.892582] (opcua_interfaces) StdoutLine: {'line': b"Listing '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg'...\n"}
+[2.892731] (opcua_interfaces) StdoutLine: {'line': b"Compiling '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg/__init__.py'...\n"}
+[2.892874] (opcua_interfaces) StdoutLine: {'line': b"Compiling '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg/_actuator_read.py'...\n"}
+[2.893049] (opcua_interfaces) StdoutLine: {'line': b"Compiling '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg/_actuator_read_request.py'...\n"}
+[2.893226] (opcua_interfaces) StdoutLine: {'line': b"Compiling '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/msg/_actuator_write.py'...\n"}
+[2.908612] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/opcua_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so\n'}
+[2.909191] (opcua_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/opcua_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so" to ""\n'}
+[2.909599] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/opcua_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so\n'}
+[2.910217] (opcua_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/opcua_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so" to ""\n'}
+[2.910585] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/opcua_interfaces_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so\n'}
+[2.911170] (opcua_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages/opcua_interfaces/opcua_interfaces_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so" to ""\n'}
+[2.911424] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_generator_py.so\n'}
+[2.911911] (opcua_interfaces) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib/libopcua_interfaces__rosidl_generator_py.so" to ""\n'}
+[2.912174] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/msg/ActuatorWrite.idl\n'}
+[2.912441] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/msg/ActuatorRead.idl\n'}
+[2.912733] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/msg/ActuatorReadRequest.idl\n'}
+[2.913012] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/msg/ActuatorWrite.msg\n'}
+[2.913334] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/msg/ActuatorRead.msg\n'}
+[2.913624] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/msg/ActuatorReadRequest.msg\n'}
+[2.914035] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/ament_index/resource_index/package_run_dependencies/opcua_interfaces\n'}
+[2.914420] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/ament_index/resource_index/parent_prefix_path/opcua_interfaces\n'}
+[2.914719] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/environment/ament_prefix_path.sh\n'}
+[2.914987] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/environment/ament_prefix_path.dsv\n'}
+[2.915273] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/environment/path.sh\n'}
+[2.915544] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/environment/path.dsv\n'}
+[2.919461] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/local_setup.bash\n'}
+[2.919767] (-) TimerEvent: {}
+[2.920240] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/local_setup.sh\n'}
+[2.920562] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/local_setup.zsh\n'}
+[2.921103] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/local_setup.dsv\n'}
+[2.921985] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/package.dsv\n'}
+[2.923009] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/ament_index/resource_index/packages/opcua_interfaces\n'}
+[2.924086] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/export_opcua_interfaces__rosidl_generator_cExport.cmake\n'}
+[2.924809] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/export_opcua_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[2.925590] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/export_opcua_interfaces__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[2.926300] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/export_opcua_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[2.926995] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/opcua_interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[2.927661] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/opcua_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[2.928364] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/opcua_interfaces__rosidl_typesupport_cExport.cmake\n'}
+[2.929045] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/opcua_interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[2.929773] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/export_opcua_interfaces__rosidl_generator_cppExport.cmake\n'}
+[2.930517] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/export_opcua_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[2.931187] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/export_opcua_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[2.931884] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/opcua_interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[2.932572] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/opcua_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[2.936876] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/opcua_interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[2.937808] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/opcua_interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[2.938622] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/export_opcua_interfaces__rosidl_generator_pyExport.cmake\n'}
+[2.939501] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/export_opcua_interfaces__rosidl_generator_pyExport-noconfig.cmake\n'}
+[2.940521] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[2.941406] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[2.942136] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[2.942848] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[2.943547] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[2.944245] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[2.944981] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[2.945739] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/opcua_interfacesConfig.cmake\n'}
+[2.946390] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake/opcua_interfacesConfig-version.cmake\n'}
+[2.949730] (opcua_interfaces) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/package.xml\n'}
+[2.974367] (opcua_interfaces) CommandEnded: {'returncode': 0}
+[3.020536] (-) TimerEvent: {}
+[3.041530] (interface_opcua) StdoutLine: {'line': b'running egg_info\n'}
+[3.043677] (interface_opcua) StdoutLine: {'line': b'writing ../../build/interface_opcua/interface_opcua.egg-info/PKG-INFO\n'}
+[3.044627] (interface_opcua) StdoutLine: {'line': b'writing dependency_links to ../../build/interface_opcua/interface_opcua.egg-info/dependency_links.txt\n'}
+[3.045383] (interface_opcua) StdoutLine: {'line': b'writing entry points to ../../build/interface_opcua/interface_opcua.egg-info/entry_points.txt\n'}
+[3.046017] (interface_opcua) StdoutLine: {'line': b'writing requirements to ../../build/interface_opcua/interface_opcua.egg-info/requires.txt\n'}
+[3.047748] (interface_opcua) StdoutLine: {'line': b'writing top-level names to ../../build/interface_opcua/interface_opcua.egg-info/top_level.txt\n'}
+[3.052293] (interface_opcua) StdoutLine: {'line': b"reading manifest file '../../build/interface_opcua/interface_opcua.egg-info/SOURCES.txt'\n"}
+[3.053247] (interface_opcua) StdoutLine: {'line': b"adding license file 'LICENSE'\n"}
+[3.055563] (interface_opcua) StdoutLine: {'line': b"writing manifest file '../../build/interface_opcua/interface_opcua.egg-info/SOURCES.txt'\n"}
+[3.060375] (interface_opcua) StdoutLine: {'line': b'running build\n'}
+[3.060800] (interface_opcua) StdoutLine: {'line': b'running build_py\n'}
+[3.061884] (interface_opcua) StdoutLine: {'line': b'running install\n'}
+[3.062962] (interface_opcua) StdoutLine: {'line': b'running install_lib\n'}
+[3.066247] (interface_opcua) StdoutLine: {'line': b'running install_data\n'}
+[3.066891] (interface_opcua) StdoutLine: {'line': b'running install_egg_info\n'}
+[3.071178] (interface_opcua) StdoutLine: {'line': b"removing '/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages/interface_opcua-0.0.0-py3.10.egg-info' (and everything under it)\n"}
+[3.072316] (interface_opcua) StdoutLine: {'line': b'Copying ../../build/interface_opcua/interface_opcua.egg-info to /home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages/interface_opcua-0.0.0-py3.10.egg-info\n'}
+[3.074680] (interface_opcua) StdoutLine: {'line': b'running install_scripts\n'}
+[3.120664] (-) TimerEvent: {}
+[3.122016] (interface_opcua) StdoutLine: {'line': b'Installing service script to /home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/interface_opcua\n'}
+[3.123347] (interface_opcua) StdoutLine: {'line': b"writing list of installed files to '/home/autopilot/ws/restackcell/ws_moveit2/build/interface_opcua/install.log'\n"}
+[3.193501] (interface_opcua) CommandEnded: {'returncode': 0}
+[3.204464] (interface_opcua) JobEnded: {'identifier': 'interface_opcua', 'rc': 0}
+[3.205918] (tod_camera_cpp) JobStarted: {'identifier': 'tod_camera_cpp'}
+[3.220783] (-) TimerEvent: {}
+[3.226867] (tod_camera_cpp) JobProgress: {'identifier': 'tod_camera_cpp', 'progress': 'cmake'}
+[3.226981] (tod_camera_cpp) Command: {'cmd': ['/usr/bin/cmake', '/home/autopilot/ws/restackcell/ws_moveit2/src/tof_camera_cpp', '-DCMAKE_INSTALL_PREFIX=/home/autopilot/ws/restackcell/ws_moveit2/install/tod_camera_cpp'], 'cwd': '/home/autopilot/ws/restackcell/ws_moveit2/build/tod_camera_cpp', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'autopilot'), ('LC_TIME', 'de_DE.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/autopilot'), ('OLDPWD', '/home/autopilot/ws/restackcell/ws_moveit2/src'), ('DESKTOP_SESSION', 'ubuntu'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_DE.UTF-8'), ('SYSTEMD_EXEC_PID', '13723'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'autopilot'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'autopilot'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/autopilot:@/tmp/.ICE-unix/13702,unix/autopilot:/tmp/.ICE-unix/13702'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('GNOME_TERMINAL_SCREEN', '/org/gnome/Terminal/screen/526a95c0_9700_44aa_b35a_68930afe19ef'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('GNOME_TERMINAL_SERVICE', ':1.113'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/autopilot/ws/restackcell/ws_moveit2/build/tod_camera_cpp'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble')]), 'shell': False}
+[3.320940] (-) TimerEvent: {}
+[3.344915] (tod_camera_cpp) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[3.421057] (-) TimerEvent: {}
+[3.521581] (-) TimerEvent: {}
+[3.536809] (tod_camera_cpp) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[3.579357] (opcua_interfaces) JobEnded: {'identifier': 'opcua_interfaces', 'rc': 0}
+[3.580171] (tod_camera_cpp) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[3.581006] (opcua_client) JobStarted: {'identifier': 'opcua_client'}
+[3.621713] (-) TimerEvent: {}
+[3.722230] (-) TimerEvent: {}
+[3.822782] (-) TimerEvent: {}
+[3.923387] (-) TimerEvent: {}
+[3.985460] (tod_camera_cpp) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[4.000919] (tod_camera_cpp) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[4.018195] (tod_camera_cpp) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[4.019549] (tod_camera_cpp) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[4.023503] (-) TimerEvent: {}
+[4.026728] (tod_camera_cpp) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[4.123654] (-) TimerEvent: {}
+[4.224212] (-) TimerEvent: {}
+[4.324769] (-) TimerEvent: {}
+[4.425446] (-) TimerEvent: {}
+[4.457466] (tod_camera_cpp) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.480831] (tod_camera_cpp) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.482032] (tod_camera_cpp) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.483427] (tod_camera_cpp) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[4.488147] (tod_camera_cpp) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[4.525590] (-) TimerEvent: {}
+[4.626162] (-) TimerEvent: {}
+[4.726762] (-) TimerEvent: {}
+[4.846438] (-) TimerEvent: {}
+[4.947120] (-) TimerEvent: {}
+[5.047706] (-) TimerEvent: {}
+[5.148278] (-) TimerEvent: {}
+[5.162512] (tod_camera_cpp) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[5.248421] (-) TimerEvent: {}
+[5.257682] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  1%] Built target wzlscheduler_interfaces__cpp\n'}
+[5.322419] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[5.329760] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[5.344480] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[5.348542] (-) TimerEvent: {}
+[5.437836] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  3%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/srv/detail/set_value_io_interface__functions.c.o\x1b[0m\n'}
+[5.448697] (-) TimerEvent: {}
+[5.483112] (tod_camera_cpp) StdoutLine: {'line': b'-- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[5.548847] (-) TimerEvent: {}
+[5.649423] (-) TimerEvent: {}
+[5.683349] (tod_camera_cpp) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[5.693034] (tod_camera_cpp) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[5.729997] (tod_camera_cpp) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[5.749563] (-) TimerEvent: {}
+[5.757582] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  4%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/srv/detail/robot_move_to_position__functions.c.o\x1b[0m\n'}
+[5.795342] (tod_camera_cpp) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.849706] (-) TimerEvent: {}
+[5.886537] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/srv/detail/robot_set_velocity__functions.c.o\x1b[0m\n'}
+[5.897017] (tod_camera_cpp) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.949850] (-) TimerEvent: {}
+[6.050399] (-) TimerEvent: {}
+[6.085403] (tod_camera_cpp) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[6.090715] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/srv/detail/robot_follow_trajectory__functions.c.o\x1b[0m\n'}
+[6.098360] (tod_camera_cpp) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[6.150565] (-) TimerEvent: {}
+[6.251171] (-) TimerEvent: {}
+[6.254735] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/srv/detail/load_object__functions.c.o\x1b[0m\n'}
+[6.351324] (-) TimerEvent: {}
+[6.436759] (opcua_client) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', 'setup.py', 'egg_info', '--egg-base', '../../build/opcua_client', 'build', '--build-base', '/home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/build', 'install', '--record', '/home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/install.log', '--single-version-externally-managed', 'install_data'], 'cwd': '/home/autopilot/ws/restackcell/ws_moveit2/src/opcua_client', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'autopilot', 'LC_TIME': 'de_DE.UTF-8', 'XDG_SESSION_TYPE': 'x11', 'SHLVL': '1', 'LD_LIBRARY_PATH': '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib', 'HOME': '/home/autopilot', 'OLDPWD': '/home/autopilot/ws/restackcell/ws_moveit2/src', 'DESKTOP_SESSION': 'ubuntu', 'ROS_PYTHON_VERSION': '3', 'GNOME_SHELL_SESSION_MODE': 'ubuntu', 'GTK_MODULES': 'gail:atk-bridge', 'LC_MONETARY': 'de_DE.UTF-8', 'SYSTEMD_EXEC_PID': '13723', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'IM_CONFIG_PHASE': '1', 'ROS_DISTRO': 'humble', 'GTK_IM_MODULE': 'ibus', 'LOGNAME': 'autopilot', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'XDG_SESSION_CLASS': 'user', 'USERNAME': 'autopilot', 'TERM': 'xterm-256color', 'GNOME_DESKTOP_SESSION_ID': 'this-is-deprecated', 'ROS_LOCALHOST_ONLY': '0', 'WINDOWPATH': '2', 'PATH': '/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin', 'SESSION_MANAGER': 'local/autopilot:@/tmp/.ICE-unix/13702,unix/autopilot:/tmp/.ICE-unix/13702', 'XDG_MENU_PREFIX': 'gnome-', 'LC_ADDRESS': 'de_DE.UTF-8', 'GNOME_TERMINAL_SCREEN': '/org/gnome/Terminal/screen/526a95c0_9700_44aa_b35a_68930afe19ef', 'XDG_RUNTIME_DIR': '/run/user/1000', 'DISPLAY': ':1', 'LANG': 'en_US.UTF-8', 'XDG_CURRENT_DESKTOP': 'ubuntu:GNOME', 'LC_TELEPHONE': 'de_DE.UTF-8', 'XMODIFIERS': '@im=ibus', 'XDG_SESSION_DESKTOP': 'ubuntu', 'XAUTHORITY': '/run/user/1000/gdm/Xauthority', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'GNOME_TERMINAL_SERVICE': ':1.113', 'SSH_AGENT_LAUNCHER': 'gnome-keyring', 'SSH_AUTH_SOCK': '/run/user/1000/keyring/ssh', 'AMENT_PREFIX_PATH': '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/opt/ros/humble', 'SHELL': '/bin/bash', 'LC_NAME': 'de_DE.UTF-8', 'QT_ACCESSIBILITY': '1', 'GDMSESSION': 'ubuntu', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'LC_MEASUREMENT': 'de_DE.UTF-8', 'GPG_AGENT_INFO': '/run/user/1000/gnupg/S.gpg-agent:0:1', 'LC_IDENTIFICATION': 'de_DE.UTF-8', 'QT_IM_MODULE': 'ibus', 'PWD': '/home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client', 'XDG_CONFIG_DIRS': '/etc/xdg/xdg-ubuntu:/etc/xdg', 'XDG_DATA_DIRS': '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages', 'LC_NUMERIC': 'de_DE.UTF-8', 'LC_PAPER': 'de_DE.UTF-8', 'COLCON': '1', 'VTE_VERSION': '6800', 'CMAKE_PREFIX_PATH': '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces'}, 'shell': False}
+[6.451476] (-) TimerEvent: {}
+[6.552059] (-) TimerEvent: {}
+[6.630433] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/srv/detail/scene_object_add__functions.c.o\x1b[0m\n'}
+[6.652222] (-) TimerEvent: {}
+[6.693990] (tod_camera_cpp) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[6.752383] (-) TimerEvent: {}
+[6.834724] (tod_camera_cpp) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[6.852532] (-) TimerEvent: {}
+[6.953103] (-) TimerEvent: {}
+[6.956010] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/srv/detail/scene_object_attach__functions.c.o\x1b[0m\n'}
+[7.044994] (tod_camera_cpp) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[7.053377] (-) TimerEvent: {}
+[7.097002] (tod_camera_cpp) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[7.153521] (-) TimerEvent: {}
+[7.254075] (-) TimerEvent: {}
+[7.354659] (-) TimerEvent: {}
+[7.395697] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/srv/detail/scene_object_detach__functions.c.o\x1b[0m\n'}
+[7.454803] (-) TimerEvent: {}
+[7.555334] (-) TimerEvent: {}
+[7.609436] (tod_camera_cpp) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[7.609812] (tod_camera_cpp) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[7.655491] (-) TimerEvent: {}
+[7.733085] (wzlscheduler_interfaces) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/srv/detail/scene_object_remove__functions.c.o\x1b[0m\n'}
+[7.748838] (opcua_client) StdoutLine: {'line': b'running egg_info\n'}
+[7.755628] (-) TimerEvent: {}
+[7.769720] (opcua_client) StdoutLine: {'line': b'creating ../../build/opcua_client/opcua_client.egg-info\n'}
+[7.770182] (opcua_client) StdoutLine: {'line': b'writing ../../build/opcua_client/opcua_client.egg-info/PKG-INFO\n'}
+[7.770826] (opcua_client) StdoutLine: {'line': b'writing dependency_links to ../../build/opcua_client/opcua_client.egg-info/dependency_links.txt\n'}
+[7.771172] (opcua_client) StdoutLine: {'line': b'writing entry points to ../../build/opcua_client/opcua_client.egg-info/entry_points.txt\n'}
+[7.771425] (opcua_client) StdoutLine: {'line': b'writing requirements to ../../build/opcua_client/opcua_client.egg-info/requires.txt\n'}
+[7.771651] (opcua_client) StdoutLine: {'line': b'writing top-level names to ../../build/opcua_client/opcua_client.egg-info/top_level.txt\n'}
+[7.772200] (opcua_client) StdoutLine: {'line': b"writing manifest file '../../build/opcua_client/opcua_client.egg-info/SOURCES.txt'\n"}
+[7.780628] (opcua_client) StdoutLine: {'line': b"reading manifest file '../../build/opcua_client/opcua_client.egg-info/SOURCES.txt'\n"}
+[7.782824] (opcua_client) StdoutLine: {'line': b"writing manifest file '../../build/opcua_client/opcua_client.egg-info/SOURCES.txt'\n"}
+[7.783150] (opcua_client) StdoutLine: {'line': b'running build\n'}
+[7.783311] (opcua_client) StdoutLine: {'line': b'running build_py\n'}
+[7.802893] (opcua_client) StdoutLine: {'line': b'creating /home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/build\n'}
+[7.803364] (opcua_client) StdoutLine: {'line': b'creating /home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/build/lib\n'}
+[7.803561] (opcua_client) StdoutLine: {'line': b'creating /home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/build/lib/opcua_client\n'}
+[7.803719] (opcua_client) StdoutLine: {'line': b'copying opcua_client/__init__.py -> /home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/build/lib/opcua_client\n'}
+[7.803943] (opcua_client) StdoutLine: {'line': b'copying opcua_client/client_node.py -> /home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/build/lib/opcua_client\n'}
+[7.804105] (opcua_client) StdoutLine: {'line': b'copying opcua_client/publisher_to_client.py -> /home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/build/lib/opcua_client\n'}
+[7.804390] (opcua_client) StdoutLine: {'line': b'running install\n'}
+[7.805349] (opcua_client) StdoutLine: {'line': b'running install_lib\n'}
+[7.820713] (opcua_client) StdoutLine: {'line': b'creating /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages/opcua_client\n'}
+[7.821188] (opcua_client) StdoutLine: {'line': b'copying /home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/build/lib/opcua_client/__init__.py -> /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages/opcua_client\n'}
+[7.821390] (opcua_client) StdoutLine: {'line': b'copying /home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/build/lib/opcua_client/client_node.py -> /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages/opcua_client\n'}
+[7.826749] (opcua_client) StdoutLine: {'line': b'copying /home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/build/lib/opcua_client/publisher_to_client.py -> /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages/opcua_client\n'}
+[7.828151] (opcua_client) StdoutLine: {'line': b'byte-compiling /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages/opcua_client/__init__.py to __init__.cpython-310.pyc\n'}
+[7.828734] (opcua_client) StdoutLine: {'line': b'byte-compiling /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages/opcua_client/client_node.py to client_node.cpython-310.pyc\n'}
+[7.830219] (opcua_client) StdoutLine: {'line': b'byte-compiling /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages/opcua_client/publisher_to_client.py to publisher_to_client.cpython-310.pyc\n'}
+[7.831161] (opcua_client) StdoutLine: {'line': b'running install_data\n'}
+[7.831435] (opcua_client) StdoutLine: {'line': b'creating /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/share/ament_index\n'}
+[7.831696] (opcua_client) StdoutLine: {'line': b'creating /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/share/ament_index/resource_index\n'}
+[7.831863] (opcua_client) StdoutLine: {'line': b'creating /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/share/ament_index/resource_index/packages\n'}
+[7.832095] (opcua_client) StdoutLine: {'line': b'copying resource/opcua_client -> /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/share/ament_index/resource_index/packages\n'}
+[7.832254] (opcua_client) StdoutLine: {'line': b'copying package.xml -> /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/share/opcua_client\n'}
+[7.832444] (opcua_client) StdoutLine: {'line': b'running install_egg_info\n'}
+[7.855777] (-) TimerEvent: {}
+[7.856406] (opcua_client) StdoutLine: {'line': b'Copying ../../build/opcua_client/opcua_client.egg-info to /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages/opcua_client-0.0.0-py3.10.egg-info\n'}
+[7.863876] (opcua_client) StdoutLine: {'line': b'running install_scripts\n'}
+[7.955928] (-) TimerEvent: {}
+[8.021401] (tod_camera_cpp) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[8.021786] (tod_camera_cpp) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[8.027597] (opcua_client) StdoutLine: {'line': b'Installing client_node script to /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/opcua_client\n'}
+[8.028060] (opcua_client) StdoutLine: {'line': b'Installing publisher_to_client script to /home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/opcua_client\n'}
+[8.031217] (opcua_client) StdoutLine: {'line': b"writing list of installed files to '/home/autopilot/ws/restackcell/ws_moveit2/build/opcua_client/install.log'\n"}
+[8.047710] (robo_planner_msgs) StdoutLine: {'line': b'[  1%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/follow_trajectory__functions.c.o\x1b[0m\n'}
+[8.056075] (-) TimerEvent: {}
+[8.133875] (robo_planner_msgs) StdoutLine: {'line': b'[  2%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/gripper_close__functions.c.o\x1b[0m\n'}
+[8.156231] (-) TimerEvent: {}
+[8.208106] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/srv/detail/scene_object_set_pose__functions.c.o\x1b[0m\n'}
+[8.257701] (opcua_client) CommandEnded: {'returncode': 0}
+[8.258484] (-) TimerEvent: {}
+[8.277464] (opcua_client) JobEnded: {'identifier': 'opcua_client', 'rc': 0}
+[8.322129] (robo_planner_msgs) StdoutLine: {'line': b'[  2%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/gripper_open__functions.c.o\x1b[0m\n'}
+[8.325758] (robo_planner_msgs) StdoutLine: {'line': b'[  2%] Built target robo_planner_msgs__cpp\n'}
+[8.331860] (tod_camera_cpp) StdoutLine: {'line': b'-- Found std_srvs: 4.2.4 (/opt/ros/humble/share/std_srvs/cmake)\n'}
+[8.358651] (-) TimerEvent: {}
+[8.390502] (robo_planner_msgs) StdoutLine: {'line': b'[  3%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[8.394649] (tod_camera_cpp) StdoutLine: {'line': b'-- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[8.452636] (robo_planner_msgs) StdoutLine: {'line': b'[  4%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/move_to_pose__functions.c.o\x1b[0m\n'}
+[8.458782] (-) TimerEvent: {}
+[8.539293] (robo_planner_msgs) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/open_door__functions.c.o\x1b[0m\n'}
+[8.539853] (tod_camera_cpp) StderrLine: {'line': b'\x1b[31mCMake Error at cmake/Findarena_sdk.cmake:181 (message):\n'}
+[8.540255] (tod_camera_cpp) StderrLine: {'line': b'  ArenaSDK is not installed.  Please isntall ArenaSDK using the script\n'}
+[8.540548] (tod_camera_cpp) StderrLine: {'line': b'  provided by LUCID support team (support@thinklucid.com).\n'}
+[8.540802] (tod_camera_cpp) StderrLine: {'line': b'Call Stack (most recent call first):\n'}
+[8.541052] (tod_camera_cpp) StderrLine: {'line': b'  CMakeLists.txt:50 (find_package)\n'}
+[8.541894] (tod_camera_cpp) StderrLine: {'line': b'\n'}
+[8.542272] (tod_camera_cpp) StderrLine: {'line': b'\x1b[0m\n'}
+[8.542997] (tod_camera_cpp) StdoutLine: {'line': b'-- Configuring incomplete, errors occurred!\n'}
+[8.543234] (tod_camera_cpp) StdoutLine: {'line': b'See also "/home/autopilot/ws/restackcell/ws_moveit2/build/tod_camera_cpp/CMakeFiles/CMakeOutput.log".\n'}
+[8.555219] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/msg/detail/labeled_point_cloud__functions.c.o\x1b[0m\n'}
+[8.558932] (-) TimerEvent: {}
+[8.586673] (tod_camera_cpp) CommandEnded: {'returncode': 1}
+[8.651157] (tod_camera_cpp) JobEnded: {'identifier': 'tod_camera_cpp', 'rc': 1}
+[8.659053] (-) TimerEvent: {}
+[8.709991] (robo_planner_msgs) StdoutLine: {'line': b'[  5%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/set_robot_value_velocity__functions.c.o\x1b[0m\n'}
+[8.759209] (-) TimerEvent: {}
+[8.781580] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/msg/detail/labeled_point_clouds__functions.c.o\x1b[0m\n'}
+[8.814625] (robo_planner_msgs) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/gripper_change__functions.c.o\x1b[0m\n'}
+[8.859372] (-) TimerEvent: {}
+[8.894723] (robo_planner_msgs) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/gripper_change_pick__functions.c.o\x1b[0m\n'}
+[8.959526] (-) TimerEvent: {}
+[8.985877] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/srv/set_value_io_interface__type_support.cpp.o\x1b[0m\n'}
+[8.998527] (robo_planner_msgs) StdoutLine: {'line': b'[  7%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/gripper_change_place__functions.c.o\x1b[0m\n'}
+[9.044904] (robo_planner_msgs) StdoutLine: {'line': b'[  8%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/pick__functions.c.o\x1b[0m\n'}
+[9.059672] (-) TimerEvent: {}
+[9.075034] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/msg/detail/scene_object_remove__functions.c.o\x1b[0m\n'}
+[9.159846] (-) TimerEvent: {}
+[9.260409] (-) TimerEvent: {}
+[9.277531] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 13%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/msg/detail/scene_object_add__functions.c.o\x1b[0m\n'}
+[9.284952] (robo_planner_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/place__functions.c.o\x1b[0m\n'}
+[9.288661] (robo_planner_msgs) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/pick_and_place__functions.c.o\x1b[0m\n'}
+[9.346008] (robo_planner_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/msg/detail/labeled_point_cloud__functions.c.o\x1b[0m\n'}
+[9.360557] (-) TimerEvent: {}
+[9.461339] (-) TimerEvent: {}
+[9.548382] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 14%] \x1b[32mBuilding C object CMakeFiles/wzlscheduler_interfaces__rosidl_generator_c.dir/rosidl_generator_c/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__functions.c.o\x1b[0m\n'}
+[9.558996] (robo_planner_msgs) StdoutLine: {'line': b'[ 10%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/msg/detail/labeled_point_clouds__functions.c.o\x1b[0m\n'}
+[9.561435] (-) TimerEvent: {}
+[9.581903] (robo_planner_msgs) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/msg/detail/scene_object_remove__functions.c.o\x1b[0m\n'}
+[9.648345] (robo_planner_msgs) StdoutLine: {'line': b'[ 11%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/msg/detail/scene_object_add__functions.c.o\x1b[0m\n'}
+[9.661587] (-) TimerEvent: {}
+[9.762120] (-) TimerEvent: {}
+[9.770043] (robo_planner_msgs) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/msg/detail/scene_object_set_pose__functions.c.o\x1b[0m\n'}
+[9.848004] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 15%] \x1b[32m\x1b[1mLinking C shared library libwzlscheduler_interfaces__rosidl_generator_c.so\x1b[0m\n'}
+[9.862261] (-) TimerEvent: {}
+[9.928019] (robo_planner_msgs) StdoutLine: {'line': b'[ 13%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[9.932327] (robo_planner_msgs) StdoutLine: {'line': b'[ 13%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[9.962404] (-) TimerEvent: {}
+[10.035259] (robo_planner_msgs) StdoutLine: {'line': b'[ 14%] \x1b[32m\x1b[1mLinking C shared library librobo_planner_msgs__rosidl_generator_c.so\x1b[0m\n'}
+[10.062548] (-) TimerEvent: {}
+[10.079975] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 15%] Built target wzlscheduler_interfaces__rosidl_generator_c\n'}
+[10.129640] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 16%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[10.141900] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/srv/robot_move_to_position__type_support.cpp.o\x1b[0m\n'}
+[10.162693] (-) TimerEvent: {}
+[10.203042] (robo_planner_msgs) StdoutLine: {'line': b'[ 14%] Built target robo_planner_msgs__rosidl_generator_c\n'}
+[10.262834] (-) TimerEvent: {}
+[10.269454] (robo_planner_msgs) StdoutLine: {'line': b'[ 15%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[10.362977] (-) TimerEvent: {}
+[10.463528] (-) TimerEvent: {}
+[10.538031] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/wzlscheduler_interfaces/srv/detail/set_value_io_interface__type_support.cpp.o\x1b[0m\n'}
+[10.563677] (-) TimerEvent: {}
+[10.664235] (-) TimerEvent: {}
+[10.764783] (-) TimerEvent: {}
+[10.865332] (-) TimerEvent: {}
+[10.965895] (-) TimerEvent: {}
+[11.069037] (-) TimerEvent: {}
+[11.169596] (-) TimerEvent: {}
+[11.270150] (-) TimerEvent: {}
+[11.370727] (-) TimerEvent: {}
+[11.471303] (-) TimerEvent: {}
+[11.571868] (-) TimerEvent: {}
+[11.672417] (-) TimerEvent: {}
+[11.681029] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/srv/robot_set_velocity__type_support.cpp.o\x1b[0m\n'}
+[11.772566] (-) TimerEvent: {}
+[11.873126] (-) TimerEvent: {}
+[11.881279] (robo_planner_msgs) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/follow_trajectory__type_support.cpp.o\x1b[0m\n'}
+[11.973369] (-) TimerEvent: {}
+[12.073958] (-) TimerEvent: {}
+[12.155530] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/wzlscheduler_interfaces/srv/detail/dds_fastrtps/set_value_io_interface__type_support.cpp.o\x1b[0m\n'}
+[12.174117] (-) TimerEvent: {}
+[12.247272] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/wzlscheduler_interfaces/srv/detail/robot_move_to_position__type_support.cpp.o\x1b[0m\n'}
+[12.274259] (-) TimerEvent: {}
+[12.374800] (-) TimerEvent: {}
+[12.475363] (-) TimerEvent: {}
+[12.575927] (-) TimerEvent: {}
+[12.676480] (-) TimerEvent: {}
+[12.777041] (-) TimerEvent: {}
+[12.877604] (-) TimerEvent: {}
+[12.978144] (-) TimerEvent: {}
+[13.078711] (-) TimerEvent: {}
+[13.119795] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/srv/robot_follow_trajectory__type_support.cpp.o\x1b[0m\n'}
+[13.178881] (-) TimerEvent: {}
+[13.279441] (-) TimerEvent: {}
+[13.346857] (robo_planner_msgs) StdoutLine: {'line': b'[ 16%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/gripper_close__type_support.cpp.o\x1b[0m\n'}
+[13.379587] (-) TimerEvent: {}
+[13.480123] (-) TimerEvent: {}
+[13.580684] (-) TimerEvent: {}
+[13.681263] (-) TimerEvent: {}
+[13.781804] (-) TimerEvent: {}
+[13.882369] (-) TimerEvent: {}
+[13.985416] (-) TimerEvent: {}
+[14.002537] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/wzlscheduler_interfaces/srv/detail/robot_set_velocity__type_support.cpp.o\x1b[0m\n'}
+[14.012129] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/wzlscheduler_interfaces/srv/detail/dds_fastrtps/robot_move_to_position__type_support.cpp.o\x1b[0m\n'}
+[14.085946] (-) TimerEvent: {}
+[14.186507] (-) TimerEvent: {}
+[14.287068] (-) TimerEvent: {}
+[14.351932] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/srv/load_object__type_support.cpp.o\x1b[0m\n'}
+[14.387219] (-) TimerEvent: {}
+[14.487809] (-) TimerEvent: {}
+[14.588373] (-) TimerEvent: {}
+[14.688975] (-) TimerEvent: {}
+[14.780420] (robo_planner_msgs) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/gripper_open__type_support.cpp.o\x1b[0m\n'}
+[14.789119] (-) TimerEvent: {}
+[14.889726] (-) TimerEvent: {}
+[14.990342] (-) TimerEvent: {}
+[15.090981] (-) TimerEvent: {}
+[15.191595] (-) TimerEvent: {}
+[15.292228] (-) TimerEvent: {}
+[15.392851] (-) TimerEvent: {}
+[15.493467] (-) TimerEvent: {}
+[15.543000] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/wzlscheduler_interfaces/srv/detail/set_value_io_interface__type_support_c.cpp.o\x1b[0m\n'}
+[15.593639] (-) TimerEvent: {}
+[15.600298] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/srv/scene_object_add__type_support.cpp.o\x1b[0m\n'}
+[15.693795] (-) TimerEvent: {}
+[15.736966] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/wzlscheduler_interfaces/srv/detail/dds_fastrtps/robot_set_velocity__type_support.cpp.o\x1b[0m\n'}
+[15.748757] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/wzlscheduler_interfaces/srv/detail/robot_follow_trajectory__type_support.cpp.o\x1b[0m\n'}
+[15.793961] (-) TimerEvent: {}
+[15.894571] (-) TimerEvent: {}
+[15.989140] (robo_planner_msgs) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/move_to_pose__type_support.cpp.o\x1b[0m\n'}
+[15.994717] (-) TimerEvent: {}
+[16.055407] (robo_planner_msgs) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/follow_trajectory__type_support.cpp.o\x1b[0m\n'}
+[16.094887] (-) TimerEvent: {}
+[16.130357] (robo_planner_msgs) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/follow_trajectory__type_support.cpp.o\x1b[0m\n'}
+[16.195056] (-) TimerEvent: {}
+[16.295654] (-) TimerEvent: {}
+[16.314530] (robo_planner_msgs) StdoutLine: {'line': b'[ 19%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/follow_trajectory__type_support_c.cpp.o\x1b[0m\n'}
+[16.395825] (-) TimerEvent: {}
+[16.496460] (-) TimerEvent: {}
+[16.597078] (-) TimerEvent: {}
+[16.697744] (-) TimerEvent: {}
+[16.798348] (-) TimerEvent: {}
+[16.898975] (-) TimerEvent: {}
+[16.933725] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/wzlscheduler_interfaces/srv/detail/robot_move_to_position__type_support_c.cpp.o\x1b[0m\n'}
+[16.999136] (-) TimerEvent: {}
+[17.038359] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/srv/scene_object_attach__type_support.cpp.o\x1b[0m\n'}
+[17.099302] (-) TimerEvent: {}
+[17.199931] (-) TimerEvent: {}
+[17.222812] (robo_planner_msgs) StdoutLine: {'line': b'[ 20%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/open_door__type_support.cpp.o\x1b[0m\n'}
+[17.300100] (-) TimerEvent: {}
+[17.400758] (-) TimerEvent: {}
+[17.501420] (-) TimerEvent: {}
+[17.602045] (-) TimerEvent: {}
+[17.702703] (-) TimerEvent: {}
+[17.803339] (-) TimerEvent: {}
+[17.826653] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/wzlscheduler_interfaces/srv/detail/dds_fastrtps/robot_follow_trajectory__type_support.cpp.o\x1b[0m\n'}
+[17.844963] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/wzlscheduler_interfaces/srv/detail/load_object__type_support.cpp.o\x1b[0m\n'}
+[17.903504] (-) TimerEvent: {}
+[18.004135] (-) TimerEvent: {}
+[18.104739] (-) TimerEvent: {}
+[18.165262] (robo_planner_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/gripper_close__type_support_c.cpp.o\x1b[0m\n'}
+[18.204912] (-) TimerEvent: {}
+[18.221501] (robo_planner_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/gripper_close__type_support.cpp.o\x1b[0m\n'}
+[18.243908] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/srv/scene_object_detach__type_support.cpp.o\x1b[0m\n'}
+[18.305081] (-) TimerEvent: {}
+[18.405736] (-) TimerEvent: {}
+[18.415304] (robo_planner_msgs) StdoutLine: {'line': b'[ 21%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/gripper_close__type_support.cpp.o\x1b[0m\n'}
+[18.505904] (-) TimerEvent: {}
+[18.534283] (robo_planner_msgs) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/set_robot_value_velocity__type_support.cpp.o\x1b[0m\n'}
+[18.606063] (-) TimerEvent: {}
+[18.706669] (-) TimerEvent: {}
+[18.807286] (-) TimerEvent: {}
+[18.858573] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/wzlscheduler_interfaces/srv/detail/robot_set_velocity__type_support_c.cpp.o\x1b[0m\n'}
+[18.907444] (-) TimerEvent: {}
+[19.008054] (-) TimerEvent: {}
+[19.108652] (-) TimerEvent: {}
+[19.209291] (-) TimerEvent: {}
+[19.309935] (-) TimerEvent: {}
+[19.410557] (-) TimerEvent: {}
+[19.511182] (-) TimerEvent: {}
+[19.611849] (-) TimerEvent: {}
+[19.678692] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/wzlscheduler_interfaces/srv/detail/scene_object_add__type_support.cpp.o\x1b[0m\n'}
+[19.712008] (-) TimerEvent: {}
+[19.781146] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/srv/scene_object_remove__type_support.cpp.o\x1b[0m\n'}
+[19.812183] (-) TimerEvent: {}
+[19.886398] (robo_planner_msgs) StdoutLine: {'line': b'[ 22%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/gripper_change__type_support.cpp.o\x1b[0m\n'}
+[19.912355] (-) TimerEvent: {}
+[19.966537] (robo_planner_msgs) StdoutLine: {'line': b'[ 23%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/gripper_open__type_support_c.cpp.o\x1b[0m\n'}
+[20.012519] (-) TimerEvent: {}
+[20.113118] (-) TimerEvent: {}
+[20.166382] (robo_planner_msgs) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/gripper_open__type_support.cpp.o\x1b[0m\n'}
+[20.213300] (-) TimerEvent: {}
+[20.234800] (robo_planner_msgs) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/gripper_open__type_support.cpp.o\x1b[0m\n'}
+[20.313455] (-) TimerEvent: {}
+[20.337015] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/wzlscheduler_interfaces/srv/detail/dds_fastrtps/load_object__type_support.cpp.o\x1b[0m\n'}
+[20.364583] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/wzlscheduler_interfaces/srv/detail/robot_follow_trajectory__type_support_c.cpp.o\x1b[0m\n'}
+[20.413619] (-) TimerEvent: {}
+[20.514225] (-) TimerEvent: {}
+[20.614847] (-) TimerEvent: {}
+[20.715455] (-) TimerEvent: {}
+[20.816076] (-) TimerEvent: {}
+[20.916733] (-) TimerEvent: {}
+[21.017402] (-) TimerEvent: {}
+[21.118032] (-) TimerEvent: {}
+[21.218589] (robo_planner_msgs) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/gripper_change_pick__type_support.cpp.o\x1b[0m\n'}
+[21.219009] (-) TimerEvent: {}
+[21.310424] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/srv/scene_object_set_pose__type_support.cpp.o\x1b[0m\n'}
+[21.319214] (-) TimerEvent: {}
+[21.419853] (-) TimerEvent: {}
+[21.520447] (-) TimerEvent: {}
+[21.536235] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/wzlscheduler_interfaces/srv/detail/scene_object_attach__type_support.cpp.o\x1b[0m\n'}
+[21.620617] (-) TimerEvent: {}
+[21.721278] (-) TimerEvent: {}
+[21.821888] (-) TimerEvent: {}
+[21.827497] (robo_planner_msgs) StdoutLine: {'line': b'[ 26%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/move_to_pose__type_support_c.cpp.o\x1b[0m\n'}
+[21.894228] (robo_planner_msgs) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/move_to_pose__type_support.cpp.o\x1b[0m\n'}
+[21.922049] (-) TimerEvent: {}
+[22.022654] (-) TimerEvent: {}
+[22.123805] (-) TimerEvent: {}
+[22.224441] (-) TimerEvent: {}
+[22.226538] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 34%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/wzlscheduler_interfaces/srv/detail/load_object__type_support_c.cpp.o\x1b[0m\n'}
+[22.324612] (-) TimerEvent: {}
+[22.425269] (-) TimerEvent: {}
+[22.430725] (robo_planner_msgs) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/move_to_pose__type_support.cpp.o\x1b[0m\n'}
+[22.525423] (-) TimerEvent: {}
+[22.539323] (robo_planner_msgs) StdoutLine: {'line': b'[ 29%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/gripper_change_place__type_support.cpp.o\x1b[0m\n'}
+[22.590088] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/msg/labeled_point_cloud__type_support.cpp.o\x1b[0m\n'}
+[22.625587] (-) TimerEvent: {}
+[22.667245] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/wzlscheduler_interfaces/srv/detail/dds_fastrtps/scene_object_add__type_support.cpp.o\x1b[0m\n'}
+[22.725746] (-) TimerEvent: {}
+[22.826412] (-) TimerEvent: {}
+[22.927034] (-) TimerEvent: {}
+[23.027638] (-) TimerEvent: {}
+[23.128258] (-) TimerEvent: {}
+[23.231614] (-) TimerEvent: {}
+[23.332310] (-) TimerEvent: {}
+[23.432939] (-) TimerEvent: {}
+[23.457855] (robo_planner_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/open_door__type_support_c.cpp.o\x1b[0m\n'}
+[23.533105] (-) TimerEvent: {}
+[23.633764] (-) TimerEvent: {}
+[23.718180] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/wzlscheduler_interfaces/srv/detail/scene_object_detach__type_support.cpp.o\x1b[0m\n'}
+[23.733926] (-) TimerEvent: {}
+[23.775056] (robo_planner_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/open_door__type_support.cpp.o\x1b[0m\n'}
+[23.782575] (robo_planner_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/pick__type_support.cpp.o\x1b[0m\n'}
+[23.834091] (-) TimerEvent: {}
+[23.870394] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/msg/labeled_point_clouds__type_support.cpp.o\x1b[0m\n'}
+[23.934253] (-) TimerEvent: {}
+[24.034871] (-) TimerEvent: {}
+[24.135526] (-) TimerEvent: {}
+[24.234705] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 37%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/wzlscheduler_interfaces/srv/detail/scene_object_add__type_support_c.cpp.o\x1b[0m\n'}
+[24.235609] (-) TimerEvent: {}
+[24.326514] (robo_planner_msgs) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/open_door__type_support.cpp.o\x1b[0m\n'}
+[24.335801] (-) TimerEvent: {}
+[24.436407] (-) TimerEvent: {}
+[24.537051] (-) TimerEvent: {}
+[24.637698] (-) TimerEvent: {}
+[24.738320] (-) TimerEvent: {}
+[24.838947] (-) TimerEvent: {}
+[24.939661] (-) TimerEvent: {}
+[24.946826] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/wzlscheduler_interfaces/srv/detail/dds_fastrtps/scene_object_attach__type_support.cpp.o\x1b[0m\n'}
+[25.038392] (robo_planner_msgs) StdoutLine: {'line': b'[ 31%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/pick_and_place__type_support.cpp.o\x1b[0m\n'}
+[25.039738] (-) TimerEvent: {}
+[25.118936] (robo_planner_msgs) StdoutLine: {'line': b'[ 32%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/set_robot_value_velocity__type_support_c.cpp.o\x1b[0m\n'}
+[25.139986] (-) TimerEvent: {}
+[25.209984] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 39%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/msg/scene_object_remove__type_support.cpp.o\x1b[0m\n'}
+[25.240091] (-) TimerEvent: {}
+[25.340695] (-) TimerEvent: {}
+[25.441305] (-) TimerEvent: {}
+[25.541911] (-) TimerEvent: {}
+[25.543681] (robo_planner_msgs) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/set_robot_value_velocity__type_support.cpp.o\x1b[0m\n'}
+[25.642081] (-) TimerEvent: {}
+[25.742715] (-) TimerEvent: {}
+[25.818952] (wzlscheduler_interfaces) StdoutLine: {'line': b'[ 40%] \x1b[32mBuilding CXX object CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/wzlscheduler_interfaces/srv/detail/scene_object_remove__type_support.cpp.o\x1b[0m\n'}
+[25.834100] (robo_planner_msgs) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/build.make:363: CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/set_robot_value_velocity__type_support.cpp.o] Interrupt\n'}
+[25.834506] (robo_planner_msgs) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/build.make:349: CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/open_door__type_support.cpp.o] Interrupt\n'}
+[25.834680] (robo_planner_msgs) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/build.make:380: CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/pick_and_place__type_support.cpp.o] Interrupt\n'}
+[25.834829] (robo_planner_msgs) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:395: CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/all] Interrupt\n'}
+[25.834968] (robo_planner_msgs) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:343: CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/all] Interrupt\n'}
+[25.835104] (robo_planner_msgs) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:369: CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/all] Interrupt\n'}
+[25.839061] (wzlscheduler_interfaces) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make:391: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/wzlscheduler_interfaces/srv/detail/scene_object_remove__type_support.cpp.o] Interrupt\n'}
+[25.839497] (wzlscheduler_interfaces) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:369: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/all] Interrupt\n'}
+[25.839671] (wzlscheduler_interfaces) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make:363: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/wzlscheduler_interfaces/srv/detail/dds_fastrtps/scene_object_attach__type_support.cpp.o] Interrupt\n'}
+[25.839821] (wzlscheduler_interfaces) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:343: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/all] Interrupt\n'}
+[25.839959] (wzlscheduler_interfaces) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/build.make:400: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/msg/scene_object_remove__type_support.cpp.o] Interrupt\n'}
+[25.840111] (wzlscheduler_interfaces) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:395: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/all] Interrupt\n'}
+[25.840242] (robo_planner_msgs) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/build.make:363: CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/set_robot_value_velocity__type_support_c.cpp.o] Interrupt\n'}
+[25.840392] (wzlscheduler_interfaces) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make:349: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/wzlscheduler_interfaces/srv/detail/scene_object_add__type_support_c.cpp.o] Interrupt\n'}
+[25.840535] (robo_planner_msgs) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:239: CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/all] Interrupt\n'}
+[25.840661] (robo_planner_msgs) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Interrupt\n'}
+[25.840781] (wzlscheduler_interfaces) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:239: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.dir/all] Interrupt\n'}
+[25.840902] (wzlscheduler_interfaces) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Interrupt\n'}
+[25.842934] (-) TimerEvent: {}
+[25.850540] (robo_planner_msgs) JobEnded: {'identifier': 'robo_planner_msgs', 'rc': 'SIGINT'}
+[25.854397] (wzlscheduler_interfaces) JobEnded: {'identifier': 'wzlscheduler_interfaces', 'rc': 'SIGINT'}
+[25.866368] (mockup_robot) JobSkipped: {'identifier': 'mockup_robot'}
+[25.866491] (moveit_backend) JobSkipped: {'identifier': 'moveit_backend'}
+[25.866552] (pcl_segmentation) JobSkipped: {'identifier': 'pcl_segmentation'}
+[25.866603] (robo_planner) JobSkipped: {'identifier': 'robo_planner'}
+[25.866652] (robo_planner_py) JobSkipped: {'identifier': 'robo_planner_py'}
+[25.866701] (-) EventReactorShutdown: {}
