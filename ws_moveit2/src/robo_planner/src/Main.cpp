@@ -1,3 +1,10 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <ament_index_cpp/get_package_share_directory.hpp>
+#include <csignal>
+
 #include <rclcpp/rclcpp.hpp>
 #include "tf2_eigen/tf2_eigen.hpp"
 
@@ -251,6 +258,77 @@ public:
     RCLCPP_INFO(node->get_logger(), "Miscellaneous tasks initialized.");
   }
 };
+
+std::vector<std::vector<double>> LoadNCFile(const std::string& filename) {
+    std::vector<std::vector<double>> points;
+    
+    // Get the package share directory
+    std::string package_share_dir = ament_index_cpp::get_package_share_directory("robo_planner");
+    std::string filepath = package_share_dir + "/config/" + filename;
+    
+    std::ifstream file(filepath);
+    if (!file.is_open()) {
+        RCLCPP_ERROR(rclcpp::get_logger("robo_planner"), "Error opening NC file: %s", filepath.c_str());
+        return points;
+    }
+
+    std::vector<double> last_point(3, std::numeric_limits<double>::infinity()); // Initialize with infinity to ensure first point is added
+
+    std::string line;
+    while (std::getline(file, line)) {
+        // Skip empty lines and comments
+        if (line.empty() || line[0] == '(' || line[0] == '%') {
+            continue;
+        }
+
+        // Look for lines containing X, Y, Z coordinates
+        if (line.find('X') != std::string::npos || 
+            line.find('Y') != std::string::npos || 
+            line.find('Z') != std::string::npos) {
+            
+            std::vector<double> point(3, 0.0); // Initialize with [0,0,0]
+            
+            // Parse X coordinate
+            size_t xPos = line.find('X');
+            if (xPos != std::string::npos) {
+                size_t nextChar = line.find_first_of(" XYZF", xPos + 1);
+                std::string xVal = line.substr(xPos + 1, nextChar - xPos - 1);
+                //point[0] = std::stod(xVal) / 100.0;
+                point[0] = (std::stod(xVal) / 400.0) + 0.3;
+            }
+            
+            // Parse Y coordinate
+            size_t yPos = line.find('Y');
+            if (yPos != std::string::npos) {
+                size_t nextChar = line.find_first_of(" XYZF", yPos + 1);
+                std::string yVal = line.substr(yPos + 1, nextChar - yPos - 1);
+                //point[1] = std::stod(yVal) / -100.0;
+                point[1] = (std::stod(yVal) / -400.0) + 0.3;
+            }
+            
+            // Parse Z coordinate
+            size_t zPos = line.find('Z');
+            if (zPos != std::string::npos) {
+                size_t nextChar = line.find_first_of(" XYZF", zPos + 1);
+                std::string zVal = line.substr(zPos + 1, nextChar - zPos - 1);
+                //point[2] = std::stod(zVal) / 100.0;
+                point[2] = 0.5;
+            }
+            
+            // Only add point if it's different from the last point
+            if (point[0] != last_point[0] || 
+                point[1] != last_point[1] || 
+                point[2] != last_point[2]) {
+                points.push_back(point);
+                last_point = point;
+            }
+        }
+    }
+
+    file.close();
+    RCLCPP_INFO(rclcpp::get_logger("robo_planner"), "Successfully loaded NC file with %ld points (after removing duplicates)", points.size());
+    return points;
+}
 
 /**
  * Changing Station Place Task:
@@ -567,6 +645,7 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlacePC(const rclcpp::Node::Shar
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskSetSpeedCartesianFast);
   taskList->AddTask(taskPC1End1);
+  taskList->AddTask(tasks->taskIoGripperNeutral);
 
   return taskList;
 }
@@ -936,6 +1015,57 @@ std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double 
 }
 
 /**
+ * @brief Creates a task list for executing deburring operation
+ *
+ * @param node ROS node to access parameters and logging
+ * @param tasks Shared pointer to miscellaneous tasks for spindle control
+ * @param points Vector of 3D points defining the deburring trajectory
+ * @param BEMIIndex Index of the BEMI workstation (1-3)
+ * @return A shared pointer to TaskList containing trajectory and spindle control
+ */
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPerformDeburr(
+    const rclcpp::Node::SharedPtr &node, 
+    const std::shared_ptr<MiscTasks> &tasks, 
+    const std::vector<std::vector<double>> &points,
+    int BEMIIndex)
+{
+    auto deburrtasklist = std::make_shared<WzlPlanner::TaskList>();
+    
+    // Constants for initial orientation
+    double rotX = M_PI;
+    double rotY = 0;
+    double rotZ = -M_PI - M_PI / 4;
+
+    // Create trajectory task
+    auto trajectory = std::make_shared<WzlPlanner::TaskFollowTrajectory>();
+    trajectory->SetId("DeburTrajectory");
+
+    // Add each point to trajectory
+    for(const auto& point : points) {
+        if(point.size() >= 3) {
+            auto pose = std::make_shared<WzlPlanner::Pose>(
+                point[0],  // X
+                point[1],  // Y
+                point[2],  // Z
+                rotX, rotY, rotZ
+            );
+            trajectory->AddPose(pose);
+        }
+    }
+
+    // Setup deburring sequence
+    deburrtasklist->AddTask(tasks->taskSetSpeedCartesianSlow);
+    //deburrtasklist->AddTask(tasks->taskIoDeburringSpindleActivate);
+    //deburrtasklist->AddTask(tasks->taskIoDeburringSpindleAnpressdruckActivate);
+    deburrtasklist->AddTask(tasks->taskWait);
+    deburrtasklist->AddTask(trajectory);
+    //deburrtasklist->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+    //deburrtasklist->AddTask(tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
+    
+    return deburrtasklist;
+}
+
+/**
  * @brief Main function for the UseCase1
  *
  * Contains all tasks for UseCase1
@@ -946,7 +1076,6 @@ std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double 
 void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks)
 {
   tasks->taskIoLampOrange->Execute();
-  //tasks->taskIoAlarmOff->Execute();
 
   // auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
   [[maybe_unused]] auto useOpcua = false;
@@ -1004,56 +1133,106 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   auto taskDeburringSpindleUnequip = GetChangingStationTaskPlace(node, 2);
   auto taskGripperEquip = GetChangingStationTaskPick(node, 3);
 
-  auto taskfollowtrajectory = std::make_shared<WzlPlanner::TaskFollowTrajectory>();
-
-  auto pose1= std::make_shared<WzlPlanner::Pose>(0.35, 0.15, 0.55, rotX, rotY, rotZ);
-  auto pose2= std::make_shared<WzlPlanner::Pose>(0.4, 0.4, 0.6, rotX, rotY, rotZ);
-  auto pose3= std::make_shared<WzlPlanner::Pose>(0.1, 0.4, 0.6, rotX, rotY, rotZ);
-
-  taskfollowtrajectory->AddPose(pose1);
-  taskfollowtrajectory->AddPose(pose2);
-  taskfollowtrajectory->AddPose(pose3);
-  taskfollowtrajectory->SetId("TaskFollowTrajectory");
-
   ////// TASK SCHEDULING //////
   RCLCPP_INFO(node->get_logger(), "Execute Task Use Case 1");
 
   // setup custom task list
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
 
-  //HABE IRGENDWIE MIT DER PNEUMATIC PROBLEME, MUSS MAL SCHAUEN WAS GEÄNDERT WURDE UND WARUM ES NICHT MEHR FUNKTIONIERT
-
   // Set Pneumatics to neutral
-  //taskList->AddTask(tasks->taskWait);
-  //taskList->AddTask(tasks->taskIoGripperNeutral);
-  //taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
-  //taskList->AddTask(tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
+  taskList->AddTask(tasks->taskIoGripperNeutral);
+  taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  taskList->AddTask(tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
   taskList->AddTask(tasks->taskIoLampGreen);
+  taskList->AddTask(tasks->taskWait); 
+
+  // Ablauf
+  taskList->AddTask(taskInitPose);
+  taskList->AddTask(tasks->taskSetSpeedPtp);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperEquip);
+  taskList->AddTask(tasks->taskAttachGripper);
+
+  taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 1));
+  taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1));
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperUnequip);
+  taskList->AddTask(tasks->taskDetachGripper);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskDeburringSpindleEquip);
+  taskList->AddTask(tasks->taskAttachSpindel);
+
+  taskList->AddTask(taskDeburApproach1);
+  taskList->AddTask(tasks->taskIoDeburringSpindleActivate);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianFast);
+  taskList->AddTask(taskDeburCircle);
+  taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  taskList->AddTask(taskDeburEnd1);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskDeburringSpindleUnequip);
+  taskList->AddTask(tasks->taskDetachSpindel);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperEquip);
+  taskList->AddTask(tasks->taskAttachGripper);
+
+  taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1));
+  taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperUnequip);
+  taskList->AddTask(tasks->taskDetachGripper);
+
   taskList->AddTask(taskInitPose);
 
-  taskList->AddTask(tasks->taskWait);
-
-  taskList->AddTask(taskfollowtrajectory);
-
-  taskList->AddTask(tasks->taskWait);
+  //taskList->AddTask(CreateTaskPerformDeburr(node, tasks, LoadNCFile("Toolpath_Body_v0.5_Leftt Side (copy).nc"), 1));
 
   while (true)
   {
     if (!taskList->Execute())
     {
       RCLCPP_INFO(node->get_logger(), "Execution failed");
-      //tasks->taskIoGripperNeutral->Execute();
-      //tasks->taskIoDeburringSpindleDeactivate->Execute();
-      //tasks->taskIoDeburringSpindleAnpressdruckDeactivate->Execute();
-      tasks->taskIoLampRed->Execute(); // Failure -> Lamp red
-      //tasks->taskIoAlarmOn->Execute();  // Failure -> Alarm on
+      auto failuretasks = std::make_shared<WzlPlanner::TaskList>();
+
+      failuretasks->AddTask(tasks->taskIoLampRed);
+      failuretasks->AddTask(tasks->taskIoGripperNeutral);
+      failuretasks->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+      failuretasks->AddTask(tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
+
+      failuretasks->Execute();
       return;
     }
 
     rclcpp::spin_some(node);
   }
 
-  RCLCPP_INFO(node->get_logger(), "Excecution successful");
+  RCLCPP_INFO(node->get_logger(), "Execution successful");
+}
+
+// global version of misctasks
+std::shared_ptr<MiscTasks> g_misc_tasks;
+
+// Modify signal handler to use global variable
+void signalHandler(int signum) {
+    std::cout << "Interrupt signal received.\n";
+
+    if (g_misc_tasks) {
+        auto shutdowntasks = std::make_shared<WzlPlanner::TaskList>();
+
+        shutdowntasks->AddTask(g_misc_tasks->taskIoLampOrange);
+        shutdowntasks->AddTask(g_misc_tasks->taskIoGripperNeutral);
+        shutdowntasks->AddTask(g_misc_tasks->taskIoDeburringSpindleDeactivate);
+        shutdowntasks->AddTask(g_misc_tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
+        shutdowntasks->Execute();
+    }
+
+    rclcpp::shutdown();
+    exit(signum);
 }
 
 int main(int argc, char *argv[])
@@ -1061,6 +1240,8 @@ int main(int argc, char *argv[])
   // Initialize ROS and create the Node
   std::cout << "Initialize robo planner node" << std::endl;
   rclcpp::init(argc, argv);
+
+  signal(SIGINT, signalHandler);
 
   // auto trWorld = std::make_shared<WzlPlanner::Transform>("world");
 
@@ -1070,16 +1251,49 @@ int main(int argc, char *argv[])
       "robo_planner", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
 
   CreateCell(node);
+
+  auto ncfile =  LoadNCFile("Toolpath_Body_v0.5_Leftt Side (copy).nc");
+// Print the last few ncfile points for debugging
+int num_points_to_show = 5;
+int start_index = std::max(0, (int)ncfile.size() - num_points_to_show);
+
+double min_x = std::numeric_limits<double>::max();
+double min_y = std::numeric_limits<double>::max();
+double min_z = std::numeric_limits<double>::max();
+double max_x = std::numeric_limits<double>::lowest();
+double max_y = std::numeric_limits<double>::lowest();
+double max_z = std::numeric_limits<double>::lowest();
+
+for(const auto& point : ncfile) {
+  min_x = std::min(min_x, point[0]);
+  min_y = std::min(min_y, point[1]);  
+  min_z = std::min(min_z, point[2]);
+  max_x = std::max(max_x, point[0]);
+  max_y = std::max(max_y, point[1]);
+  max_z = std::max(max_z, point[2]);
+}
+
+RCLCPP_INFO(node->get_logger(), "NC file coordinate ranges:");
+RCLCPP_INFO(node->get_logger(), "X range: %.3f to %.3f", min_x, max_x);
+RCLCPP_INFO(node->get_logger(), "Y range: %.3f to %.3f", min_y, max_y); 
+RCLCPP_INFO(node->get_logger(), "Z range: %.3f to %.3f", min_z, max_z);
+RCLCPP_INFO(node->get_logger(), "\nFirst 4 points:");
+for(int i = 0; i < std::min(4, (int)ncfile.size()); i++) {
+  RCLCPP_INFO(node->get_logger(), "Point %d: (%.3f, %.3f, %.3f)", 
+    i, ncfile[i][0], ncfile[i][1], ncfile[i][2]);
+}
+
   rclcpp::sleep_for(3000ms);
   auto misc_tasks = std::make_shared<MiscTasks>(node);
+
+  g_misc_tasks = misc_tasks;  // Store in global variable
+  misc_tasks->taskIoLampOrange->Execute(); // Set lamp to orange
+
   rclcpp::sleep_for(3000ms);
 
   UseCase1(node, misc_tasks);
 
   rclcpp::spin(node);
-
-  // Shutdown ROS
-  rclcpp::shutdown();
 
   return 0;
 }

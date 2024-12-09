@@ -8,6 +8,7 @@ from std_msgs.msg import Float32
 from opcua import Client
 import struct
 import time
+import signal
 
 def connect_to_opcua_server(url):
     client = Client(url)
@@ -194,18 +195,22 @@ class ClientNodeIoLink(Node):
         self.get_logger().info('Publishing: "%.3f"' % Msg2.data)
         self.get_logger().info('Publishing: "%.3f"' % Msg3.data)
 
+def signal_handler(sig, frame):
+    print("\nDisconnecting from IO Link server...")
+    # Get the client instance from the node
+    node.client.disconnect()
+    print("IO Link server disconnected")
+    rclpy.shutdown()
+    exit(0)
 
 def main(args=None):
     rclpy.init(args=args)
-
+    signal.signal(signal.SIGINT, signal_handler)
+    
+    global node  # Make node accessible to signal handler
     node = ClientNodeIoLink()
-
     rclpy.spin(node)
-
-    # Destroy the node explicitly
-    # (optional - otherwise it will be done automatically
-    # when the garbage collector destroys the node object)
-    # node.destroy_node()
+    
     rclpy.shutdown()
 
 if __name__ == '__main__':

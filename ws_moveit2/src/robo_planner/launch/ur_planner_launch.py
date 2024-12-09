@@ -7,7 +7,7 @@ from launch_ros.actions import Node
 from launch.substitutions import PathJoinSubstitution, Command, FindExecutable
 from launch_ros.substitutions import FindPackageShare
 
-from launch.actions import IncludeLaunchDescription
+from launch.actions import IncludeLaunchDescription, RegisterEventHandler
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 
 def get_robot_description():
@@ -90,7 +90,7 @@ def get_robot_description_semantic():
         "robot_description_semantic": robot_description_semantic_content
     }
     return robot_description_semantic
-    
+
 def generate_launch_description():
     # generate_common_hybrid_launch_description() returns a list of nodes to launch
     robot_description = get_robot_description()

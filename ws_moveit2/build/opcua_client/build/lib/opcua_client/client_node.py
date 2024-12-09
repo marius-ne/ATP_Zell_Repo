@@ -4,12 +4,14 @@ from rclpy.node import Node
 from opcua_interfaces.msg import ActuatorWrite, ActuatorRead, ActuatorReadRequest
 from opcua import Client
 import time
+import signal
 
 
 class client_node(Node):
 
     def __init__(self):
         super().__init__("client_node")
+        self.shutdown_flag = False
         self.get_logger().info("Node Started")
         
         global client
@@ -18,7 +20,7 @@ class client_node(Node):
         self.get_logger().info("Server Connected")
 
         self.write_subscriber = self.create_subscription(ActuatorWrite, "Actuator_Write",
-        self.client_write_callback, 10)
+        self.client_write_callback, 20)
         
         self.read_request_subscriber = self.create_subscription(ActuatorReadRequest, "Actuator_Read_Request",
         self.client_read_callback, 10)
@@ -31,7 +33,7 @@ class client_node(Node):
         self.get_logger().info("Write Msg received")
 
         par_object = client.get_node(msg.actuator_id)
-        method = client.get_node(par_object.get_children()[0])
+        method = client.get_node(par_object.get_methods()[0])
 
         ## Actuator Write Types
         # Type 1: Single Boolean e.g. Alarm
@@ -46,14 +48,20 @@ class client_node(Node):
             self.get_logger().info("Write Performed")
 
         else:
-            print("GIVEN ACTUATOR TYPE NOT KNOWN")
+            self.get_logger().info("GIVEN ACTUATOR TYPE NOT KNOWN")
 
 
     def client_read_callback(self, msg: ActuatorReadRequest): # defining Callback for read
         self.get_logger().info("Read Request Msg received")
 
         par_object = client.get_node(msg.actuator_id)
-        state = client.get_node(par_object.get_children()[1])
+        children = par_object.get_children()
+        state = None
+
+        for child in children:
+            if child.get_browse_name().Name == "state":
+                state = child
+                break
         
         read_msg = ActuatorRead()
         read_msg.actuator_id = msg.actuator_id
@@ -78,13 +86,30 @@ class client_node(Node):
             self.get_logger().info("Read MSG Sent")
 
         else:
-            print("GIVEN ACTUATOR READ TYPE NOT KNOWN")
+            self.get_logger().info("GIVEN ACTUATOR TYPE NOT KNOWN")
 
-        
+def signal_handler(sig, frame):
+    global node
+    node.shutdown_flag = True
+
 def main(args=None):
-    rclpy.init(args=args) 
-
+    rclpy.init(args=args)
+    signal.signal(signal.SIGINT, signal_handler)
+    
+    global node
     node = client_node()
-    rclpy.spin(node)
-
-    rclpy.shutdown() 
+    
+    # Main loop with shutdown handling
+    try:
+        while rclpy.ok():
+            rclpy.spin_once(node)
+            if node.shutdown_flag:
+                node.get_logger().info("Shutdown requested, waiting 4 seconds...")
+                end_time = time.time() + 4.0
+                while time.time() < end_time and rclpy.ok():
+                    rclpy.spin_once(node)
+                break
+    finally:
+        node.get_logger().info("Disconnecting from server...")
+        client.disconnect()
+        rclpy.shutdown()

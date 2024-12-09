@@ -55,10 +55,10 @@ class RobotUr : public rclcpp::Node
 
         }
 
-        void Init(std::shared_ptr<rclcpp::Node> robot, std::shared_ptr<rclcpp::Node> action_service_node)
+        void Init(std::shared_ptr<rclcpp::Node> robot)
         {
             // MoveGroupSequence service client
-            action_client = rclcpp_action::create_client<moveit_msgs::action::MoveGroupSequence>(action_service_node, "/sequence_move_group");
+            action_client = rclcpp_action::create_client<moveit_msgs::action::MoveGroupSequence>(robot, "/sequence_move_group");
 
             // initialize planning interface
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize planning scene interface"));
@@ -519,7 +519,7 @@ class RobotUr : public rclcpp::Node
             pose.header.stamp = this->now();
             
             moveit_msgs::msg::MotionSequenceItem item;
-            item.blend_radius = 0.01;
+            item.blend_radius = 0.0;
             item.req.group_name = PLANNING_GROUP;
             item.req.pipeline_id = "pilz_industrial_motion_planner";
             item.req.planner_id = "LIN";
@@ -793,31 +793,21 @@ int main(int argc, char * argv[])
     auto const node = std::make_shared<RobotUr>();
 
     auto const node_move_group = std::make_shared<rclcpp::Node>("move_group_node");
-    auto const node_action_service = std::make_shared<rclcpp::Node>("move_acion_service");
-
-    //rclcpp::executors::SingleThreadedExecutor executor;
-    //executor.add_node(node);
-    //std::thread spinner = std::thread([&executor]() { executor.spin(); });
-
-    //rclcpp::executors::MultiThreadedExecutor executor;
-    //executor.add_node(node);
-    //std::thread spinner = std::thread([&executor]() { executor.spin(); });
 
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("spin node"));
 
     rclcpp::executors::SingleThreadedExecutor executor;
     //executor.add_node(node);
     executor.add_node(node_move_group);
-    executor.add_node(node_action_service);
     auto spinner = std::thread([&executor]() { executor.spin(); });
 
-    node->Init(node_move_group, node_action_service);
+    node->Init(node_move_group);
 
     // Spin node
     rclcpp::spin(node);
 
     // Shutdown ROS
-    // spinner.join();
+    spinner.join();
     rclcpp::shutdown();
 
     return 0;
