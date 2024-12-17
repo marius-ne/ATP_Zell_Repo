@@ -1,0 +1,58 @@
+HIER IST EIN BEISPIEL ABLAUF VON EINEM USE CASE in Main.cpp
+
+////// TASK SCHEDULING //////
+  RCLCPP_INFO(node->get_logger(), "Execute Task Use Case 1");
+
+  // setup custom task list
+  auto taskList = std::make_shared<WzlPlanner::TaskList>();
+
+  // Set Pneumatics to neutral
+  taskList->AddTask(tasks->taskIoGripperNeutral);
+  taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  taskList->AddTask(tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
+  taskList->AddTask(tasks->taskIoLampGreen);
+  taskList->AddTask(tasks->taskWait); 
+
+  // Ablauf
+  taskList->AddTask(taskInitPose);
+  taskList->AddTask(tasks->taskSetSpeedPtp);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperEquip);
+  taskList->AddTask(tasks->taskAttachGripper);
+
+  taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 1));
+  taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1));
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperUnequip);
+  taskList->AddTask(tasks->taskDetachGripper);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskDeburringSpindleEquip);
+  taskList->AddTask(tasks->taskAttachSpindel);
+
+  taskList->AddTask(taskDeburApproach1);
+  taskList->AddTask(tasks->taskIoDeburringSpindleActivate);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianFast);
+  taskList->AddTask(taskDeburCircle);
+  taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  taskList->AddTask(taskDeburEnd1);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskDeburringSpindleUnequip);
+  taskList->AddTask(tasks->taskDetachSpindel);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperEquip);
+  taskList->AddTask(tasks->taskAttachGripper);
+
+  taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1));
+  taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperUnequip);
+  taskList->AddTask(tasks->taskDetachGripper);
+
+  taskList->AddTask(taskInitPose);
