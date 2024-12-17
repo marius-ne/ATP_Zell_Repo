@@ -215,7 +215,7 @@ In beiden Fällen, ob simulierter UR, oder echter über Ethernet-Kabel verbunden
 Der Befehl mit der IP für den realen Roboter (IP = 192.168.20.20)
 
 ```
-ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur16e robot_ip:=192.168.20.20 launch_rviz:=false description_package:=ur_description
+ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur16e robot_ip:=192.168.20.20 description_package:=ur_description launch_rviz:=false
 ```
 
 Der Befehl mit der IP für den simulierten Robote (IP = 192.168.56.101)
@@ -249,8 +249,6 @@ Robot connected to reverse interface. Ready to receive control commands.
 
 ### Moveit starten
 
-Soll zusätzlich der Pilz-Industrial Motion Planner parallel zum Ompl-Planner (für PTP-Bewegungen) für lineare/kartesische Bewegungen verwendet werden, dann muss folgende Launch-Datei gestartet werden:
-
 Um Moveit! mit OMPL und PILZ Plannern zu starten, muss folgende Launch-Datei gestarted werden:
 
 <!-- ```
@@ -264,9 +262,7 @@ ros2 launch robo_planner ur_planner_pilz.launch.py
 Dabei ist zu beachten, dass der workspace im Projekt „Restackcell" gesourced ist, das kann man wie folgend aus dem home Directory machen.
 
 ```
-
 source ws/restackcell/ws_moveit2/install/setup.bash
-
 ``` 
 
 Die Robo_Planner launch-Datei lädt alle notwendigen Config-Dateien des UR-Roboters aus den Paketen des Shared-Folders unter
