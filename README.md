@@ -218,7 +218,7 @@ Der Befehl mit der IP für den realen Roboter (IP = 192.168.20.20)
 ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur16e robot_ip:=192.168.20.20 description_package:=ur_description launch_rviz:=false
 ```
 
-Der Befehl mit der IP für den simulierten Robote (IP = 192.168.56.101)
+Der Befehl mit der IP für den simulierten Roboter (IP = 192.168.56.101)
 
 ```
 ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur16e robot_ip:=192.168.56.101 description_package:=ur_description launch_rviz:=false
@@ -239,7 +239,7 @@ Um die URCaps zu starten, erst in der Leiste oben auf Program drücken, dann auf
 
 Das Program kann nun unten rechts am Panel mit dem Startknopf gestartet werden. 
 
-Zu beachten ist, dass der UR Robot Driver vor dem URCaps gestarted werden muss!
+Zu beachten ist, dass der UR Robot Driver vor dem URCaps gestartet werden muss!
 
 Wenn alles richtig gelaufen ist, sollte im Terminal wo der UR Robot Driver gestartet wurde, folgende Nachricht sichtbar sein:
 
@@ -249,7 +249,7 @@ Robot connected to reverse interface. Ready to receive control commands.
 
 ### Moveit starten
 
-Um Moveit! mit OMPL und PILZ Plannern zu starten, muss folgende Launch-Datei gestarted werden:
+Um Moveit! mit OMPL und PILZ Plannern zu starten, muss folgende Launch-Datei gestartet werden:
 
 <!-- ```
 ros2 launch robo_planner ur_planner_pilz.launch.py ur_type:=ur16e use_fake_hardware:=false launch_rviz:=true description_package:=ur_description ur_type:=ur16e description_file:=ur.urdf.xacro

@@ -2756,6 +2756,10 @@ CMakeFiles/robo_planner.dir/src/Main.cpp.o: /home/autopilot/ws/restackcell/ws_mo
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskList.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Task.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/ObjectContainer.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskGetObjectInScene.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Task.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObjectInclude.h \
@@ -9838,7 +9842,11 @@ CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o: /home/autopilot/ws/restackcell
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__struct.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
-  /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h
+  /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskFollowTrajectory.cpp.o: /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskFollowTrajectory.cpp \
   /usr/include/stdc-predef.h \
@@ -10864,6 +10872,10 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskFollowTrajectory.cpp.o: /home/autopilo
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Pose.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/ObjectContainer.h
 
@@ -11891,6 +11903,10 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o: /home/autopilot/w
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskGripperChangePlace.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskMoveToPose.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Task.h \
@@ -12922,7 +12938,11 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o: /home/autopil
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__struct.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
-  /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h
+  /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o: /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperChangePlace.cpp \
   /usr/include/stdc-predef.h \
@@ -13948,6 +13968,10 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o: /home/autopi
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskMoveToPose.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Task.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Pose.h \
@@ -14978,6 +15002,10 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o: /home/autopilot/ws
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/ObjectContainer.h
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o: /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskGripperOpen.cpp \
@@ -16004,6 +16032,10 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o: /home/autopilot/ws/
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/ObjectContainer.h
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o: /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskList.cpp \
@@ -17029,7 +17061,11 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o: /home/autopilot/ws/restack
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__struct.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
-  /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h
+  /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp
 
 CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o: /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Tasks/TaskMoveToPose.cpp \
   /usr/include/stdc-predef.h \
@@ -18055,6 +18091,10 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o: /home/autopilot/ws/r
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Pose.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/ObjectContainer.h
 
@@ -19082,6 +19122,10 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o: /home/autopilot/ws/restack
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Pose.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObject.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Part.h \
@@ -20115,6 +20159,10 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o: /home/autopilot/ws
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Composed/TaskPick.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Pose.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObject.h \
@@ -21150,6 +21198,10 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o: /home/autopilot/ws/restac
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Pose.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObject.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskMoveToPose.h \
@@ -22182,6 +22234,10 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/autopilot/ws/re
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__builder.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/include/wzlscheduler_interfaces/wzlscheduler_interfaces/msg/detail/scene_object_set_pose__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/GridSnapper.h \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp \
+  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Robot.h \
   /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/SceneObjects/SceneObject.h
 
@@ -22215,6 +22271,10 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/autopilot/ws/re
 /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Pose.cpp:
 
 /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/Atomic/TaskMoveToPose.h:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__traits.hpp:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__struct.hpp:
 
 /home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include/Tasks/TaskList.h:
 
@@ -23838,6 +23898,8 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/autopilot/ws/re
 
 /opt/ros/humble/include/rmw/rmw/macros.h:
 
+/opt/ros/humble/include/std_msgs/std_msgs/msg/string.hpp:
+
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/moving_average_statistics/moving_average.hpp:
 
 /opt/ros/humble/include/rmw/rmw/ret_types.h:
@@ -24277,6 +24339,8 @@ CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o: /home/autopilot/ws/re
 /opt/ros/humble/include/rmw/rmw/qos_profiles.h:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/collector/generate_statistics_message.hpp:
+
+/opt/ros/humble/include/std_msgs/std_msgs/msg/detail/string__builder.hpp:
 
 /opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/metrics_message.hpp:
 

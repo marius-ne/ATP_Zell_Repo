@@ -379,22 +379,27 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const rclcpp::
   auto taskMove1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
   taskMove1->SetTargetPose(targetPose1);
+  taskMove1->SetId("ChangingStationPlace_Move1");
 
   auto taskMove2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
   taskMove2->SetTargetPose(targetPose2);
+  taskMove2->SetId("ChangingStationPlace_Move2");
 
   auto taskMove3 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove3->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
   taskMove3->SetTargetPose(targetPose3);
+  taskMove3->SetId("ChangingStationPlace_Move3");
 
   auto taskMove4 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove4->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
   taskMove4->SetTargetPose(targetPose4);
+  taskMove4->SetId("ChangingStationPlace_Move4");
 
   auto taskMove5 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove5->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
   taskMove5->SetTargetPose(targetPose5);
+  taskMove5->SetId("ChangingStationPlace_Move5");
 
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
 
@@ -403,6 +408,8 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const rclcpp::
   taskList->AddTask(taskMove3);
   taskList->AddTask(taskMove4);
   taskList->AddTask(taskMove5);
+
+  taskList->SetId("ChangingStationPlace");
 
   return taskList;
 }
@@ -453,22 +460,27 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(const rclcpp::N
   auto taskMove1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
   taskMove1->SetTargetPose(targetPose1);
+  taskMove1->SetId("ChangingStationPick_Move1");
 
   auto taskMove2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
   taskMove2->SetTargetPose(targetPose2);
+  taskMove2->SetId("ChangingStationPick_Move2");
 
   auto taskMove3 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove3->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
   taskMove3->SetTargetPose(targetPose3);
+  taskMove3->SetId("ChangingStationPick_Move3");
 
   auto taskMove4 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove4->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
   taskMove4->SetTargetPose(targetPose4);
+  taskMove4->SetId("ChangingStationPick_Move4");
 
   auto taskMove5 = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskMove5->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
   taskMove5->SetTargetPose(targetPose5);
+  taskMove5->SetId("ChangingStationPick_Move5");
 
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
 
@@ -477,6 +489,8 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(const rclcpp::N
   taskList->AddTask(taskMove3);
   taskList->AddTask(taskMove4);
   taskList->AddTask(taskMove5);
+
+  taskList->SetId("ChangingStationPick");
 
   return taskList;
 }
@@ -1102,6 +1116,7 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
 
   auto taskInitPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskInitPose->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseInit);
+  taskInitPose->SetId("InitPose");
 
   // Change tool: Gripper -> deburring spindle
   auto taskGripperUnequip = GetChangingStationTaskPlace(node, 3);
@@ -1138,6 +1153,7 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
 
   // setup custom task list
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
+  taskList->SetId("UseCase1");
 
   // Set Pneumatics to neutral
   taskList->AddTask(tasks->taskIoGripperNeutral);
@@ -1198,6 +1214,7 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
     {
       RCLCPP_INFO(node->get_logger(), "Execution failed");
       auto failuretasks = std::make_shared<WzlPlanner::TaskList>();
+      failuretasks->SetId("FailureTasks");
 
       failuretasks->AddTask(tasks->taskIoLampRed);
       failuretasks->AddTask(tasks->taskIoGripperNeutral);
@@ -1223,6 +1240,7 @@ void signalHandler(int signum) {
 
     if (g_misc_tasks) {
         auto shutdowntasks = std::make_shared<WzlPlanner::TaskList>();
+        shutdowntasks->SetId("ShutdownTasks");
 
         shutdowntasks->AddTask(g_misc_tasks->taskIoLampOrange);
         shutdowntasks->AddTask(g_misc_tasks->taskIoGripperNeutral);
@@ -1250,38 +1268,10 @@ int main(int argc, char *argv[])
   auto const node = std::make_shared<rclcpp::Node>(
       "robo_planner", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
 
+   // Initialize the task status publisher
+    WzlPlanner::Task::InitializePublisher(node);
+
   CreateCell(node);
-
-  auto ncfile =  LoadNCFile("Toolpath_Body_v0.5_Leftt Side (copy).nc");
-// Print the last few ncfile points for debugging
-int num_points_to_show = 5;
-int start_index = std::max(0, (int)ncfile.size() - num_points_to_show);
-
-double min_x = std::numeric_limits<double>::max();
-double min_y = std::numeric_limits<double>::max();
-double min_z = std::numeric_limits<double>::max();
-double max_x = std::numeric_limits<double>::lowest();
-double max_y = std::numeric_limits<double>::lowest();
-double max_z = std::numeric_limits<double>::lowest();
-
-for(const auto& point : ncfile) {
-  min_x = std::min(min_x, point[0]);
-  min_y = std::min(min_y, point[1]);  
-  min_z = std::min(min_z, point[2]);
-  max_x = std::max(max_x, point[0]);
-  max_y = std::max(max_y, point[1]);
-  max_z = std::max(max_z, point[2]);
-}
-
-RCLCPP_INFO(node->get_logger(), "NC file coordinate ranges:");
-RCLCPP_INFO(node->get_logger(), "X range: %.3f to %.3f", min_x, max_x);
-RCLCPP_INFO(node->get_logger(), "Y range: %.3f to %.3f", min_y, max_y); 
-RCLCPP_INFO(node->get_logger(), "Z range: %.3f to %.3f", min_z, max_z);
-RCLCPP_INFO(node->get_logger(), "\nFirst 4 points:");
-for(int i = 0; i < std::min(4, (int)ncfile.size()); i++) {
-  RCLCPP_INFO(node->get_logger(), "Point %d: (%.3f, %.3f, %.3f)", 
-    i, ncfile[i][0], ncfile[i][1], ncfile[i][2]);
-}
 
   rclcpp::sleep_for(3000ms);
   auto misc_tasks = std::make_shared<MiscTasks>(node);
