@@ -317,3 +317,14 @@ source ws/restackcell/ws_moveit2/install/setup.bash
 
 - Username: _Autopilot_
 - Kennwort: _123456_
+
+### Roadmap ReStackCell
+
+- 6D-Posen Erkennung über Foundation Pose der Getriebehälften (gtr)
+- 6D-Posen Erkennung über Foundation Pose für BEMIs (gtr)
+- Einbindung WZL-Rechner für KI-Anwendungen (gtr)
+- Implementierung Vision Überwachung Anlagen Konfiguration (gtr, wml)
+- Aufzeichnen Hardware Architektur Schaltschrank (bln)
+- Aufzeichnen Software Architektur (wml)
+- Proof of Concept: Dockersieren der ROS2 Packages der ReStackCell (wml)
+- Weitere Umsetzung Use-Case1 (wml)
