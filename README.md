@@ -283,7 +283,6 @@ Falls der Ablauf der in Main.cpp ist nicht zufriedenstellend ist, gibt es ein Be
 Dabei ist zu beachten, dass der workspace im Projekt „Restackcell" gesourced ist, das kann man wie folgend aus dem home Directory machen.
 
 ```
-
 source ws/restackcell/ws_moveit2/install/setup.bash
 
 ``` 
