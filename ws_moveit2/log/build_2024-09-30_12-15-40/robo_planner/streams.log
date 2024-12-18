@@ -1,0 +1,416 @@
+[0.036s] Invoking command in '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner': CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/cmake --build /home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner -- -j4 -l4
+[0.166s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.658s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[0.777s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.786s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.813s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.847s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.898s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.038s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.044s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.424s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.559s] -- Found moveit_ros_planning_interface: 2.5.5 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[1.594s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[2.102s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[2.126s] -- Found parameter_traits: 0.3.8 (/opt/ros/humble/share/parameter_traits/cmake)
+[2.142s] -- Found rclcpp_lifecycle: 16.0.10 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[2.200s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[2.323s] -- library: /usr/lib/aarch64-linux-gnu/libcurl.so
+[2.423s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.754s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[2.839s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[2.888s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[2.947s] -- Found wzlscheduler_interfaces: 0.0.0 (/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share/wzlscheduler_interfaces/cmake)
+[2.982s] -- Found opcua_interfaces: 0.0.0 (/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/share/opcua_interfaces/cmake)
+[3.015s] -- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+[3.617s] -- Added test 'cppcheck' to perform static code analysis on C / C++ code
+[3.618s] -- Configured cppcheck include dirs: $<BUILD_INTERFACE:/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/include>
+[3.618s] -- Configured cppcheck exclude dirs and/or files: 
+[3.650s] -- Added test 'flake8' to check Python code syntax and style conventions
+[3.721s] -- Added test 'lint_cmake' to check CMake code style
+[3.748s] -- Added test 'pep257' to check Python code against some of the docstring style conventions in PEP 257
+[3.959s] -- Added test 'uncrustify' to check C / C++ code style
+[3.959s] -- Configured uncrustify additional arguments: 
+[4.014s] -- Added test 'xmllint' to check XML markup files
+[4.023s] -- Configuring done
+[4.131s] -- Generating done
+[4.136s] -- Build files have been written to: /home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner
+[4.370s] [35m[1mConsolidate compiler generated dependencies of target robo_planner[0m
+[4.602s] [  4%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Gripper.cpp.o[0m
+[4.651s] [  8%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/IoInterface.cpp.o[0m
+[5.750s] [ 13%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/ObjectContainer.cpp.o[0m
+[50.121s] [ 17%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Scene.cpp.o[0m
+[85.632s] [ 21%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/SceneObjects/SceneObjectClampingDevice.cpp.o[0m
+[111.992s] [ 26%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/Task.cpp.o[0m
+[129.331s] [ 30%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChange.cpp.o[0m
+[146.827s] [ 34%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePick.cpp.o[0m
+[164.120s] [ 39%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperChangePlace.cpp.o[0m
+[181.312s] [ 43%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperClose.cpp.o[0m
+[198.534s] [ 47%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskGripperOpen.cpp.o[0m
+[211.567s] [ 52%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskFollowTrajectory.cpp.o[0m
+[212.621s] [ 56%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Robot.cpp.o[0m
+[213.669s] [ 60%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
+[235.106s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kstd::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(int)[m[K’:
+[235.106s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:118:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KposPlaceOffsetZ[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.107s]   118 |   double [01;35m[KposPlaceOffsetZ[m[K = -0.005;
+[235.107s]       |          [01;35m[K^~~~~~~~~~~~~~~[m[K
+[235.224s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kvoid UseCase1()[m[K’:
+[235.224s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:259:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KuseOpcua[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.224s]   259 |   auto [01;35m[KuseOpcua[m[K = false;
+[235.224s]       |        [01;35m[K^~~~~~~~[m[K
+[235.224s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:380:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KrotDeburX[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.224s]   380 |   double [01;35m[KrotDeburX[m[K = M_PI;
+[235.225s]       |          [01;35m[K^~~~~~~~~[m[K
+[235.225s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:381:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KrotDeburY[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.225s]   381 |   double [01;35m[KrotDeburY[m[K = 0;
+[235.225s]       |          [01;35m[K^~~~~~~~~[m[K
+[235.225s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:382:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KrotDeburZ[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.225s]   382 |   double [01;35m[KrotDeburZ[m[K = M_PI * -0.5;
+[235.225s]       |          [01;35m[K^~~~~~~~~[m[K
+[235.266s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kvoid PickAndPlaceTest()[m[K’:
+[235.266s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:534:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KuseOpcua[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.266s]   534 |   auto [01;35m[KuseOpcua[m[K = false;
+[235.267s]       |        [01;35m[K^~~~~~~~[m[K
+[235.308s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kvoid TaskRotationTest()[m[K’:
+[235.308s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:694:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KuseOpcua[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.308s]   694 |   auto [01;35m[KuseOpcua[m[K = false;
+[235.308s]       |        [01;35m[K^~~~~~~~[m[K
+[235.308s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:735:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KrotZ[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.308s]   735 |   double [01;35m[KrotZ[m[K = 0;
+[235.309s]       |          [01;35m[K^~~~[m[K
+[235.309s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:738:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KposEndZ[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.309s]   738 |   double [01;35m[KposEndZ[m[K = 0.44686;
+[235.309s]       |          [01;35m[K^~~~~~~[m[K
+[235.309s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:741:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KstationYExecute[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.309s]   741 |   double [01;35m[KstationYExecute[m[K = -0.55759;
+[235.309s]       |          [01;35m[K^~~~~~~~~~~~~~~[m[K
+[235.309s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:743:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KstationX2[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.310s]   743 |   double [01;35m[KstationX2[m[K = 0.13816;
+[235.310s]       |          [01;35m[K^~~~~~~~~[m[K
+[235.310s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:744:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KstationX3[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.310s]   744 |   double [01;35m[KstationX3[m[K = 0.29433;
+[235.310s]       |          [01;35m[K^~~~~~~~~[m[K
+[235.310s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:745:10:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KstationX4[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.310s]   745 |   double [01;35m[KstationX4[m[K = -0.016;
+[235.310s]       |          [01;35m[K^~~~~~~~~[m[K
+[235.312s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kvoid TaskMoveInCircleTest()[m[K’:
+[235.312s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:792:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KuseOpcua[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.312s]   792 |   auto [01;35m[KuseOpcua[m[K = false;
+[235.312s]       |        [01;35m[K^~~~~~~~[m[K
+[235.329s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kvoid TaskChangingStationTest()[m[K’:
+[235.329s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:848:8:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[KuseOpcua[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[235.329s]   848 |   auto [01;35m[KuseOpcua[m[K = false;
+[235.330s]       |        [01;35m[K^~~~~~~~[m[K
+[262.030s] [ 65%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPick.cpp.o[0m
+[278.531s] [ 69%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o[0m
+[291.561s] [ 73%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o[0m
+[293.591s] [ 78%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskMoveToPose.cpp.o[0m
+[295.240s] [ 82%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskList.cpp.o[0m
+[313.260s] [ 86%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o[0m
+[329.433s] [ 91%] [32m[1mLinking CXX executable robo_planner[0m
+[331.097s] [100%] Built target robo_planner
+[331.125s] Invoked command in '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner' returned '0': CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/cmake --build /home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner -- -j4 -l4
+[331.244s] Invoking command in '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner': CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/cmake --install /home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner
+[331.257s] -- Install configuration: ""
+[331.266s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/lib/robo_planner/robo_planner
+[331.279s] -- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/lib/robo_planner/robo_planner" to ""
+[331.279s] -- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch
+[331.279s] -- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/__pycache__
+[331.279s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/__pycache__/ur_planner.cpython-310.pyc
+[331.279s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/__pycache__/hello_moveit_ur_launch.cpython-310.pyc
+[331.280s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/__pycache__/mockup_robot.cpython-310.pyc
+[331.280s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/__pycache__/ur_planner_pilz.cpython-310.pyc
+[331.280s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/ur_moveit_pilz.launch.py
+[331.281s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/ur_planner_launch.py
+[331.281s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/ur_simulation.py
+[331.281s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/mockup_robot.py
+[331.282s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/ur_planner_pilz_launch.py
+[331.282s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/hello_moveit_ur_launch.py
+[331.282s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config
+[331.283s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share
+[331.283s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description
+[331.283s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/package.dsv
+[331.283s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/urdf
+[331.283s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/urdf/ur_macro.xacro_restack
+[331.284s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/urdf/ur_macro.xacro2
+[331.284s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/urdf/ur.ros2_control.xacro
+[331.284s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/urdf/ur.urdf.xacro
+[331.284s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/urdf/ur_macro.xacro_original
+[331.285s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/urdf/inc
+[331.285s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/urdf/inc/ur_transmissions.xacro
+[331.285s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/urdf/inc/ur_common.xacro
+[331.285s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/urdf/ur_macro.xacro
+[331.286s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/local_setup.zsh
+[331.286s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/rviz
+[331.286s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/rviz/view_robot.rviz
+[331.286s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/local_setup.sh
+[331.286s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/cmake
+[331.287s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/cmake/ur_descriptionConfig-version.cmake
+[331.287s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/cmake/ur_descriptionConfig.cmake
+[331.287s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/local_setup.dsv
+[331.287s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config
+[331.287s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur20
+[331.288s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur20/visual_parameters.yaml
+[331.288s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur20/default_kinematics.yaml
+[331.288s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur20/joint_limits.yaml
+[331.288s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur20/physical_parameters.yaml
+[331.288s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur5e
+[331.289s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur5e/visual_parameters.yaml
+[331.289s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur5e/default_kinematics.yaml
+[331.289s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur5e/joint_limits.yaml
+[331.289s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur5e/physical_parameters.yaml
+[331.289s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur3
+[331.290s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur3/visual_parameters.yaml
+[331.290s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur3/default_kinematics.yaml
+[331.290s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur3/joint_limits.yaml
+[331.290s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur3/physical_parameters.yaml
+[331.290s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e
+[331.290s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e/visual_parameters.yaml
+[331.291s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e/default_kinematics.yaml
+[331.291s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e/joint_limits_old.yaml
+[331.291s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e/default_kinematics_calibrated.yaml
+[331.291s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e/joint_limits.yaml
+[331.292s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e/pilz_cartesian_limits.yaml
+[331.292s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e/default_kinematics_original.yaml
+[331.292s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e/physical_parameters.yaml
+[331.292s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur3e
+[331.292s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur3e/visual_parameters.yaml
+[331.293s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur3e/default_kinematics.yaml
+[331.293s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur3e/joint_limits.yaml
+[331.293s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur3e/physical_parameters.yaml
+[331.293s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/initial_positions.yaml
+[331.293s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur30
+[331.294s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur30/visual_parameters.yaml
+[331.294s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur30/default_kinematics.yaml
+[331.294s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur30/joint_limits.yaml
+[331.294s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur30/physical_parameters.yaml
+[331.294s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e_old
+[331.295s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e_old/visual_parameters.yaml
+[331.295s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e_old/default_kinematics.yaml
+[331.295s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e_old/joint_limits.yaml
+[331.295s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur16e_old/physical_parameters.yaml
+[331.295s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur10e
+[331.296s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur10e/visual_parameters.yaml
+[331.296s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur10e/default_kinematics.yaml
+[331.296s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur10e/joint_limits.yaml
+[331.296s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur10e/physical_parameters.yaml
+[331.296s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/pilz_cartesian_limits.yaml
+[331.297s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/pilz_industrial_motion_planner_planning.yaml
+[331.297s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur10
+[331.297s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur10/visual_parameters.yaml
+[331.297s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur10/default_kinematics.yaml
+[331.298s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur10/joint_limits.yaml
+[331.298s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur10/physical_parameters.yaml
+[331.298s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur5
+[331.298s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur5/visual_parameters.yaml
+[331.298s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur5/default_kinematics.yaml
+[331.298s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur5/joint_limits.yaml
+[331.299s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/config/ur5/physical_parameters.yaml
+[331.299s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/launch
+[331.299s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/launch/view_ur.launch.py
+[331.299s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes
+[331.300s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20
+[331.300s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/collision
+[331.300s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/collision/forearm.stl
+[331.300s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/collision/base.stl
+[331.301s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/collision/wrist2.stl
+[331.301s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/collision/wrist3.stl
+[331.301s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/collision/wrist1.stl
+[331.301s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/collision/shoulder.stl
+[331.302s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/collision/upperarm.stl
+[331.302s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/LICENSE.txt
+[331.302s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/visual
+[331.303s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/visual/UR20_DIFF_8bit_2K.png
+[331.306s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/visual/upperarm.dae
+[331.307s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/visual/forearm.dae
+[331.309s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/visual/shoulder.dae
+[331.310s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/visual/wrist3.dae
+[331.311s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/visual/wrist1.dae
+[331.312s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/visual/wrist2.dae
+[331.313s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur20/visual/base.dae
+[331.314s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e
+[331.314s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/collision
+[331.314s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/collision/forearm.stl
+[331.315s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/collision/base.stl
+[331.315s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/collision/wrist2.stl
+[331.315s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/collision/wrist3.stl
+[331.315s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/collision/wrist1.stl
+[331.316s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/collision/shoulder.stl
+[331.316s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/collision/upperarm.stl
+[331.316s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/visual
+[331.317s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/visual/upperarm.dae
+[331.323s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/visual/forearm.dae
+[331.325s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/visual/shoulder.dae
+[331.329s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/visual/wrist3.dae
+[331.329s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/visual/wrist1.dae
+[331.332s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/visual/wrist2.dae
+[331.335s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5e/visual/base.dae
+[331.335s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3
+[331.336s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/collision
+[331.336s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/collision/forearm.stl
+[331.337s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/collision/base.stl
+[331.338s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/collision/wrist2.stl
+[331.338s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/collision/wrist3.stl
+[331.338s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/collision/wrist1.stl
+[331.339s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/collision/shoulder.stl
+[331.340s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/collision/upperarm.stl
+[331.341s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/visual
+[331.341s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/visual/upperarm.dae
+[331.345s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/visual/forearm.dae
+[331.347s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/visual/shoulder.dae
+[331.351s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/visual/wrist3.dae
+[331.351s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/visual/wrist1.dae
+[331.353s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/visual/wrist2.dae
+[331.354s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3/visual/base.dae
+[331.355s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur16e
+[331.356s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur16e/collision
+[331.356s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur16e/collision/forearm.stl
+[331.356s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur16e/collision/restackcell_gripper.STL
+[331.362s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur16e/collision/upperarm.stl
+[331.362s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur16e/visual
+[331.363s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur16e/visual/upperarm.dae
+[331.369s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur16e/visual/forearm.dae
+[331.371s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur16e/visual/restackcell_gripper.STL
+[331.377s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e
+[331.377s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/collision
+[331.377s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/collision/forearm.stl
+[331.378s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/collision/base.stl
+[331.378s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/collision/wrist2.stl
+[331.378s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/collision/wrist3.stl
+[331.378s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/collision/wrist1.stl
+[331.379s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/collision/shoulder.stl
+[331.379s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/collision/upperarm.stl
+[331.380s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/visual
+[331.380s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/visual/upperarm.dae
+[331.387s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/visual/forearm.dae
+[331.389s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/visual/shoulder.dae
+[331.393s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/visual/wrist3.dae
+[331.394s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/visual/wrist1.dae
+[331.396s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/visual/wrist2.dae
+[331.399s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur3e/visual/base.dae
+[331.400s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur30
+[331.400s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur30/collision
+[331.400s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur30/collision/forearm.stl
+[331.401s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur30/collision/upperarm.stl
+[331.401s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur30/LICENSE.txt
+[331.402s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur30/visual
+[331.402s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur30/visual/upperarm.dae
+[331.404s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur30/visual/forearm.dae
+[331.405s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur30/visual/UR30_DIFF_8bit_2K.png
+[331.408s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e
+[331.409s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/collision
+[331.409s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/collision/forearm.stl
+[331.409s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/collision/base.stl
+[331.410s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/collision/wrist2.stl
+[331.410s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/collision/wrist3.stl
+[331.410s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/collision/wrist1.stl
+[331.410s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/collision/shoulder.stl
+[331.411s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/collision/upperarm.stl
+[331.411s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/visual
+[331.412s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/visual/upperarm.dae
+[331.418s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/visual/forearm.dae
+[331.420s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/visual/shoulder.dae
+[331.425s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/visual/wrist3.dae
+[331.425s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/visual/wrist1.dae
+[331.428s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/visual/wrist2.dae
+[331.431s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10e/visual/base.dae
+[331.432s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10
+[331.432s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/collision
+[331.432s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/collision/forearm.stl
+[331.432s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/collision/base.stl
+[331.433s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/collision/wrist2.stl
+[331.433s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/collision/wrist3.stl
+[331.433s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/collision/wrist1.stl
+[331.434s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/collision/shoulder.stl
+[331.434s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/collision/upperarm.stl
+[331.434s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/visual
+[331.434s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/visual/upperarm.dae
+[331.438s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/visual/forearm.dae
+[331.442s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/visual/shoulder.dae
+[331.445s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/visual/wrist3.dae
+[331.445s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/visual/wrist1.dae
+[331.448s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/visual/wrist2.dae
+[331.453s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur10/visual/base.dae
+[331.454s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5
+[331.454s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/collision
+[331.454s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/collision/forearm.stl
+[331.454s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/collision/base.stl
+[331.454s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/collision/wrist2.stl
+[331.455s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/collision/wrist3.stl
+[331.455s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/collision/wrist1.stl
+[331.455s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/collision/shoulder.stl
+[331.456s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/collision/upperarm.stl
+[331.456s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/visual
+[331.456s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/visual/upperarm.dae
+[331.460s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/visual/forearm.dae
+[331.463s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/visual/shoulder.dae
+[331.465s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/visual/wrist3.dae
+[331.465s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/visual/wrist1.dae
+[331.467s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/visual/wrist2.dae
+[331.469s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/meshes/ur5/visual/base.dae
+[331.470s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/local_setup.bash
+[331.470s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/test
+[331.470s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/test/__pycache__
+[331.470s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/test/__pycache__/test_ur_urdf_xacro.cpython-310-pytest-6.2.5.pyc
+[331.471s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/test/__pycache__/test_view_ur_launch.cpython-310-pytest-6.2.5.pyc
+[331.471s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/test/test_ur_urdf_xacro.py
+[331.471s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/test/test_view_ur_launch.py
+[331.471s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/environment
+[331.472s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/environment/ament_prefix_path.sh
+[331.472s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/environment/path.dsv
+[331.472s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/environment/ament_prefix_path.dsv
+[331.472s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/environment/path.sh
+[331.472s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_description/package.xml
+[331.472s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config
+[331.473s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/package.dsv
+[331.473s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/local_setup.zsh
+[331.473s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/rviz
+[331.473s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/rviz/view_robot.rviz
+[331.473s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/local_setup.sh
+[331.474s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/cmake
+[331.474s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/cmake/ur_moveit_configConfig-version.cmake
+[331.474s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/cmake/ur_moveit_configConfig.cmake
+[331.474s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/local_setup.dsv
+[331.474s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/config
+[331.474s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/config/ur_servo.yaml
+[331.475s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/config/ompl_planning.yaml
+[331.475s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/config/controllers.yaml
+[331.475s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/config/pilz_cartesian_limits.yaml
+[331.475s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/config/pilz_industrial_motion_planner_planning.yaml
+[331.476s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/config/kinematics.yaml
+[331.476s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/launch
+[331.476s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/launch/ur_moveit.launch.py
+[331.476s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/local_setup.bash
+[331.476s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/environment
+[331.476s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/environment/pythonpath.sh
+[331.477s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/environment/ament_prefix_path.sh
+[331.477s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/environment/path.dsv
+[331.477s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/environment/ament_prefix_path.dsv
+[331.477s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/environment/pythonpath.dsv
+[331.477s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/environment/path.sh
+[331.478s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/package.xml
+[331.478s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/srdf
+[331.478s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/srdf/ur_macro.srdf.xacro
+[331.478s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/share/ur_moveit_config/srdf/ur.srdf.xacro
+[331.478s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/visual_parameters.yaml
+[331.487s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/default_kinematics.yaml
+[331.487s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/joint_limits.yaml
+[331.487s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/pilz_cartesian_limits.yaml
+[331.488s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/pilz_industrial_motion_planner_planning.yaml
+[331.488s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/physical_parameters.yaml
+[331.488s] -- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/package_run_dependencies/robo_planner
+[331.489s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/parent_prefix_path/robo_planner
+[331.489s] -- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/ament_prefix_path.sh
+[331.489s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/ament_prefix_path.dsv
+[331.490s] -- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/path.sh
+[331.490s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/path.dsv
+[331.490s] -- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.bash
+[331.490s] -- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.sh
+[331.490s] -- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.zsh
+[331.491s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.dsv
+[331.491s] -- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.dsv
+[331.491s] -- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/packages/robo_planner
+[331.491s] -- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/cmake/robo_plannerConfig.cmake
+[331.492s] -- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/cmake/robo_plannerConfig-version.cmake
+[331.492s] -- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.xml
+[331.497s] Invoked command in '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner' returned '0': CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib PYTHONPATH=/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages /usr/bin/cmake --install /home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner

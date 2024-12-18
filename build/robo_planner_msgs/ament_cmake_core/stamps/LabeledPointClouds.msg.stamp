@@ -1,0 +1,1 @@
+LabeledPointCloud[] elements

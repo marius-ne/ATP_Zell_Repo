@@ -1,0 +1,20 @@
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:[m[K In member function ‘[01m[Kvoid RobotUr::set_execute_duration_for_trajectory(moveit_msgs::msg::RobotTrajectory&, double)[m[K’:
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:261:28:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+  261 |             for (int i=0; [01;35m[Ki<size[m[K; i++)
+      |                           [01;35m[K~^~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:[m[K In member function ‘[01m[Kvoid RobotUr::service_callback_robot_move_to_position(std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> > >, std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition_Response_<std::allocator<void> > >)[m[K’:
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:307:22:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ksize05[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  307 |                 auto [01;35m[Ksize05[m[K = size * 0.5;
+      |                      [01;35m[K^~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:[m[K In member function ‘[01m[Kvoid RobotUr::service_callback_robot_follow_trajectory(std::shared_ptr<wzlscheduler_interfaces::srv::RobotFollowTrajectory_Request_<std::allocator<void> > >, std::shared_ptr<wzlscheduler_interfaces::srv::RobotFollowTrajectory_Response_<std::allocator<void> > >)[m[K’:
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:456:24:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ksuccess[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+  456 |             auto const [01;35m[Ksuccess[m[K = static_cast<bool>(move_group_interface_->execute(trajectory));
+      |                        [01;35m[K^~~~~~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:[m[K In member function ‘[01m[Kvoid RobotUr::topic_callback_scene_object_add(const SceneObjectAdd&) const[m[K’:
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:519:98:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  519 |         void topic_callback_scene_object_add([01;35m[Kconst wzlscheduler_interfaces::msg::SceneObjectAdd& msg[m[K) const
+      |                                              [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:[m[K In member function ‘[01m[Kvoid RobotUr::topic_callback_scene_object_set_pose(const SceneObjectSetPose&) const[m[K’:
+[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:582:107:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+  582 |         void topic_callback_scene_object_set_pose([01;35m[Kconst wzlscheduler_interfaces::msg::SceneObjectSetPose& msg[m[K) const
+      |                                                   [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K

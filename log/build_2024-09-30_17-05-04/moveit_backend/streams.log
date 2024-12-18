@@ -1,0 +1,359 @@
+[0.645s] Invoking command in '/home/autopilot/ws/restackcell/build/moveit_backend': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/moveit_backend -- -j4 -l4
+[0.787s] [35m[1mConsolidate compiler generated dependencies of target moveit_panda[0m
+[0.789s] [35m[1mConsolidate compiler generated dependencies of target moveit_ur[0m
+[0.990s] [ 75%] [32mBuilding CXX object CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o[0m
+[0.990s] [ 75%] Built target moveit_panda
+[24.105s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:[m[K In member function ‘[01m[Kvoid RobotUr::set_execute_duration_for_trajectory(moveit_msgs::msg::RobotTrajectory&, double)[m[K’:
+[24.105s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:261:28:[m[K [01;35m[Kwarning: [m[Kcomparison of integer expressions of different signedness: ‘[01m[Kint[m[K’ and ‘[01m[Ksize_t[m[K’ {aka ‘[01m[Klong unsigned int[m[K’} [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare-Wsign-compare]8;;[m[K]
+[24.105s]   261 |             for (int i=0; [01;35m[Ki<size[m[K; i++)
+[24.106s]       |                           [01;35m[K~^~~~~[m[K
+[24.154s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:[m[K In member function ‘[01m[Kvoid RobotUr::service_callback_robot_follow_trajectory(std::shared_ptr<wzlscheduler_interfaces::srv::RobotFollowTrajectory_Request_<std::allocator<void> > >, std::shared_ptr<wzlscheduler_interfaces::srv::RobotFollowTrajectory_Response_<std::allocator<void> > >)[m[K’:
+[24.155s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:454:24:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Ksuccess[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable-Wunused-variable]8;;[m[K]
+[24.155s]   454 |             auto const [01;35m[Ksuccess[m[K = static_cast<bool>(move_group_interface_->execute(trajectory));
+[24.155s]       |                        [01;35m[K^~~~~~~[m[K
+[24.197s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:[m[K In member function ‘[01m[Kvoid RobotUr::topic_callback_scene_object_add(const SceneObjectAdd&) const[m[K’:
+[24.197s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:517:98:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[24.198s]   517 |         void topic_callback_scene_object_add([01;35m[Kconst wzlscheduler_interfaces::msg::SceneObjectAdd& msg[m[K) const
+[24.198s]       |                                              [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[24.198s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:[m[K In member function ‘[01m[Kvoid RobotUr::topic_callback_scene_object_set_pose(const SceneObjectSetPose&) const[m[K’:
+[24.198s] [01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:580:107:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kmsg[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter-Wunused-parameter]8;;[m[K]
+[24.198s]   580 |         void topic_callback_scene_object_set_pose([01;35m[Kconst wzlscheduler_interfaces::msg::SceneObjectSetPose& msg[m[K) const
+[24.201s]       |                                                   [01;35m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~[m[K
+[68.443s] [100%] [32m[1mLinking CXX executable moveit_ur[0m
+[71.545s] [100%] Built target moveit_ur
+[71.566s] Invoked command in '/home/autopilot/ws/restackcell/build/moveit_backend' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --build /home/autopilot/ws/restackcell/build/moveit_backend -- -j4 -l4
+[71.607s] Invoking command in '/home/autopilot/ws/restackcell/build/moveit_backend': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/moveit_backend
+[71.620s] -- Install configuration: ""
+[71.621s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/lib/moveit_backend/moveit_panda
+[71.621s] -- Installing: /home/autopilot/ws/restackcell/install/moveit_backend/lib/moveit_backend/moveit_ur
+[71.644s] -- Set runtime path of "/home/autopilot/ws/restackcell/install/moveit_backend/lib/moveit_backend/moveit_ur" to ""
+[71.644s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/config
+[71.644s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/config/visual_parameters.yaml
+[71.644s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/config/default_kinematics.yaml
+[71.645s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/config/ur16e copy
+[71.645s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/config/ur16e copy/visual_parameters.yaml
+[71.645s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/config/ur16e copy/default_kinematics.yaml
+[71.645s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/config/ur16e copy/joint_limits.yaml
+[71.646s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/config/ur16e copy/physical_parameters.yaml
+[71.646s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/config/joint_limits.yaml
+[71.646s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/config/pilz_cartesian_limits.yaml
+[71.647s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/config/pilz_industrial_motion_planner_planning.yaml
+[71.647s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/config/physical_parameters.yaml
+[71.647s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes
+[71.647s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20
+[71.648s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/collision
+[71.648s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/forearm.stl
+[71.648s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/base.stl
+[71.648s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/wrist2.stl
+[71.649s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/wrist3.stl
+[71.649s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/wrist1.stl
+[71.649s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/shoulder.stl
+[71.649s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/upperarm.stl
+[71.650s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/LICENSE.txt
+[71.650s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/visual
+[71.650s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/UR20_DIFF_8bit_2K.png
+[71.650s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/upperarm.dae
+[71.651s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/forearm.dae
+[71.651s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/shoulder.dae
+[71.651s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/wrist3.dae
+[71.651s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/wrist1.dae
+[71.652s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/wrist2.dae
+[71.652s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/base.dae
+[71.652s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e
+[71.652s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision
+[71.653s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/forearm.stl
+[71.653s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/base.stl
+[71.653s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/wrist2.stl
+[71.653s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/wrist3.stl
+[71.653s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/wrist1.stl
+[71.653s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/shoulder.stl
+[71.654s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/upperarm.stl
+[71.654s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual
+[71.654s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/upperarm.dae
+[71.654s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/forearm.dae
+[71.654s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/shoulder.dae
+[71.654s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/wrist3.dae
+[71.654s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/wrist1.dae
+[71.654s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/wrist2.dae
+[71.655s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/base.dae
+[71.655s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3
+[71.655s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/collision
+[71.655s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/forearm.stl
+[71.655s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/base.stl
+[71.655s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/wrist2.stl
+[71.655s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/wrist3.stl
+[71.656s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/wrist1.stl
+[71.656s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/shoulder.stl
+[71.656s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/upperarm.stl
+[71.656s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/visual
+[71.656s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/upperarm.dae
+[71.656s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/forearm.dae
+[71.656s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/shoulder.dae
+[71.656s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/wrist3.dae
+[71.657s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/wrist1.dae
+[71.657s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/wrist2.dae
+[71.657s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/base.dae
+[71.657s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur16e
+[71.657s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur16e/collision
+[71.657s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur16e/collision/forearm.stl
+[71.657s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur16e/collision/upperarm.stl
+[71.657s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur16e/visual
+[71.658s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur16e/visual/upperarm.dae
+[71.658s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur16e/visual/forearm.dae
+[71.658s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e
+[71.658s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision
+[71.658s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/forearm.stl
+[71.658s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/base.stl
+[71.660s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/wrist2.stl
+[71.660s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/wrist3.stl
+[71.660s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/wrist1.stl
+[71.660s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/shoulder.stl
+[71.660s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/upperarm.stl
+[71.661s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual
+[71.661s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/upperarm.dae
+[71.661s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/forearm.dae
+[71.661s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/shoulder.dae
+[71.661s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/wrist3.dae
+[71.661s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/wrist1.dae
+[71.661s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/wrist2.dae
+[71.661s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/base.dae
+[71.662s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur30
+[71.662s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur30/collision
+[71.662s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur30/collision/forearm.stl
+[71.663s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur30/collision/upperarm.stl
+[71.666s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur30/LICENSE.txt
+[71.667s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur30/visual
+[71.667s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur30/visual/upperarm.dae
+[71.668s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur30/visual/forearm.dae
+[71.669s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur30/visual/UR30_DIFF_8bit_2K.png
+[71.669s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e
+[71.670s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision
+[71.670s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/forearm.stl
+[71.670s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/base.stl
+[71.671s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/wrist2.stl
+[71.671s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/wrist3.stl
+[71.671s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/wrist1.stl
+[71.672s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/shoulder.stl
+[71.674s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/upperarm.stl
+[71.674s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual
+[71.675s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/upperarm.dae
+[71.675s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/forearm.dae
+[71.675s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/shoulder.dae
+[71.675s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/wrist3.dae
+[71.676s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/wrist1.dae
+[71.676s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/wrist2.dae
+[71.676s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/base.dae
+[71.677s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10
+[71.677s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/collision
+[71.677s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/forearm.stl
+[71.677s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/base.stl
+[71.678s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/wrist2.stl
+[71.678s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/wrist3.stl
+[71.678s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/wrist1.stl
+[71.679s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/shoulder.stl
+[71.679s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/upperarm.stl
+[71.679s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/visual
+[71.679s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/upperarm.dae
+[71.680s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/forearm.dae
+[71.680s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/shoulder.dae
+[71.680s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/wrist3.dae
+[71.680s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/wrist1.dae
+[71.681s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/wrist2.dae
+[71.681s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/base.dae
+[71.681s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5
+[71.681s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/collision
+[71.682s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/forearm.stl
+[71.682s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/base.stl
+[71.682s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/wrist2.stl
+[71.682s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/wrist3.stl
+[71.682s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/wrist1.stl
+[71.683s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/shoulder.stl
+[71.683s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/upperarm.stl
+[71.684s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/visual
+[71.685s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/upperarm.dae
+[71.685s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/forearm.dae
+[71.685s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/shoulder.dae
+[71.686s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/wrist3.dae
+[71.686s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/wrist1.dae
+[71.687s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/wrist2.dae
+[71.687s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/base.dae
+[71.687s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/urdf
+[71.688s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/urdf/ur.ros2_control.xacro
+[71.688s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/urdf/ur.urdf.xacro
+[71.689s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/urdf/inc
+[71.689s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/urdf/inc/ur_transmissions.xacro
+[71.690s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/urdf/inc/ur_common.xacro
+[71.690s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/urdf/ur_macro.xacro
+[71.691s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/config
+[71.692s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/config/visual_parameters.yaml
+[71.693s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/config/default_kinematics.yaml
+[71.693s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/config/ur16e copy
+[71.694s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/config/ur16e copy/visual_parameters.yaml
+[71.694s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/config/ur16e copy/default_kinematics.yaml
+[71.695s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/config/ur16e copy/joint_limits.yaml
+[71.695s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/config/ur16e copy/physical_parameters.yaml
+[71.695s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/config/joint_limits.yaml
+[71.696s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/config/pilz_cartesian_limits.yaml
+[71.696s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/config/pilz_industrial_motion_planner_planning.yaml
+[71.697s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/config/physical_parameters.yaml
+[71.697s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes
+[71.698s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20
+[71.698s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/collision
+[71.698s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/forearm.stl
+[71.699s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/base.stl
+[71.699s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/wrist2.stl
+[71.700s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/wrist3.stl
+[71.700s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/wrist1.stl
+[71.700s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/shoulder.stl
+[71.701s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/upperarm.stl
+[71.701s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/LICENSE.txt
+[71.702s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/visual
+[71.703s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/UR20_DIFF_8bit_2K.png
+[71.703s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/upperarm.dae
+[71.704s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/forearm.dae
+[71.704s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/shoulder.dae
+[71.704s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/wrist3.dae
+[71.704s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/wrist1.dae
+[71.704s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/wrist2.dae
+[71.705s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/base.dae
+[71.705s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e
+[71.705s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision
+[71.705s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/forearm.stl
+[71.705s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/base.stl
+[71.705s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/wrist2.stl
+[71.705s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/wrist3.stl
+[71.706s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/wrist1.stl
+[71.706s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/shoulder.stl
+[71.706s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/upperarm.stl
+[71.706s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual
+[71.706s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/upperarm.dae
+[71.706s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/forearm.dae
+[71.707s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/shoulder.dae
+[71.707s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/wrist3.dae
+[71.707s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/wrist1.dae
+[71.707s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/wrist2.dae
+[71.707s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/base.dae
+[71.707s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3
+[71.707s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/collision
+[71.708s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/forearm.stl
+[71.708s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/base.stl
+[71.708s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/wrist2.stl
+[71.708s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/wrist3.stl
+[71.708s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/wrist1.stl
+[71.708s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/shoulder.stl
+[71.708s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/upperarm.stl
+[71.709s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/visual
+[71.709s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/upperarm.dae
+[71.709s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/forearm.dae
+[71.709s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/shoulder.dae
+[71.709s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/wrist3.dae
+[71.709s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/wrist1.dae
+[71.709s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/wrist2.dae
+[71.709s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/base.dae
+[71.710s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur16e
+[71.710s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur16e/collision
+[71.710s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur16e/collision/forearm.stl
+[71.710s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur16e/collision/upperarm.stl
+[71.710s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur16e/visual
+[71.710s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur16e/visual/upperarm.dae
+[71.710s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur16e/visual/forearm.dae
+[71.710s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e
+[71.711s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision
+[71.711s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/forearm.stl
+[71.711s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/base.stl
+[71.711s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/wrist2.stl
+[71.711s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/wrist3.stl
+[71.711s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/wrist1.stl
+[71.711s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/shoulder.stl
+[71.712s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/upperarm.stl
+[71.712s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual
+[71.712s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/upperarm.dae
+[71.712s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/forearm.dae
+[71.712s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/shoulder.dae
+[71.712s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/wrist3.dae
+[71.712s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/wrist1.dae
+[71.713s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/wrist2.dae
+[71.713s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/base.dae
+[71.713s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur30
+[71.713s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur30/collision
+[71.713s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur30/collision/forearm.stl
+[71.713s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur30/collision/upperarm.stl
+[71.713s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur30/LICENSE.txt
+[71.713s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur30/visual
+[71.714s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur30/visual/upperarm.dae
+[71.714s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur30/visual/forearm.dae
+[71.714s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur30/visual/UR30_DIFF_8bit_2K.png
+[71.714s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e
+[71.714s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision
+[71.714s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/forearm.stl
+[71.714s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/base.stl
+[71.715s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/wrist2.stl
+[71.715s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/wrist3.stl
+[71.715s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/wrist1.stl
+[71.715s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/shoulder.stl
+[71.715s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/upperarm.stl
+[71.715s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual
+[71.715s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/upperarm.dae
+[71.715s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/forearm.dae
+[71.716s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/shoulder.dae
+[71.716s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/wrist3.dae
+[71.716s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/wrist1.dae
+[71.716s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/wrist2.dae
+[71.716s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/base.dae
+[71.716s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10
+[71.716s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/collision
+[71.717s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/forearm.stl
+[71.717s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/base.stl
+[71.717s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/wrist2.stl
+[71.717s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/wrist3.stl
+[71.717s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/wrist1.stl
+[71.717s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/shoulder.stl
+[71.717s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/upperarm.stl
+[71.718s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/visual
+[71.718s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/upperarm.dae
+[71.718s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/forearm.dae
+[71.718s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/shoulder.dae
+[71.718s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/wrist3.dae
+[71.718s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/wrist1.dae
+[71.718s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/wrist2.dae
+[71.718s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/base.dae
+[71.719s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5
+[71.719s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/collision
+[71.719s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/forearm.stl
+[71.719s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/base.stl
+[71.719s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/wrist2.stl
+[71.719s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/wrist3.stl
+[71.719s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/wrist1.stl
+[71.719s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/shoulder.stl
+[71.720s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/upperarm.stl
+[71.720s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/visual
+[71.720s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/upperarm.dae
+[71.720s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/forearm.dae
+[71.721s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/shoulder.dae
+[71.721s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/wrist3.dae
+[71.721s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/wrist1.dae
+[71.721s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/wrist2.dae
+[71.721s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/base.dae
+[71.722s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/urdf
+[71.722s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/urdf/ur.ros2_control.xacro
+[71.722s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/urdf/ur.urdf.xacro
+[71.722s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/urdf/inc
+[71.722s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/urdf/inc/ur_transmissions.xacro
+[71.722s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/urdf/inc/ur_common.xacro
+[71.722s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/install/moveit_backend/urdf/ur_macro.xacro
+[71.723s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/ament_index/resource_index/package_run_dependencies/moveit_backend
+[71.723s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/ament_index/resource_index/parent_prefix_path/moveit_backend
+[71.723s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/environment/ament_prefix_path.sh
+[71.723s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/environment/ament_prefix_path.dsv
+[71.723s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/environment/path.sh
+[71.724s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/environment/path.dsv
+[71.724s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/local_setup.bash
+[71.724s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/local_setup.sh
+[71.724s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/local_setup.zsh
+[71.724s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/local_setup.dsv
+[71.724s] -- Installing: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/package.dsv
+[71.725s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/ament_index/resource_index/packages/moveit_backend
+[71.725s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/cmake/moveit_backendConfig.cmake
+[71.725s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/cmake/moveit_backendConfig-version.cmake
+[71.725s] -- Up-to-date: /home/autopilot/ws/restackcell/install/moveit_backend/share/moveit_backend/package.xml
+[71.726s] Invoked command in '/home/autopilot/ws/restackcell/build/moveit_backend' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces LD_LIBRARY_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/lib/pkgconfig PYTHONPATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/autopilot/ws/restackcell/install/wzlscheduler_interfaces/share /usr/bin/cmake --install /home/autopilot/ws/restackcell/build/moveit_backend

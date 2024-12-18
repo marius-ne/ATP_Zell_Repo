@@ -1,0 +1,18 @@
+// generated from rosidl_adapter/resource/srv.idl.em
+// with input from wzlscheduler_interfaces/srv/RobotMoveToPosition.srv
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/Pose.idl"
+
+module wzlscheduler_interfaces {
+  module srv {
+    struct RobotMoveToPosition_Request {
+      int32 movetype;
+
+      geometry_msgs::msg::Pose pose;
+    };
+    struct RobotMoveToPosition_Response {
+      int32 result;
+    };
+  };
+};

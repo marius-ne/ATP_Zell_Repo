@@ -1,0 +1,73 @@
+Traceback (most recent call last):
+  File "/opt/ros/humble/lib/rosidl_typesupport_fastrtps_c/rosidl_typesupport_fastrtps_c", line 33, in <module>
+    sys.exit(main())
+  File "/opt/ros/humble/lib/rosidl_typesupport_fastrtps_c/rosidl_typesupport_fastrtps_c", line 29, in main
+    generate_typesupport_fastrtps_c(args.generator_arguments_file)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_typesupport_fastrtps_c/__init__.py", line 24, in generate_typesupport_fastrtps_c
+    return generate_files(generator_arguments_file, mapping)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_cmake/__init__.py", line 87, in generate_files
+gmake[2]: *** [CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/build.make:307: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/wzlscheduler_interfaces/srv/detail/dds_fastrtps/set_value_io_interface__type_support.cpp.o] Interrupt
+    expand_template(
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_cmake/__init__.py", line 149, in expand_template
+gmake[2]: *** [CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/build.make:276: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/wzlscheduler_interfaces/srv/robot_set_velocity__type_support.cpp.o] Interrupt
+    interpreter.string(template_content, template_path, locals=data)
+  File "/usr/lib/python3/dist-packages/em.py", line 2391, in string
+gmake[2]: *** Deleting file 'rosidl_typesupport_fastrtps_c/wzlscheduler_interfaces/srv/detail/set_value_io_interface__rosidl_typesupport_fastrtps_c.h'
+    self.safe(scanner, True, locals)
+  File "/usr/lib/python3/dist-packages/em.py", line 2401, in safe
+gmake[2]: *** [CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/build.make:307: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/wzlscheduler_interfaces/srv/detail/set_value_io_interface__type_support.cpp.o] Interrupt
+    self.parse(scanner, locals)
+  File "/usr/lib/python3/dist-packages/em.py", line 2421, in parse
+    token.run(self, locals)
+  File "/usr/lib/python3/dist-packages/em.py", line 1547, in run
+    self.subrun(info[0][1], interpreter, locals)
+  File "/usr/lib/python3/dist-packages/em.py", line 1631, in subrun
+    token.run(interpreter, locals)
+  File "/usr/lib/python3/dist-packages/em.py", line 1425, in run
+gmake[1]: *** [CMakeFiles/Makefile2:395: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_cpp.dir/all] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:369: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_introspection_cpp.dir/all] Interrupt
+    interpreter.execute(self.code, locals)
+gmake[1]: *** [CMakeFiles/Makefile2:343: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_cpp.dir/all] Interrupt
+  File "/usr/lib/python3/dist-packages/em.py", line 2596, in execute
+    _exec(statements, self.globals, locals)
+  File "<string>", line 2, in <module>
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_cmake/__init__.py", line 198, in _expand_template
+    interpreter.string(content, str(template_path), kwargs)
+  File "/usr/lib/python3/dist-packages/em.py", line 2391, in string
+    self.safe(scanner, True, locals)
+  File "/usr/lib/python3/dist-packages/em.py", line 2401, in safe
+    self.parse(scanner, locals)
+  File "/usr/lib/python3/dist-packages/em.py", line 2421, in parse
+    token.run(self, locals)
+  File "/usr/lib/python3/dist-packages/em.py", line 1425, in run
+    interpreter.execute(self.code, locals)
+  File "/usr/lib/python3/dist-packages/em.py", line 2596, in execute
+    _exec(statements, self.globals, locals)
+  File "<string>", line 2, in <module>
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_cmake/__init__.py", line 198, in _expand_template
+    interpreter.string(content, str(template_path), kwargs)
+  File "/usr/lib/python3/dist-packages/em.py", line 2391, in string
+    self.safe(scanner, True, locals)
+  File "/usr/lib/python3/dist-packages/em.py", line 2401, in safe
+    self.parse(scanner, locals)
+  File "/usr/lib/python3/dist-packages/em.py", line 2417, in parse
+    token = scanner.one()
+  File "/usr/lib/python3/dist-packages/em.py", line 1984, in one
+    token.scan(self)
+  File "/usr/lib/python3/dist-packages/em.py", line 1315, in scan
+    i = scanner.next('?', 0, q, True)
+  File "/usr/lib/python3/dist-packages/em.py", line 1818, in next
+    newQuote = self.check(i, quote)
+  File "/usr/lib/python3/dist-packages/em.py", line 1766, in check
+    if self[i] in '\'\"':
+KeyboardInterrupt
+Exception ignored in: <function Interpreter.__del__ at 0xffff8e3960e0>
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/em.py", line 2094, in __del__
+  File "/usr/lib/python3/dist-packages/em.py", line 2157, in shutdown
+  File "/usr/lib/python3/dist-packages/em.py", line 2647, in finalize
+  File "/usr/lib/python3/dist-packages/em.py", line 2200, in push
+AttributeError: '_io.TextIOWrapper' object has no attribute 'push'
+gmake[2]: *** [CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.dir/build.make:190: rosidl_typesupport_fastrtps_c/wzlscheduler_interfaces/srv/detail/set_value_io_interface__rosidl_typesupport_fastrtps_c.h] Interrupt
+gmake[1]: *** [CMakeFiles/Makefile2:238: CMakeFiles/wzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.dir/all] Interrupt
+gmake: *** [Makefile:146: all] Interrupt

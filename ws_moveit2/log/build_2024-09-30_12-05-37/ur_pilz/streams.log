@@ -1,0 +1,42 @@
+[0.022s] Invoking command in '/home/autopilot/ws/restackcell/ws_moveit2/build/ur_pilz': CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces /usr/bin/cmake /home/autopilot/ws/restackcell/ws_moveit2/src/ur_pilz -DCMAKE_INSTALL_PREFIX=/home/autopilot/ws/restackcell/ws_moveit2/install/ur_pilz
+[0.061s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.350s] -- Found geometric_shapes: 2.1.3 (/opt/ros/humble/share/geometric_shapes/cmake)
+[0.364s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[0.431s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.437s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.447s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.467s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.492s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.620s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.623s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[0.824s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[0.951s] -- library: /usr/lib/aarch64-linux-gnu/libcurl.so
+[1.054s] -- Found moveit_ros_planning_interface: 2.5.5 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[1.074s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[1.303s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[1.316s] -- Found parameter_traits: 0.3.8 (/opt/ros/humble/share/parameter_traits/cmake)
+[1.333s] -- Found rclcpp_lifecycle: 16.0.10 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[1.376s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.604s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[1.664s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[1.704s] -- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[1.776s] [31mCMake Error at CMakeLists.txt:12 (find_package):
+[1.777s]   By not providing "Findmoveit_visual_tools.cmake" in CMAKE_MODULE_PATH this
+[1.777s]   project has asked CMake to find a package configuration file provided by
+[1.777s]   "moveit_visual_tools", but CMake did not find one.
+[1.777s] 
+[1.777s]   Could not find a package configuration file provided by
+[1.778s]   "moveit_visual_tools" with any of the following names:
+[1.778s] 
+[1.778s]     moveit_visual_toolsConfig.cmake
+[1.778s]     moveit_visual_tools-config.cmake
+[1.778s] 
+[1.778s]   Add the installation prefix of "moveit_visual_tools" to CMAKE_PREFIX_PATH
+[1.779s]   or set "moveit_visual_tools_DIR" to a directory containing one of the above
+[1.779s]   files.  If "moveit_visual_tools" provides a separate development package or
+[1.779s]   SDK, be sure it has been installed.
+[1.779s] 
+[1.779s] [0m
+[1.779s] -- Configuring incomplete, errors occurred!
+[1.779s] See also "/home/autopilot/ws/restackcell/ws_moveit2/build/ur_pilz/CMakeFiles/CMakeOutput.log".
+[1.805s] Invoked command in '/home/autopilot/ws/restackcell/ws_moveit2/build/ur_pilz' returned '1': CMAKE_PREFIX_PATH=/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces /usr/bin/cmake /home/autopilot/ws/restackcell/ws_moveit2/src/ur_pilz -DCMAKE_INSTALL_PREFIX=/home/autopilot/ws/restackcell/ws_moveit2/install/ur_pilz

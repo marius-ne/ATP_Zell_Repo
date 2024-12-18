@@ -1,0 +1,708 @@
+-- The C compiler identification is GNU 11.4.0
+-- The CXX compiler identification is GNU 11.4.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+-- Found ament_cmake_core: 1.3.10 (/opt/ros/humble/share/ament_cmake_core/cmake)
+-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+-- Found sensor_msgs: 4.2.4 (/opt/ros/humble/share/sensor_msgs/cmake)
+-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+-- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+-- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.10.so
+-- Found PythonExtra: .so  
+-- Found ament_lint_auto: 0.12.11 (/opt/ros/humble/share/ament_lint_auto/cmake)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/autopilot/ws/restackcell/build/robo_planner_msgs
+[  0%] [34m[1mGenerating C code for ROS interfaces[0m
+[  0%] Built target ament_cmake_python_copy_robo_planner_msgs
+[  0%] [34m[1mGenerating C++ code for ROS interfaces[0m
+running egg_info
+creating robo_planner_msgs.egg-info
+writing robo_planner_msgs.egg-info/PKG-INFO
+writing dependency_links to robo_planner_msgs.egg-info/dependency_links.txt
+writing top-level names to robo_planner_msgs.egg-info/top_level.txt
+writing manifest file 'robo_planner_msgs.egg-info/SOURCES.txt'
+reading manifest file 'robo_planner_msgs.egg-info/SOURCES.txt'
+writing manifest file 'robo_planner_msgs.egg-info/SOURCES.txt'
+[  0%] Built target ament_cmake_python_build_robo_planner_msgs_egg
+[  0%] Built target robo_planner_msgs__cpp
+[  1%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/follow_trajectory__functions.c.o[0m
+[  2%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/gripper_close__functions.c.o[0m
+[  2%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/gripper_open__functions.c.o[0m
+[  3%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/move_to_pose__functions.c.o[0m
+[  4%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/open_door__functions.c.o[0m
+[  4%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/set_robot_value_velocity__functions.c.o[0m
+[  5%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/gripper_change__functions.c.o[0m
+[  5%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/gripper_change_pick__functions.c.o[0m
+[  6%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/gripper_change_place__functions.c.o[0m
+[  7%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/pick__functions.c.o[0m
+[  7%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/pick_and_place__functions.c.o[0m
+[  8%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/srv/detail/place__functions.c.o[0m
+[  9%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/msg/detail/labeled_point_cloud__functions.c.o[0m
+[  9%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/msg/detail/labeled_point_clouds__functions.c.o[0m
+[ 10%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/msg/detail/scene_object_remove__functions.c.o[0m
+[ 10%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/msg/detail/scene_object_add__functions.c.o[0m
+[ 11%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_c.dir/rosidl_generator_c/robo_planner_msgs/msg/detail/scene_object_set_pose__functions.c.o[0m
+[ 12%] [32m[1mLinking C shared library librobo_planner_msgs__rosidl_generator_c.so[0m
+[ 12%] Built target robo_planner_msgs__rosidl_generator_c
+[ 12%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[ 13%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/follow_trajectory__type_support.cpp.o[0m
+[ 13%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/gripper_close__type_support.cpp.o[0m
+[ 14%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/gripper_open__type_support.cpp.o[0m
+[ 15%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/move_to_pose__type_support.cpp.o[0m
+[ 15%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/open_door__type_support.cpp.o[0m
+[ 16%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/set_robot_value_velocity__type_support.cpp.o[0m
+[ 17%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/gripper_change__type_support.cpp.o[0m
+[ 17%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/gripper_change_pick__type_support.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/gripper_change_place__type_support.cpp.o[0m
+[ 18%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/pick__type_support.cpp.o[0m
+[ 19%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/pick_and_place__type_support.cpp.o[0m
+[ 20%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/srv/detail/place__type_support.cpp.o[0m
+[ 20%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/msg/detail/labeled_point_cloud__type_support.cpp.o[0m
+[ 21%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/msg/detail/labeled_point_clouds__type_support.cpp.o[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/msg/detail/scene_object_remove__type_support.cpp.o[0m
+[ 22%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/msg/detail/scene_object_add__type_support.cpp.o[0m
+[ 23%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/robo_planner_msgs/msg/detail/scene_object_set_pose__type_support.cpp.o[0m
+[ 24%] [32m[1mLinking CXX shared library librobo_planner_msgs__rosidl_typesupport_introspection_cpp.so[0m
+[ 24%] Built target robo_planner_msgs__rosidl_typesupport_introspection_cpp
+[ 25%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/follow_trajectory__type_support_c.cpp.o[0m
+[ 26%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/gripper_close__type_support_c.cpp.o[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/gripper_open__type_support_c.cpp.o[0m
+[ 27%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/move_to_pose__type_support_c.cpp.o[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/open_door__type_support_c.cpp.o[0m
+[ 29%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/set_robot_value_velocity__type_support_c.cpp.o[0m
+[ 29%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/gripper_change__type_support_c.cpp.o[0m
+[ 30%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/gripper_change_pick__type_support_c.cpp.o[0m
+[ 30%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/gripper_change_place__type_support_c.cpp.o[0m
+[ 31%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/pick__type_support_c.cpp.o[0m
+[ 32%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/pick_and_place__type_support_c.cpp.o[0m
+[ 32%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/srv/detail/place__type_support_c.cpp.o[0m
+[ 33%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/msg/detail/labeled_point_cloud__type_support_c.cpp.o[0m
+[ 34%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/msg/detail/labeled_point_clouds__type_support_c.cpp.o[0m
+[ 34%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/msg/detail/scene_object_remove__type_support_c.cpp.o[0m
+[ 35%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/msg/detail/scene_object_add__type_support_c.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/robo_planner_msgs/msg/detail/scene_object_set_pose__type_support_c.cpp.o[0m
+[ 36%] [32m[1mLinking CXX shared library librobo_planner_msgs__rosidl_typesupport_fastrtps_c.so[0m
+[ 36%] Built target robo_planner_msgs__rosidl_typesupport_fastrtps_c
+[ 37%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[ 38%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/srv/detail/follow_trajectory__type_support.c.o[0m
+[ 38%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/srv/detail/gripper_close__type_support.c.o[0m
+[ 39%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/srv/detail/gripper_open__type_support.c.o[0m
+[ 39%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/srv/detail/move_to_pose__type_support.c.o[0m
+[ 40%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/srv/detail/open_door__type_support.c.o[0m
+[ 41%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/srv/detail/set_robot_value_velocity__type_support.c.o[0m
+[ 41%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/srv/detail/gripper_change__type_support.c.o[0m
+[ 42%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/srv/detail/gripper_change_pick__type_support.c.o[0m
+[ 43%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/srv/detail/gripper_change_place__type_support.c.o[0m
+[ 43%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/srv/detail/pick__type_support.c.o[0m
+[ 44%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/srv/detail/pick_and_place__type_support.c.o[0m
+[ 45%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/srv/detail/place__type_support.c.o[0m
+[ 45%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/msg/detail/labeled_point_cloud__type_support.c.o[0m
+[ 46%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/msg/detail/labeled_point_clouds__type_support.c.o[0m
+[ 46%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/msg/detail/scene_object_remove__type_support.c.o[0m
+[ 47%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/msg/detail/scene_object_add__type_support.c.o[0m
+[ 48%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/robo_planner_msgs/msg/detail/scene_object_set_pose__type_support.c.o[0m
+[ 48%] [32m[1mLinking C shared library librobo_planner_msgs__rosidl_typesupport_introspection_c.so[0m
+[ 48%] Built target robo_planner_msgs__rosidl_typesupport_introspection_c
+[ 49%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[ 49%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/srv/follow_trajectory__type_support.cpp.o[0m
+[ 50%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/srv/gripper_close__type_support.cpp.o[0m
+[ 51%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/srv/gripper_open__type_support.cpp.o[0m
+[ 51%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/srv/move_to_pose__type_support.cpp.o[0m
+[ 52%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/srv/open_door__type_support.cpp.o[0m
+[ 52%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/srv/set_robot_value_velocity__type_support.cpp.o[0m
+[ 53%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/srv/gripper_change__type_support.cpp.o[0m
+[ 54%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/srv/gripper_change_pick__type_support.cpp.o[0m
+[ 54%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/srv/gripper_change_place__type_support.cpp.o[0m
+[ 55%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/srv/pick__type_support.cpp.o[0m
+[ 56%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/srv/pick_and_place__type_support.cpp.o[0m
+[ 56%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/srv/place__type_support.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/msg/labeled_point_cloud__type_support.cpp.o[0m
+[ 57%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/msg/labeled_point_clouds__type_support.cpp.o[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/msg/scene_object_remove__type_support.cpp.o[0m
+[ 59%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/msg/scene_object_add__type_support.cpp.o[0m
+[ 59%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c.dir/rosidl_typesupport_c/robo_planner_msgs/msg/scene_object_set_pose__type_support.cpp.o[0m
+[ 60%] [32m[1mLinking CXX shared library librobo_planner_msgs__rosidl_typesupport_c.so[0m
+[ 60%] Built target robo_planner_msgs__rosidl_typesupport_c
+[ 61%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[ 62%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/follow_trajectory__type_support.cpp.o[0m
+[ 63%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/gripper_open__type_support.cpp.o[0m
+[ 64%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/move_to_pose__type_support.cpp.o[0m
+[ 64%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/open_door__type_support.cpp.o[0m
+[ 65%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/set_robot_value_velocity__type_support.cpp.o[0m
+[ 65%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/gripper_change__type_support.cpp.o[0m
+[ 66%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/gripper_change_pick__type_support.cpp.o[0m
+[ 67%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/gripper_change_place__type_support.cpp.o[0m
+[ 67%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/pick__type_support.cpp.o[0m
+[ 68%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/pick_and_place__type_support.cpp.o[0m
+[ 69%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/place__type_support.cpp.o[0m
+[ 69%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/msg/detail/dds_fastrtps/labeled_point_cloud__type_support.cpp.o[0m
+[ 70%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/msg/detail/dds_fastrtps/labeled_point_clouds__type_support.cpp.o[0m
+[ 70%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/msg/detail/dds_fastrtps/scene_object_remove__type_support.cpp.o[0m
+[ 71%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/msg/detail/dds_fastrtps/scene_object_add__type_support.cpp.o[0m
+[ 72%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/msg/detail/dds_fastrtps/scene_object_set_pose__type_support.cpp.o[0m
+[ 72%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/robo_planner_msgs/srv/detail/dds_fastrtps/gripper_close__type_support.cpp.o[0m
+[ 72%] [32m[1mLinking CXX shared library librobo_planner_msgs__rosidl_typesupport_fastrtps_cpp.so[0m
+[ 72%] Built target robo_planner_msgs__rosidl_typesupport_fastrtps_cpp
+[ 73%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[ 73%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/follow_trajectory__type_support.cpp.o[0m
+[ 73%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/move_to_pose__type_support.cpp.o[0m
+[ 74%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/open_door__type_support.cpp.o[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/set_robot_value_velocity__type_support.cpp.o[0m
+[ 75%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/gripper_change__type_support.cpp.o[0m
+[ 76%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/gripper_change_pick__type_support.cpp.o[0m
+[ 77%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/gripper_change_place__type_support.cpp.o[0m
+[ 77%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/pick__type_support.cpp.o[0m
+[ 78%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/pick_and_place__type_support.cpp.o[0m
+[ 78%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/place__type_support.cpp.o[0m
+[ 79%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/msg/labeled_point_cloud__type_support.cpp.o[0m
+[ 80%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/msg/labeled_point_clouds__type_support.cpp.o[0m
+[ 80%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/msg/scene_object_remove__type_support.cpp.o[0m
+[ 81%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/msg/scene_object_add__type_support.cpp.o[0m
+[ 82%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/msg/scene_object_set_pose__type_support.cpp.o[0m
+[ 83%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/gripper_open__type_support.cpp.o[0m
+[ 84%] [32mBuilding CXX object CMakeFiles/robo_planner_msgs__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/robo_planner_msgs/srv/gripper_close__type_support.cpp.o[0m
+[ 84%] [32m[1mLinking CXX shared library librobo_planner_msgs__rosidl_typesupport_cpp.so[0m
+[ 84%] Built target robo_planner_msgs__rosidl_typesupport_cpp
+[ 84%] Built target robo_planner_msgs
+[ 85%] [34m[1mGenerating Python code for ROS interfaces[0m
+[ 85%] Built target robo_planner_msgs__py
+[ 85%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_follow_trajectory_s.c.o[0m
+[ 85%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_move_to_pose_s.c.o[0m
+[ 86%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_open_door_s.c.o[0m
+[ 86%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_set_robot_value_velocity_s.c.o[0m
+[ 87%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_change_s.c.o[0m
+[ 88%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_change_pick_s.c.o[0m
+[ 88%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_change_place_s.c.o[0m
+[ 89%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_pick_s.c.o[0m
+[ 90%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_pick_and_place_s.c.o[0m
+[ 90%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_place_s.c.o[0m
+[ 91%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_labeled_point_cloud_s.c.o[0m
+[ 92%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_labeled_point_clouds_s.c.o[0m
+[ 92%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_scene_object_remove_s.c.o[0m
+[ 93%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_scene_object_add_s.c.o[0m
+[ 93%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/msg/_scene_object_set_pose_s.c.o[0m
+[ 94%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_open_s.c.o[0m
+[ 95%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_generator_py.dir/rosidl_generator_py/robo_planner_msgs/srv/_gripper_close_s.c.o[0m
+[ 96%] [32m[1mLinking C shared library rosidl_generator_py/robo_planner_msgs/librobo_planner_msgs__rosidl_generator_py.so[0m
+[ 96%] Built target robo_planner_msgs__rosidl_generator_py
+[ 97%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/robo_planner_msgs/_robo_planner_msgs_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 97%] [32m[1mLinking C shared library rosidl_generator_py/robo_planner_msgs/robo_planner_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so[0m
+[ 97%] Built target robo_planner_msgs__rosidl_typesupport_fastrtps_c__pyext
+[ 98%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/robo_planner_msgs/_robo_planner_msgs_s.ep.rosidl_typesupport_c.c.o[0m
+[ 98%] [32m[1mLinking C shared library rosidl_generator_py/robo_planner_msgs/robo_planner_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so[0m
+[ 98%] Built target robo_planner_msgs__rosidl_typesupport_c__pyext
+[ 99%] [32mBuilding C object CMakeFiles/robo_planner_msgs__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/robo_planner_msgs/_robo_planner_msgs_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[100%] [32m[1mLinking C shared library rosidl_generator_py/robo_planner_msgs/robo_planner_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so[0m
+[100%] Built target robo_planner_msgs__rosidl_typesupport_introspection_c__pyext
+-- Install configuration: ""
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/ament_index/resource_index/rosidl_interfaces/robo_planner_msgs
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/scene_object_set_pose.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/labeled_point_clouds.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/scene_object_add.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/rosidl_generator_c__visibility_control.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/labeled_point_cloud.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/scene_object_remove.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/gripper_change_pick.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/pick.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/follow_trajectory.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/place.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/open_door.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/set_robot_value_velocity.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__functions.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__struct.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__functions.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__type_support.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/pick_and_place.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/gripper_open.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/gripper_close.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/gripper_change.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/move_to_pose.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/gripper_change_place.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/environment/library_path.sh
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/environment/library_path.dsv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_generator_c.so
+-- Set runtime path of "/home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_generator_c.so" to ""
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__rosidl_typesupport_fastrtps_c.h
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__rosidl_typesupport_fastrtps_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_typesupport_fastrtps_c.so
+-- Set runtime path of "/home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_typesupport_fastrtps_c.so" to ""
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__rosidl_typesupport_introspection_c.h
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__rosidl_typesupport_introspection_c.h
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__type_support.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_typesupport_introspection_c.so
+-- Set runtime path of "/home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_typesupport_c.so
+-- Set runtime path of "/home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_typesupport_c.so" to ""
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/labeled_point_cloud.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/scene_object_set_pose.hpp
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/scene_object_remove.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/scene_object_add.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/labeled_point_clouds.hpp
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/gripper_change_pick.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/follow_trajectory.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/set_robot_value_velocity.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/gripper_open.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/pick.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/gripper_change_place.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/open_door.hpp
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__struct.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__traits.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__builder.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/gripper_change.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/pick_and_place.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/place.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/move_to_pose.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/gripper_close.hpp
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/dds_fastrtps
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__rosidl_typesupport_fastrtps_cpp.hpp
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/dds_fastrtps
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__rosidl_typesupport_fastrtps_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_typesupport_fastrtps_cpp.so
+-- Set runtime path of "/home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_typesupport_fastrtps_cpp.so" to ""
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_cloud__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_add__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_remove__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/scene_object_set_pose__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/msg/detail/labeled_point_clouds__type_support.cpp
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv
+-- Up-to-date: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick_and_place__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/open_door__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/move_to_pose__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_close__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_open__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/pick__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_place__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/set_robot_value_velocity__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/place__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__type_support.cpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/follow_trajectory__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/include/robo_planner_msgs/robo_planner_msgs/srv/detail/gripper_change_pick__rosidl_typesupport_introspection_cpp.hpp
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_typesupport_introspection_cpp.so
+-- Set runtime path of "/home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_typesupport_cpp.so
+-- Set runtime path of "/home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_typesupport_cpp.so" to ""
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/environment/pythonpath.sh
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/environment/pythonpath.dsv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs-0.0.0-py3.10.egg-info
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs-0.0.0-py3.10.egg-info/SOURCES.txt
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs-0.0.0-py3.10.egg-info/PKG-INFO
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs-0.0.0-py3.10.egg-info/top_level.txt
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs-0.0.0-py3.10.egg-info/dependency_links.txt
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/_robo_planner_msgs_s.ep.rosidl_typesupport_introspection_c.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/__init__.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/robo_planner_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_labeled_point_clouds_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_labeled_point_cloud_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_scene_object_add_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/__init__.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_scene_object_add.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_labeled_point_clouds.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_scene_object_set_pose.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_scene_object_remove.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_scene_object_set_pose_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_labeled_point_cloud.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_scene_object_remove_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/robo_planner_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/_robo_planner_msgs_s.ep.rosidl_typesupport_c.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/librobo_planner_msgs__rosidl_generator_py.so
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/_robo_planner_msgs_s.ep.rosidl_typesupport_fastrtps_c.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/robo_planner_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_set_robot_value_velocity_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_move_to_pose_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_pick_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_place.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_change.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_close.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/__init__.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_change_pick.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_pick_and_place.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_change_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_open_door.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_follow_trajectory_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_pick.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_open_door_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_change_place.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_follow_trajectory.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_change_place_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_pick_and_place_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_change_pick_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_open.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_close_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_move_to_pose.py
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_open_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_place_s.c
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_set_robot_value_velocity.py
+Listing '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/__init__.py'...
+Listing '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/__init__.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_labeled_point_cloud.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_labeled_point_clouds.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_scene_object_add.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_scene_object_remove.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/msg/_scene_object_set_pose.py'...
+Listing '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/__init__.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_follow_trajectory.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_change.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_change_pick.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_change_place.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_close.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_gripper_open.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_move_to_pose.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_open_door.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_pick.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_pick_and_place.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_place.py'...
+Compiling '/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/srv/_set_robot_value_velocity.py'...
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/robo_planner_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so
+-- Set runtime path of "/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/robo_planner_msgs_s__rosidl_typesupport_fastrtps_c.cpython-310-aarch64-linux-gnu.so" to ""
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/robo_planner_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so
+-- Set runtime path of "/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/robo_planner_msgs_s__rosidl_typesupport_introspection_c.cpython-310-aarch64-linux-gnu.so" to ""
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/robo_planner_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so
+-- Set runtime path of "/home/autopilot/ws/restackcell/install/robo_planner_msgs/local/lib/python3.10/dist-packages/robo_planner_msgs/robo_planner_msgs_s__rosidl_typesupport_c.cpython-310-aarch64-linux-gnu.so" to ""
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_generator_py.so
+-- Set runtime path of "/home/autopilot/ws/restackcell/install/robo_planner_msgs/lib/librobo_planner_msgs__rosidl_generator_py.so" to ""
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/srv/FollowTrajectory.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/srv/GripperClose.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/srv/GripperOpen.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/srv/MoveToPose.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/srv/OpenDoor.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/srv/SetRobotValueVelocity.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/srv/GripperChange.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/srv/GripperChangePick.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/srv/GripperChangePlace.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/srv/Pick.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/srv/PickAndPlace.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/srv/Place.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/msg/LabeledPointCloud.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/msg/LabeledPointClouds.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/msg/SceneObjectRemove.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/msg/SceneObjectAdd.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/msg/SceneObjectSetPose.idl
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/FollowTrajectory.srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/FollowTrajectory_Request.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/FollowTrajectory_Response.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/GripperClose.srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/GripperClose_Request.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/GripperClose_Response.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/GripperOpen.srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/GripperOpen_Request.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/GripperOpen_Response.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/MoveToPose.srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/MoveToPose_Request.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/MoveToPose_Response.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/OpenDoor.srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/OpenDoor_Request.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/OpenDoor_Response.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/SetRobotValueVelocity.srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/SetRobotValueVelocity_Request.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Atomic/SetRobotValueVelocity_Response.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/GripperChange.srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/GripperChange_Request.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/GripperChange_Response.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/GripperChangePick.srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/GripperChangePick_Request.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/GripperChangePick_Response.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/GripperChangePlace.srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/GripperChangePlace_Request.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/GripperChangePlace_Response.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/Pick.srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/Pick_Request.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/Pick_Response.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/PickAndPlace.srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/PickAndPlace_Request.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/PickAndPlace_Response.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/Place.srv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/Place_Request.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/Composed/Place_Response.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/msg/LabeledPointCloud.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/msg/LabeledPointClouds.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/msg/SceneObjectRemove.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/msg/SceneObjectAdd.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/msg/SceneObjectSetPose.msg
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/ament_index/resource_index/package_run_dependencies/robo_planner_msgs
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/ament_index/resource_index/parent_prefix_path/robo_planner_msgs
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/environment/ament_prefix_path.sh
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/environment/ament_prefix_path.dsv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/environment/path.sh
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/environment/path.dsv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/local_setup.bash
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/local_setup.sh
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/local_setup.zsh
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/local_setup.dsv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/package.dsv
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/ament_index/resource_index/packages/robo_planner_msgs
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/export_robo_planner_msgs__rosidl_generator_cExport.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/export_robo_planner_msgs__rosidl_generator_cExport-noconfig.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/export_robo_planner_msgs__rosidl_typesupport_fastrtps_cExport.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/export_robo_planner_msgs__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/robo_planner_msgs__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/robo_planner_msgs__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/robo_planner_msgs__rosidl_typesupport_cExport.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/robo_planner_msgs__rosidl_typesupport_cExport-noconfig.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/export_robo_planner_msgs__rosidl_generator_cppExport.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/export_robo_planner_msgs__rosidl_typesupport_fastrtps_cppExport.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/export_robo_planner_msgs__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/robo_planner_msgs__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/robo_planner_msgs__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/robo_planner_msgs__rosidl_typesupport_cppExport.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/robo_planner_msgs__rosidl_typesupport_cppExport-noconfig.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/export_robo_planner_msgs__rosidl_generator_pyExport.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/export_robo_planner_msgs__rosidl_generator_pyExport-noconfig.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/rosidl_cmake-extras.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/ament_cmake_export_libraries-extras.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/ament_cmake_export_targets-extras.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/robo_planner_msgsConfig.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/cmake/robo_planner_msgsConfig-version.cmake
+-- Installing: /home/autopilot/ws/restackcell/install/robo_planner_msgs/share/robo_planner_msgs/package.xml

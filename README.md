@@ -75,8 +75,8 @@ Veralteter Stand, aktueller Stand befindet sich im Projekt RestackCell
 
 Für den Ablauf zu verwendende Gesamtprojekt, setzt sich zusammen aus:
 
-- Robo Scheduler C++
-- Robo Scheduler Python (WIP, hat nur Teilfunktionalitäten)
+- Robo Scheduler C++ (robo_planner package)
+- Robo Scheduler Python (WIRD NICHT WEITEREINTWICKELT)
 - MoveIt Backend
 - Opcua Client
 - ToF Camera Modul
@@ -92,6 +92,7 @@ Durch die Launch-Datei im Launch-Folder ur_planner_launch.py wird der Scheduler 
 
 - Robo-Planner/Scheduler
 - OPC-UA Client
+- OPC-UA Client IO link
 - MoveitBackend
 - Robot State Publisher
 - Todo: Vision Node
@@ -106,11 +107,9 @@ Für PointToPoint-Bewegungen wird der ompl-Planer verwendet, welcher nichtdeterm
 
 Für gradlinige, kartesische Bewegungen wird der Pilz-Industrial-Planner verwendet.
 
-Nach jetztigem Stand kann der Planner nicht in Hindernisse fahren.
-
 ### Config:
 
-Das MoveIt Backend verendet die Urdf-File und die Joint-Limits aus dem Ros-Shared-Folder des Paketes „ur_description" (`/opt/ros/humble/share/ur_description`)
+Das MoveIt Backend verwendet die Urdf-File und die Joint-Limits aus dem Ros-Shared-Folder des Paketes „ur_description" (`/ws/restackcell/ws_moveit2/src/robo_planner/config/custom_ur_description`)
 
 Die Joint Limits wurden, in Anbetracht der Kabelführung und der Kabelführungsschiene nahe des TCP, manuell mit dem derzeitigen Aufbau des UR in der RestackCell ermittelt. Bei einem Ummontieren müssen gegebenfalls die Join-Limits aus der Ur_Description-Config angepasst werden, da der Roboter ansonsten Gefahr laufen kann Suizid durch Selbstverkabelung zu begehen.
 
@@ -118,23 +117,21 @@ Die Standard-Udrf-File (`/opt/ros/humble/share/ur_description/urdf/ur_macro.xacr
 
 Alternativ bleibt zu überprüfen, ob die verschiedenen Tools nicht auch als Objekte in der Werkzeugwechselstation der Szene positioniert werden können, die in Laufzeit über ein „Attach" beim Werkzeugwechsel an den Roboter-Tcp angedockt werden können.
 
-Im Config-Ordner unter (`/opt/ros/humble/share/ur_description/config`) liegen unter anderem die Joint-Limits und die Roboterkalibrierung des verwendeten UR16e-Modells ab.
+Im Config-Ordner unter (`/ws/restackcell/ws_moveit2/src/robo_planner/config/custom_ur_description/config`) liegen unter anderem die Joint-Limits und die Roboterkalibrierung des verwendeten UR16e-Modells ab.
 
 Die Kalibrierung wurde mit dem Ur16e der RestackCell durchgeführt anhand:
 https://github.com/UniversalRobots/Universal_Robots_ROS_Driver/blob/master/ur_calibration/README.md
 
-Die durch den genannten Link beschriebene Kalibrierungsdatei liegt unter `/opt/ros/humble/share/ur_description/config/ur16e/default_kinematics.yaml` ab.
+Die durch den genannten Link beschriebene Kalibrierungsdatei liegt unter `/ws/restackcell/ws_moveit2/src/robo_planner/config/custom_ur_description/config/ur16e/default_kinematics.yaml` ab.
 
 ### MoveIt Config
 
-Die MoveIt-Config-Datei wurde um einen LazyPRM-Planner erweitert, wie hier beschrieben:
+Die MoveIt-Config-Datei in `/ws/restackcell/ws_moveit2/src/robo_planner/config/custom_moveit_config/config` wurde modifiziert.
 https://moveit.picknik.ai/humble/doc/examples/ompl_interface/ompl_interface_tutorial.html
 
-Es wurde der Planner: SemiPersistentLazyPRMstar ausgewählt.
+Der RRT connect planner wird benutzt für alle OMPL bewegungen
 
-Grund dafür ist, dass in der Zelle von einer statischen Umwelt ausgegangen werden kann, weswegen diese nur einmalig quantisiert werden muss. Der Default-Planner führt diese Quantisierung vor jeder ompl-Planung durch, was zu hohen Berechnungszeiten vor jeder Trajektorieberechnung geführt hat.
-
-Zudem wurde der Wert der „longest_distance_segment_fraction" reduziert, da der Postprocessor der Trajektorie ansonsten gerne in ein Hindernis geglättet hat und die Bewegung dadurch nicht ausgeführt werden konnte.
+Der Wert der „longest_distance_segment_fraction" reduziert, da der Postprocessor der Trajektorie ansonsten gerne in ein Hindernis geglättet hat und die Bewegung dadurch nicht ausgeführt werden konnte.
 
 ## Installation der notwendigen Ressourcen:
 
@@ -154,25 +151,46 @@ https://thinklucid.com/downloads-hub/
 
 https://moveit.picknik.ai/humble/doc/tutorials/getting_started/getting_started.html
 
+Sollte MoveIt bei der installation nicht gebaut werden können, kann dieser build-Befehl verwendet werden
+
+```
+colcon build parallel-workers 1
+```
+
 ### OPC UA:
 
 Installation über
 
 ```
-pip install ipcua
+pip install opcua
 ```
 
-### Setzen der IP-Adresse
+## Roboter mit Use Case starten
 
-Um eine Verbindung zum UR-Roboter herstellen zu können, muss Ubuntu 22.04
+Um den Roboter mit dem Usecase zu starten sollten folgende Schritte ausgeführt werden:
 
-### Starten des MoveIt-Knotens:
+1. Zelle und Roboter starten ODER Simulation starten
+2. UR Robot Driver starten
+3. URCaps Einrichten und starten
+4. Moveit starten
+5. Robo Planner/Scheduler starten
 
-### Starten des Roboter-Programms
+Wie die einzelnen Schritte ausgeführt werden, wird in den folgenden Abschnitten detailiert
 
-Das Programm kann entweder in einer simulierten UR-Umgebung oder am echten Roboter gestartet werden. Der simulierte Roboter ist über die gleiche Ethernet-Schnittstelle wie der reale Roboter ansprechbar, weswegen sich nicht viel in der Kommunikation ändert. Beim Aufruf muss lediglich die Roboter-IP umgestellt werden.
+Um das Projekt zu bauen muss folgendes im verzeichnis `/ws/restackcell/ws_moveit2` ausgeführt werden
 
-#### UR-Simulation (optional):
+```
+colcon build
+```
+
+### Zelle und Roboter starten
+
+- Hauptschalter am Schrank auf ein drehen
+- Druckluft Hahn (blau) an der Wand aufdrehen
+- Druckluftventil unten in der Zelle aufdrehen und sicherstellen, dass Druck vorhanden ist
+- Sicherstellen das alle Teile der Zelle am richtigen Ort stehen und, dass die Tools in der Werkzeugwechselstation sind
+
+### Simulation starten
 
 Soll der UR-Roboter auf dem Rechner simuliert werden:
 
@@ -186,21 +204,21 @@ Sofern beim oberen Befehl ein Docker Permission denied auftaucht, dann folgendes
 sudo chmod 666 /var/run/docker.sock
 ```
 
-Dabei wird ein Docker-Container gestarett und der UR kann über den im Terminal angezeigten Link im Browser simuliert werden. Die Konfiguration des simulierten Roboters funktioniert analog zu dem realen.
+Dabei wird ein Docker-Container gestartet und der UR kann über den im Terminal angezeigten Link im Browser simuliert werden. Die Konfiguration des simulierten Roboters funktioniert analog zu dem realen.
 
-#### Roboter-treiber
+### UR Robot Driver starten
 
-Der Roboter-Treiber übersetzt die ankommenden Ros-Befehle für den Roboter und zurück und kommuniziert mit diesem.
+Der Roboter-Treiber übersetzt die ankommenden ROS-Befehle für den Roboter und zurück, und kommuniziert mit diesem.
 
-In beiden Fällen, ob simulierter UR oder echter über Ethernet-Kabel verbunden, wird der Roboter-Treiber benötigt.
+In beiden Fällen, ob simulierter UR, oder echter über Ethernet-Kabel verbunden, wird der Roboter-Treiber benötigt.
 
 Der Befehl mit der IP für den realen Roboter (IP = 192.168.20.20)
 
 ```
-ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur16e robot_ip:=192.168.20.20 launch_rviz:=false description_package:=ur_description
+ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur16e robot_ip:=192.168.20.20 description_package:=ur_description launch_rviz:=false
 ```
 
-Der Befehl mit der IP für den simulierten Robote (IP = 192.168.56.101)
+Der Befehl mit der IP für den simulierten Roboter (IP = 192.168.56.101)
 
 ```
 ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur16e robot_ip:=192.168.56.101 description_package:=ur_description launch_rviz:=false
@@ -214,38 +232,60 @@ Noch einmal die IP-Adresse des Roboters:
 Real: 192.168.20.20
 Simulation (default): 192.168.56.101
 
-### UR-CAP
+### URCaps Einrichten und starten
 
-### MoveIt:
 
-Standard-Moveit mit ompl (ohne Pilz Industrial Planner)
+Um die URCaps zu starten, erst in der Leiste oben auf Program drücken, dann auf URCcaps und external control. 
+
+Das Program kann nun unten rechts am Panel mit dem Startknopf gestartet werden. 
+
+Zu beachten ist, dass der UR Robot Driver vor dem URCaps gestartet werden muss!
+
+Wenn alles richtig gelaufen ist, sollte im Terminal wo der UR Robot Driver gestartet wurde, folgende Nachricht sichtbar sein:
 
 ```
-ros2 launch ur_moveit_config ur_moveit.launch.py ur_type:=ur16e robot_ip:=192.168.56.101 launch_rviz:=true description_package:=ur_description
-```
+Robot connected to reverse interface. Ready to receive control commands.
+``` 
 
-Soll zusätzlich der Pilz-Industrial Motion Planner parallel zum Ompl-Planner (für PTP-Bewegungen) für lineare/kartesische Bewegungen verwendet werden, dann muss folgende Launch-Datei gestartet werden:
+### Moveit starten
 
-```
+Um Moveit! mit OMPL und PILZ Plannern zu starten, muss folgende Launch-Datei gestartet werden:
+
+<!-- ```
 ros2 launch robo_planner ur_planner_pilz.launch.py ur_type:=ur16e use_fake_hardware:=false launch_rviz:=true description_package:=ur_description ur_type:=ur16e description_file:=ur.urdf.xacro
-```
+``` -->
 
-Das Ablaufprogramm des Schdulers/Planners wird über diese Launch-Datei gestartet:
+```
+ros2 launch robo_planner ur_planner_pilz.launch.py
+``` 
+
+Dabei ist zu beachten, dass der workspace im Projekt „Restackcell" gesourced ist, das kann man wie folgend aus dem home Directory machen.
+
+```
+source ws/restackcell/ws_moveit2/install/setup.bash
+``` 
+
+Die Robo_Planner launch-Datei lädt alle notwendigen Config-Dateien des UR-Roboters aus den Paketen des Shared-Folders unter
+`opt/ros/humble/share/` und `/ws/restackcell/ws_moveit2/src/robo_planner/config/`
+
+### Robo Planner/Scheduler starten
+
+Das Programm kann entweder in einer simulierten UR-Umgebung oder am echten Roboter gestartet werden. Der simulierte Roboter ist über die gleiche Ethernet-Schnittstelle wie der reale Roboter ansprechbar, weswegen sich nicht viel in der Kommunikation ändert. Beim Aufruf muss lediglich die Roboter-IP umgestellt werden.
+
+Das Ablaufprogramm des Schedulers/Planners wird über diese Launch-Datei gestartet:
 
 ```
 ros2 launch robo_planner ur_planner_launch.py
 ```
 
-Dabei ist zu beachten, dass der workspace im Projekt „Restackcell" gesourced ist.
+Falls der Ablauf der in Main.cpp ist nicht zufriedenstellend ist, gibt es ein Beispielablauf in der text Datei UseCase_Ablauf.txt im `robo_planer/src` Order. Dieser Ablauf kann einfach in Main.cpp copiert werden um einen standard UseCase Ablauf zu haben.
 
-Die Robo_Planner launch-Datei lädt alle notwendigen Config-Dateien des UR-Roboters aus den Paketen des Shared-Folders unter
-`opt/ros/humble/share/`
-
-Sollte der MoveIt-Teil des Projekktes nicht gebaut werden können, kann dieser build-Befehl verwendet werden
+Dabei ist zu beachten, dass der workspace im Projekt „Restackcell" gesourced ist, das kann man wie folgend aus dem home Directory machen.
 
 ```
-colcon build parallel-workers 1
-```
+source ws/restackcell/ws_moveit2/install/setup.bash
+
+``` 
 
 ## Wichtige Fallstricke:
 
@@ -277,7 +317,6 @@ colcon build parallel-workers 1
 
 - Username: _Autopilot_
 - Kennwort: _123456_
-
 
 ### Roadmap ReStackCell
 

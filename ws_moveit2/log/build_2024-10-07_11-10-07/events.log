@@ -1,0 +1,976 @@
+[0.000000] (-) TimerEvent: {}
+[0.001170] (-) JobUnselected: {'identifier': 'grid_snapper'}
+[0.002000] (-) JobUnselected: {'identifier': 'interface_opcua'}
+[0.002340] (-) JobUnselected: {'identifier': 'mockup_robot'}
+[0.002945] (-) JobUnselected: {'identifier': 'opcua_client'}
+[0.003200] (-) JobUnselected: {'identifier': 'opcua_interfaces'}
+[0.004433] (-) JobUnselected: {'identifier': 'robo_planner'}
+[0.004987] (-) JobUnselected: {'identifier': 'robo_planner_msgs'}
+[0.005391] (-) JobUnselected: {'identifier': 'robo_planner_py'}
+[0.006041] (-) JobUnselected: {'identifier': 'ur_pilz'}
+[0.007069] (-) JobUnselected: {'identifier': 'wzlscheduler_interfaces'}
+[0.007146] (moveit_backend) JobQueued: {'identifier': 'moveit_backend', 'dependencies': OrderedDict([('wzlscheduler_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces')])}
+[0.007217] (moveit_backend) JobStarted: {'identifier': 'moveit_backend'}
+[0.042511] (moveit_backend) JobProgress: {'identifier': 'moveit_backend', 'progress': 'cmake'}
+[0.044707] (moveit_backend) JobProgress: {'identifier': 'moveit_backend', 'progress': 'build'}
+[0.047038] (moveit_backend) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/autopilot/ws/restackcell/ws_moveit2/build/moveit_backend', '--', '-j4', '-l4'], 'cwd': '/home/autopilot/ws/restackcell/ws_moveit2/build/moveit_backend', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'autopilot'), ('LC_TIME', 'de_DE.UTF-8'), ('ROS_PACKAGE_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/share'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/autopilot'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_DE.UTF-8'), ('MANAGERPID', '16922'), ('SYSTEMD_EXEC_PID', '17094'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21757'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'autopilot'), ('JOURNAL_STREAM', '8:245990'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'autopilot'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/autopilot/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/autopilot:@/tmp/.ICE-unix/17070,unix/autopilot:/tmp/.ICE-unix/17070'), ('INVOCATION_ID', '678668421b144795b687d0f916decc13'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/pcl_segmentation:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/ur_pilz:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:bd735bf9-951c-4f23-85ca-2bfb670ea95f'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/autopilot/ws/restackcell/ws_moveit2/build/moveit_backend'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/pcl_segmentation:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/ur_pilz:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces')]), 'shell': False}
+[0.094714] (-) TimerEvent: {}
+[0.183521] (moveit_backend) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target moveit_ur\x1b[0m\n'}
+[0.195053] (-) TimerEvent: {}
+[0.253651] (moveit_backend) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/moveit_ur.dir/src/moveit_ur.cpp.o\x1b[0m\n'}
+[0.295181] (-) TimerEvent: {}
+[0.299365] (moveit_backend) StdoutLine: {'line': b'[ 75%] Built target moveit_panda\n'}
+[0.395339] (-) TimerEvent: {}
+[0.496034] (-) TimerEvent: {}
+[0.596651] (-) TimerEvent: {}
+[0.697240] (-) TimerEvent: {}
+[0.797832] (-) TimerEvent: {}
+[0.898426] (-) TimerEvent: {}
+[0.999023] (-) TimerEvent: {}
+[1.099643] (-) TimerEvent: {}
+[1.200351] (-) TimerEvent: {}
+[1.300977] (-) TimerEvent: {}
+[1.401582] (-) TimerEvent: {}
+[1.502184] (-) TimerEvent: {}
+[1.602811] (-) TimerEvent: {}
+[1.703421] (-) TimerEvent: {}
+[1.804043] (-) TimerEvent: {}
+[1.904620] (-) TimerEvent: {}
+[2.006206] (-) TimerEvent: {}
+[2.106958] (-) TimerEvent: {}
+[2.207566] (-) TimerEvent: {}
+[2.308204] (-) TimerEvent: {}
+[2.408874] (-) TimerEvent: {}
+[2.509676] (-) TimerEvent: {}
+[2.610293] (-) TimerEvent: {}
+[2.710889] (-) TimerEvent: {}
+[2.811651] (-) TimerEvent: {}
+[2.912351] (-) TimerEvent: {}
+[3.012966] (-) TimerEvent: {}
+[3.113598] (-) TimerEvent: {}
+[3.214319] (-) TimerEvent: {}
+[3.315016] (-) TimerEvent: {}
+[3.415660] (-) TimerEvent: {}
+[3.516299] (-) TimerEvent: {}
+[3.616926] (-) TimerEvent: {}
+[3.717542] (-) TimerEvent: {}
+[3.818178] (-) TimerEvent: {}
+[3.918780] (-) TimerEvent: {}
+[4.019418] (-) TimerEvent: {}
+[4.120141] (-) TimerEvent: {}
+[4.220742] (-) TimerEvent: {}
+[4.321353] (-) TimerEvent: {}
+[4.422018] (-) TimerEvent: {}
+[4.522603] (-) TimerEvent: {}
+[4.623197] (-) TimerEvent: {}
+[4.723918] (-) TimerEvent: {}
+[4.824559] (-) TimerEvent: {}
+[4.925155] (-) TimerEvent: {}
+[5.025829] (-) TimerEvent: {}
+[5.126477] (-) TimerEvent: {}
+[5.227095] (-) TimerEvent: {}
+[5.327694] (-) TimerEvent: {}
+[5.428319] (-) TimerEvent: {}
+[5.528929] (-) TimerEvent: {}
+[5.629580] (-) TimerEvent: {}
+[5.730991] (-) TimerEvent: {}
+[5.831613] (-) TimerEvent: {}
+[5.932247] (-) TimerEvent: {}
+[6.032895] (-) TimerEvent: {}
+[6.133484] (-) TimerEvent: {}
+[6.234116] (-) TimerEvent: {}
+[6.334729] (-) TimerEvent: {}
+[6.435339] (-) TimerEvent: {}
+[6.536061] (-) TimerEvent: {}
+[6.636697] (-) TimerEvent: {}
+[6.737323] (-) TimerEvent: {}
+[6.837995] (-) TimerEvent: {}
+[6.938644] (-) TimerEvent: {}
+[7.039261] (-) TimerEvent: {}
+[7.139904] (-) TimerEvent: {}
+[7.240562] (-) TimerEvent: {}
+[7.341201] (-) TimerEvent: {}
+[7.441808] (-) TimerEvent: {}
+[7.542416] (-) TimerEvent: {}
+[7.643104] (-) TimerEvent: {}
+[7.743693] (-) TimerEvent: {}
+[7.844310] (-) TimerEvent: {}
+[7.944900] (-) TimerEvent: {}
+[8.045485] (-) TimerEvent: {}
+[8.146085] (-) TimerEvent: {}
+[8.246694] (-) TimerEvent: {}
+[8.347298] (-) TimerEvent: {}
+[8.448373] (-) TimerEvent: {}
+[8.548974] (-) TimerEvent: {}
+[8.649579] (-) TimerEvent: {}
+[8.750183] (-) TimerEvent: {}
+[8.850782] (-) TimerEvent: {}
+[8.951368] (-) TimerEvent: {}
+[9.052051] (-) TimerEvent: {}
+[9.152652] (-) TimerEvent: {}
+[9.253319] (-) TimerEvent: {}
+[9.355163] (-) TimerEvent: {}
+[9.456408] (-) TimerEvent: {}
+[9.557287] (-) TimerEvent: {}
+[9.657941] (-) TimerEvent: {}
+[9.758551] (-) TimerEvent: {}
+[9.859162] (-) TimerEvent: {}
+[9.959826] (-) TimerEvent: {}
+[10.060418] (-) TimerEvent: {}
+[10.160996] (-) TimerEvent: {}
+[10.261625] (-) TimerEvent: {}
+[10.362265] (-) TimerEvent: {}
+[10.462886] (-) TimerEvent: {}
+[10.563474] (-) TimerEvent: {}
+[10.664103] (-) TimerEvent: {}
+[10.765320] (-) TimerEvent: {}
+[10.865948] (-) TimerEvent: {}
+[10.966574] (-) TimerEvent: {}
+[11.067166] (-) TimerEvent: {}
+[11.167779] (-) TimerEvent: {}
+[11.268450] (-) TimerEvent: {}
+[11.369059] (-) TimerEvent: {}
+[11.469746] (-) TimerEvent: {}
+[11.570385] (-) TimerEvent: {}
+[11.671006] (-) TimerEvent: {}
+[11.771609] (-) TimerEvent: {}
+[11.872246] (-) TimerEvent: {}
+[11.972841] (-) TimerEvent: {}
+[12.073445] (-) TimerEvent: {}
+[12.174399] (-) TimerEvent: {}
+[12.274983] (-) TimerEvent: {}
+[12.375592] (-) TimerEvent: {}
+[12.476229] (-) TimerEvent: {}
+[12.577588] (-) TimerEvent: {}
+[12.678280] (-) TimerEvent: {}
+[12.779966] (-) TimerEvent: {}
+[12.880598] (-) TimerEvent: {}
+[12.981212] (-) TimerEvent: {}
+[13.081846] (-) TimerEvent: {}
+[13.182427] (-) TimerEvent: {}
+[13.283037] (-) TimerEvent: {}
+[13.383646] (-) TimerEvent: {}
+[13.484286] (-) TimerEvent: {}
+[13.584869] (-) TimerEvent: {}
+[13.685557] (-) TimerEvent: {}
+[13.786154] (-) TimerEvent: {}
+[13.886769] (-) TimerEvent: {}
+[13.987349] (-) TimerEvent: {}
+[14.088000] (-) TimerEvent: {}
+[14.188581] (-) TimerEvent: {}
+[14.289187] (-) TimerEvent: {}
+[14.389805] (-) TimerEvent: {}
+[14.490407] (-) TimerEvent: {}
+[14.591020] (-) TimerEvent: {}
+[14.691611] (-) TimerEvent: {}
+[14.792222] (-) TimerEvent: {}
+[14.892811] (-) TimerEvent: {}
+[14.993404] (-) TimerEvent: {}
+[15.093997] (-) TimerEvent: {}
+[15.194579] (-) TimerEvent: {}
+[15.295191] (-) TimerEvent: {}
+[15.395781] (-) TimerEvent: {}
+[15.496440] (-) TimerEvent: {}
+[15.597035] (-) TimerEvent: {}
+[15.697659] (-) TimerEvent: {}
+[15.798275] (-) TimerEvent: {}
+[15.898882] (-) TimerEvent: {}
+[15.999584] (-) TimerEvent: {}
+[16.100373] (-) TimerEvent: {}
+[16.201079] (-) TimerEvent: {}
+[16.301660] (-) TimerEvent: {}
+[16.402326] (-) TimerEvent: {}
+[16.503796] (-) TimerEvent: {}
+[16.604470] (-) TimerEvent: {}
+[16.705050] (-) TimerEvent: {}
+[16.805676] (-) TimerEvent: {}
+[16.906257] (-) TimerEvent: {}
+[17.006864] (-) TimerEvent: {}
+[17.107470] (-) TimerEvent: {}
+[17.208096] (-) TimerEvent: {}
+[17.308681] (-) TimerEvent: {}
+[17.409318] (-) TimerEvent: {}
+[17.510151] (-) TimerEvent: {}
+[17.610714] (-) TimerEvent: {}
+[17.711328] (-) TimerEvent: {}
+[17.812036] (-) TimerEvent: {}
+[17.912632] (-) TimerEvent: {}
+[18.013206] (-) TimerEvent: {}
+[18.113840] (-) TimerEvent: {}
+[18.214500] (-) TimerEvent: {}
+[18.315106] (-) TimerEvent: {}
+[18.415666] (-) TimerEvent: {}
+[18.516333] (-) TimerEvent: {}
+[18.616927] (-) TimerEvent: {}
+[18.717524] (-) TimerEvent: {}
+[18.818152] (-) TimerEvent: {}
+[18.918747] (-) TimerEvent: {}
+[19.019371] (-) TimerEvent: {}
+[19.117007] (moveit_backend) StderrLine: {'line': b'\x1b[01m\x1b[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid RobotUr::set_execute_duration_for_trajectory(moveit_msgs::msg::RobotTrajectory&, double)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[19.117541] (moveit_backend) StderrLine: {'line': b'\x1b[01m\x1b[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:261:28:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kcomparison of integer expressions of different signedness: \xe2\x80\x98\x1b[01m\x1b[Kint\x1b[m\x1b[K\xe2\x80\x99 and \xe2\x80\x98\x1b[01m\x1b[Ksize_t\x1b[m\x1b[K\xe2\x80\x99 {aka \xe2\x80\x98\x1b[01m\x1b[Klong unsigned int\x1b[m\x1b[K\xe2\x80\x99} [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wsign-compare\x07-Wsign-compare\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[19.117752] (moveit_backend) StderrLine: {'line': b'  261 |             for (int i=0; \x1b[01;35m\x1b[Ki<size\x1b[m\x1b[K; i++)\n'}
+[19.117915] (moveit_backend) StderrLine: {'line': b'      |                           \x1b[01;35m\x1b[K~^~~~~\x1b[m\x1b[K\n'}
+[19.119453] (-) TimerEvent: {}
+[19.134644] (moveit_backend) StderrLine: {'line': b'\x1b[01m\x1b[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid RobotUr::service_callback_robot_move_to_position(std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition_Request_<std::allocator<void> > >, std::shared_ptr<wzlscheduler_interfaces::srv::RobotMoveToPosition_Response_<std::allocator<void> > >)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[19.135116] (moveit_backend) StderrLine: {'line': b'\x1b[01m\x1b[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:307:22:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ksize05\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[19.135307] (moveit_backend) StderrLine: {'line': b'  307 |                 auto \x1b[01;35m\x1b[Ksize05\x1b[m\x1b[K = size * 0.5;\n'}
+[19.135468] (moveit_backend) StderrLine: {'line': b'      |                      \x1b[01;35m\x1b[K^~~~~~\x1b[m\x1b[K\n'}
+[19.167574] (moveit_backend) StderrLine: {'line': b'\x1b[01m\x1b[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid RobotUr::service_callback_robot_follow_trajectory(std::shared_ptr<wzlscheduler_interfaces::srv::RobotFollowTrajectory_Request_<std::allocator<void> > >, std::shared_ptr<wzlscheduler_interfaces::srv::RobotFollowTrajectory_Response_<std::allocator<void> > >)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[19.168051] (moveit_backend) StderrLine: {'line': b'\x1b[01m\x1b[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:454:24:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused variable \xe2\x80\x98\x1b[01m\x1b[Ksuccess\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-variable\x07-Wunused-variable\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[19.168284] (moveit_backend) StderrLine: {'line': b'  454 |             auto const \x1b[01;35m\x1b[Ksuccess\x1b[m\x1b[K = static_cast<bool>(move_group_interface_->execute(trajectory));\n'}
+[19.168456] (moveit_backend) StderrLine: {'line': b'      |                        \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[19.206879] (moveit_backend) StderrLine: {'line': b'\x1b[01m\x1b[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid RobotUr::topic_callback_scene_object_add(const SceneObjectAdd&) const\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[19.207364] (moveit_backend) StderrLine: {'line': b'\x1b[01m\x1b[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:517:98:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kmsg\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[19.207572] (moveit_backend) StderrLine: {'line': b'  517 |         void topic_callback_scene_object_add(\x1b[01;35m\x1b[Kconst wzlscheduler_interfaces::msg::SceneObjectAdd& msg\x1b[m\x1b[K) const\n'}
+[19.207743] (moveit_backend) StderrLine: {'line': b'      |                                              \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[19.210195] (moveit_backend) StderrLine: {'line': b'\x1b[01m\x1b[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kvoid RobotUr::topic_callback_scene_object_set_pose(const SceneObjectSetPose&) const\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[19.210526] (moveit_backend) StderrLine: {'line': b'\x1b[01m\x1b[K/home/autopilot/ws/restackcell/ws_moveit2/src/moveit_backend/src/moveit_ur.cpp:580:107:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kunused parameter \xe2\x80\x98\x1b[01m\x1b[Kmsg\x1b[m\x1b[K\xe2\x80\x99 [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-parameter\x07-Wunused-parameter\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[19.210758] (moveit_backend) StderrLine: {'line': b'  580 |         void topic_callback_scene_object_set_pose(\x1b[01;35m\x1b[Kconst wzlscheduler_interfaces::msg::SceneObjectSetPose& msg\x1b[m\x1b[K) const\n'}
+[19.210922] (moveit_backend) StderrLine: {'line': b'      |                                                   \x1b[01;35m\x1b[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~\x1b[m\x1b[K\n'}
+[19.219613] (-) TimerEvent: {}
+[19.320216] (-) TimerEvent: {}
+[19.420826] (-) TimerEvent: {}
+[19.521537] (-) TimerEvent: {}
+[19.622493] (-) TimerEvent: {}
+[19.723181] (-) TimerEvent: {}
+[19.824588] (-) TimerEvent: {}
+[19.927692] (-) TimerEvent: {}
+[20.028442] (-) TimerEvent: {}
+[20.129023] (-) TimerEvent: {}
+[20.229658] (-) TimerEvent: {}
+[20.330241] (-) TimerEvent: {}
+[20.430846] (-) TimerEvent: {}
+[20.531431] (-) TimerEvent: {}
+[20.632069] (-) TimerEvent: {}
+[20.732656] (-) TimerEvent: {}
+[20.833271] (-) TimerEvent: {}
+[20.933900] (-) TimerEvent: {}
+[21.034469] (-) TimerEvent: {}
+[21.135078] (-) TimerEvent: {}
+[21.235683] (-) TimerEvent: {}
+[21.336304] (-) TimerEvent: {}
+[21.436919] (-) TimerEvent: {}
+[21.537508] (-) TimerEvent: {}
+[21.638202] (-) TimerEvent: {}
+[21.738816] (-) TimerEvent: {}
+[21.839431] (-) TimerEvent: {}
+[21.940038] (-) TimerEvent: {}
+[22.040705] (-) TimerEvent: {}
+[22.141304] (-) TimerEvent: {}
+[22.241954] (-) TimerEvent: {}
+[22.342539] (-) TimerEvent: {}
+[22.443153] (-) TimerEvent: {}
+[22.543767] (-) TimerEvent: {}
+[22.644425] (-) TimerEvent: {}
+[22.745016] (-) TimerEvent: {}
+[22.845747] (-) TimerEvent: {}
+[22.946357] (-) TimerEvent: {}
+[23.046969] (-) TimerEvent: {}
+[23.147598] (-) TimerEvent: {}
+[23.248224] (-) TimerEvent: {}
+[23.348861] (-) TimerEvent: {}
+[23.450141] (-) TimerEvent: {}
+[23.551358] (-) TimerEvent: {}
+[23.651961] (-) TimerEvent: {}
+[23.752566] (-) TimerEvent: {}
+[23.853168] (-) TimerEvent: {}
+[23.953797] (-) TimerEvent: {}
+[24.054428] (-) TimerEvent: {}
+[24.155064] (-) TimerEvent: {}
+[24.255739] (-) TimerEvent: {}
+[24.356358] (-) TimerEvent: {}
+[24.456930] (-) TimerEvent: {}
+[24.557570] (-) TimerEvent: {}
+[24.658243] (-) TimerEvent: {}
+[24.758901] (-) TimerEvent: {}
+[24.859665] (-) TimerEvent: {}
+[24.960386] (-) TimerEvent: {}
+[25.060988] (-) TimerEvent: {}
+[25.161605] (-) TimerEvent: {}
+[25.262225] (-) TimerEvent: {}
+[25.362889] (-) TimerEvent: {}
+[25.463493] (-) TimerEvent: {}
+[25.564084] (-) TimerEvent: {}
+[25.664803] (-) TimerEvent: {}
+[25.765396] (-) TimerEvent: {}
+[25.866037] (-) TimerEvent: {}
+[25.966666] (-) TimerEvent: {}
+[26.067272] (-) TimerEvent: {}
+[26.167893] (-) TimerEvent: {}
+[26.268516] (-) TimerEvent: {}
+[26.369107] (-) TimerEvent: {}
+[26.469729] (-) TimerEvent: {}
+[26.570329] (-) TimerEvent: {}
+[26.670932] (-) TimerEvent: {}
+[26.771535] (-) TimerEvent: {}
+[26.872179] (-) TimerEvent: {}
+[26.972775] (-) TimerEvent: {}
+[27.073407] (-) TimerEvent: {}
+[27.174025] (-) TimerEvent: {}
+[27.274894] (-) TimerEvent: {}
+[27.375494] (-) TimerEvent: {}
+[27.476085] (-) TimerEvent: {}
+[27.576687] (-) TimerEvent: {}
+[27.677282] (-) TimerEvent: {}
+[27.777919] (-) TimerEvent: {}
+[27.878544] (-) TimerEvent: {}
+[27.979133] (-) TimerEvent: {}
+[28.079766] (-) TimerEvent: {}
+[28.180375] (-) TimerEvent: {}
+[28.280976] (-) TimerEvent: {}
+[28.381606] (-) TimerEvent: {}
+[28.482400] (-) TimerEvent: {}
+[28.583087] (-) TimerEvent: {}
+[28.683823] (-) TimerEvent: {}
+[28.784449] (-) TimerEvent: {}
+[28.885043] (-) TimerEvent: {}
+[28.985628] (-) TimerEvent: {}
+[29.086241] (-) TimerEvent: {}
+[29.186862] (-) TimerEvent: {}
+[29.287472] (-) TimerEvent: {}
+[29.388082] (-) TimerEvent: {}
+[29.488680] (-) TimerEvent: {}
+[29.589282] (-) TimerEvent: {}
+[29.690025] (-) TimerEvent: {}
+[29.790721] (-) TimerEvent: {}
+[29.891346] (-) TimerEvent: {}
+[29.992102] (-) TimerEvent: {}
+[30.092809] (-) TimerEvent: {}
+[30.193490] (-) TimerEvent: {}
+[30.294231] (-) TimerEvent: {}
+[30.394944] (-) TimerEvent: {}
+[30.495711] (-) TimerEvent: {}
+[30.596590] (-) TimerEvent: {}
+[30.697285] (-) TimerEvent: {}
+[30.798059] (-) TimerEvent: {}
+[30.898808] (-) TimerEvent: {}
+[30.999555] (-) TimerEvent: {}
+[31.100321] (-) TimerEvent: {}
+[31.201060] (-) TimerEvent: {}
+[31.301814] (-) TimerEvent: {}
+[31.402533] (-) TimerEvent: {}
+[31.503248] (-) TimerEvent: {}
+[31.604037] (-) TimerEvent: {}
+[31.704759] (-) TimerEvent: {}
+[31.805472] (-) TimerEvent: {}
+[31.906212] (-) TimerEvent: {}
+[32.006929] (-) TimerEvent: {}
+[32.107673] (-) TimerEvent: {}
+[32.208385] (-) TimerEvent: {}
+[32.308985] (-) TimerEvent: {}
+[32.409596] (-) TimerEvent: {}
+[32.510301] (-) TimerEvent: {}
+[32.610989] (-) TimerEvent: {}
+[32.711657] (-) TimerEvent: {}
+[32.812307] (-) TimerEvent: {}
+[32.912899] (-) TimerEvent: {}
+[33.013542] (-) TimerEvent: {}
+[33.114168] (-) TimerEvent: {}
+[33.214787] (-) TimerEvent: {}
+[33.315409] (-) TimerEvent: {}
+[33.416063] (-) TimerEvent: {}
+[33.516686] (-) TimerEvent: {}
+[33.617311] (-) TimerEvent: {}
+[33.717957] (-) TimerEvent: {}
+[33.818555] (-) TimerEvent: {}
+[33.919159] (-) TimerEvent: {}
+[34.019772] (-) TimerEvent: {}
+[34.120549] (-) TimerEvent: {}
+[34.221182] (-) TimerEvent: {}
+[34.321958] (-) TimerEvent: {}
+[34.422660] (-) TimerEvent: {}
+[34.523303] (-) TimerEvent: {}
+[34.624117] (-) TimerEvent: {}
+[34.724846] (-) TimerEvent: {}
+[34.825496] (-) TimerEvent: {}
+[34.926268] (-) TimerEvent: {}
+[35.026979] (-) TimerEvent: {}
+[35.128207] (-) TimerEvent: {}
+[35.228947] (-) TimerEvent: {}
+[35.329683] (-) TimerEvent: {}
+[35.430428] (-) TimerEvent: {}
+[35.531133] (-) TimerEvent: {}
+[35.631734] (-) TimerEvent: {}
+[35.732349] (-) TimerEvent: {}
+[35.832916] (-) TimerEvent: {}
+[35.933549] (-) TimerEvent: {}
+[36.034264] (-) TimerEvent: {}
+[36.134953] (-) TimerEvent: {}
+[36.235729] (-) TimerEvent: {}
+[36.336417] (-) TimerEvent: {}
+[36.437013] (-) TimerEvent: {}
+[36.537629] (-) TimerEvent: {}
+[36.638261] (-) TimerEvent: {}
+[36.738870] (-) TimerEvent: {}
+[36.839474] (-) TimerEvent: {}
+[36.940112] (-) TimerEvent: {}
+[37.040766] (-) TimerEvent: {}
+[37.141376] (-) TimerEvent: {}
+[37.242001] (-) TimerEvent: {}
+[37.342638] (-) TimerEvent: {}
+[37.443254] (-) TimerEvent: {}
+[37.543823] (-) TimerEvent: {}
+[37.644411] (-) TimerEvent: {}
+[37.744995] (-) TimerEvent: {}
+[37.845590] (-) TimerEvent: {}
+[37.946198] (-) TimerEvent: {}
+[38.046853] (-) TimerEvent: {}
+[38.147494] (-) TimerEvent: {}
+[38.248161] (-) TimerEvent: {}
+[38.348852] (-) TimerEvent: {}
+[38.449487] (-) TimerEvent: {}
+[38.550119] (-) TimerEvent: {}
+[38.650698] (-) TimerEvent: {}
+[38.751277] (-) TimerEvent: {}
+[38.851877] (-) TimerEvent: {}
+[38.952543] (-) TimerEvent: {}
+[39.053130] (-) TimerEvent: {}
+[39.153722] (-) TimerEvent: {}
+[39.254313] (-) TimerEvent: {}
+[39.354896] (-) TimerEvent: {}
+[39.455500] (-) TimerEvent: {}
+[39.556115] (-) TimerEvent: {}
+[39.656784] (-) TimerEvent: {}
+[39.757421] (-) TimerEvent: {}
+[39.858218] (-) TimerEvent: {}
+[39.958850] (-) TimerEvent: {}
+[40.059454] (-) TimerEvent: {}
+[40.160064] (-) TimerEvent: {}
+[40.260657] (-) TimerEvent: {}
+[40.361297] (-) TimerEvent: {}
+[40.462048] (-) TimerEvent: {}
+[40.562733] (-) TimerEvent: {}
+[40.663370] (-) TimerEvent: {}
+[40.764106] (-) TimerEvent: {}
+[40.864757] (-) TimerEvent: {}
+[40.965480] (-) TimerEvent: {}
+[41.066152] (-) TimerEvent: {}
+[41.166746] (-) TimerEvent: {}
+[41.267303] (-) TimerEvent: {}
+[41.367923] (-) TimerEvent: {}
+[41.468520] (-) TimerEvent: {}
+[41.569072] (-) TimerEvent: {}
+[41.669739] (-) TimerEvent: {}
+[41.770457] (-) TimerEvent: {}
+[41.871102] (-) TimerEvent: {}
+[41.971697] (-) TimerEvent: {}
+[42.072352] (-) TimerEvent: {}
+[42.173000] (-) TimerEvent: {}
+[42.273603] (-) TimerEvent: {}
+[42.374266] (-) TimerEvent: {}
+[42.474831] (-) TimerEvent: {}
+[42.575417] (-) TimerEvent: {}
+[42.676038] (-) TimerEvent: {}
+[42.776617] (-) TimerEvent: {}
+[42.877198] (-) TimerEvent: {}
+[42.977946] (-) TimerEvent: {}
+[43.078664] (-) TimerEvent: {}
+[43.179322] (-) TimerEvent: {}
+[43.280066] (-) TimerEvent: {}
+[43.380650] (-) TimerEvent: {}
+[43.481232] (-) TimerEvent: {}
+[43.581784] (-) TimerEvent: {}
+[43.682364] (-) TimerEvent: {}
+[43.782947] (-) TimerEvent: {}
+[43.883520] (-) TimerEvent: {}
+[43.984164] (-) TimerEvent: {}
+[44.084738] (-) TimerEvent: {}
+[44.185316] (-) TimerEvent: {}
+[44.285914] (-) TimerEvent: {}
+[44.386483] (-) TimerEvent: {}
+[44.487051] (-) TimerEvent: {}
+[44.587640] (-) TimerEvent: {}
+[44.688229] (-) TimerEvent: {}
+[44.788815] (-) TimerEvent: {}
+[44.889375] (-) TimerEvent: {}
+[44.989973] (-) TimerEvent: {}
+[45.090564] (-) TimerEvent: {}
+[45.191151] (-) TimerEvent: {}
+[45.291723] (-) TimerEvent: {}
+[45.392319] (-) TimerEvent: {}
+[45.492877] (-) TimerEvent: {}
+[45.593446] (-) TimerEvent: {}
+[45.694055] (-) TimerEvent: {}
+[45.794618] (-) TimerEvent: {}
+[45.895208] (-) TimerEvent: {}
+[45.995789] (-) TimerEvent: {}
+[46.096397] (-) TimerEvent: {}
+[46.196961] (-) TimerEvent: {}
+[46.297557] (-) TimerEvent: {}
+[46.398149] (-) TimerEvent: {}
+[46.498719] (-) TimerEvent: {}
+[46.599292] (-) TimerEvent: {}
+[46.699854] (-) TimerEvent: {}
+[46.800446] (-) TimerEvent: {}
+[46.901028] (-) TimerEvent: {}
+[47.001587] (-) TimerEvent: {}
+[47.102225] (-) TimerEvent: {}
+[47.202850] (-) TimerEvent: {}
+[47.303425] (-) TimerEvent: {}
+[47.404015] (-) TimerEvent: {}
+[47.504601] (-) TimerEvent: {}
+[47.605190] (-) TimerEvent: {}
+[47.705816] (-) TimerEvent: {}
+[47.806490] (-) TimerEvent: {}
+[47.907165] (-) TimerEvent: {}
+[48.007845] (-) TimerEvent: {}
+[48.108451] (-) TimerEvent: {}
+[48.209118] (-) TimerEvent: {}
+[48.309848] (-) TimerEvent: {}
+[48.410559] (-) TimerEvent: {}
+[48.511204] (-) TimerEvent: {}
+[48.611953] (-) TimerEvent: {}
+[48.712636] (-) TimerEvent: {}
+[48.813293] (-) TimerEvent: {}
+[48.914032] (-) TimerEvent: {}
+[49.014684] (-) TimerEvent: {}
+[49.115328] (-) TimerEvent: {}
+[49.215953] (-) TimerEvent: {}
+[49.316534] (-) TimerEvent: {}
+[49.417118] (-) TimerEvent: {}
+[49.517689] (-) TimerEvent: {}
+[49.618346] (-) TimerEvent: {}
+[49.719035] (-) TimerEvent: {}
+[49.819761] (-) TimerEvent: {}
+[49.920462] (-) TimerEvent: {}
+[50.021152] (-) TimerEvent: {}
+[50.121865] (-) TimerEvent: {}
+[50.222457] (-) TimerEvent: {}
+[50.323049] (-) TimerEvent: {}
+[50.423629] (-) TimerEvent: {}
+[50.524358] (-) TimerEvent: {}
+[50.624996] (-) TimerEvent: {}
+[50.725684] (-) TimerEvent: {}
+[50.826356] (-) TimerEvent: {}
+[50.927065] (-) TimerEvent: {}
+[51.027745] (-) TimerEvent: {}
+[51.128365] (-) TimerEvent: {}
+[51.228966] (-) TimerEvent: {}
+[51.329536] (-) TimerEvent: {}
+[51.430105] (-) TimerEvent: {}
+[51.530739] (-) TimerEvent: {}
+[51.631327] (-) TimerEvent: {}
+[51.731930] (-) TimerEvent: {}
+[51.832523] (-) TimerEvent: {}
+[51.933152] (-) TimerEvent: {}
+[52.033719] (-) TimerEvent: {}
+[52.134312] (-) TimerEvent: {}
+[52.234888] (-) TimerEvent: {}
+[52.335465] (-) TimerEvent: {}
+[52.436067] (-) TimerEvent: {}
+[52.536659] (-) TimerEvent: {}
+[52.637246] (-) TimerEvent: {}
+[52.737829] (-) TimerEvent: {}
+[52.838413] (-) TimerEvent: {}
+[52.938983] (-) TimerEvent: {}
+[53.039595] (-) TimerEvent: {}
+[53.140334] (-) TimerEvent: {}
+[53.240920] (-) TimerEvent: {}
+[53.341502] (-) TimerEvent: {}
+[53.442085] (-) TimerEvent: {}
+[53.542683] (-) TimerEvent: {}
+[53.643258] (-) TimerEvent: {}
+[53.743856] (-) TimerEvent: {}
+[53.844466] (-) TimerEvent: {}
+[53.945045] (-) TimerEvent: {}
+[54.045689] (-) TimerEvent: {}
+[54.146378] (-) TimerEvent: {}
+[54.247262] (-) TimerEvent: {}
+[54.348398] (-) TimerEvent: {}
+[54.449080] (-) TimerEvent: {}
+[54.549693] (-) TimerEvent: {}
+[54.650398] (-) TimerEvent: {}
+[54.751085] (-) TimerEvent: {}
+[54.851821] (-) TimerEvent: {}
+[54.952574] (-) TimerEvent: {}
+[55.053269] (-) TimerEvent: {}
+[55.154031] (-) TimerEvent: {}
+[55.254734] (-) TimerEvent: {}
+[55.355480] (-) TimerEvent: {}
+[55.456247] (-) TimerEvent: {}
+[55.556934] (-) TimerEvent: {}
+[55.657616] (-) TimerEvent: {}
+[55.758389] (-) TimerEvent: {}
+[55.859070] (-) TimerEvent: {}
+[55.959714] (-) TimerEvent: {}
+[55.965378] (moveit_backend) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable moveit_ur\x1b[0m\n'}
+[56.059866] (-) TimerEvent: {}
+[56.161166] (-) TimerEvent: {}
+[56.261932] (-) TimerEvent: {}
+[56.363247] (-) TimerEvent: {}
+[56.463980] (-) TimerEvent: {}
+[56.564591] (-) TimerEvent: {}
+[56.665232] (-) TimerEvent: {}
+[56.765878] (-) TimerEvent: {}
+[56.866488] (-) TimerEvent: {}
+[56.967108] (-) TimerEvent: {}
+[57.067756] (-) TimerEvent: {}
+[57.168432] (-) TimerEvent: {}
+[57.269035] (-) TimerEvent: {}
+[57.369688] (-) TimerEvent: {}
+[57.470327] (-) TimerEvent: {}
+[57.570978] (-) TimerEvent: {}
+[57.671606] (-) TimerEvent: {}
+[57.772290] (-) TimerEvent: {}
+[57.872888] (-) TimerEvent: {}
+[57.973509] (-) TimerEvent: {}
+[58.074166] (-) TimerEvent: {}
+[58.174897] (-) TimerEvent: {}
+[58.275628] (-) TimerEvent: {}
+[58.376417] (-) TimerEvent: {}
+[58.477108] (-) TimerEvent: {}
+[58.577811] (-) TimerEvent: {}
+[58.678532] (-) TimerEvent: {}
+[58.779236] (-) TimerEvent: {}
+[58.880021] (-) TimerEvent: {}
+[58.980755] (-) TimerEvent: {}
+[59.081484] (-) TimerEvent: {}
+[59.182232] (-) TimerEvent: {}
+[59.282938] (-) TimerEvent: {}
+[59.383582] (-) TimerEvent: {}
+[59.484180] (-) TimerEvent: {}
+[59.584814] (-) TimerEvent: {}
+[59.658392] (moveit_backend) StdoutLine: {'line': b'[100%] Built target moveit_ur\n'}
+[59.680943] (moveit_backend) CommandEnded: {'returncode': 0}
+[59.684891] (-) TimerEvent: {}
+[59.738729] (moveit_backend) JobProgress: {'identifier': 'moveit_backend', 'progress': 'install'}
+[59.761151] (moveit_backend) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/autopilot/ws/restackcell/ws_moveit2/build/moveit_backend'], 'cwd': '/home/autopilot/ws/restackcell/ws_moveit2/build/moveit_backend', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'autopilot'), ('LC_TIME', 'de_DE.UTF-8'), ('ROS_PACKAGE_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/share'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/autopilot'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_DE.UTF-8'), ('MANAGERPID', '16922'), ('SYSTEMD_EXEC_PID', '17094'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '21757'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'autopilot'), ('JOURNAL_STREAM', '8:245990'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'autopilot'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/autopilot/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/autopilot:@/tmp/.ICE-unix/17070,unix/autopilot:/tmp/.ICE-unix/17070'), ('INVOCATION_ID', '678668421b144795b687d0f916decc13'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/pcl_segmentation:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/ur_pilz:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:bd735bf9-951c-4f23-85ca-2bfb670ea95f'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/autopilot/ws/restackcell/ws_moveit2/build/moveit_backend'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/pcl_segmentation:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/ur_pilz:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces')]), 'shell': False}
+[59.776921] (moveit_backend) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[59.778032] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/lib/moveit_backend/moveit_panda\n'}
+[59.779380] (moveit_backend) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/lib/moveit_backend/moveit_ur\n'}
+[59.796489] (-) TimerEvent: {}
+[59.808843] (moveit_backend) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/lib/moveit_backend/moveit_ur" to ""\n'}
+[59.810138] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/config\n'}
+[59.818713] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/config/visual_parameters.yaml\n'}
+[59.819088] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/config/default_kinematics.yaml\n'}
+[59.819272] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/config/ur16e copy\n'}
+[59.819542] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/config/ur16e copy/visual_parameters.yaml\n'}
+[59.819768] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/config/ur16e copy/default_kinematics.yaml\n'}
+[59.820012] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/config/ur16e copy/joint_limits.yaml\n'}
+[59.820260] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/config/ur16e copy/physical_parameters.yaml\n'}
+[59.820436] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/config/joint_limits.yaml\n'}
+[59.820628] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/config/pilz_cartesian_limits.yaml\n'}
+[59.820815] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/config/pilz_industrial_motion_planner_planning.yaml\n'}
+[59.823018] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/config/physical_parameters.yaml\n'}
+[59.823645] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes\n'}
+[59.823897] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20\n'}
+[59.824187] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/collision\n'}
+[59.824414] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/forearm.stl\n'}
+[59.825102] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/base.stl\n'}
+[59.825318] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/wrist2.stl\n'}
+[59.825477] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/wrist3.stl\n'}
+[59.825855] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/wrist1.stl\n'}
+[59.826401] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/shoulder.stl\n'}
+[59.826804] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/collision/upperarm.stl\n'}
+[59.827152] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/LICENSE.txt\n'}
+[59.827320] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/visual\n'}
+[59.828391] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/UR20_DIFF_8bit_2K.png\n'}
+[59.828904] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/upperarm.dae\n'}
+[59.829800] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/forearm.dae\n'}
+[59.844740] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/shoulder.dae\n'}
+[59.845044] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/wrist3.dae\n'}
+[59.845239] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/wrist1.dae\n'}
+[59.845416] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/wrist2.dae\n'}
+[59.845576] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur20/visual/base.dae\n'}
+[59.845724] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e\n'}
+[59.845864] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision\n'}
+[59.846001] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/forearm.stl\n'}
+[59.846137] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/base.stl\n'}
+[59.846274] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/wrist2.stl\n'}
+[59.846438] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/wrist3.stl\n'}
+[59.846574] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/wrist1.stl\n'}
+[59.846703] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/shoulder.stl\n'}
+[59.846837] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/collision/upperarm.stl\n'}
+[59.846969] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual\n'}
+[59.847100] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/upperarm.dae\n'}
+[59.847251] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/forearm.dae\n'}
+[59.847388] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/shoulder.dae\n'}
+[59.847526] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/wrist3.dae\n'}
+[59.847662] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/wrist1.dae\n'}
+[59.847806] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/wrist2.dae\n'}
+[59.848042] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5e/visual/base.dae\n'}
+[59.848204] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3\n'}
+[59.848342] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/collision\n'}
+[59.848475] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/forearm.stl\n'}
+[59.848607] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/base.stl\n'}
+[59.848736] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/wrist2.stl\n'}
+[59.848867] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/wrist3.stl\n'}
+[59.849006] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/wrist1.stl\n'}
+[59.849137] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/shoulder.stl\n'}
+[59.849265] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/collision/upperarm.stl\n'}
+[59.849422] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/visual\n'}
+[59.849594] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/upperarm.dae\n'}
+[59.849732] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/forearm.dae\n'}
+[59.849866] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/shoulder.dae\n'}
+[59.850001] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/wrist3.dae\n'}
+[59.850141] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/wrist1.dae\n'}
+[59.850277] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/wrist2.dae\n'}
+[59.850408] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3/visual/base.dae\n'}
+[59.850540] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur16e\n'}
+[59.850669] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur16e/collision\n'}
+[59.850798] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur16e/collision/forearm.stl\n'}
+[59.850928] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur16e/collision/upperarm.stl\n'}
+[59.851057] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur16e/visual\n'}
+[59.851195] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur16e/visual/upperarm.dae\n'}
+[59.851331] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur16e/visual/forearm.dae\n'}
+[59.851484] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e\n'}
+[59.851624] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision\n'}
+[59.851757] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/forearm.stl\n'}
+[59.851889] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/base.stl\n'}
+[59.852112] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/wrist2.stl\n'}
+[59.852259] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/wrist3.stl\n'}
+[59.852403] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/wrist1.stl\n'}
+[59.852540] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/shoulder.stl\n'}
+[59.852699] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/collision/upperarm.stl\n'}
+[59.852837] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual\n'}
+[59.852973] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/upperarm.dae\n'}
+[59.853314] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/forearm.dae\n'}
+[59.853491] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/shoulder.dae\n'}
+[59.853639] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/wrist3.dae\n'}
+[59.853786] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/wrist1.dae\n'}
+[59.853924] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/wrist2.dae\n'}
+[59.854058] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur3e/visual/base.dae\n'}
+[59.854220] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur30\n'}
+[59.854379] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur30/collision\n'}
+[59.854519] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur30/collision/forearm.stl\n'}
+[59.854653] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur30/collision/upperarm.stl\n'}
+[59.854785] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur30/LICENSE.txt\n'}
+[59.854925] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur30/visual\n'}
+[59.855060] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur30/visual/upperarm.dae\n'}
+[59.855194] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur30/visual/forearm.dae\n'}
+[59.855328] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur30/visual/UR30_DIFF_8bit_2K.png\n'}
+[59.855462] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e\n'}
+[59.855596] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision\n'}
+[59.855726] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/forearm.stl\n'}
+[59.855878] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/base.stl\n'}
+[59.856123] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/wrist2.stl\n'}
+[59.856267] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/wrist3.stl\n'}
+[59.856403] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/wrist1.stl\n'}
+[59.856537] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/shoulder.stl\n'}
+[59.856668] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/collision/upperarm.stl\n'}
+[59.856801] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual\n'}
+[59.856938] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/upperarm.dae\n'}
+[59.857070] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/forearm.dae\n'}
+[59.857209] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/shoulder.dae\n'}
+[59.857344] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/wrist3.dae\n'}
+[59.857479] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/wrist1.dae\n'}
+[59.857614] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/wrist2.dae\n'}
+[59.857747] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10e/visual/base.dae\n'}
+[59.857881] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10\n'}
+[59.858009] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/collision\n'}
+[59.858141] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/forearm.stl\n'}
+[59.858284] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/base.stl\n'}
+[59.858418] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/wrist2.stl\n'}
+[59.858575] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/wrist3.stl\n'}
+[59.858749] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/wrist1.stl\n'}
+[59.858900] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/shoulder.stl\n'}
+[59.859040] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/collision/upperarm.stl\n'}
+[59.859196] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/visual\n'}
+[59.859332] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/upperarm.dae\n'}
+[59.859475] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/forearm.dae\n'}
+[59.859611] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/shoulder.dae\n'}
+[59.859747] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/wrist3.dae\n'}
+[59.859879] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/wrist1.dae\n'}
+[59.860066] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/wrist2.dae\n'}
+[59.860211] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur10/visual/base.dae\n'}
+[59.860346] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5\n'}
+[59.860483] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/collision\n'}
+[59.860625] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/forearm.stl\n'}
+[59.860762] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/base.stl\n'}
+[59.860892] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/wrist2.stl\n'}
+[59.861024] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/wrist3.stl\n'}
+[59.861156] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/wrist1.stl\n'}
+[59.861291] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/shoulder.stl\n'}
+[59.861428] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/collision/upperarm.stl\n'}
+[59.861564] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/visual\n'}
+[59.861705] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/upperarm.dae\n'}
+[59.861839] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/forearm.dae\n'}
+[59.861969] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/shoulder.dae\n'}
+[59.862102] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/wrist3.dae\n'}
+[59.862257] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/wrist1.dae\n'}
+[59.862388] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/wrist2.dae\n'}
+[59.862521] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/meshes/ur5/visual/base.dae\n'}
+[59.862652] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/urdf\n'}
+[59.862791] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/urdf/ur.ros2_control.xacro\n'}
+[59.862923] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/urdf/ur.urdf.xacro\n'}
+[59.863076] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/urdf/inc\n'}
+[59.863224] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/urdf/inc/ur_transmissions.xacro\n'}
+[59.863357] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/urdf/inc/ur_common.xacro\n'}
+[59.863490] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/urdf/ur_macro.xacro\n'}
+[59.863624] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/config\n'}
+[59.863759] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/config/visual_parameters.yaml\n'}
+[59.863899] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/config/default_kinematics.yaml\n'}
+[59.864186] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/config/ur16e copy\n'}
+[59.896845] (-) TimerEvent: {}
+[59.897517] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/config/ur16e copy/visual_parameters.yaml\n'}
+[59.897834] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/config/ur16e copy/default_kinematics.yaml\n'}
+[59.898014] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/config/ur16e copy/joint_limits.yaml\n'}
+[59.898345] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/config/ur16e copy/physical_parameters.yaml\n'}
+[59.898520] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/config/joint_limits.yaml\n'}
+[59.898758] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/config/pilz_cartesian_limits.yaml\n'}
+[59.898930] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/config/pilz_industrial_motion_planner_planning.yaml\n'}
+[59.899082] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/config/physical_parameters.yaml\n'}
+[59.899326] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes\n'}
+[59.899490] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20\n'}
+[59.899636] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/collision\n'}
+[59.899808] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/forearm.stl\n'}
+[59.900033] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/base.stl\n'}
+[59.900190] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/wrist2.stl\n'}
+[59.900360] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/wrist3.stl\n'}
+[59.900652] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/wrist1.stl\n'}
+[59.900804] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/shoulder.stl\n'}
+[59.901037] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/collision/upperarm.stl\n'}
+[59.901201] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/LICENSE.txt\n'}
+[59.901344] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/visual\n'}
+[59.901591] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/UR20_DIFF_8bit_2K.png\n'}
+[59.901775] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/upperarm.dae\n'}
+[59.902209] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/forearm.dae\n'}
+[59.902425] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/shoulder.dae\n'}
+[59.902634] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/wrist3.dae\n'}
+[59.902863] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/wrist1.dae\n'}
+[59.903015] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/wrist2.dae\n'}
+[59.903188] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur20/visual/base.dae\n'}
+[59.903420] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e\n'}
+[59.903581] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision\n'}
+[59.903806] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/forearm.stl\n'}
+[59.904024] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/base.stl\n'}
+[59.904672] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/wrist2.stl\n'}
+[59.904826] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/wrist3.stl\n'}
+[59.905050] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/wrist1.stl\n'}
+[59.905204] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/shoulder.stl\n'}
+[59.905349] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/collision/upperarm.stl\n'}
+[59.905568] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual\n'}
+[59.905733] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/upperarm.dae\n'}
+[59.905877] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/forearm.dae\n'}
+[59.906057] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/shoulder.dae\n'}
+[59.906239] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/wrist3.dae\n'}
+[59.906383] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/wrist1.dae\n'}
+[59.906521] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/wrist2.dae\n'}
+[59.906762] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5e/visual/base.dae\n'}
+[59.906917] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3\n'}
+[59.907058] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/collision\n'}
+[59.907272] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/forearm.stl\n'}
+[59.907428] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/base.stl\n'}
+[59.908045] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/wrist2.stl\n'}
+[59.908217] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/wrist3.stl\n'}
+[59.908417] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/wrist1.stl\n'}
+[59.908618] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/shoulder.stl\n'}
+[59.908767] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/collision/upperarm.stl\n'}
+[59.908979] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/visual\n'}
+[59.909168] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/upperarm.dae\n'}
+[59.909316] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/forearm.dae\n'}
+[59.909475] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/shoulder.dae\n'}
+[59.909701] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/wrist3.dae\n'}
+[59.909855] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/wrist1.dae\n'}
+[59.909999] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/wrist2.dae\n'}
+[59.910355] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3/visual/base.dae\n'}
+[59.910517] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur16e\n'}
+[59.910661] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur16e/collision\n'}
+[59.910986] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur16e/collision/forearm.stl\n'}
+[59.911152] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur16e/collision/upperarm.stl\n'}
+[59.911477] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur16e/visual\n'}
+[59.911675] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur16e/visual/upperarm.dae\n'}
+[59.911907] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur16e/visual/forearm.dae\n'}
+[59.913214] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e\n'}
+[59.914246] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision\n'}
+[59.914472] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/forearm.stl\n'}
+[59.914627] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/base.stl\n'}
+[59.914824] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/wrist2.stl\n'}
+[59.915040] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/wrist3.stl\n'}
+[59.915190] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/wrist1.stl\n'}
+[59.915405] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/shoulder.stl\n'}
+[59.915599] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/collision/upperarm.stl\n'}
+[59.915750] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual\n'}
+[59.916105] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/upperarm.dae\n'}
+[59.916302] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/forearm.dae\n'}
+[59.916506] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/shoulder.dae\n'}
+[59.916678] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/wrist3.dae\n'}
+[59.916838] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/wrist1.dae\n'}
+[59.917024] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/wrist2.dae\n'}
+[59.917196] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur3e/visual/base.dae\n'}
+[59.917429] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur30\n'}
+[59.917652] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur30/collision\n'}
+[59.917895] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur30/collision/forearm.stl\n'}
+[59.918246] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur30/collision/upperarm.stl\n'}
+[59.918595] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur30/LICENSE.txt\n'}
+[59.918819] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur30/visual\n'}
+[59.918973] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur30/visual/upperarm.dae\n'}
+[59.919155] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur30/visual/forearm.dae\n'}
+[59.919372] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur30/visual/UR30_DIFF_8bit_2K.png\n'}
+[59.919565] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e\n'}
+[59.919764] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision\n'}
+[59.920035] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/forearm.stl\n'}
+[59.920273] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/base.stl\n'}
+[59.920511] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/wrist2.stl\n'}
+[59.920663] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/wrist3.stl\n'}
+[59.920839] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/wrist1.stl\n'}
+[59.921052] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/shoulder.stl\n'}
+[59.921207] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/collision/upperarm.stl\n'}
+[59.921345] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual\n'}
+[59.921583] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/upperarm.dae\n'}
+[59.921739] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/forearm.dae\n'}
+[59.921882] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/shoulder.dae\n'}
+[59.922279] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/wrist3.dae\n'}
+[59.922442] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/wrist1.dae\n'}
+[59.922630] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/wrist2.dae\n'}
+[59.924163] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10e/visual/base.dae\n'}
+[59.924441] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10\n'}
+[59.924654] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/collision\n'}
+[59.924840] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/forearm.stl\n'}
+[59.925021] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/base.stl\n'}
+[59.925239] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/wrist2.stl\n'}
+[59.925457] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/wrist3.stl\n'}
+[59.925605] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/wrist1.stl\n'}
+[59.925796] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/shoulder.stl\n'}
+[59.925968] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/collision/upperarm.stl\n'}
+[59.926112] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/visual\n'}
+[59.926253] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/upperarm.dae\n'}
+[59.926487] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/forearm.dae\n'}
+[59.926748] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/shoulder.dae\n'}
+[59.926980] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/wrist3.dae\n'}
+[59.927169] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/wrist1.dae\n'}
+[59.927388] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/wrist2.dae\n'}
+[59.927619] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur10/visual/base.dae\n'}
+[59.927809] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5\n'}
+[59.928012] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/collision\n'}
+[59.928273] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/forearm.stl\n'}
+[59.928559] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/base.stl\n'}
+[59.928925] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/wrist2.stl\n'}
+[59.929159] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/wrist3.stl\n'}
+[59.929365] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/wrist1.stl\n'}
+[59.929510] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/shoulder.stl\n'}
+[59.929719] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/collision/upperarm.stl\n'}
+[59.929923] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/visual\n'}
+[59.930197] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/upperarm.dae\n'}
+[59.930491] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/forearm.dae\n'}
+[59.930652] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/shoulder.dae\n'}
+[59.930873] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/wrist3.dae\n'}
+[59.931086] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/wrist1.dae\n'}
+[59.931257] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/wrist2.dae\n'}
+[59.931487] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/meshes/ur5/visual/base.dae\n'}
+[59.931663] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/urdf\n'}
+[59.931837] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/urdf/ur.ros2_control.xacro\n'}
+[59.932245] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/urdf/ur.urdf.xacro\n'}
+[59.932406] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/urdf/inc\n'}
+[59.932710] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/urdf/inc/ur_transmissions.xacro\n'}
+[59.932908] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/urdf/inc/ur_common.xacro\n'}
+[59.933091] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/install/moveit_backend/urdf/ur_macro.xacro\n'}
+[59.933307] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/ament_index/resource_index/package_run_dependencies/moveit_backend\n'}
+[59.933461] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/ament_index/resource_index/parent_prefix_path/moveit_backend\n'}
+[59.933630] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/environment/ament_prefix_path.sh\n'}
+[59.933827] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/environment/ament_prefix_path.dsv\n'}
+[59.933979] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/environment/path.sh\n'}
+[59.934120] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/environment/path.dsv\n'}
+[59.934489] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/local_setup.bash\n'}
+[59.934649] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/local_setup.sh\n'}
+[59.935047] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/local_setup.zsh\n'}
+[59.935205] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/local_setup.dsv\n'}
+[59.935346] (moveit_backend) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/package.dsv\n'}
+[59.935587] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/ament_index/resource_index/packages/moveit_backend\n'}
+[59.935740] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/cmake/moveit_backendConfig.cmake\n'}
+[59.935883] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/cmake/moveit_backendConfig-version.cmake\n'}
+[59.936218] (moveit_backend) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend/share/moveit_backend/package.xml\n'}
+[59.936380] (moveit_backend) CommandEnded: {'returncode': 0}
+[59.996954] (-) TimerEvent: {}
+[60.049792] (moveit_backend) JobEnded: {'identifier': 'moveit_backend', 'rc': 0}
+[60.052733] (-) EventReactorShutdown: {}

@@ -1,0 +1,544 @@
+[0.000000] (-) TimerEvent: {}
+[0.000967] (-) JobUnselected: {'identifier': 'grid_snapper'}
+[0.001262] (-) JobUnselected: {'identifier': 'interface_opcua'}
+[0.001560] (-) JobUnselected: {'identifier': 'mockup_robot'}
+[0.001645] (-) JobUnselected: {'identifier': 'moveit_backend'}
+[0.001708] (-) JobUnselected: {'identifier': 'opcua_client'}
+[0.001788] (-) JobUnselected: {'identifier': 'opcua_interfaces'}
+[0.001871] (-) JobUnselected: {'identifier': 'robo_planner_msgs'}
+[0.001929] (-) JobUnselected: {'identifier': 'robo_planner_py'}
+[0.001985] (-) JobUnselected: {'identifier': 'wzlscheduler_interfaces'}
+[0.002025] (robo_planner) JobQueued: {'identifier': 'robo_planner', 'dependencies': OrderedDict([('opcua_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces'), ('wzlscheduler_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces')])}
+[0.002101] (robo_planner) JobStarted: {'identifier': 'robo_planner'}
+[0.021306] (robo_planner) JobProgress: {'identifier': 'robo_planner', 'progress': 'cmake'}
+[0.022915] (robo_planner) JobProgress: {'identifier': 'robo_planner', 'progress': 'build'}
+[0.024504] (robo_planner) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner', '--', '-j8', '-l8'], 'cwd': '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'autopilot'), ('LC_TIME', 'de_DE.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('ROS_PACKAGE_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/autopilot'), ('OLDPWD', '/home/autopilot'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_DE.UTF-8'), ('MANAGERPID', '2470'), ('SYSTEMD_EXEC_PID', '2643'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5573'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'autopilot'), ('JOURNAL_STREAM', '8:49645'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('PKG_CONFIG_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig'), ('USERNAME', 'autopilot'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/autopilot/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/autopilot:@/tmp/.ICE-unix/2618,unix/autopilot:/tmp/.ICE-unix/2618'), ('INVOCATION_ID', '8a9f921d88ee4f209c6bffa64dea8f13'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:98944615-5f77-4d72-973f-42072b9d3841'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces')]), 'shell': False}
+[0.099437] (-) TimerEvent: {}
+[0.159036] (robo_planner) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target robo_planner\x1b[0m\n'}
+[0.199598] (-) TimerEvent: {}
+[0.300113] (-) TimerEvent: {}
+[0.320848] (robo_planner) StdoutLine: {'line': b'[  4%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o\x1b[0m\n'}
+[0.400256] (-) TimerEvent: {}
+[0.500789] (-) TimerEvent: {}
+[0.601332] (-) TimerEvent: {}
+[0.701868] (-) TimerEvent: {}
+[0.802385] (-) TimerEvent: {}
+[0.902934] (-) TimerEvent: {}
+[1.003461] (-) TimerEvent: {}
+[1.104005] (-) TimerEvent: {}
+[1.204580] (-) TimerEvent: {}
+[1.305075] (-) TimerEvent: {}
+[1.406012] (-) TimerEvent: {}
+[1.506547] (-) TimerEvent: {}
+[1.607415] (-) TimerEvent: {}
+[1.707976] (-) TimerEvent: {}
+[1.808529] (-) TimerEvent: {}
+[1.909094] (-) TimerEvent: {}
+[2.009672] (-) TimerEvent: {}
+[2.110221] (-) TimerEvent: {}
+[2.210772] (-) TimerEvent: {}
+[2.311305] (-) TimerEvent: {}
+[2.411847] (-) TimerEvent: {}
+[2.512404] (-) TimerEvent: {}
+[2.612976] (-) TimerEvent: {}
+[2.714084] (-) TimerEvent: {}
+[2.814628] (-) TimerEvent: {}
+[2.915163] (-) TimerEvent: {}
+[3.015697] (-) TimerEvent: {}
+[3.116259] (-) TimerEvent: {}
+[3.216796] (-) TimerEvent: {}
+[3.317348] (-) TimerEvent: {}
+[3.417851] (-) TimerEvent: {}
+[3.518438] (-) TimerEvent: {}
+[3.619024] (-) TimerEvent: {}
+[3.719567] (-) TimerEvent: {}
+[3.820093] (-) TimerEvent: {}
+[3.920892] (-) TimerEvent: {}
+[4.021461] (-) TimerEvent: {}
+[4.122005] (-) TimerEvent: {}
+[4.222547] (-) TimerEvent: {}
+[4.323118] (-) TimerEvent: {}
+[4.423666] (-) TimerEvent: {}
+[4.524201] (-) TimerEvent: {}
+[4.624779] (-) TimerEvent: {}
+[4.725346] (-) TimerEvent: {}
+[4.826178] (-) TimerEvent: {}
+[4.926711] (-) TimerEvent: {}
+[5.027247] (-) TimerEvent: {}
+[5.127780] (-) TimerEvent: {}
+[5.228332] (-) TimerEvent: {}
+[5.328881] (-) TimerEvent: {}
+[5.429439] (-) TimerEvent: {}
+[5.529969] (-) TimerEvent: {}
+[5.630503] (-) TimerEvent: {}
+[5.731047] (-) TimerEvent: {}
+[5.831600] (-) TimerEvent: {}
+[5.932128] (-) TimerEvent: {}
+[6.032676] (-) TimerEvent: {}
+[6.133215] (-) TimerEvent: {}
+[6.233757] (-) TimerEvent: {}
+[6.334305] (-) TimerEvent: {}
+[6.434848] (-) TimerEvent: {}
+[6.535394] (-) TimerEvent: {}
+[6.635953] (-) TimerEvent: {}
+[6.736502] (-) TimerEvent: {}
+[6.837051] (-) TimerEvent: {}
+[6.937630] (-) TimerEvent: {}
+[7.038166] (-) TimerEvent: {}
+[7.138776] (-) TimerEvent: {}
+[7.239307] (-) TimerEvent: {}
+[7.339852] (-) TimerEvent: {}
+[7.440361] (-) TimerEvent: {}
+[7.540909] (-) TimerEvent: {}
+[7.641431] (-) TimerEvent: {}
+[7.741966] (-) TimerEvent: {}
+[7.842505] (-) TimerEvent: {}
+[7.943037] (-) TimerEvent: {}
+[8.043575] (-) TimerEvent: {}
+[8.144115] (-) TimerEvent: {}
+[8.244665] (-) TimerEvent: {}
+[8.345223] (-) TimerEvent: {}
+[8.445772] (-) TimerEvent: {}
+[8.546298] (-) TimerEvent: {}
+[8.646825] (-) TimerEvent: {}
+[8.747360] (-) TimerEvent: {}
+[8.847891] (-) TimerEvent: {}
+[8.948440] (-) TimerEvent: {}
+[9.048988] (-) TimerEvent: {}
+[9.149542] (-) TimerEvent: {}
+[9.250075] (-) TimerEvent: {}
+[9.350631] (-) TimerEvent: {}
+[9.451163] (-) TimerEvent: {}
+[9.551694] (-) TimerEvent: {}
+[9.652211] (-) TimerEvent: {}
+[9.752765] (-) TimerEvent: {}
+[9.853310] (-) TimerEvent: {}
+[9.953855] (-) TimerEvent: {}
+[10.054399] (-) TimerEvent: {}
+[10.154944] (-) TimerEvent: {}
+[10.255475] (-) TimerEvent: {}
+[10.356023] (-) TimerEvent: {}
+[10.456575] (-) TimerEvent: {}
+[10.557100] (-) TimerEvent: {}
+[10.657652] (-) TimerEvent: {}
+[10.758197] (-) TimerEvent: {}
+[10.858738] (-) TimerEvent: {}
+[10.959266] (-) TimerEvent: {}
+[11.059791] (-) TimerEvent: {}
+[11.160318] (-) TimerEvent: {}
+[11.260858] (-) TimerEvent: {}
+[11.361415] (-) TimerEvent: {}
+[11.461912] (-) TimerEvent: {}
+[11.562454] (-) TimerEvent: {}
+[11.662986] (-) TimerEvent: {}
+[11.763512] (-) TimerEvent: {}
+[11.864069] (-) TimerEvent: {}
+[11.964619] (-) TimerEvent: {}
+[12.065154] (-) TimerEvent: {}
+[12.165667] (-) TimerEvent: {}
+[12.266211] (-) TimerEvent: {}
+[12.366758] (-) TimerEvent: {}
+[12.467299] (-) TimerEvent: {}
+[12.567821] (-) TimerEvent: {}
+[12.668354] (-) TimerEvent: {}
+[12.768899] (-) TimerEvent: {}
+[12.869434] (-) TimerEvent: {}
+[12.969932] (-) TimerEvent: {}
+[13.070469] (-) TimerEvent: {}
+[13.170993] (-) TimerEvent: {}
+[13.271520] (-) TimerEvent: {}
+[13.372073] (-) TimerEvent: {}
+[13.472623] (-) TimerEvent: {}
+[13.573175] (-) TimerEvent: {}
+[13.673758] (-) TimerEvent: {}
+[13.774296] (-) TimerEvent: {}
+[13.874870] (-) TimerEvent: {}
+[13.975444] (-) TimerEvent: {}
+[14.075989] (-) TimerEvent: {}
+[14.176562] (-) TimerEvent: {}
+[14.277114] (-) TimerEvent: {}
+[14.377640] (-) TimerEvent: {}
+[14.478187] (-) TimerEvent: {}
+[14.578728] (-) TimerEvent: {}
+[14.679301] (-) TimerEvent: {}
+[14.779836] (-) TimerEvent: {}
+[14.880328] (-) TimerEvent: {}
+[14.980844] (-) TimerEvent: {}
+[15.081389] (-) TimerEvent: {}
+[15.181909] (-) TimerEvent: {}
+[15.282456] (-) TimerEvent: {}
+[15.382991] (-) TimerEvent: {}
+[15.483490] (-) TimerEvent: {}
+[15.584003] (-) TimerEvent: {}
+[15.684544] (-) TimerEvent: {}
+[15.785164] (-) TimerEvent: {}
+[15.885717] (-) TimerEvent: {}
+[15.986219] (-) TimerEvent: {}
+[16.086728] (-) TimerEvent: {}
+[16.187249] (-) TimerEvent: {}
+[16.287764] (-) TimerEvent: {}
+[16.388288] (-) TimerEvent: {}
+[16.488822] (-) TimerEvent: {}
+[16.589395] (-) TimerEvent: {}
+[16.690151] (-) TimerEvent: {}
+[16.790667] (-) TimerEvent: {}
+[16.891193] (-) TimerEvent: {}
+[16.991714] (-) TimerEvent: {}
+[17.092257] (-) TimerEvent: {}
+[17.192761] (-) TimerEvent: {}
+[17.293274] (-) TimerEvent: {}
+[17.393834] (-) TimerEvent: {}
+[17.494350] (-) TimerEvent: {}
+[17.594854] (-) TimerEvent: {}
+[17.695355] (-) TimerEvent: {}
+[17.795858] (-) TimerEvent: {}
+[17.896366] (-) TimerEvent: {}
+[17.996892] (-) TimerEvent: {}
+[18.097422] (-) TimerEvent: {}
+[18.197939] (-) TimerEvent: {}
+[18.298451] (-) TimerEvent: {}
+[18.398981] (-) TimerEvent: {}
+[18.499503] (-) TimerEvent: {}
+[18.600012] (-) TimerEvent: {}
+[18.700535] (-) TimerEvent: {}
+[18.801052] (-) TimerEvent: {}
+[18.901565] (-) TimerEvent: {}
+[19.002073] (-) TimerEvent: {}
+[19.102571] (-) TimerEvent: {}
+[19.203074] (-) TimerEvent: {}
+[19.303578] (-) TimerEvent: {}
+[19.404083] (-) TimerEvent: {}
+[19.504612] (-) TimerEvent: {}
+[19.605130] (-) TimerEvent: {}
+[19.705673] (-) TimerEvent: {}
+[19.806298] (-) TimerEvent: {}
+[19.907021] (-) TimerEvent: {}
+[20.007729] (-) TimerEvent: {}
+[20.108448] (-) TimerEvent: {}
+[20.209157] (-) TimerEvent: {}
+[20.309886] (-) TimerEvent: {}
+[20.410630] (-) TimerEvent: {}
+[20.511350] (-) TimerEvent: {}
+[20.612060] (-) TimerEvent: {}
+[20.712797] (-) TimerEvent: {}
+[20.813505] (-) TimerEvent: {}
+[20.914269] (-) TimerEvent: {}
+[20.973880] (robo_planner) StdoutLine: {'line': b'[  8%] \x1b[32m\x1b[1mLinking CXX executable robo_planner\x1b[0m\n'}
+[21.014408] (-) TimerEvent: {}
+[21.114995] (-) TimerEvent: {}
+[21.216548] (-) TimerEvent: {}
+[21.317171] (-) TimerEvent: {}
+[21.417789] (-) TimerEvent: {}
+[21.518620] (-) TimerEvent: {}
+[21.619222] (-) TimerEvent: {}
+[21.719890] (-) TimerEvent: {}
+[21.820474] (-) TimerEvent: {}
+[21.920999] (-) TimerEvent: {}
+[22.021726] (-) TimerEvent: {}
+[22.122258] (-) TimerEvent: {}
+[22.222795] (-) TimerEvent: {}
+[22.323357] (-) TimerEvent: {}
+[22.423877] (-) TimerEvent: {}
+[22.435002] (robo_planner) StdoutLine: {'line': b'[100%] Built target robo_planner\n'}
+[22.457466] (robo_planner) CommandEnded: {'returncode': 0}
+[22.524018] (-) TimerEvent: {}
+[22.563335] (robo_planner) JobProgress: {'identifier': 'robo_planner', 'progress': 'install'}
+[22.579553] (robo_planner) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner'], 'cwd': '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'autopilot'), ('LC_TIME', 'de_DE.UTF-8'), ('XDG_SESSION_TYPE', 'x11'), ('ROS_PACKAGE_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/autopilot'), ('OLDPWD', '/home/autopilot'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_DE.UTF-8'), ('MANAGERPID', '2470'), ('SYSTEMD_EXEC_PID', '2643'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '5573'), ('IM_CONFIG_PHASE', '1'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'autopilot'), ('JOURNAL_STREAM', '8:49645'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('XDG_SESSION_CLASS', 'user'), ('PKG_CONFIG_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig'), ('USERNAME', 'autopilot'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/autopilot/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/autopilot:@/tmp/.ICE-unix/2618,unix/autopilot:/tmp/.ICE-unix/2618'), ('INVOCATION_ID', '8a9f921d88ee4f209c6bffa64dea8f13'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:98944615-5f77-4d72-973f-42072b9d3841'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces')]), 'shell': False}
+[22.592475] (robo_planner) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[22.593566] (robo_planner) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/lib/robo_planner/robo_planner\n'}
+[22.607376] (robo_planner) StdoutLine: {'line': b'-- Set runtime path of "/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/lib/robo_planner/robo_planner" to ""\n'}
+[22.607960] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch\n'}
+[22.608266] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/__pycache__\n'}
+[22.608908] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/__pycache__/ur_planner.cpython-310.pyc\n'}
+[22.609419] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/__pycache__/hello_moveit_ur_launch.cpython-310.pyc\n'}
+[22.609845] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/__pycache__/mockup_robot.cpython-310.pyc\n'}
+[22.610233] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/__pycache__/ur_planner_pilz.cpython-310.pyc\n'}
+[22.610445] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/ur_planner_launch.py\n'}
+[22.610634] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/ur_simulation.py\n'}
+[22.610801] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/launch/ur_planner_pilz.launch.py\n'}
+[22.610960] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config\n'}
+[22.611109] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/cell_config.yaml\n'}
+[22.611259] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description\n'}
+[22.611403] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/package.dsv\n'}
+[22.611546] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/urdf\n'}
+[22.611700] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/urdf/ur_macro.xacro_restack\n'}
+[22.611859] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/urdf/ur_macro.xacro2\n'}
+[22.612017] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/urdf/ur.ros2_control.xacro\n'}
+[22.612173] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/urdf/ur.urdf.xacro\n'}
+[22.612334] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/urdf/ur_macro.xacro_original\n'}
+[22.612492] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/urdf/inc\n'}
+[22.612651] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/urdf/inc/ur_transmissions.xacro\n'}
+[22.612806] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/urdf/inc/ur_common.xacro\n'}
+[22.613004] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/urdf/ur_macro.xacro\n'}
+[22.613168] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/local_setup.zsh\n'}
+[22.613350] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/rviz\n'}
+[22.613548] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/rviz/view_robot.rviz\n'}
+[22.613705] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/local_setup.sh\n'}
+[22.613920] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/cmake\n'}
+[22.614080] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/cmake/ur_descriptionConfig-version.cmake\n'}
+[22.614254] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/cmake/ur_descriptionConfig.cmake\n'}
+[22.614408] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/local_setup.dsv\n'}
+[22.614559] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config\n'}
+[22.614708] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur20\n'}
+[22.614858] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur20/visual_parameters.yaml\n'}
+[22.615004] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur20/default_kinematics.yaml\n'}
+[22.615150] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur20/joint_limits.yaml\n'}
+[22.615296] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur20/physical_parameters.yaml\n'}
+[22.615442] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur5e\n'}
+[22.615586] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur5e/visual_parameters.yaml\n'}
+[22.615729] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur5e/default_kinematics.yaml\n'}
+[22.615870] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur5e/joint_limits.yaml\n'}
+[22.616028] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur5e/physical_parameters.yaml\n'}
+[22.616192] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur3\n'}
+[22.616654] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur3/visual_parameters.yaml\n'}
+[22.618245] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur3/default_kinematics.yaml\n'}
+[22.618573] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur3/joint_limits.yaml\n'}
+[22.619227] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur3/physical_parameters.yaml\n'}
+[22.619491] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e\n'}
+[22.619730] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e/visual_parameters.yaml\n'}
+[22.619907] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e/default_kinematics.yaml\n'}
+[22.620015] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e/joint_limits_old.yaml\n'}
+[22.620143] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e/default_kinematics_calibrated.yaml\n'}
+[22.620278] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e/joint_limits.yaml\n'}
+[22.620548] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e/pilz_cartesian_limits.yaml\n'}
+[22.620793] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e/default_kinematics_original.yaml\n'}
+[22.621151] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e/physical_parameters.yaml\n'}
+[22.621289] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur3e\n'}
+[22.621420] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur3e/visual_parameters.yaml\n'}
+[22.621592] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur3e/default_kinematics.yaml\n'}
+[22.621794] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur3e/joint_limits.yaml\n'}
+[22.621904] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur3e/physical_parameters.yaml\n'}
+[22.622006] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/initial_positions.yaml\n'}
+[22.622136] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur30\n'}
+[22.622253] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur30/visual_parameters.yaml\n'}
+[22.622354] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur30/default_kinematics.yaml\n'}
+[22.622453] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur30/joint_limits.yaml\n'}
+[22.622549] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur30/physical_parameters.yaml\n'}
+[22.622644] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e_old\n'}
+[22.622739] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e_old/visual_parameters.yaml\n'}
+[22.622834] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e_old/default_kinematics.yaml\n'}
+[22.622933] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e_old/joint_limits.yaml\n'}
+[22.623029] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur16e_old/physical_parameters.yaml\n'}
+[22.623123] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur10e\n'}
+[22.623218] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur10e/visual_parameters.yaml\n'}
+[22.623311] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur10e/default_kinematics.yaml\n'}
+[22.623403] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur10e/joint_limits.yaml\n'}
+[22.623495] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur10e/physical_parameters.yaml\n'}
+[22.623586] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/pilz_cartesian_limits.yaml\n'}
+[22.623683] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/pilz_industrial_motion_planner_planning.yaml\n'}
+[22.623776] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur10\n'}
+[22.624040] (-) TimerEvent: {}
+[22.624574] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur10/visual_parameters.yaml\n'}
+[22.625869] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur10/default_kinematics.yaml\n'}
+[22.627056] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur10/joint_limits.yaml\n'}
+[22.627461] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur10/physical_parameters.yaml\n'}
+[22.627747] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur5\n'}
+[22.627997] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur5/visual_parameters.yaml\n'}
+[22.628289] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur5/default_kinematics.yaml\n'}
+[22.628753] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur5/joint_limits.yaml\n'}
+[22.629044] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/config/ur5/physical_parameters.yaml\n'}
+[22.629620] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/launch\n'}
+[22.629940] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/launch/view_ur.launch.py\n'}
+[22.630280] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes\n'}
+[22.630562] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20\n'}
+[22.630810] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/collision\n'}
+[22.631000] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/collision/forearm.stl\n'}
+[22.631307] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/collision/base.stl\n'}
+[22.631517] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/collision/wrist2.stl\n'}
+[22.631803] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/collision/wrist3.stl\n'}
+[22.631971] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/collision/wrist1.stl\n'}
+[22.632255] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/collision/shoulder.stl\n'}
+[22.632696] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/collision/upperarm.stl\n'}
+[22.633041] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/LICENSE.txt\n'}
+[22.633265] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/visual\n'}
+[22.633432] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/visual/UR20_DIFF_8bit_2K.png\n'}
+[22.633637] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/visual/upperarm.dae\n'}
+[22.633754] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/visual/forearm.dae\n'}
+[22.633958] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/visual/shoulder.dae\n'}
+[22.634095] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/visual/wrist3.dae\n'}
+[22.634283] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/visual/wrist1.dae\n'}
+[22.634398] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/visual/wrist2.dae\n'}
+[22.634612] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur20/visual/base.dae\n'}
+[22.635070] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e\n'}
+[22.635251] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/collision\n'}
+[22.635439] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/collision/forearm.stl\n'}
+[22.635762] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/collision/base.stl\n'}
+[22.636219] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/collision/wrist2.stl\n'}
+[22.636489] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/collision/wrist3.stl\n'}
+[22.637766] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/collision/wrist1.stl\n'}
+[22.638044] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/collision/shoulder.stl\n'}
+[22.638250] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/collision/upperarm.stl\n'}
+[22.638471] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/visual\n'}
+[22.638649] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/visual/upperarm.dae\n'}
+[22.638877] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/visual/forearm.dae\n'}
+[22.639167] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/visual/shoulder.dae\n'}
+[22.639377] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/visual/wrist3.dae\n'}
+[22.639478] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/visual/wrist1.dae\n'}
+[22.639659] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/visual/wrist2.dae\n'}
+[22.639858] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5e/visual/base.dae\n'}
+[22.640058] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3\n'}
+[22.640186] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/collision\n'}
+[22.640484] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/collision/forearm.stl\n'}
+[22.640653] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/collision/base.stl\n'}
+[22.640819] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/collision/wrist2.stl\n'}
+[22.640943] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/collision/wrist3.stl\n'}
+[22.641080] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/collision/wrist1.stl\n'}
+[22.641211] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/collision/shoulder.stl\n'}
+[22.641364] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/collision/upperarm.stl\n'}
+[22.641516] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/visual\n'}
+[22.642425] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/visual/upperarm.dae\n'}
+[22.643379] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/visual/forearm.dae\n'}
+[22.643593] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/visual/shoulder.dae\n'}
+[22.643766] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/visual/wrist3.dae\n'}
+[22.643880] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/visual/wrist1.dae\n'}
+[22.644199] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/visual/wrist2.dae\n'}
+[22.644673] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3/visual/base.dae\n'}
+[22.644812] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur16e\n'}
+[22.645208] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur16e/collision\n'}
+[22.645409] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur16e/collision/forearm.stl\n'}
+[22.646259] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur16e/collision/restackcell_gripper.STL\n'}
+[22.646448] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur16e/collision/upperarm.stl\n'}
+[22.647158] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur16e/visual\n'}
+[22.647641] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur16e/visual/upperarm.dae\n'}
+[22.647879] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur16e/visual/forearm.dae\n'}
+[22.648543] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur16e/visual/restackcell_gripper.STL\n'}
+[22.649709] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e\n'}
+[22.651130] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/collision\n'}
+[22.651632] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/collision/forearm.stl\n'}
+[22.652147] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/collision/base.stl\n'}
+[22.653281] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/collision/wrist2.stl\n'}
+[22.654749] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/collision/wrist3.stl\n'}
+[22.655066] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/collision/wrist1.stl\n'}
+[22.655374] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/collision/shoulder.stl\n'}
+[22.655844] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/collision/upperarm.stl\n'}
+[22.656792] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/visual\n'}
+[22.657527] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/visual/upperarm.dae\n'}
+[22.658783] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/visual/forearm.dae\n'}
+[22.658983] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/visual/shoulder.dae\n'}
+[22.659202] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/visual/wrist3.dae\n'}
+[22.659684] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/visual/wrist1.dae\n'}
+[22.659835] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/visual/wrist2.dae\n'}
+[22.660051] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur3e/visual/base.dae\n'}
+[22.660192] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur30\n'}
+[22.660344] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur30/collision\n'}
+[22.660513] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur30/collision/forearm.stl\n'}
+[22.661156] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur30/collision/upperarm.stl\n'}
+[22.661809] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur30/LICENSE.txt\n'}
+[22.662104] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur30/visual\n'}
+[22.662347] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur30/visual/upperarm.dae\n'}
+[22.662972] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur30/visual/forearm.dae\n'}
+[22.663179] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur30/visual/UR30_DIFF_8bit_2K.png\n'}
+[22.663328] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e\n'}
+[22.663485] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/collision\n'}
+[22.663616] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/collision/forearm.stl\n'}
+[22.663745] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/collision/base.stl\n'}
+[22.663929] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/collision/wrist2.stl\n'}
+[22.664060] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/collision/wrist3.stl\n'}
+[22.664184] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/collision/wrist1.stl\n'}
+[22.664306] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/collision/shoulder.stl\n'}
+[22.664430] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/collision/upperarm.stl\n'}
+[22.664531] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/visual\n'}
+[22.664785] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/visual/upperarm.dae\n'}
+[22.665013] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/visual/forearm.dae\n'}
+[22.665151] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/visual/shoulder.dae\n'}
+[22.665838] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/visual/wrist3.dae\n'}
+[22.666008] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/visual/wrist1.dae\n'}
+[22.666196] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/visual/wrist2.dae\n'}
+[22.666344] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10e/visual/base.dae\n'}
+[22.666486] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10\n'}
+[22.666606] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/collision\n'}
+[22.666705] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/collision/forearm.stl\n'}
+[22.666801] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/collision/base.stl\n'}
+[22.667036] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/collision/wrist2.stl\n'}
+[22.667162] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/collision/wrist3.stl\n'}
+[22.667281] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/collision/wrist1.stl\n'}
+[22.667507] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/collision/shoulder.stl\n'}
+[22.667650] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/collision/upperarm.stl\n'}
+[22.667838] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/visual\n'}
+[22.667958] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/visual/upperarm.dae\n'}
+[22.668333] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/visual/forearm.dae\n'}
+[22.668507] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/visual/shoulder.dae\n'}
+[22.668614] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/visual/wrist3.dae\n'}
+[22.668734] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/visual/wrist1.dae\n'}
+[22.668895] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/visual/wrist2.dae\n'}
+[22.669033] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur10/visual/base.dae\n'}
+[22.669155] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5\n'}
+[22.669272] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/collision\n'}
+[22.669403] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/collision/forearm.stl\n'}
+[22.669524] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/collision/base.stl\n'}
+[22.669657] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/collision/wrist2.stl\n'}
+[22.669772] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/collision/wrist3.stl\n'}
+[22.669916] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/collision/wrist1.stl\n'}
+[22.670036] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/collision/shoulder.stl\n'}
+[22.670151] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/collision/upperarm.stl\n'}
+[22.670266] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/visual\n'}
+[22.670379] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/visual/upperarm.dae\n'}
+[22.670488] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/visual/forearm.dae\n'}
+[22.670582] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/visual/shoulder.dae\n'}
+[22.670675] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/visual/wrist3.dae\n'}
+[22.670772] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/visual/wrist1.dae\n'}
+[22.671003] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/visual/wrist2.dae\n'}
+[22.671131] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/meshes/ur5/visual/base.dae\n'}
+[22.671281] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/local_setup.bash\n'}
+[22.671404] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/test\n'}
+[22.671541] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/test/__pycache__\n'}
+[22.671658] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/test/__pycache__/test_ur_urdf_xacro.cpython-310-pytest-6.2.5.pyc\n'}
+[22.671792] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/test/__pycache__/test_view_ur_launch.cpython-310-pytest-6.2.5.pyc\n'}
+[22.671921] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/test/test_ur_urdf_xacro.py\n'}
+[22.672041] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/test/test_view_ur_launch.py\n'}
+[22.672168] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/environment\n'}
+[22.672304] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/environment/ament_prefix_path.sh\n'}
+[22.672402] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/environment/path.dsv\n'}
+[22.672497] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/environment/ament_prefix_path.dsv\n'}
+[22.672590] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/environment/path.sh\n'}
+[22.672687] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_description/package.xml\n'}
+[22.672786] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config\n'}
+[22.672991] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/package.dsv\n'}
+[22.673144] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/local_setup.zsh\n'}
+[22.673264] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/rviz\n'}
+[22.673416] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/rviz/view_robot.rviz\n'}
+[22.673638] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/local_setup.sh\n'}
+[22.673762] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/cmake\n'}
+[22.673898] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/cmake/ur_moveit_configConfig-version.cmake\n'}
+[22.674150] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/cmake/ur_moveit_configConfig.cmake\n'}
+[22.674290] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/local_setup.dsv\n'}
+[22.674456] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/config\n'}
+[22.674556] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/config/ur_servo.yaml\n'}
+[22.674654] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/config/ompl_planning.yaml\n'}
+[22.674951] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/config/controllers.yaml\n'}
+[22.675147] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/config/pilz_cartesian_limits.yaml\n'}
+[22.675355] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/config/pilz_industrial_motion_planner_planning.yaml\n'}
+[22.675507] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/config/kinematics.yaml\n'}
+[22.675696] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/launch\n'}
+[22.675831] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/launch/ur_moveit.launch.py\n'}
+[22.676011] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/local_setup.bash\n'}
+[22.676248] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/environment\n'}
+[22.676421] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/environment/pythonpath.sh\n'}
+[22.676649] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/environment/ament_prefix_path.sh\n'}
+[22.676793] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/environment/path.dsv\n'}
+[22.677057] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/environment/ament_prefix_path.dsv\n'}
+[22.677279] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/environment/pythonpath.dsv\n'}
+[22.677462] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/environment/path.sh\n'}
+[22.677587] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/package.xml\n'}
+[22.677735] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/srdf\n'}
+[22.677859] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/srdf/ur_macro.srdf.xacro\n'}
+[22.678241] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/config/ur_moveit_config/srdf/ur.srdf.xacro\n'}
+[22.678366] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/package_run_dependencies/robo_planner\n'}
+[22.678479] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/parent_prefix_path/robo_planner\n'}
+[22.678637] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/ament_prefix_path.sh\n'}
+[22.678741] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/ament_prefix_path.dsv\n'}
+[22.678909] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/path.sh\n'}
+[22.679138] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/environment/path.dsv\n'}
+[22.679265] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.bash\n'}
+[22.679386] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.sh\n'}
+[22.679504] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.zsh\n'}
+[22.679626] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/local_setup.dsv\n'}
+[22.679817] (robo_planner) StdoutLine: {'line': b'-- Installing: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.dsv\n'}
+[22.679942] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/ament_index/resource_index/packages/robo_planner\n'}
+[22.680063] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/cmake/robo_plannerConfig.cmake\n'}
+[22.680216] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/cmake/robo_plannerConfig-version.cmake\n'}
+[22.680332] (robo_planner) StdoutLine: {'line': b'-- Up-to-date: /home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner/share/robo_planner/package.xml\n'}
+[22.680430] (robo_planner) CommandEnded: {'returncode': 0}
+[22.724351] (-) TimerEvent: {}
+[22.774100] (robo_planner) JobEnded: {'identifier': 'robo_planner', 'rc': 0}
+[22.776317] (-) EventReactorShutdown: {}

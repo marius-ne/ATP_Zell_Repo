@@ -128,7 +128,7 @@ namespace WzlPlanner
             auto data = std::make_shared<WzlPlanner::OpcUaData>();
             data->actuatorId = "ns=4;i=5015";
             data->actuatorWriteType = 1;
-            data->actuatorCommandBool1 = false;
+            data->actuatorCommandBool1 = true;
 
             return data;
         }
@@ -138,7 +138,7 @@ namespace WzlPlanner
             auto data = std::make_shared<WzlPlanner::OpcUaData>();
             data->actuatorId = "ns=4;i=5015";
             data->actuatorWriteType = 1;
-            data->actuatorCommandBool1 = true;
+            data->actuatorCommandBool1 = false;
 
             return data;
         }
@@ -147,7 +147,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::OpcUaData>();
             data->actuatorId = "ns=4;i=5006";
-            data->actuatorWriteType = 1;
+            data->actuatorWriteType = 2;
             data->actuatorCommandBool1 = true;
             data->actuatorCommandBool2 = true;
 
@@ -158,7 +158,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::OpcUaData>();
             data->actuatorId = "ns=4;i=5006";
-            data->actuatorWriteType = 1;
+            data->actuatorWriteType = 2;
             data->actuatorCommandBool1 = true;
             data->actuatorCommandBool2 = false;
 

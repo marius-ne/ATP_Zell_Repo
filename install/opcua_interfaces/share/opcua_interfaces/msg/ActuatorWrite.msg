@@ -1,0 +1,4 @@
+string actuator_id
+int8  actuator_write_type 
+bool actuator_command_bool1
+bool actuator_command_bool2

@@ -1,0 +1,234 @@
+[0.000000] (-) TimerEvent: {}
+[0.001616] (-) JobUnselected: {'identifier': 'grid_snapper'}
+[0.001957] (-) JobUnselected: {'identifier': 'interface_opcua'}
+[0.002031] (-) JobUnselected: {'identifier': 'mockup_robot'}
+[0.002079] (-) JobUnselected: {'identifier': 'moveit_backend'}
+[0.002122] (-) JobUnselected: {'identifier': 'opcua_client'}
+[0.002161] (-) JobUnselected: {'identifier': 'opcua_interfaces'}
+[0.002198] (-) JobUnselected: {'identifier': 'robo_planner_msgs'}
+[0.002235] (-) JobUnselected: {'identifier': 'robo_planner_py'}
+[0.002271] (-) JobUnselected: {'identifier': 'ur_pilz'}
+[0.002351] (-) JobUnselected: {'identifier': 'wzlscheduler_interfaces'}
+[0.002410] (robo_planner) JobQueued: {'identifier': 'robo_planner', 'dependencies': OrderedDict([('opcua_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces'), ('wzlscheduler_interfaces', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces')])}
+[0.002474] (robo_planner) JobStarted: {'identifier': 'robo_planner'}
+[0.051688] (robo_planner) JobProgress: {'identifier': 'robo_planner', 'progress': 'cmake'}
+[0.053499] (robo_planner) JobProgress: {'identifier': 'robo_planner', 'progress': 'build'}
+[0.055906] (robo_planner) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner', '--', '-j4', '-l4'], 'cwd': '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'autopilot'), ('LC_TIME', 'de_DE.UTF-8'), ('ROS_PACKAGE_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/share:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/share'), ('XDG_SESSION_TYPE', 'x11'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/lib:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/aarch64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/autopilot'), ('DESKTOP_SESSION', 'ubuntu'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/terminator.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('LC_MONETARY', 'de_DE.UTF-8'), ('MANAGERPID', '20026'), ('SYSTEMD_EXEC_PID', '20199'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('TERMINATOR_DBUS_NAME', 'net.tenshu.Terminator23558193cd9818af7fe4d2c2f5bd9d00f'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '22747'), ('IM_CONFIG_PHASE', '1'), ('COLCON_PREFIX_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'autopilot'), ('JOURNAL_STREAM', '8:303544'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/pkgconfig:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib/aarch64-linux-gnu/pkgconfig:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/lib/pkgconfig'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'autopilot'), ('TERM', 'xterm-256color'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/autopilot/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin'), ('SESSION_MANAGER', 'local/autopilot:@/tmp/.ICE-unix/20175,unix/autopilot:/tmp/.ICE-unix/20175'), ('INVOCATION_ID', '0f55858b27064b5b9a343262c3438f56'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'de_DE.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('DISPLAY', ':1'), ('TERMINATOR_DBUS_PATH', '/net/tenshu/Terminator2'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('IBUS_DISABLE_SNOOPER', '1'), ('LC_TELEPHONE', 'de_DE.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('AMENT_PREFIX_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/pcl_segmentation:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/ur_pilz:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LC_NAME', 'de_DE.UTF-8'), ('TERMINATOR_UUID', 'urn:uuid:40a67aac-70cb-41ca-89ff-664f840f1e76'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('LC_MEASUREMENT', 'de_DE.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'de_DE.UTF-8'), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/autopilot/ws/restackcell/ws_moveit2/build/robo_planner'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client/lib/python3.10/site-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces/local/lib/python3.10/dist-packages:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'de_DE.UTF-8'), ('LC_PAPER', 'de_DE.UTF-8'), ('COLCON', '1'), ('VTE_VERSION', '6800'), ('CMAKE_PREFIX_PATH', '/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_py:/home/autopilot/ws/restackcell/ws_moveit2/install/grid_snapper:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_client:/home/autopilot/ws/restackcell/ws_moveit2/install/interface_opcua:/opt/ros/humble:/home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/opcua_interfaces:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner:/home/autopilot/ws/restackcell/ws_moveit2/install/pcl_segmentation:/home/autopilot/ws/restackcell/ws_moveit2/install/moveit_backend:/home/autopilot/ws/restackcell/ws_moveit2/install/mockup_robot:/home/autopilot/ws/restackcell/ws_moveit2/install/ur_pilz:/home/autopilot/ws/restackcell/ws_moveit2/install/robo_planner_msgs')]), 'shell': False}
+[0.098158] (-) TimerEvent: {}
+[0.199472] (-) TimerEvent: {}
+[0.228870] (robo_planner) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target robo_planner\x1b[0m\n'}
+[0.299614] (-) TimerEvent: {}
+[0.400246] (-) TimerEvent: {}
+[0.460681] (robo_planner) StdoutLine: {'line': b'[  4%] \x1b[32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o\x1b[0m\n'}
+[0.500406] (-) TimerEvent: {}
+[0.600994] (-) TimerEvent: {}
+[0.701592] (-) TimerEvent: {}
+[0.802189] (-) TimerEvent: {}
+[0.902777] (-) TimerEvent: {}
+[1.003390] (-) TimerEvent: {}
+[1.104011] (-) TimerEvent: {}
+[1.204642] (-) TimerEvent: {}
+[1.305256] (-) TimerEvent: {}
+[1.405860] (-) TimerEvent: {}
+[1.506450] (-) TimerEvent: {}
+[1.607173] (-) TimerEvent: {}
+[1.707809] (-) TimerEvent: {}
+[1.808463] (-) TimerEvent: {}
+[1.909062] (-) TimerEvent: {}
+[2.009690] (-) TimerEvent: {}
+[2.110271] (-) TimerEvent: {}
+[2.210867] (-) TimerEvent: {}
+[2.311692] (-) TimerEvent: {}
+[2.412491] (-) TimerEvent: {}
+[2.513190] (-) TimerEvent: {}
+[2.613837] (-) TimerEvent: {}
+[2.714874] (-) TimerEvent: {}
+[2.815634] (-) TimerEvent: {}
+[2.916411] (-) TimerEvent: {}
+[3.017139] (-) TimerEvent: {}
+[3.117824] (-) TimerEvent: {}
+[3.218613] (-) TimerEvent: {}
+[3.319333] (-) TimerEvent: {}
+[3.419953] (-) TimerEvent: {}
+[3.520801] (-) TimerEvent: {}
+[3.621476] (-) TimerEvent: {}
+[3.722293] (-) TimerEvent: {}
+[3.823052] (-) TimerEvent: {}
+[3.923728] (-) TimerEvent: {}
+[4.024495] (-) TimerEvent: {}
+[4.125227] (-) TimerEvent: {}
+[4.225959] (-) TimerEvent: {}
+[4.326766] (-) TimerEvent: {}
+[4.427589] (-) TimerEvent: {}
+[4.528308] (-) TimerEvent: {}
+[4.629085] (-) TimerEvent: {}
+[4.729753] (-) TimerEvent: {}
+[4.830366] (-) TimerEvent: {}
+[4.931048] (-) TimerEvent: {}
+[5.031644] (-) TimerEvent: {}
+[5.132260] (-) TimerEvent: {}
+[5.232896] (-) TimerEvent: {}
+[5.333521] (-) TimerEvent: {}
+[5.434129] (-) TimerEvent: {}
+[5.534729] (-) TimerEvent: {}
+[5.635332] (-) TimerEvent: {}
+[5.736433] (-) TimerEvent: {}
+[5.837045] (-) TimerEvent: {}
+[5.937657] (-) TimerEvent: {}
+[6.038262] (-) TimerEvent: {}
+[6.138886] (-) TimerEvent: {}
+[6.239498] (-) TimerEvent: {}
+[6.340109] (-) TimerEvent: {}
+[6.440724] (-) TimerEvent: {}
+[6.541373] (-) TimerEvent: {}
+[6.641983] (-) TimerEvent: {}
+[6.742572] (-) TimerEvent: {}
+[6.843188] (-) TimerEvent: {}
+[6.943819] (-) TimerEvent: {}
+[7.045503] (-) TimerEvent: {}
+[7.146298] (-) TimerEvent: {}
+[7.247018] (-) TimerEvent: {}
+[7.347689] (-) TimerEvent: {}
+[7.448576] (-) TimerEvent: {}
+[7.549334] (-) TimerEvent: {}
+[7.649999] (-) TimerEvent: {}
+[7.750930] (-) TimerEvent: {}
+[7.851707] (-) TimerEvent: {}
+[7.952560] (-) TimerEvent: {}
+[8.053337] (-) TimerEvent: {}
+[8.154051] (-) TimerEvent: {}
+[8.254756] (-) TimerEvent: {}
+[8.355513] (-) TimerEvent: {}
+[8.456639] (-) TimerEvent: {}
+[8.557455] (-) TimerEvent: {}
+[8.658183] (-) TimerEvent: {}
+[8.758863] (-) TimerEvent: {}
+[8.859606] (-) TimerEvent: {}
+[8.960456] (-) TimerEvent: {}
+[9.061193] (-) TimerEvent: {}
+[9.161894] (-) TimerEvent: {}
+[9.262657] (-) TimerEvent: {}
+[9.364465] (-) TimerEvent: {}
+[9.465369] (-) TimerEvent: {}
+[9.566164] (-) TimerEvent: {}
+[9.666877] (-) TimerEvent: {}
+[9.767808] (-) TimerEvent: {}
+[9.868929] (-) TimerEvent: {}
+[9.969612] (-) TimerEvent: {}
+[10.070310] (-) TimerEvent: {}
+[10.171079] (-) TimerEvent: {}
+[10.271803] (-) TimerEvent: {}
+[10.372619] (-) TimerEvent: {}
+[10.473235] (-) TimerEvent: {}
+[10.574369] (-) TimerEvent: {}
+[10.674963] (-) TimerEvent: {}
+[10.775593] (-) TimerEvent: {}
+[10.876194] (-) TimerEvent: {}
+[10.977707] (-) TimerEvent: {}
+[11.078457] (-) TimerEvent: {}
+[11.179164] (-) TimerEvent: {}
+[11.279789] (-) TimerEvent: {}
+[11.380445] (-) TimerEvent: {}
+[11.481071] (-) TimerEvent: {}
+[11.581698] (-) TimerEvent: {}
+[11.682296] (-) TimerEvent: {}
+[11.782904] (-) TimerEvent: {}
+[11.883528] (-) TimerEvent: {}
+[11.927579] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:\x1b[m\x1b[K In function \xe2\x80\x98\x1b[01m\x1b[KT get_parameter(const SharedPtr&, const string&, const T&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[11.928102] (robo_planner) StderrLine: {'line': b'\x1b[01m\x1b[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:36:3:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[Kexpected \xe2\x80\x98\x1b[01m\x1b[K;\x1b[m\x1b[K\xe2\x80\x99 before \xe2\x80\x98\x1b[01m\x1b[K}\x1b[m\x1b[K\xe2\x80\x99 token\n'}
+[11.928299] (robo_planner) StderrLine: {'line': b'   36 |   \x1b[01;31m\x1b[K}\x1b[m\x1b[K\n'}
+[11.928487] (robo_planner) StderrLine: {'line': b'      |   \x1b[01;31m\x1b[K^\x1b[m\x1b[K\n'}
+[11.983694] (-) TimerEvent: {}
+[12.084312] (-) TimerEvent: {}
+[12.185052] (-) TimerEvent: {}
+[12.285687] (-) TimerEvent: {}
+[12.386317] (-) TimerEvent: {}
+[12.486974] (-) TimerEvent: {}
+[12.587567] (-) TimerEvent: {}
+[12.688187] (-) TimerEvent: {}
+[12.788949] (-) TimerEvent: {}
+[12.889565] (-) TimerEvent: {}
+[12.990141] (-) TimerEvent: {}
+[13.090723] (-) TimerEvent: {}
+[13.191333] (-) TimerEvent: {}
+[13.291947] (-) TimerEvent: {}
+[13.392566] (-) TimerEvent: {}
+[13.493316] (-) TimerEvent: {}
+[13.594022] (-) TimerEvent: {}
+[13.694631] (-) TimerEvent: {}
+[13.795214] (-) TimerEvent: {}
+[13.895817] (-) TimerEvent: {}
+[13.996628] (-) TimerEvent: {}
+[14.097328] (-) TimerEvent: {}
+[14.198105] (-) TimerEvent: {}
+[14.298839] (-) TimerEvent: {}
+[14.399582] (-) TimerEvent: {}
+[14.500363] (-) TimerEvent: {}
+[14.601227] (-) TimerEvent: {}
+[14.701906] (-) TimerEvent: {}
+[14.803474] (-) TimerEvent: {}
+[14.904258] (-) TimerEvent: {}
+[15.005129] (-) TimerEvent: {}
+[15.105885] (-) TimerEvent: {}
+[15.206689] (-) TimerEvent: {}
+[15.307491] (-) TimerEvent: {}
+[15.408198] (-) TimerEvent: {}
+[15.509744] (-) TimerEvent: {}
+[15.610605] (-) TimerEvent: {}
+[15.711541] (-) TimerEvent: {}
+[15.813023] (-) TimerEvent: {}
+[15.914244] (-) TimerEvent: {}
+[16.015261] (-) TimerEvent: {}
+[16.115915] (-) TimerEvent: {}
+[16.216721] (-) TimerEvent: {}
+[16.317460] (-) TimerEvent: {}
+[16.418241] (-) TimerEvent: {}
+[16.519037] (-) TimerEvent: {}
+[16.619746] (-) TimerEvent: {}
+[16.720520] (-) TimerEvent: {}
+[16.821317] (-) TimerEvent: {}
+[16.922180] (-) TimerEvent: {}
+[17.023295] (-) TimerEvent: {}
+[17.123994] (-) TimerEvent: {}
+[17.224963] (-) TimerEvent: {}
+[17.326878] (-) TimerEvent: {}
+[17.428167] (-) TimerEvent: {}
+[17.528979] (-) TimerEvent: {}
+[17.629743] (-) TimerEvent: {}
+[17.730645] (-) TimerEvent: {}
+[17.833127] (-) TimerEvent: {}
+[17.933849] (-) TimerEvent: {}
+[18.034583] (-) TimerEvent: {}
+[18.135680] (-) TimerEvent: {}
+[18.236962] (-) TimerEvent: {}
+[18.337688] (-) TimerEvent: {}
+[18.438570] (-) TimerEvent: {}
+[18.539512] (-) TimerEvent: {}
+[18.640275] (-) TimerEvent: {}
+[18.741459] (-) TimerEvent: {}
+[18.844151] (-) TimerEvent: {}
+[18.944866] (-) TimerEvent: {}
+[19.045481] (-) TimerEvent: {}
+[19.146104] (-) TimerEvent: {}
+[19.246703] (-) TimerEvent: {}
+[19.347287] (-) TimerEvent: {}
+[19.447998] (-) TimerEvent: {}
+[19.548802] (-) TimerEvent: {}
+[19.649425] (-) TimerEvent: {}
+[19.750037] (-) TimerEvent: {}
+[19.850622] (-) TimerEvent: {}
+[19.951211] (-) TimerEvent: {}
+[20.051809] (-) TimerEvent: {}
+[20.152423] (-) TimerEvent: {}
+[20.253015] (-) TimerEvent: {}
+[20.353616] (-) TimerEvent: {}
+[20.454206] (-) TimerEvent: {}
+[20.554802] (-) TimerEvent: {}
+[20.569090] (robo_planner) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:104: CMakeFiles/robo_planner.dir/src/Main.cpp.o] Error 1\n'}
+[20.569561] (robo_planner) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2\n'}
+[20.571003] (robo_planner) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[20.574423] (robo_planner) CommandEnded: {'returncode': 2}
+[20.654924] (-) TimerEvent: {}
+[20.755916] (-) TimerEvent: {}
+[20.778123] (robo_planner) JobEnded: {'identifier': 'robo_planner', 'rc': 2}
+[20.780849] (-) EventReactorShutdown: {}
