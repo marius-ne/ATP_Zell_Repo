@@ -235,7 +235,7 @@ Simulation (default): 192.168.56.101
 ### URCaps Einrichten und starten
 
 
-Um die URCaps zu starten, erst in der Leiste oben auf Program drücken, dann auf URCcaps und external control. 
+Um die URCaps zu starten, erst in der Leiste oben auf Program drücken, dann auf URCaps und external control. 
 
 Das Program kann nun unten rechts am Panel mit dem Startknopf gestartet werden. 
 
