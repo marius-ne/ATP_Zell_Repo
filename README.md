@@ -188,7 +188,7 @@ colcon build
 - Hauptschalter am Schrank auf ein drehen
 - Druckluft Hahn (blau) an der Wand aufdrehen
 - Druckluftventil unten in der Zelle aufdrehen und sicherstellen, dass Druck vorhanden ist
-- Sicherstellen das alle Teile der Zelle am richtigen Ort stehen und, dass die Tools in der Werkzeugwechselstation sind
+- Sicherstellen dass alle Teile der Zelle am richtigen Ort stehen und, dass die Tools in der Werkzeugwechselstation sind
 
 ### Simulation starten
 
