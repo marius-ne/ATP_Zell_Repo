@@ -235,7 +235,7 @@ Simulation (default): 192.168.56.101
 ### URCaps Einrichten und starten
 
 
-Um die URCaps zu starten, erst in der Leiste oben auf Program drücken, dann auf URCcaps und external control. 
+Um die URCaps zu starten, erst in der Leiste oben auf Program drücken, dann auf URCaps und external control. 
 
 Das Program kann nun unten rechts am Panel mit dem Startknopf gestartet werden. 
 
@@ -278,7 +278,7 @@ Das Ablaufprogramm des Schedulers/Planners wird über diese Launch-Datei gestart
 ros2 launch robo_planner ur_planner_launch.py
 ```
 
-Falls der Ablauf der in Main.cpp ist nicht zufriedenstellend ist, gibt es ein Beispielablauf in der text Datei UseCase_Ablauf.txt im `robo_planer/src` Order. Dieser Ablauf kann einfach in Main.cpp copiert werden um einen standard UseCase Ablauf zu haben.
+Falls der Ablauf der in Main.cpp ist, nicht zufriedenstellend ist, gibt es ein Beispielablauf in der text Datei UseCase_Ablauf.txt im `robo_planer/src` Ordner. Dieser Ablauf kann einfach in Main.cpp kopiert werden um einen standard UseCase Ablauf zu haben.
 
 Dabei ist zu beachten, dass der workspace im Projekt „Restackcell" gesourced ist, das kann man wie folgend aus dem home Directory machen.
 
