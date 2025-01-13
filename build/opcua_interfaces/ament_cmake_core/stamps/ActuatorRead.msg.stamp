@@ -1,4 +1,0 @@
-string actuator_id
-int8  actuator_read_type 
-bool actuator_value_bool
-uint16 actuator_value_int

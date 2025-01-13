@@ -1,1 +1,0 @@
-LabeledPose elements

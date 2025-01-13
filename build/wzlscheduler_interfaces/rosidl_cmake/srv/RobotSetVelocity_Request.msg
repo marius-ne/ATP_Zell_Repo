@@ -1,3 +1,0 @@
-float64 velocityscalingfactor
-float64 accelerationscalingfactor
-int32 type
