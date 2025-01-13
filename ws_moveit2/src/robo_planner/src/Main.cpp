@@ -686,13 +686,20 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlacePC(const rclcpp::Node::Shar
  *
  * @param node The ROS node to retrieve parameters from
  * @param BEMIIndex The index of the BEMI 1-3
+ * @param PartType The Part Type 1-2, Big 1, Small 2
  * @return A shared pointer to the task list
  */
-std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBEMI(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, int BEMIIndex)
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBEMI(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, int BEMIIndex, int PartType)
 {
   if (BEMIIndex < 1 || BEMIIndex > 3)
   {
     std::cout << "The BEMI index: " << std::to_string(BEMIIndex) << " in method 'CreateTaskPickBEMI' is not defined." << std::endl;
+    return nullptr;
+  }
+
+  if (PartType < 1 || PartType > 2)
+  {
+    std::cout << "The Part Type: " << std::to_string(PartType) << " in method 'CreateTaskPlaceBEMI' is not defined." << std::endl;
     return nullptr;
   }
 
@@ -713,6 +720,13 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBEMI(const rclcpp::Node::Sha
   std::vector<double> BEMIY = get_parameter<std::vector<double>>(node, "positions.bemi.y", {0.6815, 0.6178, 0.0});
 
   std::vector<double> BEMIRZOffset = get_parameter<std::vector<double>>(node, "positions.bemi.RZ_offset", {0.0475, -1.405985086238, 0.0});
+
+  // Increase Bemi index if small part is to be picked from bemi 3
+  if (BEMIIndex == 3 && PartType == 2)  
+  {
+    BEMIIndex = 4;
+  }
+
   double BEMIrotZ = rotZ + BEMIRZOffset[BEMIIndex - 1];
 
   auto poseApproachBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex - 1], BEMIY[BEMIIndex - 1], placementBemiZ, rotX, rotY, BEMIrotZ);
@@ -744,10 +758,14 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBEMI(const rclcpp::Node::Sha
   else if (BEMIIndex == 2)
   {
     taskList->AddTask(tasks->taskIoBemi2Open);
-  } // else if (BEMIIndex == 3)
-  //{
-  // taskList->AddTask(tasks->taskIoBemi3Open);
-  //}
+  }  else if (BEMIIndex == 3)
+  {
+    taskList->AddTask(tasks->taskIoBemi3Open);
+  } else if (BEMIIndex == 4)
+  {
+    taskList->AddTask(tasks->taskIoBemi3Open);
+  }
+
 
   taskList->AddTask(tasks->taskIoGripperClose);
   taskList->AddTask(tasks->taskWait);
@@ -778,13 +796,20 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBEMI(const rclcpp::Node::Sha
  *
  * @param node The ROS node to retrieve parameters from
  * @param BEMIIndex The index of the BEMI 1-3
+ * @param PartType The Part Type, Big 1, Small 2
  * @return A shared pointer to the task list
  */
-std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, int BEMIIndex)
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, int BEMIIndex, int PartType)
 {
   if (BEMIIndex < 1 || BEMIIndex > 3)
   {
     std::cout << "The BEMI index: " << std::to_string(BEMIIndex) << " in method 'CreateTaskPlaceBEMI' is not defined." << std::endl;
+    return nullptr;
+  }
+
+  if (PartType < 1 || PartType > 2)
+  {
+    std::cout << "The Part Type: " << std::to_string(PartType) << " in method 'CreateTaskPlaceBEMI' is not defined." << std::endl;
     return nullptr;
   }
 
@@ -805,6 +830,13 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::Sh
   std::vector<double> BEMIY = get_parameter<std::vector<double>>(node, "positions.bemi.y", {0.6815, 0.6178, 0.0});
 
   std::vector<double> BEMIRZOffset = get_parameter<std::vector<double>>(node, "positions.bemi.RZ_offset", {0.0475, -1.405985086238, 0.0});
+  
+  // Increase Bemi index if small part is to be placed in bemi 3
+  if (BEMIIndex == 3 && PartType == 2)  
+  {
+    BEMIIndex = 4;
+  }
+
   double BEMIrotZ = rotZ + BEMIRZOffset[BEMIIndex - 1];
 
   auto poseApproachBemi = std::make_shared<WzlPlanner::Pose>(BEMIX[BEMIIndex - 1], BEMIY[BEMIIndex - 1], placementBemiZ, rotX, rotY, BEMIrotZ);
@@ -837,6 +869,14 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::Sh
   {
     taskList->AddTask(tasks->taskIoBemi2Open);
   }
+  else if (BEMIIndex == 3)
+  {
+    taskList->AddTask(tasks->taskIoBemi3Open);
+  }
+  else if (BEMIIndex == 4)
+  {
+    taskList->AddTask(tasks->taskIoBemi3Open);
+  }
 
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskExecuteBemi);
@@ -854,8 +894,17 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::Sh
   {
     taskList->AddTask(tasks->taskIoBemi2Close);
   }
+  else if (BEMIIndex == 3)
+  {
+    taskList->AddTask(tasks->taskIoBemi3Close);
+  } 
+  else if (BEMIIndex == 4)
+  {
+    taskList->AddTask(tasks->taskIoBemi3Close);
+  }
 
   taskList->AddTask(tasks->taskIoGripperOpen);
+  taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskIoGripperNeutral);
 
   return taskList;
@@ -1172,7 +1221,6 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
 
   // setup custom task list
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
-  taskList->SetId("UseCase1");
 
   // Set Pneumatics to neutral
   taskList->AddTask(tasks->taskIoGripperNeutral);
