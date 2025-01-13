@@ -293,8 +293,8 @@ std::vector<std::vector<double>> LoadNCFile(const std::string& filename) {
             if (xPos != std::string::npos) {
                 size_t nextChar = line.find_first_of(" XYZF", xPos + 1);
                 std::string xVal = line.substr(xPos + 1, nextChar - xPos - 1);
-                //point[0] = std::stod(xVal) / 100.0;
-                point[0] = (std::stod(xVal) / 400.0) + 0.3;
+                //point[0] = std::stod(xVal) / 1000.0;
+                point[0] = (std::stod(xVal) / 4000.0) + 0.3;
             }
             
             // Parse Y coordinate
@@ -302,8 +302,8 @@ std::vector<std::vector<double>> LoadNCFile(const std::string& filename) {
             if (yPos != std::string::npos) {
                 size_t nextChar = line.find_first_of(" XYZF", yPos + 1);
                 std::string yVal = line.substr(yPos + 1, nextChar - yPos - 1);
-                //point[1] = std::stod(yVal) / -100.0;
-                point[1] = (std::stod(yVal) / -400.0) + 0.3;
+                //point[1] = std::stod(yVal) / -1000.0;
+                point[1] = (std::stod(yVal) / -4000.0) + 0.3;
             }
             
             // Parse Z coordinate
@@ -311,7 +311,7 @@ std::vector<std::vector<double>> LoadNCFile(const std::string& filename) {
             if (zPos != std::string::npos) {
                 size_t nextChar = line.find_first_of(" XYZF", zPos + 1);
                 std::string zVal = line.substr(zPos + 1, nextChar - zPos - 1);
-                //point[2] = std::stod(zVal) / 100.0;
+                //point[2] = std::stod(zVal) / 1000.0;
                 point[2] = 0.5;
             }
             
@@ -528,22 +528,22 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::Share
   double rotY = 0;
   double rotZ;
 
-  std::vector<double> PC1X;
-  std::vector<double> PC1Y;
-  std::vector<double> PC1Z;
+  std::vector<double> PCX;
+  std::vector<double> PCY;
+  std::vector<double> PCZ;
 
   if (PCNr == 1)
   {
-    PC1X = get_parameter<std::vector<double>>(node, "positions.PC.x_1", {-0.351, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762});
-    PC1Y = get_parameter<std::vector<double>>(node, "positions.PC.y_1", {0.341, 0.341, 0.341, 0.341, 0.341, 0.144, 0.144, 0.144});
-    PC1Z = get_parameter<std::vector<double>>(node, "positions.PC.z_1", {0.260, 0.260, 0.260, 0.260, 0.260, 0.230, 0.230, 0.230});
+    PCX = get_parameter<std::vector<double>>(node, "positions.PC.x_1", {-0.351, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762});
+    PCY = get_parameter<std::vector<double>>(node, "positions.PC.y_1", {0.341, 0.341, 0.341, 0.341, 0.341, 0.144, 0.144, 0.144});
+    PCZ = get_parameter<std::vector<double>>(node, "positions.PC.z_1", {0.260, 0.260, 0.260, 0.260, 0.260, 0.230, 0.230, 0.230});
     rotZ = -M_PI - M_PI / 4;
   }
   else if (PCNr == 2)
   {
-    PC1X = get_parameter<std::vector<double>>(node, "positions.PC.x_2", {-0.50674, 0.0});
-    PC1Y = get_parameter<std::vector<double>>(node, "positions.PC.y_2", {-0.18692, 0.0});
-    PC1Z = get_parameter<std::vector<double>>(node, "positions.PC.z_2", {0.5453, 0.0});
+    PCX = get_parameter<std::vector<double>>(node, "positions.PC.x_2", {-0.50674, 0.0});
+    PCY = get_parameter<std::vector<double>>(node, "positions.PC.y_2", {-0.18692, 0.0});
+    PCZ = get_parameter<std::vector<double>>(node, "positions.PC.z_2", {0.5453, 0.0});
     //rotZ = -M_PI;
     rotZ = -M_PI + (5.0 / 12.0) * M_PI;
 
@@ -551,31 +551,34 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::Share
 
   int PC_index = PCIndex - 1;
 
-  double placementPC1Z = PC1Z[PC_index] + placementOffsetZ;
+  double placementPCZ = PCZ[PC_index] + placementOffsetZ;
 
-  auto posePC1Approach1 = std::make_shared<WzlPlanner::Pose>(PC1X[PC_index], PC1Y[PC_index], placementPC1Z, rotX, rotY, rotZ);
-  auto posePC1Execute1 = std::make_shared<WzlPlanner::Pose>(PC1X[PC_index], PC1Y[PC_index], PC1Z[PC_index], rotX, rotY, rotZ);
-  auto posePC1End1 = std::make_shared<WzlPlanner::Pose>(PC1X[PC_index], PC1Y[PC_index], placementPC1Z, rotX, rotY, rotZ);
+  auto posePCApproach = std::make_shared<WzlPlanner::Pose>(PCX[PC_index], PCY[PC_index], placementPCZ, rotX, rotY, rotZ);
+  auto posePCExecute = std::make_shared<WzlPlanner::Pose>(PCX[PC_index], PCY[PC_index], PCZ[PC_index], rotX, rotY, rotZ);
+  auto posePCEnd = std::make_shared<WzlPlanner::Pose>(PCX[PC_index], PCY[PC_index], placementPCZ, rotX, rotY, rotZ);
 
-  // Part Carrier 1, part 1: TASK DEF
-  auto taskPC1Approach1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  auto taskPC1Execute1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  auto taskPC1End1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  // Part Carrier, part: TASK DEF
+  auto taskPCApproach = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto taskPCExecute = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto taskPCEnd = std::make_shared<WzlPlanner::TaskMoveToPose>();
 
-  taskPC1Approach1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(posePC1Approach1);
-  taskPC1Execute1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(posePC1Execute1);
-  taskPC1End1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(posePC1End1);
+  taskPCApproach->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(posePCApproach);
+  taskPCApproach->SetId("taskPCApproach");
+  taskPCExecute->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(posePCExecute);
+  taskPCExecute->SetId("taskPCExecute");
+  taskPCEnd->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(posePCEnd);
+  taskPCEnd->SetId("taskPCEnd");
 
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
 
   taskList->AddTask(tasks->taskSetSpeedCartesianFast);
-  taskList->AddTask(taskPC1Approach1);
+  taskList->AddTask(taskPCApproach);
   taskList->AddTask(tasks->taskIoGripperClose);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(taskPC1Execute1);
+  taskList->AddTask(taskPCExecute);
   taskList->AddTask(tasks->taskIoGripperOpen);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(taskPC1End1);
+  taskList->AddTask(taskPCEnd);
 
   return taskList;
 }
@@ -613,52 +616,55 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlacePC(const rclcpp::Node::Shar
   double rotY = 0;
   double rotZ;
 
-  std::vector<double> PC1X;
-  std::vector<double> PC1Y;
-  std::vector<double> PC1Z;
+  std::vector<double> PCX;
+  std::vector<double> PCY;
+  std::vector<double> PCZ;
 
   if (PCNr == 1)
   {
-    PC1X = get_parameter<std::vector<double>>(node, "positions.PC.x_1", {-0.351, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762});
-    PC1Y = get_parameter<std::vector<double>>(node, "positions.PC.y_1", {0.341, 0.341, 0.341, 0.341, 0.341, 0.144, 0.144, 0.144});
-    PC1Z = get_parameter<std::vector<double>>(node, "positions.PC.z_1", {0.260, 0.260, 0.260, 0.260, 0.260, 0.230, 0.230, 0.230});
+    PCX = get_parameter<std::vector<double>>(node, "positions.PC.x_1", {-0.351, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762});
+    PCY = get_parameter<std::vector<double>>(node, "positions.PC.y_1", {0.341, 0.341, 0.341, 0.341, 0.341, 0.144, 0.144, 0.144});
+    PCZ = get_parameter<std::vector<double>>(node, "positions.PC.z_1", {0.260, 0.260, 0.260, 0.260, 0.260, 0.230, 0.230, 0.230});
     rotZ = -M_PI - M_PI / 4;
   }
   else if (PCNr == 2)
   {
-    PC1X = get_parameter<std::vector<double>>(node, "positions.PC.x_2", {-0.50674, 0.0});
-    PC1Y = get_parameter<std::vector<double>>(node, "positions.PC.y_2", {-0.18692, 0.0});
-    PC1Z = get_parameter<std::vector<double>>(node, "positions.PC.z_2", {0.5453, 0.0});
+    PCX = get_parameter<std::vector<double>>(node, "positions.PC.x_2", {-0.50674, 0.0});
+    PCY = get_parameter<std::vector<double>>(node, "positions.PC.y_2", {-0.18692, 0.0});
+    PCZ = get_parameter<std::vector<double>>(node, "positions.PC.z_2", {0.5453, 0.0});
     //rotZ = -M_PI;
     rotZ = -M_PI + (5.0 / 12.0) * M_PI;
   }
 
   int PC_index = PCIndex - 1;
 
-  double placementPC1Z = PC1Z[PC_index] + placementOffsetZ;
+  double placementPCZ = PCZ[PC_index] + placementOffsetZ;
 
-  auto posePC1Approach1 = std::make_shared<WzlPlanner::Pose>(PC1X[PC_index], PC1Y[PC_index], placementPC1Z, rotX, rotY, rotZ);
-  auto posePC1Execute1 = std::make_shared<WzlPlanner::Pose>(PC1X[PC_index], PC1Y[PC_index], PC1Z[PC_index], rotX, rotY, rotZ);
-  auto posePC1End1 = std::make_shared<WzlPlanner::Pose>(PC1X[PC_index], PC1Y[PC_index], placementPC1Z, rotX, rotY, rotZ);
+  auto posePCApproach = std::make_shared<WzlPlanner::Pose>(PCX[PC_index], PCY[PC_index], placementPCZ, rotX, rotY, rotZ);
+  auto posePCExecute = std::make_shared<WzlPlanner::Pose>(PCX[PC_index], PCY[PC_index], PCZ[PC_index], rotX, rotY, rotZ);
+  auto posePCEnd = std::make_shared<WzlPlanner::Pose>(PCX[PC_index], PCY[PC_index], placementPCZ, rotX, rotY, rotZ);
 
   // Part Carrier 1, part 1: TASK DEF
-  auto taskPC1Approach1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  auto taskPC1Execute1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  auto taskPC1End1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto taskPCApproach = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto taskPCExecute = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto taskPCEnd = std::make_shared<WzlPlanner::TaskMoveToPose>();
 
-  taskPC1Approach1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(posePC1Approach1);
-  taskPC1Execute1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(posePC1Execute1);
-  taskPC1End1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(posePC1End1);
+  taskPCApproach->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(posePCApproach);
+  taskPCApproach->SetId("taskPCApproach");
+  taskPCExecute->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(posePCExecute);
+  taskPCExecute->SetId("taskPCExecute");
+  taskPCEnd->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(posePCEnd);
+  taskPCEnd->SetId("taskPCEnd");
 
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
 
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
-  taskList->AddTask(taskPC1Approach1);
-  taskList->AddTask(taskPC1Execute1);
+  taskList->AddTask(taskPCApproach);
+  taskList->AddTask(taskPCExecute);
   taskList->AddTask(tasks->taskIoGripperClose);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskSetSpeedCartesianFast);
-  taskList->AddTask(taskPC1End1);
+  taskList->AddTask(taskPCEnd);
   taskList->AddTask(tasks->taskIoGripperNeutral);
 
   return taskList;
@@ -719,8 +725,11 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBEMI(const rclcpp::Node::Sha
   auto taskEndBemi = std::make_shared<WzlPlanner::TaskMoveToPose>();
 
   taskApproachBemi->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBemi);
+  taskApproachBemi->SetId("taskApproachBemi");
   taskExecuteBemi->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseExecuteBemi);
+  taskExecuteBemi->SetId("taskExecuteBemi");
   taskEndBemi->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBemi);
+  taskEndBemi->SetId("taskEndBemi");
 
   // DEFINE TASK LIST
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
@@ -808,8 +817,11 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::Sh
   auto taskEndBemi = std::make_shared<WzlPlanner::TaskMoveToPose>();
 
   taskApproachBemi->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBemi);
+  taskApproachBemi->SetId("taskApproachBemi");
   taskExecuteBemi->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseExecuteBemi);
+  taskExecuteBemi->SetId("taskExecuteBemi");
   taskEndBemi->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBemi);
+  taskEndBemi->SetId("taskEndBemi");
 
   // DEFINE TASK LIST
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
@@ -893,8 +905,11 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBearingInBEMI(const rclcpp:
   auto taskEndBearing = std::make_shared<WzlPlanner::TaskMoveToPose>();
 
   taskApproachBearing->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBearing);
+  taskApproachBearing->SetId("taskApproachBearing");
   taskPlaceBearing->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(posePlaceBearing);
+  taskPlaceBearing->SetId("taskPlaceBearing");
   taskEndBearing->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBearing);
+  taskEndBearing->SetId("taskEndBearing");
 
   // Define task list
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
@@ -967,8 +982,11 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBearingFromBEMI(const rclcpp
   auto taskEndBearing = std::make_shared<WzlPlanner::TaskMoveToPose>();
 
   taskApproachBearing->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseApproachBearing);
+  taskApproachBearing->SetId("taskApproachBearing");
   taskPickBearing->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(posePickBearing);
+  taskPickBearing->SetId("taskPickBearing");
   taskEndBearing->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseEndBearing);
+  taskEndBearing->SetId("taskEndBearing");
 
   // Define task list
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
@@ -1015,6 +1033,7 @@ std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double 
   double rotZ = posePointCenter->GetRotationZ();
 
   auto taskMoveTrjajectory = std::make_shared<WzlPlanner::TaskFollowTrajectory>();
+  taskMoveTrjajectory->SetId("MoveInCircle");
 
   for (double i = 0; i < 2 * M_PI; i += 0.01)
   {
