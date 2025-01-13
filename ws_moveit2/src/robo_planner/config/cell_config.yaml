@@ -2,12 +2,12 @@ robo_planner:
   ros__parameters:
     # Robot position parameters
     positions:
-      # BEMI Position list
+      # BEMI Position list, Bemi 1, Bemi 2, Bemi 3 (grosses Teil), Bemi 3 (kleines Teil)
       bemi:
-        x: [0.3634, 0.1184, 0.0] # X-coordinates of BEMIs 
-        y: [0.6815, 0.6178, 0.0] # Y-coordinates of BEMIs 
-        z: [0.320, 0.2885, 0.0]  # Z-coordinates of BEMIs 
-        RZ_offset: [0.0475, -1.405985086238, 0.0] # Z-rotation offsets of BEMIs 
+        x: [0.3634, 0.1184, 0.0, 0.0] # X-coordinates of BEMIs 
+        y: [0.6815, 0.6178, 0.0, 0.0] # Y-coordinates of BEMIs 
+        z: [0.320, 0.2885, 0.0, 0.0]  # Z-coordinates of BEMIs 
+        RZ_offset: [0.0475, -1.405985086238, -1.405985086238, 0.0] # Z-rotation offsets of BEMIs 
 
       # Part Carrier 
       PC:
