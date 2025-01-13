@@ -1,9 +1,0 @@
-[  4%] [32mBuilding CXX object CMakeFiles/robo_planner.dir/src/Main.cpp.o[0m
-[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:[m[K In function ‘[01m[Kvoid UseCase1(const SharedPtr&, const std::shared_ptr<MiscTasks>&)[m[K’:
-[01m[K/home/autopilot/ws/restackcell/ws_moveit2/src/robo_planner/src/Main.cpp:938:28:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = class MiscTasks[m[K’ {aka ‘[01m[Kclass MiscTasks[m[K’} has no member named ‘[01m[KtaskIoDeburringSpindleAnpressdruckOff[m[K’; did you mean ‘[01m[KtaskIoDeburringSpindleAnpressdruckActivate[m[K’?
-  938 |   taskList->AddTask(tasks->[01;31m[KtaskIoDeburringSpindleAnpressdruckOff[m[K);
-      |                            [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
-      |                            [32m[KtaskIoDeburringSpindleAnpressdruckActivate[m[K
-gmake[2]: *** [CMakeFiles/robo_planner.dir/build.make:104: CMakeFiles/robo_planner.dir/src/Main.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/robo_planner.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2
