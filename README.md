@@ -320,11 +320,46 @@ source ws/restackcell/ws_moveit2/install/setup.bash
 
 ### Roadmap ReStackCell
 
-- 6D-Posen Erkennung über Foundation Pose der Getriebehälften (gtr)
-- 6D-Posen Erkennung über Foundation Pose für BEMIs (gtr)
+- 6D-Posen Erkennung über YOLO der Getriebehälften (gtr)
+- 6D-Posen Erkennung über YOLO für BEMIs (gtr)
 - Einbindung WZL-Rechner für KI-Anwendungen (gtr)
 - Implementierung Vision Überwachung Anlagen Konfiguration (gtr, wml)
 - Aufzeichnen Hardware Architektur Schaltschrank (bln)
 - Aufzeichnen Software Architektur (wml)
 - Proof of Concept: Dockersieren der ROS2 Packages der ReStackCell (wml)
 - Weitere Umsetzung Use-Case1 (wml)
+- Buchsen für das Restacking einsetzen (wml)
+
+### Roadmap Hannover Messe
+- [ ] Plexiglas, Abdeckplatten bestellen (wml)
+- [ ] Schloss versetzen zum Schließen der Türen
+- [ ] Beschriftung der Werkzeuge (gtr)
+- [ ] bln Werkstückträger demontieren
+- [ ] Kabelkanäle oberhalb der Platte legen; Kabelbinder nutzen
+- [ ] Bildschirmhalter beschaffen
+- [ ] Start der Zelle vereinfachen
+- [ ] Zelle abschließend säubern
+- [ ] Schrauben checken und festziehen
+- [ ] Transport abklären
+- [ ] Zugangsdaten abklären, können wir die Zelle mit einem Laptop remote starten?
+- [ ] Netzwerkarchitektur von bln skizzieren lassen
+
+#### Use Case 1 Implementierung
+- [ ] Greiffinger 2-Finger-Greifer fertigen, montieren (wml)
+- [ ] Verfeinern der Position der Lageraufnahme und -platzierung
+- [ ] Alle Lagerpositionen implementieren
+- [ ] Getriebebox nach dem Einsetzen der Lager **horizontal** verfahren
+- [ ] Kollisionsmodell anpassen; Sensorturm demontiert
+
+#### Pose Estimation (gtr)
+- [ ] Kamera oberhalb der Zelle montieren
+- [ ] Kamera kalibrieren
+- [ ] Testbilder aufzeichnen
+- [ ] synthetische Daten generieren (Key-Points definieren und Bilder aufzeichnen)
+- [ ] (optional) Textur der CAD-Modelle anpassen
+- [ ] YOLO-Pose Estimation Netz antrainieren
+- [ ] Pose Estimation testen
+- [ ] Realtime-Integration in ROS
+- [ ] UI-Anzeige mit Pose Estimation Bildern
+
+### Roadmap Reman-Cell
