@@ -22,7 +22,7 @@ HIER IST EIN BEISPIEL ABLAUF VON EINEM USE CASE in Main.cpp
   taskList->AddTask(tasks->taskAttachGripper);
 
   taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 1));
-  taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1));
+  taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1,1));
 
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
   taskList->AddTask(taskGripperUnequip);
@@ -48,7 +48,7 @@ HIER IST EIN BEISPIEL ABLAUF VON EINEM USE CASE in Main.cpp
   taskList->AddTask(taskGripperEquip);
   taskList->AddTask(tasks->taskAttachGripper);
 
-  taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1));
+  taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1, 1));
   taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
 
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);

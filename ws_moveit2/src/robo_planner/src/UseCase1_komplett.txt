@@ -1,0 +1,114 @@
+/ Set Pneumatics to neutral
+  taskList->AddTask(tasks->taskIoGripperNeutral);
+  taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  taskList->AddTask(tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
+  taskList->AddTask(tasks->taskIoLampGreen);
+  taskList->AddTask(tasks->taskWait); 
+
+  //------------------- Turn cell to neutral position -------------------//
+  taskList->AddTask(taskInitPose);
+  taskList->AddTask(tasks->taskSetSpeedPtp);
+
+  //------------------- Pick Part 1&2 from PC & Place parts in BEMI 1&2 -------------------//
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperEquip);
+  taskList->AddTask(tasks->taskAttachGripper); 
+  
+  taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 1));
+  taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1, 1)); // Eigentlich (CreateTaskPlaceBEMI(node, tasks, 1, 2)); weil Bauteil 1 PartType 2 ist
+  
+  taskList->AddTask(CreateTaskPickPC(node, tasks, 6, 1));
+  taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 2, 1));
+
+  //------------------- Deburr both parts -------------------//
+  //Unequip gripper and equip spindle
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperUnequip);
+  taskList->AddTask(tasks->taskDetachGripper);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskDeburringSpindleEquip);
+  taskList->AddTask(tasks->taskAttachSpindel);
+  // Deburr Part 1
+  taskList->AddTask(taskDeburApproach1);
+  taskList->AddTask(tasks->taskIoDeburringSpindleActivate);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianFast);
+  taskList->AddTask(taskDeburCircle);
+  taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  taskList->AddTask(taskDeburEnd1);
+  
+  // Deburr Part 2
+  taskList->AddTask(taskDeburApproach2);
+  taskList->AddTask(tasks->taskIoDeburringSpindleActivate);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianFast);
+  taskList->AddTask(taskDeburCircleBemi2);
+  taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  taskList->AddTask(taskDeburEnd2);
+
+  //Unequip spindle and equip gripper
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskDeburringSpindleUnequip);
+  taskList->AddTask(tasks->taskDetachSpindel);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperEquip);
+  taskList->AddTask(tasks->taskAttachGripper);
+  
+  //-------------------Bearing Placement Part 1 in BEMI 3 -------------------//
+  taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1, 1));
+  taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 3, 2));
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperUnequip);
+  taskList->AddTask(tasks->taskDetachGripper);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskSmallGripperEquip);
+  taskList->AddTask(tasks->taskAttachSmallGripper);
+  taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 2));
+  taskList->AddTask(CreateTaskPlaceBearingInBEMI(node, tasks, 1));
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskSmallGripperUnequip);
+  taskList->AddTask(tasks->taskDetachSmallGripper);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperEquip);
+  taskList->AddTask(tasks->taskAttachGripper);
+
+  taskList->AddTask(CreateTaskPickBEMI(node, tasks, 3, 2));
+  taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
+
+  //-------------------Bearing Placement Part 2 in BEMI 3 -------------------//
+  taskList->AddTask(CreateTaskPickBEMI(node, tasks, 2, 1));
+  taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 3, 1)); 
+  
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperUnequip);
+  taskList->AddTask(tasks->taskDetachGripper);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskSmallGripperEquip);
+  taskList->AddTask(tasks->taskAttachSmallGripper);
+  taskList->AddTask(CreateTaskPickPC(node, tasks, 2, 2));
+  taskList->AddTask(CreateTaskPlaceBearingInBEMI(node, tasks, 2));
+  
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskSmallGripperUnequip);
+  taskList->AddTask(tasks->taskDetachSmallGripper);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperEquip);
+  taskList->AddTask(tasks->taskAttachGripper);
+
+  taskList->AddTask(CreateTaskPickBEMI(node, tasks, 3, 1));
+  taskList->AddTask(CreateTaskPlacePC(node, tasks, 6, 1));
+
+  //------------------- Return Cell Configuration to neutral -------------------//
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(taskGripperUnequip);
+  taskList->AddTask(tasks->taskDetachGripper);
+
+  taskList->AddTask(taskInitPose);
