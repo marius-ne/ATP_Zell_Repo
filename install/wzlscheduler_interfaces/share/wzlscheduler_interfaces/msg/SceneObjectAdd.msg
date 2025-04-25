@@ -1,3 +1,0 @@
-string name
-string collisionobjectkey
-geometry_msgs/Pose coordinates

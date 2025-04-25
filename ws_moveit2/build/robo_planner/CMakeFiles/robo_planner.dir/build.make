@@ -428,7 +428,7 @@ robo_planner: CMakeFiles/robo_planner.dir/src/Tasks/TaskPickAndPlace.cpp.o
 robo_planner: CMakeFiles/robo_planner.dir/src/Tasks/TaskPlace.cpp.o
 robo_planner: CMakeFiles/robo_planner.dir/src/Tasks/TaskScanScene.cpp.o
 robo_planner: CMakeFiles/robo_planner.dir/build.make
-robo_planner: /opt/ros/humble/lib/libgeometric_shapes.so.2.1.3
+robo_planner: /opt/ros/humble/lib/libgeometric_shapes.so.2.3.2
 robo_planner: /opt/ros/humble/lib/libstatic_transform_broadcaster_node.so
 robo_planner: /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/libwzlscheduler_interfaces__rosidl_typesupport_fastrtps_c.so
 robo_planner: /home/autopilot/ws/restackcell/ws_moveit2/install/wzlscheduler_interfaces/lib/libwzlscheduler_interfaces__rosidl_typesupport_introspection_c.so
@@ -461,11 +461,7 @@ robo_planner: /opt/ros/humble/lib/libvisualization_msgs__rosidl_generator_py.so
 robo_planner: /opt/ros/humble/lib/libvisualization_msgs__rosidl_typesupport_c.so
 robo_planner: /opt/ros/humble/lib/libvisualization_msgs__rosidl_generator_c.so
 robo_planner: /usr/lib/aarch64-linux-gnu/libboost_filesystem.so.1.74.0
-robo_planner: /opt/ros/humble/lib/aarch64-linux-gnu/liboctomap.so
-robo_planner: /opt/ros/humble/lib/aarch64-linux-gnu/liboctomath.so
 robo_planner: /opt/ros/humble/lib/librandom_numbers.so
-robo_planner: /usr/lib/aarch64-linux-gnu/libassimp.so
-robo_planner: /usr/lib/aarch64-linux-gnu/libqhull_r.so
 robo_planner: /opt/ros/humble/lib/libtf2_ros.so
 robo_planner: /opt/ros/humble/lib/libtf2.so
 robo_planner: /usr/lib/aarch64-linux-gnu/libconsole_bridge.so.1.0
