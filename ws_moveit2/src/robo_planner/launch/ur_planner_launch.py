@@ -9,6 +9,7 @@ from launch_ros.substitutions import FindPackageShare
 
 from launch.actions import IncludeLaunchDescription, RegisterEventHandler
 from launch.launch_description_sources import PythonLaunchDescriptionSource
+from launch_ros.parameter_descriptions import ParameterValue
 
 def get_robot_description():
     joint_limit_params = PathJoinSubstitution(
@@ -65,7 +66,7 @@ def get_robot_description():
     )
 
 
-    robot_description = {"robot_description": robot_description_content}
+    robot_description = {"robot_description": ParameterValue(robot_description_content, value_type=str)}
     return robot_description
 
 def get_robot_description_semantic():
@@ -87,7 +88,7 @@ def get_robot_description_semantic():
         ]
     )
     robot_description_semantic = {
-        "robot_description_semantic": robot_description_semantic_content
+        "robot_description_semantic": ParameterValue(robot_description_semantic_content, value_type=str)
     }
     return robot_description_semantic
 
