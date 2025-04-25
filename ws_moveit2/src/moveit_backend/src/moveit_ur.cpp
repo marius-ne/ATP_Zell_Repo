@@ -72,8 +72,10 @@ class RobotUr : public rclcpp::Node
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize Collision boxes"));
             
+            //Innenmaß Roboterzelle
             auto size = 1.9;
             auto size05 = size * 0.5;
+            //Profildicke
             auto thickness = 0.04;    
 
             //WERKSTÜCK BOXEN
@@ -279,7 +281,7 @@ class RobotUr : public rclcpp::Node
                 primitive.dimensions[primitive.BOX_Y] = depth;
                 primitive.dimensions[primitive.BOX_Z] = height;
 
-                // Define the pose of the box (relative to the frame_id)
+                // Define the center pose of the box (relative to the frame_id)
                 geometry_msgs::msg::Pose box_pose;
                 box_pose.orientation.w = 1.0;
                 box_pose.position.x = x;
