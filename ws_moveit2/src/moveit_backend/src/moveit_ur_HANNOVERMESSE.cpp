@@ -72,13 +72,13 @@ class RobotUr : public rclcpp::Node
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialize Collision boxes"));
             
-            auto size = 1.9;
+            auto size = 1.4;
             auto size05 = size * 0.5;
-            auto thickness = 0.04;    
+            auto thickness = 0.05;    
 
             //WERKSTÜCK BOXEN
-            add_hollow_box_collision("BOX1",0.56,0.36,0.125,0.012,-0.55,0.23,0.125/2);
-            add_hollow_box_collision("BOX2",0.56,0.36,0.125,0.012,-0.55,-0.23,0.125/2);
+            add_hollow_box_collision("BOX1",0.36,0.56,0.125,0.012,0.45,0.37,0.125/2);
+            //add_hollow_box_collision("BOX2",0.56,0.36,0.125,0.012,-0.55,-0.23,0.125/2);
 
             //ZELLE
             add_collision_box("wall1", size, thickness, 1.0, 0, size05, 0.5);
@@ -86,10 +86,10 @@ class RobotUr : public rclcpp::Node
             add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
             
-            add_collision_box("gripper_change_station", 0.7, 0.4, 0.5, 0, -0.7, 0.25);
-            add_collision_box("floor", 2, 2, 0.02, 0, 0, -0.01);
-            add_collision_box("scan_tower", 0.3, 0.3, 1, +0.65, -0.25, 0.5);
-            add_collision_box("scan_tower_sensor", 0.16, 0.15, 0.15, 0.56, -0.265334, 0.73);
+            add_collision_box("gripper_change_station", 0.4, 0.6, 0.5, 0.53, -0.4, 0.25);              
+            add_collision_box("floor", 2, 2, 0.0198, 0, 0, -0.01);
+            ///add_collision_box("scan_tower", 0.3, 0.3, 1, +0.65, -0.25, 0.5);
+            //add_collision_box("scan_tower_sensor", 0.16, 0.15, 0.15, 0.56, -0.265334, 0.73);
             //add_collision_box("ceiling", size, size, 0.1, 0, 0, 1);
 
             //BEMI BOXEN//
@@ -97,14 +97,11 @@ class RobotUr : public rclcpp::Node
             auto bemi_breite = 0.065;
             auto bemi_tiefe = 0.1;
             //BEMI_1
-            auto bemi_1_x = 0.375;
-            auto bemi_1_y = 0.51;
+            auto bemi_1_x = -0.53;
+            auto bemi_1_y = -0.265;
             add_collision_box("BEMI_1_1",bemi_tiefe,bemi_breite,bemi_höhe,bemi_1_x,bemi_1_y,bemi_höhe/2);
-            add_collision_box("BEMI_1_2",bemi_tiefe,bemi_breite,bemi_höhe,bemi_1_x+0.03,bemi_1_y+0.26,bemi_höhe/2);
-            //BEMI_2
-            auto bemi_2_x = 0.109;
-            auto bemi_2_y = 0.443;
-            add_collision_box("BEMI_2_1",bemi_tiefe,bemi_breite,bemi_höhe,bemi_2_x,bemi_2_y,bemi_höhe/2);
+            add_collision_box("BEMI_1_2",bemi_tiefe,bemi_breite,bemi_höhe,bemi_1_x-0.03,bemi_1_y-0.3,bemi_höhe/2);
+            /*add_collision_box("BEMI_2_1",bemi_tiefe,bemi_breite,bemi_höhe,bemi_2_x,bemi_2_y,bemi_höhe/2);
             add_collision_box("BEMI_2_2",bemi_breite,bemi_tiefe,bemi_höhe,bemi_2_x-0.08,bemi_2_y+0.215,bemi_höhe/2);
             //BEMI_3
             auto bemi_3_x = 0.53;
@@ -112,7 +109,7 @@ class RobotUr : public rclcpp::Node
             add_collision_box("BEMI_3_1",bemi_breite,bemi_tiefe,bemi_höhe,bemi_3_x,bemi_3_y,bemi_höhe/2);
             add_collision_box("BEMI_3_2",bemi_breite,bemi_tiefe,bemi_höhe,bemi_3_x+0.26,bemi_3_y+0.02,bemi_höhe/2);
             add_collision_box("BEMI_3_3",bemi_tiefe,bemi_breite,bemi_höhe,bemi_3_x+0.075,bemi_3_y-0.215,bemi_höhe/2);
-
+            */
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialization done"));
         }
 
@@ -176,6 +173,71 @@ class RobotUr : public rclcpp::Node
             // Offset the position down by half the length to place top at pose
             geometry_msgs::msg::Pose adjusted_pose = pose;
             adjusted_pose.position.z -= primitive.dimensions[0] / 2.0;
+
+            collision_object.primitives.push_back(primitive);
+            collision_object.primitive_poses.push_back(adjusted_pose);
+            collision_object.operation = collision_object.ADD;
+
+            planning_scene_interface_->applyCollisionObject(collision_object);
+
+        }
+
+        void add_workpiece_from_bemi(const std::string name, const geometry_msgs::msg::Pose& pose)
+        {
+            // add a cylinder with dimensions radius 0.055 length 0.19
+            moveit_msgs::msg::CollisionObject collision_object;
+            collision_object.header.frame_id = move_group_interface_->getPlanningFrame();
+            collision_object.id = name;
+
+            shape_msgs::msg::SolidPrimitive primitive;
+            primitive.type = primitive.BOX;
+            primitive.dimensions.resize(3);
+            primitive.dimensions[primitive.BOX_X] = 0.1;
+            primitive.dimensions[primitive.BOX_Y] = 0.18;
+            primitive.dimensions[primitive.BOX_Z] = 0.03;
+            double length_gripper = 0.19; // Length
+
+            // Offset the position down by half the length to place top at pose
+            geometry_msgs::msg::Pose adjusted_pose = pose;
+            adjusted_pose.position.z -= length_gripper - 0.05;
+            adjusted_pose.position.y += 0.045;
+            adjusted_pose.position.x -= 0.005;
+            adjusted_pose.orientation.x = 0.0;
+            adjusted_pose.orientation.y = 0.0;
+            adjusted_pose.orientation.z = 0.0;
+            adjusted_pose.orientation.w = 1.0;
+
+            collision_object.primitives.push_back(primitive);
+            collision_object.primitive_poses.push_back(adjusted_pose);
+            collision_object.operation = collision_object.ADD;
+
+            planning_scene_interface_->applyCollisionObject(collision_object);
+        }
+
+        void add_workpiece_from_PC(const std::string name, const geometry_msgs::msg::Pose& pose)
+        {
+            // add a cylinder with dimensions radius 0.055 length 0.19
+            moveit_msgs::msg::CollisionObject collision_object;
+            collision_object.header.frame_id = move_group_interface_->getPlanningFrame();
+            collision_object.id = name;
+
+            shape_msgs::msg::SolidPrimitive primitive;
+            primitive.type = primitive.BOX;
+            primitive.dimensions.resize(3);
+            primitive.dimensions[primitive.BOX_X] = 0.18;
+            primitive.dimensions[primitive.BOX_Y] = 0.10;
+            primitive.dimensions[primitive.BOX_Z] = 0.03;
+            double length_gripper = 0.19; // Length
+
+            // Offset the position down by half the length to place top at pose
+            geometry_msgs::msg::Pose adjusted_pose = pose;
+            adjusted_pose.position.z -= length_gripper - 0.05;
+            adjusted_pose.position.y += 0.005;
+            adjusted_pose.position.x += 0.045;
+            adjusted_pose.orientation.x = 0.0;
+            adjusted_pose.orientation.y = 0.0;
+            adjusted_pose.orientation.z = 0.0;
+            adjusted_pose.orientation.w = 1.0;
 
             collision_object.primitives.push_back(primitive);
             collision_object.primitive_poses.push_back(adjusted_pose);
@@ -495,7 +557,7 @@ class RobotUr : public rclcpp::Node
                     response->result = false;
                 }
 
-                add_collision_box("gripper_change_station", 0.7, 0.5, 0.5, 0, -0.7, 0.25);
+                add_collision_box("gripper_change_station", 0.36, 0.6, 0.45, 0.53, -0.4, 0.25); 
                 add_collision_box("floor", 2, 2, 0.02, 0, 0, -0.011);
             }
             else
@@ -651,6 +713,28 @@ class RobotUr : public rclcpp::Node
                     return;
                 }
                 response->result = 1;
+            } else if (name == "workpiece_from_bemi")
+            {
+                add_workpiece_from_bemi(name, pose);
+            
+                if (!move_group_interface_->attachObject(name))
+                {
+                    RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Attach object '%s' failed", name.c_str());
+                    response->result = 0;
+                    return;
+                }
+                response->result = 1;
+            } else if (name == "workpiece_from_PC")
+            {
+                add_workpiece_from_PC(name, pose);
+            
+                if (!move_group_interface_->attachObject(name))
+                {
+                    RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Attach object '%s' failed", name.c_str());
+                    response->result = 0;
+                    return;
+                }
+                response->result = 1;
             } else {
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object '%s' not defined", name.c_str());
                 response->result = 0;
@@ -664,7 +748,7 @@ class RobotUr : public rclcpp::Node
             auto name = request->name;
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Attempting to detach object '%s'", name.c_str());
 
-            if (name == "spindel" || name == "gripper" || name == "small_gripper")
+            if (name == "spindel" || name == "gripper" || name == "small_gripper" || name == "workpiece_from_bemi" || name == "workpiece_from_PC")
             {
                 if (!move_group_interface_->detachObject(name))
                 {
