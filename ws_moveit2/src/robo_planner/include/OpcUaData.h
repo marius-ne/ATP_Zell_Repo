@@ -244,7 +244,7 @@ namespace WzlPlanner
             auto data = std::make_shared<WzlPlanner::OpcUaData>();
             data->actuatorId = "ns=4;i=5003";
             data->actuatorWriteType = 1;
-            data->actuatorCommandBool1 = false;
+            data->actuatorCommandBool1 = true;
 
             return data;
         }
@@ -254,7 +254,7 @@ namespace WzlPlanner
             auto data = std::make_shared<WzlPlanner::OpcUaData>();
             data->actuatorId = "ns=4;i=5003";
             data->actuatorWriteType = 1;
-            data->actuatorCommandBool1 = true;
+            data->actuatorCommandBool1 = false;
 
             return data;
         }

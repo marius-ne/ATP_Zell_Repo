@@ -14,6 +14,7 @@ from launch.substitutions import Command, FindExecutable, LaunchConfiguration, P
 from launch_ros.actions import Node
 from launch_ros.substitutions import FindPackageShare
 from ur_moveit_config.launch_common import load_yaml, load_yaml_abs
+from launch_ros.parameter_descriptions import ParameterValue
 
 
 def launch_setup(context, *args, **kwargs):
@@ -94,8 +95,8 @@ def launch_setup(context, *args, **kwargs):
             " ",
         ]
     )
-    robot_description = {"robot_description": robot_description_content}
-
+    robot_description = {"robot_description": ParameterValue(robot_description_content, value_type=str)}
+    
     # MoveIt Configuration
     robot_description_semantic_content = Command(
         [
@@ -115,8 +116,8 @@ def launch_setup(context, *args, **kwargs):
             " ",
         ]
     )
-    robot_description_semantic = {"robot_description_semantic": robot_description_semantic_content}
-
+    robot_description_semantic = {"robot_description_semantic": ParameterValue(robot_description_semantic_content, value_type=str)}
+    
     robot_description_kinematics = PathJoinSubstitution(
         [FindPackageShare(moveit_config_package), "config", "custom_moveit_config","config", "kinematics.yaml"]
     )
@@ -140,10 +141,10 @@ def launch_setup(context, *args, **kwargs):
         "robot_description_planning":{},
     }
 
-    pilz_planning_yaml = load_yaml("robo_planner", "config/pilz_industrial_motion_planner_planning.yaml")
+    pilz_planning_yaml = load_yaml("robo_planner", "config/custom_moveit_config/config/pilz_industrial_motion_planner_planning.yaml")
     planning_pipeline_config["pilz_industrial_motion_planner"].update(pilz_planning_yaml) 
 
-    pilz_cartesian_limits_yaml = load_yaml("robo_planner", "config/pilz_cartesian_limits.yaml")
+    pilz_cartesian_limits_yaml = load_yaml("robo_planner", "config/custom_moveit_config/config/pilz_cartesian_limits.yaml")
     planning_pipeline_config["robot_description_planning"].update(pilz_cartesian_limits_yaml)
 
     ompl_planning_yaml = load_yaml("ur_moveit_config", "config/ompl_planning.yaml")
@@ -168,9 +169,10 @@ def launch_setup(context, *args, **kwargs):
 
     trajectory_execution = {
         "moveit_manage_controllers": False,
-        "trajectory_execution.allowed_execution_duration_scaling": 1.2,
+        "trajectory_execution.allowed_execution_duration_scaling": 20.0,        
         "trajectory_execution.allowed_goal_duration_margin": 0.5,
         "trajectory_execution.allowed_start_tolerance": 0.01,
+        "stop_trajectory_duration": 30.0,
     }
 
     planning_scene_monitor_parameters = {

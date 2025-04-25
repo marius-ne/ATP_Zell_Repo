@@ -291,8 +291,9 @@ source ws/restackcell/ws_moveit2/install/setup.bash
 
 ### Koordinatensystem-Unterschiede:
 
-- In MoveIt und ROS sind die X- und Z-Koordinaten des `tool0`-Links (TCP) im Vergleich zum Roboterkoordinatensystem invertiert.
+- In MoveIt und ROS sind die X- und Y-Koordinaten des `tool0`-Links (TCP) im Vergleich zum Roboterkoordinatensystem invertiert.
 - Bei der Übertragung ins Roboterprogramm muss in der Z-Rotation ein Wert von `-Pi` (Minus Pi) addiert werden.
+- Um die Orientation vom Teachpanel auszulesen, einmal auf 'Tool Position' tippen und auf 'RPY[rad]' stellen
 
 ### Arbeitsraum-Einschränkungen:
 

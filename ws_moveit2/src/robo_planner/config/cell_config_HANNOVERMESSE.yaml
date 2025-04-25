@@ -4,17 +4,17 @@ robo_planner:
     positions:
       # BEMI Position list, Bemi 1, Bemi 2, Bemi 3 (grosses Teil), Bemi 3 (kleines Teil)
       bemi:
-        x: [0.3634, 0.1184, 0.6178, 0.6313] # X-coordinates of BEMIs 
-        y: [0.6815, 0.6178, 0.2175, 0.2292] # Y-coordinates of BEMIs 
-        z: [0.310, 0.2885, 0.2893, 0.303]  # Z-coordinates of BEMIs 
+        x: [-0.51485, 0.1184, 0.6178, 0.6313] # X-coordinates of BEMIs 
+        y: [-0.4512, 0.6178, 0.2175, 0.2292] # Y-coordinates of BEMIs 
+        z: [0.308, 0.2885, 0.2893, 0.303]  # Z-coordinates of BEMIs  0: 0.310
         RZ_offset: [0.0475, -1.405985086238, -1.3816, 1.943398] # Z-rotation offsets of BEMIs 
 
       # Part Carrier 
       PC:
         # Parts positions inside part carrier 1
-        x_1: [-0.351, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762]
-        y_1: [ 0.341,  0.341,  0.341,  0.341,  0.341,  0.144,  0.144,  0.144] 
-        z_1: [ 0.247,  0.260,  0.260,  0.260,  0.260,  0.230,  0.230,  0.230]
+        x_1: [0.39001, 0.38842,  0.3878, 0.38771, 0.38571, -0.416, -0.589, -0.762]           #[0.38533, 0.38771, 0.3878, 0.38842, 0.39001, -0.416, -0.589, -0.762]
+        y_1: [0.59958, 0.49568, 0.38675, 0.28205, 0.17671,  0.144,  0.144,  0.144]      #[ 0.1766,  0.28205,  0.38675,  0.49568,  0.59958,  0.144,  0.144,  0.144]
+        z_1: [ 0.247,  0.247,  0.247,  0.247,  0.247,  0.230,  0.230,  0.230]    #0.247 
         # Bearings positions inside part carrier 2
         x_2: [-0.42055, -0.33541] #-0.42013, -0.33364
         y_2: [-0.18832, -0.1912] #-0.19091, -0.19086
@@ -22,9 +22,9 @@ robo_planner:
         
       # Station positions
       station:
-        y_approach: -0.35  # Y-coordinate for approach position
-        y_execute: -0.554 #-0.5549700856208801   # Y-coordinate for execution position
-        x_positions: [-0.189, -0.0167, 0.1375, 0.27893]  # X-coordinates for different stations
+        y_positions: [-0.640, -0.467, -0.31362, -0.173] #[-0.173, -0.31362, -0.467, -0.640] # Y-coordinates for different stations
+        x_execute: 0.42357  # X-coordinate for execute position
+        x_approach: 0.24  # X-coordinate for approach position
 
       # Bearing positions inside part placed in BEMI 1 to 3 [BEMI1, BEMI2, BEMI3]
       bearing:
@@ -37,6 +37,7 @@ robo_planner:
       ptp: 0.3               # Point-to-Point movement speed
       cartesian_fast: 0.1    # Fast Cartesian movement speed
       cartesian_slow: 0.03   # Slow Cartesian movement speed
+      cartesian_deburring: 0.2 # Deburring Cartesian movement speed
     
     # Timing parameters (in milliseconds)
     timings:
