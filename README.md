@@ -241,6 +241,8 @@ Das Program kann nun unten rechts am Panel mit dem Startknopf gestartet werden.
 
 Zu beachten ist, dass der UR Robot Driver vor dem URCaps gestartet werden muss!
 
+![IMAGE_DESCRIPTION](URCap_simulated_Robot.png)
+
 Wenn alles richtig gelaufen ist, sollte im Terminal wo der UR Robot Driver gestartet wurde, folgende Nachricht sichtbar sein:
 
 ```
