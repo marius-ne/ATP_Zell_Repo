@@ -16,12 +16,19 @@ add_executable(moveit_panda
 
 add_executable(moveit_ur 
   src/moveit_ur.cpp)
+  
+add_executable(moveit_iiwa 
+  src/moveit_iiwa.cpp)
 
 target_include_directories(moveit_panda  PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
 target_include_directories(moveit_ur  PUBLIC
+  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+  $<INSTALL_INTERFACE:include>)
+  
+  target_include_directories(moveit_iiwa  PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
@@ -39,9 +46,16 @@ ament_target_dependencies(moveit_ur
   "rclcpp"
 )
 
+ament_target_dependencies(moveit_iiwa
+  "moveit_ros_planning_interface"
+  "wzlscheduler_interfaces"
+  "rclcpp"
+)
+
 install(TARGETS 
   moveit_panda
   moveit_ur
+  moveit_iiwa
   DESTINATION lib/${PROJECT_NAME})
 
 install(
