@@ -261,6 +261,6 @@ namespace WzlPlanner
 
     };
 
-} // namepspace
+} // namespace
 
 #endif

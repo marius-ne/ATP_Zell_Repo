@@ -2,6 +2,7 @@
 #define IOINTERFACE_HPP
 
 #include "OpcUaData.h"
+#include "ModBusData.h"
 #include "rclcpp/rclcpp.hpp"
 #include "wzlscheduler_interfaces/srv/set_value_io_interface.hpp"
 #include "opcua_interfaces/msg/actuator_write.hpp"
@@ -46,6 +47,25 @@ namespace WzlPlanner
         private:
             std::shared_ptr<rclcpp::Node> node_;
             rclcpp::Publisher<opcua_interfaces::msg::ActuatorWrite>::SharedPtr opcua_actuator_write_publisher_;
+            rclcpp::Client<wzlscheduler_interfaces::srv::SetValueIoInterface>::SharedPtr client_;
+    };
+
+    class IoInterfaceModBus 
+        : public IoInterfaceBase
+    {
+        public:
+            IoInterfaceModBus(const std::shared_ptr<rclcpp::Node> node)
+            {
+                node_ = node;
+                client_ = node_->create_client<wzlscheduler_interfaces::srv::SetValueIoInterface>("set_value_modbus");
+            }
+
+            bool SetValueBool(const int slot, const bool value) override;
+
+            void ModBusWrite(const std::shared_ptr<const ModBusData> data) const;
+
+        private:
+            std::shared_ptr<rclcpp::Node> node_;
             rclcpp::Client<wzlscheduler_interfaces::srv::SetValueIoInterface>::SharedPtr client_;
     };
 } // namepspace

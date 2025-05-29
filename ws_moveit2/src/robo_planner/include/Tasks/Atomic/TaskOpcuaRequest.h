@@ -14,7 +14,6 @@
 namespace WzlPlanner
 {
 
-    /// @brief Makes the robot follow a path with a given set of absolute poses as fixpoints
     class TaskOpcuaRequest : public Task
     {
         

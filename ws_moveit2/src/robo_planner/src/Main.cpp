@@ -17,6 +17,7 @@
 
 #include "../include/Tasks/TaskInclude.h"
 #include "../include/OpcUaData.h"
+#include "../include/ModBusData.h"
 
 #include <math.h>
 #include <memory>
