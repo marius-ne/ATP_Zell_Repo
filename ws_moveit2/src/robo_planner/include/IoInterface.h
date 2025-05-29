@@ -6,6 +6,8 @@
 #include "rclcpp/rclcpp.hpp"
 #include "wzlscheduler_interfaces/srv/set_value_io_interface.hpp"
 #include "opcua_interfaces/msg/actuator_write.hpp"
+#include "modbus_interfaces/srv/write_register.hpp"
+#include "modbus_interfaces/srv/read_register.hpp"
 #include <cstdlib>
 #include <memory>
 
@@ -57,16 +59,18 @@ namespace WzlPlanner
             IoInterfaceModBus(const std::shared_ptr<rclcpp::Node> node)
             {
                 node_ = node;
-                client_ = node_->create_client<wzlscheduler_interfaces::srv::SetValueIoInterface>("set_value_modbus");
+
+                read_register_client_modbus = node_->create_client<modbus_interfaces::srv::ReadRegister>("read_register_service");
+                write_register_client_modbus = node_->create_client<modbus_interfaces::srv::WriteRegister>("write_register_service");
             }
 
-            bool SetValueBool(const int slot, const bool value) override;
-
-            void ModBusWrite(const std::shared_ptr<const ModBusData> data) const;
+            void ModBusWrite(const std::shared_ptr<const ModBusData> data, const int value);
+            void ModBusRead(const std::shared_ptr<const ModBusData> data);
 
         private:
             std::shared_ptr<rclcpp::Node> node_;
-            rclcpp::Client<wzlscheduler_interfaces::srv::SetValueIoInterface>::SharedPtr client_;
+            rclcpp::Client<modbus_interfaces::srv::ReadRegister>::SharedPtr read_register_client_modbus;
+            rclcpp::Client<modbus_interfaces::srv::WriteRegister>::SharedPtr write_register_client_modbus;
     };
 } // namepspace
 

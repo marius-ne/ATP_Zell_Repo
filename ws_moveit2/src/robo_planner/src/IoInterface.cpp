@@ -58,24 +58,13 @@ void WzlPlanner::IoInterfaceOpcUa::OpcaUaActuatorWrite(const std::shared_ptr<con
     opcua_actuator_write_publisher_->publish(message);
 }
 
-void WzlPlanner::IoInterfaceOpcUa::ModBusWrite(const std::shared_ptr<const OpcUaData> data) const
+void WzlPlanner::IoInterfaceOpcUa::ModBusWrite(const std::shared_ptr<const ModBusData> data) const
 {
     std::cout << "Publish Opcua data: " << "Actuator Id: " << data->actuatorId << ", msg type: " << std::to_string(data->actuatorWriteType) << std::endl;
 
     auto message = opcua_interfaces::msg::ActuatorWrite();
     message.actuator_id = data->actuatorId;
     message.actuator_write_type  = data->actuatorWriteType;
-    
-
-    if (data->actuatorWriteType == 1)
-    {
-        message.actuator_command_bool1 = data->actuatorCommandBool1;
-    }
-    else if (data->actuatorWriteType == 2)
-    {
-        message.actuator_command_bool1 = data->actuatorCommandBool1;
-        message.actuator_command_bool2 = data->actuatorCommandBool2;
-    }
     
     opcua_actuator_write_publisher_->publish(message);
 }
