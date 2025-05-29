@@ -58,15 +58,86 @@ void WzlPlanner::IoInterfaceOpcUa::OpcaUaActuatorWrite(const std::shared_ptr<con
     opcua_actuator_write_publisher_->publish(message);
 }
 
-void WzlPlanner::IoInterfaceOpcUa::ModBusWrite(const std::shared_ptr<const ModBusData> data) const
-{
-    std::cout << "Publish Opcua data: " << "Actuator Id: " << data->actuatorId << ", msg type: " << std::to_string(data->actuatorWriteType) << std::endl;
+bool WzlPlanner::IoInterfaceModBus::ModBusWrite(const std::shared_ptr<const ModBusData> data, const int value) {
+    std::cout << "ModBus Write: Address: " << data->address << ", Value: " << value << std::endl;
 
-    auto message = opcua_interfaces::msg::ActuatorWrite();
-    message.actuator_id = data->actuatorId;
-    message.actuator_write_type  = data->actuatorWriteType;
-    
-    opcua_actuator_write_publisher_->publish(message);
+    auto request = std::make_shared<modbus_interfaces::srv::WriteRegister::Request>();
+    request->address = data->address;
+    request->value = value;
+
+    // Wait for service to be available
+    while (!write_register_client_modbus->wait_for_service(1s)) 
+    {
+        if (!rclcpp::ok()) 
+        {
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the ModBus write service. Exiting.");
+            return false;
+        }
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "ModBus write service not available, waiting again...");
+    }
+
+    auto future_result = write_register_client_modbus->async_send_request(request);
+
+    // Wait for the result
+    if (rclcpp::spin_until_future_complete(node_, future_result) == rclcpp::FutureReturnCode::SUCCESS)
+    {
+        auto success = future_result.get()->success;
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Result of ModBus write: %d", success);
+        
+        if (!success) {
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "ModBus write error: %s", future_result.get()->message.c_str());
+        }
+        
+        return success;
+    } 
+    else 
+    {
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call ModBus write service");
+        return false;
+    }
+}
+
+std::vector<int> WzlPlanner::IoInterfaceModBus::ModBusRead(const std::shared_ptr<const ModBusData> data) {
+    std::cout << "ModBus Read: Address: " << data->address << ", Count: " << data->count << std::endl;
+
+    auto request = std::make_shared<modbus_interfaces::srv::ReadRegister::Request>();
+    request->address = data->address;
+    request->count = data->count;
+
+    // Wait for service to be available
+    while (!read_register_client_modbus->wait_for_service(1s)) 
+    {
+        if (!rclcpp::ok()) 
+        {
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the ModBus read service. Exiting.");
+            return {};
+        }
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "ModBus read service not available, waiting again...");
+    }
+
+    auto future_result = read_register_client_modbus->async_send_request(request);
+
+    // Wait for the result
+    if (rclcpp::spin_until_future_complete(node_, future_result) == rclcpp::FutureReturnCode::SUCCESS)
+    {
+        auto success = future_result.get()->success;
+        
+        if (success) {
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Successfully read %lu registers from ModBus", 
+                future_result.get()->registers.size());
+            return future_result.get()->registers;
+        }
+        else {
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "ModBus read error: %s", 
+                future_result.get()->message.c_str());
+            return {};
+        }
+    } 
+    else 
+    {
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call ModBus read service");
+        return {};
+    }
 }
 
 // method is deprecated; use 'OpcaUaActuatorWrite' instead
