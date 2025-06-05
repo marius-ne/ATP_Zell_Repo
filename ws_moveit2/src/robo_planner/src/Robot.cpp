@@ -66,12 +66,14 @@ bool WzlPlanner::RobotUR::FollowTrajectory(const std::vector<std::shared_ptr<Pos
     // Wait for the result.
     if (rclcpp::spin_until_future_complete(node_, result) == rclcpp::FutureReturnCode::SUCCESS)
     {
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Result: %d", result.get()->result);
+        auto success = result.get()->success;
+        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Result of FollowTrajectory: %d", success);
+
+        return success;
     } else {
         RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call service RobotFollowTrajectory");
+        return false;
     }
-    
-    return true;
 }
 
 void WzlPlanner::RobotUR::PartAttach(const std::string partKey)
