@@ -56,8 +56,7 @@ namespace WzlPlanner
     private:
         std::shared_ptr<WzlPlanner::IoInterfaceModBus> interface_modbus_;
         std::shared_ptr<ModBusData> data_;
-        std::vector<int> result_;
-        int count_ = 1;
+        int result_;
 
     public:
         TaskModBusRead(const std::shared_ptr<ModBusData> data)
@@ -67,24 +66,19 @@ namespace WzlPlanner
                 (ObjectContainer::Get()->GetioInterface());
         }
 
-        TaskModBusRead(const std::shared_ptr<ModBusData> data, int count)
-            : count_(count)
-        {
-            data_ = data;
-            interface_modbus_ = std::dynamic_pointer_cast<WzlPlanner::IoInterfaceModBus>
-                (ObjectContainer::Get()->GetioInterface());
-        }
-
-        const std::vector<int>& GetResult() const { return result_; }
+        const int& GetResult() const { return result_; }
 
         bool Execute() override
         {
             LogStart();
             std::cout << "modbus read from address " << data_->address << std::endl;
+
+            std::cout << "Before ModBusRead call" << std::endl;
             result_ = interface_modbus_->ModBusRead(data_);
-            bool success = !result_.empty();
+            std::cout << "After ModBusRead call, result = " << result_ << std::endl;
+            
             LogEnd();
-            return success;
+            return true;
         }
     };
 }

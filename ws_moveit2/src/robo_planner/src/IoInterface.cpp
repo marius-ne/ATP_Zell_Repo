@@ -97,23 +97,35 @@ bool WzlPlanner::IoInterfaceModBus::ModBusWrite(const std::shared_ptr<const ModB
     }
 }
 
-std::vector<int> WzlPlanner::IoInterfaceModBus::ModBusRead(const std::shared_ptr<const ModBusData> data) {
+int WzlPlanner::IoInterfaceModBus::ModBusRead(const std::shared_ptr<const ModBusData> data) {
+
+    // Check if pointer is null
+    if (!read_register_client_modbus) {
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "ModBus read client is null - was it properly initialized?");
+        return 0;
+    }
+
     std::cout << "ModBus Read: Address: " << data->address << ", Count: " << data->count << std::endl;
 
     auto request = std::make_shared<modbus_interfaces::srv::ReadRegister::Request>();
     request->address = data->address;
     request->count = data->count;
 
-    // Wait for service to be available
-    while (!read_register_client_modbus->wait_for_service(1s)) 
-    {
-        if (!rclcpp::ok()) 
-        {
-            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Interrupted while waiting for the ModBus read service. Exiting.");
-            return {};
+    std::cout << "ABCDEFGHIJKLMNOPQRSTUVWXYZ" << std::endl;
+
+     // Wait for service to be available
+     try {
+        // Use a timeout that won't block forever if there's an issue
+        if (!read_register_client_modbus->wait_for_service(1s)) {
+            RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "ModBus read service not available after timeout");
+            return 0;
         }
-        RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "ModBus read service not available, waiting again...");
+    } catch (const std::exception& e) {
+        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Exception in wait_for_service: %s", e.what());
+        return 0;
     }
+
+    std::cout << "ABCDEFGHIJKLMNOPQRSTUVWXYZ" << std::endl;
 
     auto future_result = read_register_client_modbus->async_send_request(request);
 
@@ -123,20 +135,19 @@ std::vector<int> WzlPlanner::IoInterfaceModBus::ModBusRead(const std::shared_ptr
         auto success = future_result.get()->success;
         
         if (success) {
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Successfully read %lu registers from ModBus", 
-                future_result.get()->registers.size());
+            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Successfully read register from ModBus: %d", future_result.get()->registers); 
             return future_result.get()->registers;
         }
         else {
             RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "ModBus read error: %s", 
                 future_result.get()->message.c_str());
-            return {};
+            return 0;
         }
     } 
     else 
     {
         RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to call ModBus read service");
-        return {};
+        return 0;
     }
 }
 

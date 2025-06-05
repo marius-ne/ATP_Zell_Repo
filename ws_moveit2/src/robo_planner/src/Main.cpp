@@ -127,7 +127,7 @@ public:
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSpindel;
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachGripper;
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSmallGripper;
-  std::shared_ptr<WzlPlanner::TaskModBusRequest> taskReadToolType;
+  std::shared_ptr<WzlPlanner::TaskModBusRead> taskReadToolType;
 
   // Constructor initializes all tasks
   MiscTasks(const rclcpp::Node::SharedPtr &node)
@@ -224,7 +224,7 @@ public:
         WzlPlanner::OpcUaData::GetOpcUaData_AlarmWriteAus());
     taskIoAlarmOff->SetId("taskIoAlarmOff");
 
-    taskReadToolType = std::make_shared<WzlPlanner::TaskModBusRequest>(
+    taskReadToolType = std::make_shared<WzlPlanner::TaskModBusRead>(
         WzlPlanner::ModBusData::GetModBusData_DeviceType_Read());
     taskReadToolType->SetId("taskReadToolType");
 
@@ -1450,8 +1450,14 @@ void UseCaseTESTMODBUS(const rclcpp::Node::SharedPtr &node, const std::shared_pt
 {
   RCLCPP_INFO(node->get_logger(), "Initialize MODBUS test.");
 
+  auto dummyIoInterface = std::make_shared<WzlPlanner::IoInterfaceModBus>(node);
+  WzlPlanner::ObjectContainer::Get()->SetIoInterface(dummyIoInterface);
+
   auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
-  
+  auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("RoboGripper", 0, 1);
+
+  robot->SetGripper(gripper);
+
   ////// TASK SCHEDULING //////
   RCLCPP_INFO(node->get_logger(), "Execute Task Use Case TEST MODBUS");
 

@@ -64,9 +64,8 @@ namespace WzlPlanner
                 write_register_client_modbus = node_->create_client<modbus_interfaces::srv::WriteRegister>("write_register_service");
             }
 
-            // Update return types to match the implementation
             bool ModBusWrite(const std::shared_ptr<const ModBusData> data, const int value);
-            std::vector<int> ModBusRead(const std::shared_ptr<const ModBusData> data);
+            int ModBusRead(const std::shared_ptr<const ModBusData> data);
 
             // Implement the required method from the base class
             bool SetValueBool(const int slot, const bool value) override {
@@ -81,6 +80,6 @@ namespace WzlPlanner
             rclcpp::Client<modbus_interfaces::srv::ReadRegister>::SharedPtr read_register_client_modbus;
             rclcpp::Client<modbus_interfaces::srv::WriteRegister>::SharedPtr write_register_client_modbus;
     };
-} // namepspace
+} // namespace
 
 #endif

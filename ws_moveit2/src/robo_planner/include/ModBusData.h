@@ -10,7 +10,8 @@ namespace WzlPlanner
     class ModBusData
     {
         public:
-        int address = -1;
+        int address = -1; // Adress of the register to read/write
+        int count = -1; // how many registers to read
         
         static std::shared_ptr<WzlPlanner::ModBusData> GetModBusData_ShankPosition_Write()
         {
@@ -64,6 +65,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 256;
+            data->count = 1;
 
             return data;
         }
@@ -72,6 +74,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 257;
+            data->count = 1;
 
             return data;
         }
@@ -80,6 +83,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 258;
+            data->count = 1;
 
             return data;
         }
@@ -88,6 +92,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 259;
+            data->count = 1;
 
             return data;
         }
@@ -96,6 +101,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 260;
+            data->count = 1;
 
             return data;
         }
@@ -104,6 +110,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 261;
+            data->count = 1;
 
             return data;
         }
@@ -112,6 +119,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 262;
+            data->count = 1;
 
             return data;
         }
@@ -120,6 +128,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 263;
+            data->count = 1;
 
             return data;
         }
@@ -128,6 +137,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 264;
+            data->count = 1;
 
             return data;
         }
@@ -136,6 +146,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 265;
+            data->count = 1;
 
             return data;
         }
@@ -144,6 +155,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 266;
+            data->count = 1;
 
             return data;
         }
@@ -152,6 +164,7 @@ namespace WzlPlanner
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 1536;
+            data->count = 1;
 
             return data;
         }

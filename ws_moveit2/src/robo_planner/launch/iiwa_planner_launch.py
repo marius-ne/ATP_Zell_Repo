@@ -86,6 +86,15 @@ def generate_launch_description():
         ],
     )
 
+    modbus_client_node = Node(
+        package="modbus_client",
+        executable="modbus_client_node",
+        name="modbus_client",
+        output="screen",
+        parameters=[
+        ],
+    )
+
     opcua_client_io_link_node = Node(
         package="opcua_client_io_link",
         executable="client_node_io_link",
@@ -135,5 +144,6 @@ def generate_launch_description():
     )
 
 
-    return launch.LaunchDescription([opcua_client_node, opcua_client_io_link_node, moveit_backend, robo_planner_node, robot_state_publisher])
+    #return launch.LaunchDescription([opcua_client_node, opcua_client_io_link_node, modbus_client_node, moveit_backend, robo_planner_node, robot_state_publisher])
+    return launch.LaunchDescription([opcua_client_node, modbus_client_node, moveit_backend, robo_planner_node, robot_state_publisher])
     #return launch.LaunchDescription([opcua_client_node, moveit_backend, robo_planner_node, robot_state_publisher])

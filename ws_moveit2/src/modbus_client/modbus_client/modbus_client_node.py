@@ -58,53 +58,61 @@ class ModbusClientNode(Node):
             self.get_logger().info('Disconnected from Modbus server')
     
     def read_register_callback(self, request, response):
-        address = request.address
-        count = request.count
+        self.get_logger().info(f'Received read request: {request}')
+
+        read_address = request.address
+        read_count = request.count
 
         try:
             if not self.client.is_socket_open():
                 if not self.connect():
                     response.message = str('Not connected to Modbus server')
                     response.success = False
+                    return response
             
-            modbus_response = self.client.read_holding_registers(address, count, slave=self.slave_id)
+            modbus_response = self.client.read_holding_registers(address=read_address, count=read_count, slave=self.slave_id)
             if modbus_response.isError():
                 self.get_logger().error(f'Error reading holding registers: {modbus_response}')
                 response.message = str(modbus_response)
                 response.success = False
             
-            self.get_logger().debug(f'Read holding registers at address {address}: {modbus_response.registers}')
-            response.registers = modbus_response.registers
+            self.get_logger().debug(f'Read holding registers at address {read_address}: {modbus_response.registers}')
+            response.registers = modbus_response.registers[0]
             response.success = True
             
         except (ConnectionException, ModbusException) as e:
             self.get_logger().error(f'Modbus read error: {e}')
             response.message = str(e)
             response.success = False
+
+        return response
     
     def write_register_callback(self, request, response):
-        address = request.address
-        value = request.value
+        write_address = request.address
+        write_value = request.value
 
         try:
             if not self.client.is_socket_open():
                 if not self.connect():
                     response.message = str('Not connected to Modbus server')
                     response.success = False
+                    return response
                     
-            modbus_response = self.client.write_register(address, value, slave=self.slave_id)
+            modbus_response = self.client.write_register(address=write_address, value=write_address, slave=self.slave_id)
             if modbus_response.isError():
                 self.get_logger().error(f'Error writing to register: {modbus_response}')
                 response.message = str(modbus_response)
                 response.success = False
                 
-            self.get_logger().debug(f'Wrote value {value} to register at address {address}')
+            self.get_logger().debug(f'Wrote value {write_value} to register at address {write_address}')
             response.success = True
             
         except (ConnectionException, ModbusException) as e:
             self.get_logger().error(f'Modbus write error: {e}')
             response.message = str(e)
             response.success = False
+        
+        return response
     
     def poll_modbus_data_callback(self):
         """Periodically poll data from the Modbus server"""
