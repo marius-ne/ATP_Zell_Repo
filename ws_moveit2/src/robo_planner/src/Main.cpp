@@ -127,6 +127,7 @@ public:
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSpindel;
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachGripper;
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSmallGripper;
+  std::shared_ptr<WzlPlanner::TaskModBusRequest> taskReadToolType;
 
   // Constructor initializes all tasks
   MiscTasks(const rclcpp::Node::SharedPtr &node)
@@ -222,6 +223,10 @@ public:
     taskIoAlarmOff = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
         WzlPlanner::OpcUaData::GetOpcUaData_AlarmWriteAus());
     taskIoAlarmOff->SetId("taskIoAlarmOff");
+
+    taskReadToolType = std::make_shared<WzlPlanner::TaskModBusRequest>(
+        WzlPlanner::ModBusData::GetModBusData_DeviceType_Read());
+    taskReadToolType->SetId("taskReadToolType");
 
     // Set movement speeds from config parameters
     double ptp_speed = get_parameter<double>(node, "speeds.ptp", 0.3);
@@ -1162,11 +1167,7 @@ std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double 
  * @param BEMIIndex Index of the BEMI workstation (1-3)
  * @return A shared pointer to TaskList containing trajectory and spindle control
  */
-std::shared_ptr<WzlPlanner::TaskList> CreateTaskPerformDeburr(
-    const rclcpp::Node::SharedPtr &node, 
-    const std::shared_ptr<MiscTasks> &tasks, 
-    const std::vector<std::vector<double>> &points,
-    int BEMIIndex)
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPerformDeburr( const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, const std::vector<std::vector<double>> &points, int BEMIIndex)
 {
     auto deburrtasklist = std::make_shared<WzlPlanner::TaskList>();
     
@@ -1445,6 +1446,45 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   RCLCPP_INFO(node->get_logger(), "Execution successful");
 }
 
+void UseCaseTESTMODBUS(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks)
+{
+  RCLCPP_INFO(node->get_logger(), "Initialize MODBUS test.");
+
+  auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
+  
+  ////// TASK SCHEDULING //////
+  RCLCPP_INFO(node->get_logger(), "Execute Task Use Case TEST MODBUS");
+
+  // setup custom task list
+  auto taskList = std::make_shared<WzlPlanner::TaskList>();
+
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskReadToolType);
+  taskList->AddTask(tasks->taskWait);
+
+  while (true)
+  {
+    if (!taskList->Execute())
+    {
+      RCLCPP_INFO(node->get_logger(), "Execution failed");
+      auto failuretasks = std::make_shared<WzlPlanner::TaskList>();
+      failuretasks->SetId("FailureTasks");
+
+      failuretasks->AddTask(tasks->taskIoLampRed);
+      failuretasks->AddTask(tasks->taskIoGripperNeutral);
+      failuretasks->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+      failuretasks->AddTask(tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
+
+      failuretasks->Execute();
+      return;
+    }
+
+    rclcpp::spin_some(node);
+  }
+
+  RCLCPP_INFO(node->get_logger(), "Execution successful");
+}
+
 // global version of misctasks
 std::shared_ptr<MiscTasks> g_misc_tasks;
 
@@ -1495,7 +1535,8 @@ int main(int argc, char *argv[])
 
   rclcpp::sleep_for(3000ms);
 
-  UseCase1(node, misc_tasks);
+  //UseCase1(node, misc_tasks);
+  UseCaseTESTMODBUS(node, misc_tasks);
 
   rclcpp::spin(node);
 

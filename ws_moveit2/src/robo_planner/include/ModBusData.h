@@ -147,6 +147,14 @@ namespace WzlPlanner
 
             return data;
         }
+
+        static std::shared_ptr<WzlPlanner::ModBusData> GetModBusData_DeviceType_Read()
+        {
+            auto data = std::make_shared<WzlPlanner::ModBusData>();
+            data->address = 1536;
+
+            return data;
+        }
     };
 
 } // namespace

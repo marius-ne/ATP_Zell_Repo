@@ -16,6 +16,7 @@ find_package(tf2_ros REQUIRED)
 find_package(tf2_eigen REQUIRED)
 find_package(wzlscheduler_interfaces REQUIRED)
 find_package(opcua_interfaces REQUIRED)
+find_package(modbus_interfaces REQUIRED)
 
 add_executable(robo_planner 
   src/Gripper.cpp
@@ -57,6 +58,7 @@ ament_target_dependencies(
   "tf2_eigen"
   wzlscheduler_interfaces
   opcua_interfaces
+  modbus_interfaces
 )
 
 install(TARGETS robo_planner
