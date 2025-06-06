@@ -36,7 +36,6 @@ namespace WzlPlanner
         bool Execute() override
         {
             LogStart();
-            std::cout << "modbus write to address " << data_->address << " value " << value_ << std::endl;
             bool success = interface_modbus_->ModBusWrite(data_, value_);
             LogEnd();
             return success;
@@ -59,7 +58,8 @@ namespace WzlPlanner
                 (ObjectContainer::Get()->GetioInterface());
         }
 
-        const int& GetResult() const { return result_; }
+        const int& GetResult() const { return result_; } // So that other tasks can access the result of the request
+        std::shared_ptr<ModBusData> GetData() const { return data_; } // So that other tasks can access the data which was used for the request
 
         bool Execute() override
         {

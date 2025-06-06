@@ -19,6 +19,7 @@
 #include "Atomic/TaskPartAttach.h"
 #include "Atomic/TaskPartDetach.h"
 #include "Atomic/TaskModBusRequest.h"
+#include "Atomic/TaskModBusInterpretReadResult.h"
 
 // include composed tasks
 #include "Composed/TaskGripperChange.h"

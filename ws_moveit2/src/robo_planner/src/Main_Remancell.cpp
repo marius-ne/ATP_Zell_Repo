@@ -128,6 +128,7 @@ public:
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachGripper;
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSmallGripper;
   std::shared_ptr<WzlPlanner::TaskModBusRead> taskIoModBusReadToolType;
+  std::shared_ptr<WzlPlanner::TaskModBusInterpretReadResult> taskIoModBusCheckCorrectToolType;
 
   // Constructor initializes all tasks
   MiscTasks(const rclcpp::Node::SharedPtr &node)
@@ -227,6 +228,11 @@ public:
     taskIoModBusReadToolType = std::make_shared<WzlPlanner::TaskModBusRead>(
         WzlPlanner::ModBusData::GetModBusData_ToolType_Read());
     taskIoModBusReadToolType->SetId("taskIoModBusReadToolType");
+
+    taskIoModBusCheckCorrectToolType = std::make_shared<WzlPlanner::TaskModBusInterpretReadResult>(
+        taskIoModBusReadToolType);
+    taskIoModBusCheckCorrectToolType->SetId("taskIoModBusCheckCorrectToolType");
+    taskIoModBusCheckCorrectToolType->SetComparisonValue("Screwdrivers");
 
     // Set movement speeds from config parameters
     double ptp_speed = get_parameter<double>(node, "speeds.ptp", 0.3);
@@ -1467,6 +1473,7 @@ void UseCaseTestModBus(const rclcpp::Node::SharedPtr &node, const std::shared_pt
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskIoModBusReadToolType);
   taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskIoModBusCheckCorrectToolType);
   taskList->AddTask(tasks->taskWait);
 
   while (true)
