@@ -50,6 +50,7 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
   auto robot = std::make_shared<WzlPlanner::RobotUR>(node);
   auto scene = std::make_shared<WzlPlanner::Scene>(robot, node);
   auto ioInterfaceOpcUa = std::make_shared<WzlPlanner::IoInterfaceOpcUa>(node);
+  auto ioInterfaceModBus = std::make_shared<WzlPlanner::IoInterfaceModBus>(node);
 
   robot->SetGripper(std::make_shared<WzlPlanner::GripperMockup>("TestGripper"));
 
@@ -57,7 +58,7 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
   RCLCPP_INFO(node->get_logger(), "Initialize ObjectContainer");
 
   WzlPlanner::ObjectContainer::Get()->Initialize(
-      ioInterfaceOpcUa,
+      ioInterfaceModBus,
       robot,
       scene,
       node);
@@ -126,6 +127,7 @@ public:
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSpindel;
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachGripper;
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSmallGripper;
+  std::shared_ptr<WzlPlanner::TaskModBusRead> taskIoModBusReadToolType;
 
   // Constructor initializes all tasks
   MiscTasks(const rclcpp::Node::SharedPtr &node)
@@ -221,6 +223,10 @@ public:
     taskIoAlarmOff = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
         WzlPlanner::OpcUaData::GetOpcUaData_AlarmWriteAus());
     taskIoAlarmOff->SetId("taskIoAlarmOff");
+
+    taskIoModBusReadToolType = std::make_shared<WzlPlanner::TaskModBusRead>(
+        WzlPlanner::ModBusData::GetModBusData_ToolType_Read());
+    taskIoModBusReadToolType->SetId("taskIoModBusReadToolType");
 
     // Set movement speeds from config parameters
     double ptp_speed = get_parameter<double>(node, "speeds.ptp", 0.3);
@@ -1161,11 +1167,7 @@ std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double 
  * @param BEMIIndex Index of the BEMI workstation (1-3)
  * @return A shared pointer to TaskList containing trajectory and spindle control
  */
-std::shared_ptr<WzlPlanner::TaskList> CreateTaskPerformDeburr(
-    const rclcpp::Node::SharedPtr &node, 
-    const std::shared_ptr<MiscTasks> &tasks, 
-    const std::vector<std::vector<double>> &points,
-    int BEMIIndex)
+std::shared_ptr<WzlPlanner::TaskList> CreateTaskPerformDeburr(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, const std::vector<std::vector<double>> &points, int BEMIIndex)
 {
     auto deburrtasklist = std::make_shared<WzlPlanner::TaskList>();
     
@@ -1444,23 +1446,50 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   RCLCPP_INFO(node->get_logger(), "Execution successful");
 }
 
+void UseCaseTestModBus(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks)
+{
+
+  RCLCPP_INFO(node->get_logger(), "Initialize ModBus Test.");
+
+  auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
+  auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("RoboGripper", 0, 1);
+
+  robot->SetGripper(gripper);
+
+
+  ////// TASK SCHEDULING //////
+  RCLCPP_INFO(node->get_logger(), "Execute Task Test ModBus");
+
+  // setup custom task list
+  auto taskList = std::make_shared<WzlPlanner::TaskList>();
+  taskList->SetId("TaskList_TestModBus");
+
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskIoModBusReadToolType);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  while (true)
+  {
+    if (!taskList->Execute())
+    {
+      RCLCPP_INFO(node->get_logger(), "Execution failed");
+
+      return;
+    }
+
+    rclcpp::spin_some(node);
+  }
+
+  RCLCPP_INFO(node->get_logger(), "Execution successful");
+}
+
 // global version of misctasks
 std::shared_ptr<MiscTasks> g_misc_tasks;
 
 // Modify signal handler to use global variable
 void signalHandler(int signum) {
     std::cout << "Interrupt signal received.\n";
-
-    if (g_misc_tasks) {
-        auto shutdowntasks = std::make_shared<WzlPlanner::TaskList>();
-        shutdowntasks->SetId("ShutdownTasks");
-
-        shutdowntasks->AddTask(g_misc_tasks->taskIoLampOrange);
-        shutdowntasks->AddTask(g_misc_tasks->taskIoGripperNeutral);
-        shutdowntasks->AddTask(g_misc_tasks->taskIoDeburringSpindleDeactivate);
-        shutdowntasks->AddTask(g_misc_tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
-        shutdowntasks->Execute();
-    }
 
     rclcpp::shutdown();
     exit(signum);
@@ -1490,11 +1519,11 @@ int main(int argc, char *argv[])
   auto misc_tasks = std::make_shared<MiscTasks>(node);
 
   g_misc_tasks = misc_tasks;  // Store in global variable
-  misc_tasks->taskIoLampOrange->Execute(); // Set lamp to orange
 
   rclcpp::sleep_for(3000ms);
 
-  UseCase1(node, misc_tasks);
+  //UseCase1(node, misc_tasks);
+  UseCaseTestModBus(node, misc_tasks);
 
   rclcpp::spin(node);
 

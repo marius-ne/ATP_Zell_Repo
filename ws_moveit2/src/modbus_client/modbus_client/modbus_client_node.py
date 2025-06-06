@@ -58,7 +58,7 @@ class ModbusClientNode(Node):
             self.get_logger().info('Disconnected from Modbus server')
     
     def read_register_callback(self, request, response):
-        self.get_logger().info(f'Received read request: {request}')
+        self.get_logger().info(f'Received read request - Address: {request.address}, Count: {request.count}')
 
         read_address = request.address
         read_count = request.count
@@ -88,6 +88,8 @@ class ModbusClientNode(Node):
         return response
     
     def write_register_callback(self, request, response):
+        self.get_logger().info(f'Received write request - Address: {request.address}, Value: {request.value}')
+
         write_address = request.address
         write_value = request.value
 

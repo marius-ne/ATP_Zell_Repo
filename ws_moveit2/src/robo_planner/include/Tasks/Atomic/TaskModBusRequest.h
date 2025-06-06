@@ -23,13 +23,6 @@ namespace WzlPlanner
         int value_ = 0;
 
     public:
-        TaskModBusWrite(const std::shared_ptr<ModBusData> data)
-        {
-            data_ = data;
-            interface_modbus_ = std::dynamic_pointer_cast<WzlPlanner::IoInterfaceModBus>
-                (ObjectContainer::Get()->GetioInterface());
-        }
-        
         TaskModBusWrite(const std::shared_ptr<ModBusData> data, int value)
             : value_(value)
         {
@@ -71,11 +64,8 @@ namespace WzlPlanner
         bool Execute() override
         {
             LogStart();
-            std::cout << "modbus read from address " << data_->address << std::endl;
 
-            std::cout << "Before ModBusRead call" << std::endl;
             result_ = interface_modbus_->ModBusRead(data_);
-            std::cout << "After ModBusRead call, result = " << result_ << std::endl;
             
             LogEnd();
             return true;

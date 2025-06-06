@@ -21,7 +21,7 @@ find_package(modbus_interfaces REQUIRED)
 add_executable(robo_planner 
   src/Gripper.cpp
   src/IoInterface.cpp
-  src/Main.cpp
+  src/Main_Remancell.cpp
   src/Part.cpp
   src/ObjectContainer.cpp
   src/Pose.cpp

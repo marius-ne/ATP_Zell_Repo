@@ -145,5 +145,4 @@ def generate_launch_description():
 
 
     #return launch.LaunchDescription([opcua_client_node, opcua_client_io_link_node, modbus_client_node, moveit_backend, robo_planner_node, robot_state_publisher])
-    return launch.LaunchDescription([opcua_client_node, modbus_client_node, moveit_backend, robo_planner_node, robot_state_publisher])
-    #return launch.LaunchDescription([opcua_client_node, moveit_backend, robo_planner_node, robot_state_publisher])
+    return launch.LaunchDescription([modbus_client_node, moveit_backend, robo_planner_node, robot_state_publisher])
