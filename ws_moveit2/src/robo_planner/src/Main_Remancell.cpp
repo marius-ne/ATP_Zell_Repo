@@ -8,13 +8,8 @@
 #include <rclcpp/rclcpp.hpp>
 #include "tf2_eigen/tf2_eigen.hpp"
 
-#include "../include/Pose.h"
 #include "../include/SceneObjects/SceneObject.h"
-#include "../include/Scene.h"
-
-#include "../include/IoInterface.h"
 #include "../include/ObjectContainer.h"
-
 #include "../include/Tasks/TaskInclude.h"
 
 #include <math.h>
