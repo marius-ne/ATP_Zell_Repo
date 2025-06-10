@@ -1,40 +1,22 @@
 #ifndef MISC_TASKS_HPP 
 #define MISC_TASKS_HPP
 
-#include <memory>
-#include <chrono> 
-#include <rclcpp/rclcpp.hpp>
-#include "TaskInclude.h"
-#include "../OpcUaData.h"   
-#include "../ModBusData.h"    
-
-#include <iostream>
-#include <fstream>
-#include <sstream>
-#include <vector>
-#include <csignal>
-
 #include <rclcpp/rclcpp.hpp>
 #include "tf2_eigen/tf2_eigen.hpp"
 
-#include "../SceneObjects/SceneObject.h"
-#include "../ObjectContainer.h"
+#include "../Tasks/TaskInclude.h"
+//#include "../ObjectContainer.h"
 
-#include <math.h>
-#include <memory>
-#include <chrono>
-
-#include <Tasks/TaskInclude.h>
-
-#include "../Tasks/TaskInclude.h" 
-
-#include "../SceneObjects/SceneObject.h"
-#include "../ObjectContainer.h"
-#include "TaskInclude.h"
-
-/////////////////////////////////////////////////////////////////////////////////
-///////////////////////// DOESNT WORK, NOT IMLEMENTED ///////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
+template <typename T>
+T get_parameter(const rclcpp::Node::SharedPtr &node, const std::string &name, const T &default_value)
+{
+  if (!node->has_parameter(name))
+  {
+    node->declare_parameter(name, default_value);
+    RCLCPP_WARN(node->get_logger(), "Parameter %s not found Reverting to default value", name.c_str());
+  }
+  return node->get_parameter(name).get_value<T>();
+}
 
 class MiscTasks
 {
@@ -80,9 +62,5 @@ public:
   std::shared_ptr<WzlPlanner::TaskModBusInterpretReadResult> taskIoModBusCheckCorrectToolType;
   std::shared_ptr<WzlPlanner::TaskModBusWrite> taskIoModBusWriteTightenScrew;
 };
-
-// Helper function for parameter retrieval
-template <typename T>
-T get_parameter(const rclcpp::Node::SharedPtr &node, const std::string &name, const T &default_value);
 
 #endif // MISC_TASKS_HPP

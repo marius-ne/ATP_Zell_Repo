@@ -1,23 +1,8 @@
 #include "../../include/Tasks/misc_tasks.h"
 
-#include "../../include/SceneObjects/SceneObject.h"
-#include "../../include/ObjectContainer.h"
-#include "../../include/Tasks/TaskInclude.h"
-
-/////////////////////////////////////////////////////////////////////////////////
-///////////////////////// DOESNT WORK, NOT IMLEMENTED ///////////////////////////
-/////////////////////////////////////////////////////////////////////////////////
-
-template <typename T>
-T get_parameter(const rclcpp::Node::SharedPtr &node, const std::string &name, const T &default_value)
-{
-  if (!node->has_parameter(name))
-  {
-    node->declare_parameter(name, default_value);
-    RCLCPP_WARN(node->get_logger(), "Parameter %s not found Reverting to default value", name.c_str());
-  }
-  return node->get_parameter(name).get_value<T>();
-}
+///////////////////////////////////////////
+/////////// NOT IMPLEMENTED YET ///////////
+///////////////////////////////////////////
 
 MiscTasks::MiscTasks(const rclcpp::Node::SharedPtr &node)
 {
@@ -160,8 +145,3 @@ MiscTasks::MiscTasks(const rclcpp::Node::SharedPtr &node)
 
     RCLCPP_INFO(node->get_logger(), "Miscellaneous tasks initialized.");
 }
-
-// Explicit instantiation of the template function
-template double get_parameter<double>(const rclcpp::Node::SharedPtr &node, const std::string &name, const double &default_value);
-template int get_parameter<int>(const rclcpp::Node::SharedPtr &node, const std::string &name, const int &default_value);
-template std::vector<double> get_parameter<std::vector<double>>(const rclcpp::Node::SharedPtr &node, const std::string &name, const std::vector<double> &default_value);
