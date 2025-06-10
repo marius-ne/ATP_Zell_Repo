@@ -14,6 +14,7 @@ namespace WzlPlanner
         std::string name; // Name of parameter
         int address = -1; // Adress of the register to read/write
         int count = -1; // how many registers to read
+        int value = -1; // Value to write, if applicable
         std::unordered_map<int, std::string> response_mapping_table;
         bool compare_response_int = false; // if true, the integer response will be compared to a given value
         bool translate_response = false; // if true, the integer response will be translated to a string
@@ -55,26 +56,75 @@ namespace WzlPlanner
             return data;
         }
 
-        static std::shared_ptr<WzlPlanner::ModBusData> GetModBusData_Command_Write()
+        static std::shared_ptr<WzlPlanner::ModBusData> GetModBusData_TightenScrew_Write()
         {
             auto data = std::make_shared<WzlPlanner::ModBusData>();
             data->address = 4;
-            data->name = "Command_Write";
-
-            data->response_mapping_table = {
-                {0, "Tighten screw"},
-                {1, "Loosen screw"},
-                {2, "Pick up screw"},
-                {4, "Stop"},
-                {8, "Pick up bit holder"},
-                {16, "Screw by length"},
-                {32, "Screw in self-tapping screw"}
-            };
+            data->name = "TightenScrew_Write";
+            data->value = 0; 
 
             return data;
         }
 
-        // TODO Add more elements for commands, implement data being able to set the value parameter
+        static std::shared_ptr<WzlPlanner::ModBusData> GetModBusData_LoosenScrew_Write()
+        {
+            auto data = std::make_shared<WzlPlanner::ModBusData>();
+            data->address = 4;
+            data->name = "LoosenScrew_Write";
+            data->value = 1; 
+
+            return data;
+        }
+
+        static std::shared_ptr<WzlPlanner::ModBusData> GetModBusData_PickUpScrew_Write()
+        {
+            auto data = std::make_shared<WzlPlanner::ModBusData>();
+            data->address = 4;
+            data->name = "PickUpScrew_Write";
+            data->value = 2; 
+
+            return data;
+        }
+
+        static std::shared_ptr<WzlPlanner::ModBusData> GetModBusData_Stop_Write()
+        {
+            auto data = std::make_shared<WzlPlanner::ModBusData>();
+            data->address = 4;
+            data->name = "Stop_Write";
+            data->value = 4; 
+
+            return data;
+        }
+
+        static std::shared_ptr<WzlPlanner::ModBusData> GetModBusData_PickUpBitHolder_Write()
+        {
+            auto data = std::make_shared<WzlPlanner::ModBusData>();
+            data->address = 4;
+            data->name = "PickUpBitHolder_Write";
+            data->value = 8; 
+
+            return data;
+        }
+
+        static std::shared_ptr<WzlPlanner::ModBusData> GetModBusData_ScrewByLength_Write()
+        {
+            auto data = std::make_shared<WzlPlanner::ModBusData>();
+            data->address = 4;
+            data->name = "ScrewByLength_Write";
+            data->value = 16; 
+
+            return data;
+        }
+
+        static std::shared_ptr<WzlPlanner::ModBusData> GetModBusData_ScrewInSelfTappingScrew_Write()
+        {
+            auto data = std::make_shared<WzlPlanner::ModBusData>();
+            data->address = 4;
+            data->name = "ScrewInSelfTappingScrew_Write";
+            data->value = 32; 
+
+            return data;
+        }
 
         static std::shared_ptr<WzlPlanner::ModBusData> GetModBusData_Extenderlength_Write()
         {

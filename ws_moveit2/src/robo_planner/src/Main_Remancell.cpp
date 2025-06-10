@@ -16,7 +16,6 @@
 #include "../include/ObjectContainer.h"
 
 #include "../include/Tasks/TaskInclude.h"
-#include "../include/OpcUaData.h"
 
 #include <math.h>
 #include <memory>
@@ -678,15 +677,18 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlacePC(const rclcpp::Node::Shar
 
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
   taskList->AddTask(taskPCApproach);
+  taskList->AddTask(tasks->taskIoGripperClose);
+  taskList->AddTask(tasks->taskIoGripperClose);
+  taskList->AddTask(tasks->taskIoGripperClose);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskPCExecute);
-  taskList->AddTask(tasks->taskIoGripperClose);
-  taskList->AddTask(tasks->taskIoGripperClose);
-  taskList->AddTask(tasks->taskIoGripperClose);
+  taskList->AddTask(tasks->taskIoGripperOpen);
+  taskList->AddTask(tasks->taskIoGripperOpen);
+  taskList->AddTask(tasks->taskIoGripperOpen);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskSetSpeedCartesianFast);
   taskList->AddTask(taskPCEnd);
-  taskList->AddTask(tasks->taskIoGripperNeutral);
 
   return taskList;
 }
@@ -932,34 +934,9 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::Sh
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskEndBemi);
-  
-  taskList->AddTask(tasks->taskWait);
-
-  if (BEMIIndex == 1)
-  {
-    taskList->AddTask(tasks->taskIoBemi1Close);
-  }
-  else if (BEMIIndex == 2)
-  {
-    taskList->AddTask(tasks->taskIoBemi2Close);
-  }
-  else if (BEMIIndex == 3)
-  {
-    taskList->AddTask(tasks->taskIoBemi3Close);
-  } 
-  else if (BEMIIndex == 4)
-  {
-    taskList->AddTask(tasks->taskIoBemi3Close);
-  }
-
-  taskList->AddTask(tasks->taskIoGripperOpen);
-  taskList->AddTask(tasks->taskIoGripperOpen);
-  taskList->AddTask(tasks->taskIoGripperOpen);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoGripperNeutral);
   if (BEMIIndex == 3)
   {
+    taskList->AddTask(tasks->taskWait);
     taskList->AddTask(tasks->taskWait);
     //After dettaching the collision form of the gripper, it needs to be attached again.
     taskList->AddTask(tasks->taskAttachGripper);

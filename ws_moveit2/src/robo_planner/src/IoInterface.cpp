@@ -1,7 +1,6 @@
 #include "../include/IoInterface.h"
 
 #include <chrono>
-#include "IoInterface.h"
 
 
 bool WzlPlanner::IoInterfaceOpcUa::SetValueBool(const int slot, const bool value)
