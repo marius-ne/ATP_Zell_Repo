@@ -41,7 +41,7 @@ add_executable(robo_planner
   src/Tasks/TaskPickAndPlace.cpp
   src/Tasks/TaskPlace.cpp
   src/Tasks/TaskScanScene.cpp
-  src/Tasks/misc_tasks.cpp
+  #src/Tasks/misc_tasks.cpp
   )
 
 target_include_directories(robo_planner PUBLIC

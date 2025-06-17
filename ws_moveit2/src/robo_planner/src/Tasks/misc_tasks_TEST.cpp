@@ -158,4 +158,9 @@ T get_parameter(const rclcpp::Node::SharedPtr &node, const std::string &name, co
 {
   // Placeholder for logic to read or return default_value
   return default_value;
+}template <typename T>
+T get_parameter(const rclcpp::Node::SharedPtr &node, const std::string &name, const T &default_value)
+{
+  // Placeholder for logic to read or return default_value
+  return default_value;
 }
