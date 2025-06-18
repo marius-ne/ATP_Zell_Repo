@@ -1449,12 +1449,13 @@ void UseCaseTestModBus(const rclcpp::Node::SharedPtr &node, const std::shared_pt
   // Constants
   double rotX = M_PI;
   double rotY = 0;
-  double rotZ = -M_PI - M_PI / 4;
+  //double rotZ = -M_PI - M_PI / 4;
+  double rotZ = 0;
 
   // INIT pose and task def
   auto poseInit = std::make_shared<WzlPlanner::Pose>(0.3, 0.3, 0.3, rotX, rotY, rotZ);
   auto pose1 = std::make_shared<WzlPlanner::Pose>(-0.3, 0.3, 0.3, rotX, rotY, rotZ);
-
+  auto pose2 = std::make_shared<WzlPlanner::Pose>(-0.3, 0.3, 0.1, rotX, rotY, rotZ);
 
   auto taskInitPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskInitPose->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseInit);
@@ -1464,6 +1465,14 @@ void UseCaseTestModBus(const rclcpp::Node::SharedPtr &node, const std::shared_pt
   taskPose1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose1);
   taskPose1->SetId("Pose1");
 
+  auto taskPose2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  taskPose2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose2);
+  taskPose2->SetId("Pose2");
+
+  auto taskPose3 = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  taskPose3->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose1);
+  taskPose3->SetId("Pose3");
+
   ////// TASK SCHEDULING //////
   RCLCPP_INFO(node->get_logger(), "Execute Task Test ModBus");
 
@@ -1471,11 +1480,16 @@ void UseCaseTestModBus(const rclcpp::Node::SharedPtr &node, const std::shared_pt
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
   taskList->SetId("TaskList_TestModBus");
 
+  taskList->AddTask(tasks->taskSetSpeedCartesianFast);
+  taskList->AddTask(tasks->taskSetSpeedPtp);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskInitPose);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskPose1);  
   taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose2); 
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose3);
 
   while (true)
   {
@@ -1523,12 +1537,12 @@ int main(int argc, char *argv[])
 
   CreateCell(node);
 
-  rclcpp::sleep_for(3000ms);
+  rclcpp::sleep_for(2000ms);
   auto misc_tasks = std::make_shared<MiscTasks>(node);
 
   g_misc_tasks = misc_tasks;  // Store in global variable
 
-  rclcpp::sleep_for(3000ms);
+  rclcpp::sleep_for(2000ms);
 
   //UseCase1(node, misc_tasks);
   UseCaseTestModBus(node, misc_tasks);

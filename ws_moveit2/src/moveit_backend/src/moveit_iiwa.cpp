@@ -77,7 +77,7 @@ class RobotUr : public rclcpp::Node
             auto thickness = 0.05;    
 
             //WERKSTÜCK BOXEN
-            add_hollow_box_collision("BOX1",0.36,0.56,0.125,0.012,0.45,0.37,0.125/2);
+            add_hollow_box_collision("BOX1",0.36,0.56,0.125,0.012,0.45,-0.37,0.125/2);
             //add_hollow_box_collision("BOX2",0.56,0.36,0.125,0.012,-0.55,-0.23,0.125/2);
 
             //ZELLE
@@ -86,30 +86,9 @@ class RobotUr : public rclcpp::Node
             add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
             
-            //add_collision_box("gripper_change_station", 0.4, 0.6, 0.5, 0.53, -0.4, 0.25);              
             add_collision_box("floor", 2, 2, 0.0198, 0, 0, -0.01);
-            ///add_collision_box("scan_tower", 0.3, 0.3, 1, +0.65, -0.25, 0.5);
-            //add_collision_box("scan_tower_sensor", 0.16, 0.15, 0.15, 0.56, -0.265334, 0.73);
             //add_collision_box("ceiling", size, size, 0.1, 0, 0, 1);
 
-            //BEMI BOXEN//
-            auto bemi_höhe = 0.235;
-            auto bemi_breite = 0.065;
-            auto bemi_tiefe = 0.1;
-            //BEMI_1
-            auto bemi_1_x = -0.53;
-            auto bemi_1_y = -0.265;
-            add_collision_box("BEMI_1_1",bemi_tiefe,bemi_breite,bemi_höhe,bemi_1_x,bemi_1_y,bemi_höhe/2);
-            add_collision_box("BEMI_1_2",bemi_tiefe,bemi_breite,bemi_höhe,bemi_1_x-0.03,bemi_1_y-0.3,bemi_höhe/2);
-            /*add_collision_box("BEMI_2_1",bemi_tiefe,bemi_breite,bemi_höhe,bemi_2_x,bemi_2_y,bemi_höhe/2);
-            add_collision_box("BEMI_2_2",bemi_breite,bemi_tiefe,bemi_höhe,bemi_2_x-0.08,bemi_2_y+0.215,bemi_höhe/2);
-            //BEMI_3
-            auto bemi_3_x = 0.53;
-            auto bemi_3_y = 0.258;
-            add_collision_box("BEMI_3_1",bemi_breite,bemi_tiefe,bemi_höhe,bemi_3_x,bemi_3_y,bemi_höhe/2);
-            add_collision_box("BEMI_3_2",bemi_breite,bemi_tiefe,bemi_höhe,bemi_3_x+0.26,bemi_3_y+0.02,bemi_höhe/2);
-            add_collision_box("BEMI_3_3",bemi_tiefe,bemi_breite,bemi_höhe,bemi_3_x+0.075,bemi_3_y-0.215,bemi_höhe/2);
-            */
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialization done"));
         }
 
@@ -843,7 +822,7 @@ class RobotUr : public rclcpp::Node
         double scaling_velocity_ompl = 0.2;
         double scaling_acceleration_ompl = 0.2;
         double scaling_velocity_pilz = 0.03;
-        double scaling_acceleration_pilz = 0.03;
+        double scaling_acceleration_pilz = 0.02;
 
         std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_interface_;
         std::shared_ptr<moveit::planning_interface::PlanningSceneInterface> planning_scene_interface_;
