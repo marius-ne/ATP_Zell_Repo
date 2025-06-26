@@ -55,7 +55,8 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
   RCLCPP_INFO(node->get_logger(), "Initialize ObjectContainer");
 
   WzlPlanner::ObjectContainer::Get()->Initialize(
-      ioInterfaceModBus,
+      //ioInterfaceModBus,
+      ioInterfaceOpcUa,
       robot,
       scene,
       node);
