@@ -1484,13 +1484,20 @@ void UseCaseTestModBus(const rclcpp::Node::SharedPtr &node, const std::shared_pt
   taskList->AddTask(tasks->taskSetSpeedCartesianFast);
   taskList->AddTask(tasks->taskSetSpeedPtp);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(taskInitPose);
+  taskList->AddTask(tasks->taskIoGripperOpen);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(taskPose1);  
+  //taskList->AddTask(tasks->taskIoGripperClose);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(taskPose2); 
+  //taskList->AddTask(tasks->taskIoGripperNeutral);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(taskPose3);
+  // taskList->AddTask(taskInitPose);
+  // taskList->AddTask(tasks->taskWait);
+  // taskList->AddTask(taskPose1);  
+  // taskList->AddTask(tasks->taskWait);
+  // taskList->AddTask(taskPose2); 
+  // taskList->AddTask(tasks->taskWait);
+  // taskList->AddTask(taskPose3);
+
 
   while (true)
   {

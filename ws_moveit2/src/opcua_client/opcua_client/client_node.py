@@ -15,7 +15,9 @@ class client_node(Node):
         self.get_logger().info("Node Started")
         
         global client
-        client = Client("opc.tcp://192.168.20.5:4840")
+        #client = Client("opc.tcp://192.168.20.5:4840")
+        client = Client("opc.tcp://192.168.30.5:4840")
+
         client.connect()
         self.get_logger().info("Server Connected")
 
