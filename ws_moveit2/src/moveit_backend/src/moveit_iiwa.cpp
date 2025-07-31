@@ -77,9 +77,14 @@ class RobotUr : public rclcpp::Node
             auto thickness = 0.05;    
 
             //WERKSTÜCK BOXEN
-            add_hollow_box_collision("BOX1",0.36,0.56,0.125,0.012,0.45,-0.37,0.125/2);
-            //add_hollow_box_collision("BOX2",0.56,0.36,0.125,0.012,-0.55,-0.23,0.125/2);
-
+            /*
+            add_hollow_box_collision("BOX1",0.56,0.36,0.125,0.012, 0.1,-0.515,0.125/2);
+            add_hollow_box_collision("BOX2",0.56,0.36,0.125,0.012, 0.1,0.515,0.125/2);
+            //Bemi1
+            add_hollow_box_collision("Bemi1", 0.125, 0.2, 0.09, 0.012, 0.54, 0.05, 0.09/2);
+            //Schraubenbox
+            add_collision_box("Box 4", 0.25, 0.12, 0.165, -0.55, -0.55, 0.0825);
+*/
             //ZELLE
             add_collision_box("wall1", size, thickness, 1.0, 0, size05, 0.5);
             add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);

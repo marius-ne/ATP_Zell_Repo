@@ -541,7 +541,7 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::Share
   }
 
   // Constants
-  double placementOffsetZ = 0.2;
+  double placementOffsetZ = 0.3;
 
   double rotX = M_PI;
   double rotY = 0;
@@ -551,11 +551,11 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::Share
   std::vector<double> PCY;
   std::vector<double> PCZ;
 
-  if (PCNr == 1)
+  if (PCNr == 1)// Koordinaten
   {
-    PCX = get_parameter<std::vector<double>>(node, "positions.PC.x_1", {-0.351, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762});
-    PCY = get_parameter<std::vector<double>>(node, "positions.PC.y_1", {0.341, 0.341, 0.341, 0.341, 0.341, 0.144, 0.144, 0.144});
-    PCZ = get_parameter<std::vector<double>>(node, "positions.PC.z_1", {0.260, 0.260, 0.260, 0.260, 0.260, 0.230, 0.230, 0.230});
+    PCX = get_parameter<std::vector<double>>(node, "positions.PC.x_1", {0.26447, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762});
+    PCY = get_parameter<std::vector<double>>(node, "positions.PC.y_1", {0.45488, 0.341, 0.341, 0.341, 0.341, 0.144, 0.144, 0.144});
+    PCZ = get_parameter<std::vector<double>>(node, "positions.PC.z_1", {0.45, 0.260, 0.260, 0.260, 0.260, 0.230, 0.230, 0.230});//z=0,34252
     rotZ = -M_PI - M_PI / 4;
   }
   else if (PCNr == 2)
@@ -592,15 +592,11 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::Share
 
   taskList->AddTask(tasks->taskSetSpeedCartesianFast);
   taskList->AddTask(taskPCApproach);
-  taskList->AddTask(tasks->taskIoGripperClose);
-  taskList->AddTask(tasks->taskIoGripperClose);
-  taskList->AddTask(tasks->taskIoGripperClose);
+  taskList->AddTask(tasks->taskIoBemi2Close); //Greifer gerade über Bemi2 angesteuert!!! 
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskPCExecute);
-  taskList->AddTask(tasks->taskIoGripperOpen);
-  taskList->AddTask(tasks->taskIoGripperOpen);
-  taskList->AddTask(tasks->taskIoGripperOpen);
+  taskList->AddTask(tasks->taskIoBemi2Open);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskPCEnd);
@@ -1437,6 +1433,222 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   RCLCPP_INFO(node->get_logger(), "Execution successful");
 }
 
+void UseCase2(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks)
+{
+  tasks->taskIoLampOrange->Execute();
+
+  // auto node = WzlPlanner::ObjectContainer::Get()->GetNode();
+  [[maybe_unused]] auto useOpcua = false;
+
+  RCLCPP_INFO(node->get_logger(), "Initialize Pick & Place test.");
+
+  auto dummyIoInterface = std::make_shared<WzlPlanner::IoInterfaceOpcUa>(node);
+  WzlPlanner::ObjectContainer::Get()->SetIoInterface(dummyIoInterface);
+
+  auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
+  auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("RoboGripper", 0, 1);
+
+  robot->SetGripper(gripper);
+
+  RCLCPP_INFO(node->get_logger(), "Initialize Task Pick & Place");
+
+  // Constants
+  double rotX = M_PI;
+  double rotY = 0;
+  double rotZ = -M_PI - M_PI / 4;
+
+  // INIT pose and task def
+  auto poseInit = std::make_shared<WzlPlanner::Pose>(0.4, 0.1, 0.5, rotX, rotY, rotZ); //0.3122745752334595, 0.09810880571603775, 0.4534417390823364,
+  
+  // Part 1 Posen
+  auto pose1 = std::make_shared<WzlPlanner::Pose>(0.29255, -0.41572, 0.45, rotX, rotY, 0.5);  
+  auto pose2 = std::make_shared<WzlPlanner::Pose>(0.29255, -0.41572, 0.1883, rotX, rotY, 0.5); // Pose Aufnahme Part 1 in PC1 1,0472
+  auto pose3 = std::make_shared<WzlPlanner::Pose>(0.54009, 0.05915, 0.45, rotX, rotY, 1.63075);
+  auto pose4 = std::make_shared<WzlPlanner::Pose>(0.54009, 0.05915, 0.17558, rotX, rotY, 1.63075); // Pose Ablage Part 1 in Tool1 
+
+  // Part 2 Posen 
+  auto pose5 = std::make_shared<WzlPlanner::Pose>(0.29021, 0.42433, 0.45, rotX, rotY, 0.5);  
+  auto pose6 = std::make_shared<WzlPlanner::Pose>(0.29021, 0.42433, 0.16713, rotX, rotY, 0.5); // Pose Aufnahme Part 2 in PC2 
+  auto pose7 = std::make_shared<WzlPlanner::Pose>(0.53988, 0.030554, 0.45, rotX, rotY, -1.4932);
+  auto pose8 = std::make_shared<WzlPlanner::Pose>(0.53988, 0.030554, 0.185, rotX, rotY, -1.4932); // Pose Ablage Part 2 in Tool1 
+  
+
+  // =========== Init & Standard Posen =========== //
+  auto taskInitPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  taskInitPose->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseInit);
+  taskInitPose->SetId("InitPose");
+
+
+  //======== Posen für Handling Part 1 aus PC1 ======//
+  auto taskPose1 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P Bewegung zu Einfahrtposition PC1
+  taskPose1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose1);
+  taskPose1->SetId("Pose1");
+
+  auto taskPose2 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Einfahrbewegung in PC1
+  taskPose2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose2);
+  taskPose2->SetId("Pose2");
+
+  auto taskPose3 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Ausfahrbewegung aus PC1
+  taskPose3->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose1);
+  taskPose3->SetId("Pose3");
+
+  auto taskPose4 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P Bewegung zu Einfahrtposition Tool 1
+  taskPose4->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose3);
+  taskPose4->SetId("Pose4");
+
+  auto taskPose5 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Einfahrbewegung in Tool 1
+  taskPose5->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose4);
+  taskPose5->SetId("Pose5");
+
+  auto taskPose6 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Aufahren aus Tool 1
+  taskPose6->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose3);
+  taskPose6->SetId("Pose6");
+
+  //======== Posen für Handling Part 2 aus PC2 ======//
+
+  auto taskPose7 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P Bewegung zu Einfahrtposition PC1
+  taskPose7->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose5);
+  taskPose7->SetId("Pose7");
+
+  auto taskPose8 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Einfahrbewegung in PC1
+  taskPose8->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose6);
+  taskPose8->SetId("Pose8");
+
+  auto taskPose9 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Ausfahrbewegung aus PC1
+  taskPose9->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose5);
+  taskPose9->SetId("Pose9");
+
+  auto taskPose10 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P Bewegung zu Einfahrtposition Tool 1
+  taskPose10->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose7);
+  taskPose10->SetId("Pose10");
+
+  auto taskPose11 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Einfahrbewegung in Tool 1
+  taskPose11->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose8);
+  taskPose11->SetId("Pose11");
+
+  auto taskPose12 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Aufahren aus Tool 1
+  taskPose12->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose7);
+  taskPose12->SetId("Pose12");
+/*
+  //======== Posen für Handling Part 1 aus PC1 ======//
+  auto taskPose1 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P Bewegung zu Einfahrtposition PC1
+  taskPose1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose1);
+  taskPose1->SetId("Pose1");
+
+  auto taskPose2 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Einfahrbewegung in PC1
+  taskPose2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose2);
+  taskPose2->SetId("Pose2");
+
+  auto taskPose3 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Ausfahrbewegung aus PC1
+  taskPose3->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose1);
+  taskPose3->SetId("Pose3");
+*/
+
+
+
+
+
+  
+  ////// TASK SCHEDULING //////
+  RCLCPP_INFO(node->get_logger(), "Execute Task Use Case 2");
+
+  // setup custom task list
+  auto taskList = std::make_shared<WzlPlanner::TaskList>();
+
+  // Set Pneumatics to neutral
+  // evt alle nicht nötig
+  //taskList->AddTask(tasks->taskIoGripperNeutral);
+  //taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
+  //taskList->AddTask(tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
+  //taskList->AddTask(tasks->taskIoLampGreen);
+  taskList->AddTask(tasks->taskWait); 
+  //taskList->AddTask(tasks->taskAttachGripper); 
+  //------------------- Turn cell to neutral position -------------------//
+  taskList->AddTask(taskInitPose);
+  taskList->AddTask(taskPose1);
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskList->AddTask(tasks->taskIoBemi2Close); //Greifer gerade über Bemi2 angesteuert!!! 
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose2);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskIoBemi2Open);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose3);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose4);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose5);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskIoBemi2Close); //Greifer gerade über Bemi2 angesteuert!!! 
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose6);
+
+  //Pick up part 2
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose7);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose8);
+  taskList->AddTask(tasks->taskIoBemi2Open);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose9);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose10);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose11);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskIoBemi2Close); //Greifer gerade über Bemi2 angesteuert!!! 
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskPose12);
+  taskList->AddTask(tasks->taskWait);
+
+  //------------------- Pick Part 1&2 from PC & Place parts in BEMI 1&2 -------------------//
+  
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+  //taskList->AddTask(tasks->taskAttachGripper); 
+  //Pick Part 1 & Place parts in BEMI 1
+  taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 1));
+  taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1, 1)); // Eigentlich (CreateTaskPlaceBEMI(node, tasks, 1, 2)); weil Bauteil 1 PartType 2 ist
+  
+  //Pick Part 2 & Place parts in BEMI 2
+  taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 2)); //PC 2: für obere Teile
+  taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1, 2)); //Part Type 2: oberes Teil, in Bemi 1
+
+  
+
+
+  //taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1, 1));
+  //taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
+  
+
+  taskList->AddTask(taskInitPose);
+
+
+  while (true)
+  {
+    if (!taskList->Execute())
+    {
+      RCLCPP_INFO(node->get_logger(), "Execution failed");
+
+      return;
+    }
+
+    rclcpp::spin_some(node);
+  }
+
+  RCLCPP_INFO(node->get_logger(), "Execution successful");
+}
+
 void UseCaseTestModBus(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks)
 {
 
@@ -1481,14 +1693,30 @@ void UseCaseTestModBus(const rclcpp::Node::SharedPtr &node, const std::shared_pt
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
   taskList->SetId("TaskList_TestModBus");
 
+
+  //BEMI2 OPEN/CLOSE -> Gripper open Close
   taskList->AddTask(tasks->taskSetSpeedCartesianFast);
   taskList->AddTask(tasks->taskSetSpeedPtp);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoGripperOpen);
+  taskList->AddTask(tasks->taskIoBemi2Open);
   taskList->AddTask(tasks->taskWait);
-  //taskList->AddTask(tasks->taskIoGripperClose);
+  taskList->AddTask(tasks->taskIoBemi2Close);
   taskList->AddTask(tasks->taskWait);
-  //taskList->AddTask(tasks->taskIoGripperNeutral);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskIoBemi2Open);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskIoBemi2Close);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskIoBemi2Open);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskIoBemi2Close);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskIoBemi3Open);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskIoBemi3Close);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskIoBemi2Open);
   taskList->AddTask(tasks->taskWait);
   // taskList->AddTask(taskInitPose);
   // taskList->AddTask(tasks->taskWait);
@@ -1544,6 +1772,8 @@ int main(int argc, char *argv[])
     WzlPlanner::Task::InitializePublisher(node);
 
   CreateCell(node);
+  
+
 
   rclcpp::sleep_for(2000ms);
   auto misc_tasks = std::make_shared<MiscTasks>(node);
@@ -1553,7 +1783,9 @@ int main(int argc, char *argv[])
   rclcpp::sleep_for(2000ms);
 
   //UseCase1(node, misc_tasks);
-  UseCaseTestModBus(node, misc_tasks);
+  RCLCPP_INFO(node->get_logger(), "Start Task Use Case 2");
+  UseCase2(node, misc_tasks);
+  //UseCaseTestModBus(node, misc_tasks);
 
   rclcpp::spin(node);
 

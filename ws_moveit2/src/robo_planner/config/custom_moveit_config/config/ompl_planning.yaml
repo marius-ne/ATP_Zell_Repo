@@ -53,5 +53,5 @@ ur_manipulator:
     - SemiPersistentPRM
   ##Note: commenting the following line lets moveit chose RRTConnect as default planner rather than LBKPIECE
   #projection_evaluator: joints(shoulder_pan_joint,shoulder_lift_joint)
-  longest_valid_segment_fraction: 0.0005 #rrt connect: 0.0006 funktioniert nicht
+  longest_valid_segment_fraction: 0.005 #rrt connect: 0.0006 funktioniert nicht //ehemals 0.0005
   
