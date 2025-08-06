@@ -77,15 +77,15 @@ class RobotUr : public rclcpp::Node
             auto thickness = 0.05;    
 
             //WERKSTÜCK BOXEN
-            /*
+            
             add_hollow_box_collision("BOX1",0.56,0.36,0.125,0.012, 0.1,-0.515,0.125/2);
             add_hollow_box_collision("BOX2",0.56,0.36,0.125,0.012, 0.1,0.515,0.125/2);
             //Bemi1
             add_hollow_box_collision("Bemi1", 0.125, 0.2, 0.09, 0.012, 0.54, 0.05, 0.09/2);
             //Schraubenbox
             add_collision_box("Box 4", 0.25, 0.12, 0.165, -0.55, -0.55, 0.0825);
-*/
-            //ZELLE
+            
+           //ZELLE
             add_collision_box("wall1", size, thickness, 1.0, 0, size05, 0.5);
             add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);
             add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
@@ -156,7 +156,9 @@ class RobotUr : public rclcpp::Node
 
             // Offset the position down by half the length to place top at pose
             geometry_msgs::msg::Pose adjusted_pose = pose;
-            adjusted_pose.position.z -= primitive.dimensions[0] / 2.0;
+            adjusted_pose.position.z -= (primitive.dimensions[0] / 2.0)+ 0.01; // Adjusted to place the top at the pose
+            adjusted_pose.position.y += 0.01; // Adjusted to center the gripper
+            adjusted_pose.position.x -= 0.02; // Adjusted to center the gripper
 
             collision_object.primitives.push_back(primitive);
             collision_object.primitive_poses.push_back(adjusted_pose);
@@ -424,8 +426,11 @@ class RobotUr : public rclcpp::Node
             }
             else if (is_movement_cartesian)
             {
-                remove_collision_object("gripper_change_station");
+                //remove_collision_object("gripper_change_station");
                 remove_collision_object("floor");
+                remove_collision_object("Bemi1");
+                remove_collision_object("BOX1");
+                remove_collision_object("BOX2");
 
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Set pipeline to pilz industrial planner");
                 move_group_interface_->setPlanningPipelineId("pilz");
@@ -731,7 +736,24 @@ class RobotUr : public rclcpp::Node
             auto name = request->name;
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Attempting to detach object '%s'", name.c_str());
 
-            if (name == "spindel" || name == "gripper" || name == "small_gripper")
+            if (name == "spindel" || name == "gripper" || name == "small_gripper" || name == "workpiece_from_bemi" || name == "workpiece_from_PC")
+            {
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object '%s' recognized for detachment", name.c_str());
+                
+                // Detach the object from the robot
+                if (!move_group_interface_->detachObject(name))
+                {
+                    RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Detach object '%s' failed", name.c_str());
+                    response->result = 0;
+                    return;
+                }
+                
+                std::this_thread::sleep_for(std::chrono::milliseconds(200));
+
+                remove_collision_object(name);
+                response->result = 1;
+            }
+            else if (name == "Box 4" || name == "BOX1" || name == "BOX2")
             {
                 if (!move_group_interface_->detachObject(name))
                 {

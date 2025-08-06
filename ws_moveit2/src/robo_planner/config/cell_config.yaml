@@ -3,24 +3,26 @@ robo_planner:
     # Robot position parameters
     positions:
       # BEMI Position list, Bemi 1, Bemi 2, Bemi 3 (grosses Teil), Bemi 3 (kleines Teil)
-      # hier nur Bemi1 relevant
-      bemi:
-        x: [0.3634, 0.1184, 0.6178, 0.6313] # X-coordinates of BEMIs 
-        y: [0.6815, 0.6178, 0.2175, 0.2292] # Y-coordinates of BEMIs 
-        z: [0.310, 0.2885, 0.2893, 0.303]  # Z-coordinates of BEMIs 
-        RZ_offset: [0.0475, -1.405985086238, -1.3816, 1.943398] # Z-rotation offsets of BEMIs 
+      # hier nur Bemi1,2 relevant
+  
+
+      bemi: #Bemi1: unteres Werkstück, BemI2 oberes Werkstück
+        x: [0.54009, 0.53988, 0.17558, 0.6313] # X-coordinates of BEMIs 
+        y: [0.05915, 0.030554, 0.2175, 0.2292] # Y-coordinates of BEMIs 
+        z: [0.17558, 0.185, 0.2893, 0.303]  # Z-coordinates of BEMIs 
+        RZ_offset: [1.63075, -1.4932, -1.3816, 1.943398] # Z-rotation offsets of BEMIs 
 
       # Part Carrier 
       #jeweils nur Wert 1 relevant
       PC: 
         # Parts positions inside part carrier 1
-        x_1: [-0.6, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762]
-        y_1: [ 0.33,  0.341,  0.341,  0.341,  0.341,  0.144,  0.144,  0.144] 
-        z_1: [ 0.5,  0.260,  0.260,  0.260,  0.260,  0.230,  0.230,  0.230]
+        x_1: [0.29255, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762]
+        y_1: [ -0.41572,  0.341,  0.341,  0.341,  0.341,  0.144,  0.144,  0.144] 
+        z_1: [ 0.1883,  0.260,  0.260,  0.260,  0.260,  0.230,  0.230,  0.230]
         # Bearings positions inside part carrier 2
-        x_2: [-0.42055, -0.33541] #-0.42013, -0.33364
-        y_2: [-0.18832, -0.1912] #-0.19091, -0.19086
-        z_2: [0.27802, 0.26529] #0.27202, 0.26924
+        x_2: [0.29021, -0.33541] #-0.42013, -0.33364
+        y_2: [0.42433, -0.1912] #-0.19091, -0.19086
+        z_2: [0.16713, 0.26529] #0.27202, 0.26924
         
       # Station positions
       station:
