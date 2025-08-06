@@ -6,7 +6,7 @@
 
 using namespace std::chrono_literals;
 
-bool WzlPlanner::RobotUR::MoveToPose(const std::shared_ptr<Pose> targetPose, const RobotMoveType moveType)
+bool WzlPlanner::RobotIiwa::MoveToPose(const std::shared_ptr<Pose> targetPose, const RobotMoveType moveType)
 {
     auto request = std::make_shared<wzlscheduler_interfaces::srv::RobotMoveToPosition::Request>();
 
@@ -38,7 +38,7 @@ bool WzlPlanner::RobotUR::MoveToPose(const std::shared_ptr<Pose> targetPose, con
     }
 }
 
-bool WzlPlanner::RobotUR::FollowTrajectory(const std::vector<std::shared_ptr<Pose>> points)
+bool WzlPlanner::RobotIiwa::FollowTrajectory(const std::vector<std::shared_ptr<Pose>> points)
 {
     auto request = std::make_shared<wzlscheduler_interfaces::srv::RobotFollowTrajectory::Request>();
 
@@ -74,7 +74,7 @@ bool WzlPlanner::RobotUR::FollowTrajectory(const std::vector<std::shared_ptr<Pos
     return true;
 }
 
-void WzlPlanner::RobotUR::PartAttach(const std::string partKey)
+void WzlPlanner::RobotIiwa::PartAttach(const std::string partKey)
 {
     auto msg = std::string("Trying to attach a part from the scene with the key: ") + partKey;
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
@@ -118,7 +118,7 @@ void WzlPlanner::RobotUR::PartAttach(const std::string partKey)
     }
 }
 
-void WzlPlanner::RobotUR::PartDetach(const std::string partKey)
+void WzlPlanner::RobotIiwa::PartDetach(const std::string partKey)
 {
     auto request = std::make_shared<wzlscheduler_interfaces::srv::SceneObjectDetach::Request>();
 
@@ -160,7 +160,7 @@ void WzlPlanner::RobotUR::PartDetach(const std::string partKey)
 }
 
 // type: 0: ompl; 1: pilz industrial planner
-void WzlPlanner::RobotUR::SetVelocity(const double velocity, const double acceleration, const int type)
+void WzlPlanner::RobotIiwa::SetVelocity(const double velocity, const double acceleration, const int type)
 {
     std::string plannerTypeStr = type == 0 ? std::string("ompl") : std::string("Pilz industrial planner");
 
@@ -258,7 +258,7 @@ void WzlPlanner::RobotDummy::PartAttach(const std::string partKey)
 void WzlPlanner::RobotDummy::PartDetach(const std::string partKey)
 {
     // trigger ros node to detach the part from the robot
-    auto msg = std::string("Dummy detach part from root");
+    auto msg = std::string("Dummy detach part from robot" + partKey);
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
 }
 

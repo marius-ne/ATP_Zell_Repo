@@ -33,6 +33,7 @@ namespace WzlPlanner
 
         public:
             Robot() {}
+            virtual ~Robot() = default;
 
             bool GetIsProcessing() const { return isProcessing_; }
             
@@ -76,10 +77,10 @@ namespace WzlPlanner
             rclcpp::Client<wzlscheduler_interfaces::srv::RobotMoveToPosition>::SharedPtr client_;
     };
 
-    class RobotUR : public Robot
+    class RobotIiwa : public Robot
     {
         public:
-            RobotUR(const std::shared_ptr<rclcpp::Node> node)
+            RobotIiwa(const std::shared_ptr<rclcpp::Node> node)
             {
                 node_ = node;
                 serviceRobotMoveToPosition_ = node_->create_client<wzlscheduler_interfaces::srv::RobotMoveToPosition>("robot_move_to_position");
