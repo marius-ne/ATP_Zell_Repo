@@ -74,7 +74,7 @@ bool WzlPlanner::RobotIiwa::FollowTrajectory(const std::vector<std::shared_ptr<P
     return true;
 }
 
-void WzlPlanner::RobotIiwa::PartAttach(const std::string partKey)
+void WzlPlanner::RobotIiwa::PartAttach(const std::string partKey, int partType , int workpieceOrientation)
 {
     auto msg = std::string("Trying to attach a part from the scene with the key: ") + partKey;
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
@@ -82,6 +82,8 @@ void WzlPlanner::RobotIiwa::PartAttach(const std::string partKey)
     auto request = std::make_shared<wzlscheduler_interfaces::srv::SceneObjectAttach::Request>();
     request->name = partKey;
     request->parentkey = partKey;
+    request->part_type = partType;
+    request->workpiece_orientation = workpieceOrientation;
 
     while (!this->serviceSceenObjectAttach_->wait_for_service(1s)) 
     {
@@ -118,7 +120,7 @@ void WzlPlanner::RobotIiwa::PartAttach(const std::string partKey)
     }
 }
 
-void WzlPlanner::RobotIiwa::PartDetach(const std::string partKey)
+void WzlPlanner::RobotIiwa::PartDetach(const std::string partKey, int partType , int workpieceOrientation)
 {
     auto request = std::make_shared<wzlscheduler_interfaces::srv::SceneObjectDetach::Request>();
 
@@ -249,13 +251,13 @@ bool WzlPlanner::RobotDummy::FollowTrajectory(const std::vector<std::shared_ptr<
     return true;
 }
 
-void WzlPlanner::RobotDummy::PartAttach(const std::string partKey)
+void WzlPlanner::RobotDummy::PartAttach(const std::string partKey, int partType , int workpieceOrientation)
 {
     auto msg = std::string("Dummy attach part to robot") + partKey;
     RCLCPP_INFO(rclcpp::get_logger("rclcpp"), msg.c_str());
 }   
 
-void WzlPlanner::RobotDummy::PartDetach(const std::string partKey)
+void WzlPlanner::RobotDummy::PartDetach(const std::string partKey, int partType , int workpieceOrientation)
 {
     // trigger ros node to detach the part from the robot
     auto msg = std::string("Dummy detach part from robot" + partKey);

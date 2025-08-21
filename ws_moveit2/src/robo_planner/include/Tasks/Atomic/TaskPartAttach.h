@@ -9,11 +9,15 @@ namespace WzlPlanner
     {
         private:
             std::string partKey_ = " ";
+            int partType_; 
+            int workpieceOrientation_;
 
         public:
-            TaskPartAttach(const std::string partKey = " ")
+        TaskPartAttach(const std::string partKey = " ", int partType = 0, int workpieceOrientation = 0)
             { 
                 partKey_ = partKey;
+                partType_ = partType;
+                workpieceOrientation_ = workpieceOrientation;
             }  
 
             bool Execute() override
@@ -21,7 +25,7 @@ namespace WzlPlanner
             auto robot = ObjectContainer::Get()->GetRobot();
             LogStart();
 
-            robot->PartAttach(partKey_);
+            robot->PartAttach(partKey_, partType_, workpieceOrientation_);
 
             LogEnd();
 

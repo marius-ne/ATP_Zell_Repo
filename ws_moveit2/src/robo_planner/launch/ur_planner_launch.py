@@ -93,6 +93,15 @@ def get_robot_description_semantic():
     return robot_description_semantic
 
 def generate_launch_description():
+    # possibility to change between use cases from launch file
+    declared_arguments = []
+    declared_arguments.append(
+        launch.actions.DeclareLaunchArgument(
+            "use_case",
+            default_value="1",
+            description="Which use case to run (1, 2, 3, etc.)"
+        )
+    )
     # generate_common_hybrid_launch_description() returns a list of nodes to launch
     robot_description = get_robot_description()
     robot_description_semantic = get_robot_description_semantic()
@@ -145,7 +154,9 @@ def generate_launch_description():
         executable="robo_planner",
         name="robo_planner",
         output="screen",
-        parameters=[cell_config
+        parameters=[
+            cell_config,
+            {"use_case": launch.substitutions.LaunchConfiguration("use_case")}
         ],
     )
 
@@ -161,5 +172,4 @@ def generate_launch_description():
     )
 
 
-    return launch.LaunchDescription([opcua_client_node, opcua_client_io_link_node, moveit_node, robo_planner_node, robot_state_publisher])
-    #return launch.LaunchDescription([opcua_client_node, moveit_node, robo_planner_node, robot_state_publisher])
+    return launch.LaunchDescription(declared_arguments + [ opcua_client_node, opcua_client_io_link_node, moveit_node, robo_planner_node, robot_state_publisher])
