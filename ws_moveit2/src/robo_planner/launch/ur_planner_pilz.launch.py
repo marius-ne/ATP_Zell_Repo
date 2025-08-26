@@ -5,7 +5,8 @@
 
 
 import os
-
+source ~/ws/restackcell/ws_moveit2/install/setup.bash
+ros2 launch iiwa_bringup iiwa.launch.py use_fake_hardware:=false use_planning:=true base_frame_file:=base_frame_custom.yaml robot_ip:=192.168.30.30
 from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.actions import OpaqueFunction

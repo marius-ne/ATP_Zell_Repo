@@ -1382,7 +1382,7 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 1));
   taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1, 1)); 
   
-//Pick Part 2 & Place parts in BEMI 2(selber Bemi, oben)
+  //Pick Part 2 & Place parts in BEMI 2(selber Bemi, oben)
   taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 2));
   taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 2, 2));
   
@@ -1390,12 +1390,12 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
 
   taskList->AddTask(taskInitPose);
 
-    //return Part 2
-    taskList->AddTask(CreateTaskPickBEMI(node, tasks, 2, 2,0));
-    taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 2));
-    //return Part 1  
-    taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1, 1,0));
-    taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
+  //return Part 2
+  taskList->AddTask(CreateTaskPickBEMI(node, tasks, 2, 2,0));
+  taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 2));
+  //return Part 1  
+  taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1, 1,0));
+  taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
   
   //taskList->AddTask(CreateTaskPerformDeburr(node, tasks, LoadNCFile("Toolpath_Body_v0.5_Leftt Side (copy).nc"), 1));
 

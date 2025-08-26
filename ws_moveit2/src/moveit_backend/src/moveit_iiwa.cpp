@@ -119,7 +119,7 @@ class RobotIiwaServer : public rclcpp::Node
             bemi1_pose.position.y = 0.05;
             bemi1_pose.position.z = 0.09/2;
             bemi1_pose.orientation.w = 1.0; // Keine Rotation
-            add_mesh_from_file("Bemi1", "BEMI.dae", bemi1_pose); 
+            add_mesh_from_file("Bemi1", "BEMI(Meshed).dae", bemi1_pose); 
 
             
             //Schraubenbox
@@ -210,7 +210,7 @@ class RobotIiwaServer : public rclcpp::Node
         }
         void add_mesh_gripper(const std::string name, const geometry_msgs::msg::Pose& pose)
         {
-            std::string meshPath = "package://moveit_backend/meshes/parts/Gripper.dae";
+            std::string meshPath = "package://moveit_backend/meshes/parts/Gripper(Meshed).dae";
             double scale  = 1; // scale factor for the mesh
                 
             // load the mesh from the resource
@@ -226,7 +226,7 @@ class RobotIiwaServer : public rclcpp::Node
 
              // offset the position of the gripper 
             geometry_msgs::msg::Pose adjusted_pose = pose;
-            adjusted_pose.position.z -= 0.095; // Offset anpassen je nach Greifer-Geometrie
+            adjusted_pose.position.z -= 0.04; // Offset anpassen je nach Greifer-Geometrie
             adjusted_pose.position.y -= 0.004;
                       
             // create the collision object
@@ -258,8 +258,8 @@ class RobotIiwaServer : public rclcpp::Node
             {
                 geometry_msgs::msg::Pose adjusted_pose = pose;
 
-                // Offset gripper position
-                if (partType != 3) {  // not for Kugellager
+                
+                if (partType != 3) {
                 double offset_x = 0.005;//0.006 davor -> Crash beim aufnehmen     
                 double offset_y = -0.041;  //-0.045   
 
@@ -306,9 +306,9 @@ class RobotIiwaServer : public rclcpp::Node
                 if (partType == 3) {
                 meshPath = "package://moveit_backend/meshes/parts/kugellager1.stl";
                 } else if (partType == 2) {
-                meshPath = "package://moveit_backend/meshes/parts/Workpiece_Oben.dae";
+                meshPath = "package://moveit_backend/meshes/parts/Workpiece_Oben(Meshed).dae";
                 } else {
-                meshPath = "package://moveit_backend/meshes/parts/Workpiece_Unten.dae";
+                meshPath = "package://moveit_backend/meshes/parts/Workpiece_Unten(Meshed).dae";
                 }
 
                 // load the mesh from the resource
@@ -484,29 +484,6 @@ class RobotIiwaServer : public rclcpp::Node
             planning_scene_interface_->applyCollisionObject(collision_object);
         }
 */
-        void add_small_gripper(const std::string name, const geometry_msgs::msg::Pose& pose)
-        {
-            // add a cylinder with dimensions radius 0.055 length 0.19
-            moveit_msgs::msg::CollisionObject collision_object;
-            collision_object.header.frame_id = move_group_interface_->getPlanningFrame();
-            collision_object.id = name;
-
-            shape_msgs::msg::SolidPrimitive primitive;
-            primitive.type = primitive.CYLINDER;
-            primitive.dimensions.resize(2);
-            primitive.dimensions[0] = 0.18; // Length
-            primitive.dimensions[1] = 0.035; // Radius
-
-            // Offset the position down by half the length to place top at pose
-            geometry_msgs::msg::Pose adjusted_pose = pose;
-            adjusted_pose.position.z -= primitive.dimensions[0] / 2.0;
-
-            collision_object.primitives.push_back(primitive);
-            collision_object.primitive_poses.push_back(adjusted_pose);
-            collision_object.operation = collision_object.ADD;
-
-            planning_scene_interface_->applyCollisionObject(collision_object);
-        }
         
         void add_hollow_box_collision(const std::string name, const float width, const float depth, const float height,
             const float wall_thickness, const float x, const float y, const float z)
@@ -652,9 +629,12 @@ class RobotIiwaServer : public rclcpp::Node
 
         void remove_collision_object(const std::string& objectId) const
         {
-            if (temporary_removed_objects_.count(objectId)) {
+            if(objectId=="floor"||objectId== "Bemi1"||objectId==  "BOX1"||objectId== "BOX2")
+            {
+                if (temporary_removed_objects_.count(objectId)) {
                 RCLCPP_WARN(this->get_logger(), "Object '%s' is already in temporary storage, not removing again.", objectId.c_str());
                 return;
+                }
             }
             // Get all collision objects from the planning scene
             std::map<std::string, moveit_msgs::msg::CollisionObject> scene_objects = planning_scene_interface_->getObjects();
@@ -662,6 +642,8 @@ class RobotIiwaServer : public rclcpp::Node
             // Find the object to remove
             auto it = scene_objects.find(objectId);
             if (it != scene_objects.end())
+            {
+                if(objectId=="floor"||objectId== "Bemi1"||objectId==  "BOX1"||objectId== "BOX2")
             {
                 // Store the object for later re-adding
                 temporary_removed_objects_[objectId] = it->second;
@@ -673,7 +655,13 @@ class RobotIiwaServer : public rclcpp::Node
 
                 // Remove collision object from planning scene
                 planning_scene_interface_->applyCollisionObject(collision_object_to_remove);
-
+            }
+            else
+            {
+                // Directly remove the object from the planning scene
+                std::vector<std::string> object_ids_to_remove = {objectId};
+                planning_scene_interface_->removeCollisionObjects(object_ids_to_remove);
+            }
                 RCLCPP_INFO(this->get_logger(), "Collision object '%s' temporarily removed and stored.", objectId.c_str());
             }
             else
@@ -1018,18 +1006,7 @@ class RobotIiwaServer : public rclcpp::Node
                     return;
                 }
                 response->result = 1;
-            } else if (name == "small_gripper")
-            {
-                add_small_gripper(name, pose);
-
-                if (!move_group_interface_->attachObject(name))
-                {
-                    RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Attach object '%s' failed", name.c_str());
-                    response->result = 0;
-                    return;
-                }
-                response->result = 1;
-            } else if (name == "workpiece")
+            }else if (name == "workpiece")
             {
                 add_mesh_workpiece(name, pose, partType, workpieceOrientation);//CAD Modell  for workpiece -> slows down planning
                 //add_workpiece(name, pose, partType, workpieceOrientation);
