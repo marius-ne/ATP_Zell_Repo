@@ -20,12 +20,14 @@ namespace WzlPlanner
     private:
         std::shared_ptr<WzlPlanner::IoInterfaceModBus> interface_modbus_;
         std::shared_ptr<ModBusData> data_;
-        int value_ = data_->value; // The default value is the one from ModBusData, but can be overridden by SetValue()
+        int value_; 
 
     public:
         TaskModBusWrite(const std::shared_ptr<ModBusData> data)
         {
             data_ = data;
+            value_ = data_->value; // The default value is the one from ModBusData, but can be overridden by SetValue()
+
             interface_modbus_ = std::dynamic_pointer_cast<WzlPlanner::IoInterfaceModBus>
                 (ObjectContainer::Get()->GetioInterface());
         }

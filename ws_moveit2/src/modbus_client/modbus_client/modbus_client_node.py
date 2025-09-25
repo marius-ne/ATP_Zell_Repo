@@ -105,8 +105,8 @@ class ModbusClientNode(Node):
                 self.get_logger().error(f'Error writing to register: {modbus_response}')
                 response.message = str(modbus_response)
                 response.success = False
-                
-            self.get_logger().debug(f'Wrote value {write_value} to register at address {write_address}')
+            
+            self.get_logger().info(f'Wrote value {write_value} to register at address {write_address}')
             response.success = True
             
         except (ConnectionException, ModbusException) as e:

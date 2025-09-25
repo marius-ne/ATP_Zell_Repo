@@ -17,7 +17,6 @@
 #include <memory>
 #include <chrono>
 
-//#include "../include/Tasks/misc_tasks.h"
 
 using namespace std::chrono_literals;
 
@@ -56,8 +55,8 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
   RCLCPP_INFO(node->get_logger(), "Initialize ObjectContainer");
 
   WzlPlanner::ObjectContainer::Get()->Initialize(
-      //ioInterfaceModBus,
-      ioInterfaceOpcUa,
+      ioInterfaceModBus,
+      //ioInterfaceOpcUa,
       robot,
       scene,
       node);
@@ -129,6 +128,17 @@ public:
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSmallGripper;
   std::shared_ptr<WzlPlanner::TaskPartAttach> taskAttachWorkpiece;
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachWorkpiece;
+
+  std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteZForce;
+  std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteScrewLength;
+  std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteTargetTorque;
+  std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteTightenScrew;
+  std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteShankPos20;
+  std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteShankPos0;
+  std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteStop;
+  std::shared_ptr<WzlPlanner::TaskModBusRead> taskModBusReadToolType;
+
+  std::shared_ptr<WzlPlanner::TaskModBusInterpretReadResult> taskModBusInterpretReadResultToolType;
 
   void UpdateWorkpieceTask(int partType, int orientation = 0) {
       // Aktualisiere das bestehende taskAttachWorkpiece-Objekt
@@ -231,6 +241,49 @@ public:
     taskIoAlarmOff = std::make_shared<WzlPlanner::TaskOpcuaRequest>(
         WzlPlanner::OpcUaData::GetOpcUaData_AlarmWriteAus());
     taskIoAlarmOff->SetId("taskIoAlarmOff");
+
+    taskModBusReadToolType = std::make_shared<WzlPlanner::TaskModBusRead>(
+        WzlPlanner::ModBusData::GetModBusData_ToolType_Read());
+    taskModBusReadToolType->SetId("taskModBusReadToolType");
+
+    taskModBusInterpretReadResultToolType = std::make_shared<WzlPlanner::TaskModBusInterpretReadResult>(taskModBusReadToolType);
+    taskModBusInterpretReadResultToolType->SetId("taskModBusInterpretReadResultToolType");
+    taskModBusInterpretReadResultToolType->SetComparisonValue("Screwdriver");
+
+    taskModBusWriteTightenScrew = std::make_shared<WzlPlanner::TaskModBusWrite>(
+        WzlPlanner::ModBusData::GetModBusData_TightenScrew_Write());
+    taskModBusWriteTightenScrew->SetId("taskModBusWriteTightenScrew");
+
+    taskModBusWriteZForce = std::make_shared<WzlPlanner::TaskModBusWrite>(
+        WzlPlanner::ModBusData::GetModBusData_ZAxesForce_Write());
+    taskModBusWriteZForce->SetId("taskModBusWriteZForce");
+    taskModBusWriteZForce->SetValue(20);
+
+    taskModBusWriteScrewLength = std::make_shared<WzlPlanner::TaskModBusWrite>(
+        WzlPlanner::ModBusData::GetModBusData_ScrewLength_Write());
+    taskModBusWriteScrewLength->SetId("taskModBusWriteScrewLength");
+    taskModBusWriteScrewLength->SetValue(30);
+
+    taskModBusWriteTargetTorque = std::make_shared<WzlPlanner::TaskModBusWrite>(
+        WzlPlanner::ModBusData::GetModBusData_TargetTorque_Write());
+    taskModBusWriteTargetTorque->SetId("taskModBusWriteTargetTorque");
+    taskModBusWriteTargetTorque->SetValue(100);
+
+    taskModBusWriteStop = std::make_shared<WzlPlanner::TaskModBusWrite>(
+        WzlPlanner::ModBusData::GetModBusData_Stop_Write());
+    taskModBusWriteStop->SetId("taskModBusWriteStop");
+
+    taskModBusWriteShankPos20 = std::make_shared<WzlPlanner::TaskModBusWrite>(
+        WzlPlanner::ModBusData::GetModBusData_ShankPosition_Write());
+    taskModBusWriteShankPos20->SetId("taskModBusWriteShankPos20");
+    taskModBusWriteShankPos20->SetValue(20);
+
+    taskModBusWriteShankPos0 = std::make_shared<WzlPlanner::TaskModBusWrite>(
+        WzlPlanner::ModBusData::GetModBusData_ShankPosition_Write());
+    taskModBusWriteShankPos0->SetId("taskModBusWriteShankPos0");
+    taskModBusWriteShankPos0->SetValue(0);
+
+    
 
     // Set movement speeds from config parameters
     double ptp_speed = get_parameter<double>(node, "speeds.ptp", 0.3);
@@ -1543,34 +1596,32 @@ void UseCaseTestModBus(const rclcpp::Node::SharedPtr &node, const std::shared_pt
   //BEMI2 OPEN/CLOSE -> Gripper open Close
   taskList->AddTask(tasks->taskSetSpeedCartesianFast);
   taskList->AddTask(tasks->taskSetSpeedPtp);
+  taskList->AddTask(tasks->taskModBusWriteScrewLength);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoBemi2Open);
+  taskList->AddTask(tasks->taskModBusWriteTargetTorque);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoBemi2Close);
+  taskList->AddTask(tasks->taskModBusWriteZForce);
+
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(tasks->taskModBusReadToolType);
+
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(tasks->taskModBusInterpretReadResultToolType);
+ 
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(tasks->taskModBusWriteShankPos20);
+
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoBemi2Open);
+
+  taskList->AddTask(tasks->taskModBusWriteTightenScrew);
+
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoBemi2Close);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoBemi2Open);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoBemi2Close);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoBemi3Open);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoBemi3Close);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoBemi2Open);
-  taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(taskInitPose);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(taskPose1);  
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(taskPose2); 
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(taskPose3);
+
+  taskList->AddTask(tasks->taskModBusWriteStop);
 
 
   while (true)
@@ -1623,8 +1674,6 @@ int main(int argc, char *argv[])
   WzlPlanner::Task::InitializePublisher(node);
 
   CreateCell(node);
-  
-
 
   rclcpp::sleep_for(2000ms);
   auto misc_tasks = std::make_shared<MiscTasks>(node);
@@ -1646,17 +1695,20 @@ int main(int argc, char *argv[])
   RCLCPP_INFO(node->get_logger(), "Starting UseCase %d", use_case);
     
     // UseCase basierend auf Parameter auswählen
-    switch (use_case) {
-        case 1:
-            UseCase1(node, misc_tasks);
-            break;
-        case 2:
-            UseCase2(node, misc_tasks);
-            break;
-        default:
-            RCLCPP_ERROR(node->get_logger(), "Invalid use case %d, using default (3)", use_case);
-            UseCase1(node, misc_tasks);
-    }
+    // switch (use_case) {
+    //     case 1:
+    //         UseCase1(node, misc_tasks);
+    //         break;
+    //     case 2:
+    //         UseCase2(node, misc_tasks);
+    //         break;
+    //     default:
+    //         RCLCPP_ERROR(node->get_logger(), "Invalid use case %d, using default (3)", use_case);
+    //         UseCase1(node, misc_tasks);
+    // }
+
+  UseCaseTestModBus(node, misc_tasks);
+
   rclcpp::spin(node);
 
   return 0;
