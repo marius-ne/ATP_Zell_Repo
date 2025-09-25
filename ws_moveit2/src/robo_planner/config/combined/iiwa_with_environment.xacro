@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="iiwa">
+
+  <!-- Welt-Link bereitstellen -->
+  <link name="world"/>
+
+  <!-- iiwa-Makro laden (liefert xacro:macro name="iiwa" params="parent prefix *origin") -->
+  <xacro:include filename="$(find iiwa_description)/urdf/iiwa.urdf.xacro"/>
+
+  <!-- Umgebungsmakro -->
+  <xacro:include filename="$(find robo_planner)/config/environment/environment.xacro"/>
+
+  <!-- Roboter instanziieren: nur parent/prefix + origin-Block -->
+  <xacro:iiwa parent="world" prefix="">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:iiwa>
+
+  <!-- Umgebung an world anhängen -->
+  <xacro:add_environment parent="world"/>
+
+</robot>

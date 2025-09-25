@@ -11,6 +11,7 @@
 #include "../include/SceneObjects/SceneObject.h"
 #include "../include/ObjectContainer.h"
 #include "../include/Tasks/TaskInclude.h"
+#include "../include/Tasks/Atomic/TaskOpcuaRequest.h"
 
 #include <math.h>
 #include <memory>
@@ -549,11 +550,11 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::Share
         partType = 1; 
         workpieceOrientation = 90;
     }
-} 
+  } 
 // PCNr 2: oberes Teil
-else if (PCNr == 2) {
-    partType = 2; // upper Part
-}
+  else if (PCNr == 2) {
+      partType = 2; // upper Part
+  }
   if (PCNr < 1 || PCNr > 2)
   {
     std::cout << "The Part Carrier number: " << std::to_string(PCNr) << " in method 'CreateTaskPickPC' is not defined." << std::endl;
@@ -1146,6 +1147,71 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPerformDeburr(const rclcpp::Node
 }
 
 
+/**
+ * 
+ *
+ * @brief Retrieves a task list for the photo positions task
+ *
+ * @param node The ROS node to retrieve parameters from
+ * @return A shared pointer to the task list
+ */
+ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPhotoPositions(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks)
+ {
+
+   double rotX = M_PI;
+   double rotY = 0;
+   double rotZ = M_PI ;
+ 
+   auto pose1 = std::make_shared<WzlPlanner::Pose>( 0.4,  0.4, 0.55, rotX, rotY, 0);
+   auto pose2 = std::make_shared<WzlPlanner::Pose>( 0.5,  0  , 0.55, rotX, rotY, 0);
+   auto pose3 = std::make_shared<WzlPlanner::Pose>( 0.4, -0.4, 0.55, rotX, rotY, 0);
+   auto pose4 = std::make_shared<WzlPlanner::Pose>( 0  , -0.5, 0.55, rotX, rotY, rotZ);
+   auto pose5 = std::make_shared<WzlPlanner::Pose>(-0.4, -0.4, 0.55, rotX, rotY, rotZ);
+   auto pose6 = std::make_shared<WzlPlanner::Pose>(-0.5,  0  , 0.55, rotX, rotY, rotZ);
+   auto pose7 = std::make_shared<WzlPlanner::Pose>(-0.4,  0.4, 0.55, rotX, rotY, rotZ);
+   auto pose8 = std::make_shared<WzlPlanner::Pose>( 0  ,  0.5, 0.55, rotX, rotY, rotZ);
+ 
+   auto taskPose1= std::make_shared<WzlPlanner::TaskMoveToPose>();
+   auto taskPose2= std::make_shared<WzlPlanner::TaskMoveToPose>();
+   auto taskPose3= std::make_shared<WzlPlanner::TaskMoveToPose>();
+   auto taskPose4= std::make_shared<WzlPlanner::TaskMoveToPose>();
+   auto taskPose5= std::make_shared<WzlPlanner::TaskMoveToPose>();
+   auto taskPose6= std::make_shared<WzlPlanner::TaskMoveToPose>();
+   auto taskPose7= std::make_shared<WzlPlanner::TaskMoveToPose>();
+   auto taskPose8= std::make_shared<WzlPlanner::TaskMoveToPose>();
+
+   taskPose1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose1); taskPose1->SetId("taskPose1");
+   taskPose2->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose2); taskPose2->SetId("taskPose2");
+   taskPose3->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose3); taskPose3->SetId("taskPose3");
+   taskPose4->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose4); taskPose4->SetId("taskPose4");
+   taskPose5->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose5); taskPose5->SetId("taskPose5");
+   taskPose6->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose6); taskPose6->SetId("taskPose6");
+   taskPose7->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose7); taskPose7->SetId("taskPose7");
+   taskPose8->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose8); taskPose8->SetId("taskPose8");
+
+   auto taskList = std::make_shared<WzlPlanner::TaskList>();
+   taskList->SetId("PhotoPositions");
+   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+   taskList->AddTask(taskPose1);
+   taskList->AddTask(tasks->taskWait);
+   taskList->AddTask(taskPose2);
+   taskList->AddTask(tasks->taskWait);
+   taskList->AddTask(taskPose3);
+   taskList->AddTask(tasks->taskWait);
+   taskList->AddTask(taskPose4);
+   taskList->AddTask(tasks->taskWait);
+   taskList->AddTask(taskPose5);
+   taskList->AddTask(tasks->taskWait);
+   taskList->AddTask(taskPose6);
+   taskList->AddTask(tasks->taskWait);
+   taskList->AddTask(taskPose7);
+   taskList->AddTask(tasks->taskWait);
+   taskList->AddTask(taskPose8);
+
+   return taskList;
+ }
+
+
 void UseCase2(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks)
 {
   tasks->taskIoLampOrange->Execute();
@@ -1353,7 +1419,7 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   // INIT pose and task def
   auto poseInit = std::make_shared<WzlPlanner::Pose>(0.4, 0.1, 0.5, rotX, rotY, rotZ);
 
-   auto taskInitPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  auto taskInitPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskInitPose->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseInit);
   taskInitPose->SetId("InitPose");
 
@@ -1378,9 +1444,14 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   //------------------- Pick Part 1&2 from PC & Place parts in BEMI 1&2 -------------------//
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
 
+  taskList->AddTask(CreateTaskPhotoPositions(node, tasks));
+  taskList->AddTask(taskInitPose);
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
   //Pick Part 1 & Place parts in BEMI 1(unten)
   taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 1));
   taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1, 1)); 
+  taskList->AddTask(taskInitPose);
   
   //Pick Part 2 & Place parts in BEMI 2(selber Bemi, oben)
   taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 2));
@@ -1393,9 +1464,11 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   //return Part 2
   taskList->AddTask(CreateTaskPickBEMI(node, tasks, 2, 2,0));
   taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 2));
+  taskList->AddTask(taskInitPose);
   //return Part 1  
   taskList->AddTask(CreateTaskPickBEMI(node, tasks, 1, 1,0));
   taskList->AddTask(CreateTaskPlacePC(node, tasks, 1, 1));
+  taskList->AddTask(taskInitPose);
   
   //taskList->AddTask(CreateTaskPerformDeburr(node, tasks, LoadNCFile("Toolpath_Body_v0.5_Leftt Side (copy).nc"), 1));
 
@@ -1541,8 +1614,13 @@ int main(int argc, char *argv[])
   auto const node = std::make_shared<rclcpp::Node>(
       "robo_planner", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
 
-   // Initialize the task status publisher
-    WzlPlanner::Task::InitializePublisher(node);
+  WzlPlanner::TaskOpcuaRequest::InitializeGripperStatePublisher(node);
+  // Anfangszustand annehmen: geschlossen (false) oder offen (true). 
+  // nicht wirklich bekannt, erst nach erstem öffnen schließen
+  //WzlPlanner::TaskOpcuaRequest::PublishInitial(true);
+
+  // Initialize the task status publisher
+  WzlPlanner::Task::InitializePublisher(node);
 
   CreateCell(node);
   

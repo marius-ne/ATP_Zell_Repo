@@ -237,7 +237,6 @@ namespace WzlPlanner
 
             return data;
         }
-        
 
         static std::shared_ptr<WzlPlanner::OpcUaData> GetOpcUaData_Bemi3WriteAuf()
         {

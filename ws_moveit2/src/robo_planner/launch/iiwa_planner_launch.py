@@ -36,10 +36,23 @@ def get_robot_description():
             '/',
         ]
     )
-
-
     robot_description = {"robot_description": ParameterValue(robot_description_content, value_type=str)}
     return robot_description
+
+def get_environment_description():
+    environment_xacro = Command([
+        PathJoinSubstitution([FindExecutable(name='xacro')]),
+        ' ',
+        PathJoinSubstitution([
+            FindPackageShare('robo_planner'),
+            'config',
+            'environment',
+            'environment.xacro'
+        ])
+    ])
+    return ParameterValue(environment_xacro, value_type=str)
+
+
 
 def get_robot_description_semantic():
     # MoveIt Configuration
@@ -67,16 +80,41 @@ def get_robot_description_semantic():
     return robot_description_semantic
 
 def generate_launch_description():
-    # generate_common_hybrid_launch_description() returns a list of nodes to launch
-    robot_description = get_robot_description()
-    robot_description_semantic = get_robot_description_semantic()
-    #robot_description_kinematics = PathJoinSubstitution([FindPackageShare("robo_planner"), "config","custom_moveit_config","config","kinematics.yaml"])
-    cell_config = os.path.join(
-            get_package_share_directory('robo_planner'),
-            'config',
-            'cell_config.yaml'
-        )
     
+    robot_description_semantic = get_robot_description_semantic()
+
+    cell_config = os.path.join(
+        get_package_share_directory('robo_planner'),
+        'config',
+        'cell_config.yaml'
+    )
+    
+    # Pfad zur Kinematik-Datei
+    kinematics_yaml = os.path.join(
+        get_package_share_directory('robo_planner'),
+        'config',
+        'custom_moveit_config',
+        'config',
+        'kinematics.yaml'
+    )
+    
+    # combine robot and environment descriptions
+    robot_description_combined = {
+        "robot_description": ParameterValue(
+            Command([
+                PathJoinSubstitution([FindExecutable(name='xacro')]),
+                ' ',
+                PathJoinSubstitution([
+                    FindPackageShare('robo_planner'),
+                    'config',
+                    'combined',
+                    'iiwa_with_environment.xacro'
+                ])
+            ]),
+            value_type=str
+        )
+    }
+
     opcua_client_node = Node(
         package="opcua_client",
         executable="client_node",
@@ -118,9 +156,9 @@ def generate_launch_description():
         name="moveit_backend_iiwa",
         output="screen",
         parameters=[
-            robot_description,
+            robot_description_combined,
             robot_description_semantic,
-            #robot_description_kinematics
+            kinematics_yaml,  # <-- Kinematik laden
         ],
     )
     robo_planner_node = Node(
@@ -139,7 +177,7 @@ def generate_launch_description():
         name="robot_state_publisher",
         output="both",
         parameters=[
-            robot_description
+            robot_description_combined
         ],
     )
 
