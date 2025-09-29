@@ -145,6 +145,7 @@ namespace WzlPlanner
             data->translate_response = true;
         
             data->response_mapping_table = {
+                {0, "No additional results data"},
                 {1, "Screwdriver busy"},
                 {2, "Z-axis (or general initialization) busy"},
                 {4, "Error: Z-axis safety activated"},

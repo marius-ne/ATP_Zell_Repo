@@ -69,7 +69,6 @@ namespace WzlPlanner
 
             // Implement the required method from the base class
             bool SetValueBool(const int slot, const bool value) override {
-                // You might want to implement this using ModBusWrite
                 (void)slot;
                 (void)value;
                 return true;

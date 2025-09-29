@@ -55,8 +55,8 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
   RCLCPP_INFO(node->get_logger(), "Initialize ObjectContainer");
 
   WzlPlanner::ObjectContainer::Get()->Initialize(
-      ioInterfaceModBus,
-      //ioInterfaceOpcUa,
+      //ioInterfaceModBus,
+      ioInterfaceOpcUa,
       robot,
       scene,
       node);
@@ -133,10 +133,14 @@ public:
   std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteScrewLength;
   std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteTargetTorque;
   std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteTightenScrew;
+  std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteLoosenScrew;
   std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteShankPos20;
   std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteShankPos0;
   std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteStop;
+
   std::shared_ptr<WzlPlanner::TaskModBusRead> taskModBusReadToolType;
+  std::shared_ptr<WzlPlanner::TaskModBusRead> taskModBusReadStatusErrors;
+  std::shared_ptr<WzlPlanner::TaskModBusRead> taskModBusReadTorqueAngleGradient;
 
   std::shared_ptr<WzlPlanner::TaskModBusInterpretReadResult> taskModBusInterpretReadResultToolType;
 
@@ -254,15 +258,19 @@ public:
         WzlPlanner::ModBusData::GetModBusData_TightenScrew_Write());
     taskModBusWriteTightenScrew->SetId("taskModBusWriteTightenScrew");
 
+    taskModBusWriteLoosenScrew = std::make_shared<WzlPlanner::TaskModBusWrite>(
+        WzlPlanner::ModBusData::GetModBusData_LoosenScrew_Write());
+    taskModBusWriteLoosenScrew->SetId("taskModBusWriteLoosenScrew");
+
     taskModBusWriteZForce = std::make_shared<WzlPlanner::TaskModBusWrite>(
         WzlPlanner::ModBusData::GetModBusData_ZAxesForce_Write());
     taskModBusWriteZForce->SetId("taskModBusWriteZForce");
-    taskModBusWriteZForce->SetValue(20);
+    taskModBusWriteZForce->SetValue(18);
 
     taskModBusWriteScrewLength = std::make_shared<WzlPlanner::TaskModBusWrite>(
         WzlPlanner::ModBusData::GetModBusData_ScrewLength_Write());
     taskModBusWriteScrewLength->SetId("taskModBusWriteScrewLength");
-    taskModBusWriteScrewLength->SetValue(30);
+    taskModBusWriteScrewLength->SetValue(3000);
 
     taskModBusWriteTargetTorque = std::make_shared<WzlPlanner::TaskModBusWrite>(
         WzlPlanner::ModBusData::GetModBusData_TargetTorque_Write());
@@ -283,7 +291,13 @@ public:
     taskModBusWriteShankPos0->SetId("taskModBusWriteShankPos0");
     taskModBusWriteShankPos0->SetValue(0);
 
-    
+    taskModBusReadStatusErrors = std::make_shared<WzlPlanner::TaskModBusRead>(
+        WzlPlanner::ModBusData::GetModBusData_StatusErrors_Read());
+    taskModBusReadStatusErrors->SetId("taskModBusReadStatusErrors");
+
+    taskModBusReadTorqueAngleGradient = std::make_shared<WzlPlanner::TaskModBusRead>(
+        WzlPlanner::ModBusData::GetModBusData_TorqueAngleGradient_Read());
+    taskModBusReadTorqueAngleGradient->SetId("taskModBusReadTorqueAngleGradient");
 
     // Set movement speeds from config parameters
     double ptp_speed = get_parameter<double>(node, "speeds.ptp", 0.3);
@@ -1617,11 +1631,23 @@ void UseCaseTestModBus(const rclcpp::Node::SharedPtr &node, const std::shared_pt
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
-  taskList->AddTask(tasks->taskModBusWriteTightenScrew);
+  taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
 
   taskList->AddTask(tasks->taskWait);
 
   taskList->AddTask(tasks->taskModBusWriteStop);
+
+  taskList->AddTask(tasks->taskWait);
+
+
+  taskList->AddTask(tasks->taskModBusReadStatusErrors);
+
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(tasks->taskModBusReadTorqueAngleGradient);
+
+  taskList->AddTask(tasks->taskWait);
+
 
 
   while (true)
@@ -1695,19 +1721,20 @@ int main(int argc, char *argv[])
   RCLCPP_INFO(node->get_logger(), "Starting UseCase %d", use_case);
     
     // UseCase basierend auf Parameter auswählen
-    // switch (use_case) {
-    //     case 1:
-    //         UseCase1(node, misc_tasks);
-    //         break;
-    //     case 2:
-    //         UseCase2(node, misc_tasks);
-    //         break;
-    //     default:
-    //         RCLCPP_ERROR(node->get_logger(), "Invalid use case %d, using default (3)", use_case);
-    //         UseCase1(node, misc_tasks);
-    // }
-
-  UseCaseTestModBus(node, misc_tasks);
+    switch (use_case) {
+        case 1:
+            UseCase1(node, misc_tasks);
+            break;
+        case 2:
+            UseCase2(node, misc_tasks);
+            break;
+        case 3:
+            UseCaseTestModBus(node, misc_tasks);
+            break;
+        default:
+            RCLCPP_ERROR(node->get_logger(), "Invalid use case %d, using default (4)", use_case);
+            UseCase1(node, misc_tasks);
+    }
 
   rclcpp::spin(node);
 

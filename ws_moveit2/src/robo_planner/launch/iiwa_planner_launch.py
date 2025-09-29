@@ -4,10 +4,10 @@ import os
 import sys
 
 from launch_ros.actions import Node
-from launch.substitutions import PathJoinSubstitution, Command, FindExecutable
+from launch.substitutions import PathJoinSubstitution, Command, FindExecutable, LaunchConfiguration
 from launch_ros.substitutions import FindPackageShare
 
-from launch.actions import IncludeLaunchDescription, RegisterEventHandler
+from launch.actions import IncludeLaunchDescription, RegisterEventHandler, DeclareLaunchArgument
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.parameter_descriptions import ParameterValue
 
@@ -80,6 +80,15 @@ def get_robot_description_semantic():
     return robot_description_semantic
 
 def generate_launch_description():
+    
+    # Declare launch argument for use_case
+    declare_use_case = DeclareLaunchArgument(
+        'use_case',
+        default_value='1',
+        description='Select which use case to run (1: UseCase1, 2: UseCase2, 3: UseCaseTestModBus)'
+    )
+    
+    use_case = LaunchConfiguration('use_case')
     
     robot_description_semantic = get_robot_description_semantic()
 
@@ -166,7 +175,8 @@ def generate_launch_description():
         executable="robo_planner",
         name="robo_planner",
         output="screen",
-        parameters=[cell_config
+        parameters=[cell_config,
+                    {'use_case': use_case},
         ],
     )
 
@@ -183,6 +193,6 @@ def generate_launch_description():
 
 
     #return launch.LaunchDescription([opcua_client_node, opcua_client_io_link_node, modbus_client_node, moveit_backend, robo_planner_node, robot_state_publisher])
-    return launch.LaunchDescription([modbus_client_node, moveit_backend, robo_planner_node, robot_state_publisher])
+    return launch.LaunchDescription([declare_use_case, modbus_client_node, moveit_backend, robo_planner_node, robot_state_publisher])
     
     #return launch.LaunchDescription([opcua_client_node, moveit_backend, robo_planner_node, robot_state_publisher])
