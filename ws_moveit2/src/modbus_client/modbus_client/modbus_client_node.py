@@ -1,24 +1,32 @@
 import rclpy
 from rclpy.node import Node
+from rclpy.parameter import Parameter
 from pymodbus.client import ModbusTcpClient
 from pymodbus.exceptions import ConnectionException, ModbusException
 from modbus_interfaces.srv import ReadRegister, WriteRegister
 import time
+from ament_index_python.packages import get_package_share_directory
+import os
+import yaml
 
 
 class ModbusClientNode(Node):
     def __init__(self):
         super().__init__('modbus_client_node')
         
-        self.declare_parameter('modbus_server_host', '192.168.30.20')
-        self.declare_parameter('modbus_server_port', 502)
-        self.declare_parameter('modbus_slave_id', 65)  # Default slave ID
-        self.declare_parameter('poll_interval', 1.0)  # in seconds
+        self._load_config_file()
+        
+        # Declare default parameters only if they haven't been declared yet by yaml config file
+        if not self.has_parameter('modbus_server_host'):
+            self.declare_parameter('modbus_server_host', '192.168.30.20')
+        if not self.has_parameter('modbus_server_port'):
+            self.declare_parameter('modbus_server_port', 502)
+        if not self.has_parameter('modbus_slave_id'):
+            self.declare_parameter('modbus_slave_id', 65)  # Default slave ID
         
         self.server_host = self.get_parameter('modbus_server_host').value
         self.server_port = self.get_parameter('modbus_server_port').value
         self.slave_id = self.get_parameter('modbus_slave_id').value
-        self.poll_interval = self.get_parameter('poll_interval').value
 
         self.client = ModbusTcpClient(
             host=self.server_host,
@@ -32,13 +40,11 @@ class ModbusClientNode(Node):
             self.get_logger().error(f'Failed to connect to Modbus server: {e}')
         
         
-        #self.timer = self.create_timer(self.poll_interval, self.poll_modbus_data_callback)
-
         # Service definitions
         self.read_register_service = self.create_service(ReadRegister, 'read_register_service', self.read_register_callback)
         self.write_register_service = self.create_service(WriteRegister, 'write_register_service', self.write_register_callback)
 
-        time.sleep(0.5) # Wait to establish connections
+        time.sleep(0.5) # Wait to establish services
 
         self.get_logger().info(f'Modbus client node started. Connected to {self.server_host}:{self.server_port}')
 
@@ -125,6 +131,25 @@ class ModbusClientNode(Node):
                 self.get_logger().info(f'Read registers: {read_response}')
         except Exception as e:
             self.get_logger().error(f'Error during Modbus polling: {e}')
+
+    def _load_config_file(self):
+        """Load configuration parameters from a YAML file"""
+        try:
+            config_file_path = os.path.join(get_package_share_directory('modbus_client'), 'config', 'modbus_config.yaml')
+            if os.path.exists(config_file_path):
+                with open(config_file_path, 'r') as file:
+                    config_data = yaml.safe_load(file)
+                    if 'modbus_client_node' in config_data and 'ros__parameters' in config_data['modbus_client_node']:
+                        params = config_data['modbus_client_node']['ros__parameters']
+                        for param_name, param_value in params.items():
+                            self.declare_parameter(param_name, param_value)
+                            self.get_logger().info(f'Loaded parameter {param_name}: {param_value}')
+                    else:
+                        self.get_logger().warn('Invalid YAML structure in config file')
+            else:
+                self.get_logger().warn(f'Config file not found: {config_file_path}')
+        except Exception as e:
+            self.get_logger().error(f'Error loading config file: {e}')
 
 
 def main(args=None):
