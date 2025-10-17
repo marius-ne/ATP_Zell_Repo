@@ -27,11 +27,7 @@ add_executable(robo_planner
   src/Pose.cpp
   src/Robot.cpp
   src/Scene.cpp
-  src/SceneObjects/SceneObjectClampingDevice.cpp
   src/Tasks/Task.cpp
-  src/Tasks/TaskGripperChange.cpp
-  src/Tasks/TaskGripperChangePick.cpp
-  src/Tasks/TaskGripperChangePlace.cpp
   src/Tasks/TaskGripperClose.cpp
   src/Tasks/TaskGripperOpen.cpp
   src/Tasks/TaskFollowTrajectory.cpp
@@ -40,7 +36,6 @@ add_executable(robo_planner
   src/Tasks/TaskPick.cpp
   src/Tasks/TaskPickAndPlace.cpp
   src/Tasks/TaskPlace.cpp
-  src/Tasks/TaskScanScene.cpp
   #src/Tasks/misc_tasks.cpp
   )
 

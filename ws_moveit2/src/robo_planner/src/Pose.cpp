@@ -1,5 +1,4 @@
 #include "../include/Pose.h"
-#include "Pose.h"
 
 WzlPlanner::Pose::Pose()
 {

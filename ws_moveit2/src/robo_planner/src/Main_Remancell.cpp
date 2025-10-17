@@ -61,31 +61,7 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
       scene,
       node);
 
-  // gripper change station
-  RCLCPP_INFO(node->get_logger(), "Initialize Gripper change station");
-  auto gripperChangeStation = std::make_shared<WzlPlanner::SceneObjectGripperChangeStation>("GripperChangeStation");
-  // scene->AddSceneObject(gripperChangeStation, std::make_shared<WzlPlanner::Pose>(0, 10, 0));
-
-  // clamping device jaws
-  RCLCPP_INFO(node->get_logger(), "Initialize Clamping device jaw");
-  auto clampingDeviceJaws = std::make_shared<WzlPlanner::SceneObjectClampingDeviceJaws>("ClampingDeviceJaw", 0, 1);
-  // scene->AddSceneObject(clampingDeviceJaws, std::make_shared<WzlPlanner::Pose>(5, 0, 0));
-
-  // clamping device elevation
-  RCLCPP_INFO(node->get_logger(), "Initialize clamping device elevation");
-  auto clampingDeviceElevation = std::make_shared<WzlPlanner::SceneObjectClampingDeviceJaws>("ClampingDeviceElavation", 2, 3);
-  // scene->AddSceneObject(clampingDeviceElevation, std::make_shared<WzlPlanner::Pose>(5, 0, 0));
-
-  // scanning tower
-  RCLCPP_INFO(node->get_logger(), "Initialize visual scan tower");
-  auto scanningTower = std::make_shared<WzlPlanner::SceneObjectVisualScanTower>("VisualScanTower");
-  // scene->AddSceneObject(scanningTower, std::make_shared<WzlPlanner::Pose>(5, 5, 0));
-
-  // carrier
-  RCLCPP_INFO(node->get_logger(), "Initialize carrier");
-  auto carrier = std::make_shared<WzlPlanner::SceneObjectCarrier>("Carrier");
-  // scene->AddSceneObject(carrier, std::make_shared<WzlPlanner::Pose>(-5, 0, 0));
-
+ 
   RCLCPP_INFO(node->get_logger(), "Robot scheduler cell environment initialization end.");
 }
 
@@ -145,7 +121,7 @@ public:
   std::shared_ptr<WzlPlanner::TaskModBusInterpretReadResult> taskModBusInterpretReadResultToolType;
 
   void UpdateWorkpieceTask(int partType, int orientation = 0) {
-      // Aktualisiere das bestehende taskAttachWorkpiece-Objekt
+      // Update the existing taskAttachWorkpiece object
       taskAttachWorkpiece = std::make_shared<WzlPlanner::TaskPartAttach>("workpiece", partType, orientation);
       taskAttachWorkpiece->SetId("taskAttachWorkpiece_Type" + std::to_string(partType) + 
                               (orientation != 0 ? "_Rot" + std::to_string(orientation) : ""));
@@ -418,170 +394,6 @@ std::vector<std::vector<double>> LoadNCFile(const std::string& filename) {
     return points;
 }
 
-/**
- * Changing Station Place Task:
- * ---------------------------
- * This task involves the following steps:
- * 1. Approach the changing station (PTP)
- * 2. Drive in execution pose (Cartesian Movement)
- * 3. Lift up (Cartesian Movement)
- * 4. Drive back (Cartesian Movement)
- * 5. Drop down into start position (Cartesian Movement)
- *
- * @brief Retrieves a task list for the changing station place task
- *
- * @param node The ROS node to retrieve parameters from
- * @param stationIndex The index of the changing station (1-4)
- * @return A shared pointer to the task list
- */
-std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPlace(const rclcpp::Node::SharedPtr &node, int stationIndex)
-{
-  if (stationIndex < 1 || stationIndex > 4)
-  {
-    std::cout << "The chanigng station index: " << std::to_string(stationIndex) << " in method 'GetChangingStationTaskPlace' is not defined." << std::endl;
-    return nullptr;
-  }
-
-  double rotX = M_PI;
-  double rotY = 0;
-  double rotZ = M_PI * -0.5;
-
-  std::vector<double> stationXValues = get_parameter<std::vector<double>>(node, "positions.station.x_positions", {-0.189, -0.0167, 0.1375, 0.27893});
-  std::vector<double> stationZValues = get_parameter<std::vector<double>>(node, "positions.station.z_values", {0.416, 0.41356, 0.41005, 0.408});
-
-  double posEndZOffset = get_parameter<double>(node, "safety.pos_end_z_offset", 0.03);
-  // double posPlaceOffsetZ = get_parameter<double>(node, "safety.pos_place_offset_z", -0.005);
-
-  double stationYApproach = get_parameter<double>(node, "positions.station.y_approach", -0.35);
-  double stationYExecute = get_parameter<double>(node, "positions.station.y_execute", -0.5549700856208801);
-
-  double posX = stationXValues[stationIndex - 1];
-  double posStartZ = stationZValues[stationIndex - 1];
-
-  auto targetPose1 = std::make_shared<WzlPlanner::Pose>(posX, stationYApproach, posStartZ, rotX, rotY, rotZ);
-  auto targetPose2 = std::make_shared<WzlPlanner::Pose>(posX, stationYExecute, posStartZ, rotX, rotY, rotZ);
-  auto targetPose3 = std::make_shared<WzlPlanner::Pose>(posX, stationYExecute, posStartZ + posEndZOffset, rotX, rotY, rotZ);
-  auto targetPose4 = std::make_shared<WzlPlanner::Pose>(posX, stationYApproach, posStartZ + posEndZOffset, rotX, rotY, rotZ);
-  auto targetPose5 = std::make_shared<WzlPlanner::Pose>(posX, stationYApproach, posStartZ, rotX, rotY, rotZ);
-
-  auto taskMove1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  taskMove1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
-  taskMove1->SetTargetPose(targetPose1);
-  taskMove1->SetId("ChangingStationPlace_Move1");
-
-  auto taskMove2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  taskMove2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
-  taskMove2->SetTargetPose(targetPose2);
-  taskMove2->SetId("ChangingStationPlace_Move2");
-
-  auto taskMove3 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  taskMove3->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
-  taskMove3->SetTargetPose(targetPose3);
-  taskMove3->SetId("ChangingStationPlace_Move3");
-
-  auto taskMove4 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  taskMove4->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
-  taskMove4->SetTargetPose(targetPose4);
-  taskMove4->SetId("ChangingStationPlace_Move4");
-
-  auto taskMove5 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  taskMove5->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
-  taskMove5->SetTargetPose(targetPose5);
-  taskMove5->SetId("ChangingStationPlace_Move5");
-
-  auto taskList = std::make_shared<WzlPlanner::TaskList>();
-
-  taskList->AddTask(taskMove1);
-  taskList->AddTask(taskMove2);
-  taskList->AddTask(taskMove3);
-  taskList->AddTask(taskMove4);
-  taskList->AddTask(taskMove5);
-
-  taskList->SetId("ChangingStationPlace");
-
-  return taskList;
-}
-
-/**
- * @brief Creates a task list for picking up a station
- *
- * The changing station pick taskm contains these steps:
- * 1. Approach the changing station (PTP movement)
- * 2. Lift up (cartesian movement)
- * 3. Drive into execution pose (Cartesian movement)
- * 4. Drop down and dock the new equipment
- * 5. Drive back (cartesian movement)
- *
- * @param stationIndex The index of the station to pick up (1-4)
- * @return A shared pointer to the task list
- */
-std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(const rclcpp::Node::SharedPtr &node, int stationIndex)
-{
-  if (stationIndex < 1 || stationIndex > 4)
-  {
-    std::cout << "The changing station index: " << std::to_string(stationIndex) << " in method 'GetChangingStationTaskPlace' is not defined." << std::endl;
-    return nullptr;
-  }
-
-  double rotX = M_PI - M_PI / 256; // Offset weil tool change station nicht gerade ist
-  double rotY = 0;
-  double rotZ = M_PI * -0.5;
-
-  std::vector<double> stationXValues = get_parameter<std::vector<double>>(node, "positions.station.x_positions", {-0.189, -0.0167, 0.1375, 0.27893});
-  std::vector<double> stationZValues = get_parameter<std::vector<double>>(node, "positions.station.z_values", {0.416, 0.41356, 0.41005, 0.408});
-
-  double posEndZOffset = get_parameter<double>(node, "safety.pos_end_z_offset", 0.03);
-  double posPlaceOffsetZ = get_parameter<double>(node, "safety.placement_offset_z", -0.005);
-
-  double stationYApproach = get_parameter<double>(node, "positions.station.y_approach", -0.35);
-  double stationYExecute = get_parameter<double>(node, "positions.station.y_execute", -0.5549700856208801);
-
-  double posX = stationXValues[stationIndex - 1];
-  double posStartZ = stationZValues[stationIndex - 1];
-
-  auto targetPose1 = std::make_shared<WzlPlanner::Pose>(posX, stationYApproach, posStartZ, rotX, rotY, rotZ);
-  auto targetPose2 = std::make_shared<WzlPlanner::Pose>(posX, stationYApproach, posStartZ + posEndZOffset, rotX, rotY, rotZ);
-  auto targetPose3 = std::make_shared<WzlPlanner::Pose>(posX, stationYExecute, posStartZ + posEndZOffset, rotX, rotY, rotZ);
-  auto targetPose4 = std::make_shared<WzlPlanner::Pose>(posX, stationYExecute, posStartZ + posPlaceOffsetZ, rotX, rotY, rotZ);
-  auto targetPose5 = std::make_shared<WzlPlanner::Pose>(posX, stationYApproach, posStartZ, rotX, rotY, rotZ);
-
-  auto taskMove1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  taskMove1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP);
-  taskMove1->SetTargetPose(targetPose1);
-  taskMove1->SetId("ChangingStationPick_Move1");
-
-  auto taskMove2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  taskMove2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
-  taskMove2->SetTargetPose(targetPose2);
-  taskMove2->SetId("ChangingStationPick_Move2");
-
-  auto taskMove3 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  taskMove3->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
-  taskMove3->SetTargetPose(targetPose3);
-  taskMove3->SetId("ChangingStationPick_Move3");
-
-  auto taskMove4 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  taskMove4->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
-  taskMove4->SetTargetPose(targetPose4);
-  taskMove4->SetId("ChangingStationPick_Move4");
-
-  auto taskMove5 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  taskMove5->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian);
-  taskMove5->SetTargetPose(targetPose5);
-  taskMove5->SetId("ChangingStationPick_Move5");
-
-  auto taskList = std::make_shared<WzlPlanner::TaskList>();
-
-  taskList->AddTask(taskMove1);
-  taskList->AddTask(taskMove2);
-  taskList->AddTask(taskMove3);
-  taskList->AddTask(taskMove4);
-  taskList->AddTask(taskMove5);
-
-  taskList->SetId("ChangingStationPick");
-
-  return taskList;
-}
 
 /**
  * Pick task Part carrier:
@@ -603,30 +415,9 @@ std::shared_ptr<WzlPlanner::TaskList> GetChangingStationTaskPick(const rclcpp::N
  */
 std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, int PCIndex, int PCNr)
 {
-  //Workpiece orientation an partType defined through the PCNr and PCIndex 
+  //Workpiece orientation and partType defined through the PCNr and PCIndex 
   int partType=1;
   int workpieceOrientation=0;
-
-  if (PCNr == 1) {
-    if (PCIndex >= 1 && PCIndex <= 5) {
-        partType = 1;//lower Part
-        workpieceOrientation = 0;
-    } 
-    // evt andere Orientierungen
-    else if (PCIndex >= 6 && PCIndex <= 8) {
-        partType = 1; 
-        workpieceOrientation = 90;
-    }
-  } 
-// PCNr 2: oberes Teil
-  else if (PCNr == 2) {
-      partType = 2; // upper Part
-  }
-  if (PCNr < 1 || PCNr > 2)
-  {
-    std::cout << "The Part Carrier number: " << std::to_string(PCNr) << " in method 'CreateTaskPickPC' is not defined." << std::endl;
-    return nullptr;
-  }
 
   // Constants
   double placementOffsetZ = 0.2;
@@ -639,10 +430,41 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickPC(const rclcpp::Node::Share
   std::vector<double> PCY;
   std::vector<double> PCZ;
 
-std::cout << PCNr<< std::endl;
-  if (PCNr == 1)// Koordinaten
+  if (PCNr == 1) {
+    if (PCIndex == 1 || PCIndex == 5) {
+        partType = 1;//lower Part
+        workpieceOrientation = 0;
+        rotZ =0.5;
+    } 
+    // possible other orientations
+    else if (PCIndex == 2 || PCIndex == 6) {
+        partType = 1; 
+        workpieceOrientation = 180;
+        rotZ =0.5 + M_PI;
+    }
+    else if (PCIndex == 3 || PCIndex == 4) {
+      partType = 1; 
+      workpieceOrientation = 90;
+      
+  }
+  } 
+// PCNr 2: upper Part
+  else if (PCNr == 2) {
+      partType = 2; // upper Part
+  }
+  if (PCNr < 1 || PCNr > 2)
   {
-    PCX = get_parameter<std::vector<double>>(node, "positions.PC.x_1", {0.29255, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762});//nur Standartwerte falss parameter nicht gefunden werden -> richtige Parameter in cell_config.yaml
+    std::cout << "The Part Carrier number: " << std::to_string(PCNr) << " in method 'CreateTaskPickPC' is not defined." << std::endl;
+    return nullptr;
+  }
+
+
+
+
+std::cout << PCNr<< std::endl;
+  if (PCNr == 1)// Coordinates
+  {
+    PCX = get_parameter<std::vector<double>>(node, "positions.PC.x_1", {0.29255, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762});//only default values if parameters are not found -> correct parameters in cell_config.yaml
     PCY = get_parameter<std::vector<double>>(node, "positions.PC.y_1", {-0.41572, 0.341, 0.341, 0.341, 0.341, 0.144, 0.144, 0.144});
     PCZ = get_parameter<std::vector<double>>(node, "positions.PC.z_1", {0.1883, 0.260, 0.260, 0.260, 0.260, 0.230, 0.230, 0.230});//z=0,34252
   }
@@ -681,7 +503,7 @@ std::cout << PCNr<< std::endl;
 
   taskList->AddTask(tasks->taskSetSpeedCartesianFast);
   taskList->AddTask(taskPCApproach);
-  taskList->AddTask(tasks->taskIoBemi2Close); //Greifer gerade über Bemi2 angesteuert!!! 
+  taskList->AddTask(tasks->taskIoBemi2Close); //Gripper currently controlled via Bemi2!!! 
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskPCExecute);
@@ -732,9 +554,9 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlacePC(const rclcpp::Node::Shar
   std::vector<double> PCY;
   std::vector<double> PCZ;
 
-  if (PCNr == 1)// Koordinaten
+  if (PCNr == 1)// Coordinates
   {
-    PCX = get_parameter<std::vector<double>>(node, "positions.PC.x_1", {0.29255, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762});//nur Standartwerte falss parameter nicht gefunden werden -> richtige Parameter in cell_config.yaml
+    PCX = get_parameter<std::vector<double>>(node, "positions.PC.x_1", {0.29255, -0.456, -0.561, -0.666, -0.771, -0.416, -0.589, -0.762});//only default values if parameters are not found -> correct parameters in cell_config.yaml
     PCY = get_parameter<std::vector<double>>(node, "positions.PC.y_1", {-0.41572, 0.341, 0.341, 0.341, 0.341, 0.144, 0.144, 0.144});
     PCZ = get_parameter<std::vector<double>>(node, "positions.PC.z_1", {0.1883, 0.260, 0.260, 0.260, 0.260, 0.230, 0.230, 0.230});//z=0,34252
   }
@@ -775,7 +597,7 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlacePC(const rclcpp::Node::Shar
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskPCExecute);
-  taskList->AddTask(tasks->taskIoBemi2Close); //Greifer gerade über Bemi2 angesteuert!!!
+  taskList->AddTask(tasks->taskIoBemi2Close); //Gripper currently controlled via Bemi2!!!
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskDetachWorkpiece);
   taskList->AddTask(tasks->taskWait);
@@ -829,8 +651,8 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBEMI(const rclcpp::Node::Sha
 
   // BEMI POSE DEF
 
-  //Positionen nur fallback: richtige Definition in cell_config.yaml
-std::vector<double> ExecutionBEMIZ = get_parameter<std::vector<double>>(node, "positions.bemi.z", {0.17558, 0.2885, 0.0});//unterschiedliche Koordinaten für Bemi 1 und 2, da Part1 in Bemi1 unten, Part 2 in Bemi2 Oben
+  //Position definitions - fallback only: correct definition in cell_config.yaml
+std::vector<double> ExecutionBEMIZ = get_parameter<std::vector<double>>(node, "positions.bemi.z", {0.17558, 0.2885, 0.0}); // Different coordinates for BEMI 1 and 2, since Part1 goes to BEMI1 bottom, Part 2 to BEMI2 top
 
 std::vector<double> BEMIX = get_parameter<std::vector<double>>(node, "positions.bemi.x", {0.54009, 0.1184, 0.0});
 std::vector<double> BEMIY = get_parameter<std::vector<double>>(node, "positions.bemi.y", {0.05915, 0.6178, 0.0});
@@ -866,7 +688,7 @@ taskList->AddTask(tasks->taskIoBemi2Close);
 taskList->AddTask(tasks->taskWait);
 taskList->AddTask(taskExecuteBemi);
 taskList->AddTask(tasks->taskSetSpeedCartesianFast);
-taskList->AddTask(tasks->taskIoBemi2Open); //Greifer gerade über Bemi2 angesteuert!!! öffnet greifer
+taskList->AddTask(tasks->taskIoBemi2Open); //Gripper currently controlled via Bemi2!!! opens gripper
 taskList->AddTask(tasks->taskIoBemi2Open);
 taskList->AddTask(tasks->taskWait);
 taskList->AddTask(tasks->taskAttachWorkpiece);
@@ -922,8 +744,8 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBEMI(const rclcpp::Node::Sh
   double rotZ = 0;
   
 
-//Positionen nur fallback: richtige Definition in cell_config.yaml
-std::vector<double> ExecutionBEMIZ = get_parameter<std::vector<double>>(node, "positions.bemi.z", {0.17558, 0.2885, 0.0});//unterschiedliche Koordinaten für Bemi 1 und 2, da Part1 in Bemi1 unten, Part 2 in Bemi2 Oben
+//Position definitions - fallback only: correct definition in cell_config.yaml
+std::vector<double> ExecutionBEMIZ = get_parameter<std::vector<double>>(node, "positions.bemi.z", {0.17558, 0.2885, 0.0}); // Different coordinates for BEMI 1 and 2, since Part1 goes to BEMI1 bottom, Part 2 to BEMI2 top
 
   std::vector<double> BEMIX = get_parameter<std::vector<double>>(node, "positions.bemi.x", {0.54009, 0.1184, 0.0});
   std::vector<double> BEMIY = get_parameter<std::vector<double>>(node, "positions.bemi.y", {0.05915, 0.6178, 0.0});
@@ -958,7 +780,7 @@ std::vector<double> ExecutionBEMIZ = get_parameter<std::vector<double>>(node, "p
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskExecuteBemi);
   taskList->AddTask(tasks->taskSetSpeedCartesianFast);
-  taskList->AddTask(tasks->taskIoBemi2Close); //Greifer gerade über Bemi2 angesteuert!!! öffnet greifer
+  taskList->AddTask(tasks->taskIoBemi2Close); //Gripper currently controlled via Bemi2!!! opens gripper
   taskList->AddTask(tasks->taskIoBemi2Close);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskDetachWorkpiece);
@@ -980,12 +802,11 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPlaceBearingInBEMI(const rclcpp:
   }
 
   // Constants
-  double placementOffsetZ = 0.25; // Offset height befor bearing placement
+  double placementOffsetZ = 0.25; // Offset height before bearing placement
 
   double rotX = M_PI;
   double rotY = 0;
    double rotZ = -M_PI - M_PI / 4;
-  //double rotZ = 0;
 
   // Bearing placement poses
   std::vector<double> BearingX = get_parameter<std::vector<double>>(node, "positions.bearing.x", {0, 0.08982});
@@ -1069,7 +890,6 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBearingFromBEMI(const rclcpp
   double rotX = M_PI;
   double rotY = 0;
    double rotZ = -M_PI - M_PI / 4;
-  //double rotZ = 0;
 
   // Bearing placement poses
   std::vector<double> BearingX = get_parameter<std::vector<double>>(node, "positions.bearing.x", {0.38283, 0.08982});
@@ -1133,86 +953,6 @@ std::shared_ptr<WzlPlanner::TaskList> CreateTaskPickBearingFromBEMI(const rclcpp
 
   return taskList;
 }
-
-/**
- * @brief Creates a task list for a circular movement around a given point
- *
- * @param radius The radius of the circle to move around
- * @param posePointCenter The point around which to move in a circle
- * @return A shared pointer to the TaskFollowTrajectory
- */
-std::shared_ptr<WzlPlanner::TaskFollowTrajectory> CreateTaskMoveInCircle(double radius, std::shared_ptr<WzlPlanner::Pose> posePointCenter)
-{
-  double posMidX = posePointCenter->GetPositionX();
-  double posMidY = posePointCenter->GetPositionY();
-  double posMidZ = posePointCenter->GetPositionZ();
-
-  double rotX = posePointCenter->GetRotationX();
-  double rotY = posePointCenter->GetRotationY();
-  double rotZ = posePointCenter->GetRotationZ();
-
-  auto taskMoveTrjajectory = std::make_shared<WzlPlanner::TaskFollowTrajectory>();
-  taskMoveTrjajectory->SetId("MoveInCircle");
-
-  for (double i = 0; i < 2 * M_PI; i += 0.01)
-  {
-    double posX = posMidX + sin(i) * radius;
-    double posY = posMidY + cos(i) * radius;
-
-    auto pose = std::make_shared<WzlPlanner::Pose>(posX, posY, posMidZ, rotX, rotY, rotZ);
-    taskMoveTrjajectory->AddPose(pose);
-  }
-
-  return taskMoveTrjajectory;
-}
-
-/**
- * @brief Creates a task list for executing deburring operation
- *
- * @param node ROS node to access parameters and logging
- * @param tasks Shared pointer to miscellaneous tasks for spindle control
- * @param points Vector of 3D points defining the deburring trajectory
- * @param BEMIIndex Index of the BEMI workstation (1-3)
- * @return A shared pointer to TaskList containing trajectory and spindle control
- */
-std::shared_ptr<WzlPlanner::TaskList> CreateTaskPerformDeburr(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks, const std::vector<std::vector<double>> &points, int BEMIIndex)
-{
-    auto deburrtasklist = std::make_shared<WzlPlanner::TaskList>();
-    
-    // Constants for initial orientation
-    double rotX = M_PI;
-    double rotY = 0;
-    double rotZ = -M_PI - M_PI / 4;
-
-    // Create trajectory task
-    auto trajectory = std::make_shared<WzlPlanner::TaskFollowTrajectory>();
-    trajectory->SetId("DeburTrajectory");
-
-    // Add each point to trajectory
-    for(const auto& point : points) {
-        if(point.size() >= 3) {
-            auto pose = std::make_shared<WzlPlanner::Pose>(
-                point[0],  // X
-                point[1],  // Y
-                point[2],  // Z
-                rotX, rotY, rotZ
-            );
-            trajectory->AddPose(pose);
-        }
-    }
-
-    // Setup deburring sequence
-    deburrtasklist->AddTask(tasks->taskSetSpeedCartesianSlow);
-    //deburrtasklist->AddTask(tasks->taskIoDeburringSpindleActivate);
-    //deburrtasklist->AddTask(tasks->taskIoDeburringSpindleAnpressdruckActivate);
-    deburrtasklist->AddTask(tasks->taskWait);
-    deburrtasklist->AddTask(trajectory);
-    //deburrtasklist->AddTask(tasks->taskIoDeburringSpindleDeactivate);
-    //deburrtasklist->AddTask(tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
-    
-    return deburrtasklist;
-}
-
 
 /**
  * 
@@ -1306,71 +1046,71 @@ void UseCase2(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   // INIT pose and task def
   auto poseInit = std::make_shared<WzlPlanner::Pose>(0.4, 0.1, 0.5, rotX, rotY, rotZ); //0.3122745752334595, 0.09810880571603775, 0.4534417390823364,
   
-  // Part 1 Posen
+  // Part 1 Poses
   auto pose1 = std::make_shared<WzlPlanner::Pose>(0.29255, -0.41572, 0.45, rotX, rotY, 0.5);  
-  auto pose2 = std::make_shared<WzlPlanner::Pose>(0.29255, -0.41572, 0.1883, rotX, rotY, 0.5); // Pose Aufnahme Part 1 in PC1 1,0472
+  auto pose2 = std::make_shared<WzlPlanner::Pose>(0.29255, -0.41572, 0.1883, rotX, rotY, 0.5); // Pose pick Part 1 in PC1 1,0472
   auto pose3 = std::make_shared<WzlPlanner::Pose>(0.54009, 0.05915, 0.45, rotX, rotY, 1.63075);
-  auto pose4 = std::make_shared<WzlPlanner::Pose>(0.54009, 0.05915, 0.17558, rotX, rotY, 1.63075); // Pose Ablage Part 1 in Tool1 
+  auto pose4 = std::make_shared<WzlPlanner::Pose>(0.54009, 0.05915, 0.17558, rotX, rotY, 1.63075); // Pose place Part 1 in Tool1 
 
-  // Part 2 Posen 
+  // Part 2 Poses 
   auto pose5 = std::make_shared<WzlPlanner::Pose>(0.29021, 0.42433, 0.45, rotX, rotY, 0.5);  
-  auto pose6 = std::make_shared<WzlPlanner::Pose>(0.29021, 0.42433, 0.16713, rotX, rotY, 0.5); // Pose Aufnahme Part 2 in PC2 
+  auto pose6 = std::make_shared<WzlPlanner::Pose>(0.29021, 0.42433, 0.16713, rotX, rotY, 0.5); // Pose pick Part 2 in PC2 
   auto pose7 = std::make_shared<WzlPlanner::Pose>(0.53988, 0.030554, 0.45, rotX, rotY, -1.4932);
-  auto pose8 = std::make_shared<WzlPlanner::Pose>(0.53988, 0.030554, 0.185, rotX, rotY, -1.4932); // Pose Ablage Part 2 in Tool1 
+  auto pose8 = std::make_shared<WzlPlanner::Pose>(0.53988, 0.030554, 0.185, rotX, rotY, -1.4932); // Pose place Part 2 in Tool1 
   
 
-  // =========== Init & Standard Posen =========== //
+  // =========== Init & Standard Poses =========== //
   auto taskInitPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
   taskInitPose->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseInit);
   taskInitPose->SetId("InitPose");
-  //======== Posen für Handling Part 1 aus PC1 ======//
-  auto taskPose1 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P Bewegung zu Einfahrtposition PC1
+  //======== Poses for handling Part 1 from PC1 ======//
+  auto taskPose1 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P movement to entry position PC1
   taskPose1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose1);
   taskPose1->SetId("Pose1");
 
-  auto taskPose2 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Einfahrbewegung in PC1
+  auto taskPose2 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Straight movement into PC1
   taskPose2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose2);
   taskPose2->SetId("Pose2");
 
-  auto taskPose3 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Ausfahrbewegung aus PC1
+  auto taskPose3 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Straight movement out of PC1
   taskPose3->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose1);
   taskPose3->SetId("Pose3");
 
-  auto taskPose4 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P Bewegung zu Einfahrtposition Tool 1
+  auto taskPose4 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P movement to entry position Tool 1
   taskPose4->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose3);
   taskPose4->SetId("Pose4");
 
-  auto taskPose5 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Einfahrbewegung in Tool 1
+  auto taskPose5 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Straight movement into Tool 1
   taskPose5->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose4);
   taskPose5->SetId("Pose5");
 
-  auto taskPose6 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Aufahren aus Tool 1
+  auto taskPose6 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Straight movement out of Tool 1
   taskPose6->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose3);
   taskPose6->SetId("Pose6");
 
-  //======== Posen für Handling Part 2 aus PC2 ======//
+  //======== Poses for handling Part 2 from PC2 ======//
 
-  auto taskPose7 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P Bewegung zu Einfahrtposition PC1
+  auto taskPose7 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P movement to entry position PC1
   taskPose7->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose5);
   taskPose7->SetId("Pose7");
 
-  auto taskPose8 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Einfahrbewegung in PC1
+  auto taskPose8 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Straight movement into PC1
   taskPose8->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose6);
   taskPose8->SetId("Pose8");
 
-  auto taskPose9 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Ausfahrbewegung aus PC1
+  auto taskPose9 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Straight movement out of PC1
   taskPose9->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose5);
   taskPose9->SetId("Pose9");
 
-  auto taskPose10 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P Bewegung zu Einfahrtposition Tool 1
+  auto taskPose10 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // P2P movement to entry position Tool 1
   taskPose10->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(pose7);
   taskPose10->SetId("Pose10");
 
-  auto taskPose11 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Einfahrbewegung in Tool 1
+  auto taskPose11 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Straight movement into Tool 1
   taskPose11->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose8);
   taskPose11->SetId("Pose11");
 
-  auto taskPose12 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Gerade Aufahren aus Tool 1
+  auto taskPose12 = std::make_shared<WzlPlanner::TaskMoveToPose>(); // Straight movement out of Tool 1
   taskPose12->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(pose7);
   taskPose12->SetId("Pose12");
 
@@ -1382,7 +1122,7 @@ void UseCase2(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
 
   // Set Pneumatics to neutral
-  // evt alle nicht nötig
+  // possibly all not needed
   //taskList->AddTask(tasks->taskIoGripperNeutral);
   //taskList->AddTask(tasks->taskIoDeburringSpindleDeactivate);
   //taskList->AddTask(tasks->taskIoDeburringSpindleAnpressdruckDeactivate);
@@ -1393,7 +1133,7 @@ void UseCase2(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   taskList->AddTask(taskInitPose);
   taskList->AddTask(taskPose1);
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
-  taskList->AddTask(tasks->taskIoBemi2Close); //Greifer gerade über Bemi2 angesteuert!!! 
+  taskList->AddTask(tasks->taskIoBemi2Close); //Gripper currently controlled via Bemi2!!! 
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskPose2);
@@ -1409,7 +1149,7 @@ void UseCase2(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskPose5);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoBemi2Close); //Greifer gerade über Bemi2 angesteuert!!! 
+  taskList->AddTask(tasks->taskIoBemi2Close); //Gripper currently controlled via Bemi2!!! 
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskPose6);
@@ -1432,7 +1172,7 @@ void UseCase2(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskPose11);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskIoBemi2Close); //Greifer gerade über Bemi2 angesteuert!!! 
+  taskList->AddTask(tasks->taskIoBemi2Close); //Gripper currently controlled via Bemi2!!! 
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskPose12);
@@ -1511,19 +1251,19 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   //------------------- Pick Part 1&2 from PC & Place parts in BEMI 1&2 -------------------//
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
 
-  taskList->AddTask(CreateTaskPhotoPositions(node, tasks));
-  taskList->AddTask(taskInitPose);
+  //taskList->AddTask(CreateTaskPhotoPositions(node, tasks));
+  //taskList->AddTask(taskInitPose);
 
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
-  //Pick Part 1 & Place parts in BEMI 1(unten)
+  //Pick Part 1 & Place parts in BEMI 1(bottom)
   taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 1));
   taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 1, 1)); 
   taskList->AddTask(taskInitPose);
   
-  //Pick Part 2 & Place parts in BEMI 2(selber Bemi, oben)
+  //Pick Part 2 & Place parts in BEMI 2(same Bemi, top)
   taskList->AddTask(CreateTaskPickPC(node, tasks, 1, 2));
   taskList->AddTask(CreateTaskPlaceBEMI(node, tasks, 2, 2));
-  
+
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
 
   taskList->AddTask(taskInitPose);
@@ -1692,8 +1432,8 @@ int main(int argc, char *argv[])
       "robo_planner", rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true));
 
   WzlPlanner::TaskOpcuaRequest::InitializeGripperStatePublisher(node);
-  // Anfangszustand annehmen: geschlossen (false) oder offen (true). 
-  // nicht wirklich bekannt, erst nach erstem öffnen schließen
+  // Initial state assumption: closed (false) or open (true). 
+  // not really known, only after first opening/closing
   //WzlPlanner::TaskOpcuaRequest::PublishInitial(true);
 
   // Initialize the task status publisher
@@ -1708,8 +1448,8 @@ int main(int argc, char *argv[])
 
   rclcpp::sleep_for(2000ms);
 
-  //UseCase starten
-  int use_case = 1;  // Standardwert
+  //Start UseCase
+  int use_case = 1;  // Default value
 
   if (node->has_parameter("use_case")) {
       use_case = node->get_parameter("use_case").as_int();
@@ -1720,7 +1460,7 @@ int main(int argc, char *argv[])
 
   RCLCPP_INFO(node->get_logger(), "Starting UseCase %d", use_case);
     
-    // UseCase basierend auf Parameter auswählen
+    // Select UseCase based on parameter
     switch (use_case) {
         case 1:
             UseCase1(node, misc_tasks);

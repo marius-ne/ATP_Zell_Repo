@@ -12,27 +12,14 @@ find_package(rclcpp REQUIRED)
 find_package(wzlscheduler_interfaces REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 
-add_executable(moveit_panda 
-  src/moveit_panda.cpp)
   
 add_executable(moveit_iiwa 
   src/moveit_iiwa.cpp)
 
-target_include_directories(moveit_panda  PUBLIC
-  $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-  $<INSTALL_INTERFACE:include>)
-  
   target_include_directories(moveit_iiwa  PUBLIC
   $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
   $<INSTALL_INTERFACE:include>)
 
-target_compile_features(moveit_panda PUBLIC c_std_99 cxx_std_17)  # Require C99 and C++17
-
-ament_target_dependencies(moveit_panda
-  "moveit_ros_planning_interface"
-  "wzlscheduler_interfaces"
-  "rclcpp"
-)
 
 ament_target_dependencies(moveit_iiwa
   "moveit_ros_planning_interface"
@@ -41,7 +28,6 @@ ament_target_dependencies(moveit_iiwa
 )
 
 install(TARGETS 
-  moveit_panda
   moveit_iiwa
   DESTINATION lib/${PROJECT_NAME})
 

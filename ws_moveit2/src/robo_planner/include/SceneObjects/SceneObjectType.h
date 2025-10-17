@@ -12,8 +12,6 @@ namespace WzlPlanner
         CarrierSlot = 4,
         EquipmentChangeStation = 5,
         EquipmentChangeStationSlot = 6,
-        VisualScanTower = 7,
-        Door = 8
     };
 }
 

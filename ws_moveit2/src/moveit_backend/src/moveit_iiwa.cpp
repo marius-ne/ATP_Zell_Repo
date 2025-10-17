@@ -130,6 +130,9 @@ class RobotIiwaServer : public rclcpp::Node
             add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);
             add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
+
+            //Monitor
+            add_collision_box("Monitor", 0.05, 0.6, 0.4, 0.9, -0.8, 0.3);
             
             add_collision_box("floor", 2, 2, 0.0198, 0, 0, -0.01);
             //add_collision_box("ceiling", size, size, 0.1, 0, 0, 1);
@@ -224,10 +227,23 @@ class RobotIiwaServer : public rclcpp::Node
 
             mesh->scale(scale);
 
-             // offset the position of the gripper 
+            // TCP-relativer Offset (im lokalen Koordinatensystem von link_7)
             geometry_msgs::msg::Pose adjusted_pose = pose;
-            adjusted_pose.position.z -= 0.04; // Offset anpassen je nach Greifer-Geometrie
-            adjusted_pose.position.y -= 0.004;
+            
+            // Offset-Vektor im TCP-Koordinatensystem (X, Y, Z im TCP-Frame)
+            tf2::Vector3 local_offset(0.0, 0.004, 0.04); // Angepasste Werte für den Gripper
+            
+            // Aktuelle TCP-Orientierung als Quaternion
+            tf2::Quaternion tcp_orientation;
+            tf2::fromMsg(pose.orientation, tcp_orientation);
+            
+            // Rotiere den Offset-Vektor in das Welt-Koordinatensystem
+            tf2::Vector3 world_offset = tf2::quatRotate(tcp_orientation, local_offset);
+            
+            // Addiere den rotierten Offset zur Position
+            adjusted_pose.position.x += world_offset.x();
+            adjusted_pose.position.y += world_offset.y();
+            adjusted_pose.position.z += world_offset.z();
                       
             // create the collision object
             moveit_msgs::msg::CollisionObject collision_object;
@@ -284,8 +300,8 @@ class RobotIiwaServer : public rclcpp::Node
 
                 // create a quaternion for the workpiece orientation
                 tf2::Quaternion workpiece_rotation;
-                double angle_rad = workpieceOrientation * M_PI / 180.0;
-                workpiece_rotation.setRPY(0, 0, angle_rad);
+                double angle_rad = (workpieceOrientation - 10.0) * M_PI / 180.0;
+                workpiece_rotation.setRPY(0,  M_PI, angle_rad);
 
                 // combine the orientations
                 tf2::Quaternion final_orientation = gripper_orientation * workpiece_rotation;
