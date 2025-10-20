@@ -105,8 +105,7 @@ class ModbusClientNode(Node):
                     response.message = str('Not connected to Modbus server')
                     response.success = False
                     return response
-                    
-            modbus_response = self.client.write_register(address=write_address, value=write_address, slave=self.slave_id)
+            modbus_response = self.client.write_register(address=write_address, value=write_value, slave=self.slave_id)
             if modbus_response.isError():
                 self.get_logger().error(f'Error writing to register: {modbus_response}')
                 response.message = str(modbus_response)

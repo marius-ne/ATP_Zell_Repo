@@ -14,7 +14,8 @@ find_package(sensor_msgs REQUIRED)
 find_package(modbus_interfaces REQUIRED)
 
 # Add executable for the ROS2 node (using Main.cpp)
-add_executable(modbus_screwdriver_interface src/Main.cpp)
+add_executable(modbus_screwdriver_interface 
+  src/Main.cpp)
 
 # Specify dependencies for the executable
 ament_target_dependencies(modbus_screwdriver_interface
@@ -23,6 +24,11 @@ ament_target_dependencies(modbus_screwdriver_interface
   geometry_msgs
   sensor_msgs
   modbus_interfaces
+)
+
+# Install the executable
+install(TARGETS modbus_screwdriver_interface
+  DESTINATION lib/${PROJECT_NAME}
 )
 
 if(BUILD_TESTING)

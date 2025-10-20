@@ -12,6 +12,9 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/ReadRegister.srv"
   "srv/WriteRegister.srv"
+  "srv/LoosenScrew.srv"
+  "srv/TightenScrew.srv"
+  "srv/PickupScrew.srv"
 )
 
 ament_export_dependencies(rosidl_default_runtime)

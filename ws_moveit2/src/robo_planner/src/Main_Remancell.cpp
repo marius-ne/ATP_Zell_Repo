@@ -55,8 +55,8 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
   RCLCPP_INFO(node->get_logger(), "Initialize ObjectContainer");
 
   WzlPlanner::ObjectContainer::Get()->Initialize(
-      //ioInterfaceModBus,
-      ioInterfaceOpcUa,
+      ioInterfaceModBus,
+      //ioInterfaceOpcUa,
       robot,
       scene,
       node);
@@ -117,6 +117,10 @@ public:
   std::shared_ptr<WzlPlanner::TaskModBusRead> taskModBusReadToolType;
   std::shared_ptr<WzlPlanner::TaskModBusRead> taskModBusReadStatusErrors;
   std::shared_ptr<WzlPlanner::TaskModBusRead> taskModBusReadTorqueAngleGradient;
+  std::shared_ptr<WzlPlanner::TaskModBusRead> taskModBusReadAchievedTorque;
+  std::shared_ptr<WzlPlanner::TaskModBusRead> taskModBusReadCurrentTorque;
+  std::shared_ptr<WzlPlanner::TaskModBusRead> taskModBusReadZForce;
+  std::shared_ptr<WzlPlanner::TaskModBusRead> taskModBusReadShankPos;
 
   std::shared_ptr<WzlPlanner::TaskModBusInterpretReadResult> taskModBusInterpretReadResultToolType;
 
@@ -222,13 +226,7 @@ public:
         WzlPlanner::OpcUaData::GetOpcUaData_AlarmWriteAus());
     taskIoAlarmOff->SetId("taskIoAlarmOff");
 
-    taskModBusReadToolType = std::make_shared<WzlPlanner::TaskModBusRead>(
-        WzlPlanner::ModBusData::GetModBusData_ToolType_Read());
-    taskModBusReadToolType->SetId("taskModBusReadToolType");
-
-    taskModBusInterpretReadResultToolType = std::make_shared<WzlPlanner::TaskModBusInterpretReadResult>(taskModBusReadToolType);
-    taskModBusInterpretReadResultToolType->SetId("taskModBusInterpretReadResultToolType");
-    taskModBusInterpretReadResultToolType->SetComparisonValue("Screwdriver");
+    // MODBUS WRITE 
 
     taskModBusWriteTightenScrew = std::make_shared<WzlPlanner::TaskModBusWrite>(
         WzlPlanner::ModBusData::GetModBusData_TightenScrew_Write());
@@ -241,17 +239,17 @@ public:
     taskModBusWriteZForce = std::make_shared<WzlPlanner::TaskModBusWrite>(
         WzlPlanner::ModBusData::GetModBusData_ZAxesForce_Write());
     taskModBusWriteZForce->SetId("taskModBusWriteZForce");
-    taskModBusWriteZForce->SetValue(18);
+    taskModBusWriteZForce->SetValue(30);
 
     taskModBusWriteScrewLength = std::make_shared<WzlPlanner::TaskModBusWrite>(
         WzlPlanner::ModBusData::GetModBusData_ScrewLength_Write());
     taskModBusWriteScrewLength->SetId("taskModBusWriteScrewLength");
-    taskModBusWriteScrewLength->SetValue(3000);
+    taskModBusWriteScrewLength->SetValue(16000);
 
     taskModBusWriteTargetTorque = std::make_shared<WzlPlanner::TaskModBusWrite>(
         WzlPlanner::ModBusData::GetModBusData_TargetTorque_Write());
     taskModBusWriteTargetTorque->SetId("taskModBusWriteTargetTorque");
-    taskModBusWriteTargetTorque->SetValue(100);
+    taskModBusWriteTargetTorque->SetValue(5000);
 
     taskModBusWriteStop = std::make_shared<WzlPlanner::TaskModBusWrite>(
         WzlPlanner::ModBusData::GetModBusData_Stop_Write());
@@ -267,6 +265,15 @@ public:
     taskModBusWriteShankPos0->SetId("taskModBusWriteShankPos0");
     taskModBusWriteShankPos0->SetValue(0);
 
+    // MODBUS READ
+    taskModBusReadToolType = std::make_shared<WzlPlanner::TaskModBusRead>(
+      WzlPlanner::ModBusData::GetModBusData_ToolType_Read());
+    taskModBusReadToolType->SetId("taskModBusReadToolType");
+
+    taskModBusInterpretReadResultToolType = std::make_shared<WzlPlanner::TaskModBusInterpretReadResult>(taskModBusReadToolType);
+    taskModBusInterpretReadResultToolType->SetId("taskModBusInterpretReadResultToolType");
+    taskModBusInterpretReadResultToolType->SetComparisonValue("Screwdriver");
+    
     taskModBusReadStatusErrors = std::make_shared<WzlPlanner::TaskModBusRead>(
         WzlPlanner::ModBusData::GetModBusData_StatusErrors_Read());
     taskModBusReadStatusErrors->SetId("taskModBusReadStatusErrors");
@@ -274,6 +281,22 @@ public:
     taskModBusReadTorqueAngleGradient = std::make_shared<WzlPlanner::TaskModBusRead>(
         WzlPlanner::ModBusData::GetModBusData_TorqueAngleGradient_Read());
     taskModBusReadTorqueAngleGradient->SetId("taskModBusReadTorqueAngleGradient");
+
+    taskModBusReadAchievedTorque = std::make_shared<WzlPlanner::TaskModBusRead>(
+        WzlPlanner::ModBusData::GetModBusData_AchievedTorque_Read());
+    taskModBusReadAchievedTorque->SetId("taskModBusReadAchievedTorque");
+
+    taskModBusReadCurrentTorque = std::make_shared<WzlPlanner::TaskModBusRead>(
+        WzlPlanner::ModBusData::GetModBusData_CurrentTorque_Read());
+    taskModBusReadCurrentTorque->SetId("taskModBusReadCurrentTorque");
+
+    taskModBusReadShankPos = std::make_shared<WzlPlanner::TaskModBusRead>(
+        WzlPlanner::ModBusData::GetModBusData_ShankZAxesPosition_Read());
+    taskModBusReadShankPos->SetId("taskModBusReadShankPos");
+
+    taskModBusReadZForce = std::make_shared<WzlPlanner::TaskModBusRead>(
+        WzlPlanner::ModBusData::GetModBusData_ZForce_Read());
+    taskModBusReadZForce->SetId("taskModBusReadZForce");
 
     // Set movement speeds from config parameters
     double ptp_speed = get_parameter<double>(node, "speeds.ptp", 0.3);
@@ -1348,47 +1371,47 @@ void UseCaseTestModBus(const rclcpp::Node::SharedPtr &node, const std::shared_pt
 
 
   //BEMI2 OPEN/CLOSE -> Gripper open Close
-  taskList->AddTask(tasks->taskSetSpeedCartesianFast);
   taskList->AddTask(tasks->taskSetSpeedPtp);
   taskList->AddTask(tasks->taskModBusWriteScrewLength);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskModBusWriteTargetTorque);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskModBusWriteZForce);
-
-  taskList->AddTask(tasks->taskWait);
-
-  taskList->AddTask(tasks->taskModBusReadToolType);
-
-  taskList->AddTask(tasks->taskWait);
-
-  taskList->AddTask(tasks->taskModBusInterpretReadResultToolType);
- 
-  taskList->AddTask(tasks->taskWait);
-
   taskList->AddTask(tasks->taskModBusWriteShankPos20);
-
   taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteZForce);
   taskList->AddTask(tasks->taskWait);
-
   taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
 
+  taskList->AddTask(tasks->taskModBusReadTorqueAngleGradient);
+  taskList->AddTask(tasks->taskModBusReadCurrentTorque);
+  taskList->AddTask(tasks->taskModBusReadShankPos);
+  taskList->AddTask(tasks->taskModBusReadZForce);
+  taskList->AddTask(tasks->taskModBusReadAchievedTorque);
   taskList->AddTask(tasks->taskWait);
-
-  taskList->AddTask(tasks->taskModBusWriteStop);
-
   taskList->AddTask(tasks->taskWait);
-
-
-  taskList->AddTask(tasks->taskModBusReadStatusErrors);
-
-  taskList->AddTask(tasks->taskWait);
-
   taskList->AddTask(tasks->taskModBusReadTorqueAngleGradient);
 
   taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
 
+  taskList->AddTask(tasks->taskModBusWriteZForce);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteTightenScrew);
 
+  taskList->AddTask(tasks->taskModBusReadTorqueAngleGradient);
+  taskList->AddTask(tasks->taskModBusReadCurrentTorque);
+  taskList->AddTask(tasks->taskModBusReadShankPos);
+  taskList->AddTask(tasks->taskModBusReadZForce);
+  taskList->AddTask(tasks->taskModBusReadAchievedTorque);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusReadTorqueAngleGradient);
+
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
 
   while (true)
   {
