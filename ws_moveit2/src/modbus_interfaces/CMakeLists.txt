@@ -15,6 +15,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/LoosenScrew.srv"
   "srv/TightenScrew.srv"
   "srv/PickupScrew.srv"
+  "srv/Stop.srv"
 )
 
 ament_export_dependencies(rosidl_default_runtime)

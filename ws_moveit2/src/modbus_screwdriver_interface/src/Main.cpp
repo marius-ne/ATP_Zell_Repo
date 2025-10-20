@@ -4,6 +4,7 @@
 #include <modbus_interfaces/srv/tighten_screw.hpp>
 #include <modbus_interfaces/srv/loosen_screw.hpp>
 #include <modbus_interfaces/srv/pickup_screw.hpp>
+#include <modbus_interfaces/srv/stop.hpp>
 #include "../include/modbus_screwdriver_interface/ModBusData.h"
 #include <chrono>
 #include <memory>
@@ -30,6 +31,10 @@ public:
 
         schraube_laden_service_ = this->create_service<modbus_interfaces::srv::PickupScrew>("schraube_laden",
             std::bind(&ModbusScrewdriverInterface::schraube_laden, this, std::placeholders::_1, std::placeholders::_2),
+            rmw_qos_profile_services_default, callback_group_);
+
+        stop_service_ = this->create_service<modbus_interfaces::srv::Stop>("stop_schrauben",
+            std::bind(&ModbusScrewdriverInterface::stop_schrauben, this, std::placeholders::_1, std::placeholders::_2),
             rmw_qos_profile_services_default, callback_group_);
 
         // Create clients for the modbus services
@@ -297,6 +302,45 @@ private:
         }
     }
 
+    void stop_schrauben(
+        const std::shared_ptr<modbus_interfaces::srv::Stop::Request> /* request */,
+        std::shared_ptr<modbus_interfaces::srv::Stop::Response> response)
+    {
+        RCLCPP_INFO(this->get_logger(), "Stop schrauben service called");
+
+        try {
+            auto modbus_request = std::make_shared<modbus_interfaces::srv::WriteRegister::Request>();
+
+            // Send command to stop
+            auto stop_data = WzlPlanner::ModBusData::GetModBusData_Stop_Write();
+            modbus_request->address = stop_data->address;
+            modbus_request->value = stop_data->value;
+            
+            auto result = write_client_->async_send_request(modbus_request);
+            if (result.wait_for(std::chrono::seconds(5)) != std::future_status::ready) {
+                response->success = false;
+                response->message = "Failed to send stop command - timeout";
+                return;
+            }
+            auto stop_response = result.get();
+            if (!stop_response->success) {
+                response->success = false;
+                response->message = "Failed to send stop command: " + stop_response->message;
+                return;
+            }
+
+            RCLCPP_INFO(this->get_logger(), "Stop command sent successfully");
+            response->success = true;
+            response->message = "Stop completed";
+
+        }
+        catch (const std::exception& e) {
+            RCLCPP_ERROR(this->get_logger(), "Exception in stop_schrauben: %s", e.what());
+            response->success = false;
+            response->message = std::string("Exception: ") + e.what();
+        }
+    }    
+
     void wait_for_services()
     {
         RCLCPP_INFO(this->get_logger(), "Waiting for modbus services...");
@@ -331,6 +375,7 @@ private:
     rclcpp::Service<modbus_interfaces::srv::TightenScrew>::SharedPtr einschrauben_service_;
     rclcpp::Service<modbus_interfaces::srv::LoosenScrew>::SharedPtr ausschrauben_service_;
     rclcpp::Service<modbus_interfaces::srv::PickupScrew>::SharedPtr schraube_laden_service_;
+    rclcpp::Service<modbus_interfaces::srv::Stop>::SharedPtr stop_service_;
 };
 
 int main(int argc, char * argv[])
