@@ -68,6 +68,7 @@ private:
             modbus_request->address = screw_length_data->address;
             modbus_request->value = screw_length;
 
+            // Check if service call was successful
             auto result = write_client_->async_send_request(modbus_request);
             if (result.wait_for(std::chrono::seconds(5)) != std::future_status::ready) {
                 response->success = false;
@@ -77,7 +78,7 @@ private:
             auto screw_length_response = result.get();
             if (!screw_length_response->success) {
                 response->success = false;
-                response->message = "Failed to write screw length: " + screw_length_response->message;
+                response->message = screw_length_response->message;
                 return;
             }
 
@@ -95,7 +96,7 @@ private:
             auto torque_response = result.get();
             if (!torque_response->success) {
                 response->success = false;
-                response->message = "Failed to write target torque: " + torque_response->message;
+                response->message = torque_response->message;
                 return;
             }
 
@@ -113,7 +114,7 @@ private:
             auto z_force_response = result.get();
             if (!z_force_response->success) {
                 response->success = false;
-                response->message = "Failed to write Z force: " + z_force_response->message;
+                response->message = z_force_response->message;
                 return;
             }
 
@@ -131,7 +132,7 @@ private:
             auto tighten_response = result.get();
             if (!tighten_response->success) {
                 response->success = false;
-                response->message = "Failed to send tighten command: " + tighten_response->message;
+                response->message = tighten_response->message;
                 return;
             }
 
@@ -172,7 +173,7 @@ private:
             auto screw_length_response = result.get();
             if (!screw_length_response->success) {
                 response->success = false;
-                response->message = "Failed to write screw length: " + screw_length_response->message;
+                response->message = screw_length_response->message;
                 return;
             }
 
@@ -190,7 +191,7 @@ private:
             auto z_force_response = result.get();
             if (!z_force_response->success) {
                 response->success = false;
-                response->message = "Failed to write Z force: " + z_force_response->message;
+                response->message = z_force_response->message;
                 return;
             }
 
@@ -208,7 +209,7 @@ private:
             auto loosen_response = result.get();
             if (!loosen_response->success) {
                 response->success = false;
-                response->message = "Failed to send loosen command: " + loosen_response->message;
+                response->message = loosen_response->message;
                 return;
             }
 
@@ -250,7 +251,7 @@ private:
             auto screw_length_response = result.get();
             if (!screw_length_response->success) {
                 response->success = false;
-                response->message = "Failed to write screw length: " + screw_length_response->message;
+                response->message = screw_length_response->message;
                 return;
             }
 
@@ -268,7 +269,7 @@ private:
             auto z_force_response = result.get();
             if (!z_force_response->success) {
                 response->success = false;
-                response->message = "Failed to write Z force: " + z_force_response->message;
+                response->message = z_force_response->message;
                 return;
             }
 
@@ -286,7 +287,7 @@ private:
             auto pickup_response = result.get();
             if (!pickup_response->success) {
                 response->success = false;
-                response->message = "Failed to send pickup command: " + pickup_response->message;
+                response->message = pickup_response->message;
                 return;
             }
 
@@ -325,7 +326,7 @@ private:
             auto stop_response = result.get();
             if (!stop_response->success) {
                 response->success = false;
-                response->message = "Failed to send stop command: " + stop_response->message;
+                response->message = stop_response->message;
                 return;
             }
 
