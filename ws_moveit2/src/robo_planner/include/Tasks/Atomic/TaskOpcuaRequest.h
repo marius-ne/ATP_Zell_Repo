@@ -47,7 +47,7 @@ namespace WzlPlanner
             {
                 data_ = data;
                 interface_opcua_ = std::dynamic_pointer_cast<WzlPlanner::IoInterfaceOpcUa>
-                    (ObjectContainer::Get()->GetioInterface());
+                    (ObjectContainer::Get()->GetIoInterfaceOpcUa());
 
                 if (!gripper_state_pub_) {
                     auto node = WzlPlanner::ObjectContainer::Get()->GetNode(); 

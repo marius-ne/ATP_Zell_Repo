@@ -29,7 +29,7 @@ namespace WzlPlanner
             value_ = data_->value; // The default value is the one from ModBusData, but can be overridden by SetValue()
 
             interface_modbus_ = std::dynamic_pointer_cast<WzlPlanner::IoInterfaceModBus>
-                (ObjectContainer::Get()->GetioInterface());
+                (ObjectContainer::Get()->GetIoInterfaceModBus());
         }
 
         void SetValue(int value) { value_ = value; } // use this to override the default "value_" from ModBusData
@@ -56,7 +56,7 @@ namespace WzlPlanner
         {
             data_ = data;
             interface_modbus_ = std::dynamic_pointer_cast<WzlPlanner::IoInterfaceModBus>
-                (ObjectContainer::Get()->GetioInterface());
+                (ObjectContainer::Get()->GetIoInterfaceModBus());
         }
 
         const int& GetResult() const { return result_; } // So that other tasks can access the result of the request

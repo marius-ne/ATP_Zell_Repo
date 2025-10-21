@@ -56,7 +56,7 @@ void CreateCell(const std::shared_ptr<rclcpp::Node> node)
 
   WzlPlanner::ObjectContainer::Get()->Initialize(
       ioInterfaceModBus,
-      //ioInterfaceOpcUa,
+      ioInterfaceOpcUa,
       robot,
       scene,
       node);
