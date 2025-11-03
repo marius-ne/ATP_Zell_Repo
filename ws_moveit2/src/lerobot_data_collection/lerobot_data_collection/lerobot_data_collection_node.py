@@ -364,13 +364,26 @@ class LeRobotDataCollector(Node):
             with open(info_path, 'r') as f:
                 info = json.load(f)
             
-            # Load episodes.parquet from nested directory (LeRobot v3.0 format)
+            # Load episodes.parquet from nested chunk directory (LeRobot v3.0 format)
+            # Structure: meta/episodes/chunk-000/episodes_000000.parquet
             episodes_dir = meta_path / 'episodes'
-            episodes_path = episodes_dir / 'episodes.parquet'
+            episodes_chunk_dir = episodes_dir / 'chunk-000'
+            episodes_path = episodes_chunk_dir / 'episodes_000000.parquet'
+            
+            if not episodes_path.exists():
+                self.get_logger().error(f'Episodes metadata not found at {episodes_path}')
+                print(f"❌ Episodes metadata not found at {episodes_path}")
+                return
+            
             episodes_df = pd.read_parquet(episodes_path)
             
-            # Load tasks.parquet from nested directory
+            # Load tasks.parquet directly from meta/ (NOT in nested directory)
             tasks_path = meta_path / 'tasks.parquet'
+            if not tasks_path.exists():
+                self.get_logger().error(f'Tasks metadata not found at {tasks_path}')
+                print(f"❌ Tasks metadata not found at {tasks_path}")
+                return
+            
             tasks_df = pd.read_parquet(tasks_path)
             
             # Load stats (if exists)
@@ -379,6 +392,10 @@ class LeRobotDataCollector(Node):
             if stats_path.exists():
                 with open(stats_path, 'r') as f:
                     stats = json.load(f)
+                # Convert lists back to numpy arrays
+                for key in stats:
+                    for stat_type in stats[key]:
+                        stats[key][stat_type] = np.array(stats[key][stat_type], dtype=np.float32)
             
             # Initialize dataset structure
             self.dataset = {
@@ -428,6 +445,8 @@ class LeRobotDataCollector(Node):
         except Exception as e:
             self.get_logger().error(f'Failed to load dataset: {e}')
             print(f'❌ Failed to load dataset: {e}')
+            import traceback
+            traceback.print_exc()
 
     def save_dataset(self, dataset_name):
         """Save current dataset to disk in Parquet format"""
