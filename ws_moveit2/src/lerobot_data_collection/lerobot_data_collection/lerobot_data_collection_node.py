@@ -9,6 +9,8 @@ import threading
 import sys
 import tty
 import termios
+import pandas as pd
+from datetime import datetime
 
 class LeRobotDataCollector(Node):
     def __init__(self):
@@ -17,7 +19,9 @@ class LeRobotDataCollector(Node):
 
         # TODO: 
         # -Add subscription to camera topic
+        # -Add method to record and save videos synchronized with data collection 
         # -Add subscription to joint angle goals (capture data from tele-operation)
+        # -Synchronise data to image when making frames since those have lowest frequency
         # /iiwa_arm_controller/state or moveit_msgs/msg/DisplayTrajectory
         # -Add ability to load existing dataset
         # COMPLETE -Add ability to start/stop recording and keep/discard episodes, perhaps with some UI 
@@ -30,6 +34,28 @@ class LeRobotDataCollector(Node):
         self.raw_camera_images = []
         self.raw_controller_commands = []
 
+        # Dataset storage with proper LeRobot structure
+        self.dataset = {
+            'episodes': [],  # List of episode data (each episode contains frames)
+            'meta': {
+                'info': {
+                    'codebase_version': '1.0.0',
+                    'fps': 30,
+                    'robot_type': 'iiwa_arm',  # Update with your robot type
+                    'total_episodes': 0,
+                    'total_frames': 0,
+                    'features': {},  # Will be populated when first episode is added
+                    'data_path': 'data/chunk-{episode_chunk:03d}/episode_{episode_index:06d}.parquet',
+                    'video_path': 'videos/chunk-{episode_chunk:03d}/episode_{episode_index:06d}.mp4'
+                },
+                'episodes': pd.DataFrame(columns=['episode_index', 'tasks', 'length', 'dataset_from_index', 'dataset_to_index']),
+                'stats': {},  # Will be computed when saving
+                'tasks': pd.DataFrame(columns=['task_index'])  # Tasks can be added later
+            },
+            'root': Path('/home/remanpilot/ws/lerobot_datasets')  # Datasets saved/loaded from here
+        }
+        
+        self.dataset_name = None  # Name of currently loaded dataset
         self.recording = False  # Flag to control if we are recording or not
         self.keep_episode = False  # Flag to control if we want to keep the recorded episode
         self.episode_index = 0  # Counter for episode numbering
@@ -51,20 +77,15 @@ class LeRobotDataCollector(Node):
 
     def process_raw_data_to_frames(self):
         frames = {
-            'observation.images.cam_high': [],
-            'observation.state': [],
-            'action': [],
-            'episode_index': [],
-            'frame_index': [],
-            'timestamp': [],
-            'next.done': [],
-            'index': []
+            'observation.images.cam_main': [], # Pointer to mp4 file of a recording from cam_main
+            'observation.state': [], # Robot’s state, like joint angles, velocity and effort.
+            'action': [], # The action taken, like target joint angles.
+            'episode_index': [], # ID for the episode.
+            'frame_index': [], # ID for the frame within its episode (starts at 0 for each episode).
+            'timestamp': [], # Time in seconds from the start of the episode.
+            'next.done': [], # True if this is the last frame of an episode.
+            'index': [] # A unique ID for the frame across the entire dataset.
         }
-
-        # We want to create frames from the raw data with a certain framerate, e.g., 30Hz
-        # For that we need to, starting from the first frame, find what timestamps we want to keep
-        # Then we need to group together image, joint and action data that are closest to one another in
-        # time around each of these timestamps
 
         # Check if we have any data
         if not self.raw_joint_states:
@@ -130,8 +151,18 @@ class LeRobotDataCollector(Node):
             # TODO: Get corresponding action from raw_controller_commands
             # For now, use positions as placeholder action
             action = joint_state['positions']
+
+            video_path = 'idk' # WIPPP
+
+            # TODO: Add camera images when available
+            cam_main = {
+                'path': video_path,  # Path to mp4 file for this episode, need to find a way to synchronise video recording with
+                                     # starting/ending the episode/data recording and then save it to a location with a consistent naming scheme
+                'timestamp': target_time - start_time  # Timestamp of this frame in video
+            }
             
             # Add frame data
+            frames['observation.images.cam_main'].append(cam_main)
             frames['observation.state'].append(observation_state)
             frames['action'].append(action)
             frames['episode_index'].append(self.episode_index)
@@ -140,8 +171,7 @@ class LeRobotDataCollector(Node):
             frames['next.done'].append(frame_idx == num_frames - 1) 
             frames['index'].append(frame_idx)  # Can be updated later for multi-episode datasets
             
-            # TODO: Add camera images when available
-            # frames['observation.images.cam_high'].append(...)
+            
         
         self.get_logger().info(
             f'Created {len(frames["frame_index"])} frames at {self.target_fps} Hz'
@@ -173,7 +203,9 @@ class LeRobotDataCollector(Node):
         # Process raw data into frames
         frames = self.process_raw_data_to_frames()
         
-        # TODO: Save frames to dataset (parquet, etc.)
+        # Add frames to dataset
+        self.add_episode_to_dataset(frames, task_name='default_task')
+
         self.get_logger().info(
             f'✅ Episode {self.episode_index} SAVED: {len(frames["frame_index"])} frames'
         )
@@ -186,10 +218,361 @@ class LeRobotDataCollector(Node):
         self.raw_camera_images = []
         self.raw_controller_commands = []
     
+    def add_episode_to_dataset(self, frames, task_name='default_task'):
+        """Add a processed episode to the dataset with proper indexing"""
+        
+        if not frames or len(frames.get('frame_index', [])) == 0:
+            self.get_logger().error('Cannot add empty episode to dataset')
+            return
+        
+        num_frames = len(frames['frame_index'])
+        current_total_frames = self.dataset['meta']['info']['total_frames']
+        
+        # Calculate dataset indices for this episode
+        dataset_from_index = current_total_frames
+        dataset_to_index = current_total_frames + num_frames
+        
+        # Update frame indices to be global across dataset
+        frames_with_global_index = frames.copy()
+        frames_with_global_index['index'] = list(range(dataset_from_index, dataset_to_index))
+        
+        # Store episode data
+        episode_data = {
+            'frames': frames_with_global_index,
+            'episode_index': self.episode_index,
+            'task': task_name,
+            'num_frames': num_frames
+        }
+        self.dataset['episodes'].append(episode_data)
+        
+        # Update episode metadata DataFrame
+        new_episode_row = pd.DataFrame([{
+            'episode_index': self.episode_index,
+            'tasks': [task_name],
+            'length': num_frames,
+            'dataset_from_index': dataset_from_index,
+            'dataset_to_index': dataset_to_index
+        }])
+        
+        self.dataset['meta']['episodes'] = pd.concat(
+            [self.dataset['meta']['episodes'], new_episode_row],
+            ignore_index=True
+        )
+        
+        # Update metadata info
+        self.dataset['meta']['info']['total_episodes'] += 1
+        self.dataset['meta']['info']['total_frames'] += num_frames
+        
+        # Update features dict on first episode
+        if self.dataset['meta']['info']['total_episodes'] == 1:
+            self.dataset['meta']['info']['features'] = self._infer_features(frames_with_global_index)
+        
+        # Update tasks DataFrame if new task
+        if task_name not in self.dataset['meta']['tasks'].index:
+            task_index = len(self.dataset['meta']['tasks'])
+            new_task = pd.DataFrame([{'task_index': task_index}], index=[task_name])
+            self.dataset['meta']['tasks'] = pd.concat([self.dataset['meta']['tasks'], new_task])
+        
+        self.get_logger().info(
+            f'Added episode {self.episode_index} to dataset: '
+            f'{num_frames} frames, total dataset size: {self.dataset["meta"]["info"]["total_frames"]} frames'
+        )
+    
+    def _infer_features(self, frames):
+        """Infer feature types and shapes from first episode"""
+        features = {}
+        
+        # observation.state
+        if 'observation.state' in frames and len(frames['observation.state']) > 0:
+            state_dim = len(frames['observation.state'][0])
+            features['observation.state'] = {
+                'dtype': 'float32',
+                'shape': (state_dim,),
+                'names': None
+            }
+        
+        # action
+        if 'action' in frames and len(frames['action']) > 0:
+            action_dim = len(frames['action'][0])
+            features['action'] = {
+                'dtype': 'float32',
+                'shape': (action_dim,),
+                'names': None
+            }
+        
+        # observation.images.cam_main (VideoFrame)
+        if 'observation.images.cam_main' in frames:
+            features['observation.images.cam_main'] = {
+                'dtype': 'video',
+                'shape': None,  # Video dimensions from file
+                'names': ['path', 'timestamp']
+            }
+        
+        # Standard fields
+        features['episode_index'] = {'dtype': 'int64', 'shape': (), 'names': None}
+        features['frame_index'] = {'dtype': 'int64', 'shape': (), 'names': None}
+        features['timestamp'] = {'dtype': 'float32', 'shape': (), 'names': None}
+        features['next.done'] = {'dtype': 'bool', 'shape': (), 'names': None}
+        features['index'] = {'dtype': 'int64', 'shape': (), 'names': None}
+        
+        return features
+
+    def load_dataset(self, dataset_name):
+        """Load existing dataset from disk"""
+        dataset_root = Path('/home/remanpilot/ws/lerobot_datasets') / dataset_name
+        
+        if not dataset_root.exists():
+            self.get_logger().error(f'Dataset not found: {dataset_root}')
+            print(f"❌ Dataset '{dataset_name}' not found at {dataset_root}")
+            return
+        
+        try:
+            # Load metadata
+            meta_path = dataset_root / 'meta'
+            
+            # Load info.json
+            import json
+            info_path = meta_path / 'info.json'
+            with open(info_path, 'r') as f:
+                info = json.load(f)
+            
+            # Load episodes.parquet
+            episodes_path = meta_path / 'episodes.parquet'
+            episodes_df = pd.read_parquet(episodes_path)
+            
+            # Load tasks.parquet
+            tasks_path = meta_path / 'tasks.parquet'
+            tasks_df = pd.read_parquet(tasks_path)
+            
+            # Load stats (if exists)
+            stats = {}
+            stats_path = meta_path / 'stats.json'
+            if stats_path.exists():
+                with open(stats_path, 'r') as f:
+                    stats = json.load(f)
+            
+            # Initialize dataset structure
+            self.dataset = {
+                'episodes': [],
+                'meta': {
+                    'info': info,
+                    'episodes': episodes_df,
+                    'stats': stats,
+                    'tasks': tasks_df
+                },
+                'root': dataset_root
+            }
+            
+            # Load episode data from parquet files
+            data_dir = dataset_root / 'data'
+            for _, episode_row in episodes_df.iterrows():
+                ep_idx = episode_row['episode_index']
+                chunk_idx = ep_idx // 100  # Group episodes in chunks of 100
+                
+                # Load episode parquet file
+                episode_file = data_dir / f'chunk-{chunk_idx:03d}' / f'episode_{ep_idx:06d}.parquet'
+                
+                if episode_file.exists():
+                    episode_table = pq.read_table(episode_file)
+                    frames = {col: episode_table[col].to_pylist() for col in episode_table.column_names}
+                    
+                    episode_data = {
+                        'frames': frames,
+                        'episode_index': ep_idx,
+                        'task': episode_row['tasks'][0] if len(episode_row['tasks']) > 0 else 'default_task',
+                        'num_frames': episode_row['length']
+                    }
+                    self.dataset['episodes'].append(episode_data)
+                else:
+                    self.get_logger().warn(f'Episode file not found: {episode_file}')
+            
+            # Update node state
+            self.dataset_name = dataset_name
+            self.episode_index = info['total_episodes']  # Continue from last episode
+            
+            self.get_logger().info(
+                f'✅ Loaded dataset "{dataset_name}": '
+                f'{info["total_episodes"]} episodes, {info["total_frames"]} frames'
+            )
+            print(f'✅ Loaded dataset "{dataset_name}" with {info["total_episodes"]} episodes')
+            
+        except Exception as e:
+            self.get_logger().error(f'Failed to load dataset: {e}')
+            print(f'❌ Failed to load dataset: {e}')
+
+    def save_dataset(self, dataset_name):
+        """Save current dataset to disk in Parquet format"""
+        
+        if not self.dataset['episodes']:
+            self.get_logger().error('No episodes to save')
+            print('❌ No episodes to save')
+            return
+        
+        # Set dataset root path
+        dataset_root = Path('/home/remanpilot/ws/lerobot_datasets') / dataset_name
+        dataset_root.mkdir(parents=True, exist_ok=True)
+        
+        self.dataset['root'] = dataset_root
+        self.dataset_name = dataset_name
+        
+        try:
+            # Create directory structure
+            data_dir = dataset_root / 'data'
+            video_dir = dataset_root / 'videos'
+            meta_dir = dataset_root / 'meta'
+            
+            data_dir.mkdir(exist_ok=True)
+            video_dir.mkdir(exist_ok=True)
+            meta_dir.mkdir(exist_ok=True)
+            
+            # Compute statistics before saving
+            self._compute_stats()
+            
+            # Save each episode to parquet
+            for episode_data in self.dataset['episodes']:
+                ep_idx = episode_data['episode_index']
+                chunk_idx = ep_idx // 100  # Group episodes in chunks of 100
+                
+                chunk_dir = data_dir / f'chunk-{chunk_idx:03d}'
+                chunk_dir.mkdir(exist_ok=True)
+                
+                # Convert frames dict to PyArrow Table
+                frames = episode_data['frames']
+                
+                # Build schema with proper types
+                schema_fields = []
+                arrays = {}
+                
+                for key, values in frames.items():
+                    if key == 'observation.state' or key == 'action':
+                        # Convert list of lists to flat arrays
+                        flat_values = [item for sublist in values for item in sublist]
+                        dim = len(values[0]) if values else 0
+                        arrays[key] = pa.array(flat_values, type=pa.float32())
+                        schema_fields.append(pa.field(key, pa.list_(pa.float32(), dim)))
+                    
+                    elif key == 'observation.images.cam_main':
+                        # VideoFrame stored as struct with path and timestamp
+                        paths = [v['path'] for v in values]
+                        timestamps = [v['timestamp'] for v in values]
+                        arrays[key] = pa.StructArray.from_arrays(
+                            [pa.array(paths), pa.array(timestamps, type=pa.float32())],
+                            names=['path', 'timestamp']
+                        )
+                        schema_fields.append(pa.field(key, pa.struct([
+                            ('path', pa.string()),
+                            ('timestamp', pa.float32())
+                        ])))
+                    
+                    elif key in ['episode_index', 'frame_index', 'index']:
+                        arrays[key] = pa.array(values, type=pa.int64())
+                        schema_fields.append(pa.field(key, pa.int64()))
+                    
+                    elif key == 'timestamp':
+                        arrays[key] = pa.array(values, type=pa.float32())
+                        schema_fields.append(pa.field(key, pa.float32()))
+                    
+                    elif key == 'next.done':
+                        arrays[key] = pa.array(values, type=pa.bool_())
+                        schema_fields.append(pa.field(key, pa.bool_()))
+                
+                # Create table and write to parquet
+                schema = pa.schema(schema_fields)
+                table = pa.table(arrays, schema=schema)
+                
+                episode_file = chunk_dir / f'episode_{ep_idx:06d}.parquet'
+                pq.write_table(table, episode_file)
+                
+                self.get_logger().info(f'Saved episode {ep_idx} to {episode_file}')
+            
+            # Save metadata
+            import json
+            
+            # Save info.json
+            info_path = meta_dir / 'info.json'
+            with open(info_path, 'w') as f:
+                json.dump(self.dataset['meta']['info'], f, indent=2)
+            
+            # Save episodes.parquet
+            episodes_path = meta_dir / 'episodes.parquet'
+            self.dataset['meta']['episodes'].to_parquet(episodes_path)
+            
+            # Save tasks.parquet
+            tasks_path = meta_dir / 'tasks.parquet'
+            self.dataset['meta']['tasks'].to_parquet(tasks_path)
+            
+            # Save stats.json
+            if self.dataset['meta']['stats']:
+                stats_path = meta_dir / 'stats.json'
+                # Convert tensors to lists for JSON serialization
+                stats_serializable = {}
+                for key, stat_dict in self.dataset['meta']['stats'].items():
+                    stats_serializable[key] = {
+                        stat_type: values.tolist() if hasattr(values, 'tolist') else values
+                        for stat_type, values in stat_dict.items()
+                    }
+                with open(stats_path, 'w') as f:
+                    json.dump(stats_serializable, f, indent=2)
+            
+            self.get_logger().info(
+                f'✅ Saved dataset "{dataset_name}" to {dataset_root}: '
+                f'{self.dataset["meta"]["info"]["total_episodes"]} episodes, '
+                f'{self.dataset["meta"]["info"]["total_frames"]} frames'
+            )
+            print(f'✅ Dataset saved to: {dataset_root}')
+            
+        except Exception as e:
+            self.get_logger().error(f'Failed to save dataset: {e}')
+            print(f'❌ Failed to save dataset: {e}')
+            import traceback
+            traceback.print_exc()
+    
+    def _compute_stats(self):
+        """Compute statistics (min, max, mean, std) for normalization"""
+        if not self.dataset['episodes']:
+            return
+        
+        # Collect all observations and actions
+        all_states = []
+        all_actions = []
+        
+        for episode_data in self.dataset['episodes']:
+            frames = episode_data['frames']
+            if 'observation.state' in frames:
+                all_states.extend(frames['observation.state'])
+            if 'action' in frames:
+                all_actions.extend(frames['action'])
+        
+        # Convert to numpy arrays
+        if all_states:
+            states_array = np.array(all_states, dtype=np.float32)
+            self.dataset['meta']['stats']['observation.state'] = {
+                'min': states_array.min(axis=0),
+                'max': states_array.max(axis=0),
+                'mean': states_array.mean(axis=0),
+                'std': states_array.std(axis=0)
+            }
+        
+        if all_actions:
+            actions_array = np.array(all_actions, dtype=np.float32)
+            self.dataset['meta']['stats']['action'] = {
+                'min': actions_array.min(axis=0),
+                'max': actions_array.max(axis=0),
+                'mean': actions_array.mean(axis=0),
+                'std': actions_array.std(axis=0)
+            }
+        
+        self.get_logger().info('Computed dataset statistics for normalization')
+
     def print_status(self):
         """Print current status"""
         status = "🔴 RECORDING" if self.recording else "⚪ IDLE"
+        dataset_info = f"Dataset: {self.dataset_name or 'Unnamed'}"
+        total_episodes = self.dataset['meta']['info']['total_episodes']
+        total_frames = self.dataset['meta']['info']['total_frames']
+        
         print(f"\n{status} | Episode: {self.episode_index} | Samples: {len(self.raw_joint_states)}")
+        print(f"{dataset_info} | Total Episodes: {total_episodes} | Total Frames: {total_frames}")
 
 def get_key():
     """Get single keypress from terminal"""
@@ -207,6 +590,8 @@ def keyboard_ui_thread(node):
     print("\n" + "="*60)
     print("  LeRobot Data Collection - Keyboard Controls")
     print("="*60)
+    print("  l     - Load existing dataset from disk")
+    print("  p     - Save current dataset to disk")
     print("  SPACE - Start/Stop recording")
     print("  k     - Keep episode (save)")
     print("  d     - Discard episode")
@@ -217,8 +602,38 @@ def keyboard_ui_thread(node):
     while rclpy.ok():
         try:
             key = get_key()
-            
-            if key == ' ':  # Space to toggle recording
+
+            if key == 'l':  # Load dataset, prompt for name
+                # Only load if not currently recording 
+                # and if self.dataset is empty to avoid overriding recorded data
+                if not node.recording:
+                    if len(node.dataset) > 0:
+                        print(f"\n⚠️  Warning: Current dataset has {len(node.dataset)} episodes.")
+                        print("Save it first or it will be lost. Press 'p' to save, or any other key to cancel.")
+                        confirm = get_key()
+                        if confirm != 'p':
+                            print("Load cancelled.")
+                            continue
+                        # If user pressed 'p', save current dataset first
+                        save_name = input("\nEnter name to save current dataset under: ")
+                        node.save_dataset(save_name)
+                    
+                    dataset_name = input("\nEnter name of dataset to load: ")
+                    node.load_dataset(dataset_name)
+                else:
+                    print("Cannot load dataset while recording. Stop recording first.")
+
+            elif key == 'p':  # Save dataset if not recording AND dataset is not empty
+                if not node.recording:
+                    if len(node.dataset) == 0:
+                        print("No dataset to save. Record some episodes first.")
+                    else:
+                        dataset_name = input("\nEnter name to save dataset under: ")
+                        node.save_dataset(dataset_name)
+                else:
+                    print("Cannot save dataset while recording. Stop recording first.")
+
+            elif key == ' ':  # Space to toggle recording
                 if not node.recording:
                     node.start_episode()
                 else:
