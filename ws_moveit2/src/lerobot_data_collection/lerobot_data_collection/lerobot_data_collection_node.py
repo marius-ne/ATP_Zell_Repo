@@ -12,6 +12,8 @@ import termios
 import pandas as pd
 from datetime import datetime
 
+import pyrealsense2 as rs
+
 class LeRobotDataCollector(Node):
     def __init__(self):
         super().__init__('lerobot_data_collector')
@@ -23,11 +25,11 @@ class LeRobotDataCollector(Node):
         # -Add subscription to joint angle goals (capture data from tele-operation)
         # -Synchronise data to image when making frames since those have lowest frequency
         # /iiwa_arm_controller/state or moveit_msgs/msg/DisplayTrajectory
-        # -Add ability to load existing dataset
+        # COMPLETE -Add ability to load existing dataset
         # COMPLETE -Add ability to start/stop recording and keep/discard episodes, perhaps with some UI 
         # -Add ability to correct differences in timestamps between data sources
-        # -Add ability to add recorded episode to current/loaded dataset when choosing to keep it
-        # -Add ability to save dataset to disk, perhaps with some UI
+        # COMPLETE -Add ability to add recorded episode to current/loaded dataset when choosing to keep it
+        # COMPLETE -Add ability to save dataset to disk, perhaps with some UI
 
         # Lists to which raw data will be stored while recording is true
         self.raw_joint_states = []
@@ -62,7 +64,85 @@ class LeRobotDataCollector(Node):
         self.target_fps = 30.0  # Target frame rate for dataset (can be changed)
         
         self.joint_sub = self.create_subscription(JointState, '/joint_states', self.joint_callback, 10)
+
+        # Initialize RealSense camera
+        self.pipeline = None
+        self.camera_thread = None
+        self.camera_running = False
+        self._init_camera()
+
+    def _init_camera(self):
+        """Initialize RealSense camera pipeline"""
+        try:
+            self.pipeline = rs.pipeline()
+            config = rs.config()
+            
+            # Configure streams (640x480 @ 30fps is good default)
+            config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
+            
+            # Start pipeline
+            self.pipeline.start(config)
+            
+            # Start camera recording thread
+            self.camera_running = True
+            self.camera_thread = threading.Thread(target=self.camera_recording, daemon=True)
+            self.camera_thread.start()
+            
+            self.get_logger().info('✅ RealSense camera initialized successfully')
+            
+        except Exception as e:
+            self.get_logger().error(f'Failed to initialize RealSense camera: {e}')
+            self.pipeline = None
+
+    # Recording raw camera data
+    def camera_recording(self):
+        """Continuously capture camera frames in background thread"""
+        if not self.pipeline:
+            self.get_logger().error('Camera pipeline not initialized')
+            return
         
+        self.get_logger().info('Camera recording thread started')
+        
+        while self.camera_running and rclpy.ok():
+            try:
+                # Wait for frames (timeout after 1000ms)
+                frames = self.pipeline.wait_for_frames(timeout_ms=1000)
+                color_frame = frames.get_color_frame()
+                
+                if not color_frame:
+                    continue
+                
+                # Only record if recording flag is true
+                if self.recording:
+                    # Convert to numpy array
+                    color_image = np.asanyarray(color_frame.get_data())
+                    
+                    # Get timestamp
+                    timestamp = color_frame.get_timestamp() / 1000.0  # Convert ms to seconds
+                    # Store frame data
+                    self.raw_camera_images.append({
+                        'image': color_image.copy(),  # Make a copy to avoid reference issues
+                        'timestamp': timestamp
+                    })
+                    
+            except Exception as e:
+                if self.camera_running:  # Only log if we're supposed to be running
+                    self.get_logger().warn(f'Error capturing camera frame: {e}')
+                continue
+        
+        self.get_logger().info('Camera recording thread stopped')
+
+    def __del__(self):
+        """Cleanup camera when node is destroyed"""
+        self.camera_running = False
+        if self.camera_thread:
+            self.camera_thread.join(timeout=2.0)
+        if self.pipeline:
+            try:
+                self.pipeline.stop()
+            except:
+                pass
+
     # Recording raw data from joint states topic in a list
     def joint_callback(self, msg):
         if not self.recording:
@@ -93,15 +173,16 @@ class LeRobotDataCollector(Node):
             self.get_logger().warn('No joint state data to process')
             return frames
         
-        # Get start and end timestamps from raw data
-        start_time = self.raw_joint_states[0]['timestamp']
-        end_time = self.raw_joint_states[-1]['timestamp']
+        if not self.raw_camera_images:
+            self.get_logger().warn('No camera image data to process')
+            return frames
+
+        # Get start and end timestamps from raw camera data
+        start_time = self.raw_camera_images[0]['timestamp']
+        end_time = self.raw_camera_images[-1]['timestamp']
         episode_duration = end_time - start_time
         
-        self.get_logger().info(
-            f'Processing episode: duration={episode_duration:.2f}s, '
-            f'raw_joint_samples={len(self.raw_joint_states)}'
-        )
+        self.get_logger().info(f'Processing episode: duration={episode_duration:.2f}s, 'f'raw_joint_samples={len(self.raw_joint_states)}, 'f'raw_camera_images={len(self.raw_camera_images)}')
         
         # Calculate time step for target FPS (e.g., 30Hz -> dt = 0.0333s)
         dt = 1.0 / self.target_fps
@@ -118,7 +199,7 @@ class LeRobotDataCollector(Node):
         
         self.get_logger().info(f'Will attempt to sample {num_frames} frames at {self.target_fps} Hz')
         
-        # For each target timestamp, find the closest raw data
+        # For each image frame, find the closest raw joint data
         joint_idx = 0
         
         for frame_idx, target_time in enumerate(target_timestamps):
@@ -170,15 +251,13 @@ class LeRobotDataCollector(Node):
             frames['next.done'].append(frame_idx == num_frames - 1) 
             frames['index'].append(frame_idx)  # Can be updated later for multi-episode datasets
             
-            
-        
         self.get_logger().info(
             f'Created {len(frames["frame_index"])} frames at {self.target_fps} Hz'
         )
         
         return frames
     
-    def start_episode(self):
+    def start_recording(self):
         """Start recording a new episode"""
         self.recording = True
         self.raw_joint_states = []
@@ -186,11 +265,19 @@ class LeRobotDataCollector(Node):
         self.raw_controller_commands = []
         self.get_logger().info(f'🔴 RECORDING Episode {self.episode_index}')
     
-    def stop_episode(self, keep=True):
-        """Stop recording and optionally process the episode"""
+    def stop_recording(self):
+        """Stop recording without processing the episode yet"""
         self.recording = False
-        
-        if not keep or len(self.raw_joint_states) == 0:
+
+    def process_episode(self, keep=True):
+        """Process the episode"""        
+        if len(self.raw_joint_states) == 0:
+            self.get_logger().info(f'❌ Episode {self.episode_index} IS EMPTY! NOTHING TO SAVE')
+            self.raw_joint_states = []
+            self.raw_camera_images = []
+            self.raw_controller_commands = []
+            return
+        elif not keep:
             self.get_logger().info(f'❌ Episode {self.episode_index} DISCARDED')
             self.raw_joint_states = []
             self.raw_camera_images = []
@@ -199,15 +286,15 @@ class LeRobotDataCollector(Node):
         
         self.get_logger().info(f'✅ Processing Episode {self.episode_index}...')
         
+        self.view_camera_frames()
+
         # Process raw data into frames
         frames = self.process_raw_data_to_frames()
         
         # Add frames to dataset
         self.add_episode_to_dataset(frames, task_name='default_task')
 
-        self.get_logger().info(
-            f'✅ Episode {self.episode_index} SAVED: {len(frames["frame_index"])} frames'
-        )
+        self.get_logger().info(f'✅ Episode {self.episode_index} SAVED: {len(frames["frame_index"])} frames')
         
         # Increment episode counter for next recording
         self.episode_index += 1
@@ -626,6 +713,23 @@ class LeRobotDataCollector(Node):
         print(f"\n{status} | Episode: {self.episode_index} | Samples: {len(self.raw_joint_states)}")
         print(f"{dataset_info} | Total Episodes: {total_episodes} | Total Frames: {total_frames}")
 
+    def view_camera_frames(self):
+        """Quick test: show how many frames were captured"""
+        if not self.raw_camera_images:
+            print('❌ No camera frames recorded')
+            return
+        
+        print(f'\n✅ Recorded {len(self.raw_camera_images)} camera frames')
+        if len(self.raw_camera_images) > 0:
+            first = self.raw_camera_images[0]
+            last = self.raw_camera_images[-1]
+            print(last['timestamp'])
+            print(first['timestamp'])
+            duration = last['timestamp'] - first['timestamp']
+            print(f'   Duration: {duration:.2f}s')
+            print(f'   FPS: {len(self.raw_camera_images)/duration:.1f}')
+            print(f'   Image size: {first["image"].shape}')
+
 def get_key():
     """Get single keypress from terminal"""
     fd = sys.stdin.fileno()
@@ -695,21 +799,22 @@ def keyboard_ui_thread(node):
 
             elif key == ' ':  # Space to toggle recording
                 if not node.recording:
-                    node.start_episode()
+                    node.start_recording()
                 else:
+                    node.stop_recording()
                     print("\nRecording stopped. Press 'k' to keep or 'd' to discard.")
             
             elif key == 'k':  # Keep episode
-                if node.recording:
-                    node.stop_episode(keep=True)
+                if not node.recording:
+                    node.process_episode(keep=True)
                 else:
-                    print("Not recording. Press SPACE to start.")
+                    print("Still recording. Press SPACE first to stop.")
             
             elif key == 'd':  # Discard episode
-                if node.recording:
-                    node.stop_episode(keep=False)
+                if not node.recording:
+                    node.process_episode(keep=False)
                 else:
-                    print("Not recording. Press SPACE to start.")
+                    print("Still recording. Press SPACE first to stop.")
             
             elif key == 's':  # Show status
                 node.print_status()
