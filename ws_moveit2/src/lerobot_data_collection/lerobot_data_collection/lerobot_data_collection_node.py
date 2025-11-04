@@ -61,7 +61,7 @@ class LeRobotDataCollector(Node):
         self.recording = False  # Flag to control if we are recording or not
         self.keep_episode = False  # Flag to control if we want to keep the recorded episode
         self.episode_index = 0  # Counter for episode numbering
-        self.target_fps = 30.0  # Target frame rate for dataset (can be changed)
+        self.video_path = '/something'
         
         self.joint_sub = self.create_subscription(JointState, '/joint_states', self.joint_callback, 10)
 
@@ -157,7 +157,7 @@ class LeRobotDataCollector(Node):
 
     def process_raw_data_to_frames(self):
         frames = {
-            # 'observation.images.cam_main': [], # TODO: Add when camera is implemented
+            'observation.images.cam_main': [], # Link to camera video and timestamp
             'observation.state': [], # Robot's state, like joint angles, velocity and effort.
             'action': [], # The action taken, like target joint angles.
             'episode_index': [], # ID for the episode.
@@ -177,82 +177,85 @@ class LeRobotDataCollector(Node):
             self.get_logger().warn('No camera image data to process')
             return frames
 
-        # Get start and end timestamps from raw camera data
-        start_time = self.raw_camera_images[0]['timestamp']
-        end_time = self.raw_camera_images[-1]['timestamp']
+        # Time offset for joint angle data if needed
+        time_offset_joint_angle = 0.0  
+        self.raw_joint_states['timestamp'] = self.raw_joint_states['timestamp'] + time_offset_joint_angle
+
+        # Get joint data time range
+        first_joint_time = self.raw_joint_states[0]['timestamp']
+        last_joint_time = self.raw_joint_states[-1]['timestamp']
+        
+        # Filter camera images to only include those within joint data time range
+        # Find first camera frame at or after first joint state
+        # Find last camera frame at or before last joint state
+        filtered_camera_images = [
+            img for img in self.raw_camera_images 
+            if first_joint_time <= img['timestamp'] <= last_joint_time
+        ]
+        
+        if not filtered_camera_images:
+            self.get_logger().error('No camera frames overlap with joint data time range!')
+            return frames
+        
+        # Start and end times are now aligned to camera frame timestamps
+        start_time = filtered_camera_images[0]['timestamp']
+        end_time = filtered_camera_images[-1]['timestamp']
         episode_duration = end_time - start_time
         
-        self.get_logger().info(f'Processing episode: duration={episode_duration:.2f}s, 'f'raw_joint_samples={len(self.raw_joint_states)}, 'f'raw_camera_images={len(self.raw_camera_images)}')
+        self.get_logger().info(
+            f'Processing episode: duration={episode_duration:.2f}s, '
+            f'raw_joint_samples={len(self.raw_joint_states)}, '
+            f'raw_camera_images={len(self.raw_camera_images)}, '
+            f'filtered_camera_images={len(filtered_camera_images)}'
+        )
         
-        # Calculate time step for target FPS (e.g., 30Hz -> dt = 0.0333s)
-        dt = 1.0 / self.target_fps
-        
-        # Generate target timestamps at regular intervals (30Hz)
-        # Make sure we don't go beyond end_time
-        target_timestamps = []
-        current_time = start_time
-        while current_time <= end_time:
-            target_timestamps.append(current_time)
-            current_time += dt
-        
-        num_frames = len(target_timestamps)
-        
-        self.get_logger().info(f'Will attempt to sample {num_frames} frames at {self.target_fps} Hz')
-        
+        # Calculate the number of frames
+        num_frames = len(filtered_camera_images)
+
         # For each image frame, find the closest raw joint data
         joint_idx = 0
         
-        for frame_idx, target_time in enumerate(target_timestamps):
-            # Find closest joint state to target_time
-            # Advance joint_idx to get close to target_time
+        for frame_idx, camera_data in enumerate(filtered_camera_images):
+            image_data_timestamp = camera_data['timestamp']
+            
+            # Camera timestamp relative to first image frame
+            relative_timestamp = image_data_timestamp - start_time
+
+            # Find closest joint state to this camera timestamp
             while (joint_idx < len(self.raw_joint_states) - 1 and 
-                   self.raw_joint_states[joint_idx + 1]['timestamp'] <= target_time):
+                   self.raw_joint_states[joint_idx + 1]['timestamp'] <= image_data_timestamp):
                 joint_idx += 1
             
             # Check if the next sample is actually closer
             if joint_idx < len(self.raw_joint_states) - 1:
-                current_diff = abs(self.raw_joint_states[joint_idx]['timestamp'] - target_time)
-                next_diff = abs(self.raw_joint_states[joint_idx + 1]['timestamp'] - target_time)
+                current_diff = abs(self.raw_joint_states[joint_idx]['timestamp'] - image_data_timestamp)
+                next_diff = abs(self.raw_joint_states[joint_idx + 1]['timestamp'] - image_data_timestamp)
                 if next_diff < current_diff:
                     joint_idx += 1
-            
-            # Get the closest joint state data
+
             joint_state = self.raw_joint_states[joint_idx]
-            
-            # Log if timestamp mismatch is large (indicates sparse/inconsistent data)
-            time_diff = abs(joint_state['timestamp'] - target_time)
-            if time_diff > dt:  # If mismatch is larger than one frame period
-                self.get_logger().warn(
-                    f'Frame {frame_idx}: Large timestamp mismatch ({time_diff*1000:.1f}ms). '
-                    f'Raw data may be sparse or inconsistent.'
-                )
-            
+
             # Create observation.state by concatenating positions + velocities + efforts
             observation_state = joint_state['positions'] + joint_state['velocities'] + joint_state['efforts']
+
+            VideoFrame = {'path': self.video_path, 'timestamp': relative_timestamp}
             
-            # TODO: Get corresponding action from raw_controller_commands
+            # TODO: Get corresponding action from teleoperation commands
             # For now, use positions as placeholder action
             action = joint_state['positions']
-
-            # TODO: Add camera images when available
-            # video_path = f'videos/chunk-{self.episode_index // 100:03d}/episode_{self.episode_index:06d}.mp4'
-            # cam_main = {
-            #     'path': video_path,
-            #     'timestamp': target_time - start_time
-            # }
-            # frames['observation.images.cam_main'].append(cam_main)
             
             # Add frame data
+            frames['observation.images.cam_main'].append(VideoFrame)
             frames['observation.state'].append(observation_state)
             frames['action'].append(action)
             frames['episode_index'].append(self.episode_index)
             frames['frame_index'].append(frame_idx)
-            frames['timestamp'].append(target_time - start_time) 
+            frames['timestamp'].append(joint_state['timestamp'] - start_time) 
             frames['next.done'].append(frame_idx == num_frames - 1) 
-            frames['index'].append(frame_idx)  # Can be updated later for multi-episode datasets
+            frames['index'].append(frame_idx)  
             
         self.get_logger().info(
-            f'Created {len(frames["frame_index"])} frames at {self.target_fps} Hz'
+            f'Created {len(frames["frame_index"])} frames'
         )
         
         return frames
@@ -413,14 +416,6 @@ class LeRobotDataCollector(Node):
                 'shape': [action_dim],
                 'names': action_names
             }
-        
-        # observation.images.cam_main (VideoFrame)
-        # if 'observation.images.cam_main' in frames:
-        #     features['observation.images.cam_main'] = {
-        #         'dtype': 'video',
-        #         'shape': [1],  # Scalar video frame reference
-        #         'names': ['path', 'timestamp']
-        #     }
         
         # Standard fields - use [1] for scalars instead of []
         features['episode_index'] = {'dtype': 'int64', 'shape': [1], 'names': []}
@@ -584,19 +579,6 @@ class LeRobotDataCollector(Node):
                         # PyArrow will handle the nested structure
                         arrays[key] = pa.array(values, type=pa.list_(pa.float32()))
                         schema_fields.append(pa.field(key, pa.list_(pa.float32())))
-                    
-                    # elif key == 'observation.images.cam_main':
-                    #     # VideoFrame stored as struct with path and timestamp
-                    #     paths = [v['path'] for v in values]
-                    #     timestamps = [v['timestamp'] for v in values]
-                    #     arrays[key] = pa.StructArray.from_arrays(
-                    #         [pa.array(paths), pa.array(timestamps, type=pa.float32())],
-                    #         names=['path', 'timestamp']
-                    #     )
-                    #     schema_fields.append(pa.field(key, pa.struct([
-                    #         ('path', pa.string()),
-                    #         ('timestamp', pa.float32())
-                    #     ])))
                     
                     elif key in ['episode_index', 'frame_index', 'index', 'task_index']:
                         arrays[key] = pa.array(values, type=pa.int64())
