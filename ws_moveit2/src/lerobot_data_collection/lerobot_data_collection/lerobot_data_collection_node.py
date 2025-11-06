@@ -11,6 +11,7 @@ import tty
 import termios
 import pandas as pd
 from datetime import datetime
+import cv2
 
 import pyrealsense2 as rs
 
@@ -48,7 +49,7 @@ class LeRobotDataCollector(Node):
                     'total_frames': 0,
                     'features': {},  # Will be populated when first episode is added
                     'data_path': 'data/chunk-{episode_chunk:03d}/episode_{episode_index:06d}.parquet',
-                    'video_path': 'videos/chunk-{episode_chunk:03d}/episode_{episode_index:06d}.mp4'
+                    'video_path': 'videos/chunk-{chunk_index:03d}/episode_{file_index:06d}.mp4'
                 },
                 'episodes': pd.DataFrame(columns=['episode_index', 'tasks', 'length', 'dataset_from_index', 'dataset_to_index']),
                 'stats': {},  # Will be computed when saving
@@ -61,7 +62,7 @@ class LeRobotDataCollector(Node):
         self.recording = False  # Flag to control if we are recording or not
         self.keep_episode = False  # Flag to control if we want to keep the recorded episode
         self.episode_index = 0  # Counter for episode numbering
-        self.video_path = '/something'
+        self.video_path = 'videos/chunk-{chunk_index:03d}/episode_{file_index:06d}.mp4'
         
         self.joint_sub = self.create_subscription(JointState, '/joint_states', self.joint_callback, 10)
 
@@ -69,6 +70,7 @@ class LeRobotDataCollector(Node):
         self.pipeline = None
         self.camera_thread = None
         self.camera_running = False
+        self.camera_fps = 30.0  # Default, will be updated from camera
         self._init_camera()
 
     def _init_camera(self):
@@ -81,14 +83,19 @@ class LeRobotDataCollector(Node):
             config.enable_stream(rs.stream.color, 640, 480, rs.format.bgr8, 30)
             
             # Start pipeline
-            self.pipeline.start(config)
+            profile = self.pipeline.start(config)
+            
+            # Get actual FPS from the camera stream profile
+            stream_profile = profile.get_stream(rs.stream.color)
+            video_stream_profile = stream_profile.as_video_stream_profile()
+            self.camera_fps = float(video_stream_profile.fps())
             
             # Start camera recording thread
             self.camera_running = True
             self.camera_thread = threading.Thread(target=self.camera_recording, daemon=True)
             self.camera_thread.start()
             
-            self.get_logger().info('✅ RealSense camera initialized successfully')
+            self.get_logger().info(f'✅ RealSense camera initialized at {self.camera_fps} FPS')
             
         except Exception as e:
             self.get_logger().error(f'Failed to initialize RealSense camera: {e}')
@@ -155,6 +162,48 @@ class LeRobotDataCollector(Node):
             'timestamp': msg.header.stamp.sec + msg.header.stamp.nanosec * 1e-9
         })
 
+    def encode_video_from_frames(self, camera_images, video_path, fps=30):
+        """Encode a list of camera frames into an MP4 video file
+        
+        Args:
+            camera_images: List of dicts with 'image' and 'timestamp' keys
+            video_path: Path where the video should be saved
+            fps: Frames per second for the output video
+        """
+        if not camera_images:
+            self.get_logger().error('No camera images to encode')
+            return False
+        
+        try:
+            # Get video properties from first frame
+            first_frame = camera_images[0]['image']
+            height, width, channels = first_frame.shape
+            
+            # Create video writer with H.264 codec
+            fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # or 'avc1' for H.264
+            video_writer = cv2.VideoWriter(str(video_path), fourcc, fps, (width, height))
+            
+            if not video_writer.isOpened():
+                self.get_logger().error(f'Failed to open video writer for {video_path}')
+                return False
+            
+            # Write all frames to video
+            for frame_data in camera_images:
+                video_writer.write(frame_data['image'])
+            
+            # Release the video writer
+            video_writer.release()
+            
+            self.get_logger().info(
+                f'✅ Encoded video: {video_path} '
+                f'({len(camera_images)} frames, {width}x{height}, {fps} fps)'
+            )
+            return True
+            
+        except Exception as e:
+            self.get_logger().error(f'Failed to encode video: {e}')
+            return False
+
     def process_raw_data_to_frames(self):
         frames = {
             'observation.images.cam_main': [], # Link to camera video and timestamp
@@ -178,8 +227,12 @@ class LeRobotDataCollector(Node):
             return frames
 
         # Time offset for joint angle data if needed
-        time_offset_joint_angle = 0.0  
-        self.raw_joint_states['timestamp'] = self.raw_joint_states['timestamp'] + time_offset_joint_angle
+        time_offset_joint_angle = 0.0
+        
+        # Apply time offset to joint states if needed
+        if time_offset_joint_angle != 0.0:
+            for joint_data in self.raw_joint_states:
+                joint_data['timestamp'] += time_offset_joint_angle
 
         # Get joint data time range
         first_joint_time = self.raw_joint_states[0]['timestamp']
@@ -188,38 +241,40 @@ class LeRobotDataCollector(Node):
         # Filter camera images to only include those within joint data time range
         # Find first camera frame at or after first joint state
         # Find last camera frame at or before last joint state
-        filtered_camera_images = [
+        self.filtered_camera_images = [
             img for img in self.raw_camera_images 
             if first_joint_time <= img['timestamp'] <= last_joint_time
         ]
         
-        if not filtered_camera_images:
+        if not self.filtered_camera_images:
             self.get_logger().error('No camera frames overlap with joint data time range!')
             return frames
         
         # Start and end times are now aligned to camera frame timestamps
-        start_time = filtered_camera_images[0]['timestamp']
-        end_time = filtered_camera_images[-1]['timestamp']
+        start_time = self.filtered_camera_images[0]['timestamp']
+        end_time = self.filtered_camera_images[-1]['timestamp']
         episode_duration = end_time - start_time
         
         self.get_logger().info(
             f'Processing episode: duration={episode_duration:.2f}s, '
             f'raw_joint_samples={len(self.raw_joint_states)}, '
             f'raw_camera_images={len(self.raw_camera_images)}, '
-            f'filtered_camera_images={len(filtered_camera_images)}'
+            f'filtered_camera_images={len(self.filtered_camera_images)}'
         )
         
         # Calculate the number of frames
-        num_frames = len(filtered_camera_images)
+        num_frames = len(self.filtered_camera_images)
 
         # For each image frame, find the closest raw joint data
         joint_idx = 0
+        fps = self.camera_fps  # Use actual camera FPS
         
-        for frame_idx, camera_data in enumerate(filtered_camera_images):
+        for frame_idx, camera_data in enumerate(self.filtered_camera_images):
             image_data_timestamp = camera_data['timestamp']
             
-            # Camera timestamp relative to first image frame
-            relative_timestamp = image_data_timestamp - start_time
+            # Use exact video frame time instead of camera timestamp
+            # This ensures timestamps match exactly with video frames (no floating point errors)
+            relative_timestamp = frame_idx / fps
 
             # Find closest joint state to this camera timestamp
             while (joint_idx < len(self.raw_joint_states) - 1 and 
@@ -245,14 +300,15 @@ class LeRobotDataCollector(Node):
             action = joint_state['positions']
             
             # Add frame data
+            # Use exact video frame time to ensure perfect alignment with video
             frames['observation.images.cam_main'].append(VideoFrame)
             frames['observation.state'].append(observation_state)
             frames['action'].append(action)
             frames['episode_index'].append(self.episode_index)
             frames['frame_index'].append(frame_idx)
-            frames['timestamp'].append(joint_state['timestamp'] - start_time) 
+            frames['timestamp'].append(relative_timestamp)  # Exact video frame time
             frames['next.done'].append(frame_idx == num_frames - 1) 
-            frames['index'].append(frame_idx)  
+            frames['index'].append(frame_idx)
             
         self.get_logger().info(
             f'Created {len(frames["frame_index"])} frames'
@@ -289,10 +345,41 @@ class LeRobotDataCollector(Node):
         
         self.get_logger().info(f'✅ Processing Episode {self.episode_index}...')
         
-        self.view_camera_frames()
-
+        # Generate video path for this episode
+        chunk_idx = self.episode_index // 100
+        video_filename = f'episode_{self.episode_index:06d}.mp4'
+        
+        # Set dataset root (use current dataset_name or default to temp_dataset)
+        if self.dataset_name:
+            dataset_root = Path('/home/remanpilot/ws/lerobot_datasets') / self.dataset_name
+        else:
+            # Use temp_dataset as fallback
+            dataset_root = Path('/home/remanpilot/ws/lerobot_datasets') / 'temp_dataset'
+        
+        # Create video directory structure
+        video_chunk_dir = dataset_root / 'videos' / f'chunk-{chunk_idx:03d}'
+        video_chunk_dir.mkdir(parents=True, exist_ok=True)
+        
+        # Full path to video file
+        video_file_path = video_chunk_dir / video_filename
+        
+        # Relative path from dataset root (for storage in frames)
+        self.video_path = f'videos/chunk-{chunk_idx:03d}/{video_filename}'
+        
         # Process raw data into frames
         frames = self.process_raw_data_to_frames()
+
+        # Encode video from captured frames
+        self.get_logger().info(f'Encoding video to {video_file_path}...')
+        video_success = self.encode_video_from_frames(
+            self.filtered_camera_images, 
+            video_file_path, 
+            fps=self.camera_fps  # Use actual camera FPS
+        )
+
+        if not video_success:
+            self.get_logger().error(f'Failed to encode video for episode {self.episode_index}')
+            # Still process the episode without video
         
         # Add frames to dataset
         self.add_episode_to_dataset(frames, task_name='default_task')
@@ -321,6 +408,9 @@ class LeRobotDataCollector(Node):
         dataset_from_index = current_total_frames
         dataset_to_index = current_total_frames + num_frames
         
+        # Calculate video chunk index (episodes are grouped in chunks of 100)
+        video_chunk_idx = self.episode_index // 100
+        
         # Update frame indices to be global across dataset
         frames_with_global_index = frames.copy()
         frames_with_global_index['index'] = list(range(dataset_from_index, dataset_to_index))
@@ -345,19 +435,38 @@ class LeRobotDataCollector(Node):
         }
         self.dataset['episodes'].append(episode_data)
         
-        # Update episode metadata DataFrame
-        new_episode_row = pd.DataFrame([{
+        # Create episode metadata row
+        episode_metadata = {
             'episode_index': self.episode_index,
             'tasks': [task_name],
             'length': num_frames,
             'dataset_from_index': dataset_from_index,
-            'dataset_to_index': dataset_to_index
-        }])
+            'dataset_to_index': dataset_to_index,
+            'videos/observation.images.cam_main/chunk_index': video_chunk_idx,
+            'videos/observation.images.cam_main/file_index': self.episode_index,
+            'videos/observation.images.cam_main/from_timestamp': 0.0,
+            'videos/observation.images.cam_main/to_timestamp': float(frames['timestamp'][-1])
+        }
         
+        # Add episode metadata to DataFrame
+        new_episode_row = pd.DataFrame([episode_metadata])
         self.dataset['meta']['episodes'] = pd.concat(
             [self.dataset['meta']['episodes'], new_episode_row],
             ignore_index=True
         )
+        
+        # Ensure correct dtypes after concatenation (pandas may change them)
+        dtype_spec = {
+            'episode_index': 'int64',
+            'length': 'int64',
+            'dataset_from_index': 'int64',
+            'dataset_to_index': 'int64',
+            'videos/observation.images.cam_main/chunk_index': 'int64',
+            'videos/observation.images.cam_main/file_index': 'int64',
+            'videos/observation.images.cam_main/from_timestamp': 'float64',
+            'videos/observation.images.cam_main/to_timestamp': 'float64'
+        }
+        self.dataset['meta']['episodes'] = self.dataset['meta']['episodes'].astype(dtype_spec)
         
         # Update metadata info
         self.dataset['meta']['info']['total_episodes'] += 1
@@ -415,6 +524,25 @@ class LeRobotDataCollector(Node):
                 'dtype': 'float32',
                 'shape': [action_dim],
                 'names': action_names
+            }
+        
+        # observation.images.cam_main (VideoFrame)
+        # LeRobot expects this specific format for video features
+        if 'observation.images.cam_main' in frames and len(frames['observation.images.cam_main']) > 0:
+            features['observation.images.cam_main'] = {
+                'dtype': 'video',
+                'shape': [480, 640, 3],  # height, width, channels
+                'names': ['height', 'width', 'channel'],
+                '_type': 'VideoFrame',
+                'video_info': {
+                    'video.fps': 30.0,
+                    'video.width': 640,
+                    'video.height': 480,
+                    'video.codec': 'av1',
+                    'video.pix_fmt': 'yuv420p',
+                    'video.is_depth_map': False,
+                    'has_audio': False
+                }
             }
         
         # Standard fields - use [1] for scalars instead of []
@@ -542,6 +670,32 @@ class LeRobotDataCollector(Node):
         dataset_root = Path('/home/remanpilot/ws/lerobot_datasets') / dataset_name
         dataset_root.mkdir(parents=True, exist_ok=True)
         
+        # If dataset_name changed, move videos to new location
+        old_dataset_name = self.dataset_name
+        if old_dataset_name != dataset_name:
+            # Determine old root location
+            if old_dataset_name is None:
+                old_root = Path('/home/remanpilot/ws/lerobot_datasets') / 'temp_dataset'
+            else:
+                old_root = Path('/home/remanpilot/ws/lerobot_datasets') / old_dataset_name
+            
+            # Move videos directory if it exists and is different from new location
+            old_videos = old_root / 'videos'
+            new_videos = dataset_root / 'videos'
+            
+            if old_videos.exists() and old_root != dataset_root:
+                import shutil
+                self.get_logger().info(f'Moving videos from {old_videos} to {new_videos}')
+                print(f'📁 Moving videos from {old_videos} to {new_videos}...')
+                
+                # If new videos directory exists, remove it first
+                if new_videos.exists():
+                    shutil.rmtree(new_videos)
+                
+                # Move the entire videos directory
+                shutil.move(str(old_videos), str(new_videos))
+                self.get_logger().info('✅ Videos moved successfully')
+        
         self.dataset['root'] = dataset_root
         self.dataset_name = dataset_name
         
@@ -570,10 +724,16 @@ class LeRobotDataCollector(Node):
                 frames = episode_data['frames']
                 
                 # Build schema with proper types
+                # NOTE: Exclude observation.images.cam_main from parquet files
+                # LeRobot loads video frames directly from video files, not from parquet
                 schema_fields = []
                 arrays = {}
                 
                 for key, values in frames.items():
+                    # Skip video frame columns - LeRobot handles these separately
+                    if key == 'observation.images.cam_main' or 'images' in key:
+                        continue
+                        
                     if key == 'observation.state' or key == 'action':
                         # Keep as list of lists, don't flatten
                         # PyArrow will handle the nested structure
@@ -695,23 +855,6 @@ class LeRobotDataCollector(Node):
         print(f"\n{status} | Episode: {self.episode_index} | Samples: {len(self.raw_joint_states)}")
         print(f"{dataset_info} | Total Episodes: {total_episodes} | Total Frames: {total_frames}")
 
-    def view_camera_frames(self):
-        """Quick test: show how many frames were captured"""
-        if not self.raw_camera_images:
-            print('❌ No camera frames recorded')
-            return
-        
-        print(f'\n✅ Recorded {len(self.raw_camera_images)} camera frames')
-        if len(self.raw_camera_images) > 0:
-            first = self.raw_camera_images[0]
-            last = self.raw_camera_images[-1]
-            print(last['timestamp'])
-            print(first['timestamp'])
-            duration = last['timestamp'] - first['timestamp']
-            print(f'   Duration: {duration:.2f}s')
-            print(f'   FPS: {len(self.raw_camera_images)/duration:.1f}')
-            print(f'   Image size: {first["image"].shape}')
-
 def get_key():
     """Get single keypress from terminal"""
     fd = sys.stdin.fileno()
@@ -771,11 +914,34 @@ def keyboard_ui_thread(node):
 
             elif key == 'p':  # Save dataset if not recording AND dataset is not empty
                 if not node.recording:
-                    if len(node.dataset) == 0:
+                    if len(node.dataset['episodes']) == 0:
                         print("No dataset to save. Record some episodes first.")
                     else:
-                        dataset_name = input("\nEnter name to save dataset under: ")
-                        node.save_dataset(dataset_name)
+                        # If dataset name exists, ask if user wants to change it
+                        if node.dataset_name:
+                            print(f"\n💾 Current dataset name: '{node.dataset_name}'")
+                            print("Do you want to change the name? (y/n): ", end='', flush=True)
+                            change_name = get_key()
+                            print(change_name)  # Echo the key press
+                            
+                            if change_name.lower() == 'y':
+                                new_name = input("\nEnter new name to save dataset under: ").strip()
+                                if new_name:
+                                    node.save_dataset(new_name)
+                                else:
+                                    print("❌ No name provided. Save cancelled.")
+                            elif change_name.lower() == 'n':
+                                # Save with existing name
+                                node.save_dataset(node.dataset_name)
+                            else:
+                                print("\n❌ Invalid input. Save cancelled.")
+                        else:
+                            # No existing name, prompt for one
+                            dataset_name = input("\nEnter name to save dataset under: ").strip()
+                            if dataset_name:
+                                node.save_dataset(dataset_name)
+                            else:
+                                print("❌ No name provided. Save cancelled.")
                 else:
                     print("Cannot save dataset while recording. Stop recording first.")
 
@@ -788,6 +954,18 @@ def keyboard_ui_thread(node):
             
             elif key == 'k':  # Keep episode
                 if not node.recording:
+                    # If no dataset name and this is the first episode, prompt for name
+                    if node.dataset_name is None and node.episode_index == 0:
+                        print("\n📝 No dataset name set. Please enter a dataset name:")
+                        dataset_name = input("Dataset name: ").strip()
+                        
+                        if dataset_name:
+                            node.dataset_name = dataset_name
+                            print(f"✅ Dataset name set to: '{dataset_name}'")
+                        else:
+                            print("⚠️  No name provided. Using 'temp_dataset'")
+                            print("    You can rename it later when saving with 'p' command.")
+                    
                     node.process_episode(keep=True)
                 else:
                     print("Still recording. Press SPACE first to stop.")
