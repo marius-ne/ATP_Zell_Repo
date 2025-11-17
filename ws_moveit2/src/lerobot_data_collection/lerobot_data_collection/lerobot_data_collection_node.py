@@ -1,6 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
+from geometry_msgs.msg import TwistStamped
 import numpy as np
 import pyarrow as pa
 import pyarrow.parquet as pq
@@ -35,7 +36,7 @@ class LeRobotDataCollector(Node):
         # Lists to which raw data will be stored while recording is true
         self.raw_joint_states = []
         self.raw_camera_images = []
-        self.raw_controller_commands = []
+        self.raw_action_commands = []
 
         # Dataset storage with proper LeRobot structure
         self.dataset = {
@@ -65,6 +66,7 @@ class LeRobotDataCollector(Node):
         self.video_path = 'videos/chunk-{chunk_index:03d}/episode_{file_index:06d}.mp4'
         
         self.joint_sub = self.create_subscription(JointState, '/joint_states', self.joint_callback, 10)
+        self.action_sub = self.create_subscription(TwistStamped, '/servo_node/delta_twist_cmds', self.action_callback, 10)
 
         # Initialize RealSense camera
         self.pipeline = None
@@ -162,6 +164,17 @@ class LeRobotDataCollector(Node):
             'timestamp': msg.header.stamp.sec + msg.header.stamp.nanosec * 1e-9
         })
 
+    # Recording raw data from twist commands topic in a list
+    def action_callback(self, msg):
+        if not self.recording:
+            return
+        
+        self.raw_action_commands.append({
+            'linear': list(msg.twist.linear),
+            'angular': list(msg.twist.angular),
+            'timestamp': msg.header.stamp.sec + msg.header.stamp.nanosec * 1e-9
+        })
+
     def encode_video_from_frames(self, camera_images, video_path, fps=30):
         """Encode a list of camera frames into an MP4 video file
         
@@ -226,8 +239,9 @@ class LeRobotDataCollector(Node):
             self.get_logger().warn('No camera image data to process')
             return frames
 
-        # Time offset for joint angle data if needed
+        # Time offset for joint angle and action data if needed
         time_offset_joint_angle = 0.0
+        time_offset_action_command = 0.0
         
         # Apply time offset to joint states if needed
         if time_offset_joint_angle != 0.0:
@@ -238,18 +252,37 @@ class LeRobotDataCollector(Node):
         first_joint_time = self.raw_joint_states[0]['timestamp']
         last_joint_time = self.raw_joint_states[-1]['timestamp']
         
-        # Filter camera images to only include those within joint data time range
-        # Find first camera frame at or after first joint state
-        # Find last camera frame at or before last joint state
+        # Get action data time range (if available)
+        if self.raw_action_commands:
+            first_action_time = self.raw_action_commands[0]['timestamp']
+            last_action_time = self.raw_action_commands[-1]['timestamp']
+            
+            # Find the overlapping time range between joint states and action commands
+            first_overlap_time = max(first_joint_time, first_action_time)
+            last_overlap_time = min(last_joint_time, last_action_time)
+            
+            self.get_logger().info(
+                f'Joint time range: [{first_joint_time:.3f}, {last_joint_time:.3f}]s, '
+                f'Action time range: [{first_action_time:.3f}, {last_action_time:.3f}]s, '
+                f'Overlap: [{first_overlap_time:.3f}, {last_overlap_time:.3f}]s'
+            )
+        else:
+            # No action commands, use joint time range only
+            first_overlap_time = first_joint_time
+            last_overlap_time = last_joint_time
+            self.get_logger().warn('No action commands recorded, using joint time range only')
+        
+        # Filter camera images to only include those within the overlapping time range
+        # This ensures all frames have valid joint states AND action commands
         self.filtered_camera_images = [
             img for img in self.raw_camera_images 
-            if first_joint_time <= img['timestamp'] <= last_joint_time
+            if first_overlap_time <= img['timestamp'] <= last_overlap_time
         ]
         
         if not self.filtered_camera_images:
-            self.get_logger().error('No camera frames overlap with joint data time range!')
+            self.get_logger().error('No camera frames overlap with both joint and action data time range!')
             return frames
-        
+
         # Start and end times are now aligned to camera frame timestamps
         start_time = self.filtered_camera_images[0]['timestamp']
         end_time = self.filtered_camera_images[-1]['timestamp']
@@ -265,8 +298,9 @@ class LeRobotDataCollector(Node):
         # Calculate the number of frames
         num_frames = len(self.filtered_camera_images)
 
-        # For each image frame, find the closest raw joint data
+        # For each image frame, find the closest raw joint data and action data
         joint_idx = 0
+        action_idx = 0
         fps = self.camera_fps  # Use actual camera FPS
         
         for frame_idx, camera_data in enumerate(self.filtered_camera_images):
@@ -288,16 +322,28 @@ class LeRobotDataCollector(Node):
                 if next_diff < current_diff:
                     joint_idx += 1
 
+            # Find closest action command to this camera timestamp
+            while (action_idx < len(self.raw_action_commands) - 1 and 
+                   self.raw_action_commands[action_idx + 1]['timestamp'] <= image_data_timestamp):
+                action_idx += 1
+            
+            # Check if the next action sample is actually closer
+            if action_idx < len(self.raw_action_commands) - 1:
+                current_diff = abs(self.raw_action_commands[action_idx]['timestamp'] - image_data_timestamp)
+                next_diff = abs(self.raw_action_commands[action_idx + 1]['timestamp'] - image_data_timestamp)
+                if next_diff < current_diff:
+                    action_idx += 1
+
             joint_state = self.raw_joint_states[joint_idx]
+            action_state = self.raw_action_commands[action_idx]
 
             # Create observation.state by concatenating positions + velocities + efforts
             observation_state = joint_state['positions'] + joint_state['velocities'] + joint_state['efforts']
 
             VideoFrame = {'path': self.video_path, 'timestamp': relative_timestamp}
             
-            # TODO: Get corresponding action from teleoperation commands
-            # For now, use positions as placeholder action
-            action = joint_state['positions']
+            # Get action from teleoperation commands (linear + angular velocity)
+            action = action_state['linear'] + action_state['angular']
             
             # Add frame data
             # Use exact video frame time to ensure perfect alignment with video
@@ -321,7 +367,7 @@ class LeRobotDataCollector(Node):
         self.recording = True
         self.raw_joint_states = []
         self.raw_camera_images = []
-        self.raw_controller_commands = []
+        self.raw_action_commands = []
         self.get_logger().info(f'🔴 RECORDING Episode {self.episode_index}')
     
     def stop_recording(self):
@@ -334,13 +380,13 @@ class LeRobotDataCollector(Node):
             self.get_logger().info(f'❌ Episode {self.episode_index} IS EMPTY!')
             self.raw_joint_states = []
             self.raw_camera_images = []
-            self.raw_controller_commands = []
+            self.raw_action_commands = []
             return
         elif not keep:
             self.get_logger().info(f'❌ Episode {self.episode_index} DISCARDED')
             self.raw_joint_states = []
             self.raw_camera_images = []
-            self.raw_controller_commands = []
+            self.raw_action_commands = []
             return
         
         self.get_logger().info(f'✅ Processing Episode {self.episode_index}...')
@@ -392,7 +438,7 @@ class LeRobotDataCollector(Node):
         # Clear raw data buffers
         self.raw_joint_states = []
         self.raw_camera_images = []
-        self.raw_controller_commands = []
+        self.raw_action_commands = []
     
     def add_episode_to_dataset(self, frames, task_name='default_task'):
         """Add a processed episode to the dataset with proper indexing"""
