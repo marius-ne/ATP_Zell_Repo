@@ -21,14 +21,14 @@ class LeRobotDataCollector(Node):
         self.get_logger().info('LeRobot Data Collection Node started')
 
         # TODO: 
-        # -Add subscription to camera topic
-        # -Add method to record and save videos synchronized with data collection 
+        # COMPLETE -Add subscription to camera topic
+        # COMPLETE -Add method to record and save videos synchronized with data collection 
         # -Add subscription to joint angle goals (capture data from tele-operation)
-        # -Synchronise data to image when making frames since those have lowest frequency
+        # COMPLETE -Synchronise data to image when making frames since those have lowest frequency
         # /iiwa_arm_controller/state or moveit_msgs/msg/DisplayTrajectory
         # COMPLETE -Add ability to load existing dataset
         # COMPLETE -Add ability to start/stop recording and keep/discard episodes, perhaps with some UI 
-        # -Add ability to correct differences in timestamps between data sources
+        # COMPLETE (not for actions jet) -Add ability to correct differences in timestamps between data sources
         # COMPLETE -Add ability to add recorded episode to current/loaded dataset when choosing to keep it
         # COMPLETE -Add ability to save dataset to disk, perhaps with some UI
 
@@ -331,7 +331,7 @@ class LeRobotDataCollector(Node):
     def process_episode(self, keep=True):
         """Process the episode"""        
         if len(self.raw_joint_states) == 0:
-            self.get_logger().info(f'❌ Episode {self.episode_index} IS EMPTY! NOTHING TO SAVE')
+            self.get_logger().info(f'❌ Episode {self.episode_index} IS EMPTY!')
             self.raw_joint_states = []
             self.raw_camera_images = []
             self.raw_controller_commands = []
@@ -954,8 +954,8 @@ def keyboard_ui_thread(node):
             
             elif key == 'k':  # Keep episode
                 if not node.recording:
-                    # If no dataset name and this is the first episode, prompt for name
-                    if node.dataset_name is None and node.episode_index == 0:
+                    # If episode is not empty and no dataset name and this is the first episode, prompt for name
+                    if node.dataset_name is None and node.episode_index == 0 and len(node.raw_joint_states) != 0:
                         print("\n📝 No dataset name set. Please enter a dataset name:")
                         dataset_name = input("Dataset name: ").strip()
                         

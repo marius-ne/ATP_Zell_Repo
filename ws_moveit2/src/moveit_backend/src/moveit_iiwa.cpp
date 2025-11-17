@@ -5,14 +5,6 @@
 #include "geometric_shapes/shape_operations.h"
 #include "ament_index_cpp/get_package_share_directory.hpp"
 
-#include <tf2/LinearMath/Quaternion.h>
-#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
-
-#include "geometric_shapes/shapes.h"
-#include "geometric_shapes/mesh_operations.h"
-#include "geometric_shapes/shape_operations.h"
-
-
 
 #include "wzlscheduler_interfaces/srv/robot_move_to_position.hpp"
 #include "wzlscheduler_interfaces/srv/robot_follow_trajectory.hpp"
@@ -112,16 +104,7 @@ class RobotIiwaServer : public rclcpp::Node
             add_hollow_box_collision("BOX1",0.56,0.36,0.125,0.012, 0.1,-0.515,0.125/2);
             add_hollow_box_collision("BOX2",0.56,0.36,0.125,0.012, 0.1,0.515,0.125/2);
             //Bemi1
-            //add_hollow_box_collision("Bemi1", 0.125, 0.2, 0.09, 0.012, 0.54, 0.05, 0.09/2);
-            // Neue Mesh-Kollision für Bemi1 hinzufügen
-            geometry_msgs::msg::Pose bemi1_pose;
-            bemi1_pose.position.x = 0.54;
-            bemi1_pose.position.y = 0.05;
-            bemi1_pose.position.z = 0.09/2;
-            bemi1_pose.orientation.w = 1.0; // Keine Rotation
-            add_mesh_from_file("Bemi1", "BEMI(Meshed).dae", bemi1_pose); 
-
-            
+            add_hollow_box_collision("Bemi1", 0.125, 0.2, 0.09, 0.012, 0.54, 0.05, 0.09/2);
             //Schraubenbox
             add_collision_box("Box 4", 0.25, 0.12, 0.165, -0.55, -0.55, 0.0825);
             
@@ -130,9 +113,6 @@ class RobotIiwaServer : public rclcpp::Node
             add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);
             add_collision_box("wall3", thickness, size, 1.0, size05, 0, 0.5);
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
-
-            //Monitor
-            add_collision_box("Monitor", 0.05, 0.6, 0.4, 0.9, -0.8, 0.3);
             
             add_collision_box("floor", 2, 2, 0.0198, 0, 0, -0.01);
             //add_collision_box("ceiling", size, size, 0.1, 0, 0, 1);
@@ -211,232 +191,8 @@ class RobotIiwaServer : public rclcpp::Node
             planning_scene_interface_->applyCollisionObject(collision_object);
 
         }
-        void add_mesh_gripper(const std::string name, const geometry_msgs::msg::Pose& pose)
-        {
-            std::string meshPath = "package://moveit_backend/meshes/parts/Gripper(Meshed).dae";
-            double scale  = 1; // scale factor for the mesh
-                
-            // load the mesh from the resource
-            shapes::Mesh* mesh = shapes::createMeshFromResource(meshPath);
-            if (!mesh) {
-                RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to load mesh from %s - falling back to primitive shape", meshPath.c_str());
-                // Fallback to primitive shape
-                add_gripper(name, pose);
-                return;
-            }
 
-            mesh->scale(scale);
-
-            // TCP-relativer Offset (im lokalen Koordinatensystem von link_7)
-            geometry_msgs::msg::Pose adjusted_pose = pose;
-            
-            // Offset-Vektor im TCP-Koordinatensystem (X, Y, Z im TCP-Frame)
-            tf2::Vector3 local_offset(0.0, 0.004, 0.04); // Angepasste Werte für den Gripper
-            
-            // Aktuelle TCP-Orientierung als Quaternion
-            tf2::Quaternion tcp_orientation;
-            tf2::fromMsg(pose.orientation, tcp_orientation);
-            
-            // Rotiere den Offset-Vektor in das Welt-Koordinatensystem
-            tf2::Vector3 world_offset = tf2::quatRotate(tcp_orientation, local_offset);
-            
-            // Addiere den rotierten Offset zur Position
-            adjusted_pose.position.x += world_offset.x();
-            adjusted_pose.position.y += world_offset.y();
-            adjusted_pose.position.z += world_offset.z();
-                      
-            // create the collision object
-            moveit_msgs::msg::CollisionObject collision_object;
-            collision_object.header.frame_id = move_group_interface_->getPlanningFrame();
-            collision_object.id = name;
-
-            // converting the mesh to a collision object
-            shapes::ShapeMsg mesh_msg;
-            shapes::constructMsgFromShape(mesh, mesh_msg);
-            shape_msgs::msg::Mesh mesh_shape = boost::get<shape_msgs::msg::Mesh>(mesh_msg);
-            
-    
-            // add the mesh to the collision object
-            collision_object.meshes.push_back(mesh_shape);
-            collision_object.mesh_poses.push_back(adjusted_pose);
-            collision_object.operation = collision_object.ADD;
-            
-            // add the collision object to the planning scene
-            planning_scene_interface_->applyCollisionObject(collision_object);
-            
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), 
-                "Added mesh gripper: %s", name.c_str());
-                
-            delete mesh;
-        }
-        void add_mesh_workpiece(const std::string name, const geometry_msgs::msg::Pose& pose, 
-            int partType = 0, int workpieceOrientation = 0)
-            {
-                geometry_msgs::msg::Pose adjusted_pose = pose;
-
-                
-                if (partType != 3) {
-                double offset_x = 0.005;//0.006 davor -> Crash beim aufnehmen     
-                double offset_y = -0.041;  //-0.045   
-
-                double angle_rad = workpieceOrientation * M_PI / 180.0;
-
-                // Offset-Transformation
-                double rotated_offset_x = offset_x * cos(angle_rad) - offset_y * sin(angle_rad);
-                double rotated_offset_y = offset_x * sin(angle_rad) + offset_y * cos(angle_rad);
-
-                adjusted_pose.position.x += rotated_offset_x;
-                adjusted_pose.position.y += rotated_offset_y;
-                }
-
-                // Offset the position down by half the length to place top at pose
-                double length_gripper = 0.19;
-                adjusted_pose.position.z -= length_gripper - 0.02; //- 0.05 damit nicht zu weil oben
-                // Rotation for workpiece orientation
-                
-                // create a quaternion for the gripper orientation
-                tf2::Quaternion gripper_orientation;
-                tf2::fromMsg(pose.orientation, gripper_orientation);
-
-                // create a quaternion for the workpiece orientation
-                tf2::Quaternion workpiece_rotation;
-                double angle_rad = (workpieceOrientation - 10.0) * M_PI / 180.0;
-                workpiece_rotation.setRPY(0,  M_PI, angle_rad);
-
-                // combine the orientations
-                tf2::Quaternion final_orientation = gripper_orientation * workpiece_rotation;
-                final_orientation.normalize();
-
-                // add the orientation to the adjusted pose
-                adjusted_pose.orientation = tf2::toMsg(final_orientation);
-
-                // create the collision object
-                moveit_msgs::msg::CollisionObject collision_object;
-                collision_object.header.frame_id = move_group_interface_->getPlanningFrame();
-                collision_object.id = name;
-
-                // path to the mesh file based on partType
-                std::string meshPath;
-                double scale  = 1; // scale factor for the mesh
-
-                if (partType == 3) {
-                meshPath = "package://moveit_backend/meshes/parts/kugellager1.stl";
-                } else if (partType == 2) {
-                meshPath = "package://moveit_backend/meshes/parts/Workpiece_Oben(Meshed).dae";
-                } else {
-                meshPath = "package://moveit_backend/meshes/parts/Workpiece_Unten(Meshed).dae";
-                }
-
-                // load the mesh from the resource
-                shapes::Mesh* mesh = shapes::createMeshFromResource(meshPath);
-                if (!mesh) {
-                RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Failed to load mesh from %s - falling back to primitive shape", meshPath.c_str());
-                // Fallback to primitive shape
-                add_workpiece(name, pose, partType, workpieceOrientation);
-                return;
-                }
-
-                mesh->scale(scale);
-
-                // converting the mesh to a collision object
-                shapes::ShapeMsg mesh_msg;
-                shapes::constructMsgFromShape(mesh, mesh_msg);
-                shape_msgs::msg::Mesh mesh_shape = boost::get<shape_msgs::msg::Mesh>(mesh_msg);
-
-                // add the mesh to the collision object
-                collision_object.meshes.push_back(mesh_shape);
-                collision_object.mesh_poses.push_back(adjusted_pose);
-                collision_object.operation = collision_object.ADD;
-
-                // add the collision object to the planning scene
-                planning_scene_interface_->applyCollisionObject(collision_object);
-
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), 
-                "Adding mesh workpiece of type %d with orientation: %d, quaternion: [%f, %f, %f, %f]",
-                partType,
-                workpieceOrientation, 
-                adjusted_pose.orientation.x,
-                adjusted_pose.orientation.y,
-                adjusted_pose.orientation.z,
-                adjusted_pose.orientation.w);
-
-                delete mesh; // delete the mesh to avoid memory leak
-                }
-
-                void add_workpiece(const std::string name, const geometry_msgs::msg::Pose& pose, int partType = 0, int workpieceOrientation = 0)
-                {
-                // Add collision object
-                moveit_msgs::msg::CollisionObject collision_object;
-                collision_object.header.frame_id = move_group_interface_->getPlanningFrame();
-                collision_object.id = name;
-
-                shape_msgs::msg::SolidPrimitive primitive;
-                primitive.type = primitive.BOX;
-                primitive.dimensions.resize(3);
-
-                //pose gripper
-                geometry_msgs::msg::Pose adjusted_pose = pose;
-
-                /*
-                if(partType == 3) //Kugellager
-                {
-                primitive.dimensions[primitive.BOX_X] = 0.01;
-                primitive.dimensions[primitive.BOX_Y] = 0.01;
-                primitive.dimensions[primitive.BOX_Z] = 0.01;
-                }
-                else
-                {*/
-                primitive.dimensions[primitive.BOX_X] = 0.1;
-                primitive.dimensions[primitive.BOX_Y] = 0.18;
-                primitive.dimensions[primitive.BOX_Z] = 0.03;
-
-                // Offset for the gripper position
-                double offset_x = 0.005;     
-                double offset_y = -0.045;     
-
-
-                double angle_rad = workpieceOrientation * M_PI / 180.0;
-
-                // offset transformation
-                double rotated_offset_x = offset_x * cos(angle_rad) - offset_y * sin(angle_rad);
-                double rotated_offset_y = offset_x * sin(angle_rad) + offset_y * cos(angle_rad);
-
-                adjusted_pose.position.x += rotated_offset_x;
-                adjusted_pose.position.y += rotated_offset_y;
-                //}
-
-                // Offset the position down by half the length to place top at pose
-                double length_gripper = 0.19; // Length
-                adjusted_pose.position.z -= length_gripper - 0.05;
-
-                // Rotation for workpiece orientation
-                tf2::Quaternion orientation_quaternion;
-                angle_rad = workpieceOrientation * M_PI / 180.0;
-
-                // Rotation around Z-axis
-                orientation_quaternion.setRPY(0, 0, angle_rad);
-                orientation_quaternion.normalize();
-
-                adjusted_pose.orientation.x = orientation_quaternion.x();
-                adjusted_pose.orientation.y = orientation_quaternion.y();
-                adjusted_pose.orientation.z = orientation_quaternion.z();
-                adjusted_pose.orientation.w = orientation_quaternion.w();
-
-                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), 
-                "Adding workpiece with orientation: %d, quaternion: [%f, %f, %f, %f]",
-                workpieceOrientation, 
-                adjusted_pose.orientation.x,
-                adjusted_pose.orientation.y,
-                adjusted_pose.orientation.z,
-                adjusted_pose.orientation.w);
-
-                collision_object.primitives.push_back(primitive);
-                collision_object.primitive_poses.push_back(adjusted_pose);
-                collision_object.operation = collision_object.ADD;
-
-                planning_scene_interface_->applyCollisionObject(collision_object);
-                }
-        /*void add_workpiece_from_bemi(const std::string name, const geometry_msgs::msg::Pose& pose)
+        void add_workpiece_from_bemi(const std::string name, const geometry_msgs::msg::Pose& pose)
         {
             // add a cylinder with dimensions radius 0.055 length 0.19
             moveit_msgs::msg::CollisionObject collision_object;
@@ -499,7 +255,30 @@ class RobotIiwaServer : public rclcpp::Node
 
             planning_scene_interface_->applyCollisionObject(collision_object);
         }
-*/
+
+        void add_small_gripper(const std::string name, const geometry_msgs::msg::Pose& pose)
+        {
+            // add a cylinder with dimensions radius 0.055 length 0.19
+            moveit_msgs::msg::CollisionObject collision_object;
+            collision_object.header.frame_id = move_group_interface_->getPlanningFrame();
+            collision_object.id = name;
+
+            shape_msgs::msg::SolidPrimitive primitive;
+            primitive.type = primitive.CYLINDER;
+            primitive.dimensions.resize(2);
+            primitive.dimensions[0] = 0.18; // Length
+            primitive.dimensions[1] = 0.035; // Radius
+
+            // Offset the position down by half the length to place top at pose
+            geometry_msgs::msg::Pose adjusted_pose = pose;
+            adjusted_pose.position.z -= primitive.dimensions[0] / 2.0;
+
+            collision_object.primitives.push_back(primitive);
+            collision_object.primitive_poses.push_back(adjusted_pose);
+            collision_object.operation = collision_object.ADD;
+
+            planning_scene_interface_->applyCollisionObject(collision_object);
+        }
         
         void add_hollow_box_collision(const std::string name, const float width, const float depth, const float height,
             const float wall_thickness, const float x, const float y, const float z)
@@ -608,49 +387,11 @@ class RobotIiwaServer : public rclcpp::Node
             
         }
 
-        void add_mesh_from_file(const std::string& object_id, const std::string& mesh_filename, const geometry_msgs::msg::Pose& pose)
-        {
-            moveit_msgs::msg::CollisionObject collision_object;
-            collision_object.header.frame_id = move_group_interface_->getPlanningFrame();
-            collision_object.id = object_id;
-
-            // Pfad zur Mesh-Datei erstellen
-            std::string meshPath = "package://moveit_backend/meshes/parts/" + mesh_filename;
-
-            // Mesh aus der Datei laden
-            shapes::Mesh* mesh = shapes::createMeshFromResource(meshPath);
-            if (!mesh) {
-                RCLCPP_ERROR(this->get_logger(), "Failed to load mesh from %s", meshPath.c_str());
-                return;
-            }
-
-            // Mesh in eine Shape-Nachricht konvertieren
-            shapes::ShapeMsg mesh_msg;
-            shapes::constructMsgFromShape(mesh, mesh_msg);
-            shape_msgs::msg::Mesh mesh_shape = boost::get<shape_msgs::msg::Mesh>(mesh_msg);
-            
-            // Mesh und Pose zum Kollisionsobjekt hinzufügen
-            collision_object.meshes.push_back(mesh_shape);
-            collision_object.mesh_poses.push_back(pose);
-            collision_object.operation = collision_object.ADD;
-            
-            // Kollisionsobjekt zur Szene hinzufügen
-            planning_scene_interface_->applyCollisionObject(collision_object);
-            
-            RCLCPP_INFO(this->get_logger(), "Added mesh collision object '%s' from file '%s'", object_id.c_str(), mesh_filename.c_str());
-                
-            delete mesh; // Speicher freigeben
-        }
-
-
         void remove_collision_object(const std::string& objectId) const
         {
-            if(objectId=="floor"||objectId== "Bemi1"||objectId==  "BOX1"||objectId== "BOX2")
-            {
-                if (temporary_removed_objects_.count(objectId)) {
+            if (temporary_removed_objects_.count(objectId)) {
                 RCLCPP_WARN(this->get_logger(), "Object '%s' is already in temporary storage, not removing again.", objectId.c_str());
                 return;
-                }
             }
             // Get all collision objects from the planning scene
             std::map<std::string, moveit_msgs::msg::CollisionObject> scene_objects = planning_scene_interface_->getObjects();
@@ -658,8 +399,6 @@ class RobotIiwaServer : public rclcpp::Node
             // Find the object to remove
             auto it = scene_objects.find(objectId);
             if (it != scene_objects.end())
-            {
-                if(objectId=="floor"||objectId== "Bemi1"||objectId==  "BOX1"||objectId== "BOX2")
             {
                 // Store the object for later re-adding
                 temporary_removed_objects_[objectId] = it->second;
@@ -671,13 +410,7 @@ class RobotIiwaServer : public rclcpp::Node
 
                 // Remove collision object from planning scene
                 planning_scene_interface_->applyCollisionObject(collision_object_to_remove);
-            }
-            else
-            {
-                // Directly remove the object from the planning scene
-                std::vector<std::string> object_ids_to_remove = {objectId};
-                planning_scene_interface_->removeCollisionObjects(object_ids_to_remove);
-            }
+
                 RCLCPP_INFO(this->get_logger(), "Collision object '%s' temporarily removed and stored.", objectId.c_str());
             }
             else
@@ -751,46 +484,6 @@ class RobotIiwaServer : public rclcpp::Node
 
                 move_group_interface_->setNumPlanningAttempts(3);
                 move_group_interface_->setPlanningTime(2.0);
-
-                if (moveType == 1) // absolute pose
-                {
-                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "MoveType: Absolute pose normal movement");
-                    move_group_interface_->setPoseTarget(msg);
-                    last_pose_ = msg;
-                }
-                else if (moveType == 2) // relative pose
-                {
-                    RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "MoveType: Relative pose normal movement");
-                    geometry_msgs::msg::Pose target_pose = move_group_interface_->getCurrentPose().pose;
-                    target_pose.position.x += position.x;
-                    target_pose.position.y += position.y;
-                    target_pose.position.z += position.z; 
-
-                    msg.position = target_pose.position;
-
-                    move_group_interface_->setPoseTarget(msg);
-                    last_pose_ = target_pose;
-                }
-                moveit::planning_interface::MoveGroupInterface::Plan msg2;
-                auto const success = static_cast<bool>(move_group_interface_->plan(msg2));
-                
-                // Execute the plan
-                if(success) 
-                {
-                    if (!move_group_interface_->execute(msg2))
-                    {
-                        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "OMPL Planner - Execution failed!");
-                        response->result = false;
-                    }
-                    else
-                    {
-                        response->result = true;
-                    }
-                
-                } else {
-                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "OMPL Planner - Planning failed!");
-                    response->result = false;
-                }
             }
             else if (is_movement_cartesian)
             {
@@ -808,14 +501,37 @@ class RobotIiwaServer : public rclcpp::Node
                     remove_collision_object(obj_id);
                 }
 
+
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Set pipeline to pilz industrial planner");
+                move_group_interface_->setPlanningPipelineId("pilz");
                 move_group_interface_->setPlannerId("LIN");
 
                 move_group_interface_->setMaxVelocityScalingFactor(scaling_velocity_pilz);
                 move_group_interface_->setMaxAccelerationScalingFactor(scaling_acceleration_pilz);
                 move_group_interface_->setNumPlanningAttempts(1);
                 move_group_interface_->setPlanningTime(1.0);
-            
-                if (moveType == 3) // absolute pose cartesian movement
+            }
+
+            if (moveType == 1) // absolute pose
+            {
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "MoveType: Absolute pose normal movement");
+                move_group_interface_->setPoseTarget(msg);
+                last_pose_ = msg;
+            }
+            else if (moveType == 2) // relative pose
+            {
+                RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "MoveType: Relative pose normal movement");
+                geometry_msgs::msg::Pose target_pose = move_group_interface_->getCurrentPose().pose;
+                target_pose.position.x += position.x;
+                target_pose.position.y += position.y;
+                target_pose.position.z += position.z; 
+
+                msg.position = target_pose.position;
+
+                move_group_interface_->setPoseTarget(msg);
+                last_pose_ = target_pose;
+            }
+            else if (moveType == 3) // absolute pose cartesian movement
             {
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "MoveType: Absolute pose cartesian movement");
                 
@@ -849,6 +565,32 @@ class RobotIiwaServer : public rclcpp::Node
 
                 move_group_interface_->setPlannerId("LIN");
             }
+
+            if (is_movement_normal )
+            {
+                moveit::planning_interface::MoveGroupInterface::Plan msg2;
+                auto const success = static_cast<bool>(move_group_interface_->plan(msg2));
+                
+                // Execute the plan
+                if(success) 
+                {
+                    if (!move_group_interface_->execute(msg2))
+                    {
+                        RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "OMPL Planner - Execution failed!");
+                        response->result = false;
+                    }
+                    else
+                    {
+                        response->result = true;
+                    }
+                
+                } else {
+                    RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "OMPL Planner - Planning failed!");
+                    response->result = false;
+                }
+            }
+            else if (is_movement_cartesian)
+            {
                 //auto const success = static_cast<bool>(move_group_interface_->execute(trajectory));
     
                 //response->result = true;
@@ -997,9 +739,7 @@ class RobotIiwaServer : public rclcpp::Node
         {
             auto pose = move_group_interface_->getCurrentPose().pose;
             auto name = request->name;
-            int partType = request->part_type; 
-            int workpieceOrientation = request->workpiece_orientation;
-            
+
             if (name == "spindel")
             {
                 add_composite_spindel(name, pose);
@@ -1013,8 +753,8 @@ class RobotIiwaServer : public rclcpp::Node
                 response->result = 1;
             } else if (name == "gripper")
             {
-                add_mesh_gripper(name, pose);
-                 //add_mesh_gripper(name, pose);//CAD modell for gripper -> slows down planning
+                add_gripper(name, pose);
+            
                 if (!move_group_interface_->attachObject(name))
                 {
                     RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Attach object '%s' failed", name.c_str());
@@ -1022,10 +762,32 @@ class RobotIiwaServer : public rclcpp::Node
                     return;
                 }
                 response->result = 1;
-            }else if (name == "workpiece")
+            } else if (name == "small_gripper")
             {
-                add_mesh_workpiece(name, pose, partType, workpieceOrientation);//CAD Modell  for workpiece -> slows down planning
-                //add_workpiece(name, pose, partType, workpieceOrientation);
+                add_small_gripper(name, pose);
+
+                if (!move_group_interface_->attachObject(name))
+                {
+                    RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Attach object '%s' failed", name.c_str());
+                    response->result = 0;
+                    return;
+                }
+                response->result = 1;
+            } else if (name == "workpiece_from_bemi")
+            {
+                add_workpiece_from_bemi(name, pose);
+            
+                if (!move_group_interface_->attachObject(name))
+                {
+                    RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Attach object '%s' failed", name.c_str());
+                    response->result = 0;
+                    return;
+                }
+                response->result = 1;
+            } else if (name == "workpiece_from_PC")
+            {
+                add_workpiece_from_PC(name, pose);
+            
                 if (!move_group_interface_->attachObject(name))
                 {
                     RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Attach object '%s' failed", name.c_str());
@@ -1046,7 +808,7 @@ class RobotIiwaServer : public rclcpp::Node
             auto name = request->name;
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Attempting to detach object '%s'", name.c_str());
 
-            if (name == "spindel" || name == "gripper" || name == "small_gripper" || name == "workpiece")
+            if (name == "spindel" || name == "gripper" || name == "small_gripper" || name == "workpiece_from_bemi" || name == "workpiece_from_PC")
             {
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object '%s' recognized for detachment", name.c_str());
                 
@@ -1088,7 +850,7 @@ class RobotIiwaServer : public rclcpp::Node
         // the path of the mesh is defined in the config file in the resource folder of the package
         void topic_callback_scene_object_add(const wzlscheduler_interfaces::msg::SceneObjectAdd& msg) const
         {
-                        
+            /*
             // Get the planning frame
             std::string frame_id = move_group_interface_->getPlanningFrame();
 
@@ -1098,36 +860,50 @@ class RobotIiwaServer : public rclcpp::Node
             std::string objectName = msg.name;
             collision_object.id = objectName;
 
-            // direct path to the mesh file
-            std::string meshPath = "package://moveit_backend/meshes/parts/" + objectName + ".stl";
+            // Get the path to the config file in the package directory
+            std::string package_path = ament_index_cpp::get_package_share_directory("ur16e");
+            std::string configPath = package_path + "/config/mesh_config.csv";
 
-            // Create a mesh from the specified path
-            shapes::Mesh* original_mesh = shapes::createMeshFromResource(meshPath);
-            if (!original_mesh) {
-                RCLCPP_ERROR(rclcpp::get_logger("rclcpp"), "Could not load mesh from path: %s", meshPath.c_str());
-                return;
-            }
+            // Retrieve the path to the mesh from the config fill
+            std::string filePath = std::make_shared<FileLoader>()->get_object_path(objectName, configPath);
 
-            // Create a scaled copy of the original mesh with padding
-            shapes::Mesh* scaled_mesh = new shapes::Mesh(*original_mesh);
-            scaled_mesh->scaleAndPadd(0.001, 0.0);  
+            // Create a mesh from the specified path from the config file
+            shapes::Mesh * original_mesh = shapes::createMeshFromResource(filePath);
+
+            // Create a scaled copy of the original mesh with padding (scale factor extracted from the LoadObject message)
+            shapes::Mesh * scaled_mesh = new shapes::Mesh(*original_mesh);
+            //scaled_mesh->scaleAndPadd(msg.scale, 0.0);  
+            scaled_mesh->scaleAndPadd(1, 0.0);  
             
             // Convert the scaled mesh to shape_msgs::Mesh
             shape_msgs::msg::Mesh shelf_mesh;
-            geometry_msgs::msg::Pose meshPose = msg.coordinates;
+            shapes::ShapeMsg shelf_mesh_msg;
+            shapes::constructMsgFromShape(scaled_mesh, shelf_mesh_msg);
+            shelf_mesh = boost::get<shape_msgs::msg::Mesh>(shelf_mesh_msg);
+
+            // Convert the coordinates from the LoadObject message to a geometry_msgs::Pose
+            geometry_msgs::msg::Pose meshPose;
+            meshPose.position = msg.coordinates.position;
+            meshPose.orientation = msg.coordinates.orientation;
+
+            // Add the mesh and pose to the CollisionObject
+            collision_object.meshes.push_back(shelf_mesh);
             collision_object.mesh_poses.push_back(meshPose);
             collision_object.operation = collision_object.ADD;
 
-            // Add collision object to planning scene interface
-            planning_scene_interface_->applyCollisionObject(collision_object);
+            // Add collision object to planning scene interface -> planningSceneInterface reference will be changed
+            planning_scene_interface_.applyCollisionObject(collision_object);
 
-            RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Collision mesh: %s added to scene!", objectName.c_str());
+            // Create a ROS logger
+            const rclcpp::Logger logger = rclcpp::get_logger("addMeshCollisionObject_rclcpp::get_logger("rclcpp")");
+            RCLCPP_INFO(logger, ("Collision mesh: " + objectName + " added to scene!").c_str());
 
-            // Clean up the memory
+            // Clean up the memory allocated for the scaled mesh
             delete scaled_mesh;
-            delete original_mesh;
+            */
         }
-            void topic_callback_scene_object_remove(const wzlscheduler_interfaces::msg::SceneObjectRemove& msg) const
+
+        void topic_callback_scene_object_remove(const wzlscheduler_interfaces::msg::SceneObjectRemove& msg) const
         {
             // Convert the message to a string
             std::string objectId = msg.name;
@@ -1138,8 +914,6 @@ class RobotIiwaServer : public rclcpp::Node
         void topic_callback_scene_object_set_pose(const wzlscheduler_interfaces::msg::SceneObjectSetPose& msg) const
         {
         }
-
-        
 
         geometry_msgs::msg::Pose last_pose_;
 
