@@ -2,6 +2,7 @@ import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import JointState
 from geometry_msgs.msg import TwistStamped
+from std_msgs.msg import Float64MultiArray
 import numpy as np
 import pyarrow as pa
 import pyarrow.parquet as pq
@@ -66,7 +67,7 @@ class LeRobotDataCollector(Node):
         self.video_path = 'videos/chunk-{chunk_index:03d}/episode_{file_index:06d}.mp4'
         
         self.joint_sub = self.create_subscription(JointState, '/joint_states', self.joint_callback, 10)
-        self.action_sub = self.create_subscription(TwistStamped, '/servo_node/delta_twist_cmds', self.action_callback, 10)
+        self.action_sub = self.create_subscription(Float64MultiArray, '/velocity_controller/commands', self.action_callback, 10)
 
         # Initialize RealSense camera
         self.pipeline = None
@@ -164,15 +165,14 @@ class LeRobotDataCollector(Node):
             'timestamp': msg.header.stamp.sec + msg.header.stamp.nanosec * 1e-9
         })
 
-    # Recording raw data from twist commands topic in a list
+    # Recording raw action commands published as Float64MultiArray
     def action_callback(self, msg):
         if not self.recording:
             return
         
         self.raw_action_commands.append({
-            'linear': list(msg.twist.linear),
-            'angular': list(msg.twist.angular),
-            'timestamp': msg.header.stamp.sec + msg.header.stamp.nanosec * 1e-9
+            'values': list(msg.data),
+            'timestamp': self.get_clock().now().nanoseconds * 1e-9
         })
 
     def encode_video_from_frames(self, camera_images, video_path, fps=30):
@@ -239,6 +239,10 @@ class LeRobotDataCollector(Node):
             self.get_logger().warn('No camera image data to process')
             return frames
 
+        if not self.raw_action_commands:
+            self.get_logger().warn('No action command data to process')
+            # We can still proceed, but action data will be empty
+
         # Time offset for joint angle and action data if needed
         time_offset_joint_angle = 0.0
         time_offset_action_command = 0.0
@@ -247,6 +251,10 @@ class LeRobotDataCollector(Node):
         if time_offset_joint_angle != 0.0:
             for joint_data in self.raw_joint_states:
                 joint_data['timestamp'] += time_offset_joint_angle
+
+        if time_offset_action_command != 0.0:
+            for action_data in self.raw_action_commands:
+                action_data['timestamp'] += time_offset_action_command
 
         # Get joint data time range
         first_joint_time = self.raw_joint_states[0]['timestamp']
@@ -342,8 +350,8 @@ class LeRobotDataCollector(Node):
 
             VideoFrame = {'path': self.video_path, 'timestamp': relative_timestamp}
             
-            # Get action from teleoperation commands (linear + angular velocity)
-            action = action_state['linear'] + action_state['angular']
+            # Get action from teleoperation commands (Float64MultiArray data)
+            action = list(action_state.get('values', []))
             
             # Add frame data
             # Use exact video frame time to ensure perfect alignment with video
@@ -888,6 +896,16 @@ class LeRobotDataCollector(Node):
                 'mean': actions_array.mean(axis=0),
                 'std': actions_array.std(axis=0)
             }
+
+        # Always include ImageNet stats for visual features so training can normalize images
+        imagenet_mean = np.array([0.485, 0.456, 0.406], dtype=np.float32)
+        imagenet_std = np.array([0.229, 0.224, 0.225], dtype=np.float32)
+        self.dataset['meta']['stats']['observation.images.cam_main'] = {
+            'min': np.zeros(3, dtype=np.float32),
+            'max': np.ones(3, dtype=np.float32),
+            'mean': imagenet_mean,
+            'std': imagenet_std
+        }
         
         self.get_logger().info('Computed dataset statistics for normalization')
 
