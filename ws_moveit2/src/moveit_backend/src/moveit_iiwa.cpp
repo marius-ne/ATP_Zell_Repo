@@ -5,6 +5,9 @@
 #include "geometric_shapes/shape_operations.h"
 #include "ament_index_cpp/get_package_share_directory.hpp"
 
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+
 
 #include "wzlscheduler_interfaces/srv/robot_move_to_position.hpp"
 #include "wzlscheduler_interfaces/srv/robot_follow_trajectory.hpp"
@@ -192,43 +195,47 @@ class RobotIiwaServer : public rclcpp::Node
 
         }
 
-        //void add_screwdriver(const std::string& name, const geometry_msgs::msg::Pose& pose)
-        //{
-          //  collision_object.header.frame_id = "flange"; // Updated to attach to flange
-          //  collision_object.id = name;
 
-            // Define the tool as a cylinder to match the OnRobot screwdriver
-        //  shape_msgs::msg::SolidPrimitive primitive;
-        //    primitive.type = primitive.CYLINDER;
-         //   primitive.dimensions[primitive.CYLINDER_RADIUS] = 0.043; // Radius of the screwdriver (4.3 cm)
-            // Define the pose of the tool relative to the flange
-         //   geometry_msgs::msg::Pose adjusted_pose = pose;
-          //  adjusted_pose.position.z += 0.154; // Adjust the position to place the tool correctly
 
-           // collision_object.primitives.push_back(primitive);
-          //  collision_object.primitive_poses.push_back(adjusted_pose);
+        void add_screwdriver(const std::string name, const geometry_msgs::msg::Pose& pose)
+        {
+            // add a cylinder with dimensions radius 0.043 length 0.308
+            moveit_msgs::msg::CollisionObject collision_object;
+            collision_object.header.frame_id = move_group_interface_->getPlanningFrame();
+            collision_object.id = name;
 
-            // Define physical properties: mass, center of gravity, and inertia
-          //  collision_object.inertia.m = 2.7; // Mass in kg
-          //  collision_object.inertia.com.position.x = 0.0; // Center of gravity (CoG) in x
-          //  collision_object.inertia.com.position.y = 0.0; // CoG in y
-          //  collision_object.inertia.com.position.z = 0.154; // CoG in z (center of the cylinder)
+            shape_msgs::msg::SolidPrimitive primitive;
+            primitive.type = primitive.CYLINDER;
+            primitive.dimensions.resize(2);
+            primitive.dimensions[0] = 0.308; // Length
+            primitive.dimensions[1] = 0.043; // Radius
 
-            // Calculate inertia for a solid cylinder
-           // double mass = 2.7; // kg
-          //  double radius = 0.043; // meters
-          //  double height = 0.308; // meters
-          //  double ixx_iyy = (1.0 / 12.0) * mass * (3 * radius * radius + height * height); // Inertia around x and y
-           // double izz = 0.5 * mass * radius * radius; // Inertia around z
+            // Offset the position down by half the length to place top at pose
+            geometry_msgs::msg::Pose adjusted_pose = pose;
+            adjusted_pose.position.z -= (primitive.dimensions[1] / 2.0)+ 0.01; // Adjusted to place the top at the pose
+            adjusted_pose.position.y += 0.0; // Adjusted to center the screwdriver
+            adjusted_pose.position.x -= 0.0; // Adjusted to center the screwdriver
 
-          //  collision_object.inertia.ixx = ixx_iyy;
-          //  collision_object.inertia.iyy = ixx_iyy;
-          //  collision_object.inertia.izz = izz;
+            // --- rotate cylinder: 90° around X axis ---
+            tf2::Quaternion q_turn;
+            q_turn.setRPY(M_PI / 2.0, 0.0, 0.0);   // roll, pitch, yaw
 
-          //  collision_object.operation = collision_object.ADD;
+            tf2::Quaternion q_current;
+            tf2::fromMsg(adjusted_pose.orientation, q_current);
 
-           // planning_scene_interface_->applyCollisionObject(collision_object);
-        //}
+            tf2::Quaternion q_result = q_turn * q_current;
+            adjusted_pose.orientation = tf2::toMsg(q_result);
+            // --------------------------------------------
+
+
+            collision_object.primitives.push_back(primitive);
+            collision_object.primitive_poses.push_back(adjusted_pose);
+            collision_object.operation = collision_object.ADD;
+
+            planning_scene_interface_->applyCollisionObject(collision_object);
+
+        }
+        
 
         void add_workpiece_from_bemi(const std::string name, const geometry_msgs::msg::Pose& pose)
         {
@@ -833,17 +840,18 @@ class RobotIiwaServer : public rclcpp::Node
                     return;
                 }
                 response->result = 1;
-            // else if (name == "screwdriver")
-            //{
-             //   add_screwdriver(name, pose);
 
-             //   if (!move_group_interface_->attachObject(name))
-             //   {
-             //       RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Attach object '%s' failed", name.c_str());
-             //       response->result = 0;
-             //       return;
-              //  }
-              //  response->result = 1;
+            }else if (name == "screwdriver")
+            {
+                add_screwdriver(name, pose);
+
+               if (!move_group_interface_->attachObject(name))
+               {
+                    RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Attach object '%s' failed", name.c_str());
+                    response->result = 0;
+                   return;
+               }
+                response->result = 1;
             } else {
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object '%s' not defined", name.c_str());
                 response->result = 0;
@@ -857,7 +865,7 @@ class RobotIiwaServer : public rclcpp::Node
             auto name = request->name;
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Attempting to detach object '%s'", name.c_str());
 
-            if (name == "spindel" || name == "gripper" || name == "small_gripper" || name == "workpiece_from_bemi" || name == "workpiece_from_PC") // || name == "screwdriver"
+            if (name == "spindel" || name == "gripper" || name == "small_gripper" || name == "workpiece_from_bemi" || name == "workpiece_from_PC" || name == "screwdriver" )
             {
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object '%s' recognized for detachment", name.c_str());
                 

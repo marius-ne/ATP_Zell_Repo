@@ -17,6 +17,7 @@
 #include <memory>
 #include <chrono>
 
+#include "ScrewList.cpp"  // Screw and ScrewList definitions
 
 using namespace std::chrono_literals;
 
@@ -69,7 +70,7 @@ class MiscTasks
 {
 public:
   // Task objects are publicly accessible for reuse in other functions
-  std::shared_ptr<WzlPlanner::TaskWait> taskWait;
+  std::shared_ptr<WzlPlanner::TaskWait> taskWait; // wait for one second
   std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi1Open;
   std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi1Close;
   std::shared_ptr<WzlPlanner::TaskOpcuaRequest> taskIoBemi2Open;
@@ -104,6 +105,8 @@ public:
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachSmallGripper;
   std::shared_ptr<WzlPlanner::TaskPartAttach> taskAttachWorkpiece;
   std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachWorkpiece;
+  std::shared_ptr<WzlPlanner::TaskPartAttach> taskAttachScrewdriver;
+  std::shared_ptr<WzlPlanner::TaskPartDetach> taskDetachScrewdriver;
 
   std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteZForce;
   std::shared_ptr<WzlPlanner::TaskModBusWrite> taskModBusWriteScrewLength;
@@ -239,12 +242,12 @@ public:
     taskModBusWriteZForce = std::make_shared<WzlPlanner::TaskModBusWrite>(
         WzlPlanner::ModBusData::GetModBusData_ZAxesForce_Write());
     taskModBusWriteZForce->SetId("taskModBusWriteZForce");
-    taskModBusWriteZForce->SetValue(30);
+    taskModBusWriteZForce->SetValue(30); // default Z force
 
     taskModBusWriteScrewLength = std::make_shared<WzlPlanner::TaskModBusWrite>(
         WzlPlanner::ModBusData::GetModBusData_ScrewLength_Write());
     taskModBusWriteScrewLength->SetId("taskModBusWriteScrewLength");
-    taskModBusWriteScrewLength->SetValue(16000);
+    taskModBusWriteScrewLength->SetValue(16000); //   default screw length
 
     taskModBusWriteTargetTorque = std::make_shared<WzlPlanner::TaskModBusWrite>(
         WzlPlanner::ModBusData::GetModBusData_TargetTorque_Write());
@@ -340,7 +343,11 @@ public:
     taskDetachWorkpiece = std::make_shared<WzlPlanner::TaskPartDetach>("workpiece");
     taskDetachWorkpiece->SetId("taskDetachWorkpiece");
 
+    taskAttachScrewdriver = std::make_shared<WzlPlanner::TaskPartAttach>("screwdriver");
+    taskAttachScrewdriver->SetId("taskAttachScrewdriver");
 
+    taskDetachScrewdriver = std::make_shared<WzlPlanner::TaskPartDetach>("screwdriver");
+    taskDetachScrewdriver->SetId("taskDetachScrewdriver");
 
     RCLCPP_INFO(node->get_logger(), "Miscellaneous tasks initialized.");
   }
@@ -1325,6 +1332,178 @@ void UseCase1(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   RCLCPP_INFO(node->get_logger(), "Execution successful");
 }
 
+void UseCase4(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks)
+{
+  // ===== IO / robot initialization =====
+  [[maybe_unused]] auto useOpcua = false;
+
+  RCLCPP_INFO(node->get_logger(), "Initialize screwdriver test.");
+
+  auto dummyIoInterface = std::make_shared<WzlPlanner::IoInterfaceOpcUa>(node);
+  WzlPlanner::ObjectContainer::Get()->SetIoInterface(dummyIoInterface);
+
+  auto robot = WzlPlanner::ObjectContainer::Get()->GetRobot();
+  
+  RCLCPP_INFO(node->get_logger(), "Initialize screwdriver");
+
+  // ===== Orientation / constants =====
+  double rotX = M_PI;
+  double rotY = M_PI/2.0; // solte eigentlich um 90 grad gedreht sein wie zuvir... ist es aber leider nciht
+  double rotZ = -M_PI - M_PI / 4;
+
+  // ===== Basic poses =====
+  // INIT pose and task default
+  auto poseInit = std::make_shared<WzlPlanner::Pose>(0.4, 0.1, 0.5, rotX, rotY, rotZ); //0.3122745752334595, 0.09810880571603775, 0.4534417390823364,
+    
+  // =========== Init & Standard Poses =========== //
+  auto taskInitPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  taskInitPose->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseInit);
+  taskInitPose->SetId("InitPose");
+
+  // Pose zum Fotografieren der Schraubposition
+  auto posePhotoScrew1 = std::make_shared<WzlPlanner::Pose>(0.4, 0.1, 0.45, rotX, rotY, rotZ); // Koordinaten anpassen
+  auto posePhotoScrew2 = std::make_shared<WzlPlanner::Pose>(0.4, 0.1, 0.45, rotX, rotY, rotZ); // Koordinaten anpassen
+
+
+  // ===== Tasks for handling pictures =====
+  auto taskPhotoScrew1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  taskPhotoScrew1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(posePhotoScrew1); //aufgabe zum erten Foto positionieren
+  taskPhotoScrew1->SetId("posePhotoScrew1");
+
+  auto taskPhotoScrew2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
+  taskPhotoScrew2->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(posePhotoScrew2);  //aufgabe zum zweiten Foto positionieren
+  taskPhotoScrew2->SetId("posePhotoScrew2");
+
+  // ===== Screw list and generated poses =====
+  // List of detected screws (to be filled from vision or config)
+  ScrewList screwList;
+
+  // TEMP: test data - fill list with 5 screw positions
+  // later this will be filled automatically from vision/config
+  screwList.addScrew(0.35, 0.05, 0.55);
+  screwList.addScrew(0.36, 0.06, 0.55);
+  screwList.addScrew(0.37, 0.07, 0.55);
+  screwList.addScrew(0.38, 0.08, 0.55);
+  screwList.addScrew(0.39, 0.09, 0.55);
+
+
+  std::size_t screwCount = screwList.getCount();
+  std::vector<std::shared_ptr<WzlPlanner::Pose>> poseScrewApproach(screwCount + 1); // indices 1..screwCount
+  std::vector<std::shared_ptr<WzlPlanner::Pose>> poseScrew(screwCount + 1);          // actual screw poses
+
+  int counter = 1;
+  double screwApproachOffsetZ = 0.02; // approach a few cm above real screw position
+
+  // create approach and actual poses as long as there are screws in the list
+  while (!screwList.isEmpty())
+  {
+    // take last screw, then remove it from the list
+    auto screw = screwList.takeLastScrew();
+
+    // create approach pose above the screw
+    auto poseApproach = std::make_shared<WzlPlanner::Pose>(
+        screw.x,
+        screw.y,
+        screw.z + screwApproachOffsetZ,
+        rotX,
+        rotY,
+        rotZ);
+
+    // create actual screw pose at the exact screw position
+    auto poseAtScrew = std::make_shared<WzlPlanner::Pose>(
+        screw.x,
+        screw.y,
+        screw.z,
+        rotX,
+        rotY,
+        rotZ);
+
+    // store them in the vectors at the current index
+    poseScrewApproach[counter] = poseApproach;
+    poseScrew[counter] = poseAtScrew;
+
+    counter += 1;
+  }
+    
+      ////// TASK SCHEDULING //////
+      // First task list: move to photo positions
+  auto taskListPhotos = std::make_shared<WzlPlanner::TaskList>();
+  taskListPhotos->SetId("TaskList_Photos");
+  taskListPhotos->AddTask(tasks->taskWait);
+  //taskListPhotos->AddTask(tasks->taskAttachScrewdriver);      // Schraubendreher collision an
+  taskListPhotos->AddTask(tasks->taskSetSpeedCartesianSlow);  // langsam fahren 
+  taskListPhotos->AddTask(tasks->taskWait);
+  taskListPhotos->AddTask(taskInitPose);                      // initial position
+  taskListPhotos->AddTask(tasks->taskWait);
+  taskListPhotos->AddTask(taskPhotoScrew1);                   // erste Fotoposition anfahren
+  taskListPhotos->AddTask(tasks->taskWait);
+  taskListPhotos->AddTask(taskPhotoScrew2);                   // zweite Fotoposition anfahren
+  taskListPhotos->AddTask(tasks->taskWait);
+  taskListPhotos->AddTask(taskInitPose);                      // initial position
+  taskListPhotos->AddTask(tasks->taskWait);
+
+  // Second task list: move to screws back and forth
+  auto taskListScrews = std::make_shared<WzlPlanner::TaskList>();
+  taskListScrews->SetId("TaskList_Screws");
+  //taskListScrews->AddTask(tasks->taskAttachScrewdriver);       // Schraubendreher collision an
+  taskListScrews->AddTask(tasks->taskSetSpeedCartesianSlow);
+  taskListScrews->AddTask(tasks->taskWait);
+  
+
+  // For each screw: go to approach pose, then to screw pose, then back to init
+  
+  for (std::size_t i = 1; i <= screwCount; ++i)
+  {
+    auto taskApproach = std::make_shared<WzlPlanner::TaskMoveToPose>();
+    taskApproach->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseScrewApproach[i]);
+    taskApproach->SetId("poseScrewApproach" + std::to_string(i));
+
+    auto taskAtScrew = std::make_shared<WzlPlanner::TaskMoveToPose>();
+    taskAtScrew->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew[i]);
+    taskAtScrew->SetId("poseScrew" + std::to_string(i));
+
+    taskListScrews->AddTask(taskApproach);
+    taskListScrews->AddTask(tasks->taskWait);
+    taskListScrews->AddTask(taskAtScrew);
+    taskListScrews->AddTask(tasks->taskWait);
+
+    // Ausschrauben-Sequenz: entspricht dem ROS-Service
+    //   ros2 service call /ausschrauben modbus_interfaces/srv/LoosenScrew
+    //   "{screw_length: 16000, z_force: 30}"
+    taskListScrews->AddTask(tasks->taskModBusWriteScrewLength);
+    taskListScrews->AddTask(tasks->taskWait);
+    taskListScrews->AddTask(tasks->taskModBusWriteZForce);
+    taskListScrews->AddTask(tasks->taskWait);
+    taskListScrews->AddTask(tasks->taskModBusWriteLoosenScrew);
+    taskListScrews->AddTask(tasks->taskWait);
+
+    taskListScrews->AddTask(taskInitPose);
+  }
+
+  RCLCPP_INFO(node->get_logger(), "Execute Task Use Case 4");
+
+  // Execute photo task list once, then screw task list in a loop
+  if (!taskListPhotos->Execute())
+  {
+    RCLCPP_INFO(node->get_logger(), "Execution of photo task list failed");
+    return;
+  }
+
+  while (true) // screw task list wird immer wiederholt
+  {
+    if (!taskListScrews->Execute())
+    {
+      RCLCPP_INFO(node->get_logger(), "Execution of screw task list failed");
+
+      return;
+    }
+
+    rclcpp::spin_some(node);
+  }
+
+  RCLCPP_INFO(node->get_logger(), "Execution successful");
+}
+
 void UseCaseTestModBus(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTasks> &tasks)
 {
 
@@ -1494,6 +1673,9 @@ int main(int argc, char *argv[])
         case 3:
             UseCaseTestModBus(node, misc_tasks);
             break;
+        case 4:
+            UseCase4(node, misc_tasks);
+            break;  
         default:
             RCLCPP_ERROR(node->get_logger(), "Invalid use case %d, using default (4)", use_case);
             UseCase1(node, misc_tasks);
