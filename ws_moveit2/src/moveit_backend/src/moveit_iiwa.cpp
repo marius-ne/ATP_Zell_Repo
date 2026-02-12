@@ -196,7 +196,6 @@ class RobotIiwaServer : public rclcpp::Node
         }
 
 
-
         void add_screwdriver(const std::string name, const geometry_msgs::msg::Pose& pose)
         {
             // add a cylinder with dimensions radius 0.043 length 0.308
@@ -212,21 +211,21 @@ class RobotIiwaServer : public rclcpp::Node
 
             // Offset the position down by half the length to place top at pose
             geometry_msgs::msg::Pose adjusted_pose = pose;
-            adjusted_pose.position.z -= (primitive.dimensions[1] / 2.0)+ 0.01; // Adjusted to place the top at the pose
-            adjusted_pose.position.y += 0.0; // Adjusted to center the screwdriver
+            adjusted_pose.position.z -= ( 0.0); // Adjusted to place the top at the pose
+            //  adjusted_pose.position.z -= ((primitive.dimensions[1] ) + 0.0); // Adjusted to place the top at the pose
+            adjusted_pose.position.y -= 0.07; // Adjusted to center the screwdriver
             adjusted_pose.position.x -= 0.0; // Adjusted to center the screwdriver
 
-            // --- rotate cylinder: 90° around X axis ---
+            // --- rotate cylinder: 90° around X axis of end effector ---
             tf2::Quaternion q_turn;
             q_turn.setRPY(M_PI / 2.0, 0.0, 0.0);   // roll, pitch, yaw
 
             tf2::Quaternion q_current;
-            tf2::fromMsg(adjusted_pose.orientation, q_current);
+            tf2::fromMsg(pose.orientation, q_current);
 
-            tf2::Quaternion q_result = q_turn * q_current;
+            tf2::Quaternion q_result = q_current * q_turn;
             adjusted_pose.orientation = tf2::toMsg(q_result);
-            // --------------------------------------------
-
+            // --------------------------------------------------------
 
             collision_object.primitives.push_back(primitive);
             collision_object.primitive_poses.push_back(adjusted_pose);
@@ -236,6 +235,43 @@ class RobotIiwaServer : public rclcpp::Node
 
         }
         
+        
+        void add_CameraMount(const std::string name, const geometry_msgs::msg::Pose& pose)
+        {
+            // Add a box with dimensions: length 15mm (0.015), width 5cm (0.05), height 5cm (0.05)
+            // Rotated 90 degrees around Z axis so long side points in Y direction
+            moveit_msgs::msg::CollisionObject collision_object;
+            collision_object.header.frame_id = move_group_interface_->getPlanningFrame();
+            collision_object.id = name;
+
+            shape_msgs::msg::SolidPrimitive primitive;
+            primitive.type = primitive.BOX;
+            primitive.dimensions.resize(3);
+            primitive.dimensions[primitive.BOX_X] = 0.18; // Length (18cm)
+            primitive.dimensions[primitive.BOX_Y] = 0.05;  // Width (5cm)
+            primitive.dimensions[primitive.BOX_Z] = 0.05;  // Height (5cm)
+
+            // Offset the position left by half the length to place side at pose
+            geometry_msgs::msg::Pose adjusted_pose = pose;
+            adjusted_pose.position.z -= ((primitive.dimensions[primitive.BOX_Z] / 2.0) + 0.006) ; // Adjusted to place the top at the pose
+            adjusted_pose.position.y -= 0.01; // Adjusted to center the screwdriver
+            adjusted_pose.position.x -= (primitive.dimensions[primitive.BOX_X] / 2.0); // Adjusted to place the side at the pose
+
+            // tf2::Quaternion q_turn;
+            // q_turn.setRPY(0, M_PI_2, 0);
+            // tf2::Quaternion q_current;
+            // tf2::fromMsg(adjusted_pose.orientation, q_current);
+
+            // tf2::Quaternion q_result = q_turn * q_current;
+            // adjusted_pose.orientation = tf2::toMsg(q_result);
+            // ------------------------------------------------
+
+            collision_object.primitives.push_back(primitive);
+            collision_object.primitive_poses.push_back(adjusted_pose);
+            collision_object.operation = collision_object.ADD;
+
+            planning_scene_interface_->applyCollisionObject(collision_object);
+        }
 
         void add_workpiece_from_bemi(const std::string name, const geometry_msgs::msg::Pose& pose)
         {
@@ -324,7 +360,7 @@ class RobotIiwaServer : public rclcpp::Node
 
             planning_scene_interface_->applyCollisionObject(collision_object);
         }
-        
+                
         void add_hollow_box_collision(const std::string name, const float width, const float depth, const float height,
             const float wall_thickness, const float x, const float y, const float z)
         {
@@ -852,6 +888,18 @@ class RobotIiwaServer : public rclcpp::Node
                    return;
                }
                 response->result = 1;
+
+            }else if (name == "CameraMount")
+            {
+                add_CameraMount(name, pose);
+
+               if (!move_group_interface_->attachObject(name))
+               {
+                    RCLCPP_WARN(rclcpp::get_logger("rclcpp"), "Attach object '%s' failed", name.c_str());
+                    response->result = 0;
+                   return;
+               }
+                response->result = 1;
             } else {
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object '%s' not defined", name.c_str());
                 response->result = 0;
@@ -865,7 +913,7 @@ class RobotIiwaServer : public rclcpp::Node
             auto name = request->name;
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Attempting to detach object '%s'", name.c_str());
 
-            if (name == "spindel" || name == "gripper" || name == "small_gripper" || name == "workpiece_from_bemi" || name == "workpiece_from_PC" || name == "screwdriver" )
+            if (name == "spindel" || name == "gripper" || name == "small_gripper" || name == "workpiece_from_bemi" || name == "workpiece_from_PC" || name == "screwdriver" || name == "CameraMount" )
             {
                 RCLCPP_INFO(rclcpp::get_logger("rclcpp"), "Object '%s' recognized for detachment", name.c_str());
                 
