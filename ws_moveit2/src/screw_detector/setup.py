@@ -25,7 +25,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'yolo_node = screw_detector.yolo_node:main'
+            'screw_detector = screw_detector.screw_detector:main'
         ],
     },
 )

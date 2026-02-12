@@ -1,17 +1,17 @@
-from setuptools import find_packages, setup
+from setuptools import setup
 
-package_name = 'screw_localizer'
+package_name = 'pose_getter'
 
 setup(
     name=package_name,
     version='0.0.0',
-    packages=find_packages(exclude=['test']),
+    packages=[package_name],
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['setuptools', 'ultralytics', 'opencv-python', 'numpy', 'scipy', "screw_interfaces"],
+    install_requires=['setuptools'],
     zip_safe=True,
     maintainer='remanpilot',
     maintainer_email='m.e.neuhalfen@t-online.de',
@@ -24,7 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'screw_localizer = screw_localizer.screw_localizer:main'
+            'pose_getter = pose_getter.pose_getter:main'
         ],
     },
 )
