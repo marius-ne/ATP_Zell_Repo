@@ -11,7 +11,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
     ],
-    install_requires=['setuptools', 'ultralytics', 'opencv-python', 'numpy'],
+    install_requires=['setuptools', 'ultralytics', 'opencv-python', 'numpy', "screw_interfaces"],
     zip_safe=True,
     maintainer='remanpilot',
     maintainer_email='m.e.neuhalfen@t-online.de',

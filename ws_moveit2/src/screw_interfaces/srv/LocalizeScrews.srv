@@ -1,0 +1,12 @@
+int32 n
+geometry_msgs/Pose[] camera_poses
+float64[9] intrinsics      # row-major 3x3 K
+int32 max_screws
+float64 ransac_inlier_thresh_m
+int32 ransac_iters
+---
+bool success
+string message
+geometry_msgs/Point[] screw_positions
+float64[] screw_fit_rmse_m
+geometry_msgs/Pose[] desired_ee_poses

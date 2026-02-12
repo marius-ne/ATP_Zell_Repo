@@ -12,7 +12,9 @@ find_package(rclcpp REQUIRED)
 find_package(wzlscheduler_interfaces REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 
-  
+find_package(screw_interfaces REQUIRED) # needed for screw localization
+find_package(geometry_msgs REQUIRED)    # needed for screw localization
+
 add_executable(moveit_iiwa 
   src/moveit_iiwa.cpp)
 
@@ -25,6 +27,8 @@ ament_target_dependencies(moveit_iiwa
   "moveit_ros_planning_interface"
   "wzlscheduler_interfaces"
   "rclcpp"
+  "screw_interfaces"  # needed for screw localization
+  "geometry_msgs"     # needed for screw localization
 )
 
 install(TARGETS 

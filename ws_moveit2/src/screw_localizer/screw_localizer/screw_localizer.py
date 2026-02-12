@@ -42,7 +42,7 @@ from cv_bridge import CvBridge
 import cv2
 import ultralytics
 
-from my_msgs.srv import LocalizeScrews  # noqa
+from screw_interfaces.srv import LocalizeScrews  # noqa
 
 
 # ----------------------- Math utilities -----------------------
@@ -513,4 +513,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    

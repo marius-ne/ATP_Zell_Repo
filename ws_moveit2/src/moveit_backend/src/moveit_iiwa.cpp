@@ -24,6 +24,11 @@
 #include <moveit_msgs/msg/motion_sequence_request.hpp>
 //#include <iterative_time_parameterization.h>
 
+// Screw localization
+#include "screw_interfaces/srv/localize_screws.hpp"
+#include "geometry_msgs/msg/pose.hpp"
+#include "geometry_msgs/msg/point.hpp"
+
 using moveit_msgs::action::MoveGroupSequence;
 
 static const std::string PLANNING_GROUP = "iiwa_arm";
