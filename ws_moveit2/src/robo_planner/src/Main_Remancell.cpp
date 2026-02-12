@@ -1673,11 +1673,11 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(taskInitPose);
-  taskList->AddTask(tasks->taskAttachCameraMount); // Kamera
+  // taskList->AddTask(taskInitPose);
+  //taskList->AddTask(tasks->taskAttachCameraMount); // Kamera
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskAttachScrewdriver); // Schraubendreher 
+  //taskList->AddTask(tasks->taskAttachScrewdriver); // Schraubendreher 
 
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);

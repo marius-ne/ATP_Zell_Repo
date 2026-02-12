@@ -24,6 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'screw_localizer = screw_localizer.screw_localizer:main'
         ],
     },
 )

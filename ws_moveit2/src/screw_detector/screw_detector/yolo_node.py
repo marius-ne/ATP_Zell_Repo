@@ -16,7 +16,7 @@ class ScrewDetectorNode(Node):
         # Subscribe to input camera images
         self.subscription = self.create_subscription(
             Image,
-            '/camera/camera/color/image_raw',  # change to your topic
+            '/camera/camera/color/image_raw',
             self.image_callback,
             10
         )
@@ -47,6 +47,7 @@ class ScrewDetectorNode(Node):
         # Convert ROS Image to OpenCV image
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+            self.get_logger().debug(f'Received image: {cv_image.shape}')
         except Exception as e:
             self.get_logger().error(f'Could not convert image: {e}')
             return
