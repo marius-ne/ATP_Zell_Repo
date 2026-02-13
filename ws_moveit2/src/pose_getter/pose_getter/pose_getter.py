@@ -35,7 +35,7 @@ class PoseGetterNode(Node):
         # Publisher for current pose
         self.pose_pub = self.create_publisher(
             PoseStamped,
-            '/current_ee_pose',
+            '/pose_getter/current_ee_pose',
             10
         )
         
