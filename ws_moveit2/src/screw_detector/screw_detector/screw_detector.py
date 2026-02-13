@@ -48,7 +48,7 @@ class ScrewDetectorNode(Node):
                 self._pose_callback,
                 10
             )
-            self.current_pose = "NO_POSE_RECEIVED"
+            self.current_pose = ""
 
         # Subscribe to RealSense RGBD message (contains both color and depth)
         self.subscription = self.create_subscription(

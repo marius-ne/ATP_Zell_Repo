@@ -16,9 +16,10 @@ from screw_interfaces.srv import LocalizeScrews
 # ==============================================================================
 
 class Ray:
-    def __init__(self, o: np.ndarray, d: np.ndarray):
+    def __init__(self, o: np.ndarray, d: np.ndarray, cam_id: int = 0):
         self.o = o  # Origin
         self.d = d / np.linalg.norm(d)  # Normalized Direction
+        self.cam_id = cam_id  # Camera ID to track which camera this ray comes from
 
 def pose_to_T(p: Pose) -> np.ndarray:
     T = np.eye(4)
@@ -36,13 +37,13 @@ def T_to_pose(T: np.ndarray) -> Pose:
     p.orientation.x, p.orientation.y, p.orientation.z, p.orientation.w = quat
     return p
 
-def pixel_to_world_ray(u, v, T_world_cam, K) -> Ray:
+def pixel_to_world_ray(u, v, T_world_cam, K, cam_id: int = 0) -> Ray:
     fx, fy, cx, cy = K[0,0], K[1,1], K[0,2], K[1,2]
     d_cam = np.array([(u - cx)/fx, (v - cy)/fy, 1.0])
     
     # Rotate ray direction to world frame
     d_world = T_world_cam[:3, :3] @ d_cam
-    return Ray(o=T_world_cam[:3, 3], d=d_world)
+    return Ray(o=T_world_cam[:3, 3], d=d_world, cam_id=cam_id)
 
 def point_to_ray_dist(pt: np.ndarray, ray: Ray) -> float:
     # Vector from ray origin to point
@@ -73,34 +74,59 @@ def closest_point_between_rays(r1: Ray, r2: Ray) -> Optional[np.ndarray]:
     t2 = np.linalg.det([res, r1.d, n]) / denom
     return 0.5 * ((r1.o + t1*r1.d) + (r2.o + t2*r2.d))
 
-def ransac_triangulation(rays: List[Ray], max_screws=5, thresh=0.01, iters=100):
-    remaining_indices = list(range(len(rays)))
-    results = []
+def select_poses_by_baseline(camera_positions: List[np.ndarray], m: int) -> List[int]:
+    """
+    Select m camera poses that maximize pairwise baselines (distances).
+    
+    Args:
+        camera_positions: List of camera position vectors (origins)
+        m: Number of poses to select. Should be at least 2, recommended 3-4.
+           If m > len(camera_positions), returns all indices.
+    
+    Returns:
+        List of m indices with best pairwise spread
+    """
+    n = len(camera_positions)
+    if n <= m:
+        return list(range(n))
+    
+    # Greedy selection: start with two farthest poses, then add poses maximizing min distance
+    selected = []
+    max_dist = 0
+    max_pair = (0, 1)
+    
+    # Find two farthest poses
+    for i in range(n):
+        for j in range(i + 1, n):
+            dist = np.linalg.norm(camera_positions[i] - camera_positions[j])
+            if dist > max_dist:
+                max_dist = dist
+                max_pair = (i, j)
+    
+    selected = list(max_pair)
 
-    for _ in range(max_screws):
-        if len(remaining_indices) < 2: break
+    # Greedily add poses that maximize minimum distance to selected poses
+    while len(selected) < m:
+        best_idx = -1
+        best_min_dist = -1
         
-        best_inliers, best_pt = [], None
-
-        for _ in range(iters):
-            idx1, idx2 = random.sample(remaining_indices, 2)
-            pt_hyp = closest_point_between_rays(rays[idx1], rays[idx2])
-            if pt_hyp is None: continue
-
-            inliers = [i for i in remaining_indices if point_to_ray_dist(pt_hyp, rays[i]) < thresh]
-            if len(inliers) > len(best_inliers):
-                best_inliers, best_pt = inliers, pt_hyp
-
-        if len(best_inliers) < 3: break 
-
-        # SciPy Refinement
-        refined_pt = solve_least_squares_point([rays[i] for i in best_inliers], best_pt)
-        rmse = np.sqrt(np.mean([point_to_ray_dist(refined_pt, rays[i])**2 for i in best_inliers]))
+        for i in range(n):
+            if i in selected:
+                continue
+            # Compute minimum distance to all selected poses
+            min_dist = min(np.linalg.norm(camera_positions[i] - camera_positions[s]) for s in selected)
+            if min_dist > best_min_dist:
+                best_min_dist = min_dist
+                best_idx = i
         
-        results.append((refined_pt, rmse))
-        remaining_indices = [i for i in remaining_indices if i not in best_inliers]
+        if best_idx >= 0:
+            selected.append(best_idx)
+        else:
+            break
+    
+    return selected[:m]
 
-    return results
+
 
 # ==============================================================================
 # 3. POSE GENERATION
@@ -131,22 +157,82 @@ class ScrewTriangulatorNode(Node):
         self.declare_parameter("T_ee_cam", np.eye(4).flatten().tolist())
         self.declare_parameter("approach_dist_m", 0.25)
         self.srv = self.create_service(LocalizeScrews, "detect_screws", self.handle_service)
+        self.get_logger().info("Screw Triangulator Node Ready")
+
+    def ransac_triangulation(self, rays: List[Ray], max_screws=5, thresh=0.01, iters=100):
+        remaining_indices = list(range(len(rays)))
+        results = []
+
+        for screw_idx in range(max_screws):
+            if len(remaining_indices) < 2: break
+            
+            best_inliers, best_pt = [], None
+
+            for iter_idx in range(iters):
+                idx1, idx2 = random.sample(remaining_indices, 2)
+                
+                # CRITICAL: Only triangulate rays from DIFFERENT cameras
+                if rays[idx1].cam_id == rays[idx2].cam_id:
+                    continue
+                
+                pt_hyp = closest_point_between_rays(rays[idx1], rays[idx2])
+                if pt_hyp is None: continue
+
+                inliers = [i for i in remaining_indices if point_to_ray_dist(pt_hyp, rays[i]) < thresh]
+                
+                if len(inliers) > len(best_inliers):
+                    best_inliers, best_pt = inliers, pt_hyp
+
+            if len(best_inliers) < 3: break 
+
+            # SciPy Refinement
+            refined_pt = solve_least_squares_point([rays[i] for i in best_inliers], best_pt)
+            rmse = np.sqrt(np.mean([point_to_ray_dist(refined_pt, rays[i])**2 for i in best_inliers]))
+            
+            # DEBUG: Check if point is near camera origins
+            min_dist_to_origin = min(np.linalg.norm(refined_pt - rays[i].o) for i in best_inliers)
+            self.get_logger().info(f"  [RANSAC] Screw {screw_idx}: inliers={len(best_inliers)}, pt={refined_pt}, rmse={rmse:.6f}, min_dist_to_origin={min_dist_to_origin:.6f}")
+            
+            results.append((refined_pt, rmse))
+            remaining_indices = [i for i in remaining_indices if i not in best_inliers]
+
+        return results
 
     def handle_service(self, req, resp):
         K = np.array(req.intrinsics).reshape(3,3)
         T_ee_cam = np.array(self.get_parameter("T_ee_cam").value).reshape(4,4)
         dist_m = self.get_parameter("approach_dist_m").value
         
+        self.get_logger().info(f"=== SERVICE CALL ===")
+        self.get_logger().info(f"n={req.n}, max_screws={req.max_screws}")
+        self.get_logger().info(f"K=\n{K}")
+        self.get_logger().info(f"screws_per_image={list(req.screws_per_image)}")
+        self.get_logger().info(f"Total screw_u: {len(req.screw_u)}, screw_v: {len(req.screw_v)}")
+        
+        # Extract camera positions and select best subset by baseline
+        camera_positions = [pose_to_T(pose)[:3, 3] for pose in req.camera_poses]
+        M_POSES = 5
+        m_poses = min(req.n, M_POSES)  # Use up to M_POSES poses with best baseline spread
+        selected_pose_indices = select_poses_by_baseline(camera_positions, m_poses)
+        self.get_logger().info(f"Selected {len(selected_pose_indices)} poses: {selected_pose_indices}")
+        self.get_logger().info(f"Selected camera positions with distances: {[np.linalg.norm(camera_positions[i] - camera_positions[j]) for i in selected_pose_indices for j in selected_pose_indices if i < j]}")
+
+        # Build rays only from selected camera poses
         rays = []
         idx = 0
         for i in range(req.n):
             T_world_cam = pose_to_T(req.camera_poses[i])
-            for _ in range(req.num_detections_per_pose[i]):
-                det = req.screw_2d_centroids[idx]
-                rays.append(pixel_to_world_ray(det.x, det.y, T_world_cam, K))
+            for j in range(req.screws_per_image[i]):
+                u = req.screw_u[idx]
+                v = req.screw_v[idx]
+                if i in selected_pose_indices:
+                    ray = pixel_to_world_ray(u, v, T_world_cam, K, cam_id=i)
+                    rays.append(ray)
+                    self.get_logger().debug(f"Ray from cam {i}: origin={ray.o}, dir={ray.d}")
                 idx += 1
 
-        screws = ransac_triangulation(rays, req.max_screws, req.ransac_inlier_thresh_m, req.ransac_iters)
+        self.get_logger().info(f"Total rays created: {len(rays)}")
+        screws = self.ransac_triangulation(rays, req.max_screws, req.ransac_inlier_thresh_m, req.ransac_iters)
 
         if not screws:
             resp.success = False
