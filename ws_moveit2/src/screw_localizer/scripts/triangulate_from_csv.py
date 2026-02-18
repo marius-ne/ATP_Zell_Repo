@@ -15,6 +15,7 @@ class DetectionRow:
     timestamp: str
     u: float
     v: float
+    d: float
     pose: Pose
 
 
@@ -66,8 +67,9 @@ def load_detections(csv_path: str) -> Dict[str, List[DetectionRow]]:
         v = float(tokens[3])
         pose_token = tokens[8]
         pose = _parse_pose_token(pose_token)
+        d = float(tokens[7])
 
-        groups.setdefault(timestamp, []).append(DetectionRow(timestamp, u, v, pose))
+        groups.setdefault(timestamp, []).append(DetectionRow(timestamp, u, v, d, pose))
 
     return groups
 
@@ -92,14 +94,16 @@ def build_request(
 
     screw_u: List[float] = []
     screw_v: List[float] = []
+    screw_d: List[float] = []
     for group in image_groups:
         for det in group:
             screw_u.append(float(det.u))
             screw_v.append(float(det.v))
+            screw_d.append(float(det.d))
 
     req.screw_u = screw_u
     req.screw_v = screw_v
-
+    req.screw_d = screw_d
     return req
 
 

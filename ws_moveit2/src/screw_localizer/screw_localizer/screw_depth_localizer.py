@@ -151,54 +151,18 @@ def get_look_at_pose(target: np.ndarray, eye: np.ndarray) -> np.ndarray:
 # 4. ROS NODE
 # ==============================================================================
 
-class ScrewTriangulatorNode(Node):
+class ScrewDepthLocalizer(Node):
     def __init__(self):
         super().__init__("screw_detector")
         self.declare_parameter("T_ee_cam", np.eye(4).flatten().tolist())
         self.declare_parameter("approach_dist_m", 0.25)
         self.srv = self.create_service(LocalizeScrews, "detect_screws", self.handle_service)
-        self.get_logger().info("Screw Triangulator Node Ready")
-
-    def ransac_triangulation(self, rays: List[Ray], max_screws=5, thresh=0.01, iters=100):
-        remaining_indices = list(range(len(rays)))
-        results = []
-
-        for screw_idx in range(max_screws):
-            if len(remaining_indices) < 2: break
-            
-            best_inliers, best_pt = [], None
-
-            for iter_idx in range(iters):
-                idx1, idx2 = random.sample(remaining_indices, 2)
-                
-                # CRITICAL: Only triangulate rays from DIFFERENT cameras
-                if rays[idx1].cam_id == rays[idx2].cam_id:
-                    continue
-                
-                pt_hyp = closest_point_between_rays(rays[idx1], rays[idx2])
-                if pt_hyp is None: continue
-
-                inliers = [i for i in remaining_indices if point_to_ray_dist(pt_hyp, rays[i]) < thresh]
-                
-                if len(inliers) > len(best_inliers):
-                    best_inliers, best_pt = inliers, pt_hyp
-
-            if len(best_inliers) < 3: break 
-
-            # SciPy Refinement
-            refined_pt = solve_least_squares_point([rays[i] for i in best_inliers], best_pt)
-            rmse = np.sqrt(np.mean([point_to_ray_dist(refined_pt, rays[i])**2 for i in best_inliers]))
-            
-            # DEBUG: Check if point is near camera origins
-            min_dist_to_origin = min(np.linalg.norm(refined_pt - rays[i].o) for i in best_inliers)
-            self.get_logger().info(f"  [RANSAC] Screw {screw_idx}: inliers={len(best_inliers)}, pt={refined_pt}, rmse={rmse:.6f}, min_dist_to_origin={min_dist_to_origin:.6f}")
-            
-            results.append((refined_pt, rmse))
-            remaining_indices = [i for i in remaining_indices if i not in best_inliers]
-
-        return results
+        self.get_logger().info("Screw Depth Localizer Node Ready")
 
     def handle_service(self, req, resp):
+        """
+        Expected service call with n=1! (No multi-view stereo)
+        """
         K = np.array(req.intrinsics).reshape(3,3)
         T_ee_cam = np.array(self.get_parameter("T_ee_cam").value).reshape(4,4)
         dist_m = self.get_parameter("approach_dist_m").value
@@ -206,33 +170,29 @@ class ScrewTriangulatorNode(Node):
         self.get_logger().info(f"=== SERVICE CALL ===")
         self.get_logger().info(f"n={req.n}, max_screws={req.max_screws}")
         self.get_logger().info(f"K=\n{K}")
+        self.get_logger().info(f"T_ee_cam=\n{T_ee_cam}")
         self.get_logger().info(f"screws_per_image={list(req.screws_per_image)}")
         self.get_logger().info(f"Total screw_u: {len(req.screw_u)}, screw_v: {len(req.screw_v)}")
         
         # Extract camera positions and select best subset by baseline
-        camera_positions = [pose_to_T(pose)[:3, 3] for pose in req.camera_poses]
-        M_POSES = 5
-        m_poses = min(req.n, M_POSES)  # Use up to M_POSES poses with best baseline spread
-        selected_pose_indices = select_poses_by_baseline(camera_positions, m_poses)
-        self.get_logger().info(f"Selected {len(selected_pose_indices)} poses: {selected_pose_indices}")
-        self.get_logger().info(f"Selected camera positions with distances: {[np.linalg.norm(camera_positions[i] - camera_positions[j]) for i in selected_pose_indices for j in selected_pose_indices if i < j]}")
+        n_views = req.n
+        assert n_views == 1, "Currently only supports n=1 (single view). For multi-view, use screw_triangulator"
+        camera_pose = req.camera_poses[0]
+        camera_position = pose_to_T(camera_pose)[:3, 3]
+        T_world2cam = pose_to_T(camera_pose)
+        screw_detections = req.screws_per_image[0]
+        self.get_logger().info(f"Camera position: {camera_position}")
 
-        # Build rays only from selected camera poses
-        rays = []
-        idx = 0
-        for i in range(req.n):
-            T_world_cam = pose_to_T(req.camera_poses[i])
-            for j in range(req.screws_per_image[i]):
-                u = req.screw_u[idx]
-                v = req.screw_v[idx]
-                if i in selected_pose_indices:
-                    ray = pixel_to_world_ray(u, v, T_world_cam, K, cam_id=i)
-                    rays.append(ray)
-                    self.get_logger().debug(f"Ray from cam {i}: origin={ray.o}, dir={ray.d}")
-                idx += 1
-
-        self.get_logger().info(f"Total rays created: {len(rays)}")
-        screws = self.ransac_triangulation(rays, req.max_screws, req.ransac_inlier_thresh_m, req.ransac_iters)
+        screws = []
+        for j in range(screw_detections):
+            u = req.screw_u[j]
+            v = req.screw_v[j]
+            depth = req.screw_d[j]
+            
+            # Build ray and get 3D point along ray at given depth
+            ray = pixel_to_world_ray(u, v, K, T_world2cam)
+            point = ray[0] + depth * ray[1]
+            screws.append((point, 0.0))  # No RMSE for single-view case
 
         if not screws:
             resp.success = False
@@ -255,7 +215,7 @@ class ScrewTriangulatorNode(Node):
 
 def main():
     rclpy.init()
-    node = ScrewTriangulatorNode()
+    node = ScrewDepthLocalizer()
     rclpy.spin(node)
     rclpy.shutdown()
 
