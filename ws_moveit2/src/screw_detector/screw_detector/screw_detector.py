@@ -48,7 +48,8 @@ class ScrewDetectorNode(Node):
                 self._pose_callback,
                 10
             )
-            self.current_pose = ""
+            self.current_pose = None
+            self.current_pose_str = "N/A"
 
         # Subscribe to RealSense RGBD message (contains both color and depth)
         self.subscription = self.create_subscription(
@@ -73,7 +74,7 @@ class ScrewDetectorNode(Node):
         )
 
         pkg_share = get_package_share_directory('screw_detector')
-        weights_path = os.path.join(pkg_share, 'weights', 'best.pt')
+        weights_path = os.path.join(pkg_share, 'weights', 'best_huelse_aug.pt')
 
         self.bridge = CvBridge()
         self.model = YOLO(weights_path)

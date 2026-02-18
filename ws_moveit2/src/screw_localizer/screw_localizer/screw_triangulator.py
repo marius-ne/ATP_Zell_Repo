@@ -154,7 +154,6 @@ def get_look_at_pose(target: np.ndarray, eye: np.ndarray) -> np.ndarray:
 class ScrewTriangulatorNode(Node):
     def __init__(self):
         super().__init__("screw_detector")
-        self.declare_parameter("T_ee_cam", np.eye(4).flatten().tolist())
         self.declare_parameter("approach_dist_m", 0.25)
         self.srv = self.create_service(LocalizeScrews, "detect_screws", self.handle_service)
         self.get_logger().info("Screw Triangulator Node Ready")
@@ -200,7 +199,6 @@ class ScrewTriangulatorNode(Node):
 
     def handle_service(self, req, resp):
         K = np.array(req.intrinsics).reshape(3,3)
-        T_ee_cam = np.array(self.get_parameter("T_ee_cam").value).reshape(4,4)
         dist_m = self.get_parameter("approach_dist_m").value
         
         self.get_logger().info(f"=== SERVICE CALL ===")
@@ -247,8 +245,8 @@ class ScrewTriangulatorNode(Node):
             # Align EE: Camera Z looking down at screw from dist_m
             cam_pos = pt + np.array([0, 0, dist_m])
             T_world_cam = get_look_at_pose(pt, cam_pos)
-            T_world_ee = T_world_cam @ np.linalg.inv(T_ee_cam)
-            resp.desired_ee_poses.append(T_to_pose(T_world_ee))
+
+            # resp.desired_ee_poses.append(T_to_pose(T_world_ee))
 
         resp.success = True
         return resp

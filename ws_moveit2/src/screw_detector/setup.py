@@ -11,6 +11,7 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/weights', ['weights/best.pt']),
+        ('share/' + package_name + '/weights', ['weights/best_huelse_aug.pt']),
     ],
     install_requires=['setuptools', 'ultralytics', 'opencv-python', 'numpy'],
     zip_safe=True,

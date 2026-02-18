@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 """
 Subscribes to /screw_detector/detections, parses detection+depth+pose,
-and calls the detect_screws service on screw_depth_localizer.
+and calls the localize_screws service on screw_depth_localizer.
 
 Usage:
-    python3 run_localization.py                        # uses default RealSense intrinsics
-    python3 run_localization.py --K "909.95300569, 0.0, 635.79822139, 0.0, 909.95300569, 385.66617804, 0.0, 0.0, 1.0"
+    ros2 run screw_localizer run_localization
 """
-import argparse
 from typing import Dict, List, Optional
 import numpy as np
+import yaml
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import String
-from geometry_msgs.msg import Pose
+from std_msgs.msg import String, Header
+from geometry_msgs.msg import Pose, Point
+from visualization_msgs.msg import Marker, MarkerArray
 from screw_interfaces.srv import LocalizeScrews
 
 
@@ -92,11 +92,17 @@ class RunLocalization(Node):
         super().__init__("run_localization")
         self._intrinsics = intrinsics
 
+        # Publisher for RViz-compatible 3-D screw positions
+        self._marker_pub = self.create_publisher(
+            MarkerArray, "screws_from_depth", 10
+        )
+        self._frame_id = "world"  # should be the same as the one that pose_getter uses as base frame (iiwa_base or world currently)
+
         # Service client for screw_depth_localizer
-        self._client = self.create_client(LocalizeScrews, "detect_screws")
-        self.get_logger().info("Waiting for detect_screws service ...")
+        self._client = self.create_client(LocalizeScrews, "localize_screws")
+        self.get_logger().info("Waiting for localize_screws service ...")
         self._client.wait_for_service()
-        self.get_logger().info("detect_screws service available.")
+        self.get_logger().info("localize_screws service available.")
 
         # Subscribe to screw_detector detections
         self._sub = self.create_subscription(
@@ -132,7 +138,7 @@ class RunLocalization(Node):
             return
 
         self.get_logger().info(
-            f"Received {len(detections)} detection(s). Calling detect_screws ..."
+            f"Received {len(detections)} detection(s). Calling localize_screws ..."
         )
 
         # Build service request
@@ -167,28 +173,79 @@ class RunLocalization(Node):
             self.get_logger().warn(f"Localization failed: {resp.message}")
             return
 
+        n_screws = len(resp.screw_positions)
         self.get_logger().info(
-            f"Localization succeeded -- {len(resp.screw_positions)} screw(s) found:"
+            f"Localization succeeded -- {n_screws} screw(s) found:"
         )
+
+        # Build & publish MarkerArray for RViz
+        marker_array = MarkerArray()
+        stamp = self.get_clock().now().to_msg()
+
+        # First, add a DELETE_ALL marker to clear stale markers
+        delete_marker = Marker()
+        delete_marker.header = Header(stamp=stamp, frame_id=self._frame_id)
+        delete_marker.action = Marker.DELETEALL
+        marker_array.markers.append(delete_marker)
+
         for i, pos in enumerate(resp.screw_positions):
             self.get_logger().info(
                 f"  Screw {i}: pos=({pos.x:.4f}, {pos.y:.4f}, {pos.z:.4f})"
             )
+            marker = Marker()
+            marker.header = Header(stamp=stamp, frame_id=self._frame_id)
+            marker.ns = "screws_from_depth"
+            marker.id = i
+            marker.type = Marker.SPHERE
+            marker.action = Marker.ADD
+            marker.pose.position = Point(x=pos.x, y=pos.y, z=pos.z)
+            marker.pose.orientation.w = 1.0
+            marker.scale.x = 0.01  # 1 cm diameter
+            marker.scale.y = 0.01
+            marker.scale.z = 0.01
+            marker.color.r = 0.0
+            marker.color.g = 1.0
+            marker.color.b = 0.0
+            marker.color.a = 1.0
+            marker.lifetime.sec = 0  # persistent until next update
+            marker_array.markers.append(marker)
+        self._marker_pub.publish(marker_array)
+        self.get_logger().info(
+            f"Published {n_screws} screw marker(s) to /screws_from_depth"
+        )
 
 
 # ---------------------------------------------------------------------------
 # Main
 # ---------------------------------------------------------------------------
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="Run screw localization from live detections"
-    )
-    parser.add_argument("--K", type=str, default="909.95300569, 0.0, 635.79822139, 0.0, 909.95300569, 385.66617804, 0.0, 0.0, 1.0", help="Intrinsics matrix as [[fx, 0, cx], [0, fy, cy], [0, 0, 1]] flattened row-major")
-    args = parser.parse_args()
+def load_intrinsics_from_yaml() -> List[float]:
+    """Load camera intrinsics from realsense_info.yaml file."""
+    import os
+    # Try workspace-relative path first
+    yaml_path = os.path.join(os.getcwd(), "src/handeye_calibration_ros2/handeye_realsense/realsense_info.yaml")
+    
+    # If that doesn't exist, try from home
+    if not os.path.exists(yaml_path):
+        yaml_path = os.path.expanduser("~/ws/restackcell/ws_moveit2/src/handeye_calibration_ros2/handeye_realsense/realsense_info.yaml")
+    
+    try:
+        with open(yaml_path, 'r') as f:
+            data = yaml.safe_load(f)
+        
+        # Extract the K matrix data (row-major 3x3)
+        K_data = data['K']['data']
+        print(f"Loaded intrinsics from {yaml_path}")
+        return K_data
+    except Exception as e:
+        print(f"Warning: Could not load intrinsics from {yaml_path}: {e}")
+        print("Using default RealSense intrinsics")
+        # Default RealSense intrinsics as fallback
+        return [909.95300569, 0.0, 635.79822139, 0.0, 909.95300569, 385.66617804, 0.0, 0.0, 1.0]
 
-    intrinsics = [float(x.strip()) for x in args.K.split(",")]
-    intrinsics = np.array(intrinsics).reshape(3, 3)
+
+def main():
+    intrinsics = load_intrinsics_from_yaml()
 
     rclpy.init()
     node = RunLocalization(intrinsics)

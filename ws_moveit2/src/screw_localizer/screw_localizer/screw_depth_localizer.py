@@ -51,42 +51,15 @@ def pixel_to_world_ray(u, v, T_world_cam, K, cam_id: int = 0) -> Ray:
     d_world = T_world_cam[:3, :3] @ d_cam
     return Ray(o=T_world_cam[:3, 3], d=d_world, cam_id=cam_id)
 
-def get_look_at_pose(target: np.ndarray, eye: np.ndarray) -> np.ndarray:
-    """Generates T_world_cam looking at target from eye position."""
-    z = target - eye
-    z /= np.linalg.norm(z)
-    # Using Scipy to build rotation from vectors (Forward=Z, Up=Y)
-    y_global = np.array([0, 1, 0])
-    x = np.cross(y_global, z)
-    x /= np.linalg.norm(x)
-    y = np.cross(z, x)
-    
-    T = np.eye(4)
-    T[:3, :3] = np.stack([x, y, z], axis=1)
-    T[:3, 3] = eye
-    return T
-
 # ==============================================================================
-# 4. ROS NODE
+# 2. ROS NODE
 # ==============================================================================
 
 class ScrewDepthLocalizer(Node):
     def __init__(self):
         super().__init__("screw_depth_localizer")
-        # T_ee_cam: 4x4 extrinsic calibration (flattened, row-major).
-        # Converts EE pose → camera pose:  T_world_cam = T_world_ee @ T_ee_cam
-        # Pass at launch:  --ros-args -p T_ee_cam:="[1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]"
-        self.declare_parameter("T_ee_cam", np.eye(4).flatten().tolist())
-        self.srv = self.create_service(LocalizeScrews, "detect_screws", self.handle_service)
+        self.srv = self.create_service(LocalizeScrews, "localize_screws", self.handle_service)
         self.get_logger().info("Screw Depth Localizer Node Ready")
-
-    def _rgbd_callback(self, msg: RGBD):
-        """Cache the latest RGBD frame"""
-        try:
-            self.latest_rgb = self.bridge.imgmsg_to_cv2(msg.rgb, desired_encoding='bgr8')
-            self.latest_depth = self.bridge.imgmsg_to_cv2(msg.depth, desired_encoding='16UC1')
-        except Exception as e:
-            self.get_logger().error(f'Could not convert RGBD image: {e}')
 
     def handle_service(self, req, resp):
         """
@@ -94,7 +67,6 @@ class ScrewDepthLocalizer(Node):
         Returns 3D world-frame screw positions.
         """
         K = np.array(req.intrinsics).reshape(3, 3)
-        T_ee_cam = np.array(self.get_parameter("T_ee_cam").value).reshape(4, 4)
 
         n_views = req.n
         assert n_views == 1, (
@@ -103,8 +75,7 @@ class ScrewDepthLocalizer(Node):
         )
 
         # The request carries the EE pose; convert to camera pose
-        T_world_ee = pose_to_T(req.camera_poses[0])
-        T_world_cam = T_world_ee @ T_ee_cam
+        T_world_cam = pose_to_T(req.camera_poses[0])
 
         screw_detections = req.screws_per_image[0]
         self.get_logger().info(

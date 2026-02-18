@@ -17,7 +17,7 @@ class PoseGetterNode(Node):
         
         # Declare parameters
         self.declare_parameter('base_frame', 'world')
-        self.declare_parameter('ee_frame', 'tool0')
+        self.declare_parameter('ee_frame', 'camera')
         self.declare_parameter('publish_rate', 1.0)
         
         self.base_frame = self.get_parameter('base_frame').value
@@ -156,7 +156,7 @@ class PoseGetterNode(Node):
             
             # Log to console
             self.get_logger().info(
-                f"EE Pose: pos=({position[0]:.4f}, {position[1]:.4f}, {position[2]:.4f}), "
+                f"{self.ee_frame} Pose: pos=({position[0]:.4f}, {position[1]:.4f}, {position[2]:.4f}), "
                 f"quat=({quat[0]:.4f}, {quat[1]:.4f}, {quat[2]:.4f}, {quat[3]:.4f})"
             )
 
