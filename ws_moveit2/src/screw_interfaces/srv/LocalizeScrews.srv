@@ -4,6 +4,7 @@ float64[9] intrinsics             # row-major 3x3 K
 int32[] screws_per_image          # nx1 array: number of screw detections per image
 float64[] screw_u                 # nx1 array: u pixel coordinates for all detections (flattened)
 float64[] screw_v                 # nx1 array: v pixel coordinates for all detections (flattened)
+float64[] screw_d                 # nx1 array: depth values in meters for all detections (flattened)
 int32 max_screws
 float64 ransac_inlier_thresh_m
 int32 ransac_iters

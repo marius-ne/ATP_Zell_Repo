@@ -88,8 +88,8 @@ class ScrewDetectorNode(Node):
         # Also create a readable string representation
         p = msg.pose.position
         o = msg.pose.orientation
-        self.current_pose_str = f"x>{p.x:.4g};y>{p.y:.4g};z>{p.z:.4g};" + \
-                                f"qx>{o.x:.4g};qy>{o.y:.4g};qz>{o.z:.4g};qw>{o.w:.4g}"
+        self.current_pose_str = f"x>{p.x:.5g};y>{p.y:.5g};z>{p.z:.5g};" + \
+                                f"qx>{o.x:.5g};qy>{o.y:.5g};qz>{o.z:.5g};qw>{o.w:.5g}"
         
         self.get_logger().debug(f'Received pose: {self.current_pose_str}')
 
