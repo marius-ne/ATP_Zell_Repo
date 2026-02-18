@@ -71,7 +71,7 @@ class ArucoNode(Node):
         # Load the ArUco dictionary
         self.get_logger().info(f"Detecting '{aruco_dictionary_name}' marker.")
         self.this_aruco_dictionary = cv2.aruco.getPredefinedDictionary(ARUCO_DICT[aruco_dictionary_name])
-        self.this_aruco_parameters = cv2.aruco.DetectorParameters()
+        self.this_aruco_parameters = cv2.aruco.DetectorParameters_create()
 
         # Create the subscriber
         self.subscription = self.create_subscription(Image, self.image_topic, self.listener_callback, 10)

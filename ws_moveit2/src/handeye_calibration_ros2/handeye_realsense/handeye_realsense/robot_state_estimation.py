@@ -38,6 +38,7 @@ class RobotTransformNode(Node):
     def listener_callback_tf(self, msg):
         """ Handle incoming transform messages. """
         for transform in msg.transforms:
+            
             if transform.child_frame_id and transform.header.frame_id:
                 self.transformations[(transform.header.frame_id, transform.child_frame_id)] = transform
 
@@ -52,11 +53,11 @@ class RobotTransformNode(Node):
     def get_full_transformation_matrix(self):
         T = np.eye(4)  # Start with the identity matrix
         link_order = [
-            ('lbr/link_0', 'lbr/link_1'), ('lbr/link_1', 'lbr/link_2'), 
-            ('lbr/link_2', 'lbr/link_3'), ('lbr/link_3', 'lbr/link_4'), 
-            ('lbr/link_4', 'lbr/link_5'), ('lbr/link_5', 'lbr/link_6'), 
-            ('lbr/link_6', 'lbr/link_7'), 
-            ('lbr/link_7', 'lbr/link_ee'),
+            ('link_0', 'link_1'), ('link_1', 'link_2'), 
+            ('link_2', 'link_3'), ('link_3', 'link_4'), 
+            ('link_4', 'link_5'), ('link_5', 'link_6'), 
+            ('link_6', 'link_7'), 
+            ('link_7', 'tool0'),
         ]
         for (frame_id, child_frame_id) in link_order:
             if (frame_id, child_frame_id) in self.transformations:
@@ -67,6 +68,9 @@ class RobotTransformNode(Node):
                 T_local[:3, :3] = self.quaternion_to_rotation_matrix(*rotation)
                 T_local[:3, 3] = translation
                 T = np.dot(T, T_local)
+            else:
+                self.get_logger().info(f"Missing transformation from {frame_id} to {child_frame_id}")
+                return None
 
         return T
 

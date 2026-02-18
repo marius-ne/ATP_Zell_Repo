@@ -90,6 +90,7 @@ class PoseGetterNode(Node):
             ('link_5', 'link_6'),
             ('link_6', 'link_7'),
             ('link_7', 'tool0'),
+            ('tool0', 'camera'),
         ]
         
         # Alternative shorter chain if iiwa_base doesn't exist
@@ -103,6 +104,7 @@ class PoseGetterNode(Node):
             ('link_5', 'link_6'),
             ('link_6', 'link_7'),
             ('link_7', 'tool0'),
+            ('tool0', 'camera'),
         ]
         
         # Try full chain first

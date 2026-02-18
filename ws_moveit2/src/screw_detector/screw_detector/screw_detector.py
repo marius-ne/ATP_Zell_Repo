@@ -27,8 +27,8 @@ class ScrewDetectorNode(Node):
         # If writing to file is enabled, set up output directory and CSV file
         self._write_to_file = self.get_parameter('write_to_file').value
         self._output_dir = self.get_parameter('output_dir').value
-        os.makedirs(self._output_dir, exist_ok=True)
         if self._write_to_file and self._output_dir:
+            os.makedirs(self._output_dir, exist_ok=True)
             self._dir_identifier = datetime.now().strftime('%Y%m%d_%H%M%S')
             os.makedirs(f'{self._output_dir}/{self._dir_identifier}', exist_ok=True)
             # Create csv to append to

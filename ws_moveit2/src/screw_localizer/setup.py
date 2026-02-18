@@ -24,8 +24,10 @@ setup(
     },
     entry_points={
         'console_scripts': [
+            'screw_localizer = screw_localizer.screw_depth_localizer:main',
             'screw_depth_localizer = screw_localizer.screw_depth_localizer:main',
-            'screw_triangulator = screw_localizer.screw_triangulator:main'
+            'screw_triangulator = screw_localizer.screw_triangulator:main',
+            'client_localize_screws = screw_localizer.client_localize_screws:main'
         ],
     },
 )
