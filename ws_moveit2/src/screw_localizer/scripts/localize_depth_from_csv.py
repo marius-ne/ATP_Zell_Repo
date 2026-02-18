@@ -143,9 +143,9 @@ def call_localizer(
 
 def format_pose(pose: Pose) -> str:
     return (
-        f"pos=({pose.position.x:.4f}, {pose.position.y:.4f}, {pose.position.z:.4f}) "
-        f"quat=({pose.orientation.x:.4f}, {pose.orientation.y:.4f}, "
-        f"{pose.orientation.z:.4f}, {pose.orientation.w:.4f})"
+        f"pos=({pose.position.x:.5g}, {pose.position.y:.5g}, {pose.position.z:.5g}) "
+        f"quat=({pose.orientation.x:.5g}, {pose.orientation.y:.5g}, "
+        f"{pose.orientation.z:.5g}, {pose.orientation.w:.5g})"
     )
 
 
