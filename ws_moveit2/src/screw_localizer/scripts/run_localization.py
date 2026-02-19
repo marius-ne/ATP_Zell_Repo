@@ -13,7 +13,7 @@ import yaml
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String, Header
-from geometry_msgs.msg import Pose, Point
+from geometry_msgs.msg import Pose, Point, PoseArray
 from visualization_msgs.msg import Marker, MarkerArray
 from screw_interfaces.srv import LocalizeScrews
 
@@ -92,9 +92,13 @@ class RunLocalization(Node):
         super().__init__("run_localization")
         self._intrinsics = intrinsics
 
-        # Publisher for RViz-compatible 3-D screw positions
+        # Publisher for screw positions (for downstream processing)
+        self._pose_pub = self.create_publisher(
+            PoseArray, "screws_from_depth", 10
+        )
+        # Publisher for RViz-compatible 3-D screw markers
         self._marker_pub = self.create_publisher(
-            MarkerArray, "screws_from_depth", 10
+            MarkerArray, "screws_from_depth_markers", 10
         )
         self._frame_id = "world"  # should be the same as the one that pose_getter uses as base frame (iiwa_base or world currently)
 
@@ -210,8 +214,19 @@ class RunLocalization(Node):
             marker.lifetime.sec = 0  # persistent until next update
             marker_array.markers.append(marker)
         self._marker_pub.publish(marker_array)
+
+        # Publish PoseArray for downstream processing
+        pose_array = PoseArray()
+        pose_array.header = Header(stamp=stamp, frame_id=self._frame_id)
+        for pos in resp.screw_positions:
+            p = Pose()
+            p.position = Point(x=pos.x, y=pos.y, z=pos.z)
+            p.orientation.w = 1.0
+            pose_array.poses.append(p)
+        self._pose_pub.publish(pose_array)
+
         self.get_logger().info(
-            f"Published {n_screws} screw marker(s) to /screws_from_depth"
+            f"Published {n_screws} screw(s) to /screws_from_depth and /screws_from_depth_markers"
         )
 
 

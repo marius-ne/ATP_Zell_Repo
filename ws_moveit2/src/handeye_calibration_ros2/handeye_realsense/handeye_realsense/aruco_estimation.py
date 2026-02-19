@@ -13,6 +13,7 @@ from scipy.spatial.transform import Rotation as R
 from rclpy.qos import QoSProfile, DurabilityPolicy
 from cv_bridge import CvBridge
 from std_msgs.msg import String
+from realsense2_camera_msgs.msg import RGBD
 
 import cv2
 import numpy as np
@@ -74,7 +75,7 @@ class ArucoNode(Node):
         self.this_aruco_parameters = cv2.aruco.DetectorParameters_create()
 
         # Create the subscriber
-        self.subscription = self.create_subscription(Image, self.image_topic, self.listener_callback, 10)
+        self.subscription = self.create_subscription(RGBD, self.image_topic, self.listener_callback, 10)
         self.keypress_publisher = self.create_publisher(String, 'keypress_topic', 10)
 
         self.pose_count = 0
@@ -91,8 +92,8 @@ class ArucoNode(Node):
         """ Convert a quaternion into a full three-dimensional rotation matrix. """
         return R.from_quat([x, y, z, w]).as_matrix()    
 
-    def listener_callback(self, data):
-        current_frame = self.bridge.imgmsg_to_cv2(data)
+    def listener_callback(self, data: RGBD):
+        current_frame = self.bridge.imgmsg_to_cv2(data.rgb, desired_encoding='bgr8')
         corners, marker_ids, rejected = cv2.aruco.detectMarkers(current_frame, self.this_aruco_dictionary, parameters=self.this_aruco_parameters)
 
         if marker_ids is not None:
