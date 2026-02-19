@@ -1,11 +1,8 @@
-aruco_dictionary_name: "DICT_5X5_250"
-aruco_marker_side_length: 0.06
-aruco_marker_separation: 0.006
-aruco_grid_rows: 4
-aruco_grid_cols: 3
+aruco_dictionary_name: "DICT_ARUCO_ORIGINAL"
+aruco_marker_side_length: 0.095
 camera_calibration_parameters_filename: "src/handeye_calibration_ros2/handeye_realsense/realsense_info.yaml"
 image_topic: "/camera/camera/color/image_raw"
-aruco_marker_name: "aruco_board"
+aruco_marker_name: "aruco_marker"
 calculated_camera_optical_frame_name: "camera/color/optical_frame"
 marker_data_file_name: "src/handeye_calibration_ros2/handeye_realsense/resource/marker_data_realsense.yaml"
 image_filename: "src/handeye_calibration_ros2/handeye_realsense/resource/marker_pose_realsense_{pose_count}.jpg"
