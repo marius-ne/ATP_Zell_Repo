@@ -2,6 +2,7 @@ from ament_index_python.packages import get_package_share_directory
 import os
 import cv2
 
+import numpy as np
 from datetime import datetime
 from ultralytics import YOLO
 
@@ -23,6 +24,13 @@ class ScrewDetectorNode(Node):
         self.declare_parameter('write_to_file', False)
         self.declare_parameter('output_dir', '')
         self.declare_parameter('get_robot_poses', False)
+        self.declare_parameter('reject_too_few_detections', True)
+        self.declare_parameter('reject_too_few_depths', True)
+
+        # Number of expected screws
+        self.NUM_SCREWS_EXPECTED = 5
+        self._reject_too_few_detections = self.get_parameter('reject_too_few_detections').value
+        self._reject_too_few_depths = self.get_parameter('reject_too_few_depths').value
 
         # If writing to file is enabled, set up output directory and CSV file
         self._write_to_file = self.get_parameter('write_to_file').value
@@ -111,9 +119,40 @@ class ScrewDetectorNode(Node):
         # Run YOLO detection
         results = self.model(cv_image)
 
+        num_detections = len(results[0].boxes)
+        confidences = results[0].boxes.conf.cpu().numpy() if num_detections > 0 else []
+        if num_detections > self.NUM_SCREWS_EXPECTED:
+            # Take only results with highest confidence if more than expected detections
+            sorted_indices = confidences.argsort()[::-1][:self.NUM_SCREWS_EXPECTED]
+            results[0].boxes = results[0].boxes[sorted_indices]
+            self.get_logger().info(f"Detected {num_detections} objects, keeping top {self.NUM_SCREWS_EXPECTED} based on confidence.")
+        elif num_detections < self.NUM_SCREWS_EXPECTED:
+            if self._reject_too_few_detections:
+                self.get_logger().warning(f"Detected {num_detections} objects, which is less than the expected {self.NUM_SCREWS_EXPECTED} screws. Rejecting detections.")
+                results = [] # Clear results to indicate rejection
+
         detections = []
         # Draw bounding boxes and collect detection info
         for result in results:
+            # First pass: check if all detections have valid depth
+            if self._reject_too_few_depths:
+                for obj in result.boxes:
+                    center_x, center_y, width, height = obj.xywh[0]
+                    radius = 1  # pixels
+                    x_min = max(0, int(center_x) - radius)
+                    x_max = min(cv_depth.shape[1], int(center_x) + radius)
+                    y_min = max(0, int(center_y) - radius)
+                    y_max = min(cv_depth.shape[0], int(center_y) + radius)
+                    depth_values = cv_depth[y_min:y_max, x_min:x_max].flatten()
+                    depth_values = depth_values[depth_values > 0]
+                    if len(depth_values) == 0:
+                        self.get_logger().warning(f"No valid depth values for detection at ({center_x:.1f}, {center_y:.1f}). Rejecting all detections.")
+                        results = []
+                        break
+                if not results:
+                    break
+            
+            # Second pass: process detections
             for obj in result.boxes:
                 cls = int(obj.cls[0])
                 conf = float(obj.conf[0])
@@ -128,8 +167,15 @@ class ScrewDetectorNode(Node):
                 x2 = x1 + width
                 y2 = y1 + height
 
-                # Get depth value (in mm) at the detection spot
-                depth_value_mm = cv_depth[int(center_y), int(center_x)]  
+                # Get depth value (in mm) in a square around the center pixel to be more robust to noise; take median to further reduce outliers
+                radius = 1  # pixels
+                x_min = max(0, int(center_x) - radius)
+                x_max = min(cv_depth.shape[1], int(center_x) + radius)
+                y_min = max(0, int(center_y) - radius)
+                y_max = min(cv_depth.shape[0], int(center_y) + radius)
+                depth_values = cv_depth[y_min:y_max, x_min:x_max].flatten()
+                depth_values = depth_values[depth_values > 0]
+                depth_value_mm = float(np.median(depth_values))  # Safe since we validated above
 
                 # Encode detection info as message to pass to other nodes
                 detection_string = f'class:{cls}, center_x:{center_x:5g}, center_y:{center_y:5g}, ' + \
