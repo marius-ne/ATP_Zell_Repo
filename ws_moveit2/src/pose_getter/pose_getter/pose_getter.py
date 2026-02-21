@@ -7,6 +7,8 @@ from scipy.spatial.transform import Rotation as R
 from rclpy.qos import QoSProfile, DurabilityPolicy
 from geometry_msgs.msg import PoseStamped
 import numpy as np
+import yaml
+import os
 
 # Create a QoS profile for subscribing to /tf_static
 qos_profile = QoSProfile(depth=10, durability=DurabilityPolicy.TRANSIENT_LOCAL)
@@ -19,10 +21,14 @@ class PoseGetterNode(Node):
         self.declare_parameter('base_frame', 'world')
         self.declare_parameter('ee_frame', 'camera')
         self.declare_parameter('publish_rate', 1.0)
+        self.declare_parameter('manual_mode', False)
+        self.declare_parameter('output_format', 'pose')  # 'pose' or 'matrix'
         
         self.base_frame = self.get_parameter('base_frame').value
         self.ee_frame = self.get_parameter('ee_frame').value
         rate = self.get_parameter('publish_rate').value
+        self.manual_mode = self.get_parameter('manual_mode').value
+        self.output_format = self.get_parameter('output_format').value
         
         # Subscribe to TF topics
         self.subscription_tf = self.create_subscription(
@@ -39,10 +45,35 @@ class PoseGetterNode(Node):
             10
         )
         
-        # Timer to publish pose
-        self.timer = self.create_timer(1.0 / rate, self.timer_callback)
+        # Timer to publish pose (only in continuous mode)
+        if not self.manual_mode:
+            self.timer = self.create_timer(1.0 / rate, self.timer_callback)
         
-        self.get_logger().info(f'Pose Getter Node started. Publishing {self.ee_frame} pose in {self.base_frame} frame.')
+        mode_str = 'MANUAL (press Enter to sample)' if self.manual_mode else 'continuous'
+        self.get_logger().info(f'Pose Getter Node started [{mode_str}]. Publishing {self.ee_frame} pose in {self.base_frame} frame.')
+        
+        # YAML file for manual mode pose logging – save in the source package dir
+        # Walk up from __file__ until we find a dir containing src/pose_getter
+        _src_pkg_dir = None
+        _cur = os.path.dirname(os.path.abspath(__file__))
+        for _ in range(10):
+            _candidate = os.path.join(_cur, 'src', 'pose_getter', 'pose_getter')
+            if os.path.isdir(_candidate):
+                _src_pkg_dir = _candidate
+                break
+            _parent = os.path.dirname(_cur)
+            if _parent == _cur:
+                break
+            _cur = _parent
+        if _src_pkg_dir is None:
+            _src_pkg_dir = os.path.dirname(os.path.abspath(__file__))
+        self._yaml_path = os.path.join(_src_pkg_dir, 'recorded_poses.yaml')
+        self._pose_count = 0
+        if self.manual_mode:
+            # Clear file on startup
+            with open(self._yaml_path, 'w') as f:
+                yaml.dump({'poses': []}, f)
+            self.get_logger().info(f'Pose log cleared: {self._yaml_path}')
     
     def quaternion_to_rotation_matrix(self, x, y, z, w):
         """Convert a quaternion into a full three-dimensional rotation matrix using scipy."""
@@ -90,8 +121,10 @@ class PoseGetterNode(Node):
             ('link_5', 'link_6'),
             ('link_6', 'link_7'),
             ('link_7', 'tool0'),
-            ('tool0', self.ee_frame),
         ]
+        # Only chain beyond tool0 if ee_frame is a different frame
+        if self.ee_frame != 'tool0':
+            link_order.append(('tool0', self.ee_frame))
         
         # Alternative shorter chain if iiwa_base doesn't exist
         short_chain = [
@@ -104,8 +137,9 @@ class PoseGetterNode(Node):
             ('link_5', 'link_6'),
             ('link_6', 'link_7'),
             ('link_7', 'tool0'),
-            ('tool0', self.ee_frame),
         ]
+        if self.ee_frame != 'tool0':
+            short_chain.append(('tool0', self.ee_frame))
         
         # Try full chain first
         for (frame_id, child_frame_id) in link_order:
@@ -155,23 +189,99 @@ class PoseGetterNode(Node):
             self.pose_pub.publish(pose_msg)
             
             # Log to console
-            self.get_logger().info(
-                f"{self.ee_frame} Pose: pos=({position[0]:.4f}, {position[1]:.4f}, {position[2]:.4f}), "
-                f"quat=({quat[0]:.4f}, {quat[1]:.4f}, {quat[2]:.4f}, {quat[3]:.4f})"
-            )
+            if self.output_format == 'matrix':
+                np.set_printoptions(precision=6, suppress=True)
+                self.get_logger().info(
+                    f"\n{self.ee_frame} 4x4 Transform ({self.base_frame} -> {self.ee_frame}):\n{T}"
+                )
+            else:
+                euler = r.as_euler('xyz', degrees=True)
+                self.get_logger().info(
+                    f"{self.ee_frame} Pose:\n"
+                    f"  Position:    x={position[0]:.4f}, y={position[1]:.4f}, z={position[2]:.4f}\n"
+                    f"  Quaternion:  x={quat[0]:.4f}, y={quat[1]:.4f}, z={quat[2]:.4f}, w={quat[3]:.4f}\n"
+                    f"  Euler (deg): rx={euler[0]:.2f}, ry={euler[1]:.2f}, rz={euler[2]:.2f}"
+                )
+            
+            # Append to YAML in manual mode
+            if self.manual_mode:
+                self._append_to_yaml(position, quat, T)
+    
+    def _append_to_yaml(self, position, quat, T):
+        """Append current pose to the YAML log file."""
+        try:
+            with open(self._yaml_path, 'r') as f:
+                data = yaml.safe_load(f) or {'poses': []}
+        except FileNotFoundError:
+            data = {'poses': []}
+        
+        self._pose_count += 1
+        r = R.from_quat(quat)
+        euler = r.as_euler('xyz', degrees=True)
+        
+        pose_entry = {
+            'id': self._pose_count,
+            'frame': self.ee_frame,
+            'position': {
+                'x': float(position[0]),
+                'y': float(position[1]),
+                'z': float(position[2]),
+            },
+            'orientation_quat': {
+                'x': float(quat[0]),
+                'y': float(quat[1]),
+                'z': float(quat[2]),
+                'w': float(quat[3]),
+            },
+            'euler_deg': {
+                'rx': float(euler[0]),
+                'ry': float(euler[1]),
+                'rz': float(euler[2]),
+            },
+            'matrix_4x4': T.tolist(),
+        }
+        data['poses'].append(pose_entry)
+        
+        with open(self._yaml_path, 'w') as f:
+            yaml.dump(data, f, default_flow_style=False)
+        
+        self.get_logger().info(f'Pose #{self._pose_count} saved to {self._yaml_path}')
 
 def main(args=None):
     rclpy.init(args=args)
     node = PoseGetterNode()
     
-    try:
-        rclpy.spin(node)
-    except KeyboardInterrupt:
-        pass
-    finally:
-        node.destroy_node()
-        if rclpy.ok():
-            rclpy.shutdown()
+    if node.manual_mode:
+        # Manual mode: spin in background, prompt user in terminal
+        import threading
+        spin_thread = threading.Thread(target=rclpy.spin, args=(node,), daemon=True)
+        spin_thread.start()
+        
+        print('\n=== Manual Pose Getter ===')
+        print('Press ENTER to sample current pose, type "q" to quit.\n')
+        
+        try:
+            while rclpy.ok():
+                user_input = input()
+                if user_input.strip().lower() == 'q':
+                    break
+                node.timer_callback()
+        except (KeyboardInterrupt, EOFError):
+            pass
+        finally:
+            node.destroy_node()
+            if rclpy.ok():
+                rclpy.shutdown()
+    else:
+        # Continuous mode
+        try:
+            rclpy.spin(node)
+        except KeyboardInterrupt:
+            pass
+        finally:
+            node.destroy_node()
+            if rclpy.ok():
+                rclpy.shutdown()
 
 if __name__ == '__main__':
     main()

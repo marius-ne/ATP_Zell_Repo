@@ -19,9 +19,9 @@ namespace WzlPlanner
 {
     enum RobotMoveType
     {
-        AbsolutePTP = 1,
+        AbsolutePTP = 1,    // OMPL
         RelativePTP = 2,
-        AbsoluteCartesian = 3,
+        AbsoluteCartesian = 3,  // Pilz LIN (Pilz PTP is similar to OMPL but deterministic)
         RelativeCartesian = 4
     };
 

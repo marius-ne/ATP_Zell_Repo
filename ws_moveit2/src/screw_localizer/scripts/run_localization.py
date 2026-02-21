@@ -88,6 +88,16 @@ def parse_detections_message(msg_data: str) -> List[dict]:
 # ---------------------------------------------------------------------------
 
 class RunLocalization(Node):
+
+    # Ground-truth screw positions (world frame)
+    GROUND_TRUTH_SCREWS = [
+        {"name": "Screw1", "x": 0.5159, "y": -0.0272, "z": 0.1118},
+        {"name": "Screw2", "x": 0.5814, "y": -0.0186, "z": 0.1124},
+        {"name": "Screw3", "x": 0.5894, "y":  0.0525, "z": 0.1034},
+        {"name": "Screw4", "x": 0.5145, "y":  0.1290, "z": 0.1046},
+        {"name": "Screw5", "x": 0.4893, "y":  0.0438, "z": 0.1034},
+    ]
+
     def __init__(self, intrinsics: List[float]):
         super().__init__("run_localization")
         self._intrinsics = intrinsics
@@ -100,7 +110,15 @@ class RunLocalization(Node):
         self._marker_pub = self.create_publisher(
             MarkerArray, "screws_from_depth_markers", 10
         )
+        # Publisher for ground-truth screw markers (blue)
+        self._gt_marker_pub = self.create_publisher(
+            MarkerArray, "screws_ground_truth_markers", 10
+        )
         self._frame_id = "world"  # should be the same as the one that pose_getter uses as base frame (iiwa_base or world currently)
+
+        # Publish ground-truth markers once at startup and then periodically
+        self._gt_timer = self.create_timer(2.0, self._publish_ground_truth_markers)
+        self._publish_ground_truth_markers()  # publish immediately
 
         # Service client for screw_depth_localizer
         self._client = self.create_client(LocalizeScrews, "localize_screws")
@@ -118,6 +136,41 @@ class RunLocalization(Node):
         self.get_logger().info(
             "Subscribed to /screw_detector/detections -- waiting for messages ..."
         )
+
+    # ---- ground truth markers -----------------------------------------------
+
+    def _publish_ground_truth_markers(self):
+        """Publish blue sphere markers for each ground-truth screw position."""
+        marker_array = MarkerArray()
+        stamp = self.get_clock().now().to_msg()
+
+        # Clear old markers first
+        delete_marker = Marker()
+        delete_marker.header = Header(stamp=stamp, frame_id=self._frame_id)
+        delete_marker.ns = "screws_ground_truth"
+        delete_marker.action = Marker.DELETEALL
+        marker_array.markers.append(delete_marker)
+
+        for i, screw in enumerate(self.GROUND_TRUTH_SCREWS):
+            marker = Marker()
+            marker.header = Header(stamp=stamp, frame_id=self._frame_id)
+            marker.ns = "screws_ground_truth"
+            marker.id = i
+            marker.type = Marker.SPHERE
+            marker.action = Marker.ADD
+            marker.pose.position = Point(x=screw["x"], y=screw["y"], z=screw["z"])
+            marker.pose.orientation.w = 1.0
+            marker.scale.x = 0.01  # 1 cm diameter
+            marker.scale.y = 0.01
+            marker.scale.z = 0.01
+            marker.color.r = 0.0
+            marker.color.g = 0.0
+            marker.color.b = 1.0
+            marker.color.a = 1.0
+            marker.lifetime.sec = 0  # persistent
+            marker_array.markers.append(marker)
+
+        self._gt_marker_pub.publish(marker_array)
 
     # ---- callback ----------------------------------------------------------
 

@@ -1565,9 +1565,14 @@ void UseCase5(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
 
 // === Überflug ===
 
+  // Pose Kamera
+  // Position:    x=0.6702, y=0.1867, z=0.3122
+  // Quaternion:  x=0.5598, y=0.4659, z=0.4490, w=0.5176
+  // Euler (deg): rx=93.50, ry=-1.17, rz=80.64
+
   //posen
-    auto poseUeberflug1 = std::make_shared<WzlPlanner::Pose>(0.547, 0.081, 0.548, M_PI / 2, 0, 0);
-    auto poseUeberflug2 = std::make_shared<WzlPlanner::Pose>(0.547, 0.273, 0.548, M_PI / 2, 0, 0);
+    auto poseUeberflug1 = std::make_shared<WzlPlanner::Pose>(0.6702, 0.1867, 0.3122, M_PI / 2, 0, M_PI / 2);
+    auto poseUeberflug2 = std::make_shared<WzlPlanner::Pose>(0.547, 0.273, 0.548, M_PI / 2, 0, M_PI / 2); // TODO
 
   // handlings
 
@@ -1581,50 +1586,48 @@ void UseCase5(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
 
 // ===== Screw list  =====
   //definition 
-    // (0.5150, -0.0242, 0.1136)
-    std::array<double, 3> new_point = {0.5150, -0.0242, 0.1136};
-    std::array<double, 3> old_point = {0.5127, -0.0252, 0.1136};
-    std::array<double, 3> offset = {
-      new_point[0] - old_point[0],
-      new_point[1] - old_point[1],
-      new_point[2] - old_point[2]
-    };
-    double offset_x = offset[0];
-    double offset_y = offset[1];
-    double offset_z = offset[2];
     
-    // Schraube 1: (0.5127, -0.0252, 0.1136)
-    double Screw1X = 0.5127 + offset_x;
-    double Screw1Y = -0.0252 + offset_y;
-    double Screw1Z = 0.1136 + offset_z;
+    // Schraube 1: x=0.5159, y=-0.0272, z=0.1118
+    // rx=90.03, ry=0.09, rz=-0.01 ???
+    // rx=89.84, ry=0.09, rz=-0.04
+    double Screw1X = 0.5159;
+    double Screw1Y = -0.0272;
+    double Screw1Z = 0.1118;
 
-    // Schraube 2: (0.5799, -0.0167, 0.1192)
-    double Screw2X = 0.5799 + offset_x;
-    double Screw2Y = -0.0167 + offset_y;
-    double Screw2Z = 0.1192 + offset_z; 
+    // Schraube 2: x=0.5814, y=-0.0186, z=0.1124
+    // rx=90.03, ry=0.09, rz=-0.01
+    double Screw2X = 0.5814;
+    double Screw2Y = -0.0186;
+    double Screw2Z = 0.1124; 
 
-    double Screw3X = 0.54 + offset_x; // noch auszufüllen mit echten Koordinaten
-    double Screw3Y = 0.1 + offset_y; // noch auszufüllen mit echten Koordinaten
-    double Screw3Z = 0.3 + offset_z; // noch auszufüllen mit echten Koordinaten
+    // Schraube 3: x=0.5894, y=0.0525, z=0.1034
+    // rx=89.98, ry=0.09, rz=25.50
+    double Screw3X = 0.5894;
+    double Screw3Y = 0.0525;
+    double Screw3Z = 0.1034;
 
-    // Schraube 4: (0.5125, 0.1311, 0.1085)
-    double Screw4X = 0.5125 + offset_x;
-    double Screw4Y = 0.1311 + offset_y;
-    double Screw4Z = 0.1085 + offset_z; 
+    // Schraube 4: x=0.5145, y=0.1290, z=0.1046
+    // rx=90.03, ry=0.09, rz=-0.01
+    double Screw4X = 0.5145;
+    double Screw4Y = 0.1290;
+    double Screw4Z = 0.1046; 
 
-    // Schraube 5: (0.4877, 0.0470, 0.1086)
-    double Screw5X = 0.4877 + offset_x;
-    double Screw5Y = 0.0470 + offset_y;
-    double Screw5Z = 0.1086 + offset_z; 
+    // Schraube 5: x=0.4893, y=0.0438, z=0.1034
+    // rx=90.03, ry=0.09, rz=-0.02
+    double Screw5X = 0.4893;
+    double Screw5Y = 0.0438;
+    double Screw5Z = 0.1034; 
 
-  // Posen
-    auto poseScrew1 = std::make_shared<WzlPlanner::Pose>(Screw1X, Screw1Y, Screw1Z, M_PI / 2, 0, 0);
-    auto poseScrew2 = std::make_shared<WzlPlanner::Pose>(Screw2X, Screw2Y, Screw2Z, M_PI / 2, 0, 0);
-    auto poseScrew3 = std::make_shared<WzlPlanner::Pose>(Screw3X, Screw3Y, Screw3Z, M_PI / 2, 0, 0);
-    auto poseScrew4 = std::make_shared<WzlPlanner::Pose>(Screw4X, Screw4Y, Screw4Z, M_PI / 2, 0, 0);
-    auto poseScrew5 = std::make_shared<WzlPlanner::Pose>(Screw5X, Screw5Y, Screw5Z, M_PI / 2, 0, 0);
+    double insertionZOffset = 0.01;
 
-  // handlings
+    // Posen
+    auto poseScrew1 = std::make_shared<WzlPlanner::Pose>(Screw1X, Screw1Y, Screw1Z - insertionZOffset, M_PI / 2, 0, 0);
+    auto poseScrew2 = std::make_shared<WzlPlanner::Pose>(Screw2X, Screw2Y, Screw2Z - insertionZOffset, M_PI / 2, 0, 0);
+    auto poseScrew3 = std::make_shared<WzlPlanner::Pose>(Screw3X, Screw3Y, Screw3Z - insertionZOffset, M_PI / 2, 0, 0);
+    auto poseScrew4 = std::make_shared<WzlPlanner::Pose>(Screw4X, Screw4Y, Screw4Z - insertionZOffset, M_PI / 2, 0, 0);
+    auto poseScrew5 = std::make_shared<WzlPlanner::Pose>(Screw5X, Screw5Y, Screw5Z - insertionZOffset, M_PI / 2, 0, 0);
+
+    // handlings
 
     auto taskScrew1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
       taskScrew1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew1);
@@ -1737,11 +1740,11 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
-  // taskList->AddTask(tasks->taskModBusWriteScrewLength);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteZForce);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
+  taskList->AddTask(tasks->taskModBusWriteScrewLength);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteZForce);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
 
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
@@ -1776,11 +1779,11 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
-  // taskList->AddTask(tasks->taskModBusWriteScrewLength);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteZForce);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
+  taskList->AddTask(tasks->taskModBusWriteScrewLength);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteZForce);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
 
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
@@ -1835,11 +1838,11 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
-  // taskList->AddTask(tasks->taskModBusWriteScrewLength);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteZForce);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
+  taskList->AddTask(tasks->taskModBusWriteScrewLength);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteZForce);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
 
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
@@ -1874,11 +1877,11 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
   taskList->AddTask(tasks->taskWait);  
   taskList->AddTask(tasks->taskWait);
   
-  // taskList->AddTask(tasks->taskModBusWriteScrewLength);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteZForce);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
+  taskList->AddTask(tasks->taskModBusWriteScrewLength);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteZForce);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
 
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
@@ -1930,8 +1933,8 @@ void UseCase6(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   RCLCPP_INFO(node->get_logger(), "Initialize gripper for collision model");
 
   // Set gripper for proper collision model
-  auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("ScrewdriverGripper", 0, 1);
-  robot->SetGripper(gripper);
+  // auto gripper = std::make_shared<WzlPlanner::GripperPneumaticSingle>("ScrewdriverGripper", 0, 1);
+  // robot->SetGripper(gripper);
 
   // ===== Orientation / constants =====
   double rotX = M_PI / 2;
@@ -1944,185 +1947,64 @@ void UseCase6(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
   
     
   auto taskInitPose = std::make_shared<WzlPlanner::TaskMoveToPose>();
-  taskInitPose->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseInit);
+  taskInitPose->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseInit);
   taskInitPose->SetId("InitPose");
 
-// === Überflug ===
+  // === Überflug ===
 
-  //posen
-    auto poseUeberflug1 = std::make_shared<WzlPlanner::Pose>(0.547, 0.081, 0.548, M_PI / 2, 0, 0);
-    // auto poseUeberflug2 = std::make_shared<WzlPlanner::Pose>(0.547, 0.273, 0.548, M_PI / 2, 0, 0);
-
-  // handlings
-
-    auto taskUeberflug1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskUeberflug1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseUeberflug1);
-      taskUeberflug1->SetId("Ueberflug1");
-
-    // auto taskUeberflug2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-    //   taskUeberflug2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseUeberflug2);
-    //   taskUeberflug2->SetId("Ueberflug2");
-
-// ===== Screw list  =====
-  //definition 
-    double Screw1X = 0.51461;
-    double Screw1Y = 0.08128;
-    double Screw1Z = 0.2792; 
-
-    double Screw2X = 0.58024;
-    double Screw2Y = 0.08914;
-    double Screw2Z = 0.2792; 
-
-    double Screw3X = 0.54; // noch auszufüllen mit echten Koordinaten
-    double Screw3Y = 0.1; // noch auszufüllen mit echten Koordinaten
-    double Screw3Z = 0.3; // noch auszufüllen mit echten Koordinaten
-
-    double Screw4X = 0.51387;
-    double Screw4Y = 0.23784;
-    double Screw4Z = 0.27465; 
-
-    double Screw5X = 0.48705;
-    double Screw5Y = 0.15119;
-    double Screw5Z = 0.27057; 
-
+    // ===== Screw list  =====
+    // x=0.5920, y=0.0536, z=0.1485
+    double CalibPointX = 0.5920;
+    double CalibPointY = 0.0536;
+    double CalibPointZ = 0.2485; 
     
+    double AngleX = 0;
+    double AngleY = 0;
+    double AngleZ = 0;
 
-  // Posen
-    auto poseScrew1 = std::make_shared<WzlPlanner::Pose>(Screw1X, Screw1Y, Screw1Z, M_PI / 2, 0, 0);
-    auto poseScrew2 = std::make_shared<WzlPlanner::Pose>(Screw2X, Screw2Y, Screw2Z, M_PI / 2, 0, 0);
-    auto poseScrew3 = std::make_shared<WzlPlanner::Pose>(Screw3X, Screw3Y, Screw3Z, M_PI / 2, 0, 0);
-    auto poseScrew4 = std::make_shared<WzlPlanner::Pose>(Screw4X, Screw4Y, Screw4Z, M_PI / 2, 0, 0);
-    auto poseScrew5 = std::make_shared<WzlPlanner::Pose>(Screw5X, Screw5Y, Screw5Z, M_PI / 2, 0, 0);
+    // Posen
+    auto poseCalib = std::make_shared<WzlPlanner::Pose>(CalibPointX, CalibPointY, CalibPointZ, AngleX, AngleY, AngleZ);
+    auto poseCalibRot = std::make_shared<WzlPlanner::Pose>(CalibPointX, CalibPointY, CalibPointZ, AngleX, AngleY, AngleZ+M_PI/6);
 
-  // handlings
+    // handlings
+    auto taskCalib = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskCalib->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseCalib);
+      taskCalib->SetId("Calib");
 
-    auto taskScrew1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrew1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew1);
-      taskScrew1->SetId("Screw1");
-
-    auto taskScrew2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrew2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew2);
-      taskScrew2->SetId("Screw2");
-
-    auto taskScrew3 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrew3->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew3);
-      taskScrew3->SetId("Screw3");
-
-    auto taskScrew4 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrew4->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew4);
-      taskScrew4->SetId("Screw4");
-
-    auto taskScrew5 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrew5->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew5);
-      taskScrew5->SetId("Screw5");  
-
-
-// === Screwlist safty points ===
-
-double SaftyOffsetZ = 0.2; // safety offset above screws
-
-  // Posen
-    auto poseScrewSafe1 = std::make_shared<WzlPlanner::Pose>(Screw1X, Screw1Y, Screw1Z + SaftyOffsetZ,M_PI / 2, 0, 0);
-    auto poseScrewSafe2 = std::make_shared<WzlPlanner::Pose>(Screw2X, Screw2Y, Screw2Z + SaftyOffsetZ, M_PI / 2, 0, 0);
-    auto poseScrewSafe3 = std::make_shared<WzlPlanner::Pose>(Screw3X, Screw3Y, Screw3Z + SaftyOffsetZ, M_PI / 2, 0, 0);
-    auto poseScrewSafe4 = std::make_shared<WzlPlanner::Pose>(Screw4X, Screw4Y, Screw4Z + SaftyOffsetZ, M_PI / 2, 0, 0);
-    auto poseScrewSafe5 = std::make_shared<WzlPlanner::Pose>(Screw5X, Screw5Y, Screw5Z + SaftyOffsetZ, M_PI / 2, 0, 0);
-
-  //handlings
-
-    auto taskScrewSafe1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrewSafe1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseScrewSafe1);
-      taskScrewSafe1->SetId("ScrewSafe1");
-
-    auto taskScrewSafe2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrewSafe2->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseScrewSafe2);
-      taskScrewSafe2->SetId("ScrewSafe2");
-
-    auto taskScrewSafe3 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrewSafe3->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseScrewSafe3);
-      taskScrewSafe3->SetId("ScrewSafe3");
-
-    auto taskScrewSafe4 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrewSafe4->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseScrewSafe4);
-      taskScrewSafe4->SetId("ScrewSafe4");
-
-    auto taskScrewSafe5 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrewSafe5->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseScrewSafe5);
-      taskScrewSafe5->SetId("ScrewSafe5");
+    auto taskCalibRot = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskCalibRot->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseCalibRot);
+      taskCalibRot->SetId("CalibRot");
 
 
   ////// TASK SCHEDULING //////
   RCLCPP_INFO(node->get_logger(), "Execute Task Use Case 6");
 
-  // ===== Set screw parameters =====
-  int screwLength = 35000;  // Change this value to adjust screw length in ym (min 0 max 35000)
-  int zForce = 30;          // Change this value to adjust Z-axis force in N (min 18 mx 30)
   
-  tasks->taskModBusWriteScrewLength->SetValue(screwLength);
-  tasks->taskModBusWriteZForce->SetValue(zForce);
-
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
   taskList->SetId("TaskList_PosesAndScrews");
-  // taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
-  // // taskList->AddTask(taskInitPose);
-  // //taskList->AddTask(tasks->taskAttachCameraMount); // Kamera
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
-  // //taskList->AddTask(tasks->taskAttachScrewdriver); // Schraubendreher 
+
+  taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
+
+  taskList->AddTask(tasks->taskDetachScrewdriver);
 
   // taskList->AddTask(tasks->taskWait);
   // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
 
-  // taskList->AddTask(taskScrewSafe1); // schraube 1 Sichereitsposition anfahren
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
+  // taskList->AddTask(taskInitPose);
+
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(taskCalib); // schraube 1 Sichereitsposition anfahren
   
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(taskCalibRot); // schraube 1 Sichereitsposition anfahren
+
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
   
-  // taskList->AddTask(taskScrew1); // schraube 1 anfahren
-  // taskList->AddTask(tasks->taskWait);
-  
-
-
-  // taskList->AddTask(taskScrewSafe2); // schraube 2 Sichereitsposition anfahren
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(taskScrew2); // schraube 2 anfahren
-  // taskList->AddTask(tasks->taskWait);
-
-  // // taskList->AddTask(taskScrewSafe3); // schraube 3 Sichereitsposition anfahren
-  // // taskList->AddTask(tasks->taskWait);
-  // // taskList->AddTask(tasks->taskWait);
-  // // taskList->AddTask(taskScrew3); // schraube 3 anfahren
-  // // taskList->AddTask(tasks->taskWait);
-
-  // taskList->AddTask(taskScrewSafe4); // schraube 4 Sichereitsposition anfahren
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(taskScrew4); // schraube 4  anfahren
-  // taskList->AddTask(tasks->taskWait);
-
-  // taskList->AddTask(taskScrewSafe5); // schraube 5 Sichereitsposition anfahren
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(taskScrew5); // schraube 5 anfahren
-  // taskList->AddTask(tasks->taskWait);   
-
-
-  // taskList->AddTask(tasks->taskModBusWriteScrewLength);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteZForce);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
-
-
-
 
   if (!taskList->Execute())
   {
@@ -2307,7 +2189,10 @@ int main(int argc, char *argv[])
             break;
         case 5:
             UseCase5(node, misc_tasks);
-            break;  
+            break;
+        case 6:
+            UseCase6(node, misc_tasks);
+            break;
         default:
             RCLCPP_ERROR(node->get_logger(), "Invalid use case %d, using default (4)", use_case);
             UseCase1(node, misc_tasks);
