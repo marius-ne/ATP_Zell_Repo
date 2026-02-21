@@ -16,6 +16,8 @@ from cv_bridge import CvBridge
 from geometry_msgs.msg import Pose, Point
 from realsense2_camera_msgs.msg import RGBD
 from screw_interfaces.srv import LocalizeScrews
+from visualization_msgs.msg import Marker, MarkerArray
+from std_msgs.msg import ColorRGBA, Header
 
 # ==============================================================================
 # 1. GEOMETRY UTILITIES (Refactored with SciPy)
@@ -59,6 +61,7 @@ class ScrewDepthLocalizer(Node):
     def __init__(self):
         super().__init__("screw_depth_localizer")
         self.srv = self.create_service(LocalizeScrews, "localize_screws", self.handle_service)
+        self.marker_pub = self.create_publisher(MarkerArray, "screw_rays", 10)
         self.get_logger().info("Screw Depth Localizer Node Ready")
 
     def handle_service(self, req, resp):
@@ -84,6 +87,7 @@ class ScrewDepthLocalizer(Node):
         )
 
         screws = []
+        rays = []
         for j in range(screw_detections):
             u = req.screw_u[j]
             v = req.screw_v[j]
@@ -93,6 +97,10 @@ class ScrewDepthLocalizer(Node):
             ray = pixel_to_world_ray(u, v, T_world_cam, K)
             point = ray.o + depth * ray.d
             screws.append(point)
+            rays.append(ray)
+
+        # Publish ray visualization
+        self._publish_ray_markers(rays)
 
         if not screws:
             resp.success = False
@@ -107,6 +115,53 @@ class ScrewDepthLocalizer(Node):
         resp.success = True
         resp.message = f"Localized {len(screws)} screw(s)."
         return resp
+
+    def _publish_ray_markers(self, rays: List[Ray], ray_length: float = 1.0):
+        """Publish MarkerArray visualizing 1m rays from camera origin for each screw."""
+        marker_array = MarkerArray()
+        stamp = self.get_clock().now().to_msg()
+
+        # First, publish a DELETE_ALL marker to clear previous rays
+        delete_marker = Marker()
+        delete_marker.header = Header(stamp=stamp, frame_id="world")
+        delete_marker.action = Marker.DELETEALL
+        marker_array.markers.append(delete_marker)
+
+        for i, ray in enumerate(rays):
+            marker = Marker()
+            marker.header = Header(stamp=stamp, frame_id="world")
+            marker.ns = "screw_rays"
+            marker.id = i
+            marker.type = Marker.ARROW
+            marker.action = Marker.ADD
+
+            # Arrow defined by start and end points
+            start = Point(
+                x=float(ray.o[0]),
+                y=float(ray.o[1]),
+                z=float(ray.o[2]),
+            )
+            end_pt = ray.o + ray_length * ray.d
+            end = Point(
+                x=float(end_pt[0]),
+                y=float(end_pt[1]),
+                z=float(end_pt[2]),
+            )
+            marker.points = [start, end]
+
+            # Shaft and head diameter
+            marker.scale.x = 0.005  # shaft diameter
+            marker.scale.y = 0.01   # head diameter
+            marker.scale.z = 0.015  # head length
+
+            # Colour: cyan, fully opaque
+            marker.color = ColorRGBA(r=0.0, g=1.0, b=1.0, a=1.0)
+            marker.lifetime.sec = 30  # auto-expire after 30s
+
+            marker_array.markers.append(marker)
+
+        self.marker_pub.publish(marker_array)
+        self.get_logger().info(f"Published {len(rays)} ray marker(s) on /screw_rays")
 
 
 def main():
