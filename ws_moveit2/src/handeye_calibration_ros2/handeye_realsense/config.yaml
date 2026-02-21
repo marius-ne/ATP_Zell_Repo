@@ -1,5 +1,8 @@
-aruco_dictionary_name: "DICT_ARUCO_ORIGINAL"
-aruco_marker_side_length: 0.0955
+aruco_dictionary_name: "DICT_5X5_250"
+aruco_marker_side_length: 0.0589
+aruco_marker_separation: 0.006   # margin between markers in meters
+board_cols: 3                    # number of marker columns
+board_rows: 4                    # number of marker rows
 camera_calibration_parameters_filename: "src/handeye_calibration_ros2/handeye_realsense/realsense_info.yaml"
 image_topic: "/camera/camera/rgbd"
 aruco_marker_name: "aruco_marker"
