@@ -73,7 +73,9 @@ class ArucoNode(Node):
         # Set up ArUco dictionary and detector parameters
         self.dictionary = cv2.aruco.getPredefinedDictionary(ARUCO_DICT[aruco_dictionary_name])
         self.detector_params = cv2.aruco.DetectorParameters_create()
-
+        self.detector_params.cornerRefinementMethod = cv2.aruco.CORNER_REFINE_SUBPIX
+        self.detector_params.markerBorderBits = 1
+        
         # Create a GridBoard: cols x rows of markers on A4 paper
         self.board = cv2.aruco.GridBoard_create(
             markersX=self.board_cols,
@@ -115,9 +117,21 @@ class ArucoNode(Node):
         if marker_ids is not None and len(marker_ids) > 0:
             cv2.aruco.drawDetectedMarkers(current_frame, corners, marker_ids)
 
-            # Estimate pose of the whole board from all detected markers
-            num_used, rvec, tvec = cv2.aruco.estimatePoseBoard(
-                corners, marker_ids, self.board, self.mtx, self.dst, None, None)
+            if self.board_cols == 1 and self.board_rows == 1:
+                rvecs, tvecs, _ = cv2.aruco.estimatePoseSingleMarkers(
+                    corners, self.aruco_marker_side_length, self.mtx, self.dst)
+                
+                if rvecs is not None and len(rvecs) > 0:
+                    num_used = 1
+                    # Reshape to (3, 1) to perfectly match the output shape of estimatePoseBoard
+                    rvec = rvecs[0].reshape((3, 1))
+                    tvec = tvecs[0].reshape((3, 1))
+                else:
+                    num_used = 0
+            else:
+                # Estimate pose of the whole board from all detected markers
+                num_used, rvec, tvec = cv2.aruco.estimatePoseBoard(
+                    corners, marker_ids, self.board, self.mtx, self.dst, None, None)
 
             if num_used > 0:
                 self.last_rvec = rvec

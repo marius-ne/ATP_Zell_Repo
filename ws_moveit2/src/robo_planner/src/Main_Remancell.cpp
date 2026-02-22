@@ -1719,15 +1719,19 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
 
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
   taskList->SetId("TaskList_PosesAndScrews");
-  taskList->AddTask(tasks->taskDetachScrewdriver);
+  // taskList->AddTask(tasks->taskDetachScrewdriver);
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(taskInitPose);
-  //taskList->AddTask(tasks->taskAttachCameraMount); // Kamera
-  //taskList->AddTask(tasks->taskAttachScrewdriver); // Schraubendreher 
+  taskList->AddTask(taskInitPose);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskAttachCameraMount); // Kamera
+  taskList->AddTask(tasks->taskAttachScrewdriver); // Schraubendreher 
 
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskScrewSafe1); // schraube 1 Sichereitsposition anfahren
@@ -1952,13 +1956,13 @@ void UseCase6(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
 
   // === Überflug ===
 
-    // ===== Screw list  =====
+    // ===== Holzbohrer  =====
     // x=0.5920, y=0.0536, z=0.1485
     double CalibPointX = 0.5920;
     double CalibPointY = 0.0536;
     double CalibPointZ = 0.2485; 
     
-    double AngleX = 0;
+    double AngleX = M_PI / 2;
     double AngleY = 0;
     double AngleZ = 0;
 

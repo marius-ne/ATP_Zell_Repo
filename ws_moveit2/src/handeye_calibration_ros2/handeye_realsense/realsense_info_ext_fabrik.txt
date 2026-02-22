@@ -1,0 +1,15 @@
+Extrinsic calibration (handeye_estimation.py) returns the matrix as *CAMERA TO END EFFECTOR*! 
+So the translation vector is given in the end effector's frame.
+
+Cam2EE: (from calibration)
+[[ 0.99882706 -0.03949025 -0.02801814 -0.17996678]
+ [-0.02822871 -0.00478461 -0.99959004 -0.03638592]
+ [ 0.03934001  0.9992085  -0.00589376  0.04105773]
+ [ 0.          0.          0.          1.        ]]
+
+
+EE2Cam: 
+[[ 0.99882707 -0.02822871  0.03934     0.17711335]
+ [-0.03949026 -0.00478461  0.9992085  -0.04830626]
+ [-0.02801814 -0.99959004 -0.00589376 -0.04117135]
+ [ 0.          0.          0.          1.        ]]
