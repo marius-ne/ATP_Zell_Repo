@@ -8,16 +8,16 @@ class MarkerPositionEstimator(Node):
         super().__init__('marker_position_estimator')
 
         # File paths
-        cam_marker_poses_path = '/home/remanpilot/ws/restackcell/ws_moveit2/src/handeye_calibration_ros2/handeye_realsense/resource/marker_data_realsense_custom_calib.yaml'
-        ee_poses_path = '/home/remanpilot/ws/restackcell/ws_moveit2/src/handeye_calibration_ros2/handeye_realsense/resource/robot_data_realsense_custom_calib.yaml'
+        cam_marker_poses_path = '/home/remanpilot/ws/restackcell/ws_moveit2/src/handeye_calibration_ros2/handeye_realsense/resource/marker_data_realsense_fabrik_calib.yaml'
+        ee_poses_path = '/home/remanpilot/ws/restackcell/ws_moveit2/src/handeye_calibration_ros2/handeye_realsense/resource/robot_data_realsense_fabrik_calib.yaml'
         
         # Manually input your estimated extrinsic matrix (Camera -> End Effector)
         # Structure: [[R, t], [0, 1]]
         self.T_ee_cam = np.array([
-            [ 0.99995032 ,-0.00990013 ,-0.00116185 ,-0.17185801],
- [-0.00140932, -0.02502558 ,-0.99968582, -0.01585551],
- [ 0.00986794 , 0.99963779 ,-0.02503829,  0.03695767],
- [ 0.       ,   0.        ,  0.       ,   1.        ]
+            [ 0.99882706 ,-0.03949025 ,-0.02801814 ,-0.17996678],
+ [-0.02822871 ,-0.00478461, -0.99959004 ,-0.03638592],
+ [ 0.03934001 , 0.9992085 , -0.00589376 , 0.04105773],
+ [ 0.        ,  0. ,         0.   ,       1.        ]
         ])
 
         self.compute_marker_positions(ee_poses_path, cam_marker_poses_path)
@@ -71,13 +71,13 @@ class MarkerPositionEstimator(Node):
         # Calculate Euclidean distances from the mean for each point
         dist_from_mean = np.linalg.norm(positions_np - mean_pos, axis=1)
         max_drift = np.max(dist_from_mean)
-        rmse = np.sqrt(np.mean(dist_from_mean**2))
+        rmse = np.mean(dist_from_mean)
 
         self.get_logger().info("-----------------------------------------------")
         self.get_logger().info("--- STATISTICAL REPORT ---")
         self.get_logger().info(f"Mean Position:  X={mean_pos[0]:.4f}, Y={mean_pos[1]:.4f}, Z={mean_pos[2]:.4f}")
         self.get_logger().info(f"Std Deviation:  X={std_pos[0]:.4f}, Y={std_pos[1]:.4f}, Z={std_pos[2]:.4f}")
-        self.get_logger().info(f"RMS Error:      {rmse * 1000:.2f} mm")
+        self.get_logger().info(f"Mean Error:      {rmse * 1000:.2f} mm")
         self.get_logger().info(f"Max Drift:      {max_drift * 1000:.2f} mm")
         self.get_logger().info("-----------------------------------------------")
 

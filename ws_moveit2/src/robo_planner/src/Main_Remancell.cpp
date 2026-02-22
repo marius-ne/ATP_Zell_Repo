@@ -1618,9 +1618,37 @@ void UseCase5(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
     double Screw5Y = 0.0438;
     double Screw5Z = 0.1034; 
 
-    double insertionZOffset = 0.01;
+  
+    // Einschraubung: 
+    // 1. x=0.5614, y=-0.5545, z=0.0348
+    // 2. x=0.5344, y=-0.5629, z=0.0319
+    // 3. x=0.5507, y=-0.5684, z=0.0326
+    // 4. x=0.5517, y=-0.5404, z=0.0322
+    // 5. x=0.5348, y=-0.5452, z=0.0318
+    double Screw1_EinschraubX = 0.5614;
+    double Screw1_EinschraubY = -0.5545;
+    double Screw1_EinschraubZ = 0.0348;
 
-    // Posen
+    double Screw2_EinschraubX = 0.5344;
+    double Screw2_EinschraubY = -0.5629;
+    double Screw2_EinschraubZ = 0.0319;
+
+    double Screw3_EinschraubX = 0.5507;
+    double Screw3_EinschraubY = -0.5684;
+    double Screw3_EinschraubZ = 0.0326;
+
+    double Screw4_EinschraubX = 0.5517;
+    double Screw4_EinschraubY = -0.5404;
+    double Screw4_EinschraubZ = 0.0322;
+
+    double Screw5_EinschraubX = 0.5348;
+    double Screw5_EinschraubY = -0.5452;
+    double Screw5_EinschraubZ = 0.0318;
+
+
+    double insertionZOffset = 0.02;
+
+    // Posen der Schrauben mit Offset für Einschraubung 
     auto poseScrew1 = std::make_shared<WzlPlanner::Pose>(Screw1X, Screw1Y, Screw1Z - insertionZOffset, M_PI / 2, 0, 0);
     auto poseScrew2 = std::make_shared<WzlPlanner::Pose>(Screw2X, Screw2Y, Screw2Z - insertionZOffset, M_PI / 2, 0, 0);
     auto poseScrew3 = std::make_shared<WzlPlanner::Pose>(Screw3X, Screw3Y, Screw3Z - insertionZOffset, M_PI / 2, 0, 0);
@@ -1664,23 +1692,23 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
   //handlings
 
     auto taskScrewSafe1 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrewSafe1->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseScrewSafe1);
+      taskScrewSafe1->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrewSafe1);
       taskScrewSafe1->SetId("ScrewSafe1");
 
     auto taskScrewSafe2 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrewSafe2->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseScrewSafe2);
+      taskScrewSafe2->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrewSafe2);
       taskScrewSafe2->SetId("ScrewSafe2");
 
     auto taskScrewSafe3 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrewSafe3->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseScrewSafe3);
+      taskScrewSafe3->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrewSafe3);
       taskScrewSafe3->SetId("ScrewSafe3");
 
     auto taskScrewSafe4 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrewSafe4->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseScrewSafe4);
+      taskScrewSafe4->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrewSafe4);
       taskScrewSafe4->SetId("ScrewSafe4");
 
     auto taskScrewSafe5 = std::make_shared<WzlPlanner::TaskMoveToPose>();
-      taskScrewSafe5->SetMoveType(WzlPlanner::RobotMoveType::AbsolutePTP)->SetTargetPose(poseScrewSafe5);
+      taskScrewSafe5->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrewSafe5);
       taskScrewSafe5->SetId("ScrewSafe5");
 
 
@@ -1707,15 +1735,98 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
       taskScrewSafe5_post->SetId("ScrewSafe5_post");
 
 
+
+    // Schrauben Einschraubpositionen Safe
+    auto poseScrew1_EinschraubSafe = std::make_shared<WzlPlanner::Pose>(Screw1_EinschraubX, Screw1_EinschraubY, Screw1_EinschraubZ + SaftyOffsetZ, M_PI / 2, 0, 0);
+    auto poseScrew2_EinschraubSafe = std::make_shared<WzlPlanner::Pose>(Screw2_EinschraubX, Screw2_EinschraubY, Screw2_EinschraubZ + SaftyOffsetZ, M_PI / 2, 0, 0);
+    auto poseScrew3_EinschraubSafe = std::make_shared<WzlPlanner::Pose>(Screw3_EinschraubX, Screw3_EinschraubY, Screw3_EinschraubZ + SaftyOffsetZ, M_PI / 2, 0, 0);
+    auto poseScrew4_EinschraubSafe = std::make_shared<WzlPlanner::Pose>(Screw4_EinschraubX, Screw4_EinschraubY, Screw4_EinschraubZ + SaftyOffsetZ, M_PI / 2, 0, 0);
+    auto poseScrew5_EinschraubSafe = std::make_shared<WzlPlanner::Pose>(Screw5_EinschraubX, Screw5_EinschraubY, Screw5_EinschraubZ + SaftyOffsetZ, M_PI / 2, 0, 0);
+
+    auto taskScrew1_EinschraubSafe = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew1_EinschraubSafe->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew1_EinschraubSafe);
+      taskScrew1_EinschraubSafe->SetId("Screw1_EinschraubSafe");
+
+    auto taskScrew2_EinschraubSafe = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew2_EinschraubSafe->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew2_EinschraubSafe);
+      taskScrew2_EinschraubSafe->SetId("Screw2_EinschraubSafe");
+
+    auto taskScrew3_EinschraubSafe = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew3_EinschraubSafe->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew3_EinschraubSafe);
+      taskScrew3_EinschraubSafe->SetId("Screw3_EinschraubSafe");
+
+    auto taskScrew4_EinschraubSafe = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew4_EinschraubSafe->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew4_EinschraubSafe);
+      taskScrew4_EinschraubSafe->SetId("Screw4_EinschraubSafe");
+
+    auto taskScrew5_EinschraubSafe = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew5_EinschraubSafe->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew5_EinschraubSafe);
+      taskScrew5_EinschraubSafe->SetId("Screw5_EinschraubSafe");
+
+
+
+    //Schrauben Einschraubpositionen
+    auto poseScrew1_Einschraub = std::make_shared<WzlPlanner::Pose>(Screw1_EinschraubX, Screw1_EinschraubY, Screw1_EinschraubZ - insertionZOffset, M_PI / 2, 0, 0);
+    auto poseScrew2_Einschraub = std::make_shared<WzlPlanner::Pose>(Screw2_EinschraubX, Screw2_EinschraubY, Screw2_EinschraubZ - insertionZOffset, M_PI / 2, 0, 0);
+    auto poseScrew3_Einschraub = std::make_shared<WzlPlanner::Pose>(Screw3_EinschraubX, Screw3_EinschraubY, Screw3_EinschraubZ - insertionZOffset, M_PI / 2, 0, 0);
+    auto poseScrew4_Einschraub = std::make_shared<WzlPlanner::Pose>(Screw4_EinschraubX, Screw4_EinschraubY, Screw4_EinschraubZ - insertionZOffset, M_PI / 2, 0, 0);
+    auto poseScrew5_Einschraub = std::make_shared<WzlPlanner::Pose>(Screw5_EinschraubX, Screw5_EinschraubY, Screw5_EinschraubZ - insertionZOffset, M_PI / 2, 0, 0); 
+
+    auto taskScrew1_Einschraub = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew1_Einschraub->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew1_Einschraub);
+      taskScrew1_Einschraub->SetId("Screw1_Einschraub");
+
+    auto taskScrew2_Einschraub = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew2_Einschraub->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew2_Einschraub);
+      taskScrew2_Einschraub->SetId("Screw2_Einschraub");
+
+    auto taskScrew3_Einschraub = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew3_Einschraub->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew3_Einschraub);
+      taskScrew3_Einschraub->SetId("Screw3_Einschraub");
+
+    auto taskScrew4_Einschraub = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew4_Einschraub->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew4_Einschraub);
+      taskScrew4_Einschraub->SetId("Screw4_Einschraub");
+
+    auto taskScrew5_Einschraub = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew5_Einschraub->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew5_Einschraub);
+      taskScrew5_Einschraub->SetId("Screw5_Einschraub");
+
+    // schraube Einschraubpositionen Safe post
+
+    auto taskScrew1_EinschraubSafe_post = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew1_EinschraubSafe_post->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew1_EinschraubSafe);
+      taskScrew1_EinschraubSafe_post->SetId("Screw1_EinschraubSafe_post");
+
+    auto taskScrew2_EinschraubSafe_post = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew2_EinschraubSafe_post->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew2_EinschraubSafe);
+      taskScrew2_EinschraubSafe_post->SetId("Screw2_EinschraubSafe_post");
+
+    auto taskScrew3_EinschraubSafe_post = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew3_EinschraubSafe_post->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew3_EinschraubSafe);
+      taskScrew3_EinschraubSafe_post->SetId("Screw3_EinschraubSafe_post");
+
+    auto taskScrew4_EinschraubSafe_post = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew4_EinschraubSafe_post->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew4_EinschraubSafe);
+      taskScrew4_EinschraubSafe_post->SetId("Screw4_EinschraubSafe_post");
+
+    auto taskScrew5_EinschraubSafe_post = std::make_shared<WzlPlanner::TaskMoveToPose>();
+      taskScrew5_EinschraubSafe_post->SetMoveType(WzlPlanner::RobotMoveType::AbsoluteCartesian)->SetTargetPose(poseScrew5_EinschraubSafe);
+      taskScrew5_EinschraubSafe_post->SetId("Screw5_EinschraubSafe_post");
+
+
+
   ////// TASK SCHEDULING //////
   RCLCPP_INFO(node->get_logger(), "Execute Task Use Case 5");
 
   // ===== Set screw parameters =====
   int screwLength = 35000;  // Change this value to adjust screw length in ym (min 0 max 35000)
   int zForce = 30;          // Change this value to adjust Z-axis force in N (min 18 mx 30)
+  int targetTorque = 2500;    // Change this value to adjust target torque in yNm (min 100 max 5000)
   
   tasks->taskModBusWriteScrewLength->SetValue(screwLength);
   tasks->taskModBusWriteZForce->SetValue(zForce);
+  tasks->taskModBusWriteTargetTorque->SetValue(targetTorque);
 
   auto taskList = std::make_shared<WzlPlanner::TaskList>();
   taskList->SetId("TaskList_PosesAndScrews");
@@ -1723,24 +1834,35 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
   taskList->AddTask(tasks->taskSetSpeedCartesianSlow);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(taskInitPose);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskAttachCameraMount); // Kamera
-  taskList->AddTask(tasks->taskAttachScrewdriver); // Schraubendreher 
 
-  taskList->AddTask(tasks->taskWait);
   taskList->AddTask(taskScrewSafe1); // schraube 1 Sichereitsposition anfahren
-
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
   taskList->AddTask(taskScrew1); // schraube 1 anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
 
+  taskList->AddTask(tasks->taskModBusWriteScrewLength); 
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteZForce);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  
+  taskList->AddTask(taskScrewSafe1_post); // schraube 1 Sichereitsposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  
+  taskList->AddTask(taskScrew1_EinschraubSafe); // schraube 1 Einschraub Sichereitsposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(taskScrew1_Einschraub); // schraube 1 Einschraubposition anfahren
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
@@ -1748,38 +1870,26 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskModBusWriteZForce);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
-
+  taskList->AddTask(tasks->taskModBusWriteTargetTorque);
   taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteTightenScrew);
   taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-
-  taskList->AddTask(taskScrewSafe1_post); // schraube 1 Sichereitsposition anfahren
-
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  
-  taskList->AddTask(tasks->taskModBusWriteShankPos45);
-
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
-  taskList->AddTask(tasks->taskModBusWriteShankPos0);
+  taskList->AddTask(taskScrew1_EinschraubSafe_post); // schraube 1 Einschraub Sichereitsposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
 
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
 
   taskList->AddTask(taskScrewSafe2); // schraube 2 Sichereitsposition anfahren
-
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
   taskList->AddTask(taskScrew2); // schraube 2 anfahren
-
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
@@ -1788,57 +1898,95 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
   taskList->AddTask(tasks->taskModBusWriteZForce);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
 
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-
+  
   taskList->AddTask(taskScrewSafe2_post); // schraube 2 Sichereitsposition anfahren
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
-  taskList->AddTask(tasks->taskModBusWriteShankPos45);
+  taskList->AddTask(taskScrew2_EinschraubSafe); // schraube 2 Einschraub Sichereitsposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
 
+  taskList->AddTask(taskScrew2_Einschraub); // schraube 2 Einschraubposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(tasks->taskModBusWriteScrewLength);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteZForce);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteTargetTorque);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteTightenScrew);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(taskScrew2_EinschraubSafe_post); // schraube 2 Einschraub Sichereitsposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(taskScrewSafe3); // schraube 3 Sichereitsposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(taskScrew3); // schraube 3 anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(tasks->taskModBusWriteScrewLength);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteZForce);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
-  taskList->AddTask(tasks->taskModBusWriteShankPos0);
 
-
-  // taskList->AddTask(taskScrewSafe3); // schraube 3 Sichereitsposition anfahren
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(taskScrew3); // schraube 3 anfahren
-  // taskList->AddTask(tasks->taskWait);
-
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteScrewLength);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteZForce);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
-  // taskList->AddTask(tasks->taskWait);
-
-  // taskList->AddTask(taskScrewSafe3_post); // schraube 3 Sichereitsposition anfahren
-  // taskList->AddTask(tasks->taskWait);
-
-
+  taskList->AddTask(taskScrewSafe3_post); // schraube 3 Sichereitsposition anfahren
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(taskScrew3_EinschraubSafe); // schraube 3 Einschraub Sichereitsposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(taskScrew3_Einschraub); // schraube 3 Einschraubposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(tasks->taskModBusWriteScrewLength);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteZForce);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteTargetTorque);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteTightenScrew);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(taskScrew3_EinschraubSafe_post); // schraube 3 Einschraub Sichereitsposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
 
   taskList->AddTask(taskScrewSafe4); // schraube 4 Sichereitsposition anfahren
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
   taskList->AddTask(taskScrew4); // schraube 4  anfahren
-
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
@@ -1847,37 +1995,45 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
   taskList->AddTask(tasks->taskModBusWriteZForce);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
-
+  taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
   taskList->AddTask(taskScrewSafe4_post); // schraube 4 Sichereitsposition anfahren
-
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
-  taskList->AddTask(tasks->taskModBusWriteShankPos45);
-
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskScrew4_EinschraubSafe); // schraube 4 Einschraub Sichereitsposition anfahren
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
-  taskList->AddTask(tasks->taskModBusWriteShankPos0);
+  taskList->AddTask(taskScrew4_Einschraub); // schraube 4 Einschraubposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
 
+  taskList->AddTask(tasks->taskModBusWriteScrewLength);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteZForce);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteTargetTorque);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteTightenScrew);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(taskScrew4_EinschraubSafe_post); // schraube 4 Einschraub Sichereitsposition anfahren
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   
   taskList->AddTask(taskScrewSafe5); // schraube 5 Sichereitsposition anfahren
-  
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   
   taskList->AddTask(taskScrew5); // schraube 5 anfahren
-
   taskList->AddTask(tasks->taskWait);  
   taskList->AddTask(tasks->taskWait);
   
@@ -1886,28 +2042,42 @@ double SaftyOffsetZ = 0.2; // safety offset above screws
   taskList->AddTask(tasks->taskModBusWriteZForce);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskModBusWriteLoosenScrew);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
 
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
 
   taskList->AddTask(taskScrewSafe5_post); // schraube 5 Sichereitsposition anfahren
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
-  taskList->AddTask(tasks->taskModBusWriteShankPos45);
-
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
-  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(taskScrew5_EinschraubSafe); // schraube 5 Einschraub Sichereitsposition anfahren
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
 
-  taskList->AddTask(tasks->taskModBusWriteShankPos0);
+  taskList->AddTask(taskScrew5_Einschraub); // schraube 5 Einschraubposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
 
+  taskList->AddTask(tasks->taskModBusWriteScrewLength);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteZForce);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteTargetTorque);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskModBusWriteTightenScrew);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+  taskList->AddTask(taskScrew5_EinschraubSafe_post); // schraube 5 Einschraub Sichereitsposition anfahren
+  taskList->AddTask(tasks->taskWait);
+  taskList->AddTask(tasks->taskWait);
+
+
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
   taskList->AddTask(tasks->taskWait);
@@ -1965,6 +2135,12 @@ void UseCase6(const rclcpp::Node::SharedPtr &node, const std::shared_ptr<MiscTas
     double AngleX = M_PI / 2;
     double AngleY = 0;
     double AngleZ = 0;
+
+    // Einschraubung: 1. x=0.5614, y=-0.5545, z=0.0348
+    // 2. x=0.5344, y=-0.5629, z=0.0319
+    // 3. x=0.5507, y=-0.5684, z=0.0326
+    // 4. x=0.5517, y=-0.5404, z=0.0322
+    // 5. x=0.5348, y=-0.5452, z=0.0318
 
     // Posen
     auto poseCalib = std::make_shared<WzlPlanner::Pose>(CalibPointX, CalibPointY, CalibPointZ, AngleX, AngleY, AngleZ);

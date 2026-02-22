@@ -26,6 +26,7 @@ setup(
             'robot = handeye_realsense.robot_state_estimation:main',
             'handeye = handeye_realsense.handeye_estimation:main',
             'aruco = handeye_realsense.aruco_estimation:main',
+            'chessboard = handeye_realsense.chessboard_estimation:main',
             'eye2hand = handeye_realsense.publish_eye2hand:main',
         ],
     },
