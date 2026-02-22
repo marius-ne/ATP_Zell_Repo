@@ -13,7 +13,7 @@ setup(
         ('share/' + package_name + '/weights', ['weights/best.pt']),
         ('share/' + package_name + '/weights', ['weights/best_huelse_aug.pt']),
     ],
-    install_requires=['setuptools', 'ultralytics', 'opencv-python', 'numpy'],
+    install_requires=['setuptools', 'ultralytics', 'opencv-python', 'numpy', 'torch', 'torchvision'],
     zip_safe=True,
     maintainer='marius_neuhalfen',
     maintainer_email='marius.neuhalfen@rwth-aachen.de',
@@ -26,7 +26,8 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'screw_detector = screw_detector.screw_detector:main'
+            'screw_detector = screw_detector.screw_detector:main',
+            'screw_segmentor = screw_detector.screw_segmentor:main'
         ],
     },
 )
