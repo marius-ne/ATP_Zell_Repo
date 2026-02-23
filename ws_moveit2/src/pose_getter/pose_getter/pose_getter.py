@@ -77,7 +77,16 @@ class PoseGetterNode(Node):
     
     def quaternion_to_rotation_matrix(self, x, y, z, w):
         """Convert a quaternion into a full three-dimensional rotation matrix using scipy."""
-        return R.from_quat([x, y, z, w]).as_matrix()
+        quat = [x, y, z, w]
+        norm = np.linalg.norm(quat)
+        if norm < 1e-6:
+            self.get_logger().warn('Received zero/near-zero norm quaternion, skipping transform.')
+            return None
+        try:
+            return R.from_quat(quat).as_matrix()
+        except ValueError as e:
+            self.get_logger().warn(f'Invalid quaternion ({x}, {y}, {z}, {w}): {e}')
+            return None
     
     def listener_callback_tf(self, msg):
         """Handle incoming transform messages from /tf."""
@@ -99,7 +108,10 @@ class PoseGetterNode(Node):
             # Build 4x4 transformation matrix
             T = np.eye(4)
             rotation = [trans.rotation.x, trans.rotation.y, trans.rotation.z, trans.rotation.w]
-            T[:3, :3] = self.quaternion_to_rotation_matrix(*rotation)
+            rot_matrix = self.quaternion_to_rotation_matrix(*rotation)
+            if rot_matrix is None:
+                return None
+            T[:3, :3] = rot_matrix
             T[:3, 3] = [trans.translation.x, trans.translation.y, trans.translation.z]
             
             return T

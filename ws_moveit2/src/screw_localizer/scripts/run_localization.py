@@ -291,11 +291,11 @@ def load_intrinsics_from_yaml() -> List[float]:
     """Load camera intrinsics from realsense_info.yaml file."""
     import os
     # Try workspace-relative path first
-    yaml_path = os.path.join(os.getcwd(), "src/handeye_calibration_ros2/handeye_realsense/realsense_info.yaml")
+    yaml_path = os.path.join(os.getcwd(), "src/handeye_calibration_ros2/handeye_realsense/realsense_info_custom.yaml")
     
     # If that doesn't exist, try from home
     if not os.path.exists(yaml_path):
-        yaml_path = os.path.expanduser("~/ws/restackcell/ws_moveit2/src/handeye_calibration_ros2/handeye_realsense/realsense_info.yaml")
+        yaml_path = os.path.expanduser("~/ws/restackcell/ws_moveit2/src/handeye_calibration_ros2/handeye_realsense/realsense_info_custom.yaml")
     
     try:
         with open(yaml_path, 'r') as f:

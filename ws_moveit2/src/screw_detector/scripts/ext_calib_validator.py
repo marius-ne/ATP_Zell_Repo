@@ -8,17 +8,15 @@ class MarkerPositionEstimator(Node):
         super().__init__('marker_position_estimator')
 
         # File paths
-        cam_marker_poses_path = '/home/remanpilot/ws/restackcell/ws_moveit2/src/handeye_calibration_ros2/handeye_realsense/resource/marker_data_realsense_fabrik_calib.yaml'
-        ee_poses_path = '/home/remanpilot/ws/restackcell/ws_moveit2/src/handeye_calibration_ros2/handeye_realsense/resource/robot_data_realsense_fabrik_calib.yaml'
+        cam_marker_poses_path = '/home/remanpilot/ws/restackcell/ws_moveit2/src/handeye_calibration_ros2/handeye_realsense/resource/marker_data_realsense_custom_calib.yaml'
+        ee_poses_path = '/home/remanpilot/ws/restackcell/ws_moveit2/src/handeye_calibration_ros2/handeye_realsense/resource/robot_data_realsense_custom_calib.yaml'
         
         # Manually input your estimated extrinsic matrix (Camera -> End Effector)
         # Structure: [[R, t], [0, 1]]
-        self.T_ee_cam = np.array([
-            [ 0.99882706 ,-0.03949025 ,-0.02801814 ,-0.17996678],
- [-0.02822871 ,-0.00478461, -0.99959004 ,-0.03638592],
- [ 0.03934001 , 0.9992085 , -0.00589376 , 0.04105773],
- [ 0.        ,  0. ,         0.   ,       1.        ]
-        ])
+        self.T_ee_cam = np.array([[ 0.99949278 ,-0.02734792  ,0.01631804 ,-0.19035098],
+ [ 0.01642375,  0.00364518, -0.99985848, -0.01819389],
+ [ 0.02728457 , 0.99961933,  0.00409248,  0.02748924],
+ [ 0.        ,  0.        ,        0.    ,      1.        ]])
 
         self.compute_marker_positions(ee_poses_path, cam_marker_poses_path)
 

@@ -127,24 +127,58 @@ class ArucoNode(Node):
             cv2.aruco.drawDetectedMarkers(current_frame, corners, marker_ids)
 
         # --- Step 2: detect chessboard corners for precise pose ---
-        cb_found, cb_corners = cv2.findChessboardCorners(
-            gray, self.chessboard_pattern,
-            cv2.CALIB_CB_ADAPTIVE_THRESH + cv2.CALIB_CB_NORMALIZE_IMAGE + cv2.CALIB_CB_FAST_CHECK)
+        pattern_primary = self.chessboard_pattern
+        pattern_swapped = (self.chessboard_pattern[1], self.chessboard_pattern[0])
+
+        cb_found = False
+        cb_corners = None
+        used_pattern = None
+
+        for pattern in [pattern_primary, pattern_swapped]:
+            found, corners_cb = cv2.findChessboardCorners(
+                gray, pattern,
+                cv2.CALIB_CB_ADAPTIVE_THRESH + cv2.CALIB_CB_NORMALIZE_IMAGE + cv2.CALIB_CB_FILTER_QUADS)
+            if found:
+                cb_found = True
+                cb_corners = corners_cb
+                used_pattern = pattern
+                break
+
+        # If standard method failed, try the sector-based detector (OpenCV 4.x)
+        if not cb_found and hasattr(cv2, 'findChessboardCornersSB'):
+            for pattern in [pattern_primary, pattern_swapped]:
+                found_sb, corners_sb = cv2.findChessboardCornersSB(gray, pattern)
+                if found_sb:
+                    cb_found = True
+                    cb_corners = corners_sb
+                    used_pattern = pattern
+                    break
 
         rvec = None
         tvec = None
 
         if cb_found:
+            # Recompute object points if we used the swapped pattern
+            if used_pattern == pattern_swapped:
+                obj_pts = np.zeros(
+                    (used_pattern[0] * used_pattern[1], 3), dtype=np.float32)
+                obj_pts[:, :2] = np.mgrid[
+                    0:used_pattern[0],
+                    0:used_pattern[1]
+                ].T.reshape(-1, 2) * self.chessboard_square_size
+            else:
+                obj_pts = self.chessboard_obj_pts
+
             # Refine to sub-pixel accuracy
             cb_corners_refined = cv2.cornerSubPix(
                 gray, cb_corners, (11, 11), (-1, -1), self.subpix_criteria)
 
             # Solve PnP using the chessboard corners
             success, rvec, tvec = cv2.solvePnP(
-                self.chessboard_obj_pts, cb_corners_refined, self.mtx, self.dst)
+                obj_pts, cb_corners_refined, self.mtx, self.dst)
 
             if success:
-                cv2.drawChessboardCorners(current_frame, self.chessboard_pattern,
+                cv2.drawChessboardCorners(current_frame, used_pattern,
                                           cb_corners_refined, cb_found)
                 cv2.drawFrameAxes(current_frame, self.mtx, self.dst, rvec, tvec, 0.05)
             else:
@@ -159,7 +193,6 @@ class ArucoNode(Node):
                 rvec = rvecs[0].reshape((3, 1))
                 tvec = tvecs[0].reshape((3, 1))
                 cv2.drawFrameAxes(current_frame, self.mtx, self.dst, rvec, tvec, 0.05)
-                self.get_logger().debug("Using ArUco fallback pose (chessboard not found)")
 
         if rvec is not None:
             self.last_rvec = rvec
@@ -184,6 +217,19 @@ class ArucoNode(Node):
             t.transform.rotation.w = quat[3]
 
             self.tfbroadcaster.sendTransform(t)
+
+        # Display status overlay
+        if cb_found:
+            status_text = f"CHESSBOARD OK ({used_pattern})"
+            status_color = (0, 255, 0)
+        elif aruco_detected:
+            status_text = "ArUco ONLY (chessboard not found)"
+            status_color = (0, 165, 255)
+        else:
+            status_text = "NOTHING DETECTED"
+            status_color = (0, 0, 255)
+        cv2.putText(current_frame, status_text, (10, 30),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.8, status_color, 2)
 
         # Display
         cv2.namedWindow("camera", cv2.WINDOW_NORMAL)

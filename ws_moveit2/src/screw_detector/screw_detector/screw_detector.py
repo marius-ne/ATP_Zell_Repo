@@ -123,7 +123,7 @@ class ScrewDetectorNode(Node):
         confidences = results[0].boxes.conf.cpu().numpy() if num_detections > 0 else []
         if num_detections > self.NUM_SCREWS_EXPECTED:
             # Take only results with highest confidence if more than expected detections
-            sorted_indices = confidences.argsort()[::-1][:self.NUM_SCREWS_EXPECTED]
+            sorted_indices = confidences.argsort()[::-1][:self.NUM_SCREWS_EXPECTED].copy()
             results[0].boxes = results[0].boxes[sorted_indices]
             self.get_logger().info(f"Detected {num_detections} objects, keeping top {self.NUM_SCREWS_EXPECTED} based on confidence.")
         elif num_detections < self.NUM_SCREWS_EXPECTED:

@@ -12,6 +12,7 @@ setup(
         ('share/' + package_name, ['package.xml']),
         ('share/' + package_name + '/weights', ['weights/best.pt']),
         ('share/' + package_name + '/weights', ['weights/best_huelse_aug.pt']),
+        ('share/' + package_name + '/weights', ['weights/segmentation_model.pth']),
     ],
     install_requires=['setuptools', 'ultralytics', 'opencv-python', 'numpy', 'torch', 'torchvision'],
     zip_safe=True,

@@ -121,11 +121,11 @@ class RobotIiwaServer : public rclcpp::Node
             // ZELLE
             add_collision_box("wall1", size, thickness, 1.0, 0, size05, 0.5);
             add_collision_box("wall2", size, thickness, 1.0, 0, -size05, 0.5);
-            add_collision_box("wall3", thickness, size, 1.0, size05+0.1, 0, 0.5); // moved forwards for more freedom
+            add_collision_box("wall3", thickness, size, 1.0, size05+0.05, 0, 0.5); // moved forwards for more freedom
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
             
             add_collision_box("floor", 2, 2, 0.0198, 0, 0, -0.01);
-            // add_collision_box("ceiling", size, size, 0.1, 0, 0, 1);
+            add_collision_box("ceiling", size, size, thickness, 0, 0, 0.75);
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialization done"));
         }
