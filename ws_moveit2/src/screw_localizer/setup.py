@@ -1,3 +1,6 @@
+import os
+from glob import glob
+
 from setuptools import find_packages, setup
 
 package_name = 'screw_localizer'
@@ -10,7 +13,10 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        (os.path.join('share', package_name, 'launch'),
+            glob(os.path.join('launch', '*launch.[pxy][yma]*'))),
     ],
+    scripts=['scripts/run_localization.py'],
     install_requires=['setuptools', 'ultralytics', 'opencv-python', 'numpy', 'scipy', "screw_interfaces"],
     zip_safe=True,
     maintainer='remanpilot',
