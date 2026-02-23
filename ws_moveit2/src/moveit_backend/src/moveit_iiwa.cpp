@@ -125,7 +125,7 @@ class RobotIiwaServer : public rclcpp::Node
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
             
             add_collision_box("floor", 2, 2, 0.0198, 0, 0, -0.01);
-            add_collision_box("ceiling", size, size, thickness, 0, 0, 0.75);
+            add_collision_box("ceiling", size, size, thickness, 0, 0, 0.9);
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialization done"));
         }
