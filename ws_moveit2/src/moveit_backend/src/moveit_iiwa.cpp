@@ -7,6 +7,7 @@
 
 #include <tf2/LinearMath/Quaternion.h>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+#include <std_msgs/msg/color_rgba.hpp>
 
 
 #include "wzlscheduler_interfaces/srv/robot_move_to_position.hpp"
@@ -125,7 +126,7 @@ class RobotIiwaServer : public rclcpp::Node
             add_collision_box("wall4", thickness, size, 1.0, -size05, 0, 0.5);
             
             add_collision_box("floor", 2, 2, 0.0198, 0, 0, -0.01);
-            add_collision_box("ceiling", size, size, thickness, 0, 0, 0.9);
+            add_collision_box("ceiling", size, size, thickness, 0, 0, 0.9, 0.0);
 
             RCLCPP_INFO(rclcpp::get_logger("rclcpp"), ("Initialization done"));
         }
@@ -426,7 +427,7 @@ class RobotIiwaServer : public rclcpp::Node
         }
 
         void add_collision_box(const std::string name, const float width, const float depth, const float height,
-            const float x, const float y, const float z)
+            const float x, const float y, const float z, const float alpha = 1.0f)
             {
                 moveit_msgs::msg::CollisionObject collision_object;
                 collision_object.header.frame_id = this->move_group_interface_->getPlanningFrame();
@@ -449,8 +450,13 @@ class RobotIiwaServer : public rclcpp::Node
                 collision_object.primitives.push_back(primitive);
                 collision_object.primitive_poses.push_back(box_pose);
                 collision_object.operation = collision_object.ADD;
-                
-                this->planning_scene_interface_->applyCollisionObject(collision_object);
+
+                std_msgs::msg::ColorRGBA color;
+                color.r = 0.0;
+                color.g = 0.5;
+                color.b = 0.0;
+                color.a = alpha;
+                this->planning_scene_interface_->applyCollisionObject(collision_object, color);
             
         }
 
